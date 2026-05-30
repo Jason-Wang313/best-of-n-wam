@@ -1,0 +1,106 @@
+{
+  "experiment": "benchmark_gym_robotics_suite",
+  "attempted": true,
+  "available": true,
+  "verified": true,
+  "benchmark": "Gymnasium Robotics Fetch",
+  "env_ids": [
+    "FetchReach-v4",
+    "FetchPush-v4",
+    "FetchPickAndPlace-v4"
+  ],
+  "unavailable": [],
+  "n_rollout_pools": 60,
+  "n_rollouts": 48,
+  "exact_law_utility_mae": 0.012637772476737578,
+  "model_metrics": [
+    {
+      "benchmark": "FetchReach-v4",
+      "available": true,
+      "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_robotics_FetchReach-v4_wam.joblib",
+      "frame_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\benchmark_gym_robotics_FetchReach-v4_frame.png",
+      "model_metrics": {
+        "utility_mae": 0.3620516374475817,
+        "utility_corr": 0.9489949929455764,
+        "success_mae": 0.10459587191358025,
+        "distance_mae": 0.03270217264771077,
+        "train_samples": 768,
+        "validation_samples": 288
+      }
+    },
+    {
+      "benchmark": "FetchPush-v4",
+      "available": true,
+      "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_robotics_FetchPush-v4_wam.joblib",
+      "frame_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\benchmark_gym_robotics_FetchPush-v4_frame.png",
+      "model_metrics": {
+        "utility_mae": 0.5755488778690753,
+        "utility_corr": 0.3002657535838116,
+        "success_mae": 0.17709780092592595,
+        "distance_mae": 0.05712281538670197,
+        "train_samples": 768,
+        "validation_samples": 288
+      }
+    },
+    {
+      "benchmark": "FetchPickAndPlace-v4",
+      "available": true,
+      "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_robotics_FetchPickAndPlace-v4_wam.joblib",
+      "frame_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\benchmark_gym_robotics_FetchPickAndPlace-v4_frame.png",
+      "model_metrics": {
+        "utility_mae": 0.06669360591293343,
+        "utility_corr": 0.6921316797643627,
+        "success_mae": 0.0,
+        "distance_mae": 0.06519398794910418,
+        "train_samples": 768,
+        "validation_samples": 288
+      }
+    }
+  ],
+  "confidence_intervals": {
+    "oracle_minus_random_N32": {
+      "n": 5,
+      "mean": 0.5525971407490194,
+      "std": 0.07353461090348658,
+      "stderr": 0.03288567773583864,
+      "ci95": 0.06445592836224373,
+      "lo": 0.4881412123867757,
+      "hi": 0.6170530691112632
+    },
+    "learned_minus_random_N32": {
+      "n": 5,
+      "mean": 0.5183591980928537,
+      "std": 0.08832562568455588,
+      "stderr": 0.03950042063717366,
+      "ci95": 0.07742082444886038,
+      "lo": 0.4409383736439933,
+      "hi": 0.595780022541714
+    },
+    "oracle_minus_learned_N32": {
+      "n": 5,
+      "mean": 0.03423794265616582,
+      "std": 0.021599643753640783,
+      "stderr": 0.009659654344583902,
+      "ci95": 0.018932922515384448,
+      "lo": 0.015305020140781375,
+      "hi": 0.05317086517155027
+    },
+    "closed_loop_learned_minus_random_N32": {
+      "n": 5,
+      "mean": 0.7086378606835364,
+      "std": 0.5149831233310606,
+      "stderr": 0.23030745420668186,
+      "ci95": 0.4514026102450964,
+      "lo": 0.25723525043844,
+      "hi": 1.160040470928633
+    }
+  },
+  "artifacts": {
+    "curves": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_gym_robotics_curves.csv",
+    "aggregate": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_gym_robotics_curves_aggregate.csv",
+    "exact_law": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_gym_robotics_exact_law.csv",
+    "seed_metrics": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_gym_robotics_seed_metrics.csv",
+    "closed_loop": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_gym_robotics_closed_loop.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\benchmark_gym_robotics_curves.png"
+  }
+}

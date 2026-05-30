@@ -4,7 +4,7 @@ Audit date: 2026-05-30.
 
 ## Execution Tier
 
-Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, ManiSkill3 state-mode benchmark, toy visual mode, and benchmark RGB WAM-lite on Reacher-v5 frames.
+Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, Gymnasium Robotics Fetch benchmark, ManiSkill3 state-mode benchmark, toy visual mode, and benchmark RGB WAM-lite on Reacher-v5 frames.
 
 ## Artifact Coverage
 
@@ -13,6 +13,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - Multi-env seeds: `5`.
 - Benchmark attempted: `True`; any benchmark available: `True`.
 - Benchmark suite: `Reacher-v5`; rollout pools: `25`; exact-law MAE: `0.0188`.
+- Gymnasium Robotics suite: `['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4']`; rollout pools: `60`; exact-law MAE: `0.0126`; learned-random N32 CI lower: `0.4409`.
 - ManiSkill suite: `['PickCube-v1', 'PushCube-v1', 'PegInsertionSide-v1']`; rollout pools: `30`; exact-law MAE: `0.0034`; control: `pd_joint_delta_pos`.
 - Visual attempted: `True`; visual verified: `True`.
 - Benchmark visual verified: `True`.
@@ -31,6 +32,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - Backbones: MLP, horizon, and ensemble WAM artifacts are present.
 - EXP10: anti-scorer and randomized-dynamics falsification artifacts are present when multi-env is regenerated.
 - Benchmark: Gymnasium/MuJoCo Reacher-v5 artifacts generated.
+- Gymnasium Robotics: FetchReach-v4, FetchPush-v4, and FetchPickAndPlace-v4 artifacts generated.
 - ManiSkill: PickCube-v1, PushCube-v1, and PegInsertionSide-v1 state-mode artifacts generated.
 - Visual: toy visual mode verified with MAE `0.0185`.
 - Benchmark visual WAM: Reacher-v5 RGB-frame/action-sequence model verified with visual-random N32 CI lower bound `0.1998`.
@@ -43,10 +45,11 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - EXP1 utility MAE: `0.0138`.
 - EXP2 max AUC identity error: `0.00000000`.
 - EXP2 same-p/kappa N64 gap: `0.9988`.
-- EXP3 relative MAE reduction: `0.4370`.
-- EXP4 oracle-random N64 utility gap: `6.9769`.
-- EXP5 severe mismatch gap growth: `16.4355`.
-- EXP6 moment-law improvement over uniform: `0.0659`.
+- EXP3 relative MAE reduction: `0.3698`.
+- EXP4 oracle-random N64 utility gap: `6.6877`.
+- EXP5 severe mismatch gap growth: `15.1800`.
+- EXP6 moment-law improvement over uniform: `0.0333`.
 - EXP7 learned useful N64-N1 success gain: `0.2167`.
 - EXP8 conditional-law MAE: `0.0063`.
+- Gymnasium Robotics Fetch exact-law MAE: `0.0126`.
 - Falsification anti-scorer N64 mean utility: `-26.5657`.

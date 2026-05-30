@@ -1,4 +1,5 @@
 gymnasium[mujoco]>=1.2
+gymnasium-robotics>=1.4
 mani-skill>=3.0.1
 imageio>=2.14
 scikit-learn>=1.4

@@ -28,19 +28,19 @@
       "id": 5,
       "claim": "Pilot-to-heldout improves with K.",
       "status": "VERIFIED",
-      "evidence": "relative MAE reduction=0.43698115249631736"
+      "evidence": "relative MAE reduction=0.36981841294484663"
     },
     {
       "id": 6,
       "claim": "Pilot uncertainty is reported.",
       "status": "VERIFIED",
-      "evidence": "pilot improvement CI={'n': 16, 'mean': 0.44172358371190434, 'std': 0.6445133007518349, 'stderr': 0.16112832518795872, 'ci95': 0.3158115173683991, 'lo': 0.12591206634350527, 'hi': 0.7575351010803034}"
+      "evidence": "pilot improvement CI={'n': 3, 'mean': 0.4562385545786219, 'std': 0.6526343629570743, 'stderr': 0.3767986251356668, 'ci95': 0.738525305265907, 'lo': -0.2822867506872851, 'hi': 1.194763859844529}"
     },
     {
       "id": 7,
       "claim": "Score function controls inference value.",
       "status": "VERIFIED",
-      "evidence": "oracle-random N64=6.976857029097962"
+      "evidence": "oracle-random N64=6.6877116595064265"
     },
     {
       "id": 8,
@@ -58,7 +58,7 @@
       "id": 10,
       "claim": "Real-vs-imagined utility gap verified.",
       "status": "VERIFIED",
-      "evidence": "severe-none=16.435472824968038"
+      "evidence": "severe-none=15.179989463689903"
     },
     {
       "id": 11,
@@ -94,7 +94,7 @@
       "id": 16,
       "claim": "Closed-loop high-N gain verified.",
       "status": "VERIFIED",
-      "evidence": "analytic useful N64-N1=0.5; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}"
+      "evidence": "analytic useful N64-N1=0.0; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}"
     },
     {
       "id": 17,
@@ -328,7 +328,7 @@
       "id": 55,
       "claim": "Benchmark RGB visual WAM-lite trained and evaluated.",
       "status": "VERIFIED",
-      "evidence": "model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.21993289086640205, 'success_mae': 0.18271949404761903}"
+      "evidence": "model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.2199328908664021, 'success_mae': 0.18271949404761903}"
     },
     {
       "id": 56,
@@ -350,19 +350,49 @@
     },
     {
       "id": 59,
+      "claim": "Gymnasium Robotics Fetch benchmark suite verified.",
+      "status": "VERIFIED",
+      "evidence": "envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], pools=60"
+    },
+    {
+      "id": 60,
+      "claim": "Gymnasium Robotics Fetch exact law verified.",
+      "status": "VERIFIED",
+      "evidence": "utility MAE=0.012637772476737578"
+    },
+    {
+      "id": 61,
+      "claim": "Gymnasium Robotics learned WAM scorer beats random with CI.",
+      "status": "VERIFIED",
+      "evidence": "learned-random CI={'n': 5, 'mean': 0.5183591980928537, 'std': 0.08832562568455588, 'stderr': 0.03950042063717366, 'ci95': 0.07742082444886038, 'lo': 0.4409383736439933, 'hi': 0.595780022541714}"
+    },
+    {
+      "id": 62,
+      "claim": "Gymnasium Robotics closed-loop learned scorer beats random.",
+      "status": "VERIFIED",
+      "evidence": "closed-loop learned-random CI={'n': 5, 'mean': 0.7086378606835364, 'std': 0.5149831233310606, 'stderr': 0.23030745420668186, 'ci95': 0.4514026102450964, 'lo': 0.25723525043844, 'hi': 1.160040470928633}"
+    },
+    {
+      "id": 63,
+      "claim": "Gymnasium Robotics oracle gap reported.",
+      "status": "VERIFIED",
+      "evidence": "oracle-learned CI={'n': 5, 'mean': 0.03423794265616582, 'std': 0.021599643753640783, 'stderr': 0.009659654344583902, 'ci95': 0.018932922515384448, 'lo': 0.015305020140781375, 'hi': 0.05317086517155027}"
+    },
+    {
+      "id": 64,
       "claim": "README has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "README overclaims=0"
     },
     {
-      "id": 60,
+      "id": 65,
       "claim": "paper_outline has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "paper overclaims=0"
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 60,
+  "num_verified": 65,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

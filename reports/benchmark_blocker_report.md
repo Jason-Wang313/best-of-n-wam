@@ -5,7 +5,8 @@ External benchmark integration was attempted.
 ## Status
 - maniskill: available=True reason=available with state-mode joint-delta control
 - gym_manip: available=True reason=Reacher-v5 available
-- libero: available=False reason=adapter skeleton only; dependency not installed/validated
+- gym_robotics: available=True reason=FetchPush-v4 available
+- libero: available=False reason=libero import not found; local pip install failed while building hf-egl-probe/egl_probe on Windows
 - robocasa: available=False reason=adapter skeleton only; dependency not installed/validated
 
 ## Current Outcome

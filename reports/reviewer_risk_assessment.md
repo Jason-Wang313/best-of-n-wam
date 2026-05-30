@@ -10,7 +10,7 @@
 ## Main Reviewer Attacks
 
 - The empirical work is mostly state-based; benchmark visual WAM evidence exists for Gymnasium/MuJoCo Reacher-v5 RGB frames but not ManiSkill RGB/RGB-D.
-- The current contact-rich benchmark is ManiSkill state mode, not RGB/RGB-D manipulation or real hardware.
+- The strongest contact-rich external evidence is Gymnasium Robotics Fetch plus ManiSkill state mode, but still not real hardware.
 - The learned models are intentionally lightweight and do not establish WAM training recipes.
 - Pilot estimates are not exact laws and can be brittle under shift.
 - Some analytic smoke artifacts are single-seed checks; paper figures should prefer five-seed learned/multi-env results.
@@ -24,4 +24,4 @@
 
 ## Remaining Gap
 
-The single highest reviewer-risk gap is absence of LIBERO/RoboCasa or real-robot evidence beyond the current ManiSkill state-mode suite.
+The single highest reviewer-risk gap is absence of LIBERO/RoboCasa or real-robot evidence beyond the current Gymnasium Robotics and ManiSkill state-mode suites.

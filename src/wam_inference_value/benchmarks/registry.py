@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from wam_inference_value.benchmarks.base import BenchmarkStatus
 from wam_inference_value.benchmarks.gym_manip_adapter import is_gym_manip_available
+from wam_inference_value.benchmarks.gym_robotics_adapter import is_gym_robotics_available
+from wam_inference_value.benchmarks.libero_adapter import is_libero_available
 from wam_inference_value.benchmarks.maniskill_adapter import is_maniskill_available
 
 
@@ -15,6 +17,9 @@ def benchmark_statuses() -> list[BenchmarkStatus]:
     ]
     gym_ok, gym_reason = is_gym_manip_available()
     statuses.append(BenchmarkStatus(name="gym_manip", available=gym_ok, reason=gym_reason))
-    for name in ["libero", "robocasa"]:
-        statuses.append(BenchmarkStatus(name=name, available=False, reason="adapter skeleton only; dependency not installed/validated"))
+    robotics_ok, robotics_reason = is_gym_robotics_available()
+    statuses.append(BenchmarkStatus(name="gym_robotics", available=robotics_ok, reason=robotics_reason))
+    libero_ok, libero_reason = is_libero_available()
+    statuses.append(BenchmarkStatus(name="libero", available=libero_ok, reason=libero_reason))
+    statuses.append(BenchmarkStatus(name="robocasa", available=False, reason="adapter skeleton only; dependency not installed/validated"))
     return statuses

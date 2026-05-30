@@ -14,9 +14,14 @@
       "reason": "Reacher-v5 available"
     },
     {
+      "name": "gym_robotics",
+      "available": true,
+      "reason": "FetchPush-v4 available"
+    },
+    {
       "name": "libero",
       "available": false,
-      "reason": "adapter skeleton only; dependency not installed/validated"
+      "reason": "libero import not found; local pip install failed while building hf-egl-probe/egl_probe on Windows"
     },
     {
       "name": "robocasa",

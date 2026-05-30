@@ -1,11 +1,11 @@
 {
   "experiment": "score_function_comparison",
   "dynamics_backend": "analytic",
-  "states": 8,
-  "rollouts_per_state": 64,
+  "states": 3,
+  "rollouts_per_state": 32,
   "mismatch": "mild",
   "seeds": [
-    104
+    204
   ],
   "num_seeds": 1,
   "scorers": [
@@ -20,106 +20,106 @@
   "ranking": [
     {
       "scorer": "oracle_real_utility",
-      "real_utility_N1": -4.285536062756339,
-      "real_utility_N64": 3.261139846461668,
-      "success_N64": 0.9367264778945996,
+      "real_utility_N1": -4.469232893854762,
+      "real_utility_N64": 2.343076314895835,
+      "success_N64": 0.6223599883618789,
       "mean_kappa": 1.0,
-      "area_real_utility": 2.3344252605503426,
-      "gain_N64_minus_N1": 7.546675909218007
-    },
-    {
-      "scorer": "predicted_utility",
-      "real_utility_N1": -4.285536062756339,
-      "real_utility_N64": 0.036189049763804174,
-      "success_N64": 0.10453512853523927,
-      "mean_kappa": 0.899084835900184,
-      "area_real_utility": 0.10359522003877324,
-      "gain_N64_minus_N1": 4.321725112520143
+      "area_real_utility": 1.6103660738720347,
+      "gain_N64_minus_N1": 6.812309208750596
     },
     {
       "scorer": "uncertainty_penalized",
-      "real_utility_N1": -4.285536062756339,
-      "real_utility_N64": 0.030268495683866803,
-      "success_N64": 0.10239900092324322,
-      "mean_kappa": 0.9019814738551714,
-      "area_real_utility": 0.10080567255709531,
-      "gain_N64_minus_N1": 4.315804558440206
+      "real_utility_N1": -4.469232893854762,
+      "real_utility_N64": 1.3474674683217387,
+      "success_N64": 0.3327797878105783,
+      "mean_kappa": 0.935483870967742,
+      "area_real_utility": 0.9374008046284584,
+      "gain_N64_minus_N1": 5.8167003621765
+    },
+    {
+      "scorer": "predicted_utility",
+      "real_utility_N1": -4.469232893854762,
+      "real_utility_N64": 1.334659554878667,
+      "success_N64": 0.3327797878105783,
+      "mean_kappa": 0.935483870967742,
+      "area_real_utility": 0.9259342058667093,
+      "gain_N64_minus_N1": 5.8038924487334285
     },
     {
       "scorer": "safety_penalized",
-      "real_utility_N1": -4.285536062756339,
-      "real_utility_N64": 0.028979785772966157,
-      "success_N64": 0.10208108688265392,
-      "mean_kappa": 0.8993441671959143,
-      "area_real_utility": 0.09485326140889429,
-      "gain_N64_minus_N1": 4.314515848529306
-    },
-    {
-      "scorer": "predicted_success",
-      "real_utility_N1": -4.285536062756339,
-      "real_utility_N64": 0.026174639341639674,
-      "success_N64": 0.10167622991099624,
-      "mean_kappa": 0.8961561467691643,
-      "area_real_utility": 0.08738785137027401,
-      "gain_N64_minus_N1": 4.311710702097979
+      "real_utility_N1": -4.469232893854762,
+      "real_utility_N64": 1.3346595542725461,
+      "success_N64": 0.3327797878105783,
+      "mean_kappa": 0.935483870967742,
+      "area_real_utility": 0.9217280895860573,
+      "gain_N64_minus_N1": 5.803892448127308
     },
     {
       "scorer": "predicted_goal_distance",
-      "real_utility_N1": -4.285536062756339,
-      "real_utility_N64": 0.0073046954770274244,
-      "success_N64": 0.10167622991099624,
-      "mean_kappa": 0.8961561467691643,
-      "area_real_utility": 0.08027964134876672,
-      "gain_N64_minus_N1": 4.292840758233367
+      "real_utility_N1": -4.469232893854762,
+      "real_utility_N64": 1.197768390439527,
+      "success_N64": 0.2949908035611546,
+      "mean_kappa": 0.9239896180941789,
+      "area_real_utility": 0.7507644738718515,
+      "gain_N64_minus_N1": 5.6670012842942885
+    },
+    {
+      "scorer": "predicted_success",
+      "real_utility_N1": -4.469232893854762,
+      "real_utility_N64": 1.197768390439527,
+      "success_N64": 0.2949908035611546,
+      "mean_kappa": 0.9239896180941789,
+      "area_real_utility": 0.7507644738718515,
+      "gain_N64_minus_N1": 5.6670012842942885
     },
     {
       "scorer": "random_score",
-      "real_utility_N1": -4.28553606275634,
-      "real_utility_N64": -3.7157171826362942,
-      "success_N64": 0.07938368245139818,
-      "mean_kappa": 0.4891881204876133,
-      "area_real_utility": -3.8614524354165516,
-      "gain_N64_minus_N1": 0.5698188801200459
+      "real_utility_N1": -4.469232893854762,
+      "real_utility_N64": -4.344635344610592,
+      "success_N64": 0.04308267668086224,
+      "mean_kappa": 0.48312940304041524,
+      "area_real_utility": -3.882889977039482,
+      "gain_N64_minus_N1": 0.12459754924416977
     }
   ],
   "best_nonoracle_scorer": {
-    "scorer": "predicted_utility",
-    "real_utility_N1": -4.285536062756339,
-    "real_utility_N64": 0.036189049763804174,
-    "success_N64": 0.10453512853523927,
-    "mean_kappa": 0.899084835900184,
-    "area_real_utility": 0.10359522003877324,
-    "gain_N64_minus_N1": 4.321725112520143
+    "scorer": "uncertainty_penalized",
+    "real_utility_N1": -4.469232893854762,
+    "real_utility_N64": 1.3474674683217387,
+    "success_N64": 0.3327797878105783,
+    "mean_kappa": 0.935483870967742,
+    "area_real_utility": 0.9374008046284584,
+    "gain_N64_minus_N1": 5.8167003621765
   },
-  "oracle_minus_random_N64": 6.976857029097962,
-  "best_nonoracle_minus_random_N64": 3.7519062324000982,
+  "oracle_minus_random_N64": 6.6877116595064265,
+  "best_nonoracle_minus_random_N64": 5.692102812932331,
   "confidence_intervals": {
     "oracle_minus_random_N64": {
       "n": 1,
-      "mean": 6.976857029097962,
+      "mean": 6.6877116595064265,
       "std": 0.0,
       "stderr": 0.0,
       "ci95": 0.0,
-      "lo": 6.976857029097962,
-      "hi": 6.976857029097962
+      "lo": 6.6877116595064265,
+      "hi": 6.6877116595064265
     },
     "best_nonoracle_minus_random_N64": {
       "n": 1,
-      "mean": 3.7519062324000982,
+      "mean": 5.692102812932331,
       "std": 0.0,
       "stderr": 0.0,
       "ci95": 0.0,
-      "lo": 3.7519062324000982,
-      "hi": 3.7519062324000982
+      "lo": 5.692102812932331,
+      "hi": 5.692102812932331
     },
     "best_nonoracle_normalized_real_utility_N64": {
       "n": 1,
-      "mean": 0.8217616099373489,
+      "mean": 0.9562722317338564,
       "std": 0.0,
       "stderr": 0.0,
       "ci95": 0.0,
-      "lo": 0.8217616099373489,
-      "hi": 0.8217616099373489
+      "lo": 0.9562722317338564,
+      "hi": 0.9562722317338564
     }
   },
   "artifacts": {

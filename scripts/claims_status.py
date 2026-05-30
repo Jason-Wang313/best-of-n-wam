@@ -74,6 +74,7 @@ def main() -> None:
     visual = load_json("visual_optional.json")
     benchmark_visual = load_json("benchmark_visual_optional.json")
     benchmark_visual_wam = load_json("benchmark_visual_wam_lite.json")
+    gym_robotics = load_json("benchmark_gym_robotics_suite.json")
     audit = load_json("inference_audit_framework.json")
     audit_learned = load_json("inference_audit_framework_learned.json")
     repair = load_json("scorer_repair_experiment.json")
@@ -335,6 +336,64 @@ def main() -> None:
         ),
         f"oracle-visual CI={visual_wam_ci.get('oracle_minus_visual_N32')}",
     )
+    gym_robotics_ci = gym_robotics.get("confidence_intervals") or {}
+    add(
+        claims,
+        59,
+        "Gymnasium Robotics Fetch benchmark suite verified.",
+        status(
+            bool(gym_robotics)
+            and gym_robotics.get("available", False)
+            and len(gym_robotics.get("env_ids") or []) >= 3
+            and (gym_robotics.get("n_rollout_pools") or 0) >= 50,
+            bool(gym_robotics),
+        ),
+        f"envs={gym_robotics.get('env_ids')}, pools={gym_robotics.get('n_rollout_pools')}",
+    )
+    add(
+        claims,
+        60,
+        "Gymnasium Robotics Fetch exact law verified.",
+        status(
+            gym_robotics.get("exact_law_utility_mae") is not None
+            and gym_robotics.get("exact_law_utility_mae") < 0.06,
+            bool(gym_robotics),
+        ),
+        f"utility MAE={gym_robotics.get('exact_law_utility_mae')}",
+    )
+    add(
+        claims,
+        61,
+        "Gymnasium Robotics learned WAM scorer beats random with CI.",
+        status(
+            (gym_robotics_ci.get("learned_minus_random_N32") or {}).get("lo") is not None
+            and (gym_robotics_ci.get("learned_minus_random_N32") or {}).get("lo") > 0.0,
+            bool(gym_robotics),
+        ),
+        f"learned-random CI={gym_robotics_ci.get('learned_minus_random_N32')}",
+    )
+    add(
+        claims,
+        62,
+        "Gymnasium Robotics closed-loop learned scorer beats random.",
+        status(
+            (gym_robotics_ci.get("closed_loop_learned_minus_random_N32") or {}).get("lo") is not None
+            and (gym_robotics_ci.get("closed_loop_learned_minus_random_N32") or {}).get("lo") > 0.0,
+            bool(gym_robotics),
+        ),
+        f"closed-loop learned-random CI={gym_robotics_ci.get('closed_loop_learned_minus_random_N32')}",
+    )
+    add(
+        claims,
+        63,
+        "Gymnasium Robotics oracle gap reported.",
+        status(
+            (gym_robotics_ci.get("oracle_minus_learned_N32") or {}).get("lo") is not None
+            and (gym_robotics_ci.get("oracle_minus_learned_N32") or {}).get("lo") > 0.0,
+            bool(gym_robotics),
+        ),
+        f"oracle-learned CI={gym_robotics_ci.get('oracle_minus_learned_N32')}",
+    )
 
     readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
     paper_text = PAPER.read_text(encoding="utf-8") if PAPER.exists() else ""
@@ -347,8 +406,8 @@ def main() -> None:
         if pattern.lower() in paper_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
             overclaims.append({"surface": "paper_outline", "id": cid, "pattern": pattern, "status": c["status"]})
 
-    add(claims, 59, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
-    add(claims, 60, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
+    add(claims, 64, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
+    add(claims, 65, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
 
     payload = {
         "claims": claims,

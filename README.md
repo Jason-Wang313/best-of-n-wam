@@ -133,18 +133,21 @@ The repo includes adapters for ManiSkill and Gym-style manipulation, plus future
 Current benchmark artifacts include:
 
 - Gymnasium/MuJoCo `Reacher-v5`
+- Gymnasium Robotics `FetchReach-v4`
+- Gymnasium Robotics `FetchPush-v4`
+- Gymnasium Robotics `FetchPickAndPlace-v4`
 - ManiSkill3 state-mode `PickCube-v1`
 - ManiSkill3 state-mode `PushCube-v1`
 - ManiSkill3 state-mode `PegInsertionSide-v1`
 
-The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the optional Pinocchio dependency was unavailable. LIBERO and RoboCasa remain future work unless their dependencies and artifacts are added.
+The Gymnasium Robotics artifacts add contact-rich Fetch manipulation tasks with state/action-sequence WAM-lite training, exact-law validation, scorer comparison, closed-loop evaluation, and RGB frame artifacts. The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the optional Pinocchio dependency was unavailable. LIBERO and RoboCasa remain future work unless their dependencies and artifacts are added.
 
 ```bash
 bash scripts/run_benchmark_smoke.sh
 bash scripts/run_benchmark_full.sh
 ```
 
-Current benchmark artifacts include rollout pools, learned benchmark WAM-lite training, exact-law validation, score comparison, real-vs-predicted utility gap, closed-loop evaluation, and RGB WAM-lite validation for the Gymnasium/MuJoCo path.
+Current benchmark artifacts include rollout pools, learned benchmark WAM-lite training, exact-law validation, score comparison, real-vs-predicted utility gap, closed-loop evaluation, contact-rich Gymnasium Robotics Fetch validation, and RGB WAM-lite validation for the Gymnasium/MuJoCo path.
 
 ## Visual Modes
 

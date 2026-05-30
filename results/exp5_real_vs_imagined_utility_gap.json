@@ -1,83 +1,83 @@
 {
   "experiment": "real_vs_imagined_utility_gap",
   "dynamics_backend": "analytic",
-  "states": 8,
-  "rollouts_per_state": 64,
+  "states": 3,
+  "rollouts_per_state": 32,
   "scorer": "predicted_utility",
   "seeds": [
-    105
+    205
   ],
   "num_seeds": 1,
   "gap_summary": [
     {
       "mismatch": "mild",
-      "imagined_gain_N64_minus_N1": 14.627324300170223,
-      "real_gain_N64_minus_N1": 4.41995392025037,
-      "gap_N1": -7.711666591385509,
-      "gap_N64": 2.495703788534343,
-      "gap_growth": 10.207370379919851,
-      "normalized_gap_growth": 0.07188305797921912,
-      "real_utility_N64": 0.21724726303701525,
-      "normalized_real_utility_N64": 0.831429182969098,
-      "success_N64": 0.10072748300475513
+      "imagined_gain_N64_minus_N1": 15.107582903062267,
+      "real_gain_N64_minus_N1": 3.3658046539801414,
+      "gap_N1": -7.996820960199401,
+      "gap_N64": 3.744957288882724,
+      "gap_growth": 11.741778249082126,
+      "normalized_gap_growth": 0.14058251259850263,
+      "real_utility_N64": -0.24731395317460805,
+      "normalized_real_utility_N64": 0.7726656198360718,
+      "success_N64": 0.0012233945224350336
     },
     {
       "mismatch": "none",
-      "imagined_gain_N64_minus_N1": 14.612388475649595,
-      "real_gain_N64_minus_N1": 14.612388475649595,
+      "imagined_gain_N64_minus_N1": 13.911337995754463,
+      "real_gain_N64_minus_N1": 13.911337995754463,
       "gap_N1": 0.0,
       "gap_N64": 0.0,
       "gap_growth": 0.0,
       "normalized_gap_growth": 0.0,
-      "real_utility_N64": 2.7915564384714258,
-      "normalized_real_utility_N64": 0.9938047007354786,
-      "success_N64": 0.7751878784246996
+      "real_utility_N64": 3.1213580394962226,
+      "normalized_real_utility_N64": 0.9966712346064904,
+      "success_N64": 0.94558839160654
     },
     {
       "mismatch": "severe",
-      "imagined_gain_N64_minus_N1": 14.860635015823291,
-      "real_gain_N64_minus_N1": -1.5748378091447461,
-      "gap_N1": -12.494921048411557,
-      "gap_N64": 3.94055177655648,
-      "gap_growth": 16.435472824968038,
-      "normalized_gap_growth": 0.5601085755108555,
-      "real_utility_N64": -0.9995832844191239,
-      "normalized_real_utility_N64": 0.18621042348364392,
-      "success_N64": 2.136004785804953e-08
+      "imagined_gain_N64_minus_N1": 13.72246386764535,
+      "real_gain_N64_minus_N1": -1.4575255960445537,
+      "gap_N1": -10.872972396741416,
+      "gap_N64": 4.307017066948489,
+      "gap_growth": 15.179989463689903,
+      "normalized_gap_growth": 0.5472621563330791,
+      "real_utility_N64": -0.9554727769278571,
+      "normalized_real_utility_N64": 0.19930880983692825,
+      "success_N64": 5.612286101177979e-07
     },
     {
       "mismatch": "stuck_slip",
-      "imagined_gain_N64_minus_N1": 15.296807831277054,
-      "real_gain_N64_minus_N1": -1.6155154396654268,
-      "gap_N1": -13.125055719027557,
-      "gap_N64": 3.787267551914921,
-      "gap_growth": 16.91232327094248,
-      "normalized_gap_growth": 0.6661228806359839,
-      "real_utility_N64": -1.2022856294917963,
-      "normalized_real_utility_N64": 0.3218568517154556,
-      "success_N64": 2.580171657254681e-11
+      "imagined_gain_N64_minus_N1": 15.19098038879536,
+      "real_gain_N64_minus_N1": -1.4645192711060382,
+      "gap_N1": -13.387958165475931,
+      "gap_N64": 3.267541494425464,
+      "gap_growth": 16.655499659901395,
+      "normalized_gap_growth": 0.6268722865814671,
+      "real_utility_N64": -1.128516899431799,
+      "normalized_real_utility_N64": 0.3171602328584313,
+      "success_N64": 8.75006171598342e-19
     }
   ],
-  "severe_gap_growth_minus_none": 16.435472824968038,
-  "stuck_slip_gap_growth_minus_none": 16.91232327094248,
+  "severe_gap_growth_minus_none": 15.179989463689903,
+  "stuck_slip_gap_growth_minus_none": 16.655499659901395,
   "confidence_intervals": {
     "severe_gap_growth_minus_none": {
       "n": 1,
-      "mean": 16.435472824968038,
+      "mean": 15.179989463689903,
       "std": 0.0,
       "stderr": 0.0,
       "ci95": 0.0,
-      "lo": 16.435472824968038,
-      "hi": 16.435472824968038
+      "lo": 15.179989463689903,
+      "hi": 15.179989463689903
     },
     "stuck_slip_gap_growth_minus_none": {
       "n": 1,
-      "mean": 16.91232327094248,
+      "mean": 16.655499659901395,
       "std": 0.0,
       "stderr": 0.0,
       "ci95": 0.0,
-      "lo": 16.91232327094248,
-      "hi": 16.91232327094248
+      "lo": 16.655499659901395,
+      "hi": 16.655499659901395
     }
   },
   "artifacts": {
