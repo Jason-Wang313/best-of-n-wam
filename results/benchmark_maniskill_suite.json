@@ -1,0 +1,150 @@
+{
+  "experiment": "benchmark_maniskill_suite",
+  "attempted": true,
+  "available": true,
+  "benchmark": "ManiSkill",
+  "env_ids": [
+    "PickCube-v1",
+    "PushCube-v1",
+    "PegInsertionSide-v1"
+  ],
+  "obs_mode": "state",
+  "control_mode": "pd_joint_delta_pos",
+  "note": "CPU state-mode ManiSkill3 with joint-delta control. EE control was not used because Pinocchio is unavailable in this Windows environment.",
+  "n_rollout_pools": 30,
+  "n_rollouts": 32,
+  "seeds": [
+    12001,
+    12002,
+    12003,
+    12004,
+    12005
+  ],
+  "N_values": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "model_metrics": [
+    {
+      "benchmark": "PickCube-v1",
+      "split": "train",
+      "n_samples": 128,
+      "state_delta_mae": 0.01086310159071392,
+      "utility_mae": 0.08192695224360386,
+      "utility_corr": 0.6785251356097004
+    },
+    {
+      "benchmark": "PickCube-v1",
+      "split": "validation",
+      "n_samples": 48,
+      "state_delta_mae": 0.024803164489814088,
+      "utility_mae": 0.15002156176033457,
+      "utility_corr": -0.13516216185848468
+    },
+    {
+      "benchmark": "PushCube-v1",
+      "split": "train",
+      "n_samples": 128,
+      "state_delta_mae": 0.009424460933493592,
+      "utility_mae": 0.11492025761685379,
+      "utility_corr": 0.6645973864639606
+    },
+    {
+      "benchmark": "PushCube-v1",
+      "split": "validation",
+      "n_samples": 48,
+      "state_delta_mae": 0.020710539531849006,
+      "utility_mae": 0.19431730926143567,
+      "utility_corr": 0.0447834605615621
+    },
+    {
+      "benchmark": "PegInsertionSide-v1",
+      "split": "train",
+      "n_samples": 128,
+      "state_delta_mae": 0.011373494020374861,
+      "utility_mae": 0.03226629324393962,
+      "utility_corr": 0.7030182201335277
+    },
+    {
+      "benchmark": "PegInsertionSide-v1",
+      "split": "validation",
+      "n_samples": 48,
+      "state_delta_mae": 0.023306306872445084,
+      "utility_mae": 0.06017837865202058,
+      "utility_corr": 0.47275014846433344
+    }
+  ],
+  "exact_law_utility_mae": 0.0034490668019852445,
+  "score_comparison": {
+    "learned_minus_random_real_utility_N32": -0.005754620067846242,
+    "dense_minus_random_real_utility_N32": 0.24732126597363005,
+    "oracle_minus_random_real_utility_N32": 0.24785881464044768,
+    "oracle_minus_learned_real_utility_N32": 0.25361343470829395
+  },
+  "real_vs_predicted_gap": {
+    "gap_growth_N32_minus_N1": 0.2341811559581971
+  },
+  "closed_loop": {
+    "learned_minus_random_utility_N8": 0.027762312500152514
+  },
+  "confidence_intervals": {
+    "learned_minus_random_real_utility_N32": {
+      "n": 5,
+      "mean": -0.005754620067846242,
+      "std": 0.04861601605708501,
+      "stderr": 0.021741743339772673,
+      "ci95": 0.04261381694595444,
+      "lo": -0.04836843701380068,
+      "hi": 0.036859196878108194
+    },
+    "dense_minus_random_real_utility_N32": {
+      "n": 5,
+      "mean": 0.24732126597363005,
+      "std": 0.023695650387774738,
+      "stderr": 0.010597017007626712,
+      "ci95": 0.020770153334948357,
+      "lo": 0.2265511126386817,
+      "hi": 0.2680914193085784
+    },
+    "oracle_minus_random_real_utility_N32": {
+      "n": 5,
+      "mean": 0.24785881464044768,
+      "std": 0.024027854839175085,
+      "stderr": 0.010745583354778553,
+      "ci95": 0.021061343375365964,
+      "lo": 0.2267974712650817,
+      "hi": 0.26892015801581365
+    },
+    "oracle_minus_learned_real_utility_N32": {
+      "n": 5,
+      "mean": 0.25361343470829395,
+      "std": 0.026384589055437595,
+      "stderr": 0.011799546937271085,
+      "ci95": 0.023127111997051326,
+      "lo": 0.2304863227112426,
+      "hi": 0.27674054670534526
+    },
+    "closed_loop_learned_minus_random_utility_N8": {
+      "n": 5,
+      "mean": 0.027762312500152514,
+      "std": 0.020055963136210424,
+      "stderr": 0.008969299385359276,
+      "ci95": 0.01757982679530418,
+      "lo": 0.010182485704848334,
+      "hi": 0.04534213929545669
+    }
+  },
+  "artifacts": {
+    "curves": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_maniskill_curves.csv",
+    "curves_aggregate": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_maniskill_curves_aggregate.csv",
+    "exact_law": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_maniskill_exact_law.csv",
+    "real_vs_predicted_gap": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_maniskill_real_vs_predicted_gap.csv",
+    "model_metrics": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_maniskill_model_metrics.csv",
+    "closed_loop": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_maniskill_closed_loop.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\benchmark_maniskill_curves.png"
+  }
+}

@@ -1,5 +1,5 @@
 name,available,reason
-maniskill,False,ManiSkill import not found
+maniskill,True,available with state-mode joint-delta control
 gym_manip,True,Reacher-v5 available
 libero,False,adapter skeleton only; dependency not installed/validated
 robocasa,False,adapter skeleton only; dependency not installed/validated

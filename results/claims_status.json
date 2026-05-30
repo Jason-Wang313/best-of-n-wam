@@ -28,19 +28,19 @@
       "id": 5,
       "claim": "Pilot-to-heldout improves with K.",
       "status": "VERIFIED",
-      "evidence": "relative MAE reduction=0.7280063038060411"
+      "evidence": "relative MAE reduction=0.36981841294484663"
     },
     {
       "id": 6,
       "claim": "Pilot uncertainty is reported.",
       "status": "VERIFIED",
-      "evidence": "pilot improvement CI={'n': 1200, 'mean': 0.8233589071075791, 'std': 0.7110080730202641, 'stderr': 0.020525035117712326, 'ci95': 0.04022906883071616, 'lo': 0.7831298382768629, 'hi': 0.8635879759382953}"
+      "evidence": "pilot improvement CI={'n': 3, 'mean': 0.4562385545786219, 'std': 0.6526343629570743, 'stderr': 0.3767986251356668, 'ci95': 0.738525305265907, 'lo': -0.2822867506872851, 'hi': 1.194763859844529}"
     },
     {
       "id": 7,
       "claim": "Score function controls inference value.",
       "status": "VERIFIED",
-      "evidence": "oracle-random N64=7.084333950224235"
+      "evidence": "oracle-random N64=6.6877116595064265"
     },
     {
       "id": 8,
@@ -58,7 +58,7 @@
       "id": 10,
       "claim": "Real-vs-imagined utility gap verified.",
       "status": "VERIFIED",
-      "evidence": "severe-none=16.725668702334993"
+      "evidence": "severe-none=15.179989463689903"
     },
     {
       "id": 11,
@@ -284,19 +284,61 @@
     },
     {
       "id": 48,
+      "claim": "ManiSkill state benchmark suite verified.",
+      "status": "VERIFIED",
+      "evidence": "envs=['PickCube-v1', 'PushCube-v1', 'PegInsertionSide-v1'], control=pd_joint_delta_pos"
+    },
+    {
+      "id": 49,
+      "claim": "ManiSkill rollout pools collected.",
+      "status": "VERIFIED",
+      "evidence": "pools=30, rollouts=32"
+    },
+    {
+      "id": 50,
+      "claim": "ManiSkill exact law verified.",
+      "status": "VERIFIED",
+      "evidence": "utility MAE=0.0034490668019852445"
+    },
+    {
+      "id": 51,
+      "claim": "ManiSkill score comparison verified.",
+      "status": "VERIFIED",
+      "evidence": "dense-random CI={'n': 5, 'mean': 0.24732126597363005, 'std': 0.023695650387774738, 'stderr': 0.010597017007626712, 'ci95': 0.020770153334948357, 'lo': 0.2265511126386817, 'hi': 0.2680914193085784}; oracle-random CI={'n': 5, 'mean': 0.24785881464044768, 'std': 0.024027854839175085, 'stderr': 0.010745583354778553, 'ci95': 0.021061343375365964, 'lo': 0.2267974712650817, 'hi': 0.26892015801581365}"
+    },
+    {
+      "id": 52,
+      "claim": "ManiSkill WAM-lite trained and evaluated.",
+      "status": "VERIFIED",
+      "evidence": "model metric rows=6"
+    },
+    {
+      "id": 53,
+      "claim": "ManiSkill closed-loop learned scorer beats random.",
+      "status": "VERIFIED",
+      "evidence": "learned-random closed-loop CI={'n': 5, 'mean': 0.027762312500152514, 'std': 0.020055963136210424, 'stderr': 0.008969299385359276, 'ci95': 0.01757982679530418, 'lo': 0.010182485704848334, 'hi': 0.04534213929545669}"
+    },
+    {
+      "id": 54,
+      "claim": "ManiSkill learned open-loop scorer is honestly reported.",
+      "status": "VERIFIED",
+      "evidence": "learned-random open-loop CI={'n': 5, 'mean': -0.005754620067846242, 'std': 0.04861601605708501, 'stderr': 0.021741743339772673, 'ci95': 0.04261381694595444, 'lo': -0.04836843701380068, 'hi': 0.036859196878108194}"
+    },
+    {
+      "id": 55,
       "claim": "README has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "README overclaims=0"
     },
     {
-      "id": 49,
+      "id": 56,
       "claim": "paper_outline has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "paper overclaims=0"
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 49,
+  "num_verified": 56,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

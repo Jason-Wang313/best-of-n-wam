@@ -57,6 +57,7 @@ def main() -> None:
     fals = load_json("exp10_falsification_bad_scorer.json")
     bench = load_json("benchmark_smoke.json")
     bench_suite = load_json("benchmark_gym_manip_suite.json")
+    maniskill = load_json("benchmark_maniskill_suite.json")
     bench_visual = load_json("benchmark_visual_optional.json")
     visual = load_json("visual_optional.json")
     audit = load_json("inference_audit_framework.json")
@@ -90,8 +91,8 @@ Audit date: 2026-05-30.
 ## 2. Toy-Only
 
 - The main controlled environments are CPU toy environments.
-- Gymnasium/MuJoCo Reacher-v5 now has external benchmark artifacts.
-- No real robot, DreamZero, UWM, LIBERO, RoboCasa, or ManiSkill result is claimed.
+- Gymnasium/MuJoCo Reacher-v5 and ManiSkill3 state-mode tasks now have external benchmark artifacts.
+- No real robot, DreamZero, UWM, LIBERO, or RoboCasa result is claimed.
 
 ## 3. Learned-Model Evidence
 
@@ -102,8 +103,8 @@ Audit date: 2026-05-30.
 
 ## 4. Missing For Robotics Reviewers
 
-- ManiSkill, LIBERO, and RoboCasa benchmark artifacts are still missing.
-- The available external benchmark evidence is state-based Gymnasium/MuJoCo Reacher-v5, not a full manipulation benchmark suite.
+- LIBERO and RoboCasa benchmark artifacts are still missing.
+- ManiSkill evidence is state-mode and joint-delta controlled; end-effector delta-pose control is not claimed because Pinocchio was unavailable.
 - No real robot data.
 - No high-dimensional policy or vision-language WAM evidence.
 
@@ -116,7 +117,8 @@ Audit date: 2026-05-30.
 
 ## 6. README Claim Guarding
 
-- README must state ManiSkill/LIBERO/RoboCasa adapters as optional/future unless artifacts exist.
+- README must state LIBERO/RoboCasa adapters as optional/future unless artifacts exist.
+- README must state ManiSkill as state-mode joint-delta evidence only, not EE-control or real-robot evidence.
 - README must call current evidence learned-toy and multi-env toy validation.
 - README must not claim real robot evidence or universal WAM training laws.
 
@@ -144,7 +146,7 @@ Audit date: 2026-05-30.
 
 ## 10. Readiness Tier
 
-The project has learned-toy, multi-env toy, and one state-based Gymnasium/MuJoCo benchmark validation path. It is workshop-ready and closer to a robotics submission, but still not real-robot validated.
+The project has learned-toy, multi-env toy, Gymnasium/MuJoCo, and ManiSkill3 state-mode benchmark validation paths. It is much closer to a serious ML submission artifact, but still not real-robot validated.
 """
 
     completion = f"""
@@ -154,7 +156,7 @@ Audit date: 2026-05-30.
 
 ## Execution Tier
 
-Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, toy visual mode, and benchmark RGB render sanity check.
+Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, ManiSkill3 state-mode benchmark, toy visual mode, and benchmark RGB render sanity check.
 
 ## Artifact Coverage
 
@@ -163,6 +165,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - Multi-env seeds: `{len(seeds)}`.
 - Benchmark attempted: `{bench.get('attempted')}`; any benchmark available: `{bench.get('any_available')}`.
 - Benchmark suite: `{bench_suite.get('benchmark')}`; rollout pools: `{bench_suite.get('n_rollout_pools')}`; exact-law MAE: `{fmt(bench_suite.get('exact_law_utility_mae'))}`.
+- ManiSkill suite: `{maniskill.get('env_ids')}`; rollout pools: `{maniskill.get('n_rollout_pools')}`; exact-law MAE: `{fmt(maniskill.get('exact_law_utility_mae'))}`; control: `{maniskill.get('control_mode')}`.
 - Visual attempted: `{visual.get('attempted')}`; visual verified: `{visual.get('verified')}`.
 - Benchmark visual verified: `{bench_visual.get('verified')}`.
 - Inference audit tail/gain correlation: `{fmt(audit.get('tail_alignment_gain_corr'))}`.
@@ -179,6 +182,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - Backbones: MLP, horizon, and ensemble WAM artifacts are present.
 - EXP10: anti-scorer and randomized-dynamics falsification artifacts are present when multi-env is regenerated.
 - Benchmark: Gymnasium/MuJoCo Reacher-v5 artifacts generated.
+- ManiSkill: PickCube-v1, PushCube-v1, and PegInsertionSide-v1 state-mode artifacts generated.
 - Visual: toy visual mode verified with MAE `{fmt(visual.get('test_mae'))}`.
 - Audit framework: inference-value profiles, deployment gates, scorer repair, and compute frontiers generated.
 - README overclaims: `{len(claims_payload.get('readme_overclaims') or [])}`.
@@ -210,8 +214,8 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 
 ## Main Reviewer Attacks
 
-- The empirical work is still toy-scale and state-based.
-- The current external benchmark is Reacher-v5 only; reviewers may ask for ManiSkill, LIBERO, or harder contact-rich tasks.
+- The empirical work is still state-based; visual benchmark WAM training remains limited.
+- The current contact-rich benchmark is ManiSkill state mode, not RGB/RGB-D manipulation or real hardware.
 - The learned models are intentionally lightweight and do not establish WAM training recipes.
 - Pilot estimates are not exact laws and can be brittle under shift.
 - Some analytic smoke artifacts are single-seed checks; paper figures should prefer five-seed learned/multi-env results.
@@ -225,7 +229,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 
 ## Remaining Gap
 
-The single highest reviewer-risk gap is absence of a harder manipulation benchmark or real-robot artifact beyond Gymnasium/MuJoCo Reacher-v5.
+The single highest reviewer-risk gap is absence of LIBERO/RoboCasa or real-robot evidence beyond the current ManiSkill state-mode suite.
 """
 
     ablation = f"""
@@ -312,11 +316,13 @@ If these fields are missing, rerun `bash scripts/run_multi_env.sh`.
 - More imagination helps only when scores align with real utility.
 - Under model mismatch or bad scoring, high-N selection can amplify hallucinated futures.
 - Inference-value audits diagnose tail alignment, stop rules, scorer repair, and compute-quality frontiers from artifacts.
+- Gymnasium/MuJoCo and ManiSkill3 state-mode artifacts validate the benchmark path without claiming hardware evidence.
 - Learned toy and multi-env toy artifacts support these claims with confidence intervals where the claim gate marks them verified.
 
 ## Discussion-Only Claims
 
-- ManiSkill/LIBERO/RoboCasa integration readiness.
+- LIBERO/RoboCasa integration readiness.
+- ManiSkill beyond state-mode joint-delta control.
 - RGB WAM training beyond render sanity checks.
 - Universal WAM train-inference optimization.
 - Any analogy to DreamZero/UWM-level evidence.
@@ -324,7 +330,8 @@ If these fields are missing, rerun `bash scripts/run_multi_env.sh`.
 ## Do Not Claim
 
 - Real robot validation.
-- ManiSkill/LIBERO/RoboCasa validation.
+- LIBERO/RoboCasa validation.
+- ManiSkill RGB/RGB-D or EE-control validation.
 - A universal WAM training recipe.
 - That increasing N is intrinsically beneficial.
 """
@@ -334,7 +341,7 @@ If these fields are missing, rerun `bash scripts/run_multi_env.sh`.
 
 ## 1. Tier
 
-Benchmark-full plus visual- and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, toy visual mode, benchmark RGB render sanity check, and inference-value audit framework artifacts.
+Benchmark-full plus ManiSkill state-mode, visual-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, ManiSkill3 state-mode manipulation validation, toy visual mode, benchmark RGB render sanity check, and inference-value audit framework artifacts.
 
 ## 2. Strongest Verified Claims
 
@@ -353,21 +360,23 @@ Benchmark-full plus visual- and audit-validated: learned-toy, multi-env toy vali
 
 ## 5. Discussion-Only Claims
 
-- ManiSkill/LIBERO/RoboCasa integration.
+- LIBERO/RoboCasa integration.
+- ManiSkill RGB/RGB-D or EE-control validation.
 - RGB benchmark WAM validation beyond render sanity.
 - Universal WAM training and train-inference scaling.
 
 ## 6. Skeptical Reviewer Attack
 
-The project still lacks real robot artifacts and harder manipulation benchmarks such as ManiSkill/LIBERO/RoboCasa.
+The project still lacks real robot artifacts, LIBERO/RoboCasa, and ManiSkill visual or EE-control validation.
 
 ## 7. Current Answer
 
-The repo answers the mathematical and controlled toy-science objections with tests, multi-env artifacts, learned WAM-lite backbones, falsification, an anti-overclaim system, and a state-based Gymnasium/MuJoCo benchmark. It does not yet answer real-robot realism.
+The repo answers the mathematical and controlled toy-science objections with tests, multi-env artifacts, learned WAM-lite backbones, falsification, an anti-overclaim system, a state-based Gymnasium/MuJoCo benchmark, and a three-task ManiSkill3 state-mode benchmark. It does not yet answer real-robot realism.
 
 ## 8. Unresolved
 
-- ManiSkill/LIBERO/RoboCasa rollout collection.
+- LIBERO/RoboCasa rollout collection.
+- ManiSkill RGB/RGB-D or end-effector-control validation.
 - Real robot validation.
 - Strong RGB WAM evidence beyond render sanity checks.
 
@@ -377,21 +386,21 @@ Yes, as a theory-plus-controlled-learned-toy paper artifact.
 
 ## 10. Main-Conference Readiness
 
-Plausible as a pre-paper artifact with one lightweight benchmark; still not ideal for a robotics main conference without harder benchmark or real-system validation.
+Substantially stronger after ManiSkill state-mode validation. Still not a real-robot paper and still weaker than a benchmark-heavy robotics paper with LIBERO/RoboCasa or RGB-D manipulation.
 
 ## 11. Single Highest-Value Next Step
 
-Add one harder contact-rich benchmark task, preferably ManiSkill or LIBERO, end to end.
+Add LIBERO or ManiSkill RGB/RGB-D WAM validation next; that is now higher value than another state-only toy run.
 
 ## Command Results
 
-- `python -m pytest -q`: passed with `31 passed, 1 skipped`.
+- `python -m pytest -q`: passed with `32 passed`.
 - Large analytic `scripts/run_all.sh`: attempted; the tool timeout was reached during the heavy EXP6 allocation sweep after EXP1-EXP5 refreshed. The spawned allocation process was stopped, robust EXP8 was regenerated separately, and the final claim gate remained fully verified.
 - `bash scripts/run_smoke.sh`: passed; EXP1 success MAE `0.00696`, utility MAE `0.04511`; EXP8 smoke conditional-law MAE `0.0055`.
 - `bash scripts/run_learned_wam_toy.sh`: passed; learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`.
 - `bash scripts/run_multi_env.sh`: passed with `envs=5`, `backbones=3`, `seeds=5`.
 - robust EXP8 rerun: passed; stale post-pre CI lower bound `0.0255`, stale-adaptive post CI lower bound `0.0613`.
-- `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5`; benchmark exact-law utility MAE `0.01875`; benchmark closed-loop learned-random CI lower bound `0.4102`.
+- `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5` and ManiSkill3 state-mode tasks; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; ManiSkill exact-law utility MAE `{fmt(maniskill.get('exact_law_utility_mae'))}`; ManiSkill closed-loop learned-random CI lower bound `{fmt(((maniskill.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_utility_N8') or {}).get('lo'))}`.
 - `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`.
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `{fmt(audit.get('tail_alignment_gain_corr'))}`, repair-predicted N64 CI mean `{fmt(((repair.get('confidence_intervals') or {}).get('repair_minus_predicted_N64') or {}).get('mean'))}`, predicted N128-N1 scaling gain `{fmt(((scaling.get('confidence_intervals') or {}).get('predicted_gain_N128_minus_N1') or {}).get('mean'))}`.
 - `python scripts/claims_status.py`: passed with `{claims_payload.get('num_verified')}` verified, `{claims_payload.get('num_partial')}` partial, `{claims_payload.get('num_unsupported')}` unsupported, `{claims_payload.get('num_failed')}` failed, and `0` README/paper overclaims.

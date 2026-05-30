@@ -128,14 +128,23 @@ The audit suite includes a heldout scorer-repair experiment. A small pilot set w
 
 ## Benchmark Validation
 
-The repo includes adapter skeletons for ManiSkill, LIBERO, RoboCasa, and Gym-style manipulation under `src/wam_inference_value/benchmarks/`. In this environment, Gymnasium/MuJoCo `Reacher-v5` is available and has benchmark artifacts; ManiSkill, LIBERO, and RoboCasa remain future-facing unless their dependencies and task adapters are added.
+The repo includes adapters for ManiSkill and Gym-style manipulation, plus future-facing skeletons for LIBERO and RoboCasa under `src/wam_inference_value/benchmarks/`.
+
+Current benchmark artifacts include:
+
+- Gymnasium/MuJoCo `Reacher-v5`
+- ManiSkill3 state-mode `PickCube-v1`
+- ManiSkill3 state-mode `PushCube-v1`
+- ManiSkill3 state-mode `PegInsertionSide-v1`
+
+The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the optional Pinocchio dependency was unavailable. LIBERO and RoboCasa remain future work unless their dependencies and artifacts are added.
 
 ```bash
 bash scripts/run_benchmark_smoke.sh
 bash scripts/run_benchmark_full.sh
 ```
 
-Current benchmark artifacts include rollout pools, learned benchmark WAM-lite training, exact-law validation, score comparison, real-vs-predicted utility gap, closed-loop evaluation, and an RGB render sanity check for `Reacher-v5`.
+Current benchmark artifacts include rollout pools, learned benchmark WAM-lite training, exact-law validation, score comparison, real-vs-predicted utility gap, closed-loop evaluation, and RGB render sanity for the Gymnasium/MuJoCo path.
 
 ## Visual Modes
 
@@ -170,4 +179,4 @@ This is learned-toy and multi-env toy validation, not real-robot evidence. It do
 
 ## Future Work
 
-The natural next step is a Robot Chinchilla-style WAM optimizer: jointly allocate dataset scale, model capacity, rollout horizon, scorer quality, safety constraints, and test-time rollout budget for real robot benchmarks.
+The natural next step is a Robot Chinchilla-style WAM optimizer: jointly allocate dataset scale, model capacity, rollout horizon, scorer quality, safety constraints, and test-time rollout budget. A second high-value extension is LIBERO or RoboCasa validation beyond the current ManiSkill state-mode suite.

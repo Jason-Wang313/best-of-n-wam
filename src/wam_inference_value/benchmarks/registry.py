@@ -10,7 +10,7 @@ def benchmark_statuses() -> list[BenchmarkStatus]:
         BenchmarkStatus(
             name="maniskill",
             available=is_maniskill_available(),
-            reason="available" if is_maniskill_available() else "ManiSkill import not found",
+            reason="available with state-mode joint-delta control" if is_maniskill_available() else "ManiSkill import not found",
         )
     ]
     gym_ok, gym_reason = is_gym_manip_available()

@@ -18,6 +18,7 @@ dependencies = [
 test = ["pytest>=8"]
 benchmark = [
   "gymnasium[mujoco]>=1.2",
+  "mani-skill>=3.0.1",
   "imageio>=2.14",
 ]
 

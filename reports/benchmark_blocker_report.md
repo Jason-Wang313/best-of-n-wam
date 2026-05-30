@@ -3,7 +3,7 @@
 External benchmark integration was attempted.
 
 ## Status
-- maniskill: available=False reason=ManiSkill import not found
+- maniskill: available=True reason=available with state-mode joint-delta control
 - gym_manip: available=True reason=Reacher-v5 available
 - libero: available=False reason=adapter skeleton only; dependency not installed/validated
 - robocasa: available=False reason=adapter skeleton only; dependency not installed/validated
@@ -14,4 +14,4 @@ At least one optional external benchmark path is available. Run `bash scripts/ru
 
 ## Remaining Blockers
 
-ManiSkill, LIBERO, and RoboCasa remain unavailable unless their dependencies are installed and their adapters are completed.
+Remaining unavailable adapters: libero, robocasa.

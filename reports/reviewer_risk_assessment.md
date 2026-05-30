@@ -9,8 +9,8 @@
 
 ## Main Reviewer Attacks
 
-- The empirical work is still toy-scale and state-based.
-- The current external benchmark is Reacher-v5 only; reviewers may ask for ManiSkill, LIBERO, or harder contact-rich tasks.
+- The empirical work is still state-based; visual benchmark WAM training remains limited.
+- The current contact-rich benchmark is ManiSkill state mode, not RGB/RGB-D manipulation or real hardware.
 - The learned models are intentionally lightweight and do not establish WAM training recipes.
 - Pilot estimates are not exact laws and can be brittle under shift.
 - Some analytic smoke artifacts are single-seed checks; paper figures should prefer five-seed learned/multi-env results.
@@ -24,4 +24,4 @@
 
 ## Remaining Gap
 
-The single highest reviewer-risk gap is absence of a harder manipulation benchmark or real-robot artifact beyond Gymnasium/MuJoCo Reacher-v5.
+The single highest reviewer-risk gap is absence of LIBERO/RoboCasa or real-robot evidence beyond the current ManiSkill state-mode suite.

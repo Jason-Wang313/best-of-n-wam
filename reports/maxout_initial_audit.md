@@ -13,8 +13,8 @@ Audit date: 2026-05-30.
 ## 2. Toy-Only
 
 - The main controlled environments are CPU toy environments.
-- Gymnasium/MuJoCo Reacher-v5 now has external benchmark artifacts.
-- No real robot, DreamZero, UWM, LIBERO, RoboCasa, or ManiSkill result is claimed.
+- Gymnasium/MuJoCo Reacher-v5 and ManiSkill3 state-mode tasks now have external benchmark artifacts.
+- No real robot, DreamZero, UWM, LIBERO, or RoboCasa result is claimed.
 
 ## 3. Learned-Model Evidence
 
@@ -25,8 +25,8 @@ Audit date: 2026-05-30.
 
 ## 4. Missing For Robotics Reviewers
 
-- ManiSkill, LIBERO, and RoboCasa benchmark artifacts are still missing.
-- The available external benchmark evidence is state-based Gymnasium/MuJoCo Reacher-v5, not a full manipulation benchmark suite.
+- LIBERO and RoboCasa benchmark artifacts are still missing.
+- ManiSkill evidence is state-mode and joint-delta controlled; end-effector delta-pose control is not claimed because Pinocchio was unavailable.
 - No real robot data.
 - No high-dimensional policy or vision-language WAM evidence.
 
@@ -39,7 +39,8 @@ Audit date: 2026-05-30.
 
 ## 6. README Claim Guarding
 
-- README must state ManiSkill/LIBERO/RoboCasa adapters as optional/future unless artifacts exist.
+- README must state LIBERO/RoboCasa adapters as optional/future unless artifacts exist.
+- README must state ManiSkill as state-mode joint-delta evidence only, not EE-control or real-robot evidence.
 - README must call current evidence learned-toy and multi-env toy validation.
 - README must not claim real robot evidence or universal WAM training laws.
 
@@ -67,4 +68,4 @@ Audit date: 2026-05-30.
 
 ## 10. Readiness Tier
 
-The project has learned-toy, multi-env toy, and one state-based Gymnasium/MuJoCo benchmark validation path. It is workshop-ready and closer to a robotics submission, but still not real-robot validated.
+The project has learned-toy, multi-env toy, Gymnasium/MuJoCo, and ManiSkill3 state-mode benchmark validation paths. It is much closer to a serious ML submission artifact, but still not real-robot validated.

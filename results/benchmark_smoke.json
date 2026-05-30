@@ -5,8 +5,8 @@
   "statuses": [
     {
       "name": "maniskill",
-      "available": false,
-      "reason": "ManiSkill import not found"
+      "available": true,
+      "reason": "available with state-mode joint-delta control"
     },
     {
       "name": "gym_manip",

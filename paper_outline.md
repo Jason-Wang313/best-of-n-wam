@@ -86,7 +86,9 @@ Report only artifact-backed claims:
 
 ## 11. Benchmark Status
 
-Gymnasium/MuJoCo Reacher-v5 is integrated as a state-based external benchmark fallback with rollout pools, learned WAM-lite training, exact-law validation, score comparison, real-vs-predicted gap, closed-loop evaluation, and RGB render sanity artifacts. ManiSkill, LIBERO, and RoboCasa remain engineering scaffolds until their dependencies and task adapters are completed.
+Gymnasium/MuJoCo Reacher-v5 is integrated as a state-based external benchmark fallback with rollout pools, learned WAM-lite training, exact-law validation, score comparison, real-vs-predicted gap, closed-loop evaluation, and RGB render sanity artifacts.
+
+ManiSkill3 is integrated in CPU state mode on `PickCube-v1`, `PushCube-v1`, and `PegInsertionSide-v1` with `pd_joint_delta_pos` control. Artifact-backed ManiSkill claims include rollout pools, exact-law validation, score comparison, WAM-lite training, and a small closed-loop learned-versus-random comparison. End-effector delta-pose control is not claimed because Pinocchio was unavailable in this Windows environment. LIBERO and RoboCasa remain engineering scaffolds until their dependencies and task adapters are completed.
 
 ## 12. Falsification And Limitations
 

@@ -35,6 +35,7 @@ def run() -> dict:
     for item in statuses:
         report.append(f"- {item['name']}: available={item['available']} reason={item['reason']}")
     if any_available:
+        remaining = [item["name"] for item in statuses if not item["available"]]
         report.extend(
             [
                 "",
@@ -44,7 +45,7 @@ def run() -> dict:
                 "",
                 "## Remaining Blockers",
                 "",
-                "ManiSkill, LIBERO, and RoboCasa remain unavailable unless their dependencies are installed and their adapters are completed.",
+                ("Remaining unavailable adapters: " + ", ".join(remaining) + ".") if remaining else "No registered benchmark adapter is currently blocked.",
             ]
         )
     else:

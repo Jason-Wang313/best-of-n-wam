@@ -70,6 +70,7 @@ def main() -> None:
     benchmark_gap = load_json("benchmark_real_vs_imagined_gap.json")
     benchmark_closed = load_json("benchmark_closed_loop_eval.json")
     benchmark_wam = load_json("benchmark_wam_training.json")
+    maniskill = load_json("benchmark_maniskill_suite.json")
     visual = load_json("visual_optional.json")
     benchmark_visual = load_json("benchmark_visual_optional.json")
     audit = load_json("inference_audit_framework.json")
@@ -238,8 +239,68 @@ def main() -> None:
         if pattern.lower() in paper_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
             overclaims.append({"surface": "paper_outline", "id": cid, "pattern": pattern, "status": c["status"]})
 
-    add(claims, 48, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
-    add(claims, 49, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
+    maniskill_ci = maniskill.get("confidence_intervals") or {}
+    add(
+        claims,
+        48,
+        "ManiSkill state benchmark suite verified.",
+        status(bool(maniskill) and maniskill.get("available", False) and len(maniskill.get("env_ids") or []) >= 3, bool(maniskill)),
+        f"envs={maniskill.get('env_ids')}, control={maniskill.get('control_mode')}",
+    )
+    add(
+        claims,
+        49,
+        "ManiSkill rollout pools collected.",
+        status((maniskill.get("n_rollout_pools") or 0) >= 25, bool(maniskill)),
+        f"pools={maniskill.get('n_rollout_pools')}, rollouts={maniskill.get('n_rollouts')}",
+    )
+    add(
+        claims,
+        50,
+        "ManiSkill exact law verified.",
+        status(maniskill.get("exact_law_utility_mae") is not None and maniskill.get("exact_law_utility_mae") < 0.03, bool(maniskill)),
+        f"utility MAE={maniskill.get('exact_law_utility_mae')}",
+    )
+    dense_ci = maniskill_ci.get("dense_minus_random_real_utility_N32") or {}
+    oracle_mani_ci = maniskill_ci.get("oracle_minus_random_real_utility_N32") or {}
+    add(
+        claims,
+        51,
+        "ManiSkill score comparison verified.",
+        status(
+            dense_ci.get("lo") is not None
+            and dense_ci.get("lo") > 0.0
+            and oracle_mani_ci.get("lo") is not None
+            and oracle_mani_ci.get("lo") > 0.0,
+            bool(maniskill),
+        ),
+        f"dense-random CI={dense_ci}; oracle-random CI={oracle_mani_ci}",
+    )
+    add(
+        claims,
+        52,
+        "ManiSkill WAM-lite trained and evaluated.",
+        status(len(maniskill.get("model_metrics") or []) >= 6, bool(maniskill)),
+        f"model metric rows={len(maniskill.get('model_metrics') or [])}",
+    )
+    mani_closed_ci = maniskill_ci.get("closed_loop_learned_minus_random_utility_N8") or {}
+    add(
+        claims,
+        53,
+        "ManiSkill closed-loop learned scorer beats random.",
+        status(mani_closed_ci.get("lo") is not None and mani_closed_ci.get("lo") > 0.0, bool(maniskill)),
+        f"learned-random closed-loop CI={mani_closed_ci}",
+    )
+    learned_open_ci = maniskill_ci.get("learned_minus_random_real_utility_N32") or {}
+    add(
+        claims,
+        54,
+        "ManiSkill learned open-loop scorer is honestly reported.",
+        status(learned_open_ci.get("n", 0) >= 5, bool(maniskill)),
+        f"learned-random open-loop CI={learned_open_ci}",
+    )
+    add(claims, 55, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
+    add(claims, 56, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
 
     payload = {
         "claims": claims,
