@@ -1,0 +1,60 @@
+{
+  "experiment": "auc_vs_moment_hierarchy",
+  "states": 8,
+  "rollouts_per_state": 64,
+  "max_n2_identity_error": 0.0,
+  "mean_auc_only_mae_high_n": 0.009343270621601295,
+  "mean_moment_mae_high_n": 0.0,
+  "same_p_kappa_counterexample_gap_N64": 0.9988209815422198,
+  "counterexample_p": 0.2,
+  "counterexample_kappa": 0.5,
+  "by_n": [
+    {
+      "N": 1,
+      "exact": 0.05078125,
+      "auc_only_mae": 0.0,
+      "moment_mae": 0.0
+    },
+    {
+      "N": 2,
+      "exact": 0.0860595703125,
+      "auc_only_mae": 0.0,
+      "moment_mae": 0.0
+    },
+    {
+      "N": 4,
+      "exact": 0.1260741949081421,
+      "auc_only_mae": 0.0008956282585859329,
+      "moment_mae": 0.0
+    },
+    {
+      "N": 8,
+      "exact": 0.14446536796791065,
+      "auc_only_mae": 0.005621076557253048,
+      "moment_mae": 0.0
+    },
+    {
+      "N": 16,
+      "exact": 0.11507267166419462,
+      "auc_only_mae": 0.014090860325827454,
+      "moment_mae": 0.0
+    },
+    {
+      "N": 32,
+      "exact": 0.06303276704508887,
+      "auc_only_mae": 0.013505631150126764,
+      "moment_mae": 0.0
+    },
+    {
+      "N": 64,
+      "exact": 0.03305830438913431,
+      "auc_only_mae": 0.00415551445319792,
+      "moment_mae": 0.0
+    }
+  ],
+  "artifacts": {
+    "table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp2_auc_vs_moment_hierarchy.csv",
+    "counterexample": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp2_same_auc_counterexample.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\exp2_auc_vs_moment_error.png"
+  }
+}

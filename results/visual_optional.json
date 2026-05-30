@@ -1,0 +1,8 @@
+{
+  "experiment": "visual_optional",
+  "attempted": true,
+  "verified": true,
+  "mode": "toy_low_res_state_render",
+  "test_mae": 0.018500254396187476,
+  "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\visual_toy_render_example.png"
+}

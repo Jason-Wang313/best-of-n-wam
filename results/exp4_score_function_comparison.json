@@ -1,0 +1,131 @@
+{
+  "experiment": "score_function_comparison",
+  "dynamics_backend": "analytic",
+  "states": 8,
+  "rollouts_per_state": 64,
+  "mismatch": "mild",
+  "seeds": [
+    104
+  ],
+  "num_seeds": 1,
+  "scorers": [
+    "predicted_goal_distance",
+    "predicted_utility",
+    "predicted_success",
+    "uncertainty_penalized",
+    "safety_penalized",
+    "random_score",
+    "oracle_real_utility"
+  ],
+  "ranking": [
+    {
+      "scorer": "oracle_real_utility",
+      "real_utility_N1": -4.285536062756339,
+      "real_utility_N64": 3.261139846461668,
+      "success_N64": 0.9367264778945996,
+      "mean_kappa": 1.0,
+      "area_real_utility": 2.3344252605503426,
+      "gain_N64_minus_N1": 7.546675909218007
+    },
+    {
+      "scorer": "predicted_utility",
+      "real_utility_N1": -4.285536062756339,
+      "real_utility_N64": 0.036189049763804174,
+      "success_N64": 0.10453512853523927,
+      "mean_kappa": 0.899084835900184,
+      "area_real_utility": 0.10359522003877324,
+      "gain_N64_minus_N1": 4.321725112520143
+    },
+    {
+      "scorer": "uncertainty_penalized",
+      "real_utility_N1": -4.285536062756339,
+      "real_utility_N64": 0.030268495683866803,
+      "success_N64": 0.10239900092324322,
+      "mean_kappa": 0.9019814738551714,
+      "area_real_utility": 0.10080567255709531,
+      "gain_N64_minus_N1": 4.315804558440206
+    },
+    {
+      "scorer": "safety_penalized",
+      "real_utility_N1": -4.285536062756339,
+      "real_utility_N64": 0.028979785772966157,
+      "success_N64": 0.10208108688265392,
+      "mean_kappa": 0.8993441671959143,
+      "area_real_utility": 0.09485326140889429,
+      "gain_N64_minus_N1": 4.314515848529306
+    },
+    {
+      "scorer": "predicted_success",
+      "real_utility_N1": -4.285536062756339,
+      "real_utility_N64": 0.026174639341639674,
+      "success_N64": 0.10167622991099624,
+      "mean_kappa": 0.8961561467691643,
+      "area_real_utility": 0.08738785137027401,
+      "gain_N64_minus_N1": 4.311710702097979
+    },
+    {
+      "scorer": "predicted_goal_distance",
+      "real_utility_N1": -4.285536062756339,
+      "real_utility_N64": 0.0073046954770274244,
+      "success_N64": 0.10167622991099624,
+      "mean_kappa": 0.8961561467691643,
+      "area_real_utility": 0.08027964134876672,
+      "gain_N64_minus_N1": 4.292840758233367
+    },
+    {
+      "scorer": "random_score",
+      "real_utility_N1": -4.28553606275634,
+      "real_utility_N64": -3.7157171826362942,
+      "success_N64": 0.07938368245139818,
+      "mean_kappa": 0.4891881204876133,
+      "area_real_utility": -3.8614524354165516,
+      "gain_N64_minus_N1": 0.5698188801200459
+    }
+  ],
+  "best_nonoracle_scorer": {
+    "scorer": "predicted_utility",
+    "real_utility_N1": -4.285536062756339,
+    "real_utility_N64": 0.036189049763804174,
+    "success_N64": 0.10453512853523927,
+    "mean_kappa": 0.899084835900184,
+    "area_real_utility": 0.10359522003877324,
+    "gain_N64_minus_N1": 4.321725112520143
+  },
+  "oracle_minus_random_N64": 6.976857029097962,
+  "best_nonoracle_minus_random_N64": 3.7519062324000982,
+  "confidence_intervals": {
+    "oracle_minus_random_N64": {
+      "n": 1,
+      "mean": 6.976857029097962,
+      "std": 0.0,
+      "stderr": 0.0,
+      "ci95": 0.0,
+      "lo": 6.976857029097962,
+      "hi": 6.976857029097962
+    },
+    "best_nonoracle_minus_random_N64": {
+      "n": 1,
+      "mean": 3.7519062324000982,
+      "std": 0.0,
+      "stderr": 0.0,
+      "ci95": 0.0,
+      "lo": 3.7519062324000982,
+      "hi": 3.7519062324000982
+    },
+    "best_nonoracle_normalized_real_utility_N64": {
+      "n": 1,
+      "mean": 0.8217616099373489,
+      "std": 0.0,
+      "stderr": 0.0,
+      "ci95": 0.0,
+      "lo": 0.8217616099373489,
+      "hi": 0.8217616099373489
+    }
+  },
+  "artifacts": {
+    "table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp4_score_function_comparison.csv",
+    "aggregate": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp4_score_function_comparison_aggregate.csv",
+    "ranking": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp4_scorer_ranking.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\exp4_score_function_curves.png"
+  }
+}

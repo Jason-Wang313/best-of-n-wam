@@ -1,0 +1,135 @@
+{
+  "experiment": "score_function_comparison",
+  "dynamics_backend": "learned",
+  "states": 5,
+  "rollouts_per_state": 48,
+  "mismatch": "mild",
+  "seeds": [
+    701,
+    702,
+    703,
+    704,
+    705
+  ],
+  "num_seeds": 5,
+  "scorers": [
+    "predicted_goal_distance",
+    "predicted_utility",
+    "predicted_success",
+    "uncertainty_penalized",
+    "safety_penalized",
+    "random_score",
+    "oracle_real_utility"
+  ],
+  "ranking": [
+    {
+      "scorer": "oracle_real_utility",
+      "real_utility_N1": -4.225435887706173,
+      "real_utility_N64": 3.0281607322296353,
+      "success_N64": 0.8599886678345636,
+      "mean_kappa": 1.0,
+      "area_real_utility": 2.149779034157744,
+      "gain_N64_minus_N1": 7.2535966199358075
+    },
+    {
+      "scorer": "predicted_goal_distance",
+      "real_utility_N1": -4.225435887706173,
+      "real_utility_N64": 2.2601300394776875,
+      "success_N64": 0.6514744207686763,
+      "mean_kappa": 0.9806675613911648,
+      "area_real_utility": 1.6533459627555063,
+      "gain_N64_minus_N1": 6.48556592718386
+    },
+    {
+      "scorer": "predicted_success",
+      "real_utility_N1": -4.225435887706173,
+      "real_utility_N64": 2.2555689693670895,
+      "success_N64": 0.6499828832853336,
+      "mean_kappa": 0.9803455001995384,
+      "area_real_utility": 1.647991404682506,
+      "gain_N64_minus_N1": 6.481004857073263
+    },
+    {
+      "scorer": "uncertainty_penalized",
+      "real_utility_N1": -4.225435887706172,
+      "real_utility_N64": 1.3509642888975915,
+      "success_N64": 0.4103493850503666,
+      "mean_kappa": 0.939195686151768,
+      "area_real_utility": 1.0292687924802424,
+      "gain_N64_minus_N1": 5.576400176603763
+    },
+    {
+      "scorer": "predicted_utility",
+      "real_utility_N1": -4.225435887706173,
+      "real_utility_N64": 1.2366838098231374,
+      "success_N64": 0.3780354901852024,
+      "mean_kappa": 0.9426177983819164,
+      "area_real_utility": 0.9933762503452926,
+      "gain_N64_minus_N1": 5.46211969752931
+    },
+    {
+      "scorer": "safety_penalized",
+      "real_utility_N1": -4.225435887706173,
+      "real_utility_N64": 1.1646323611288198,
+      "success_N64": 0.35433926467618276,
+      "mean_kappa": 0.9424472293884418,
+      "area_real_utility": 0.9574662361083498,
+      "gain_N64_minus_N1": 5.390068248834993
+    },
+    {
+      "scorer": "random_score",
+      "real_utility_N1": -4.225435887706172,
+      "real_utility_N64": -3.71825145854511,
+      "success_N64": 0.11743162261164679,
+      "mean_kappa": 0.4672683862172447,
+      "area_real_utility": -3.8949653026152067,
+      "gain_N64_minus_N1": 0.5071844291610619
+    }
+  ],
+  "best_nonoracle_scorer": {
+    "scorer": "predicted_goal_distance",
+    "real_utility_N1": -4.225435887706173,
+    "real_utility_N64": 2.2601300394776875,
+    "success_N64": 0.6514744207686763,
+    "mean_kappa": 0.9806675613911648,
+    "area_real_utility": 1.6533459627555063,
+    "gain_N64_minus_N1": 6.48556592718386
+  },
+  "oracle_minus_random_N64": 6.746412190774745,
+  "best_nonoracle_minus_random_N64": 5.978381498022797,
+  "confidence_intervals": {
+    "oracle_minus_random_N64": {
+      "n": 5,
+      "mean": 6.746412190774746,
+      "std": 1.382069547207074,
+      "stderr": 0.6180802914374744,
+      "ci95": 1.21143737121745,
+      "lo": 5.534974819557296,
+      "hi": 7.957849561992195
+    },
+    "best_nonoracle_minus_random_N64": {
+      "n": 5,
+      "mean": 5.97838149808149,
+      "std": 1.2959235541324863,
+      "stderr": 0.5795546321366736,
+      "ci95": 1.1359270789878801,
+      "lo": 4.8424544190936105,
+      "hi": 7.11430857706937
+    },
+    "best_nonoracle_normalized_real_utility_N64": {
+      "n": 5,
+      "mean": 0.9460025065089394,
+      "std": 0.009387807000294922,
+      "stderr": 0.004198354922461567,
+      "ci95": 0.008228775648024671,
+      "lo": 0.9377737308609146,
+      "hi": 0.9542312821569641
+    }
+  },
+  "artifacts": {
+    "table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp4_score_function_comparison_learned.csv",
+    "aggregate": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp4_score_function_comparison_aggregate_learned.csv",
+    "ranking": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp4_scorer_ranking_learned.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\exp4_score_function_curves_learned.png"
+  }
+}

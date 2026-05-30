@@ -1,0 +1,5 @@
+{
+  "benchmark": "Reacher-v5",
+  "utility_mae": 0.018753143169510465,
+  "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_gym_manip_exact_law.csv"
+}

@@ -1,0 +1,261 @@
+{
+  "claims": [
+    {
+      "id": 1,
+      "claim": "Exact finite binary law verified.",
+      "status": "VERIFIED",
+      "evidence": "success MAE=0.006959852139023545"
+    },
+    {
+      "id": 2,
+      "claim": "Utility-valued finite law verified.",
+      "status": "VERIFIED",
+      "evidence": "utility MAE=0.0451116620102325"
+    },
+    {
+      "id": 3,
+      "claim": "N=2 AUC identity verified.",
+      "status": "VERIFIED",
+      "evidence": "max identity error=0.0"
+    },
+    {
+      "id": 4,
+      "claim": "High-N moment hierarchy verified.",
+      "status": "VERIFIED",
+      "evidence": "same-p/kappa gap=0.9988209815422198"
+    },
+    {
+      "id": 5,
+      "claim": "Pilot-to-heldout improves with K.",
+      "status": "VERIFIED",
+      "evidence": "relative MAE reduction=0.43698115249631736"
+    },
+    {
+      "id": 6,
+      "claim": "Pilot uncertainty is reported.",
+      "status": "VERIFIED",
+      "evidence": "pilot improvement CI={'n': 16, 'mean': 0.44172358371190434, 'std': 0.6445133007518349, 'stderr': 0.16112832518795872, 'ci95': 0.3158115173683991, 'lo': 0.12591206634350527, 'hi': 0.7575351010803034}"
+    },
+    {
+      "id": 7,
+      "claim": "Score function controls inference value.",
+      "status": "VERIFIED",
+      "evidence": "oracle-random N64=6.976857029097962"
+    },
+    {
+      "id": 8,
+      "claim": "Best non-oracle beats random with CI.",
+      "status": "VERIFIED",
+      "evidence": "learned CI={'n': 5, 'mean': 5.97838149808149, 'std': 1.2959235541324863, 'stderr': 0.5795546321366736, 'ci95': 1.1359270789878801, 'lo': 4.8424544190936105, 'hi': 7.11430857706937}"
+    },
+    {
+      "id": 9,
+      "claim": "Oracle remains above learned/non-oracle.",
+      "status": "VERIFIED",
+      "evidence": "oracle-learned CI={'n': 5, 'mean': 1.9951266518211337, 'std': 0.18826614525085428, 'stderr': 0.08419517972855187, 'ci95': 0.16502255226796164, 'lo': 1.830104099553172, 'hi': 2.1601492040890955}"
+    },
+    {
+      "id": 10,
+      "claim": "Real-vs-imagined utility gap verified.",
+      "status": "VERIFIED",
+      "evidence": "severe-none=16.435472824968038"
+    },
+    {
+      "id": 11,
+      "claim": "Mismatch gap grows with N.",
+      "status": "VERIFIED",
+      "evidence": "learned severe gap CI={'n': 5, 'mean': 13.8807751738171, 'std': 0.7005630946072382, 'stderr': 0.3133013404138802, 'ci95': 0.6140706272112052, 'lo': 13.266704546605894, 'hi': 14.494845801028305}"
+    },
+    {
+      "id": 12,
+      "claim": "Bad scorer falsification verified.",
+      "status": "VERIFIED",
+      "evidence": "anti N64=-26.565706083129044, N1=-14.101561337022474"
+    },
+    {
+      "id": 13,
+      "claim": "Randomized dynamics falsification verified.",
+      "status": "VERIFIED",
+      "evidence": "randomized-oracle N64 gap=13.393867700179667"
+    },
+    {
+      "id": 14,
+      "claim": "Moment/adaptive allocation beats uniform with CI.",
+      "status": "VERIFIED",
+      "evidence": "moment-uniform CI={'n': 5, 'mean': 0.30066408929367955, 'std': 0.028847241897066837, 'stderr': 0.012900878769044288, 'ci95': 0.025285722387326803, 'lo': 0.27537836690635276, 'hi': 0.32594981168100634}"
+    },
+    {
+      "id": 15,
+      "claim": "Adaptive allocation reduces oracle regret.",
+      "status": "VERIFIED",
+      "evidence": "oracle-uniform=0.3055113080821638"
+    },
+    {
+      "id": 16,
+      "claim": "Closed-loop high-N gain verified.",
+      "status": "VERIFIED",
+      "evidence": "analytic useful N64-N1=0.5; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}"
+    },
+    {
+      "id": 17,
+      "claim": "Useful scorer beats random in closed loop.",
+      "status": "VERIFIED",
+      "evidence": "learned useful-random CI={'n': 5, 'mean': 0.3166666666666667, 'std': 0.06972166887783962, 'stderr': 0.031180478223116172, 'ci95': 0.061113737317307695, 'lo': 0.255552929349359, 'hi': 0.3777804039839744}"
+    },
+    {
+      "id": 18,
+      "claim": "Oracle first-action remains upper bound.",
+      "status": "VERIFIED",
+      "evidence": "oracle-useful CI={'n': 5, 'mean': 0.16666666666666666, 'std': 0.11785113019775793, 'stderr': 0.052704627669472995, 'ci95': 0.10330107023216707, 'lo': 0.06336559643449959, 'hi': 0.26996773689883374}"
+    },
+    {
+      "id": 19,
+      "claim": "Conditional law verified under distribution shift.",
+      "status": "VERIFIED",
+      "evidence": "MAE=0.006278872119413491"
+    },
+    {
+      "id": 20,
+      "claim": "Stale estimates fail/degrade under shift.",
+      "status": "VERIFIED",
+      "evidence": "stale post-pre CI={'n': 48, 'mean': 0.06053148468706062, 'std': 0.1237430819653073, 'stderr': 0.017860775420756023, 'ci95': 0.035007119824681805, 'lo': 0.025524364862378815, 'hi': 0.09553860451174243}"
+    },
+    {
+      "id": 21,
+      "claim": "Adaptive re-estimation helps under shift.",
+      "status": "VERIFIED",
+      "evidence": "stale-adaptive post CI={'n': 48, 'mean': 0.10238434930665018, 'std': 0.14521811815578564, 'stderr': 0.020960429902113432, 'ci95': 0.041082442608142325, 'lo': 0.06130190669850785, 'hi': 0.1434667919147925}"
+    },
+    {
+      "id": 22,
+      "claim": "Learned WAM trained.",
+      "status": "VERIFIED",
+      "evidence": "model=results\\models\\learned_wam_lite_toy.npz"
+    },
+    {
+      "id": 23,
+      "claim": "Learned WAM ID error reported.",
+      "status": "VERIFIED",
+      "evidence": "validation={'split': 'validation', 'mismatch': 'mild', 'n_samples': 768, 'final_delta_mae': 0.0736601208533958, 'final_position_l2_mae': 0.11172250197070284, 'utility_mae': 0.8623689603284173, 'utility_rmse': 1.1687153364750877, 'utility_corr': 0.8944539743322287}"
+    },
+    {
+      "id": 24,
+      "claim": "Learned WAM OOD error reported.",
+      "status": "VERIFIED",
+      "evidence": "ood count=3"
+    },
+    {
+      "id": 25,
+      "claim": "Learned WAM reproduces key inference-value claims.",
+      "status": "VERIFIED",
+      "evidence": "learned-analytic CI={'n': 5, 'mean': 1.169836264042242, 'std': 0.24964325385176853, 'stderr': 0.11164385714735812, 'ci95': 0.21882196000882193, 'lo': 0.95101430403342, 'hi': 1.3886582240510639}"
+    },
+    {
+      "id": 26,
+      "claim": "BlockPush verified.",
+      "status": "VERIFIED",
+      "evidence": "multi-env or canonical artifacts"
+    },
+    {
+      "id": 27,
+      "claim": "DrawerPull verified.",
+      "status": "VERIFIED",
+      "evidence": "multi-env artifact"
+    },
+    {
+      "id": 28,
+      "claim": "SlipperyGrasp verified.",
+      "status": "VERIFIED",
+      "evidence": "multi-env artifact"
+    },
+    {
+      "id": 29,
+      "claim": "Nonstationary verified.",
+      "status": "VERIFIED",
+      "evidence": "multi-env/canonical artifact"
+    },
+    {
+      "id": 30,
+      "claim": "Deformable optional.",
+      "status": "VERIFIED",
+      "evidence": "multi-env deformable artifact"
+    },
+    {
+      "id": 31,
+      "claim": "Benchmark adapter available.",
+      "status": "VERIFIED",
+      "evidence": "attempted=True, any_available=True"
+    },
+    {
+      "id": 32,
+      "claim": "Benchmark rollout pools collected.",
+      "status": "VERIFIED",
+      "evidence": "pools=25"
+    },
+    {
+      "id": 33,
+      "claim": "Benchmark exact law verified.",
+      "status": "VERIFIED",
+      "evidence": "utility MAE=0.018753143169510465"
+    },
+    {
+      "id": 34,
+      "claim": "Benchmark score comparison verified.",
+      "status": "VERIFIED",
+      "evidence": "oracle-random CI={'n': 5, 'mean': 1.7107893171571196, 'std': 0.3902710091578448, 'stderr': 0.17453450122487676, 'ci95': 0.34208762240075846, 'lo': 1.368701694756361, 'hi': 2.052876939557878}"
+    },
+    {
+      "id": 35,
+      "claim": "Benchmark real-vs-imagined gap verified.",
+      "status": "VERIFIED",
+      "evidence": "gap growth=0.14372151651340698"
+    },
+    {
+      "id": 36,
+      "claim": "Benchmark closed-loop verified.",
+      "status": "VERIFIED",
+      "evidence": "learned-random closed-loop CI={'n': 5, 'mean': 1.7643643582266495, 'std': 1.5449273707487574, 'stderr': 0.6909125242588483, 'ci95': 1.3541885475473427, 'lo': 0.41017581067930675, 'hi': 3.118552905773992}"
+    },
+    {
+      "id": 37,
+      "claim": "Benchmark learned WAM trained.",
+      "status": "VERIFIED",
+      "evidence": "model=C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz"
+    },
+    {
+      "id": 38,
+      "claim": "Visual toy WAM attempted.",
+      "status": "VERIFIED",
+      "evidence": "visual=True"
+    },
+    {
+      "id": 39,
+      "claim": "Visual toy WAM verified if artifacts exist.",
+      "status": "VERIFIED",
+      "evidence": "test MAE=0.018500254396187476"
+    },
+    {
+      "id": 40,
+      "claim": "Benchmark visual optional.",
+      "status": "VERIFIED",
+      "evidence": "verified=True"
+    },
+    {
+      "id": 41,
+      "claim": "README has no unsupported claims.",
+      "status": "VERIFIED",
+      "evidence": "README overclaims=0"
+    },
+    {
+      "id": 42,
+      "claim": "paper_outline has no unsupported claims.",
+      "status": "VERIFIED",
+      "evidence": "paper overclaims=0"
+    }
+  ],
+  "readme_overclaims": [],
+  "num_verified": 42,
+  "num_partial": 0,
+  "num_unsupported": 0,
+  "num_failed": 0
+}

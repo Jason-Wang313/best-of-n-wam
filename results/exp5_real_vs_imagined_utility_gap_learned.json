@@ -1,0 +1,93 @@
+{
+  "experiment": "real_vs_imagined_utility_gap",
+  "dynamics_backend": "learned",
+  "states": 5,
+  "rollouts_per_state": 48,
+  "scorer": "predicted_utility",
+  "seeds": [
+    701,
+    702,
+    703,
+    704,
+    705
+  ],
+  "num_seeds": 5,
+  "gap_summary": [
+    {
+      "mismatch": "mild",
+      "imagined_gain_N64_minus_N1": 4.6855044724071355,
+      "real_gain_N64_minus_N1": 5.323570540602294,
+      "gap_N1": 0.05302647079973953,
+      "gap_N64": -0.5850395973954187,
+      "gap_growth": -0.6380660681951582,
+      "normalized_gap_growth": 0.024415023232567543,
+      "real_utility_N64": 1.349974064888626,
+      "normalized_real_utility_N64": 0.9027904547692934,
+      "success_N64": 0.41001248349384595
+    },
+    {
+      "mismatch": "none",
+      "imagined_gain_N64_minus_N1": 5.110853563136352,
+      "real_gain_N64_minus_N1": 12.865528652645189,
+      "gap_N1": 8.181164377066509,
+      "gap_N64": 0.4264892875576722,
+      "gap_growth": -7.7546750895088365,
+      "normalized_gap_growth": 0.059958549200364045,
+      "real_utility_N64": 0.23653643927125156,
+      "normalized_real_utility_N64": 0.9440631242411576,
+      "success_N64": 0.15189450546084515
+    },
+    {
+      "mismatch": "severe",
+      "imagined_gain_N64_minus_N1": 4.8247660890075235,
+      "real_gain_N64_minus_N1": -1.3013339953007375,
+      "gap_N1": -4.808165053428416,
+      "gap_N64": 1.3179350308798456,
+      "gap_growth": 6.126100084308262,
+      "normalized_gap_growth": 0.513584445823217,
+      "real_utility_N64": -0.5511528449502329,
+      "normalized_real_utility_N64": 0.2762857721619208,
+      "success_N64": 0.030360285814629743
+    },
+    {
+      "mismatch": "stuck_slip",
+      "imagined_gain_N64_minus_N1": 5.020877753904896,
+      "real_gain_N64_minus_N1": -1.1363711657455502,
+      "gap_N1": -4.461646147444606,
+      "gap_N64": 1.6956027722058418,
+      "gap_growth": 6.157248919650447,
+      "normalized_gap_growth": 0.5824445390399348,
+      "real_utility_N64": -1.0450868696247022,
+      "normalized_real_utility_N64": 0.3640290165430944,
+      "success_N64": 2.331369987513983e-09
+    }
+  ],
+  "severe_gap_growth_minus_none": 13.8807751738171,
+  "stuck_slip_gap_growth_minus_none": 13.911924009159284,
+  "confidence_intervals": {
+    "severe_gap_growth_minus_none": {
+      "n": 5,
+      "mean": 13.8807751738171,
+      "std": 0.7005630946072382,
+      "stderr": 0.3133013404138802,
+      "ci95": 0.6140706272112052,
+      "lo": 13.266704546605894,
+      "hi": 14.494845801028305
+    },
+    "stuck_slip_gap_growth_minus_none": {
+      "n": 5,
+      "mean": 13.911924009159282,
+      "std": 0.8223426830981727,
+      "stderr": 0.3677628280414163,
+      "ci95": 0.720815142961176,
+      "lo": 13.191108866198107,
+      "hi": 14.632739152120458
+    }
+  },
+  "artifacts": {
+    "table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp5_real_vs_imagined_utility_gap_learned.csv",
+    "aggregate": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp5_real_vs_imagined_utility_gap_aggregate_learned.csv",
+    "gap_summary": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp5_gap_summary_learned.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\exp5_imagined_vs_real_gap_learned.png"
+  }
+}

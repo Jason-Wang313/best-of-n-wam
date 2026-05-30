@@ -1,0 +1,5 @@
+name,available,reason
+maniskill,False,ManiSkill import not found
+gym_manip,True,Reacher-v5 available
+libero,False,adapter skeleton only; dependency not installed/validated
+robocasa,False,adapter skeleton only; dependency not installed/validated

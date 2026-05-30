@@ -1,0 +1,11 @@
+{
+  "anti_scorer_mean_N64": -26.565706083129044,
+  "anti_scorer_mean_N1": -14.101561337022474,
+  "randomized_dynamics_mean_N64": -11.752179681428997,
+  "oracle_true_mean_N64": 1.6416880187506706,
+  "randomized_dynamics_oracle_gap_N64": 13.393867700179667,
+  "artifacts": {
+    "table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp10_falsification_bad_scorer.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\exp10_falsification_bad_scorer.png"
+  }
+}

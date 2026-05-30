@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export PYTHONPATH="${PYTHONPATH:-}:$(pwd)/src"
+
+if command -v python.exe >/dev/null 2>&1; then
+  PY=(python.exe)
+elif command -v python >/dev/null 2>&1 && python -m pytest --version >/dev/null 2>&1; then
+  PY=(python)
+elif command -v py >/dev/null 2>&1; then
+  PY=(py -3)
+elif command -v python3 >/dev/null 2>&1; then
+  PY=(python3)
+else
+  echo "No Python interpreter found on PATH" >&2
+  exit 127
+fi
+
+"${PY[@]}" -m pytest -q
+bash scripts/run_smoke.sh
+bash scripts/run_learned_wam_toy.sh
+bash scripts/run_multi_env.sh
+"${PY[@]}" experiments/nonstationary_dynamics_extension.py --episodes 48 --rollouts 160 --mc-trials 1000 --seed 41
+bash scripts/run_benchmark_full.sh
+bash scripts/run_visual_optional.sh
+"${PY[@]}" scripts/claims_status.py
+"${PY[@]}" scripts/write_maxout_reports.py

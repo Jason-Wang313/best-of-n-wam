@@ -1,0 +1,232 @@
+{
+  "experiment": "closed_loop_receding_horizon_eval",
+  "dynamics_backend": "learned",
+  "episodes_per_setting": 12,
+  "mismatch": "mild",
+  "seeds": [
+    701,
+    702,
+    703,
+    704,
+    705
+  ],
+  "num_seeds": 5,
+  "useful_scorer": "learned_horizon_goal_hybrid",
+  "useful_success_gain_N64_minus_N1": 0.21666666666666667,
+  "useful_utility_gain_N64_minus_N1": 0.8945959668350691,
+  "useful_minus_random_success_N64": 0.31666666666666665,
+  "oracle_first_action_minus_useful_success_N64": 0.16666666666666663,
+  "confidence_intervals": {
+    "useful_success_gain_N64_minus_N1": {
+      "n": 5,
+      "mean": 0.2166666666666667,
+      "std": 0.11180339887498948,
+      "stderr": 0.049999999999999996,
+      "ci95": 0.09799999999999999,
+      "lo": 0.11866666666666671,
+      "hi": 0.3146666666666667
+    },
+    "useful_utility_gain_N64_minus_N1": {
+      "n": 5,
+      "mean": 0.8945959668350693,
+      "std": 0.3142969212503062,
+      "stderr": 0.14055785620691658,
+      "ci95": 0.27549339816555646,
+      "lo": 0.6191025686695129,
+      "hi": 1.1700893650006257
+    },
+    "useful_minus_random_success_N64": {
+      "n": 5,
+      "mean": 0.3166666666666667,
+      "std": 0.06972166887783962,
+      "stderr": 0.031180478223116172,
+      "ci95": 0.061113737317307695,
+      "lo": 0.255552929349359,
+      "hi": 0.3777804039839744
+    },
+    "oracle_first_action_minus_useful_success_N64": {
+      "n": 5,
+      "mean": 0.16666666666666666,
+      "std": 0.11785113019775793,
+      "stderr": 0.052704627669472995,
+      "ci95": 0.10330107023216707,
+      "lo": 0.06336559643449959,
+      "hi": 0.26996773689883374
+    }
+  },
+  "aggregate": [
+    {
+      "scorer": "learned_horizon_goal_hybrid",
+      "N": 1,
+      "success": 0.6166666666666667,
+      "utility": 2.0343793870517444,
+      "final_distance": 0.39383030952372766,
+      "compute_rollouts": 4.333333333333333
+    },
+    {
+      "scorer": "learned_horizon_goal_hybrid",
+      "N": 2,
+      "success": 0.8166666666666667,
+      "utility": 2.8458568531657122,
+      "final_distance": 0.20207766527902746,
+      "compute_rollouts": 8.133333333333333
+    },
+    {
+      "scorer": "learned_horizon_goal_hybrid",
+      "N": 4,
+      "success": 0.9,
+      "utility": 3.0965502160295717,
+      "final_distance": 0.17188504906119959,
+      "compute_rollouts": 16.066666666666666
+    },
+    {
+      "scorer": "learned_horizon_goal_hybrid",
+      "N": 8,
+      "success": 0.9333333333333333,
+      "utility": 3.2307958147073674,
+      "final_distance": 0.14229355867441734,
+      "compute_rollouts": 31.066666666666666
+    },
+    {
+      "scorer": "learned_horizon_goal_hybrid",
+      "N": 16,
+      "success": 0.8833333333333333,
+      "utility": 3.081312602147081,
+      "final_distance": 0.15470532898222636,
+      "compute_rollouts": 62.93333333333333
+    },
+    {
+      "scorer": "learned_horizon_goal_hybrid",
+      "N": 32,
+      "success": 0.9166666666666666,
+      "utility": 3.176998160914927,
+      "final_distance": 0.1462752857829669,
+      "compute_rollouts": 122.13333333333334
+    },
+    {
+      "scorer": "learned_horizon_goal_hybrid",
+      "N": 64,
+      "success": 0.8333333333333334,
+      "utility": 2.9289753538868135,
+      "final_distance": 0.16851149520191835,
+      "compute_rollouts": 249.6
+    },
+    {
+      "scorer": "oracle_first_action",
+      "N": 1,
+      "success": 0.6166666666666667,
+      "utility": 2.0343793870517444,
+      "final_distance": 0.39383030952372766,
+      "compute_rollouts": 4.333333333333333
+    },
+    {
+      "scorer": "oracle_first_action",
+      "N": 2,
+      "success": 0.8666666666666667,
+      "utility": 3.0362687240195014,
+      "final_distance": 0.15742456397333307,
+      "compute_rollouts": 7.7
+    },
+    {
+      "scorer": "oracle_first_action",
+      "N": 4,
+      "success": 0.9833333333333333,
+      "utility": 3.3906134803410475,
+      "final_distance": 0.11340363668380211,
+      "compute_rollouts": 14.266666666666667
+    },
+    {
+      "scorer": "oracle_first_action",
+      "N": 8,
+      "success": 1.0,
+      "utility": 3.4735015892049774,
+      "final_distance": 0.08343875385669057,
+      "compute_rollouts": 26.666666666666668
+    },
+    {
+      "scorer": "oracle_first_action",
+      "N": 16,
+      "success": 1.0,
+      "utility": 3.4730208913212803,
+      "final_distance": 0.08006338218265939,
+      "compute_rollouts": 50.666666666666664
+    },
+    {
+      "scorer": "oracle_first_action",
+      "N": 32,
+      "success": 1.0,
+      "utility": 3.5002944664441547,
+      "final_distance": 0.06132242899874099,
+      "compute_rollouts": 100.26666666666667
+    },
+    {
+      "scorer": "oracle_first_action",
+      "N": 64,
+      "success": 1.0,
+      "utility": 3.5059619015375785,
+      "final_distance": 0.056400599718282006,
+      "compute_rollouts": 198.4
+    },
+    {
+      "scorer": "random_score",
+      "N": 1,
+      "success": 0.6166666666666667,
+      "utility": 2.0343793870517444,
+      "final_distance": 0.39383030952372766,
+      "compute_rollouts": 4.333333333333333
+    },
+    {
+      "scorer": "random_score",
+      "N": 2,
+      "success": 0.5833333333333334,
+      "utility": 1.919230272319589,
+      "final_distance": 0.4118165436692505,
+      "compute_rollouts": 8.766666666666667
+    },
+    {
+      "scorer": "random_score",
+      "N": 4,
+      "success": 0.5833333333333334,
+      "utility": 1.9597928617864162,
+      "final_distance": 0.3861706982272149,
+      "compute_rollouts": 17.333333333333332
+    },
+    {
+      "scorer": "random_score",
+      "N": 8,
+      "success": 0.6333333333333333,
+      "utility": 2.088605447658523,
+      "final_distance": 0.38505155491796195,
+      "compute_rollouts": 33.733333333333334
+    },
+    {
+      "scorer": "random_score",
+      "N": 16,
+      "success": 0.5333333333333333,
+      "utility": 1.795223129052776,
+      "final_distance": 0.40964124991976075,
+      "compute_rollouts": 68.53333333333333
+    },
+    {
+      "scorer": "random_score",
+      "N": 32,
+      "success": 0.5833333333333334,
+      "utility": 1.8950454411841153,
+      "final_distance": 0.42461639024027453,
+      "compute_rollouts": 138.66666666666666
+    },
+    {
+      "scorer": "random_score",
+      "N": 64,
+      "success": 0.5166666666666667,
+      "utility": 1.6800855153980812,
+      "final_distance": 0.45408571568101086,
+      "compute_rollouts": 280.53333333333336
+    }
+  ],
+  "artifacts": {
+    "table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp7_closed_loop_receding_horizon_eval_learned.csv",
+    "aggregate": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp7_closed_loop_receding_horizon_aggregate_learned.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\exp7_closed_loop_success_learned.png"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "experiment": "exact_rollout_law_validation",
+  "dynamics_backend": "analytic",
+  "mismatch": "mild",
+  "scorer": "predicted_utility",
+  "states": 8,
+  "rollouts_per_state": 64,
+  "mc_trials": 1500,
+  "seeds": [
+    101
+  ],
+  "num_seeds": 1,
+  "mean_success_mc_mae": 0.006959852139023545,
+  "max_success_mc_error": 0.028998090313793634,
+  "mean_utility_mc_mae": 0.0451116620102325,
+  "max_utility_mc_error": 0.3520210186512154,
+  "mean_tie_rate": 0.0,
+  "confidence_intervals": {
+    "mean_success_mc_mae": {
+      "n": 1,
+      "mean": 0.006959852139023545,
+      "std": 0.0,
+      "stderr": 0.0,
+      "ci95": 0.0,
+      "lo": 0.006959852139023545,
+      "hi": 0.006959852139023545
+    },
+    "mean_utility_mc_mae": {
+      "n": 1,
+      "mean": 0.04511166201023251,
+      "std": 0.0,
+      "stderr": 0.0,
+      "ci95": 0.0,
+      "lo": 0.04511166201023251,
+      "hi": 0.04511166201023251
+    }
+  },
+  "by_n": [
+    {
+      "N": 1,
+      "success_mae": 0.0038802083333333336,
+      "utility_mae": 0.08782732608858773,
+      "exact_success": 0.048828125,
+      "mc_success": 0.048666666666666664,
+      "exact_utility": -3.899685886717005,
+      "mc_utility": -3.8938052114580595
+    },
+    {
+      "N": 2,
+      "success_mae": 0.006863688151041666,
+      "utility_mae": 0.04003518467664455,
+      "exact_success": 0.088409423828125,
+      "mc_success": 0.08833333333333333,
+      "exact_utility": -1.405797704178012,
+      "mc_utility": -1.4173497222147196
+    },
+    {
+      "N": 4,
+      "success_mae": 0.008764977276325225,
+      "utility_mae": 0.04501202036945867,
+      "exact_success": 0.14557255059480667,
+      "mc_success": 0.14275,
+      "exact_utility": -0.13931934517827815,
+      "mc_utility": -0.16227725714042482
+    },
+    {
+      "N": 8,
+      "success_mae": 0.007840063510893766,
+      "utility_mae": 0.05732544746266986,
+      "exact_success": 0.2008533737656113,
+      "mc_success": 0.201,
+      "exact_utility": 0.4157231576418755,
+      "mc_utility": 0.36622363221039056
+    },
+    {
+      "N": 16,
+      "success_mae": 0.012847620941246026,
+      "utility_mae": 0.038347177049067475,
+      "exact_success": 0.20437922160134944,
+      "mc_success": 0.20475,
+      "exact_utility": 0.5503968852907242,
+      "mc_utility": 0.5516420649381328
+    },
+    {
+      "N": 32,
+      "success_mae": 0.005683895296781671,
+      "utility_mae": 0.03082579387325172,
+      "exact_success": 0.1323708508146221,
+      "mc_success": 0.12783333333333333,
+      "exact_utility": 0.33270778299917086,
+      "mc_utility": 0.3474744161003203
+    },
+    {
+      "N": 64,
+      "success_mae": 0.002838511463543127,
+      "utility_mae": 0.016408684551947536,
+      "exact_success": 0.04770093452383442,
+      "mc_success": 0.04816666666666666,
+      "exact_utility": 0.022649913362775297,
+      "mc_utility": 0.02390844950313587
+    }
+  ],
+  "artifacts": {
+    "table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp1_exact_rollout_law_validation.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\exp1_exact_vs_mc_success.png"
+  }
+}

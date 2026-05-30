@@ -1,0 +1,120 @@
+{
+  "experiment": "adaptive_rollout_allocation",
+  "dynamics_backend": "learned",
+  "states": 6,
+  "rollouts_per_state": 96,
+  "pilot_k": 24,
+  "mismatch": "severe",
+  "scorer": "predicted_utility",
+  "mean_budgets": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "seeds": [
+    701,
+    702,
+    703,
+    704,
+    705
+  ],
+  "num_seeds": 5,
+  "reference_budget": 32,
+  "ranking_at_reference_budget": [
+    {
+      "policy": "oracle",
+      "seed": 703.0,
+      "seed_id": 2.0,
+      "mean_budget": 32.0,
+      "success": 0.31837134223609825,
+      "mean_allocated_samples": 1.9,
+      "allocation_std": 1.2655890329894872,
+      "pilot_k": 24.0,
+      "num_states": 6.0
+    },
+    {
+      "policy": "uncertainty",
+      "seed": 703.0,
+      "seed_id": 2.0,
+      "mean_budget": 32.0,
+      "success": 0.31513873357278543,
+      "mean_allocated_samples": 1.9,
+      "allocation_std": 1.2479537977522006,
+      "pilot_k": 24.0,
+      "num_states": 6.0
+    },
+    {
+      "policy": "auc_kappa",
+      "seed": 703.0,
+      "seed_id": 2.0,
+      "mean_budget": 32.0,
+      "success": 0.31493542337689195,
+      "mean_allocated_samples": 1.7666666666666668,
+      "allocation_std": 0.991404880539416,
+      "pilot_k": 24.0,
+      "num_states": 6.0
+    },
+    {
+      "policy": "moment_law",
+      "seed": 703.0,
+      "seed_id": 2.0,
+      "mean_budget": 32.0,
+      "success": 0.313524123447614,
+      "mean_allocated_samples": 1.9333333333333331,
+      "allocation_std": 1.2881261805841355,
+      "pilot_k": 24.0,
+      "num_states": 6.0
+    },
+    {
+      "policy": "coverage_p_only",
+      "seed": 703.0,
+      "seed_id": 2.0,
+      "mean_budget": 32.0,
+      "success": 0.0128600342653734,
+      "mean_allocated_samples": 30.933333333333337,
+      "allocation_std": 2.296857756926962,
+      "pilot_k": 24.0,
+      "num_states": 6.0
+    },
+    {
+      "policy": "uniform",
+      "seed": 703.0,
+      "seed_id": 2.0,
+      "mean_budget": 32.0,
+      "success": 0.012860034153934422,
+      "mean_allocated_samples": 32.0,
+      "allocation_std": 0.0,
+      "pilot_k": 24.0,
+      "num_states": 6.0
+    }
+  ],
+  "moment_law_improvement_over_uniform": 0.30066408929367955,
+  "oracle_improvement_over_uniform": 0.3055113080821638,
+  "confidence_intervals": {
+    "moment_law_improvement_over_uniform": {
+      "n": 5,
+      "mean": 0.30066408929367955,
+      "std": 0.028847241897066837,
+      "stderr": 0.012900878769044288,
+      "ci95": 0.025285722387326803,
+      "lo": 0.27537836690635276,
+      "hi": 0.32594981168100634
+    },
+    "oracle_improvement_over_uniform": {
+      "n": 5,
+      "mean": 0.30551130808216387,
+      "std": 0.033303340743805754,
+      "stderr": 0.014893706756197615,
+      "ci95": 0.029191665242147325,
+      "lo": 0.27631964284001653,
+      "hi": 0.3347029733243112
+    }
+  },
+  "artifacts": {
+    "table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp6_adaptive_rollout_allocation_learned.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\exp6_adaptive_allocation_learned.png"
+  }
+}

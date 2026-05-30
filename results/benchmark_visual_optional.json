@@ -1,0 +1,13 @@
+{
+  "experiment": "benchmark_visual_optional",
+  "attempted": true,
+  "verified": true,
+  "benchmark": "Reacher-v5",
+  "frame_shape": [
+    480,
+    480,
+    3
+  ],
+  "frame_std": 24.34952509299029,
+  "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\benchmark_visual_reacher_frame.png"
+}

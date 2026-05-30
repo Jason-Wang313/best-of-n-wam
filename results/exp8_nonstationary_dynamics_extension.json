@@ -1,0 +1,67 @@
+{
+  "experiment": "nonstationary_dynamics_extension",
+  "episodes": 48,
+  "rollouts_per_state": 160,
+  "pilot_k": 48,
+  "mean_abs_error_N16": 0.006278872119413491,
+  "pre_to_post_mean_p_shift": 0.15978009259259257,
+  "stale_post_minus_pre_abs_error_N16": 0.06053148468706062,
+  "stale_minus_adaptive_post_abs_error_N16": 0.10238434930665018,
+  "confidence_intervals": {
+    "stale_post_minus_pre_abs_error_N16": {
+      "n": 48,
+      "mean": 0.06053148468706062,
+      "std": 0.1237430819653073,
+      "stderr": 0.017860775420756023,
+      "ci95": 0.035007119824681805,
+      "lo": 0.025524364862378815,
+      "hi": 0.09553860451174243
+    },
+    "stale_minus_adaptive_post_abs_error_N16": {
+      "n": 48,
+      "mean": 0.10238434930665018,
+      "std": 0.14521811815578564,
+      "stderr": 0.020960429902113432,
+      "ci95": 0.041082442608142325,
+      "lo": 0.06130190669850785,
+      "hi": 0.1434667919147925
+    }
+  },
+  "phase_summary": [
+    {
+      "phase": "post_shift",
+      "p": 0.27271412037037035,
+      "exact_success_N16": 0.16551578501630823,
+      "mc_success_N16": 0.16524305555555557,
+      "abs_error_N16": 0.0058551011941979664
+    },
+    {
+      "phase": "pre_shift",
+      "p": 0.11293402777777778,
+      "exact_success_N16": 0.12518019600627325,
+      "mc_success_N16": 0.12540277777777778,
+      "abs_error_N16": 0.006702643044629016
+    }
+  ],
+  "stale_vs_adaptive_phase_summary": [
+    {
+      "phase": "post_shift",
+      "stale_abs_error_N16": 0.17898730452333828,
+      "adaptive_abs_error_N16": 0.0766029552166881,
+      "stale_minus_adaptive_abs_error_N16": 0.10238434930665016
+    },
+    {
+      "phase": "pre_shift",
+      "stale_abs_error_N16": 0.11845581983627766,
+      "adaptive_abs_error_N16": 0.08998349447503493,
+      "stale_minus_adaptive_abs_error_N16": 0.02847232536124273
+    }
+  ],
+  "artifacts": {
+    "table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp8_nonstationary_conditional_law.csv",
+    "phase_summary": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp8_nonstationary_phase_summary.csv",
+    "stale_vs_adaptive": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp8_nonstationary_stale_vs_adaptive.csv",
+    "stale_vs_adaptive_phase_summary": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp8_nonstationary_stale_vs_adaptive_phase_summary.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\exp8_nonstationary_shift.png"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "benchmark": "Reacher-v5",
+  "n_rollout_pools": 25,
+  "n_rollouts": 64
+}

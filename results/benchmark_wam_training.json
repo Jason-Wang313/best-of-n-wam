@@ -1,0 +1,20 @@
+{
+  "benchmark": "Reacher-v5",
+  "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz",
+  "model_metrics": [
+    {
+      "split": "train",
+      "n_samples": 1152,
+      "state_delta_mae": 0.03302589021050047,
+      "utility_mae": 0.31716007367161314,
+      "utility_corr": 0.30013309963915574
+    },
+    {
+      "split": "validation",
+      "n_samples": 256,
+      "state_delta_mae": 0.1882917912341998,
+      "utility_mae": 0.6074046559672108,
+      "utility_corr": 0.047033720027014614
+    }
+  ]
+}

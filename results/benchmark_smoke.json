@@ -1,0 +1,28 @@
+{
+  "experiment": "benchmark_smoke",
+  "attempted": true,
+  "any_available": true,
+  "statuses": [
+    {
+      "name": "maniskill",
+      "available": false,
+      "reason": "ManiSkill import not found"
+    },
+    {
+      "name": "gym_manip",
+      "available": true,
+      "reason": "Reacher-v5 available"
+    },
+    {
+      "name": "libero",
+      "available": false,
+      "reason": "adapter skeleton only; dependency not installed/validated"
+    },
+    {
+      "name": "robocasa",
+      "available": false,
+      "reason": "adapter skeleton only; dependency not installed/validated"
+    }
+  ],
+  "verified_benchmark_claims": []
+}

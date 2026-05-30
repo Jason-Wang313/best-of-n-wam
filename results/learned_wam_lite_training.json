@@ -1,0 +1,154 @@
+{
+  "model": "learned_wam_lite_ridge",
+  "model_path": "results\\models\\learned_wam_lite_toy.npz",
+  "id_mismatch": "mild",
+  "seed": 601,
+  "ridge": 0.0001,
+  "max_horizon": 12,
+  "datasets": [
+    {
+      "split": "train",
+      "mismatch": "mild",
+      "n_samples": 2048,
+      "feature_dim": 97,
+      "target_dim": 3,
+      "min_horizon": 1,
+      "max_horizon": 12,
+      "mean_utility": -1.078431941773856,
+      "std_utility": 2.8940942232754128
+    },
+    {
+      "split": "validation",
+      "mismatch": "mild",
+      "n_samples": 768,
+      "feature_dim": 97,
+      "target_dim": 3,
+      "min_horizon": 1,
+      "max_horizon": 12,
+      "mean_utility": -0.7662210879410298,
+      "std_utility": 2.610794039250695
+    },
+    {
+      "split": "ood",
+      "mismatch": "severe",
+      "n_samples": 192,
+      "feature_dim": 97,
+      "target_dim": 3,
+      "min_horizon": 1,
+      "max_horizon": 12,
+      "mean_utility": -0.19801324613966462,
+      "std_utility": 1.559494518536198
+    },
+    {
+      "split": "ood",
+      "mismatch": "stuck_slip",
+      "n_samples": 192,
+      "feature_dim": 97,
+      "target_dim": 3,
+      "min_horizon": 1,
+      "max_horizon": 12,
+      "mean_utility": -0.7331695997923194,
+      "std_utility": 1.0746493315486059
+    },
+    {
+      "split": "ood",
+      "mismatch": "nonstationary",
+      "n_samples": 192,
+      "feature_dim": 97,
+      "target_dim": 3,
+      "min_horizon": 1,
+      "max_horizon": 12,
+      "mean_utility": -1.0378728582472863,
+      "std_utility": 3.0075953965472806
+    }
+  ],
+  "dataset_artifacts": {
+    "train": "C:\\Users\\wangz\\best-of-n-wam\\results\\datasets\\learned_wam_lite_train.npz",
+    "validation": "C:\\Users\\wangz\\best-of-n-wam\\results\\datasets\\learned_wam_lite_validation.npz",
+    "ood_severe": "C:\\Users\\wangz\\best-of-n-wam\\results\\datasets\\learned_wam_lite_ood_severe.npz",
+    "ood_stuck_slip": "C:\\Users\\wangz\\best-of-n-wam\\results\\datasets\\learned_wam_lite_ood_stuck_slip.npz",
+    "ood_nonstationary": "C:\\Users\\wangz\\best-of-n-wam\\results\\datasets\\learned_wam_lite_ood_nonstationary.npz"
+  },
+  "metrics": {
+    "train": {
+      "split": "train",
+      "mismatch": "mild",
+      "n_samples": 2048,
+      "final_delta_mae": 0.05910996750958297,
+      "final_position_l2_mae": 0.09381948973794588,
+      "utility_mae": 0.7534352954906578,
+      "utility_rmse": 1.055641835617476,
+      "utility_corr": 0.9311026539694442
+    },
+    "validation": {
+      "split": "validation",
+      "mismatch": "mild",
+      "n_samples": 768,
+      "final_delta_mae": 0.0736601208533958,
+      "final_position_l2_mae": 0.11172250197070284,
+      "utility_mae": 0.8623689603284173,
+      "utility_rmse": 1.1687153364750877,
+      "utility_corr": 0.8944539743322287
+    },
+    "ood": [
+      {
+        "split": "ood",
+        "mismatch": "severe",
+        "n_samples": 192,
+        "final_delta_mae": 0.735785945835954,
+        "final_position_l2_mae": 1.1683609042951877,
+        "utility_mae": 2.272372465189566,
+        "utility_rmse": 3.405985395278859,
+        "utility_corr": -0.2601606379995879
+      },
+      {
+        "split": "ood",
+        "mismatch": "stuck_slip",
+        "n_samples": 192,
+        "final_delta_mae": 1.0318295157537998,
+        "final_position_l2_mae": 1.600703180518149,
+        "utility_mae": 2.127490419092681,
+        "utility_rmse": 3.5159234613946606,
+        "utility_corr": -0.529051850585346
+      },
+      {
+        "split": "ood",
+        "mismatch": "nonstationary",
+        "n_samples": 192,
+        "final_delta_mae": 0.11036849596561012,
+        "final_position_l2_mae": 0.1785717204762094,
+        "utility_mae": 1.0671464005106597,
+        "utility_rmse": 1.4329255294163403,
+        "utility_corr": 0.9038958682905561
+      }
+    ]
+  },
+  "metadata": {
+    "dataset": "BlockPush2D",
+    "split": "train",
+    "mismatch": "mild",
+    "seed": 601,
+    "n_states": 32,
+    "rollouts_per_state": 64,
+    "max_horizon": 12,
+    "variable_horizons": true,
+    "feature_version": 1,
+    "target_names": [
+      "delta_x",
+      "delta_y",
+      "utility"
+    ],
+    "train_split": "train",
+    "train_mismatch": "mild",
+    "train_samples": 2048,
+    "utility_min": -18.95402301020632,
+    "utility_max": 4.06649000978639,
+    "utility_clip_margin": 5.755128254998178
+  },
+  "artifacts": {
+    "model": "results\\models\\learned_wam_lite_toy.npz",
+    "summary": "C:\\Users\\wangz\\best-of-n-wam\\results\\learned_wam_lite_training.json",
+    "dataset_summary": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\learned_wam_lite_dataset_summary.csv",
+    "metrics": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\learned_wam_lite_metrics.csv"
+  }
+}
