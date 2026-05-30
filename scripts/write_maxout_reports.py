@@ -59,6 +59,7 @@ def main() -> None:
     bench_suite = load_json("benchmark_gym_manip_suite.json")
     maniskill = load_json("benchmark_maniskill_suite.json")
     bench_visual = load_json("benchmark_visual_optional.json")
+    bench_visual_wam = load_json("benchmark_visual_wam_lite.json")
     visual = load_json("visual_optional.json")
     audit = load_json("inference_audit_framework.json")
     audit_learned = load_json("inference_audit_framework_learned.json")
@@ -156,7 +157,7 @@ Audit date: 2026-05-30.
 
 ## Execution Tier
 
-Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, ManiSkill3 state-mode benchmark, toy visual mode, and benchmark RGB render sanity check.
+Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, ManiSkill3 state-mode benchmark, toy visual mode, and benchmark RGB WAM-lite on Reacher-v5 frames.
 
 ## Artifact Coverage
 
@@ -168,6 +169,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - ManiSkill suite: `{maniskill.get('env_ids')}`; rollout pools: `{maniskill.get('n_rollout_pools')}`; exact-law MAE: `{fmt(maniskill.get('exact_law_utility_mae'))}`; control: `{maniskill.get('control_mode')}`.
 - Visual attempted: `{visual.get('attempted')}`; visual verified: `{visual.get('verified')}`.
 - Benchmark visual verified: `{bench_visual.get('verified')}`.
+- Benchmark RGB WAM-lite: `{bench_visual_wam.get('model_type')}`; verified: `{bench_visual_wam.get('verified')}`; utility corr: `{fmt((bench_visual_wam.get('validation') or {}).get('utility_corr'))}`; utility MAE: `{fmt((bench_visual_wam.get('validation') or {}).get('utility_mae'))}`; exact-law MAE: `{fmt(bench_visual_wam.get('exact_law_utility_mae'))}`.
 - Inference audit tail/gain correlation: `{fmt(audit.get('tail_alignment_gain_corr'))}`.
 - Learned-backend inference audit present: `{bool(audit_learned)}`.
 - Scorer repair N64 gain over predicted utility: `{fmt(((repair.get('confidence_intervals') or {}).get('repair_minus_predicted_N64') or {}).get('mean'))}`.
@@ -184,6 +186,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - Benchmark: Gymnasium/MuJoCo Reacher-v5 artifacts generated.
 - ManiSkill: PickCube-v1, PushCube-v1, and PegInsertionSide-v1 state-mode artifacts generated.
 - Visual: toy visual mode verified with MAE `{fmt(visual.get('test_mae'))}`.
+- Benchmark visual WAM: Reacher-v5 RGB-frame/action-sequence model verified with visual-random N32 CI lower bound `{fmt((((bench_visual_wam.get('confidence_intervals') or {}).get('visual_minus_random_N32') or {}).get('lo')))}`.
 - Audit framework: inference-value profiles, deployment gates, scorer repair, and compute frontiers generated.
 - README overclaims: `{len(claims_payload.get('readme_overclaims') or [])}`.
 
@@ -214,7 +217,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 
 ## Main Reviewer Attacks
 
-- The empirical work is still state-based; visual benchmark WAM training remains limited.
+- The empirical work is mostly state-based; benchmark visual WAM evidence exists for Gymnasium/MuJoCo Reacher-v5 RGB frames but not ManiSkill RGB/RGB-D.
 - The current contact-rich benchmark is ManiSkill state mode, not RGB/RGB-D manipulation or real hardware.
 - The learned models are intentionally lightweight and do not establish WAM training recipes.
 - Pilot estimates are not exact laws and can be brittle under shift.
@@ -316,14 +319,14 @@ If these fields are missing, rerun `bash scripts/run_multi_env.sh`.
 - More imagination helps only when scores align with real utility.
 - Under model mismatch or bad scoring, high-N selection can amplify hallucinated futures.
 - Inference-value audits diagnose tail alignment, stop rules, scorer repair, and compute-quality frontiers from artifacts.
-- Gymnasium/MuJoCo and ManiSkill3 state-mode artifacts validate the benchmark path without claiming hardware evidence.
+- Gymnasium/MuJoCo, benchmark RGB WAM-lite on Reacher-v5 frames, and ManiSkill3 state-mode artifacts validate the benchmark path without claiming hardware evidence.
 - Learned toy and multi-env toy artifacts support these claims with confidence intervals where the claim gate marks them verified.
 
 ## Discussion-Only Claims
 
 - LIBERO/RoboCasa integration readiness.
 - ManiSkill beyond state-mode joint-delta control.
-- RGB WAM training beyond render sanity checks.
+- ManiSkill RGB/RGB-D WAM validation.
 - Universal WAM train-inference optimization.
 - Any analogy to DreamZero/UWM-level evidence.
 
@@ -341,7 +344,7 @@ If these fields are missing, rerun `bash scripts/run_multi_env.sh`.
 
 ## 1. Tier
 
-Benchmark-full plus ManiSkill state-mode, visual-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, ManiSkill3 state-mode manipulation validation, toy visual mode, benchmark RGB render sanity check, and inference-value audit framework artifacts.
+Benchmark-full plus ManiSkill state-mode, visual-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, ManiSkill3 state-mode manipulation validation, toy visual mode, benchmark RGB WAM-lite on Reacher-v5 frames, and inference-value audit framework artifacts.
 
 ## 2. Strongest Verified Claims
 
@@ -362,7 +365,7 @@ Benchmark-full plus ManiSkill state-mode, visual-, and audit-validated: learned-
 
 - LIBERO/RoboCasa integration.
 - ManiSkill RGB/RGB-D or EE-control validation.
-- RGB benchmark WAM validation beyond render sanity.
+- ManiSkill RGB/RGB-D benchmark WAM validation.
 - Universal WAM training and train-inference scaling.
 
 ## 6. Skeptical Reviewer Attack
@@ -378,7 +381,7 @@ The repo answers the mathematical and controlled toy-science objections with tes
 - LIBERO/RoboCasa rollout collection.
 - ManiSkill RGB/RGB-D or end-effector-control validation.
 - Real robot validation.
-- Strong RGB WAM evidence beyond render sanity checks.
+- Strong ManiSkill RGB/RGB-D WAM evidence.
 
 ## 9. Workshop Readiness
 
@@ -401,7 +404,7 @@ Add LIBERO or ManiSkill RGB/RGB-D WAM validation next; that is now higher value 
 - `bash scripts/run_multi_env.sh`: passed with `envs=5`, `backbones=3`, `seeds=5`.
 - robust EXP8 rerun: passed; stale post-pre CI lower bound `0.0255`, stale-adaptive post CI lower bound `0.0613`.
 - `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5` and ManiSkill3 state-mode tasks; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; ManiSkill exact-law utility MAE `{fmt(maniskill.get('exact_law_utility_mae'))}`; ManiSkill closed-loop learned-random CI lower bound `{fmt(((maniskill.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_utility_N8') or {}).get('lo'))}`.
-- `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`.
+- `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`; benchmark RGB WAM utility corr `{fmt((bench_visual_wam.get('validation') or {}).get('utility_corr'))}`, utility MAE `{fmt((bench_visual_wam.get('validation') or {}).get('utility_mae'))}`, visual-random N32 CI lower `{fmt((((bench_visual_wam.get('confidence_intervals') or {}).get('visual_minus_random_N32') or {}).get('lo')))}`.
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `{fmt(audit.get('tail_alignment_gain_corr'))}`, repair-predicted N64 CI mean `{fmt(((repair.get('confidence_intervals') or {}).get('repair_minus_predicted_N64') or {}).get('mean'))}`, predicted N128-N1 scaling gain `{fmt(((scaling.get('confidence_intervals') or {}).get('predicted_gain_N128_minus_N1') or {}).get('mean'))}`.
 - `python scripts/claims_status.py`: passed with `{claims_payload.get('num_verified')}` verified, `{claims_payload.get('num_partial')}` partial, `{claims_payload.get('num_unsupported')}` unsupported, `{claims_payload.get('num_failed')}` failed, and `0` README/paper overclaims.
 """

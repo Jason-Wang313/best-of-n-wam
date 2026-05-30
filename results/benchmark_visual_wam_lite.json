@@ -1,0 +1,54 @@
+{
+  "experiment": "benchmark_visual_wam_lite",
+  "attempted": true,
+  "verified": true,
+  "benchmark": "Reacher-v5",
+  "mode": "rgb_frame_action_sequence",
+  "train_samples": 1536,
+  "validation_samples": 512,
+  "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_visual_reacher_wam_lite.joblib",
+  "model_type": "extra_trees_visual_wam",
+  "validation": {
+    "utility_mae": 0.5207678201477979,
+    "utility_corr": 0.21993289086640205,
+    "success_mae": 0.18271949404761903
+  },
+  "exact_law_utility_mae": 0.01571480996432407,
+  "confidence_intervals": {
+    "visual_minus_random_N32": {
+      "n": 5,
+      "mean": 0.2367775727718704,
+      "std": 0.04220964852617569,
+      "stderr": 0.01887672868218053,
+      "ci95": 0.03699838821707384,
+      "lo": 0.19977918455479654,
+      "hi": 0.27377596098894424
+    },
+    "oracle_minus_visual_N32": {
+      "n": 5,
+      "mean": 0.3433881226502652,
+      "std": 0.09104423341118655,
+      "stderr": 0.04071621897335413,
+      "ci95": 0.0798037891877741,
+      "lo": 0.2635843334624911,
+      "hi": 0.4231919118380393
+    },
+    "visual_minus_low_energy_N32": {
+      "n": 5,
+      "mean": 0.20237252904986755,
+      "std": 0.05647857304686867,
+      "stderr": 0.02525798572099715,
+      "ci95": 0.04950565201315441,
+      "lo": 0.15286687703671314,
+      "hi": 0.25187818106302196
+    }
+  },
+  "artifacts": {
+    "table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_visual_wam_lite_curves.csv",
+    "aggregate": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_visual_wam_lite_curves_aggregate.csv",
+    "exact_law": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_visual_wam_lite_exact_law.csv",
+    "seed_metrics": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_visual_wam_lite_seed_metrics.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\benchmark_visual_wam_lite_curves.png",
+    "frame": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\benchmark_visual_wam_lite_frame.png"
+  }
+}

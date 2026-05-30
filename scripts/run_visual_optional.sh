@@ -17,3 +17,5 @@ else
 fi
 
 "${PY[@]}" experiments/visual_optional.py
+"${PY[@]}" experiments/benchmark_visual_optional.py
+"${PY[@]}" experiments/benchmark_visual_wam_lite.py

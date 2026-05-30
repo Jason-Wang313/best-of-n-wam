@@ -4,7 +4,7 @@ Audit date: 2026-05-30.
 
 ## Execution Tier
 
-Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, ManiSkill3 state-mode benchmark, toy visual mode, and benchmark RGB render sanity check.
+Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, ManiSkill3 state-mode benchmark, toy visual mode, and benchmark RGB WAM-lite on Reacher-v5 frames.
 
 ## Artifact Coverage
 
@@ -16,6 +16,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - ManiSkill suite: `['PickCube-v1', 'PushCube-v1', 'PegInsertionSide-v1']`; rollout pools: `30`; exact-law MAE: `0.0034`; control: `pd_joint_delta_pos`.
 - Visual attempted: `True`; visual verified: `True`.
 - Benchmark visual verified: `True`.
+- Benchmark RGB WAM-lite: `extra_trees_visual_wam`; verified: `True`; utility corr: `0.2199`; utility MAE: `0.5208`; exact-law MAE: `0.0157`.
 - Inference audit tail/gain correlation: `0.9864`.
 - Learned-backend inference audit present: `True`.
 - Scorer repair N64 gain over predicted utility: `0.3489`.
@@ -32,6 +33,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - Benchmark: Gymnasium/MuJoCo Reacher-v5 artifacts generated.
 - ManiSkill: PickCube-v1, PushCube-v1, and PegInsertionSide-v1 state-mode artifacts generated.
 - Visual: toy visual mode verified with MAE `0.0185`.
+- Benchmark visual WAM: Reacher-v5 RGB-frame/action-sequence model verified with visual-random N32 CI lower bound `0.1998`.
 - Audit framework: inference-value profiles, deployment gates, scorer repair, and compute frontiers generated.
 - README overclaims: `0`.
 
@@ -41,10 +43,10 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - EXP1 utility MAE: `0.0138`.
 - EXP2 max AUC identity error: `0.00000000`.
 - EXP2 same-p/kappa N64 gap: `0.9988`.
-- EXP3 relative MAE reduction: `0.3698`.
-- EXP4 oracle-random N64 utility gap: `6.6877`.
-- EXP5 severe mismatch gap growth: `15.1800`.
-- EXP6 moment-law improvement over uniform: `0.0333`.
+- EXP3 relative MAE reduction: `0.4370`.
+- EXP4 oracle-random N64 utility gap: `6.9769`.
+- EXP5 severe mismatch gap growth: `16.4355`.
+- EXP6 moment-law improvement over uniform: `0.0659`.
 - EXP7 learned useful N64-N1 success gain: `0.2167`.
 - EXP8 conditional-law MAE: `0.0063`.
 - Falsification anti-scorer N64 mean utility: `-26.5657`.

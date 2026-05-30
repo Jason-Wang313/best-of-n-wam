@@ -28,19 +28,19 @@
       "id": 5,
       "claim": "Pilot-to-heldout improves with K.",
       "status": "VERIFIED",
-      "evidence": "relative MAE reduction=0.36981841294484663"
+      "evidence": "relative MAE reduction=0.43698115249631736"
     },
     {
       "id": 6,
       "claim": "Pilot uncertainty is reported.",
       "status": "VERIFIED",
-      "evidence": "pilot improvement CI={'n': 3, 'mean': 0.4562385545786219, 'std': 0.6526343629570743, 'stderr': 0.3767986251356668, 'ci95': 0.738525305265907, 'lo': -0.2822867506872851, 'hi': 1.194763859844529}"
+      "evidence": "pilot improvement CI={'n': 16, 'mean': 0.44172358371190434, 'std': 0.6445133007518349, 'stderr': 0.16112832518795872, 'ci95': 0.3158115173683991, 'lo': 0.12591206634350527, 'hi': 0.7575351010803034}"
     },
     {
       "id": 7,
       "claim": "Score function controls inference value.",
       "status": "VERIFIED",
-      "evidence": "oracle-random N64=6.6877116595064265"
+      "evidence": "oracle-random N64=6.976857029097962"
     },
     {
       "id": 8,
@@ -58,7 +58,7 @@
       "id": 10,
       "claim": "Real-vs-imagined utility gap verified.",
       "status": "VERIFIED",
-      "evidence": "severe-none=15.179989463689903"
+      "evidence": "severe-none=16.435472824968038"
     },
     {
       "id": 11,
@@ -94,7 +94,7 @@
       "id": 16,
       "claim": "Closed-loop high-N gain verified.",
       "status": "VERIFIED",
-      "evidence": "analytic useful N64-N1=0.0; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}"
+      "evidence": "analytic useful N64-N1=0.5; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}"
     },
     {
       "id": 17,
@@ -326,19 +326,43 @@
     },
     {
       "id": 55,
+      "claim": "Benchmark RGB visual WAM-lite trained and evaluated.",
+      "status": "VERIFIED",
+      "evidence": "model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.21993289086640205, 'success_mae': 0.18271949404761903}"
+    },
+    {
+      "id": 56,
+      "claim": "Benchmark RGB visual WAM exact law verified.",
+      "status": "VERIFIED",
+      "evidence": "utility MAE=0.01571480996432407"
+    },
+    {
+      "id": 57,
+      "claim": "Benchmark RGB visual WAM scorer beats random with CI.",
+      "status": "VERIFIED",
+      "evidence": "visual-random CI={'n': 5, 'mean': 0.2367775727718704, 'std': 0.04220964852617569, 'stderr': 0.01887672868218053, 'ci95': 0.03699838821707384, 'lo': 0.19977918455479654, 'hi': 0.27377596098894424}"
+    },
+    {
+      "id": 58,
+      "claim": "Benchmark RGB visual WAM oracle gap reported.",
+      "status": "VERIFIED",
+      "evidence": "oracle-visual CI={'n': 5, 'mean': 0.3433881226502652, 'std': 0.09104423341118655, 'stderr': 0.04071621897335413, 'ci95': 0.0798037891877741, 'lo': 0.2635843334624911, 'hi': 0.4231919118380393}"
+    },
+    {
+      "id": 59,
       "claim": "README has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "README overclaims=0"
     },
     {
-      "id": 56,
+      "id": 60,
       "claim": "paper_outline has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "paper overclaims=0"
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 56,
+  "num_verified": 60,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

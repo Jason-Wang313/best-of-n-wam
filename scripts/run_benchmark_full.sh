@@ -20,3 +20,4 @@ bash scripts/run_benchmark_smoke.sh
 "${PY[@]}" experiments/benchmark_gym_manip_suite.py
 "${PY[@]}" experiments/benchmark_maniskill_suite.py --closed-loop
 "${PY[@]}" experiments/benchmark_visual_optional.py
+"${PY[@]}" experiments/benchmark_visual_wam_lite.py

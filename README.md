@@ -144,18 +144,18 @@ bash scripts/run_benchmark_smoke.sh
 bash scripts/run_benchmark_full.sh
 ```
 
-Current benchmark artifacts include rollout pools, learned benchmark WAM-lite training, exact-law validation, score comparison, real-vs-predicted utility gap, closed-loop evaluation, and RGB render sanity for the Gymnasium/MuJoCo path.
+Current benchmark artifacts include rollout pools, learned benchmark WAM-lite training, exact-law validation, score comparison, real-vs-predicted utility gap, closed-loop evaluation, and RGB WAM-lite validation for the Gymnasium/MuJoCo path.
 
 ## Visual Modes
 
-The toy visual mode renders low-resolution toy states and trains/evaluates a lightweight visual utility predictor. Current artifacts verify the optional toy visual stress test, but no benchmark visual validation is claimed.
+The toy visual mode renders low-resolution toy states and trains/evaluates a lightweight visual utility predictor. The benchmark visual mode trains an RGB-frame/action-sequence WAM-lite on Gymnasium/MuJoCo `Reacher-v5` frames and evaluates exact-law and scorer-comparison claims on heldout rollout pools.
 
 ```bash
 bash scripts/run_visual_optional.sh
 bash scripts/run_benchmark_visual_optional.sh
 ```
 
-Benchmark visual validation is a render-level sanity check, not an RGB WAM training result.
+Current benchmark visual artifacts use rendered RGB frames plus candidate action sequences. ManiSkill RGB/RGB-D visual WAM validation is not claimed because the local SAPIEN/Vulkan renderer failed with a descriptor-pool error; ManiSkill evidence remains state-mode.
 
 ## Full Max-Out Run
 

@@ -2,7 +2,7 @@
 
 ## 1. Tier
 
-Benchmark-full plus ManiSkill state-mode, visual-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, ManiSkill3 state-mode manipulation validation, toy visual mode, benchmark RGB render sanity check, and inference-value audit framework artifacts.
+Benchmark-full plus ManiSkill state-mode, visual-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, ManiSkill3 state-mode manipulation validation, toy visual mode, benchmark RGB WAM-lite on Reacher-v5 frames, and inference-value audit framework artifacts.
 
 ## 2. Strongest Verified Claims
 
@@ -10,12 +10,12 @@ Benchmark-full plus ManiSkill state-mode, visual-, and audit-validated: learned-
 - 2. Utility-valued finite law verified. Evidence: utility MAE=0.013762680427723635
 - 3. N=2 AUC identity verified. Evidence: max identity error=0.0
 - 4. High-N moment hierarchy verified. Evidence: same-p/kappa gap=0.9988209815422198
-- 5. Pilot-to-heldout improves with K. Evidence: relative MAE reduction=0.36981841294484663
-- 6. Pilot uncertainty is reported. Evidence: pilot improvement CI={'n': 3, 'mean': 0.4562385545786219, 'std': 0.6526343629570743, 'stderr': 0.3767986251356668, 'ci95': 0.738525305265907, 'lo': -0.2822867506872851, 'hi': 1.194763859844529}
-- 7. Score function controls inference value. Evidence: oracle-random N64=6.6877116595064265
+- 5. Pilot-to-heldout improves with K. Evidence: relative MAE reduction=0.43698115249631736
+- 6. Pilot uncertainty is reported. Evidence: pilot improvement CI={'n': 16, 'mean': 0.44172358371190434, 'std': 0.6445133007518349, 'stderr': 0.16112832518795872, 'ci95': 0.3158115173683991, 'lo': 0.12591206634350527, 'hi': 0.7575351010803034}
+- 7. Score function controls inference value. Evidence: oracle-random N64=6.976857029097962
 - 8. Best non-oracle beats random with CI. Evidence: learned CI={'n': 5, 'mean': 5.97838149808149, 'std': 1.2959235541324863, 'stderr': 0.5795546321366736, 'ci95': 1.1359270789878801, 'lo': 4.8424544190936105, 'hi': 7.11430857706937}
 - 9. Oracle remains above learned/non-oracle. Evidence: oracle-learned CI={'n': 5, 'mean': 1.9951266518211337, 'std': 0.18826614525085428, 'stderr': 0.08419517972855187, 'ci95': 0.16502255226796164, 'lo': 1.830104099553172, 'hi': 2.1601492040890955}
-- 10. Real-vs-imagined utility gap verified. Evidence: severe-none=15.179989463689903
+- 10. Real-vs-imagined utility gap verified. Evidence: severe-none=16.435472824968038
 - 11. Mismatch gap grows with N. Evidence: learned severe gap CI={'n': 5, 'mean': 13.8807751738171, 'std': 0.7005630946072382, 'stderr': 0.3133013404138802, 'ci95': 0.6140706272112052, 'lo': 13.266704546605894, 'hi': 14.494845801028305}
 - 12. Bad scorer falsification verified. Evidence: anti N64=-26.565706083129044, N1=-14.101561337022474
 
@@ -34,7 +34,7 @@ Benchmark-full plus ManiSkill state-mode, visual-, and audit-validated: learned-
 
 - LIBERO/RoboCasa integration.
 - ManiSkill RGB/RGB-D or EE-control validation.
-- RGB benchmark WAM validation beyond render sanity.
+- ManiSkill RGB/RGB-D benchmark WAM validation.
 - Universal WAM training and train-inference scaling.
 
 ## 6. Skeptical Reviewer Attack
@@ -50,7 +50,7 @@ The repo answers the mathematical and controlled toy-science objections with tes
 - LIBERO/RoboCasa rollout collection.
 - ManiSkill RGB/RGB-D or end-effector-control validation.
 - Real robot validation.
-- Strong RGB WAM evidence beyond render sanity checks.
+- Strong ManiSkill RGB/RGB-D WAM evidence.
 
 ## 9. Workshop Readiness
 
@@ -73,6 +73,6 @@ Add LIBERO or ManiSkill RGB/RGB-D WAM validation next; that is now higher value 
 - `bash scripts/run_multi_env.sh`: passed with `envs=5`, `backbones=3`, `seeds=5`.
 - robust EXP8 rerun: passed; stale post-pre CI lower bound `0.0255`, stale-adaptive post CI lower bound `0.0613`.
 - `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5` and ManiSkill3 state-mode tasks; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; ManiSkill exact-law utility MAE `0.0034`; ManiSkill closed-loop learned-random CI lower bound `0.0102`.
-- `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`.
+- `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`; benchmark RGB WAM utility corr `0.2199`, utility MAE `0.5208`, visual-random N32 CI lower `0.1998`.
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `0.9864`, repair-predicted N64 CI mean `0.3489`, predicted N128-N1 scaling gain `0.0255`.
-- `python scripts/claims_status.py`: passed with `56` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.
+- `python scripts/claims_status.py`: passed with `60` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.

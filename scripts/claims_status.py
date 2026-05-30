@@ -73,6 +73,7 @@ def main() -> None:
     maniskill = load_json("benchmark_maniskill_suite.json")
     visual = load_json("visual_optional.json")
     benchmark_visual = load_json("benchmark_visual_optional.json")
+    benchmark_visual_wam = load_json("benchmark_visual_wam_lite.json")
     audit = load_json("inference_audit_framework.json")
     audit_learned = load_json("inference_audit_framework_learned.json")
     repair = load_json("scorer_repair_experiment.json")
@@ -228,17 +229,6 @@ def main() -> None:
         f"pred gain CI={scaling_ci.get('predicted_gain_N128_minus_N1')}; oracle-pred gain CI={scaling_ci.get('oracle_minus_predicted_gain')}",
     )
 
-    readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
-    paper_text = PAPER.read_text(encoding="utf-8") if PAPER.exists() else ""
-    claim_by_id = {c["id"]: c for c in claims}
-    overclaims = []
-    for cid, c in claim_by_id.items():
-        pattern = f"VERIFIED CLAIM {cid}"
-        if pattern.lower() in readme_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
-            overclaims.append({"surface": "README", "id": cid, "pattern": pattern, "status": c["status"]})
-        if pattern.lower() in paper_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
-            overclaims.append({"surface": "paper_outline", "id": cid, "pattern": pattern, "status": c["status"]})
-
     maniskill_ci = maniskill.get("confidence_intervals") or {}
     add(
         claims,
@@ -299,8 +289,66 @@ def main() -> None:
         status(learned_open_ci.get("n", 0) >= 5, bool(maniskill)),
         f"learned-random open-loop CI={learned_open_ci}",
     )
-    add(claims, 55, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
-    add(claims, 56, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
+    visual_wam_ci = benchmark_visual_wam.get("confidence_intervals") or {}
+    add(
+        claims,
+        55,
+        "Benchmark RGB visual WAM-lite trained and evaluated.",
+        status(
+            bool(benchmark_visual_wam)
+            and benchmark_visual_wam.get("verified", False)
+            and (benchmark_visual_wam.get("validation") or {}).get("utility_corr", 0.0) > 0.20,
+            bool(benchmark_visual_wam),
+        ),
+        f"model={benchmark_visual_wam.get('model_type')}, validation={benchmark_visual_wam.get('validation')}",
+    )
+    add(
+        claims,
+        56,
+        "Benchmark RGB visual WAM exact law verified.",
+        status(
+            benchmark_visual_wam.get("exact_law_utility_mae") is not None
+            and benchmark_visual_wam.get("exact_law_utility_mae") < 0.05,
+            bool(benchmark_visual_wam),
+        ),
+        f"utility MAE={benchmark_visual_wam.get('exact_law_utility_mae')}",
+    )
+    add(
+        claims,
+        57,
+        "Benchmark RGB visual WAM scorer beats random with CI.",
+        status(
+            (visual_wam_ci.get("visual_minus_random_N32") or {}).get("lo") is not None
+            and (visual_wam_ci.get("visual_minus_random_N32") or {}).get("lo") > 0.0,
+            bool(benchmark_visual_wam),
+        ),
+        f"visual-random CI={visual_wam_ci.get('visual_minus_random_N32')}",
+    )
+    add(
+        claims,
+        58,
+        "Benchmark RGB visual WAM oracle gap reported.",
+        status(
+            (visual_wam_ci.get("oracle_minus_visual_N32") or {}).get("lo") is not None
+            and (visual_wam_ci.get("oracle_minus_visual_N32") or {}).get("lo") > 0.0,
+            bool(benchmark_visual_wam),
+        ),
+        f"oracle-visual CI={visual_wam_ci.get('oracle_minus_visual_N32')}",
+    )
+
+    readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
+    paper_text = PAPER.read_text(encoding="utf-8") if PAPER.exists() else ""
+    claim_by_id = {c["id"]: c for c in claims}
+    overclaims = []
+    for cid, c in claim_by_id.items():
+        pattern = f"VERIFIED CLAIM {cid}"
+        if pattern.lower() in readme_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
+            overclaims.append({"surface": "README", "id": cid, "pattern": pattern, "status": c["status"]})
+        if pattern.lower() in paper_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
+            overclaims.append({"surface": "paper_outline", "id": cid, "pattern": pattern, "status": c["status"]})
+
+    add(claims, 59, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
+    add(claims, 60, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
 
     payload = {
         "claims": claims,

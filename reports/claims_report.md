@@ -2,7 +2,7 @@
 
 ## Counts
 
-- verified: `56`
+- verified: `60`
 - partial: `0`
 - unsupported: `0`
 - failed: `0`
@@ -14,18 +14,18 @@
 - 2. Utility-valued finite law verified. Evidence: utility MAE=0.013762680427723635
 - 3. N=2 AUC identity verified. Evidence: max identity error=0.0
 - 4. High-N moment hierarchy verified. Evidence: same-p/kappa gap=0.9988209815422198
-- 5. Pilot-to-heldout improves with K. Evidence: relative MAE reduction=0.36981841294484663
-- 6. Pilot uncertainty is reported. Evidence: pilot improvement CI={'n': 3, 'mean': 0.4562385545786219, 'std': 0.6526343629570743, 'stderr': 0.3767986251356668, 'ci95': 0.738525305265907, 'lo': -0.2822867506872851, 'hi': 1.194763859844529}
-- 7. Score function controls inference value. Evidence: oracle-random N64=6.6877116595064265
+- 5. Pilot-to-heldout improves with K. Evidence: relative MAE reduction=0.43698115249631736
+- 6. Pilot uncertainty is reported. Evidence: pilot improvement CI={'n': 16, 'mean': 0.44172358371190434, 'std': 0.6445133007518349, 'stderr': 0.16112832518795872, 'ci95': 0.3158115173683991, 'lo': 0.12591206634350527, 'hi': 0.7575351010803034}
+- 7. Score function controls inference value. Evidence: oracle-random N64=6.976857029097962
 - 8. Best non-oracle beats random with CI. Evidence: learned CI={'n': 5, 'mean': 5.97838149808149, 'std': 1.2959235541324863, 'stderr': 0.5795546321366736, 'ci95': 1.1359270789878801, 'lo': 4.8424544190936105, 'hi': 7.11430857706937}
 - 9. Oracle remains above learned/non-oracle. Evidence: oracle-learned CI={'n': 5, 'mean': 1.9951266518211337, 'std': 0.18826614525085428, 'stderr': 0.08419517972855187, 'ci95': 0.16502255226796164, 'lo': 1.830104099553172, 'hi': 2.1601492040890955}
-- 10. Real-vs-imagined utility gap verified. Evidence: severe-none=15.179989463689903
+- 10. Real-vs-imagined utility gap verified. Evidence: severe-none=16.435472824968038
 - 11. Mismatch gap grows with N. Evidence: learned severe gap CI={'n': 5, 'mean': 13.8807751738171, 'std': 0.7005630946072382, 'stderr': 0.3133013404138802, 'ci95': 0.6140706272112052, 'lo': 13.266704546605894, 'hi': 14.494845801028305}
 - 12. Bad scorer falsification verified. Evidence: anti N64=-26.565706083129044, N1=-14.101561337022474
 - 13. Randomized dynamics falsification verified. Evidence: randomized-oracle N64 gap=13.393867700179667
 - 14. Moment/adaptive allocation beats uniform with CI. Evidence: moment-uniform CI={'n': 5, 'mean': 0.30066408929367955, 'std': 0.028847241897066837, 'stderr': 0.012900878769044288, 'ci95': 0.025285722387326803, 'lo': 0.27537836690635276, 'hi': 0.32594981168100634}
 - 15. Adaptive allocation reduces oracle regret. Evidence: oracle-uniform=0.3055113080821638
-- 16. Closed-loop high-N gain verified. Evidence: analytic useful N64-N1=0.0; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}
+- 16. Closed-loop high-N gain verified. Evidence: analytic useful N64-N1=0.5; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}
 - 17. Useful scorer beats random in closed loop. Evidence: learned useful-random CI={'n': 5, 'mean': 0.3166666666666667, 'std': 0.06972166887783962, 'stderr': 0.031180478223116172, 'ci95': 0.061113737317307695, 'lo': 0.255552929349359, 'hi': 0.3777804039839744}
 - 18. Oracle first-action remains upper bound. Evidence: oracle-useful CI={'n': 5, 'mean': 0.16666666666666666, 'std': 0.11785113019775793, 'stderr': 0.052704627669472995, 'ci95': 0.10330107023216707, 'lo': 0.06336559643449959, 'hi': 0.26996773689883374}
 - 19. Conditional law verified under distribution shift. Evidence: MAE=0.006278872119413491
@@ -64,8 +64,12 @@
 - 52. ManiSkill WAM-lite trained and evaluated. Evidence: model metric rows=6
 - 53. ManiSkill closed-loop learned scorer beats random. Evidence: learned-random closed-loop CI={'n': 5, 'mean': 0.027762312500152514, 'std': 0.020055963136210424, 'stderr': 0.008969299385359276, 'ci95': 0.01757982679530418, 'lo': 0.010182485704848334, 'hi': 0.04534213929545669}
 - 54. ManiSkill learned open-loop scorer is honestly reported. Evidence: learned-random open-loop CI={'n': 5, 'mean': -0.005754620067846242, 'std': 0.04861601605708501, 'stderr': 0.021741743339772673, 'ci95': 0.04261381694595444, 'lo': -0.04836843701380068, 'hi': 0.036859196878108194}
-- 55. README has no unsupported claims. Evidence: README overclaims=0
-- 56. paper_outline has no unsupported claims. Evidence: paper overclaims=0
+- 55. Benchmark RGB visual WAM-lite trained and evaluated. Evidence: model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.21993289086640205, 'success_mae': 0.18271949404761903}
+- 56. Benchmark RGB visual WAM exact law verified. Evidence: utility MAE=0.01571480996432407
+- 57. Benchmark RGB visual WAM scorer beats random with CI. Evidence: visual-random CI={'n': 5, 'mean': 0.2367775727718704, 'std': 0.04220964852617569, 'stderr': 0.01887672868218053, 'ci95': 0.03699838821707384, 'lo': 0.19977918455479654, 'hi': 0.27377596098894424}
+- 58. Benchmark RGB visual WAM oracle gap reported. Evidence: oracle-visual CI={'n': 5, 'mean': 0.3433881226502652, 'std': 0.09104423341118655, 'stderr': 0.04071621897335413, 'ci95': 0.0798037891877741, 'lo': 0.2635843334624911, 'hi': 0.4231919118380393}
+- 59. README has no unsupported claims. Evidence: README overclaims=0
+- 60. paper_outline has no unsupported claims. Evidence: paper overclaims=0
 
 ## Partial
 

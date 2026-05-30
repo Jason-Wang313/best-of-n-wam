@@ -9,7 +9,7 @@
 
 ## Main Reviewer Attacks
 
-- The empirical work is still state-based; visual benchmark WAM training remains limited.
+- The empirical work is mostly state-based; benchmark visual WAM evidence exists for Gymnasium/MuJoCo Reacher-v5 RGB frames but not ManiSkill RGB/RGB-D.
 - The current contact-rich benchmark is ManiSkill state mode, not RGB/RGB-D manipulation or real hardware.
 - The learned models are intentionally lightweight and do not establish WAM training recipes.
 - Pilot estimates are not exact laws and can be brittle under shift.
