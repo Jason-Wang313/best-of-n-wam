@@ -1,0 +1,268 @@
+{
+  "experiment": "inference_audit_framework",
+  "dynamics_backend": "learned",
+  "states": 16,
+  "rollouts_per_state": 128,
+  "mismatches": [
+    "mild",
+    "severe",
+    "stuck_slip",
+    "nonstationary"
+  ],
+  "seeds": [
+    751,
+    752,
+    753,
+    754,
+    755
+  ],
+  "num_seeds": 5,
+  "scorers": [
+    "predicted_utility",
+    "uncertainty_penalized",
+    "safety_penalized",
+    "random_score",
+    "oracle_real_utility",
+    "anti_real_utility"
+  ],
+  "profile_counts": [
+    {
+      "scorer": "anti_real_utility",
+      "profile_class": "harmful",
+      "count": 320
+    },
+    {
+      "scorer": "oracle_real_utility",
+      "profile_class": "helpful",
+      "count": 320
+    },
+    {
+      "scorer": "predicted_utility",
+      "profile_class": "harmful",
+      "count": 156
+    },
+    {
+      "scorer": "predicted_utility",
+      "profile_class": "helpful",
+      "count": 129
+    },
+    {
+      "scorer": "predicted_utility",
+      "profile_class": "unstable",
+      "count": 35
+    },
+    {
+      "scorer": "random_score",
+      "profile_class": "harmful",
+      "count": 119
+    },
+    {
+      "scorer": "random_score",
+      "profile_class": "helpful",
+      "count": 115
+    },
+    {
+      "scorer": "random_score",
+      "profile_class": "saturating",
+      "count": 78
+    },
+    {
+      "scorer": "random_score",
+      "profile_class": "unstable",
+      "count": 8
+    },
+    {
+      "scorer": "safety_penalized",
+      "profile_class": "harmful",
+      "count": 156
+    },
+    {
+      "scorer": "safety_penalized",
+      "profile_class": "helpful",
+      "count": 129
+    },
+    {
+      "scorer": "safety_penalized",
+      "profile_class": "unstable",
+      "count": 35
+    },
+    {
+      "scorer": "uncertainty_penalized",
+      "profile_class": "harmful",
+      "count": 156
+    },
+    {
+      "scorer": "uncertainty_penalized",
+      "profile_class": "helpful",
+      "count": 133
+    },
+    {
+      "scorer": "uncertainty_penalized",
+      "profile_class": "unstable",
+      "count": 31
+    }
+  ],
+  "decision_counts": [
+    {
+      "scorer": "anti_real_utility",
+      "decision_action": "block_high_n",
+      "count": 320
+    },
+    {
+      "scorer": "oracle_real_utility",
+      "decision_action": "sample_more",
+      "count": 172
+    },
+    {
+      "scorer": "oracle_real_utility",
+      "decision_action": "stop_early",
+      "count": 148
+    },
+    {
+      "scorer": "predicted_utility",
+      "decision_action": "block_high_n",
+      "count": 159
+    },
+    {
+      "scorer": "predicted_utility",
+      "decision_action": "sample_more",
+      "count": 15
+    },
+    {
+      "scorer": "predicted_utility",
+      "decision_action": "stop_early",
+      "count": 146
+    },
+    {
+      "scorer": "random_score",
+      "decision_action": "block_high_n",
+      "count": 162
+    },
+    {
+      "scorer": "random_score",
+      "decision_action": "pilot_more",
+      "count": 37
+    },
+    {
+      "scorer": "random_score",
+      "decision_action": "stop_early",
+      "count": 121
+    },
+    {
+      "scorer": "safety_penalized",
+      "decision_action": "block_high_n",
+      "count": 159
+    },
+    {
+      "scorer": "safety_penalized",
+      "decision_action": "sample_more",
+      "count": 19
+    },
+    {
+      "scorer": "safety_penalized",
+      "decision_action": "stop_early",
+      "count": 142
+    },
+    {
+      "scorer": "uncertainty_penalized",
+      "decision_action": "block_high_n",
+      "count": 158
+    },
+    {
+      "scorer": "uncertainty_penalized",
+      "decision_action": "sample_more",
+      "count": 23
+    },
+    {
+      "scorer": "uncertainty_penalized",
+      "decision_action": "stop_early",
+      "count": 139
+    }
+  ],
+  "tail_alignment_gain_corr": 0.9821068689992587,
+  "anti_block_high_n_rate": 1.0,
+  "harmful_profile_block_rate": 1.0,
+  "median_recommended_n": 2.0,
+  "confidence_intervals": {
+    "tail_alignment_gain_corr": {
+      "n": 5,
+      "mean": 0.9823361910668508,
+      "std": 0.003404324580102718,
+      "stderr": 0.001522460235716621,
+      "ci95": 0.002984022062004577,
+      "lo": 0.9793521690048462,
+      "hi": 0.9853202131288553
+    },
+    "anti_block_high_n_rate": {
+      "n": 5,
+      "mean": 1.0,
+      "std": 0.0,
+      "stderr": 0.0,
+      "ci95": 0.0,
+      "lo": 1.0,
+      "hi": 1.0
+    },
+    "anti_harm_magnitude": {
+      "n": 5,
+      "mean": 0.5594628151620131,
+      "std": 0.006298948342232801,
+      "stderr": 0.0028169753359984302,
+      "ci95": 0.005521271658556923,
+      "lo": 0.5539415435034563,
+      "hi": 0.56498408682057
+    },
+    "harmful_profile_block_rate": {
+      "n": 5,
+      "mean": 1.0,
+      "std": 0.0,
+      "stderr": 0.0,
+      "ci95": 0.0,
+      "lo": 1.0,
+      "hi": 1.0
+    },
+    "aligned_profile_gain": {
+      "n": 5,
+      "mean": 0.29223203819034677,
+      "std": 0.011347697931989136,
+      "stderr": 0.005074844792812298,
+      "ci95": 0.009946695793912103,
+      "lo": 0.28228534239643466,
+      "hi": 0.3021787339842589
+    },
+    "stop_rule_saved_rollout_fraction": {
+      "n": 5,
+      "mean": 0.6175857950243074,
+      "std": 0.022964395385063664,
+      "stderr": 0.010269989828636961,
+      "ci95": 0.020129180064128442,
+      "lo": 0.597456614960179,
+      "hi": 0.6377149750884359
+    },
+    "oracle_gain": {
+      "n": 5,
+      "mean": 0.3765892131546765,
+      "std": 0.010066967826344553,
+      "stderr": 0.004502084877401944,
+      "ci95": 0.008824086359707809,
+      "lo": 0.3677651267949687,
+      "hi": 0.38541329951438436
+    },
+    "predicted_utility_gain": {
+      "n": 5,
+      "mean": 0.0020608164030140918,
+      "std": 0.010245894867375345,
+      "stderr": 0.004582103482753492,
+      "ci95": 0.008980922826196844,
+      "lo": -0.006920106423182752,
+      "hi": 0.011041739229210937
+    }
+  },
+  "artifacts": {
+    "summary_table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\inference_audit_framework_learned.csv",
+    "curve_table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\inference_audit_curves_learned.csv",
+    "seed_metrics": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\inference_audit_seed_metrics_learned.csv",
+    "profile_counts": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\inference_audit_profile_counts_learned.csv",
+    "decision_counts": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\inference_audit_decision_counts_learned.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\inference_audit_tail_alignment_learned.png"
+  }
+}

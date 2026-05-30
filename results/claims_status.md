@@ -1,21 +1,21 @@
 # Claims Status
 
-- Claim 1: **VERIFIED** - Exact finite binary law verified. Evidence: success MAE=0.006959852139023545
-- Claim 2: **VERIFIED** - Utility-valued finite law verified. Evidence: utility MAE=0.0451116620102325
+- Claim 1: **VERIFIED** - Exact finite binary law verified. Evidence: success MAE=0.002104612037108505
+- Claim 2: **VERIFIED** - Utility-valued finite law verified. Evidence: utility MAE=0.013762680427723635
 - Claim 3: **VERIFIED** - N=2 AUC identity verified. Evidence: max identity error=0.0
 - Claim 4: **VERIFIED** - High-N moment hierarchy verified. Evidence: same-p/kappa gap=0.9988209815422198
-- Claim 5: **VERIFIED** - Pilot-to-heldout improves with K. Evidence: relative MAE reduction=0.43698115249631736
-- Claim 6: **VERIFIED** - Pilot uncertainty is reported. Evidence: pilot improvement CI={'n': 16, 'mean': 0.44172358371190434, 'std': 0.6445133007518349, 'stderr': 0.16112832518795872, 'ci95': 0.3158115173683991, 'lo': 0.12591206634350527, 'hi': 0.7575351010803034}
-- Claim 7: **VERIFIED** - Score function controls inference value. Evidence: oracle-random N64=6.976857029097962
+- Claim 5: **VERIFIED** - Pilot-to-heldout improves with K. Evidence: relative MAE reduction=0.7280063038060411
+- Claim 6: **VERIFIED** - Pilot uncertainty is reported. Evidence: pilot improvement CI={'n': 1200, 'mean': 0.8233589071075791, 'std': 0.7110080730202641, 'stderr': 0.020525035117712326, 'ci95': 0.04022906883071616, 'lo': 0.7831298382768629, 'hi': 0.8635879759382953}
+- Claim 7: **VERIFIED** - Score function controls inference value. Evidence: oracle-random N64=7.084333950224235
 - Claim 8: **VERIFIED** - Best non-oracle beats random with CI. Evidence: learned CI={'n': 5, 'mean': 5.97838149808149, 'std': 1.2959235541324863, 'stderr': 0.5795546321366736, 'ci95': 1.1359270789878801, 'lo': 4.8424544190936105, 'hi': 7.11430857706937}
 - Claim 9: **VERIFIED** - Oracle remains above learned/non-oracle. Evidence: oracle-learned CI={'n': 5, 'mean': 1.9951266518211337, 'std': 0.18826614525085428, 'stderr': 0.08419517972855187, 'ci95': 0.16502255226796164, 'lo': 1.830104099553172, 'hi': 2.1601492040890955}
-- Claim 10: **VERIFIED** - Real-vs-imagined utility gap verified. Evidence: severe-none=16.435472824968038
+- Claim 10: **VERIFIED** - Real-vs-imagined utility gap verified. Evidence: severe-none=16.725668702334993
 - Claim 11: **VERIFIED** - Mismatch gap grows with N. Evidence: learned severe gap CI={'n': 5, 'mean': 13.8807751738171, 'std': 0.7005630946072382, 'stderr': 0.3133013404138802, 'ci95': 0.6140706272112052, 'lo': 13.266704546605894, 'hi': 14.494845801028305}
 - Claim 12: **VERIFIED** - Bad scorer falsification verified. Evidence: anti N64=-26.565706083129044, N1=-14.101561337022474
 - Claim 13: **VERIFIED** - Randomized dynamics falsification verified. Evidence: randomized-oracle N64 gap=13.393867700179667
 - Claim 14: **VERIFIED** - Moment/adaptive allocation beats uniform with CI. Evidence: moment-uniform CI={'n': 5, 'mean': 0.30066408929367955, 'std': 0.028847241897066837, 'stderr': 0.012900878769044288, 'ci95': 0.025285722387326803, 'lo': 0.27537836690635276, 'hi': 0.32594981168100634}
 - Claim 15: **VERIFIED** - Adaptive allocation reduces oracle regret. Evidence: oracle-uniform=0.3055113080821638
-- Claim 16: **VERIFIED** - Closed-loop high-N gain verified. Evidence: analytic useful N64-N1=0.5; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}
+- Claim 16: **VERIFIED** - Closed-loop high-N gain verified. Evidence: analytic useful N64-N1=0.0; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}
 - Claim 17: **VERIFIED** - Useful scorer beats random in closed loop. Evidence: learned useful-random CI={'n': 5, 'mean': 0.3166666666666667, 'std': 0.06972166887783962, 'stderr': 0.031180478223116172, 'ci95': 0.061113737317307695, 'lo': 0.255552929349359, 'hi': 0.3777804039839744}
 - Claim 18: **VERIFIED** - Oracle first-action remains upper bound. Evidence: oracle-useful CI={'n': 5, 'mean': 0.16666666666666666, 'std': 0.11785113019775793, 'stderr': 0.052704627669472995, 'ci95': 0.10330107023216707, 'lo': 0.06336559643449959, 'hi': 0.26996773689883374}
 - Claim 19: **VERIFIED** - Conditional law verified under distribution shift. Evidence: MAE=0.006278872119413491
@@ -40,5 +40,12 @@
 - Claim 38: **VERIFIED** - Visual toy WAM attempted. Evidence: visual=True
 - Claim 39: **VERIFIED** - Visual toy WAM verified if artifacts exist. Evidence: test MAE=0.018500254396187476
 - Claim 40: **VERIFIED** - Benchmark visual optional. Evidence: verified=True
-- Claim 41: **VERIFIED** - README has no unsupported claims. Evidence: README overclaims=0
-- Claim 42: **VERIFIED** - paper_outline has no unsupported claims. Evidence: paper overclaims=0
+- Claim 41: **VERIFIED** - Inference-value audit profiles generated. Evidence: profiles=15, decisions=13
+- Claim 42: **VERIFIED** - Tail alignment predicts high-N inference value. Evidence: tail-gain corr CI={'n': 5, 'mean': 0.9865000978504973, 'std': 0.001804695185387798, 'stderr': 0.0008070842226387402, 'ci95': 0.0015818850763719308, 'lo': 0.9849182127741254, 'hi': 0.9880819829268692}
+- Claim 43: **VERIFIED** - Audit gate blocks harmful high-N bad-scorer deployments. Evidence: anti block CI={'n': 5, 'mean': 1.0, 'std': 0.0, 'stderr': 0.0, 'ci95': 0.0, 'lo': 1.0, 'hi': 1.0}; anti harm CI={'n': 5, 'mean': 0.5458182454465957, 'std': 0.007548888768848233, 'stderr': 0.003375965688345869, 'ci95': 0.006616892749157903, 'lo': 0.5392013526974379, 'hi': 0.5524351381957536}
+- Claim 44: **VERIFIED** - Stop-rule compute savings are reported. Evidence: saved rollout fraction CI={'n': 5, 'mean': 0.7341830801560019, 'std': 0.014683879008794358, 'stderr': 0.006566830327409283, 'ci95': 0.012870987441722194, 'lo': 0.7213120927142797, 'hi': 0.7470540675977241}
+- Claim 45: **VERIFIED** - Learned-backend inference audit reproduced. Evidence: learned tail-gain CI={'n': 5, 'mean': 0.9823361910668508, 'std': 0.003404324580102718, 'stderr': 0.001522460235716621, 'ci95': 0.002984022062004577, 'lo': 0.9793521690048462, 'hi': 0.9853202131288553}; anti block CI={'n': 5, 'mean': 1.0, 'std': 0.0, 'stderr': 0.0, 'ci95': 0.0, 'lo': 1.0, 'hi': 1.0}
+- Claim 46: **VERIFIED** - Pilot-calibrated scorer repair improves heldout high-N utility. Evidence: repair-predicted CI={'n': 5, 'mean': 0.34893208610613924, 'std': 0.007783860739302779, 'stderr': 0.0034810483480945563, 'ci95': 0.0068228547622653304, 'lo': 0.3421092313438739, 'hi': 0.3557549408684046}
+- Claim 47: **VERIFIED** - Robot-imagination compute frontier is measured. Evidence: pred gain CI={'n': 5, 'mean': 0.025522691537548704, 'std': 0.013112519318734733, 'stderr': 0.005864096910594019, 'ci95': 0.011493629944764275, 'lo': 0.014029061592784428, 'hi': 0.03701632148231298}; oracle-pred gain CI={'n': 5, 'mean': 0.4091337942554179, 'std': 0.022021280046922203, 'stderr': 0.00984821582729556, 'ci95': 0.019302503021499298, 'lo': 0.38983129123391863, 'hi': 0.4284362972769172}
+- Claim 48: **VERIFIED** - README has no unsupported claims. Evidence: README overclaims=0
+- Claim 49: **VERIFIED** - paper_outline has no unsupported claims. Evidence: paper overclaims=0

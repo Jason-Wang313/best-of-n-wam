@@ -72,6 +72,10 @@ def main() -> None:
     benchmark_wam = load_json("benchmark_wam_training.json")
     visual = load_json("visual_optional.json")
     benchmark_visual = load_json("benchmark_visual_optional.json")
+    audit = load_json("inference_audit_framework.json")
+    audit_learned = load_json("inference_audit_framework_learned.json")
+    repair = load_json("scorer_repair_experiment.json")
+    scaling = load_json("imagination_scaling_law.json")
 
     claims: list[dict[str, Any]] = []
     add(claims, 1, "Exact finite binary law verified.", status(bool(exp1) and exp1.get("mean_success_mc_mae", 1.0) < 0.018, bool(exp1)), f"success MAE={exp1.get('mean_success_mc_mae')}")
@@ -150,6 +154,79 @@ def main() -> None:
     add(claims, 39, "Visual toy WAM verified if artifacts exist.", status(bool(visual) and visual.get("verified", False), bool(visual)), f"test MAE={visual.get('test_mae')}")
     add(claims, 40, "Benchmark visual optional.", status(bool(benchmark_visual) and benchmark_visual.get("verified", False), bool(benchmark_visual)), f"verified={benchmark_visual.get('verified')}")
 
+    audit_ci = audit.get("confidence_intervals") or {}
+    learned_audit_ci = audit_learned.get("confidence_intervals") or {}
+    repair_ci = repair.get("confidence_intervals") or {}
+    scaling_ci = scaling.get("confidence_intervals") or {}
+    add(
+        claims,
+        41,
+        "Inference-value audit profiles generated.",
+        status(bool(audit) and bool(audit.get("profile_counts")) and bool(audit.get("decision_counts")), bool(audit)),
+        f"profiles={len(audit.get('profile_counts') or [])}, decisions={len(audit.get('decision_counts') or [])}",
+    )
+    add(
+        claims,
+        42,
+        "Tail alignment predicts high-N inference value.",
+        status((audit_ci.get("tail_alignment_gain_corr") or {}).get("lo") is not None and (audit_ci.get("tail_alignment_gain_corr") or {}).get("lo") > 0.5, bool(audit)),
+        f"tail-gain corr CI={audit_ci.get('tail_alignment_gain_corr')}",
+    )
+    anti_block_ci = audit_ci.get("anti_block_high_n_rate") or {}
+    anti_harm_ci = audit_ci.get("anti_harm_magnitude") or {}
+    add(
+        claims,
+        43,
+        "Audit gate blocks harmful high-N bad-scorer deployments.",
+        status(
+            anti_block_ci.get("lo") is not None
+            and anti_block_ci.get("lo") > 0.95
+            and anti_harm_ci.get("lo") is not None
+            and anti_harm_ci.get("lo") > 0.10,
+            bool(audit),
+        ),
+        f"anti block CI={anti_block_ci}; anti harm CI={anti_harm_ci}",
+    )
+    add(
+        claims,
+        44,
+        "Stop-rule compute savings are reported.",
+        status((audit_ci.get("stop_rule_saved_rollout_fraction") or {}).get("lo") is not None and (audit_ci.get("stop_rule_saved_rollout_fraction") or {}).get("lo") > 0.05, bool(audit)),
+        f"saved rollout fraction CI={audit_ci.get('stop_rule_saved_rollout_fraction')}",
+    )
+    add(
+        claims,
+        45,
+        "Learned-backend inference audit reproduced.",
+        status(
+            bool(audit_learned)
+            and (learned_audit_ci.get("tail_alignment_gain_corr") or {}).get("lo") is not None
+            and (learned_audit_ci.get("anti_block_high_n_rate") or {}).get("lo") is not None,
+            bool(audit_learned),
+        ),
+        f"learned tail-gain CI={learned_audit_ci.get('tail_alignment_gain_corr')}; anti block CI={learned_audit_ci.get('anti_block_high_n_rate')}",
+    )
+    add(
+        claims,
+        46,
+        "Pilot-calibrated scorer repair improves heldout high-N utility.",
+        status((repair_ci.get("repair_minus_predicted_N64") or {}).get("lo") is not None and (repair_ci.get("repair_minus_predicted_N64") or {}).get("lo") > 0.0, bool(repair)),
+        f"repair-predicted CI={repair_ci.get('repair_minus_predicted_N64')}",
+    )
+    add(
+        claims,
+        47,
+        "Robot-imagination compute frontier is measured.",
+        status(
+            (scaling_ci.get("predicted_gain_N128_minus_N1") or {}).get("lo") is not None
+            and (scaling_ci.get("predicted_gain_N128_minus_N1") or {}).get("lo") > 0.0
+            and (scaling_ci.get("oracle_minus_predicted_gain") or {}).get("lo") is not None
+            and (scaling_ci.get("oracle_minus_predicted_gain") or {}).get("lo") > 0.0,
+            bool(scaling),
+        ),
+        f"pred gain CI={scaling_ci.get('predicted_gain_N128_minus_N1')}; oracle-pred gain CI={scaling_ci.get('oracle_minus_predicted_gain')}",
+    )
+
     readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
     paper_text = PAPER.read_text(encoding="utf-8") if PAPER.exists() else ""
     claim_by_id = {c["id"]: c for c in claims}
@@ -161,8 +238,8 @@ def main() -> None:
         if pattern.lower() in paper_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
             overclaims.append({"surface": "paper_outline", "id": cid, "pattern": pattern, "status": c["status"]})
 
-    add(claims, 41, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
-    add(claims, 42, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
+    add(claims, 48, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
+    add(claims, 49, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
 
     payload = {
         "claims": claims,

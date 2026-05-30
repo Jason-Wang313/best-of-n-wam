@@ -6,6 +6,7 @@
 - `N=2` AUC identity and high-N moment hierarchy.
 - More imagination helps only when scores align with real utility.
 - Under model mismatch or bad scoring, high-N selection can amplify hallucinated futures.
+- Inference-value audits diagnose tail alignment, stop rules, scorer repair, and compute-quality frontiers from artifacts.
 - Learned toy and multi-env toy artifacts support these claims with confidence intervals where the claim gate marks them verified.
 
 ## Discussion-Only Claims

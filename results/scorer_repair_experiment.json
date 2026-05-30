@@ -1,0 +1,64 @@
+{
+  "experiment": "scorer_repair_experiment",
+  "states": 24,
+  "rollouts_per_state": 192,
+  "pilot_k": 48,
+  "ridge": 2.0,
+  "mismatches": [
+    "severe",
+    "stuck_slip",
+    "nonstationary"
+  ],
+  "seeds": [
+    811,
+    812,
+    813,
+    814,
+    815
+  ],
+  "num_seeds": 5,
+  "confidence_intervals": {
+    "repair_minus_predicted_N64": {
+      "n": 5,
+      "mean": 0.34893208610613924,
+      "std": 0.007783860739302779,
+      "stderr": 0.0034810483480945563,
+      "ci95": 0.0068228547622653304,
+      "lo": 0.3421092313438739,
+      "hi": 0.3557549408684046
+    },
+    "repair_minus_random_N64": {
+      "n": 5,
+      "mean": 0.21229512729494568,
+      "std": 0.017650874407938017,
+      "stderr": 0.007893711007692152,
+      "ci95": 0.015471673575076618,
+      "lo": 0.19682345371986906,
+      "hi": 0.2277668008700223
+    },
+    "oracle_minus_repair_N64": {
+      "n": 5,
+      "mean": 0.17437570436491212,
+      "std": 0.01772589776893016,
+      "stderr": 0.007927262474707939,
+      "ci95": 0.015537434450427559,
+      "lo": 0.15883826991448458,
+      "hi": 0.18991313881533967
+    },
+    "repair_minus_anti_N64": {
+      "n": 5,
+      "mean": 0.7546998843543857,
+      "std": 0.015582462826113905,
+      "stderr": 0.0069686892272108345,
+      "ci95": 0.013658630885333235,
+      "lo": 0.7410412534690525,
+      "hi": 0.768358515239719
+    }
+  },
+  "artifacts": {
+    "table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\scorer_repair_experiment.csv",
+    "aggregate": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\scorer_repair_experiment_aggregate.csv",
+    "seed_metrics": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\scorer_repair_seed_metrics.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\scorer_repair_experiment.png"
+  }
+}

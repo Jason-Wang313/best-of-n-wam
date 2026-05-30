@@ -19,6 +19,26 @@ Binary success is the special case `R in {0,1}`. For `N=2`, success obeys `f_2 =
 
 World-action planners often spend extra test-time compute by sampling many imagined futures, scoring them, and executing the best one. This project separates the inference-time law from the training problem: once the rollout distribution and scorer are fixed, the value of more imagination is exactly computable from the score/utility distribution.
 
+## Inference-Value Audit Framework
+
+The repo now treats the exact curve `N -> selected real utility` as an **inference-value profile**. The audit layer measures whether a rollout/scorer stack is helpful, saturating, unstable, or harmful as `N` grows.
+
+Implemented diagnostics include:
+
+- high-score tail real-utility uplift
+- score/real-utility rank alignment
+- imagined-vs-real tail gap
+- marginal-value stop rules
+- conservative deployment gates for blocking harmful high-N selection
+- pilot-calibrated scorer repair
+- compute-quality frontiers for rollout budget, horizon, and pool size
+
+```bash
+bash scripts/run_inference_audit.sh
+```
+
+These are artifact-backed audit claims, not claims that a bad WAM becomes good automatically. The audit can recommend “do not use high N” when the top-score tail is anti-aligned with real utility.
+
 ## Why This Is Not Just LLM Best-of-N Relabeled
 
 The implementation uses action-sequence rollouts, true and imagined dynamics, real rollout utility, model mismatch, safety penalties, adaptive rollout budgets, and closed-loop receding-horizon execution. The text-response pipeline, logprob scoring, answer parsing, and benchmark grading machinery are absent.
@@ -102,6 +122,10 @@ Closed-loop experiments execute the first action from the selected rollout, obse
 
 `EXP10` verifies that a bad anti-real-utility scorer can make high-N selection worse. This is important: the theorem predicts selection value for the chosen scorer/distribution, but it does not make a bad scorer good.
 
+## Scorer Repair And Compute Frontiers
+
+The audit suite includes a heldout scorer-repair experiment. A small pilot set with real utility labels calibrates a scorer from imagined features, then evaluates high-N selection on heldout rollouts. The scaling experiment varies `N`, rollout horizon, and candidate-pool size to measure the compute-quality frontier rather than assuming more imagination is always worthwhile.
+
 ## Benchmark Validation
 
 The repo includes adapter skeletons for ManiSkill, LIBERO, RoboCasa, and Gym-style manipulation under `src/wam_inference_value/benchmarks/`. In this environment, Gymnasium/MuJoCo `Reacher-v5` is available and has benchmark artifacts; ManiSkill, LIBERO, and RoboCasa remain future-facing unless their dependencies and task adapters are added.
@@ -130,7 +154,7 @@ Benchmark visual validation is a render-level sanity check, not an RGB WAM train
 bash scripts/run_maxout_all.sh
 ```
 
-This runs tests, smoke, learned WAM toy, multi-env, optional benchmark smoke, optional visual mode, and the claim gate.
+This runs tests, smoke, learned WAM toy, multi-env, benchmark/visual attempts, inference audit experiments, report generation, and the claim gate.
 
 ## Claims Status
 

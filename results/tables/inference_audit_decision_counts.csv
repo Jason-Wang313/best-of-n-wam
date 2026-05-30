@@ -1,0 +1,14 @@
+scorer,decision_action,count
+anti_real_utility,block_high_n,480
+oracle_real_utility,sample_more,269
+oracle_real_utility,stop_early,211
+predicted_utility,block_high_n,241
+predicted_utility,stop_early,239
+random_score,block_high_n,253
+random_score,pilot_more,50
+random_score,sample_more,3
+random_score,stop_early,174
+safety_penalized,block_high_n,241
+safety_penalized,stop_early,239
+uncertainty_penalized,block_high_n,242
+uncertainty_penalized,stop_early,238

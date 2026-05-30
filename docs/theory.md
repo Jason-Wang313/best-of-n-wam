@@ -70,6 +70,12 @@ With a fixed total rollout budget across states, the exact or estimated inferenc
 
 The exact law assumes the score/utility distribution is known. Pilot-to-heldout prediction is a separate statistical estimation problem. Reports must include uncertainty, confidence intervals, and regret against oracle allocation rather than treating pilot estimates as theorem guarantees.
 
+## Inference-Value Profiles And Audits
+
+For a fixed state, generator, scorer, and real utility, the exact curve `N -> V_N` is the rollout stack's inference-value profile. The profile is a deployment diagnostic, not a new theorem: it summarizes whether more test-time imagination is helpful, saturating, unstable, or harmful on the observed distribution.
+
+The high-score tail is the key object. Average score/utility correlation can miss best-of-N behavior because high `N` increasingly selects from the upper score tail. The audit therefore reports tail real-utility uplift, score/real rank correlation, imagined-vs-real tail gap, a stop rule based on marginal value per rollout, and a conservative deployment gate. The gate can recommend sampling more, stopping early, collecting more pilot evidence, or blocking high-N execution when the top-score tail is anti-aligned or hallucinated.
+
 ## Safety/Risk Scoring
 
 Safety can be handled by defining utility with a safety penalty, by constraining selection to low-risk rollouts, or by scoring rollouts as `utility - lambda * risk`. High-N selection can amplify risky false positives if risk is not included in the score.

@@ -40,7 +40,11 @@ At each visited state, the theorem applies conditionally to the rollout distribu
 
 Discuss finite pilot estimation, bootstrap uncertainty, pilot regret, fixed-budget rollout allocation across states, moment-law allocation, utility-valued marginal gains, and comparison to uniform and oracle allocation.
 
-## 8. Experimental Setup
+## 8. Inference-Value Audits
+
+Define the inference-value profile `N -> V_N` as the measurable object exposed by the theorem. Introduce tail alignment, imagined-vs-real tail gaps, marginal stop rules, deployment gates, and pilot-calibrated scorer repair. This section is the bridge from an exact law to a practical pre-deployment audit: decide whether to sample more, stop early, repair the scorer, or block high-N execution.
+
+## 9. Experimental Setup
 
 Analytic and learned toy environments:
 
@@ -60,7 +64,7 @@ Backends:
 
 Scorers include random, predicted distance, predicted utility, predicted success, uncertainty-penalized utility, safety-penalized utility, learned scorers, oracle utility, and anti-real-utility falsification.
 
-## 9. Results
+## 10. Results
 
 Report only artifact-backed claims:
 
@@ -76,15 +80,18 @@ Report only artifact-backed claims:
 10. learned-vs-analytic-vs-oracle WAM comparison
 11. multi-environment breadth
 12. optional visual toy stress test
+13. inference-value audit profiles and deployment gates
+14. pilot-calibrated scorer repair
+15. rollout compute-quality frontier
 
-## 10. Benchmark Status
+## 11. Benchmark Status
 
 Gymnasium/MuJoCo Reacher-v5 is integrated as a state-based external benchmark fallback with rollout pools, learned WAM-lite training, exact-law validation, score comparison, real-vs-predicted gap, closed-loop evaluation, and RGB render sanity artifacts. ManiSkill, LIBERO, and RoboCasa remain engineering scaffolds until their dependencies and task adapters are completed.
 
-## 11. Falsification And Limitations
+## 12. Falsification And Limitations
 
 Emphasize that more imagination helps only when scores align with real utility. Under model mismatch or a bad scorer, best-of-N can amplify hallucinated or unsafe futures. The paper does not claim real robot evidence, DreamZero/UWM-level integration, or a universal WAM training recipe.
 
-## 12. Future Work
+## 13. Future Work
 
 Robot Chinchilla: a universal WAM train-inference optimizer that jointly selects data scale, model class, rollout horizon, scorer quality, safety constraints, and test-time sampling budget.

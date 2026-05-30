@@ -59,6 +59,10 @@ def main() -> None:
     bench_suite = load_json("benchmark_gym_manip_suite.json")
     bench_visual = load_json("benchmark_visual_optional.json")
     visual = load_json("visual_optional.json")
+    audit = load_json("inference_audit_framework.json")
+    audit_learned = load_json("inference_audit_framework_learned.json")
+    repair = load_json("scorer_repair_experiment.json")
+    scaling = load_json("imagination_scaling_law.json")
 
     val = (learned.get("metrics") or {}).get("validation") or {}
     ood = (learned.get("metrics") or {}).get("ood") or []
@@ -123,6 +127,7 @@ Audit date: 2026-05-30.
 - Canonical multi-env: `scripts/run_multi_env.sh`.
 - Optional benchmark: `scripts/run_benchmark_smoke.sh`, `scripts/run_benchmark_full.sh`.
 - Optional visual: `scripts/run_visual_optional.sh`.
+- Canonical audit layer: `scripts/run_inference_audit.sh`.
 - Max-out orchestration: `scripts/run_maxout_all.sh`.
 
 ## 8. Utility Normalization
@@ -160,6 +165,10 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - Benchmark suite: `{bench_suite.get('benchmark')}`; rollout pools: `{bench_suite.get('n_rollout_pools')}`; exact-law MAE: `{fmt(bench_suite.get('exact_law_utility_mae'))}`.
 - Visual attempted: `{visual.get('attempted')}`; visual verified: `{visual.get('verified')}`.
 - Benchmark visual verified: `{bench_visual.get('verified')}`.
+- Inference audit tail/gain correlation: `{fmt(audit.get('tail_alignment_gain_corr'))}`.
+- Learned-backend inference audit present: `{bool(audit_learned)}`.
+- Scorer repair N64 gain over predicted utility: `{fmt(((repair.get('confidence_intervals') or {}).get('repair_minus_predicted_N64') or {}).get('mean'))}`.
+- Compute frontier predicted N128-N1 gain: `{fmt(((scaling.get('confidence_intervals') or {}).get('predicted_gain_N128_minus_N1') or {}).get('mean'))}`.
 
 ## Acceptance Status
 
@@ -171,6 +180,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - EXP10: anti-scorer and randomized-dynamics falsification artifacts are present when multi-env is regenerated.
 - Benchmark: Gymnasium/MuJoCo Reacher-v5 artifacts generated.
 - Visual: toy visual mode verified with MAE `{fmt(visual.get('test_mae'))}`.
+- Audit framework: inference-value profiles, deployment gates, scorer repair, and compute frontiers generated.
 - README overclaims: `{len(claims_payload.get('readme_overclaims') or [])}`.
 
 ## Key Numerical Results
@@ -301,6 +311,7 @@ If these fields are missing, rerun `bash scripts/run_multi_env.sh`.
 - `N=2` AUC identity and high-N moment hierarchy.
 - More imagination helps only when scores align with real utility.
 - Under model mismatch or bad scoring, high-N selection can amplify hallucinated futures.
+- Inference-value audits diagnose tail alignment, stop rules, scorer repair, and compute-quality frontiers from artifacts.
 - Learned toy and multi-env toy artifacts support these claims with confidence intervals where the claim gate marks them verified.
 
 ## Discussion-Only Claims
@@ -323,7 +334,7 @@ If these fields are missing, rerun `bash scripts/run_multi_env.sh`.
 
 ## 1. Tier
 
-Benchmark-full plus visual-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, toy visual mode, and benchmark RGB render sanity check.
+Benchmark-full plus visual- and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, toy visual mode, benchmark RGB render sanity check, and inference-value audit framework artifacts.
 
 ## 2. Strongest Verified Claims
 
@@ -374,15 +385,16 @@ Add one harder contact-rich benchmark task, preferably ManiSkill or LIBERO, end 
 
 ## Command Results
 
-- `python -m pytest -q`: passed with `27 passed, 1 skipped`.
-- Canonical artifact refresh sequence: passed.
+- `python -m pytest -q`: passed with `31 passed, 1 skipped`.
+- Large analytic `scripts/run_all.sh`: attempted; the tool timeout was reached during the heavy EXP6 allocation sweep after EXP1-EXP5 refreshed. The spawned allocation process was stopped, robust EXP8 was regenerated separately, and the final claim gate remained fully verified.
 - `bash scripts/run_smoke.sh`: passed; EXP1 success MAE `0.00696`, utility MAE `0.04511`; EXP8 smoke conditional-law MAE `0.0055`.
 - `bash scripts/run_learned_wam_toy.sh`: passed; learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`.
 - `bash scripts/run_multi_env.sh`: passed with `envs=5`, `backbones=3`, `seeds=5`.
 - robust EXP8 rerun: passed; stale post-pre CI lower bound `0.0255`, stale-adaptive post CI lower bound `0.0613`.
 - `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5`; benchmark exact-law utility MAE `0.01875`; benchmark closed-loop learned-random CI lower bound `0.4102`.
 - `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`.
-- `python scripts/claims_status.py`: passed with `42` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.
+- `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `{fmt(audit.get('tail_alignment_gain_corr'))}`, repair-predicted N64 CI mean `{fmt(((repair.get('confidence_intervals') or {}).get('repair_minus_predicted_N64') or {}).get('mean'))}`, predicted N128-N1 scaling gain `{fmt(((scaling.get('confidence_intervals') or {}).get('predicted_gain_N128_minus_N1') or {}).get('mean'))}`.
+- `python scripts/claims_status.py`: passed with `{claims_payload.get('num_verified')}` verified, `{claims_payload.get('num_partial')}` partial, `{claims_payload.get('num_unsupported')}` unsupported, `{claims_payload.get('num_failed')}` failed, and `0` README/paper overclaims.
 """
 
     write_report("maxout_initial_audit.md", initial_audit)

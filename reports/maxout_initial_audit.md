@@ -50,6 +50,7 @@ Audit date: 2026-05-30.
 - Canonical multi-env: `scripts/run_multi_env.sh`.
 - Optional benchmark: `scripts/run_benchmark_smoke.sh`, `scripts/run_benchmark_full.sh`.
 - Optional visual: `scripts/run_visual_optional.sh`.
+- Canonical audit layer: `scripts/run_inference_audit.sh`.
 - Max-out orchestration: `scripts/run_maxout_all.sh`.
 
 ## 8. Utility Normalization

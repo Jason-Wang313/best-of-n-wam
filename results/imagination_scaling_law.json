@@ -1,0 +1,105 @@
+{
+  "experiment": "imagination_scaling_law",
+  "states": 8,
+  "seeds": [
+    911,
+    912,
+    913,
+    914,
+    915
+  ],
+  "num_seeds": 5,
+  "mismatches": [
+    "mild",
+    "severe"
+  ],
+  "horizons": [
+    4,
+    8,
+    12
+  ],
+  "pool_sizes": [
+    32,
+    64,
+    128
+  ],
+  "N_values": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "scorers": [
+    "predicted_utility",
+    "uncertainty_penalized",
+    "random_score",
+    "oracle_real_utility"
+  ],
+  "confidence_intervals": {
+    "predicted_gain_N128_minus_N1": {
+      "n": 5,
+      "mean": 0.025522691537548704,
+      "std": 0.013112519318734733,
+      "stderr": 0.005864096910594019,
+      "ci95": 0.011493629944764275,
+      "lo": 0.014029061592784428,
+      "hi": 0.03701632148231298
+    },
+    "random_gain_N128_minus_N1": {
+      "n": 5,
+      "mean": -0.006997968570502414,
+      "std": 0.006197037251981832,
+      "stderr": 0.0027713993109059736,
+      "ci95": 0.005431942649375708,
+      "lo": -0.012429911219878121,
+      "hi": -0.0015660259211267057
+    },
+    "oracle_gain_N128_minus_N1": {
+      "n": 5,
+      "mean": 0.43465648579296656,
+      "std": 0.014886940728700893,
+      "stderr": 0.006657642289277089,
+      "ci95": 0.013048978886983096,
+      "lo": 0.4216075069059835,
+      "hi": 0.44770546467994965
+    },
+    "oracle_minus_predicted_gain": {
+      "n": 5,
+      "mean": 0.4091337942554179,
+      "std": 0.022021280046922203,
+      "stderr": 0.00984821582729556,
+      "ci95": 0.019302503021499298,
+      "lo": 0.38983129123391863,
+      "hi": 0.4284362972769172
+    },
+    "median_stop_n_predicted": {
+      "n": 5,
+      "mean": 12.8,
+      "std": 4.381780460041329,
+      "stderr": 1.9595917942265422,
+      "ci95": 3.8407999166840225,
+      "lo": 8.959200083315977,
+      "hi": 16.640799916684024
+    },
+    "helpful_profile_rate_predicted": {
+      "n": 5,
+      "mean": 0.3805555555555556,
+      "std": 0.023240556292613207,
+      "stderr": 0.010393492741038724,
+      "ci95": 0.0203712457724359,
+      "lo": 0.3601843097831197,
+      "hi": 0.40092680132799147
+    }
+  },
+  "artifacts": {
+    "table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\imagination_scaling_law.csv",
+    "profiles": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\imagination_scaling_profiles.csv",
+    "aggregate": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\imagination_scaling_law_aggregate.csv",
+    "seed_metrics": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\imagination_scaling_seed_metrics.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\imagination_scaling_frontier.png"
+  }
+}

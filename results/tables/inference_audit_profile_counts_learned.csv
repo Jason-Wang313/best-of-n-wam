@@ -1,0 +1,16 @@
+scorer,profile_class,count
+anti_real_utility,harmful,320
+oracle_real_utility,helpful,320
+predicted_utility,harmful,156
+predicted_utility,helpful,129
+predicted_utility,unstable,35
+random_score,harmful,119
+random_score,helpful,115
+random_score,saturating,78
+random_score,unstable,8
+safety_penalized,harmful,156
+safety_penalized,helpful,129
+safety_penalized,unstable,35
+uncertainty_penalized,harmful,156
+uncertainty_penalized,helpful,133
+uncertainty_penalized,unstable,31

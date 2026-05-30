@@ -23,5 +23,6 @@ bash scripts/run_multi_env.sh
 "${PY[@]}" experiments/nonstationary_dynamics_extension.py --episodes 48 --rollouts 160 --mc-trials 1000 --seed 41
 bash scripts/run_benchmark_full.sh
 bash scripts/run_visual_optional.sh
+bash scripts/run_inference_audit.sh
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/write_maxout_reports.py
