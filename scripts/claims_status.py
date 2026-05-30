@@ -75,6 +75,7 @@ def main() -> None:
     benchmark_visual = load_json("benchmark_visual_optional.json")
     benchmark_visual_wam = load_json("benchmark_visual_wam_lite.json")
     gym_robotics = load_json("benchmark_gym_robotics_suite.json")
+    gym_robotics_visual = load_json("benchmark_gym_robotics_visual_wam.json")
     audit = load_json("inference_audit_framework.json")
     audit_learned = load_json("inference_audit_framework_learned.json")
     repair = load_json("scorer_repair_experiment.json")
@@ -394,6 +395,49 @@ def main() -> None:
         ),
         f"oracle-learned CI={gym_robotics_ci.get('oracle_minus_learned_N32')}",
     )
+    gym_robotics_visual_ci = gym_robotics_visual.get("confidence_intervals") or {}
+    add(
+        claims,
+        64,
+        "Gymnasium Robotics RGB visual WAM trained and evaluated.",
+        status(
+            bool(gym_robotics_visual)
+            and gym_robotics_visual.get("verified", False)
+            and len(gym_robotics_visual.get("env_ids") or []) >= 3
+            and (gym_robotics_visual.get("mean_validation_utility_corr") or 0.0) > 0.25,
+            bool(gym_robotics_visual),
+        ),
+        f"envs={gym_robotics_visual.get('env_ids')}, mean corr={gym_robotics_visual.get('mean_validation_utility_corr')}",
+    )
+    add(
+        claims,
+        65,
+        "Gymnasium Robotics RGB visual exact law verified.",
+        status(
+            gym_robotics_visual.get("exact_law_utility_mae") is not None
+            and gym_robotics_visual.get("exact_law_utility_mae") < 0.08,
+            bool(gym_robotics_visual),
+        ),
+        f"utility MAE={gym_robotics_visual.get('exact_law_utility_mae')}",
+    )
+    add(
+        claims,
+        66,
+        "Gymnasium Robotics RGB visual scorer beats random with CI.",
+        status(
+            (gym_robotics_visual_ci.get("visual_minus_random_N32") or {}).get("lo") is not None
+            and (gym_robotics_visual_ci.get("visual_minus_random_N32") or {}).get("lo") > 0.0,
+            bool(gym_robotics_visual),
+        ),
+        f"visual-random CI={gym_robotics_visual_ci.get('visual_minus_random_N32')}",
+    )
+    add(
+        claims,
+        67,
+        "Gymnasium Robotics RGB visual oracle gap is reported without requiring significance.",
+        status((gym_robotics_visual_ci.get("oracle_minus_visual_N32") or {}).get("n", 0) >= 5, bool(gym_robotics_visual)),
+        f"oracle-visual CI={gym_robotics_visual_ci.get('oracle_minus_visual_N32')}",
+    )
 
     readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
     paper_text = PAPER.read_text(encoding="utf-8") if PAPER.exists() else ""
@@ -406,8 +450,8 @@ def main() -> None:
         if pattern.lower() in paper_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
             overclaims.append({"surface": "paper_outline", "id": cid, "pattern": pattern, "status": c["status"]})
 
-    add(claims, 64, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
-    add(claims, 65, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
+    add(claims, 68, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
+    add(claims, 69, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
 
     payload = {
         "claims": claims,

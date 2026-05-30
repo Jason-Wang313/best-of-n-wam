@@ -2,7 +2,7 @@
 
 ## Counts
 
-- verified: `65`
+- verified: `69`
 - partial: `0`
 - unsupported: `0`
 - failed: `0`
@@ -64,7 +64,7 @@
 - 52. ManiSkill WAM-lite trained and evaluated. Evidence: model metric rows=6
 - 53. ManiSkill closed-loop learned scorer beats random. Evidence: learned-random closed-loop CI={'n': 5, 'mean': 0.027762312500152514, 'std': 0.020055963136210424, 'stderr': 0.008969299385359276, 'ci95': 0.01757982679530418, 'lo': 0.010182485704848334, 'hi': 0.04534213929545669}
 - 54. ManiSkill learned open-loop scorer is honestly reported. Evidence: learned-random open-loop CI={'n': 5, 'mean': -0.005754620067846242, 'std': 0.04861601605708501, 'stderr': 0.021741743339772673, 'ci95': 0.04261381694595444, 'lo': -0.04836843701380068, 'hi': 0.036859196878108194}
-- 55. Benchmark RGB visual WAM-lite trained and evaluated. Evidence: model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.2199328908664021, 'success_mae': 0.18271949404761903}
+- 55. Benchmark RGB visual WAM-lite trained and evaluated. Evidence: model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.21993289086640203, 'success_mae': 0.18271949404761903}
 - 56. Benchmark RGB visual WAM exact law verified. Evidence: utility MAE=0.01571480996432407
 - 57. Benchmark RGB visual WAM scorer beats random with CI. Evidence: visual-random CI={'n': 5, 'mean': 0.2367775727718704, 'std': 0.04220964852617569, 'stderr': 0.01887672868218053, 'ci95': 0.03699838821707384, 'lo': 0.19977918455479654, 'hi': 0.27377596098894424}
 - 58. Benchmark RGB visual WAM oracle gap reported. Evidence: oracle-visual CI={'n': 5, 'mean': 0.3433881226502652, 'std': 0.09104423341118655, 'stderr': 0.04071621897335413, 'ci95': 0.0798037891877741, 'lo': 0.2635843334624911, 'hi': 0.4231919118380393}
@@ -73,8 +73,12 @@
 - 61. Gymnasium Robotics learned WAM scorer beats random with CI. Evidence: learned-random CI={'n': 5, 'mean': 0.5183591980928537, 'std': 0.08832562568455588, 'stderr': 0.03950042063717366, 'ci95': 0.07742082444886038, 'lo': 0.4409383736439933, 'hi': 0.595780022541714}
 - 62. Gymnasium Robotics closed-loop learned scorer beats random. Evidence: closed-loop learned-random CI={'n': 5, 'mean': 0.7086378606835364, 'std': 0.5149831233310606, 'stderr': 0.23030745420668186, 'ci95': 0.4514026102450964, 'lo': 0.25723525043844, 'hi': 1.160040470928633}
 - 63. Gymnasium Robotics oracle gap reported. Evidence: oracle-learned CI={'n': 5, 'mean': 0.03423794265616582, 'std': 0.021599643753640783, 'stderr': 0.009659654344583902, 'ci95': 0.018932922515384448, 'lo': 0.015305020140781375, 'hi': 0.05317086517155027}
-- 64. README has no unsupported claims. Evidence: README overclaims=0
-- 65. paper_outline has no unsupported claims. Evidence: paper overclaims=0
+- 64. Gymnasium Robotics RGB visual WAM trained and evaluated. Evidence: envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.7325062733110719
+- 65. Gymnasium Robotics RGB visual exact law verified. Evidence: utility MAE=0.010612997381058541
+- 66. Gymnasium Robotics RGB visual scorer beats random with CI. Evidence: visual-random CI={'n': 5, 'mean': 0.4888505704773543, 'std': 0.16122603373528005, 'stderr': 0.0721024742349521, 'ci95': 0.1413208495005061, 'lo': 0.3475297209768482, 'hi': 0.6301714199778604}
+- 67. Gymnasium Robotics RGB visual oracle gap is reported without requiring significance. Evidence: oracle-visual CI={'n': 5, 'mean': 0.02680333126025487, 'std': 0.03203449057950047, 'stderr': 0.014326259712067935, 'ci95': 0.028079469035653153, 'lo': -0.0012761377753982839, 'hi': 0.05488280029590802}
+- 68. README has no unsupported claims. Evidence: README overclaims=0
+- 69. paper_outline has no unsupported claims. Evidence: paper overclaims=0
 
 ## Partial
 

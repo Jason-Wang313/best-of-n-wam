@@ -88,11 +88,11 @@ Report only artifact-backed claims:
 
 Gymnasium/MuJoCo Reacher-v5 is integrated as a state-based external benchmark fallback with rollout pools, learned WAM-lite training, exact-law validation, score comparison, real-vs-predicted gap, closed-loop evaluation, and RGB WAM-lite artifacts.
 
-Gymnasium Robotics Fetch is integrated on `FetchReach-v4`, `FetchPush-v4`, and `FetchPickAndPlace-v4`, adding contact-rich MuJoCo manipulation evidence with state/action-sequence WAM-lite training, exact-law validation, score comparison, closed-loop learned-versus-random evaluation, and RGB frame artifacts.
+Gymnasium Robotics Fetch is integrated on `FetchReach-v4`, `FetchPush-v4`, and `FetchPickAndPlace-v4`, adding contact-rich MuJoCo manipulation evidence with state/action-sequence WAM-lite training, exact-law validation, score comparison, closed-loop learned-versus-random evaluation, RGB-frame/action-sequence visual WAM-lite validation, and RGB frame artifacts.
 
 ManiSkill3 is integrated in CPU state mode on `PickCube-v1`, `PushCube-v1`, and `PegInsertionSide-v1` with `pd_joint_delta_pos` control. Artifact-backed ManiSkill claims include rollout pools, exact-law validation, score comparison, WAM-lite training, and a small closed-loop learned-versus-random comparison. End-effector delta-pose control is not claimed because Pinocchio was unavailable in this Windows environment.
 
-Benchmark RGB WAM-lite validation is integrated on Gymnasium/MuJoCo `Reacher-v5`, where RGB rendering works. The model consumes rendered RGB frame features and action sequences, predicts rollout utility, and is evaluated with exact-law and best-of-N scorer-comparison artifacts. ManiSkill RGB/RGB-D WAM validation is not claimed because the local SAPIEN/Vulkan renderer failed during RGB observation creation. LIBERO and RoboCasa remain engineering scaffolds until their dependencies and task adapters are completed.
+Benchmark RGB WAM-lite validation is integrated on Gymnasium/MuJoCo `Reacher-v5` and Gymnasium Robotics Fetch, where RGB rendering works. The model consumes rendered RGB frame features and action sequences, predicts rollout utility, and is evaluated with exact-law and best-of-N scorer-comparison artifacts. ManiSkill RGB/RGB-D WAM validation is not claimed because the local SAPIEN/Vulkan renderer failed during RGB observation creation. LIBERO and RoboCasa remain engineering scaffolds until their dependencies and task adapters are completed.
 
 ## 12. Falsification And Limitations
 

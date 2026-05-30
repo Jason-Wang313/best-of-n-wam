@@ -4,7 +4,7 @@ Audit date: 2026-05-30.
 
 ## Execution Tier
 
-Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, Gymnasium Robotics Fetch benchmark, ManiSkill3 state-mode benchmark, toy visual mode, and benchmark RGB WAM-lite on Reacher-v5 frames.
+Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, Gymnasium Robotics Fetch benchmark, ManiSkill3 state-mode benchmark, toy visual mode, Reacher RGB WAM-lite, and Fetch RGB WAM-lite.
 
 ## Artifact Coverage
 
@@ -18,6 +18,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - Visual attempted: `True`; visual verified: `True`.
 - Benchmark visual verified: `True`.
 - Benchmark RGB WAM-lite: `extra_trees_visual_wam`; verified: `True`; utility corr: `0.2199`; utility MAE: `0.5208`; exact-law MAE: `0.0157`.
+- Gymnasium Robotics RGB WAM-lite: verified: `True`; mean utility corr: `0.7325`; exact-law MAE: `0.0106`; visual-random N32 CI lower: `0.3475`.
 - Inference audit tail/gain correlation: `0.9864`.
 - Learned-backend inference audit present: `True`.
 - Scorer repair N64 gain over predicted utility: `0.3489`.
@@ -36,6 +37,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - ManiSkill: PickCube-v1, PushCube-v1, and PegInsertionSide-v1 state-mode artifacts generated.
 - Visual: toy visual mode verified with MAE `0.0185`.
 - Benchmark visual WAM: Reacher-v5 RGB-frame/action-sequence model verified with visual-random N32 CI lower bound `0.1998`.
+- Gymnasium Robotics visual WAM: Fetch RGB-frame/action-sequence models verified with visual-random N32 CI lower bound `0.3475`.
 - Audit framework: inference-value profiles, deployment gates, scorer repair, and compute frontiers generated.
 - README overclaims: `0`.
 

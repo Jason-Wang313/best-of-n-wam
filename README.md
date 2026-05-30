@@ -140,7 +140,7 @@ Current benchmark artifacts include:
 - ManiSkill3 state-mode `PushCube-v1`
 - ManiSkill3 state-mode `PegInsertionSide-v1`
 
-The Gymnasium Robotics artifacts add contact-rich Fetch manipulation tasks with state/action-sequence WAM-lite training, exact-law validation, scorer comparison, closed-loop evaluation, and RGB frame artifacts. The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the optional Pinocchio dependency was unavailable. LIBERO and RoboCasa remain future work unless their dependencies and artifacts are added.
+The Gymnasium Robotics artifacts add contact-rich Fetch manipulation tasks with state/action-sequence WAM-lite training, exact-law validation, scorer comparison, closed-loop evaluation, RGB-frame/action-sequence visual WAM-lite validation, and RGB frame artifacts. The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the optional Pinocchio dependency was unavailable. LIBERO and RoboCasa remain future work unless their dependencies and artifacts are added.
 
 ```bash
 bash scripts/run_benchmark_smoke.sh
@@ -151,7 +151,7 @@ Current benchmark artifacts include rollout pools, learned benchmark WAM-lite tr
 
 ## Visual Modes
 
-The toy visual mode renders low-resolution toy states and trains/evaluates a lightweight visual utility predictor. The benchmark visual mode trains an RGB-frame/action-sequence WAM-lite on Gymnasium/MuJoCo `Reacher-v5` frames and evaluates exact-law and scorer-comparison claims on heldout rollout pools.
+The toy visual mode renders low-resolution toy states and trains/evaluates a lightweight visual utility predictor. The benchmark visual mode trains RGB-frame/action-sequence WAM-lite models on Gymnasium/MuJoCo `Reacher-v5` and Gymnasium Robotics Fetch frames, then evaluates exact-law and scorer-comparison claims on heldout rollout pools.
 
 ```bash
 bash scripts/run_visual_optional.sh
