@@ -14,7 +14,7 @@
   "n_rollout_pools": 45,
   "n_rollouts": 40,
   "exact_law_utility_mae": 0.010612997381058541,
-  "mean_validation_utility_corr": 0.7325062733110719,
+  "mean_validation_utility_corr": 0.7325062733110718,
   "model_metrics": [
     {
       "benchmark": "FetchReach-v4",
@@ -23,7 +23,7 @@
       "frame_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\benchmark_gym_robotics_visual_FetchReach-v4_frame.png",
       "model_type": "extra_trees_visual_wam",
       "validation": {
-        "utility_mae": 0.49748813127644975,
+        "utility_mae": 0.49748813127644986,
         "utility_corr": 0.883947273673222,
         "success_mae": 0.15547619047619046,
         "distance_mae": 0.050758094247727106,
@@ -39,9 +39,9 @@
       "model_type": "extra_trees_visual_wam",
       "validation": {
         "utility_mae": 0.07983029570071357,
-        "utility_corr": 0.4313281928983882,
+        "utility_corr": 0.4313281928983881,
         "success_mae": 0.0,
-        "distance_mae": 0.07843653041634131,
+        "distance_mae": 0.07843653041634133,
         "train_samples": 400,
         "validation_samples": 160
       }
@@ -53,10 +53,10 @@
       "frame_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\benchmark_gym_robotics_visual_FetchPickAndPlace-v4_frame.png",
       "model_type": "extra_trees_visual_wam",
       "validation": {
-        "utility_mae": 0.036933349561400125,
+        "utility_mae": 0.03693334956140014,
         "utility_corr": 0.8822433533616054,
         "success_mae": 0.0,
-        "distance_mae": 0.0359266085904395,
+        "distance_mae": 0.03592660859043948,
         "train_samples": 400,
         "validation_samples": 160
       }

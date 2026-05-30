@@ -140,7 +140,7 @@ Current benchmark artifacts include:
 - ManiSkill3 state-mode `PushCube-v1`
 - ManiSkill3 state-mode `PegInsertionSide-v1`
 
-The Gymnasium Robotics artifacts add contact-rich Fetch manipulation tasks with state/action-sequence WAM-lite training, exact-law validation, scorer comparison, closed-loop evaluation, RGB-frame/action-sequence visual WAM-lite validation, and RGB frame artifacts. The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the optional Pinocchio dependency was unavailable. LIBERO and RoboCasa remain future work unless their dependencies and artifacts are added.
+The Gymnasium Robotics artifacts add contact-rich Fetch manipulation tasks with state/action-sequence WAM-lite training, exact-law validation, scorer comparison, closed-loop evaluation, RGB-frame/action-sequence visual WAM-lite validation, and RGB frame artifacts. The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the optional Pinocchio dependency was unavailable; the repo also includes a generated ManiSkill visual/EE-control probe so that this limitation is artifact-backed rather than anecdotal. LIBERO and RoboCasa remain future work unless their dependencies and artifacts are added.
 
 ```bash
 bash scripts/run_benchmark_smoke.sh
@@ -159,6 +159,14 @@ bash scripts/run_benchmark_visual_optional.sh
 ```
 
 Current benchmark visual artifacts use rendered RGB frames plus candidate action sequences. ManiSkill RGB/RGB-D visual WAM validation is not claimed because the local SAPIEN/Vulkan renderer failed with a descriptor-pool error; ManiSkill evidence remains state-mode.
+
+The optional ManiSkill visual probe is:
+
+```bash
+python experiments/benchmark_maniskill_visual_probe.py
+```
+
+It writes `results/benchmark_maniskill_visual_probe.json`, `results/tables/benchmark_maniskill_visual_probe.csv`, and `reports/maniskill_visual_blocker_report.md`.
 
 ## Full Max-Out Run
 

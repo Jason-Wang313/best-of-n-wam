@@ -1,0 +1,385 @@
+{
+  "experiment": "benchmark_maniskill_visual_probe",
+  "attempted": true,
+  "available": true,
+  "python": "3.10.11",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "mani_skill_version": "3.0.1",
+  "attempts": [
+    {
+      "ok": true,
+      "shapes": {
+        "obs": [
+          1,
+          42
+        ],
+        "step_reward_shape": [
+          1
+        ]
+      },
+      "mani_skill_version": "3.0.1",
+      "name": "state_baseline_joint_delta",
+      "category": "state_baseline",
+      "env_id": "PickCube-v1",
+      "kwargs": {
+        "obs_mode": "state",
+        "control_mode": "pd_joint_delta_pos",
+        "render_mode": null
+      },
+      "returncode": 0,
+      "stderr_tail": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
+        "  warnings.warn(",
+        "\u001b[33;1m2026-05-31 00:22:26,334 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+      ]
+    },
+    {
+      "ok": false,
+      "error_type": "RuntimeError",
+      "error": "vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory",
+      "trace_tail": [
+        "    sensor_data=self._get_obs_sensor_data(apply_texture_transforms),",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 604, in _get_obs_sensor_data",
+        "    self.capture_sensor_data()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 565, in capture_sensor_data",
+        "    sensor.capture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\sensors\\camera.py\", line 188, in capture",
+        "    self.camera.take_picture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\utils\\structs\\render_camera.py\", line 273, in take_picture",
+        "    self._render_cameras[0].take_picture()",
+        "RuntimeError: vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory"
+      ],
+      "mani_skill_version": "3.0.1",
+      "name": "rgb_minimal_64",
+      "category": "visual_obs",
+      "env_id": "PickCube-v1",
+      "kwargs": {
+        "obs_mode": "rgb",
+        "control_mode": "pd_joint_delta_pos",
+        "render_mode": null,
+        "shader_dir": "minimal",
+        "sensor_configs": {
+          "width": 64,
+          "height": 64,
+          "shader_pack": "minimal"
+        }
+      },
+      "returncode": 0,
+      "stderr_tail": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
+        "  warnings.warn(",
+        "\u001b[33;1m2026-05-31 00:22:42,517 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
+        "\u001b[33;1m2026-05-31 00:22:42,881 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+      ]
+    },
+    {
+      "ok": false,
+      "error_type": "RuntimeError",
+      "error": "vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory",
+      "trace_tail": [
+        "    sensor_data=self._get_obs_sensor_data(apply_texture_transforms),",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 604, in _get_obs_sensor_data",
+        "    self.capture_sensor_data()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 565, in capture_sensor_data",
+        "    sensor.capture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\sensors\\camera.py\", line 188, in capture",
+        "    self.camera.take_picture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\utils\\structs\\render_camera.py\", line 273, in take_picture",
+        "    self._render_cameras[0].take_picture()",
+        "RuntimeError: vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory"
+      ],
+      "mani_skill_version": "3.0.1",
+      "name": "rgb_minimal_32",
+      "category": "visual_obs",
+      "env_id": "PickCube-v1",
+      "kwargs": {
+        "obs_mode": "rgb",
+        "control_mode": "pd_joint_delta_pos",
+        "render_mode": null,
+        "shader_dir": "minimal",
+        "sensor_configs": {
+          "width": 32,
+          "height": 32,
+          "shader_pack": "minimal"
+        }
+      },
+      "returncode": 0,
+      "stderr_tail": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
+        "  warnings.warn(",
+        "\u001b[33;1m2026-05-31 00:22:59,062 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
+        "\u001b[33;1m2026-05-31 00:22:59,312 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+      ]
+    },
+    {
+      "ok": false,
+      "error_type": "RuntimeError",
+      "error": "vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory",
+      "trace_tail": [
+        "    sensor_data=self._get_obs_sensor_data(apply_texture_transforms),",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 604, in _get_obs_sensor_data",
+        "    self.capture_sensor_data()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 565, in capture_sensor_data",
+        "    sensor.capture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\sensors\\camera.py\", line 188, in capture",
+        "    self.camera.take_picture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\utils\\structs\\render_camera.py\", line 273, in take_picture",
+        "    self._render_cameras[0].take_picture()",
+        "RuntimeError: vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory"
+      ],
+      "mani_skill_version": "3.0.1",
+      "name": "rgbd_minimal_32",
+      "category": "visual_obs",
+      "env_id": "PickCube-v1",
+      "kwargs": {
+        "obs_mode": "rgbd",
+        "control_mode": "pd_joint_delta_pos",
+        "render_mode": null,
+        "shader_dir": "minimal",
+        "sensor_configs": {
+          "width": 32,
+          "height": 32,
+          "shader_pack": "minimal"
+        }
+      },
+      "returncode": 0,
+      "stderr_tail": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
+        "  warnings.warn(",
+        "\u001b[33;1m2026-05-31 00:23:14,789 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
+        "\u001b[33;1m2026-05-31 00:23:15,034 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+      ]
+    },
+    {
+      "ok": false,
+      "error_type": "RuntimeError",
+      "error": "vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory",
+      "trace_tail": [
+        "    sensor_data=self._get_obs_sensor_data(apply_texture_transforms),",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 604, in _get_obs_sensor_data",
+        "    self.capture_sensor_data()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 565, in capture_sensor_data",
+        "    sensor.capture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\sensors\\camera.py\", line 188, in capture",
+        "    self.camera.take_picture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\utils\\structs\\render_camera.py\", line 273, in take_picture",
+        "    self._render_cameras[0].take_picture()",
+        "RuntimeError: vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory"
+      ],
+      "mani_skill_version": "3.0.1",
+      "name": "state_rgb_minimal_32",
+      "category": "visual_obs",
+      "env_id": "PickCube-v1",
+      "kwargs": {
+        "obs_mode": "state+rgb",
+        "control_mode": "pd_joint_delta_pos",
+        "render_mode": null,
+        "shader_dir": "minimal",
+        "sensor_configs": {
+          "width": 32,
+          "height": 32,
+          "shader_pack": "minimal"
+        }
+      },
+      "returncode": 0,
+      "stderr_tail": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
+        "  warnings.warn(",
+        "\u001b[33;1m2026-05-31 00:23:31,094 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
+        "\u001b[33;1m2026-05-31 00:23:31,350 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+      ]
+    },
+    {
+      "ok": false,
+      "error_type": "RuntimeError",
+      "error": "vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory",
+      "trace_tail": [
+        "    sensor_data=self._get_obs_sensor_data(apply_texture_transforms),",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 604, in _get_obs_sensor_data",
+        "    self.capture_sensor_data()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 565, in capture_sensor_data",
+        "    sensor.capture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\sensors\\camera.py\", line 188, in capture",
+        "    self.camera.take_picture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\utils\\structs\\render_camera.py\", line 273, in take_picture",
+        "    self._render_cameras[0].take_picture()",
+        "RuntimeError: vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory"
+      ],
+      "mani_skill_version": "3.0.1",
+      "name": "sensor_data_minimal_32",
+      "category": "visual_obs",
+      "env_id": "PickCube-v1",
+      "kwargs": {
+        "obs_mode": "sensor_data",
+        "control_mode": "pd_joint_delta_pos",
+        "render_mode": null,
+        "shader_dir": "minimal",
+        "sensor_configs": {
+          "width": 32,
+          "height": 32,
+          "shader_pack": "minimal"
+        }
+      },
+      "returncode": 0,
+      "stderr_tail": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
+        "  warnings.warn(",
+        "\u001b[33;1m2026-05-31 00:23:47,184 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
+        "\u001b[33;1m2026-05-31 00:23:47,480 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+      ]
+    },
+    {
+      "ok": false,
+      "error_type": "RuntimeError",
+      "error": "vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory",
+      "trace_tail": [
+        "    res = self.render_rgb_array()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 1377, in render_rgb_array",
+        "    render_images = self.scene.get_human_render_camera_images(camera_name)",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\scene.py\", line 1167, in get_human_render_camera_images",
+        "    camera.capture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\sensors\\camera.py\", line 188, in capture",
+        "    self.camera.take_picture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\utils\\structs\\render_camera.py\", line 273, in take_picture",
+        "    self._render_cameras[0].take_picture()",
+        "RuntimeError: vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory"
+      ],
+      "mani_skill_version": "3.0.1",
+      "name": "render_rgb_array_minimal_32",
+      "category": "render_mode",
+      "env_id": "PickCube-v1",
+      "kwargs": {
+        "obs_mode": "state",
+        "control_mode": "pd_joint_delta_pos",
+        "render_mode": "rgb_array",
+        "shader_dir": "minimal",
+        "human_render_camera_configs": {
+          "width": 32,
+          "height": 32,
+          "shader_pack": "minimal"
+        }
+      },
+      "returncode": 0,
+      "stderr_tail": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
+        "  warnings.warn(",
+        "\u001b[33;1m2026-05-31 00:24:03,649 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
+        "\u001b[33;1m2026-05-31 00:24:03,862 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+      ]
+    },
+    {
+      "ok": false,
+      "error_type": "RuntimeError",
+      "error": "vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory",
+      "trace_tail": [
+        "    sensor_data=self._get_obs_sensor_data(apply_texture_transforms),",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 604, in _get_obs_sensor_data",
+        "    self.capture_sensor_data()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 565, in capture_sensor_data",
+        "    sensor.capture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\sensors\\camera.py\", line 188, in capture",
+        "    self.camera.take_picture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\utils\\structs\\render_camera.py\", line 273, in take_picture",
+        "    self._render_cameras[0].take_picture()",
+        "RuntimeError: vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory"
+      ],
+      "mani_skill_version": "3.0.1",
+      "name": "pushcube_rgb_minimal_32",
+      "category": "visual_obs",
+      "env_id": "PushCube-v1",
+      "kwargs": {
+        "obs_mode": "rgb",
+        "control_mode": "pd_joint_delta_pos",
+        "render_mode": null,
+        "shader_dir": "minimal",
+        "sensor_configs": {
+          "width": 32,
+          "height": 32,
+          "shader_pack": "minimal"
+        }
+      },
+      "returncode": 0,
+      "stderr_tail": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
+        "  warnings.warn(",
+        "\u001b[33;1m2026-05-31 00:24:19,691 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
+        "\u001b[33;1m2026-05-31 00:24:20,010 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+      ]
+    },
+    {
+      "ok": false,
+      "error_type": "TypeError",
+      "error": "'NoneType' object is not callable was raised from the environment creator for PickCube-v1 with kwargs ({'obs_mode': 'state', 'control_mode': 'pd_ee_delta_pose', 'render_mode': None})",
+      "trace_tail": [
+        "    self.pmodel = PinocchioModel(xml, [0, 0, -9.81])",
+        "TypeError: 'NoneType' object is not callable",
+        "",
+        "During handling of the above exception, another exception occurred:",
+        "",
+        "Traceback (most recent call last):",
+        "  File \"<string>\", line 18, in <module>",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\gymnasium\\envs\\registration.py\", line 746, in make",
+        "    raise type(e)(",
+        "TypeError: 'NoneType' object is not callable was raised from the environment creator for PickCube-v1 with kwargs ({'obs_mode': 'state', 'control_mode': 'pd_ee_delta_pose', 'render_mode': None})"
+      ],
+      "mani_skill_version": "3.0.1",
+      "name": "ee_delta_pose_state_probe",
+      "category": "ee_control",
+      "env_id": "PickCube-v1",
+      "kwargs": {
+        "obs_mode": "state",
+        "control_mode": "pd_ee_delta_pose",
+        "render_mode": null
+      },
+      "returncode": 0,
+      "stderr_tail": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
+        "  warnings.warn(",
+        "\u001b[33;1m2026-05-31 00:24:36,247 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+      ]
+    },
+    {
+      "ok": false,
+      "error_type": "TypeError",
+      "error": "'NoneType' object is not callable was raised from the environment creator for PickCube-v1 with kwargs ({'obs_mode': 'state', 'control_mode': 'pd_ee_delta_pos', 'render_mode': None})",
+      "trace_tail": [
+        "    self.pmodel = PinocchioModel(xml, [0, 0, -9.81])",
+        "TypeError: 'NoneType' object is not callable",
+        "",
+        "During handling of the above exception, another exception occurred:",
+        "",
+        "Traceback (most recent call last):",
+        "  File \"<string>\", line 18, in <module>",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\gymnasium\\envs\\registration.py\", line 746, in make",
+        "    raise type(e)(",
+        "TypeError: 'NoneType' object is not callable was raised from the environment creator for PickCube-v1 with kwargs ({'obs_mode': 'state', 'control_mode': 'pd_ee_delta_pos', 'render_mode': None})"
+      ],
+      "mani_skill_version": "3.0.1",
+      "name": "ee_delta_pos_state_probe",
+      "category": "ee_control",
+      "env_id": "PickCube-v1",
+      "kwargs": {
+        "obs_mode": "state",
+        "control_mode": "pd_ee_delta_pos",
+        "render_mode": null
+      },
+      "returncode": 0,
+      "stderr_tail": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
+        "  warnings.warn(",
+        "\u001b[33;1m2026-05-31 00:24:54,571 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+      ]
+    }
+  ],
+  "state_baseline_ok": true,
+  "any_visual_success": false,
+  "any_ee_control_success": false,
+  "visual_attempt_count": 7,
+  "ee_control_attempt_count": 2,
+  "artifacts": {
+    "table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_maniskill_visual_probe.csv",
+    "report": "C:\\Users\\wangz\\best-of-n-wam\\reports\\maniskill_visual_blocker_report.md"
+  },
+  "visual_blocker": "vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory",
+  "ee_control_blocker": "'NoneType' object is not callable was raised from the environment creator for PickCube-v1 with kwargs ({'obs_mode': 'state', 'control_mode': 'pd_ee_delta_pose', 'render_mode': None})"
+}

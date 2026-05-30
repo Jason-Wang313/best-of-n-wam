@@ -17,6 +17,4 @@ else
 fi
 
 "${PY[@]}" experiments/visual_optional.py
-"${PY[@]}" experiments/benchmark_visual_optional.py
-"${PY[@]}" experiments/benchmark_visual_wam_lite.py
-"${PY[@]}" experiments/benchmark_gym_robotics_visual_wam.py
+bash scripts/run_benchmark_visual_optional.sh

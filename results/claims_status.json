@@ -382,7 +382,7 @@
       "id": 64,
       "claim": "Gymnasium Robotics RGB visual WAM trained and evaluated.",
       "status": "VERIFIED",
-      "evidence": "envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.7325062733110719"
+      "evidence": "envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.7325062733110718"
     },
     {
       "id": 65,
@@ -404,19 +404,25 @@
     },
     {
       "id": 68,
+      "claim": "ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.",
+      "status": "VERIFIED",
+      "evidence": "visual_success=False, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory"
+    },
+    {
+      "id": 69,
       "claim": "README has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "README overclaims=0"
     },
     {
-      "id": 69,
+      "id": 70,
       "claim": "paper_outline has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "paper overclaims=0"
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 69,
+  "num_verified": 70,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

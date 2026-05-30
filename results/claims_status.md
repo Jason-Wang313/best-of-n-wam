@@ -63,9 +63,10 @@
 - Claim 61: **VERIFIED** - Gymnasium Robotics learned WAM scorer beats random with CI. Evidence: learned-random CI={'n': 5, 'mean': 0.5183591980928537, 'std': 0.08832562568455588, 'stderr': 0.03950042063717366, 'ci95': 0.07742082444886038, 'lo': 0.4409383736439933, 'hi': 0.595780022541714}
 - Claim 62: **VERIFIED** - Gymnasium Robotics closed-loop learned scorer beats random. Evidence: closed-loop learned-random CI={'n': 5, 'mean': 0.7086378606835364, 'std': 0.5149831233310606, 'stderr': 0.23030745420668186, 'ci95': 0.4514026102450964, 'lo': 0.25723525043844, 'hi': 1.160040470928633}
 - Claim 63: **VERIFIED** - Gymnasium Robotics oracle gap reported. Evidence: oracle-learned CI={'n': 5, 'mean': 0.03423794265616582, 'std': 0.021599643753640783, 'stderr': 0.009659654344583902, 'ci95': 0.018932922515384448, 'lo': 0.015305020140781375, 'hi': 0.05317086517155027}
-- Claim 64: **VERIFIED** - Gymnasium Robotics RGB visual WAM trained and evaluated. Evidence: envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.7325062733110719
+- Claim 64: **VERIFIED** - Gymnasium Robotics RGB visual WAM trained and evaluated. Evidence: envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.7325062733110718
 - Claim 65: **VERIFIED** - Gymnasium Robotics RGB visual exact law verified. Evidence: utility MAE=0.010612997381058541
 - Claim 66: **VERIFIED** - Gymnasium Robotics RGB visual scorer beats random with CI. Evidence: visual-random CI={'n': 5, 'mean': 0.4888505704773543, 'std': 0.16122603373528005, 'stderr': 0.0721024742349521, 'ci95': 0.1413208495005061, 'lo': 0.3475297209768482, 'hi': 0.6301714199778604}
 - Claim 67: **VERIFIED** - Gymnasium Robotics RGB visual oracle gap is reported without requiring significance. Evidence: oracle-visual CI={'n': 5, 'mean': 0.02680333126025487, 'std': 0.03203449057950047, 'stderr': 0.014326259712067935, 'ci95': 0.028079469035653153, 'lo': -0.0012761377753982839, 'hi': 0.05488280029590802}
-- Claim 68: **VERIFIED** - README has no unsupported claims. Evidence: README overclaims=0
-- Claim 69: **VERIFIED** - paper_outline has no unsupported claims. Evidence: paper overclaims=0
+- Claim 68: **VERIFIED** - ManiSkill RGB/RGB-D and EE-control probe is artifact-documented. Evidence: visual_success=False, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory
+- Claim 69: **VERIFIED** - README has no unsupported claims. Evidence: README overclaims=0
+- Claim 70: **VERIFIED** - paper_outline has no unsupported claims. Evidence: paper overclaims=0

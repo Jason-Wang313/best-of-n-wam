@@ -1,0 +1,11 @@
+name,category,env_id,ok,obs_mode,control_mode,render_mode,shader_dir,sensor_width,sensor_height,human_width,human_height,error_type,error,returncode
+state_baseline_joint_delta,state_baseline,PickCube-v1,True,state,pd_joint_delta_pos,,,,,,,,,0
+rgb_minimal_64,visual_obs,PickCube-v1,False,rgb,pd_joint_delta_pos,,minimal,64.0,64.0,,,RuntimeError,vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory,0
+rgb_minimal_32,visual_obs,PickCube-v1,False,rgb,pd_joint_delta_pos,,minimal,32.0,32.0,,,RuntimeError,vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory,0
+rgbd_minimal_32,visual_obs,PickCube-v1,False,rgbd,pd_joint_delta_pos,,minimal,32.0,32.0,,,RuntimeError,vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory,0
+state_rgb_minimal_32,visual_obs,PickCube-v1,False,state+rgb,pd_joint_delta_pos,,minimal,32.0,32.0,,,RuntimeError,vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory,0
+sensor_data_minimal_32,visual_obs,PickCube-v1,False,sensor_data,pd_joint_delta_pos,,minimal,32.0,32.0,,,RuntimeError,vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory,0
+render_rgb_array_minimal_32,render_mode,PickCube-v1,False,state,pd_joint_delta_pos,rgb_array,minimal,,,32.0,32.0,RuntimeError,vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory,0
+pushcube_rgb_minimal_32,visual_obs,PushCube-v1,False,rgb,pd_joint_delta_pos,,minimal,32.0,32.0,,,RuntimeError,vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory,0
+ee_delta_pose_state_probe,ee_control,PickCube-v1,False,state,pd_ee_delta_pose,,,,,,,TypeError,"'NoneType' object is not callable was raised from the environment creator for PickCube-v1 with kwargs ({'obs_mode': 'state', 'control_mode': 'pd_ee_delta_pose', 'render_mode': None})",0
+ee_delta_pos_state_probe,ee_control,PickCube-v1,False,state,pd_ee_delta_pos,,,,,,,TypeError,"'NoneType' object is not callable was raised from the environment creator for PickCube-v1 with kwargs ({'obs_mode': 'state', 'control_mode': 'pd_ee_delta_pos', 'render_mode': None})",0

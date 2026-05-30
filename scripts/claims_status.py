@@ -76,6 +76,7 @@ def main() -> None:
     benchmark_visual_wam = load_json("benchmark_visual_wam_lite.json")
     gym_robotics = load_json("benchmark_gym_robotics_suite.json")
     gym_robotics_visual = load_json("benchmark_gym_robotics_visual_wam.json")
+    maniskill_visual_probe = load_json("benchmark_maniskill_visual_probe.json")
     audit = load_json("inference_audit_framework.json")
     audit_learned = load_json("inference_audit_framework_learned.json")
     repair = load_json("scorer_repair_experiment.json")
@@ -438,6 +439,20 @@ def main() -> None:
         status((gym_robotics_visual_ci.get("oracle_minus_visual_N32") or {}).get("n", 0) >= 5, bool(gym_robotics_visual)),
         f"oracle-visual CI={gym_robotics_visual_ci.get('oracle_minus_visual_N32')}",
     )
+    add(
+        claims,
+        68,
+        "ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.",
+        status(
+            bool(maniskill_visual_probe)
+            and maniskill_visual_probe.get("attempted", False)
+            and maniskill_visual_probe.get("state_baseline_ok", False)
+            and (maniskill_visual_probe.get("visual_attempt_count") or 0) >= 5
+            and "ErrorOutOfPoolMemory" in str(maniskill_visual_probe.get("visual_blocker", "")),
+            bool(maniskill_visual_probe),
+        ),
+        f"visual_success={maniskill_visual_probe.get('any_visual_success')}, blocker={maniskill_visual_probe.get('visual_blocker')}",
+    )
 
     readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
     paper_text = PAPER.read_text(encoding="utf-8") if PAPER.exists() else ""
@@ -450,8 +465,8 @@ def main() -> None:
         if pattern.lower() in paper_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
             overclaims.append({"surface": "paper_outline", "id": cid, "pattern": pattern, "status": c["status"]})
 
-    add(claims, 68, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
-    add(claims, 69, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
+    add(claims, 69, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
+    add(claims, 70, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
 
     payload = {
         "claims": claims,

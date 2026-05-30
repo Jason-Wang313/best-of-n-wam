@@ -9,7 +9,7 @@
 
 ## Main Reviewer Attacks
 
-- The empirical work is mostly state-based, but benchmark visual WAM evidence now exists for Gymnasium/MuJoCo Reacher-v5 and Gymnasium Robotics Fetch RGB frames; ManiSkill RGB/RGB-D remains unavailable locally.
+- The empirical work is mostly state-based, but benchmark visual WAM evidence now exists for Gymnasium/MuJoCo Reacher-v5 and Gymnasium Robotics Fetch RGB frames; ManiSkill RGB/RGB-D remains unavailable locally and is documented by a generated renderer probe.
 - The strongest contact-rich external evidence is Gymnasium Robotics Fetch plus ManiSkill state mode, but still not real hardware.
 - The learned models are intentionally lightweight and do not establish WAM training recipes.
 - Pilot estimates are not exact laws and can be brittle under shift.
