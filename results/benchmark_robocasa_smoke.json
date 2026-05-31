@@ -5,45 +5,45 @@
   "verified": true,
   "env_id": "robocasa/PickPlaceCounterToCabinet",
   "split": "pretrain",
-  "states": 1,
+  "states": 5,
   "rollouts": 16,
   "horizon": 3,
-  "n_rollout_pools": 1,
-  "n_rollouts_total": 16,
+  "n_rollout_pools": 5,
+  "n_rollouts_total": 80,
   "n_values": [
     1,
     2,
     4,
     8
   ],
-  "exact_law_utility_mae": 0.0001758246294388333,
+  "exact_law_utility_mae": 0.0002724664778796843,
   "confidence_intervals": {
     "distance_progress_minus_random_N8": {
-      "n": 1,
-      "mean": 0.39810081093764094,
-      "std": 0.0,
-      "stderr": 0.0,
-      "ci95": 0.0,
-      "lo": 0.39810081093764094,
-      "hi": 0.39810081093764094
+      "n": 5,
+      "mean": 0.14581171415765518,
+      "std": 0.17153354068180754,
+      "stderr": 0.07671213147714945,
+      "ci95": 0.1503557776952129,
+      "lo": -0.004544063537557735,
+      "hi": 0.29616749185286806
     },
     "oracle_minus_random_N8": {
-      "n": 1,
-      "mean": 0.5089765300106185,
-      "std": 0.0,
-      "stderr": 0.0,
-      "ci95": 0.0,
-      "lo": 0.5089765300106185,
-      "hi": 0.5089765300106185
+      "n": 5,
+      "mean": 0.2737591862068588,
+      "std": 0.13943158358342508,
+      "stderr": 0.06235569982059644,
+      "ci95": 0.12221717164836901,
+      "lo": 0.15154201455848978,
+      "hi": 0.3959763578552278
     },
     "oracle_minus_distance_progress_N8": {
-      "n": 1,
-      "mean": 0.11087571907297755,
-      "std": 0.0,
-      "stderr": 0.0,
-      "ci95": 0.0,
-      "lo": 0.11087571907297755,
-      "hi": 0.11087571907297755
+      "n": 5,
+      "mean": 0.1279474720492036,
+      "std": 0.06489907745871974,
+      "stderr": 0.02902374977494433,
+      "ci95": 0.056886549558890886,
+      "lo": 0.0710609224903127,
+      "hi": 0.18483402160809448
     }
   },
   "curves_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_curves.csv",

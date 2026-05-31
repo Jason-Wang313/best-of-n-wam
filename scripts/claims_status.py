@@ -582,12 +582,15 @@ def main() -> None:
             bool(robocasa)
             and robocasa.get("available", False)
             and robocasa.get("verified", False)
-            and (robocasa.get("n_rollouts_total") or 0) >= 12
+            and (robocasa.get("n_rollout_pools") or 0) >= 5
+            and (robocasa.get("n_rollouts_total") or 0) >= 80
             and robocasa.get("exact_law_utility_mae") is not None
-            and robocasa.get("exact_law_utility_mae") < 0.01,
+            and robocasa.get("exact_law_utility_mae") < 0.01
+            and (((robocasa.get("confidence_intervals") or {}).get("oracle_minus_random_N8") or {}).get("n") or 0) >= 5
+            and (((robocasa.get("confidence_intervals") or {}).get("oracle_minus_random_N8") or {}).get("lo") or 0.0) > 0.0,
             bool(robocasa),
         ),
-        f"env={robocasa.get('env_id')}, rollouts={robocasa.get('n_rollouts_total')}, exact MAE={robocasa.get('exact_law_utility_mae')}",
+        f"env={robocasa.get('env_id')}, pools={robocasa.get('n_rollout_pools')}, rollouts={robocasa.get('n_rollouts_total')}, exact MAE={robocasa.get('exact_law_utility_mae')}, oracle-random CI={((robocasa.get('confidence_intervals') or {}).get('oracle_minus_random_N8'))}",
     )
 
     readme_text = README.read_text(encoding="utf-8") if README.exists() else ""

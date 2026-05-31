@@ -41,7 +41,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - Meta-World: reach-v3, push-v3, and drawer-open-v3 ML1 artifacts generated.
 - RoboSuite: Lift, Stack, and Door Panda manipulation artifacts generated, including small closed-loop traces.
 - ManiSkill: PickCube-v1, PushCube-v1, and PegInsertionSide-v1 state-mode artifacts generated.
-- RoboCasa: `PickPlaceCounterToCabinet` kitchen smoke artifact generated in a separate RoboCasa-compatible environment; exact-law utility MAE `0.0002` over `16` rollouts.
+- RoboCasa: `PickPlaceCounterToCabinet` kitchen smoke artifact generated in a separate RoboCasa-compatible environment; exact-law utility MAE `0.0003` over `80` rollouts.
 - Visual: toy visual mode verified with MAE `0.0185`.
 - Benchmark visual WAM: Reacher-v5 RGB-frame/action-sequence model verified with visual-random N32 CI lower bound `0.1998`.
 - Gymnasium Robotics visual WAM: Fetch RGB-frame/action-sequence models verified with visual-random N32 CI lower bound `0.3475`.
@@ -64,5 +64,5 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - Gymnasium Robotics Fetch exact-law MAE: `0.0126`.
 - Meta-World exact-law MAE: `0.0298`.
 - RoboSuite exact-law MAE: `0.0024`.
-- RoboCasa smoke exact-law MAE: `0.0002`.
+- RoboCasa smoke exact-law MAE: `0.0003`.
 - Falsification anti-scorer N64 mean utility: `-26.5657`.

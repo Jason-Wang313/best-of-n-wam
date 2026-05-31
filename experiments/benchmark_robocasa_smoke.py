@@ -36,7 +36,9 @@ def _write_report(summary: dict) -> None:
             "RoboCasa is optional. Full validation requires a separate RoboCasa-compatible Python environment and the official kitchen assets.",
         ]
     else:
-        ci = (summary.get("confidence_intervals") or {}).get("distance_progress_minus_random_N8") or {}
+        cis = summary.get("confidence_intervals") or {}
+        progress_ci = cis.get("distance_progress_minus_random_N8") or {}
+        oracle_ci = cis.get("oracle_minus_random_N8") or {}
         lines = [
             "# RoboCasa Smoke Report",
             "",
@@ -46,9 +48,10 @@ def _write_report(summary: dict) -> None:
             f"- rollout pools: `{summary.get('n_rollout_pools')}`",
             f"- total rollouts: `{summary.get('n_rollouts_total')}`",
             f"- exact-law utility MAE: `{summary.get('exact_law_utility_mae')}`",
-            f"- distance-progress minus random at N8 mean: `{ci.get('mean')}`",
+            f"- oracle minus random at N8 CI: `{oracle_ci}`",
+            f"- distance-progress minus random at N8 CI: `{progress_ci}`",
             "",
-            "This is a contact-rich RoboCasa kitchen reset/rollout smoke artifact. It is not a full RoboCasa learned-WAM benchmark or closed-loop validation.",
+            "This is a contact-rich RoboCasa kitchen reset/rollout smoke artifact. The oracle smoke gap is supported by the CI; the simple distance-progress scorer is positive on average but not promoted when its CI crosses zero. This is not a full RoboCasa learned-WAM benchmark or closed-loop validation.",
         ]
     (report_dir / "robocasa_smoke_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 

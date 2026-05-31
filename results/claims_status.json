@@ -466,7 +466,7 @@
       "id": 78,
       "claim": "RoboCasa kitchen benchmark smoke verified.",
       "status": "VERIFIED",
-      "evidence": "env=robocasa/PickPlaceCounterToCabinet, rollouts=16, exact MAE=0.0001758246294388333"
+      "evidence": "env=robocasa/PickPlaceCounterToCabinet, pools=5, rollouts=80, exact MAE=0.0002724664778796843, oracle-random CI={'n': 5, 'mean': 0.2737591862068588, 'std': 0.13943158358342508, 'stderr': 0.06235569982059644, 'ci95': 0.12221717164836901, 'lo': 0.15154201455848978, 'hi': 0.3959763578552278}"
     },
     {
       "id": 79,
