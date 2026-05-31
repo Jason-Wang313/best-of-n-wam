@@ -2,7 +2,7 @@
 
 ## 1. Tier
 
-Benchmark-full plus Fetch, Meta-World, RoboSuite, ManiSkill state-mode, RoboCasa single-task learned WAM-lite, visual-, blocker-probe-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, Gymnasium Robotics Fetch validation, Meta-World ML1 manipulation validation, RoboSuite Panda manipulation validation, ManiSkill3 state-mode manipulation validation, RoboCasa kitchen smoke and learned-WAM validation, toy visual mode, Reacher RGB WAM-lite, Fetch RGB WAM-lite, ManiSkill visual/EE-control blocker probing, and inference-value audit framework artifacts.
+Benchmark-full plus Fetch, Meta-World, RoboSuite, ManiSkill state-mode, RoboCasa three-task learned WAM-lite, visual-, blocker-probe-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, Gymnasium Robotics Fetch validation, Meta-World ML1 manipulation validation, RoboSuite Panda manipulation validation, ManiSkill3 state-mode manipulation validation, RoboCasa kitchen smoke plus single-task and three-task learned-WAM validation, toy visual mode, Reacher RGB WAM-lite, Fetch RGB WAM-lite, ManiSkill visual/EE-control blocker probing, and inference-value audit framework artifacts.
 
 ## 2. Strongest Verified Claims
 
@@ -32,23 +32,23 @@ Benchmark-full plus Fetch, Meta-World, RoboSuite, ManiSkill state-mode, RoboCasa
 
 ## 5. Discussion-Only Claims
 
-- LIBERO integration and multi-task/full RoboCasa learned-WAM validation.
+- LIBERO integration and broad/full RoboCasa learned-WAM validation.
 - ManiSkill RGB/RGB-D or EE-control validation.
 - ManiSkill RGB/RGB-D benchmark WAM validation.
 - Universal WAM training and train-inference scaling.
 
 ## 6. Skeptical Reviewer Attack
 
-The project still lacks real robot artifacts, LIBERO, multi-task RoboCasa learned-WAM validation, and ManiSkill visual or EE-control validation.
+The project still lacks real robot artifacts, LIBERO, broad RoboCasa task family learned-WAM validation, and ManiSkill visual or EE-control validation.
 
 ## 7. Current Answer
 
-The repo answers the mathematical and controlled toy-science objections with tests, multi-env artifacts, learned WAM-lite backbones, falsification, an anti-overclaim system, a state-based Gymnasium/MuJoCo benchmark, a three-task Gymnasium Robotics Fetch benchmark, a three-task Meta-World ML1 benchmark, a three-task RoboSuite Panda benchmark, a three-task ManiSkill3 state-mode benchmark, and a single-task RoboCasa kitchen learned-WAM artifact. It does not yet answer real-robot realism.
+The repo answers the mathematical and controlled toy-science objections with tests, multi-env artifacts, learned WAM-lite backbones, falsification, an anti-overclaim system, a state-based Gymnasium/MuJoCo benchmark, a three-task Gymnasium Robotics Fetch benchmark, a three-task Meta-World ML1 benchmark, a three-task RoboSuite Panda benchmark, a three-task ManiSkill3 state-mode benchmark, and a three-task RoboCasa kitchen pick-place learned-WAM artifact. It does not yet answer real-robot realism.
 
 ## 8. Unresolved
 
 - LIBERO rollout collection.
-- Multi-task/full RoboCasa learned-WAM rollout collection beyond the single-task artifact.
+- Broad/full RoboCasa learned-WAM rollout collection beyond the three-task pick-place family artifact.
 - ManiSkill RGB/RGB-D or end-effector-control validation.
 - Real robot validation.
 - Strong ManiSkill RGB/RGB-D WAM evidence; current repo has only a local failure probe with exact renderer/control blockers.
@@ -59,11 +59,11 @@ Yes, as a theory-plus-controlled-learned-toy paper artifact.
 
 ## 10. Main-Conference Readiness
 
-Substantially stronger after Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill state-mode validation, and single-task RoboCasa learned-WAM validation. Still not a real-robot paper and still weaker than a benchmark-heavy robotics paper with full LIBERO/multi-task RoboCasa or RGB-D manipulation.
+Substantially stronger after Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill state-mode validation, and three-task RoboCasa learned-WAM validation. Still not a real-robot paper and still weaker than a benchmark-heavy robotics paper with LIBERO, broad/full RoboCasa, or RGB-D manipulation.
 
 ## 11. Single Highest-Value Next Step
 
-Add multi-task RoboCasa learned-WAM or LIBERO validation next; ManiSkill RGB/RGB-D WAM validation remains the other high-value path if the local SAPIEN/Vulkan blocker is cleared.
+Add LIBERO or broader RoboCasa task family validation next; ManiSkill RGB/RGB-D WAM validation remains the other high-value path if the local SAPIEN/Vulkan blocker is cleared.
 
 ## Command Results
 
@@ -73,9 +73,9 @@ Add multi-task RoboCasa learned-WAM or LIBERO validation next; ManiSkill RGB/RGB
 - `bash scripts/run_learned_wam_toy.sh`: passed; learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`.
 - `bash scripts/run_multi_env.sh`: passed with `envs=5`, `backbones=3`, `seeds=5`.
 - robust EXP8 rerun: passed; stale post-pre CI lower bound `0.0255`, stale-adaptive post CI lower bound `0.0613`.
-- `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5`, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, and ManiSkill3 state-mode tasks; optional RoboCasa smoke and learned-WAM runs were generated separately with `ROBOCASA_PYTHON`; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; Fetch exact-law utility MAE `0.0126`; Meta-World exact-law utility MAE `0.0298`; Meta-World learned-random N32 CI lower `0.0975`; RoboSuite exact-law utility MAE `0.0024`; RoboSuite learned-random N32 CI lower `0.2447`; RoboSuite closed-loop learned-random N8 CI lower `0.0798`; ManiSkill exact-law utility MAE `0.0034`; ManiSkill closed-loop learned-random CI lower bound `0.0102`; RoboCasa smoke exact-law utility MAE `0.0003`; RoboCasa learned utility corr `0.7640`; RoboCasa learned-random N8 CI lower `0.0503`.
+- `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5`, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, and ManiSkill3 state-mode tasks; optional RoboCasa smoke, single-task learned-WAM, and three-task learned-WAM runs were generated separately with `ROBOCASA_PYTHON`; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; Fetch exact-law utility MAE `0.0126`; Meta-World exact-law utility MAE `0.0298`; Meta-World learned-random N32 CI lower `0.0975`; RoboSuite exact-law utility MAE `0.0024`; RoboSuite learned-random N32 CI lower `0.2447`; RoboSuite closed-loop learned-random N8 CI lower `0.0798`; ManiSkill exact-law utility MAE `0.0034`; ManiSkill closed-loop learned-random CI lower bound `0.0102`; RoboCasa smoke exact-law utility MAE `0.0003`; RoboCasa learned utility corr `0.7640`; RoboCasa learned-random N8 CI lower `0.0503`; RoboCasa three-task utility corr `0.6752`; RoboCasa three-task learned-random N8 CI lower `0.1691`.
 - `python experiments/benchmark_gym_robotics_suite.py`: passed with `['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4']`; exact-law utility MAE `0.0126`; learned-random N32 CI lower `0.4409`; closed-loop learned-random N32 CI lower `0.2572`.
 - `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`; Reacher RGB WAM utility corr `0.2199`, utility MAE `0.5208`, visual-random N32 CI lower `0.1998`; Fetch RGB WAM mean corr `0.7325`, visual-random N32 CI lower `0.3475`; ManiSkill visual probe any visual success `False` with blocker `vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory`.
 - `python experiments/benchmark_maniskill_dependency_probe.py --attempt-source-install`: passed as a blocker probe; Pinocchio import `False`, binary `pin` wheel `False`, source install attempted `True`.
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `0.9864`, repair-predicted N64 CI mean `0.3489`, predicted N128-N1 scaling gain `0.0255`.
-- `python scripts/claims_status.py`: passed with `81` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.
+- `python scripts/claims_status.py`: passed with `82` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.

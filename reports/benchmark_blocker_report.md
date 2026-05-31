@@ -29,3 +29,9 @@ This is single task only, not full multi-task RoboCasa validation.
 A lightweight ridge state/action-sequence WAM-lite was trained on `80` single-task RoboCasa rollouts and evaluated on `80` heldout rollouts.
 Validation utility correlation is `0.7639608394479505`; learned-minus-random N8 CI lower bound is `0.05034853210127989`.
 This supports only a single-task contact-rich sanity check, not a multi-task RoboCasa benchmark.
+
+## Separate RoboCasa Three-Task Learned-WAM Artifact
+
+A task conditioned ridge state/action-sequence WAM-lite was trained across `3` RoboCasa task IDs with `144` train rollouts and `240` heldout eval rollouts.
+Validation utility correlation is `0.6751791364461345`; promoted scorer `learned_energy_regularized` has learned-minus-random N8 CI lower bound `0.1690501789606415`.
+This supports a three-task RoboCasa pick-place family artifact, not full RoboCasa-wide validation.

@@ -476,19 +476,25 @@
     },
     {
       "id": 80,
+      "claim": "RoboCasa three-task learned WAM-lite scorer beats random with CI.",
+      "status": "VERIFIED",
+      "evidence": "tasks=['robocasa/PickPlaceCounterToCabinet', 'robocasa/PickPlaceCounterToDrawer', 'robocasa/PickPlaceCounterToMicrowave'], train=144, val=96, eval=240, utility corr=0.6751791364461345, promoted=learned_energy_regularized, learned-random CI={'n': 15, 'mean': 0.23492695125782703, 'std': 0.13017328673923353, 'stderr': 0.03361059811080895, 'ci95': 0.06587677229718554, 'lo': 0.1690501789606415, 'hi': 0.30080372355501256}, oracle-learned CI={'n': 15, 'mean': 0.05812674657491653, 'std': 0.04447418542048683, 'stderr': 0.01148318529797908, 'ci95': 0.022507043184038997, 'lo': 0.035619703390877534, 'hi': 0.08063378975895552}"
+    },
+    {
+      "id": 81,
       "claim": "README has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "README overclaims=0"
     },
     {
-      "id": 81,
+      "id": 82,
       "claim": "paper_outline has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "paper overclaims=0"
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 81,
+  "num_verified": 82,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

@@ -4,7 +4,7 @@ Audit date: 2026-05-30.
 
 ## Execution Tier
 
-Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, Gymnasium Robotics Fetch benchmark, Meta-World ML1, RoboSuite Panda benchmark, ManiSkill3 state-mode benchmark, RoboCasa single-task learned WAM-lite, toy visual mode, Reacher RGB WAM-lite, and Fetch RGB WAM-lite.
+Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, Gymnasium Robotics Fetch benchmark, Meta-World ML1, RoboSuite Panda benchmark, ManiSkill3 state-mode benchmark, RoboCasa single-task and three-task learned WAM-lite, toy visual mode, Reacher RGB WAM-lite, and Fetch RGB WAM-lite.
 
 ## Artifact Coverage
 
@@ -18,6 +18,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboSuite suite: `['Lift', 'Stack', 'Door']`; rollout pools: `30`; exact-law MAE: `0.0024`; learned-random N32 CI lower: `0.2447`; reward-random N32 CI lower: `0.2617`; closed-loop learned-random N8 CI lower: `0.0798`.
 - ManiSkill suite: `['PickCube-v1', 'PushCube-v1', 'PegInsertionSide-v1']`; rollout pools: `30`; exact-law MAE: `0.0034`; control: `pd_joint_delta_pos`.
 - RoboCasa learned WAM-lite: verified `True`; train samples `80`; eval samples `80`; utility corr `0.7640`; learned-random N8 CI lower `0.0503`.
+- RoboCasa three-task WAM-lite: verified `True`; tasks `['robocasa/PickPlaceCounterToCabinet', 'robocasa/PickPlaceCounterToDrawer', 'robocasa/PickPlaceCounterToMicrowave']`; train/eval samples `144`/`240`; utility corr `0.6752`; promoted scorer `learned_energy_regularized`; learned-random N8 CI lower `0.1691`.
 - Visual attempted: `True`; visual verified: `True`.
 - Benchmark visual verified: `True`.
 - Benchmark RGB WAM-lite: `extra_trees_visual_wam`; verified: `True`; utility corr: `0.2199`; utility MAE: `0.5208`; exact-law MAE: `0.0157`.
@@ -44,6 +45,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - ManiSkill: PickCube-v1, PushCube-v1, and PegInsertionSide-v1 state-mode artifacts generated.
 - RoboCasa: `PickPlaceCounterToCabinet` kitchen smoke artifact generated in a separate RoboCasa-compatible environment; exact-law utility MAE `0.0003` over `80` rollouts.
 - RoboCasa learned WAM-lite: single-task `PickPlaceCounterToCabinet` ridge state/action-sequence WAM trained on `80` rollouts and evaluated on `80` heldout rollouts.
+- RoboCasa three-task learned WAM-lite: task conditioned ridge WAM over `['robocasa/PickPlaceCounterToCabinet', 'robocasa/PickPlaceCounterToDrawer', 'robocasa/PickPlaceCounterToMicrowave']` trained on `144` rollouts and evaluated on `240` heldout rollouts.
 - Visual: toy visual mode verified with MAE `0.0185`.
 - Benchmark visual WAM: Reacher-v5 RGB-frame/action-sequence model verified with visual-random N32 CI lower bound `0.1998`.
 - Gymnasium Robotics visual WAM: Fetch RGB-frame/action-sequence models verified with visual-random N32 CI lower bound `0.3475`.
@@ -69,4 +71,6 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboCasa smoke exact-law MAE: `0.0003`.
 - RoboCasa learned WAM utility corr: `0.7640`.
 - RoboCasa learned-random N8 CI lower: `0.0503`.
+- RoboCasa three-task WAM utility corr: `0.6752`.
+- RoboCasa three-task learned-random N8 CI lower: `0.1691`.
 - Falsification anti-scorer N64 mean utility: `-26.5657`.

@@ -19,6 +19,8 @@ def run() -> dict:
     smoke_path = results_dir() / "benchmark_robocasa_smoke.json"
     robocasa_learned = {}
     learned_path = results_dir() / "benchmark_robocasa_learned_wam.json"
+    robocasa_multitask = {}
+    multitask_path = results_dir() / "benchmark_robocasa_multitask_wam.json"
     if smoke_path.exists():
         import json
 
@@ -27,6 +29,10 @@ def run() -> dict:
         import json
 
         robocasa_learned = json.loads(learned_path.read_text(encoding="utf-8"))
+    if multitask_path.exists():
+        import json
+
+        robocasa_multitask = json.loads(multitask_path.read_text(encoding="utf-8"))
     any_available = any(s["available"] for s in statuses)
     summary = {
         "experiment": "benchmark_smoke",
@@ -81,6 +87,19 @@ def run() -> dict:
                     f"A lightweight ridge state/action-sequence WAM-lite was trained on `{robocasa_learned.get('train_samples')}` single-task RoboCasa rollouts and evaluated on `{robocasa_learned.get('eval_samples')}` heldout rollouts.",
                     f"Validation utility correlation is `{metrics.get('utility_corr')}`; learned-minus-random N8 CI lower bound is `{ci.get('lo')}`.",
                     "This supports only a single-task contact-rich sanity check, not a multi-task RoboCasa benchmark.",
+                ]
+            )
+        if robocasa_multitask.get("verified"):
+            metrics = robocasa_multitask.get("model_metrics") or {}
+            ci = (robocasa_multitask.get("confidence_intervals") or {}).get("best_learned_minus_random_N8") or {}
+            report.extend(
+                [
+                    "",
+                    "## Separate RoboCasa Three-Task Learned-WAM Artifact",
+                    "",
+                    f"A task conditioned ridge state/action-sequence WAM-lite was trained across `{len(robocasa_multitask.get('env_ids') or [])}` RoboCasa task IDs with `{robocasa_multitask.get('train_samples')}` train rollouts and `{robocasa_multitask.get('eval_samples')}` heldout eval rollouts.",
+                    f"Validation utility correlation is `{metrics.get('utility_corr')}`; promoted scorer `{robocasa_multitask.get('promoted_scorer')}` has learned-minus-random N8 CI lower bound `{ci.get('lo')}`.",
+                    "This supports a three-task RoboCasa pick-place family artifact, not full RoboCasa-wide validation.",
                 ]
             )
     else:
