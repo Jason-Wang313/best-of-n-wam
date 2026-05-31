@@ -66,6 +66,7 @@ def main() -> None:
     robocasa_learned = load_json("benchmark_robocasa_learned_wam.json")
     robocasa_multitask = load_json("benchmark_robocasa_multitask_wam.json")
     robocasa_broad = load_json("benchmark_robocasa_broad_wam.json")
+    robocasa_family12 = load_json("benchmark_robocasa_family12_wam.json")
     libero_wam = load_json("benchmark_libero_wam.json")
     gym_robotics = load_json("benchmark_gym_robotics_suite.json")
     bench_visual = load_json("benchmark_visual_optional.json")
@@ -103,8 +104,8 @@ Audit date: 2026-05-30.
 ## 2. Toy-Only
 
 - The main controlled environments are CPU toy environments.
-- Gymnasium/MuJoCo Reacher-v5, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill3 state-mode tasks, RoboCasa kitchen smoke plus single-task, three-task pick-place-family, and broad four-task learned-WAM artifacts, and LIBERO Spatial rollout-pool WAM artifacts now have external benchmark artifacts.
-- No real robot, DreamZero, UWM, or solved-task LIBERO policy-performance result is claimed; RoboCasa is verified for pick-place-family and broad atomic kitchen task family rollout-pool artifacts, and LIBERO is verified only as a three-task rollout-pool dense-utility artifact.
+- Gymnasium/MuJoCo Reacher-v5, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill3 state-mode tasks, RoboCasa kitchen smoke plus single-task, three-task pick-place-family, broad four-task, and 12-task family learned-WAM artifacts, and LIBERO Spatial rollout-pool WAM artifacts now have external benchmark artifacts.
+- No real robot, DreamZero, UWM, or solved-task LIBERO policy-performance result is claimed; RoboCasa is verified for pick-place-family, broad atomic kitchen, and 12-task family rollout-pool artifacts, and LIBERO is verified only as a three-task rollout-pool dense-utility artifact.
 
 ## 3. Learned-Model Evidence
 
@@ -116,7 +117,7 @@ Audit date: 2026-05-30.
 ## 4. Missing For Robotics Reviewers
 
 - LIBERO solved-task policy-performance artifacts are still missing; current LIBERO evidence is a three-task Spatial rollout-pool WAM-lite artifact with dense progress utility.
-- Full RoboCasa-wide learned-WAM benchmark artifacts are still missing; current RoboCasa evidence is a single-task smoke rollout pool, a single-task learned-WAM artifact, a three-task pick-place family learned-WAM artifact, and a broad four-task atomic-manipulation learned-WAM artifact.
+- Full RoboCasa-wide learned-WAM benchmark artifacts are still missing; current RoboCasa evidence is a single-task smoke rollout pool, a single-task learned-WAM artifact, a three-task pick-place family learned-WAM artifact, a broad four-task atomic-manipulation artifact, and a 12-task open/close/turn family artifact.
 - ManiSkill evidence is state-mode and joint-delta controlled; end-effector delta-pose control is not claimed because Pinocchio was unavailable.
 - Meta-World ML1 evidence covers `reach-v3`, `push-v3`, and `drawer-open-v3` with state/action-sequence WAM-lite artifacts.
 - RoboSuite evidence covers Panda `Lift`, `Stack`, and `Door` with clone-restored MuJoCo rollout pools, state/action-sequence WAM-lite artifacts, and small closed-loop learned/reward-versus-random evaluation.
@@ -132,7 +133,7 @@ Audit date: 2026-05-30.
 
 ## 6. README Claim Guarding
 
-- README must state LIBERO as optional/separate-environment and limited to three Spatial rollout-pool dense-utility validation; RoboCasa is optional/separate-environment and includes pick-place-family plus broad atomic-manipulation rollout-pool validation, not full RoboCasa-wide validation.
+- README must state LIBERO as optional/separate-environment and limited to three Spatial rollout-pool dense-utility validation; RoboCasa is optional/separate-environment and includes pick-place-family, broad atomic-manipulation, and 12-task family rollout-pool validation, not full RoboCasa-wide validation.
 - README must state ManiSkill as state-mode joint-delta evidence only, not EE-control or real-robot evidence.
 - README must call current evidence learned-toy and multi-env toy validation.
 - README must not claim real robot evidence or universal WAM training laws.
@@ -171,7 +172,7 @@ Audit date: 2026-05-30.
 
 ## Execution Tier
 
-Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, Gymnasium Robotics Fetch benchmark, Meta-World ML1, RoboSuite Panda benchmark, ManiSkill3 state-mode benchmark, RoboCasa single-task, three-task pick-place-family, and broad four-task learned WAM-lite, LIBERO Spatial three-task rollout-pool WAM-lite, toy visual mode, Reacher RGB WAM-lite, and Fetch RGB WAM-lite.
+Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, Gymnasium Robotics Fetch benchmark, Meta-World ML1, RoboSuite Panda benchmark, ManiSkill3 state-mode benchmark, RoboCasa single-task, three-task pick-place-family, broad four-task, and 12-task family learned WAM-lite, LIBERO Spatial three-task rollout-pool WAM-lite, toy visual mode, Reacher RGB WAM-lite, and Fetch RGB WAM-lite.
 
 ## Artifact Coverage
 
@@ -187,6 +188,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboCasa learned WAM-lite: verified `{robocasa_learned.get('verified')}`; train samples `{robocasa_learned.get('train_samples')}`; eval samples `{robocasa_learned.get('eval_samples')}`; utility corr `{fmt(((robocasa_learned.get('model_metrics') or {}).get('utility_corr')))}`; learned-random N8 CI lower `{fmt((((robocasa_learned.get('confidence_intervals') or {}).get('learned_minus_random_N8') or {}).get('lo')))}`.
 - RoboCasa three-task WAM-lite: verified `{robocasa_multitask.get('verified')}`; tasks `{robocasa_multitask.get('env_ids')}`; train/eval samples `{robocasa_multitask.get('train_samples')}`/`{robocasa_multitask.get('eval_samples')}`; utility corr `{fmt(((robocasa_multitask.get('model_metrics') or {}).get('utility_corr')))}`; promoted scorer `{robocasa_multitask.get('promoted_scorer')}`; learned-random N8 CI lower `{fmt((((robocasa_multitask.get('confidence_intervals') or {}).get('best_learned_minus_random_N8') or {}).get('lo')))}`.
 - RoboCasa broad task family WAM-lite: verified `{robocasa_broad.get('verified')}`; tasks `{robocasa_broad.get('env_ids')}`; train/eval samples `{robocasa_broad.get('train_samples')}`/`{robocasa_broad.get('eval_samples')}`; utility corr `{fmt(((robocasa_broad.get('model_metrics') or {}).get('utility_corr')))}`; promoted scorer `{robocasa_broad.get('promoted_scorer')}`; learned-random N8 CI lower `{fmt((((robocasa_broad.get('confidence_intervals') or {}).get('best_learned_minus_random_N8') or {}).get('lo')))}`.
+- RoboCasa 12-task family WAM-lite: verified `{robocasa_family12.get('verified')}`; tasks `{len(robocasa_family12.get('env_ids') or [])}`; train/eval samples `{robocasa_family12.get('train_samples')}`/`{robocasa_family12.get('eval_samples')}`; utility corr `{fmt(((robocasa_family12.get('model_metrics') or {}).get('utility_corr')))}`; promoted scorer `{robocasa_family12.get('promoted_scorer')}`; learned-random N8 CI lower `{fmt((((robocasa_family12.get('confidence_intervals') or {}).get('best_learned_minus_random_N8') or {}).get('lo')))}`.
 - LIBERO WAM-lite: verified `{libero_wam.get('verified')}`; tasks `{libero_wam.get('tasks')}`; train/eval samples `{libero_wam.get('train_samples')}`/`{libero_wam.get('eval_samples')}`; utility corr `{fmt(((libero_wam.get('model_metrics') or {}).get('utility_corr')))}`; exact-law MAE `{fmt(libero_wam.get('exact_law_utility_mae'))}`; learned-random N8 CI lower `{fmt((((libero_wam.get('confidence_intervals') or {}).get('best_learned_minus_random_N8') or {}).get('lo')))}`.
 - Visual attempted: `{visual.get('attempted')}`; visual verified: `{visual.get('verified')}`.
 - Benchmark visual verified: `{bench_visual.get('verified')}`.
@@ -216,6 +218,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboCasa learned WAM-lite: single-task `PickPlaceCounterToCabinet` ridge state/action-sequence WAM trained on `{robocasa_learned.get('train_samples')}` rollouts and evaluated on `{robocasa_learned.get('eval_samples')}` heldout rollouts.
 - RoboCasa three-task learned WAM-lite: task conditioned ridge WAM over `{robocasa_multitask.get('env_ids')}` trained on `{robocasa_multitask.get('train_samples')}` rollouts and evaluated on `{robocasa_multitask.get('eval_samples')}` heldout rollouts.
 - RoboCasa broad task family learned WAM-lite: task conditioned ridge WAM over `{robocasa_broad.get('env_ids')}` trained on `{robocasa_broad.get('train_samples')}` rollouts and evaluated on `{robocasa_broad.get('eval_samples')}` heldout rollouts.
+- RoboCasa 12-task family learned WAM-lite: task conditioned ridge WAM over `{robocasa_family12.get('env_ids')}` trained on `{robocasa_family12.get('train_samples')}` rollouts and evaluated on `{robocasa_family12.get('eval_samples')}` heldout rollouts.
 - LIBERO learned WAM-lite: three Spatial tasks `{libero_wam.get('tasks')}` trained on `{libero_wam.get('train_samples')}` rollout samples and evaluated on `{libero_wam.get('eval_samples')}` heldout rollout samples with dense progress utility.
 - Visual: toy visual mode verified with MAE `{fmt(visual.get('test_mae'))}`.
 - Benchmark visual WAM: Reacher-v5 RGB-frame/action-sequence model verified with visual-random N32 CI lower bound `{fmt((((bench_visual_wam.get('confidence_intervals') or {}).get('visual_minus_random_N32') or {}).get('lo')))}`.
@@ -247,6 +250,9 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboCasa broad WAM utility corr: `{fmt(((robocasa_broad.get('model_metrics') or {}).get('utility_corr')))}`.
 - RoboCasa broad learned-random N8 CI lower: `{fmt((((robocasa_broad.get('confidence_intervals') or {}).get('best_learned_minus_random_N8') or {}).get('lo')))}`.
 - RoboCasa broad exact-law utility MAE: `{fmt(robocasa_broad.get('exact_law_utility_mae'))}`.
+- RoboCasa 12-task family WAM utility corr: `{fmt(((robocasa_family12.get('model_metrics') or {}).get('utility_corr')))}`.
+- RoboCasa 12-task family learned-random N8 CI lower: `{fmt((((robocasa_family12.get('confidence_intervals') or {}).get('best_learned_minus_random_N8') or {}).get('lo')))}`.
+- RoboCasa 12-task family exact-law utility MAE: `{fmt(robocasa_family12.get('exact_law_utility_mae'))}`.
 - LIBERO WAM utility corr: `{fmt(((libero_wam.get('model_metrics') or {}).get('utility_corr')))}`.
 - LIBERO learned-random N8 CI lower: `{fmt((((libero_wam.get('confidence_intervals') or {}).get('best_learned_minus_random_N8') or {}).get('lo')))}`.
 - LIBERO exact-law utility MAE: `{fmt(libero_wam.get('exact_law_utility_mae'))}`.
@@ -267,7 +273,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 
 - The empirical work is mostly state-based, but benchmark visual WAM evidence now exists for Gymnasium/MuJoCo Reacher-v5 and Gymnasium Robotics Fetch RGB frames; ManiSkill RGB/RGB-D remains unavailable locally and is documented by a generated renderer probe.
 - ManiSkill EE-control remains unavailable locally because Pinocchio is absent and the `pin` dependency path lacks binary wheels for this Windows/Python stack; this is documented by a generated dependency probe.
-- The strongest contact-rich external evidence is Gymnasium Robotics Fetch plus Meta-World ML1, RoboSuite Panda, ManiSkill state mode, RoboCasa three-task pick-place and broad four-task atomic-manipulation artifacts, and LIBERO Spatial rollout-pool validation, but still not real hardware.
+- The strongest contact-rich external evidence is Gymnasium Robotics Fetch plus Meta-World ML1, RoboSuite Panda, ManiSkill state mode, RoboCasa three-task pick-place, broad four-task atomic-manipulation, and 12-task family artifacts, and LIBERO Spatial rollout-pool validation, but still not real hardware.
 - The learned models are intentionally lightweight and do not establish WAM training recipes.
 - Pilot estimates are not exact laws and can be brittle under shift.
 - Some analytic smoke artifacts are single-seed checks; paper figures should prefer five-seed learned/multi-env results.
@@ -368,7 +374,7 @@ If these fields are missing, rerun `bash scripts/run_multi_env.sh`.
 - More imagination helps only when scores align with real utility.
 - Under model mismatch or bad scoring, high-N selection can amplify hallucinated futures.
 - Inference-value audits diagnose tail alignment, stop rules, scorer repair, and compute-quality frontiers from artifacts.
-- Gymnasium/MuJoCo, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, RGB WAM-lite on Reacher-v5 and Fetch frames, ManiSkill3 state-mode, RoboCasa three-task pick-place-family plus broad four-task kitchen learned-WAM artifacts, and LIBERO Spatial three-task rollout-pool learned-WAM artifacts validate the benchmark path without claiming hardware evidence.
+- Gymnasium/MuJoCo, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, RGB WAM-lite on Reacher-v5 and Fetch frames, ManiSkill3 state-mode, RoboCasa three-task pick-place-family plus broad four-task and 12-task kitchen learned-WAM artifacts, and LIBERO Spatial three-task rollout-pool learned-WAM artifacts validate the benchmark path without claiming hardware evidence.
 - ManiSkill RGB/RGB-D and EE-control attempts are documented as a blocker artifact, not counted as visual validation.
 - ManiSkill Pinocchio dependency probing documents why EE-control is not claimed in this environment.
 - Learned toy and multi-env toy artifacts support these claims with confidence intervals where the claim gate marks them verified.
@@ -395,7 +401,7 @@ If these fields are missing, rerun `bash scripts/run_multi_env.sh`.
 
 ## 1. Tier
 
-Benchmark-full plus Fetch, Meta-World, RoboSuite, ManiSkill state-mode, RoboCasa single-task, three-task pick-place-family, and broad four-task learned WAM-lite, LIBERO Spatial three-task rollout-pool WAM-lite, visual-, blocker-probe-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, Gymnasium Robotics Fetch validation, Meta-World ML1 manipulation validation, RoboSuite Panda manipulation validation, ManiSkill3 state-mode manipulation validation, RoboCasa kitchen smoke plus single-task, three-task, and broad task family learned-WAM validation, LIBERO rollout-pool learned-WAM validation, toy visual mode, Reacher RGB WAM-lite, Fetch RGB WAM-lite, ManiSkill visual/EE-control blocker probing, and inference-value audit framework artifacts.
+Benchmark-full plus Fetch, Meta-World, RoboSuite, ManiSkill state-mode, RoboCasa single-task, three-task pick-place-family, broad four-task, and 12-task family learned WAM-lite, LIBERO Spatial three-task rollout-pool WAM-lite, visual-, blocker-probe-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, Gymnasium Robotics Fetch validation, Meta-World ML1 manipulation validation, RoboSuite Panda manipulation validation, ManiSkill3 state-mode manipulation validation, RoboCasa kitchen smoke plus single-task, three-task, broad task family, and 12-task family learned-WAM validation, LIBERO rollout-pool learned-WAM validation, toy visual mode, Reacher RGB WAM-lite, Fetch RGB WAM-lite, ManiSkill visual/EE-control blocker probing, and inference-value audit framework artifacts.
 
 ## 2. Strongest Verified Claims
 
@@ -425,12 +431,12 @@ The project still lacks real robot artifacts, LIBERO solved-task policy validati
 
 ## 7. Current Answer
 
-The repo answers the mathematical and controlled toy-science objections with tests, multi-env artifacts, learned WAM-lite backbones, falsification, an anti-overclaim system, a state-based Gymnasium/MuJoCo benchmark, a three-task Gymnasium Robotics Fetch benchmark, a three-task Meta-World ML1 benchmark, a three-task RoboSuite Panda benchmark, a three-task ManiSkill3 state-mode benchmark, RoboCasa kitchen pick-place and broad atomic-manipulation learned-WAM artifacts, and a three-task LIBERO Spatial rollout-pool learned-WAM artifact. It does not yet answer real-robot realism.
+The repo answers the mathematical and controlled toy-science objections with tests, multi-env artifacts, learned WAM-lite backbones, falsification, an anti-overclaim system, a state-based Gymnasium/MuJoCo benchmark, a three-task Gymnasium Robotics Fetch benchmark, a three-task Meta-World ML1 benchmark, a three-task RoboSuite Panda benchmark, a three-task ManiSkill3 state-mode benchmark, RoboCasa kitchen pick-place, broad atomic-manipulation, and 12-task family learned-WAM artifacts, and a three-task LIBERO Spatial rollout-pool learned-WAM artifact. It does not yet answer real-robot realism.
 
 ## 8. Unresolved
 
 - LIBERO solved-task policy-performance evaluation beyond dense rollout-pool utility.
-- Full RoboCasa-wide learned-WAM rollout collection beyond the current pick-place-family and broad atomic-manipulation artifacts.
+- Full RoboCasa-wide learned-WAM rollout collection beyond the current pick-place-family, broad atomic-manipulation, and 12-task family artifacts.
 - ManiSkill RGB/RGB-D or end-effector-control validation.
 - Real robot validation.
 - Strong ManiSkill RGB/RGB-D WAM evidence; current repo has only a local failure probe with exact renderer/control blockers.
@@ -441,7 +447,7 @@ Yes, as a theory-plus-controlled-learned-toy paper artifact.
 
 ## 10. Main-Conference Readiness
 
-Substantially stronger after Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill state-mode validation, pick-place and broad RoboCasa learned-WAM validation, and three-task LIBERO rollout-pool validation. Still not a real-robot paper and still weaker than a benchmark-heavy robotics paper with solved-task LIBERO policy performance, full RoboCasa-wide validation, or RGB-D manipulation.
+Substantially stronger after Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill state-mode validation, pick-place, broad, and 12-task RoboCasa learned-WAM validation, and three-task LIBERO rollout-pool validation. Still not a real-robot paper and still weaker than a benchmark-heavy robotics paper with solved-task LIBERO policy performance, full RoboCasa-wide validation, or RGB-D manipulation.
 
 ## 11. Single Highest-Value Next Step
 
@@ -455,7 +461,7 @@ Add solved-task LIBERO policy evaluation or full RoboCasa-wide task coverage nex
 - `bash scripts/run_learned_wam_toy.sh`: passed; learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`.
 - `bash scripts/run_multi_env.sh`: passed with `envs=5`, `backbones=3`, `seeds=5`.
 - robust EXP8 rerun: passed; stale post-pre CI lower bound `0.0255`, stale-adaptive post CI lower bound `0.0613`.
-- `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5`, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, and ManiSkill3 state-mode tasks; optional RoboCasa smoke, single-task learned-WAM, three-task learned-WAM, and broad four-task learned-WAM runs were generated separately with `ROBOCASA_PYTHON`; optional LIBERO three-task Spatial rollout-pool WAM was generated separately with `LIBERO_PYTHON`; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; Fetch exact-law utility MAE `{fmt(gym_robotics.get('exact_law_utility_mae'))}`; Meta-World exact-law utility MAE `{fmt(metaworld.get('exact_law_utility_mae'))}`; Meta-World learned-random N32 CI lower `{fmt((((metaworld.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; RoboSuite exact-law utility MAE `{fmt(robosuite.get('exact_law_utility_mae'))}`; RoboSuite learned-random N32 CI lower `{fmt((((robosuite.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; RoboSuite closed-loop learned-random N8 CI lower `{fmt((((robosuite.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_N8') or {}).get('lo')))}`; ManiSkill exact-law utility MAE `{fmt(maniskill.get('exact_law_utility_mae'))}`; ManiSkill closed-loop learned-random CI lower bound `{fmt(((maniskill.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_utility_N8') or {}).get('lo'))}`; RoboCasa smoke exact-law utility MAE `{fmt(robocasa.get('exact_law_utility_mae'))}`; RoboCasa learned utility corr `{fmt(((robocasa_learned.get('model_metrics') or {}).get('utility_corr')))}`; RoboCasa learned-random N8 CI lower `{fmt((((robocasa_learned.get('confidence_intervals') or {}).get('learned_minus_random_N8') or {}).get('lo')))}`; RoboCasa three-task utility corr `{fmt(((robocasa_multitask.get('model_metrics') or {}).get('utility_corr')))}`; RoboCasa three-task learned-random N8 CI lower `{fmt((((robocasa_multitask.get('confidence_intervals') or {}).get('best_learned_minus_random_N8') or {}).get('lo')))}`; RoboCasa broad utility corr `{fmt(((robocasa_broad.get('model_metrics') or {}).get('utility_corr')))}`; RoboCasa broad learned-random N8 CI lower `{fmt((((robocasa_broad.get('confidence_intervals') or {}).get('best_learned_minus_random_N8') or {}).get('lo')))}`; LIBERO utility corr `{fmt(((libero_wam.get('model_metrics') or {}).get('utility_corr')))}`; LIBERO learned-random N8 CI lower `{fmt((((libero_wam.get('confidence_intervals') or {}).get('best_learned_minus_random_N8') or {}).get('lo')))}`.
+- `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5`, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, and ManiSkill3 state-mode tasks; optional RoboCasa smoke, single-task learned-WAM, three-task learned-WAM, broad four-task learned-WAM, and 12-task family learned-WAM runs were generated separately with `ROBOCASA_PYTHON`; optional LIBERO three-task Spatial rollout-pool WAM was generated separately with `LIBERO_PYTHON`; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; Fetch exact-law utility MAE `{fmt(gym_robotics.get('exact_law_utility_mae'))}`; Meta-World exact-law utility MAE `{fmt(metaworld.get('exact_law_utility_mae'))}`; Meta-World learned-random N32 CI lower `{fmt((((metaworld.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; RoboSuite exact-law utility MAE `{fmt(robosuite.get('exact_law_utility_mae'))}`; RoboSuite learned-random N32 CI lower `{fmt((((robosuite.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; RoboSuite closed-loop learned-random N8 CI lower `{fmt((((robosuite.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_N8') or {}).get('lo')))}`; ManiSkill exact-law utility MAE `{fmt(maniskill.get('exact_law_utility_mae'))}`; ManiSkill closed-loop learned-random CI lower bound `{fmt(((maniskill.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_utility_N8') or {}).get('lo'))}`; RoboCasa smoke exact-law utility MAE `{fmt(robocasa.get('exact_law_utility_mae'))}`; RoboCasa learned utility corr `{fmt(((robocasa_learned.get('model_metrics') or {}).get('utility_corr')))}`; RoboCasa learned-random N8 CI lower `{fmt((((robocasa_learned.get('confidence_intervals') or {}).get('learned_minus_random_N8') or {}).get('lo')))}`; RoboCasa three-task utility corr `{fmt(((robocasa_multitask.get('model_metrics') or {}).get('utility_corr')))}`; RoboCasa three-task learned-random N8 CI lower `{fmt((((robocasa_multitask.get('confidence_intervals') or {}).get('best_learned_minus_random_N8') or {}).get('lo')))}`; RoboCasa broad utility corr `{fmt(((robocasa_broad.get('model_metrics') or {}).get('utility_corr')))}`; RoboCasa broad learned-random N8 CI lower `{fmt((((robocasa_broad.get('confidence_intervals') or {}).get('best_learned_minus_random_N8') or {}).get('lo')))}`; RoboCasa 12-task family utility corr `{fmt(((robocasa_family12.get('model_metrics') or {}).get('utility_corr')))}`; RoboCasa 12-task family learned-random N8 CI lower `{fmt((((robocasa_family12.get('confidence_intervals') or {}).get('best_learned_minus_random_N8') or {}).get('lo')))}`; LIBERO utility corr `{fmt(((libero_wam.get('model_metrics') or {}).get('utility_corr')))}`; LIBERO learned-random N8 CI lower `{fmt((((libero_wam.get('confidence_intervals') or {}).get('best_learned_minus_random_N8') or {}).get('lo')))}`.
 - `python experiments/benchmark_gym_robotics_suite.py`: passed with `{gym_robotics.get('env_ids')}`; exact-law utility MAE `{fmt(gym_robotics.get('exact_law_utility_mae'))}`; learned-random N32 CI lower `{fmt((((gym_robotics.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; closed-loop learned-random N32 CI lower `{fmt((((gym_robotics.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_N32') or {}).get('lo')))}`.
 - `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`; Reacher RGB WAM utility corr `{fmt((bench_visual_wam.get('validation') or {}).get('utility_corr'))}`, utility MAE `{fmt((bench_visual_wam.get('validation') or {}).get('utility_mae'))}`, visual-random N32 CI lower `{fmt((((bench_visual_wam.get('confidence_intervals') or {}).get('visual_minus_random_N32') or {}).get('lo')))}`; Fetch RGB WAM mean corr `{fmt(gym_robotics_visual.get('mean_validation_utility_corr'))}`, visual-random N32 CI lower `{fmt((((gym_robotics_visual.get('confidence_intervals') or {}).get('visual_minus_random_N32') or {}).get('lo')))}`; ManiSkill visual probe any visual success `{maniskill_visual_probe.get('any_visual_success')}` with blocker `{maniskill_visual_probe.get('visual_blocker')}`.
 - `python experiments/benchmark_maniskill_dependency_probe.py --attempt-source-install`: passed as a blocker probe; Pinocchio import `{maniskill_dependency_probe.get('pinocchio_import_available')}`, binary `pin` wheel `{maniskill_dependency_probe.get('pin_binary_wheel_available')}`, source install attempted `{maniskill_dependency_probe.get('source_install_attempted')}`.

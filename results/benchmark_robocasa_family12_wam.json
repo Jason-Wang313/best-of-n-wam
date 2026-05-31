@@ -1,0 +1,253 @@
+{
+  "experiment": "benchmark_robocasa_family12_wam",
+  "attempted": true,
+  "available": true,
+  "verified": true,
+  "output_tag": "family12",
+  "env_ids": [
+    "robocasa/OpenDrawer",
+    "robocasa/OpenCabinet",
+    "robocasa/OpenMicrowave",
+    "robocasa/TurnOnSinkFaucet",
+    "robocasa/CloseDrawer",
+    "robocasa/CloseCabinet",
+    "robocasa/CloseMicrowave",
+    "robocasa/TurnOffSinkFaucet",
+    "robocasa/TurnOnStove",
+    "robocasa/TurnOffStove",
+    "robocasa/OpenOven",
+    "robocasa/CloseOven"
+  ],
+  "unavailable": [],
+  "split": "pretrain",
+  "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_robocasa_family12_ridge_wam.npz",
+  "model_type": "task_conditioned_ridge_state_action_sequence_wam",
+  "train_states_per_task": 1,
+  "train_rollouts": 8,
+  "train_samples": 96,
+  "validation_states_per_task": 1,
+  "validation_rollouts": 8,
+  "validation_samples": 96,
+  "eval_states_per_task": 2,
+  "eval_rollouts": 8,
+  "eval_samples": 192,
+  "eval_rollout_pools": 24,
+  "horizon": 2,
+  "n_values": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "model_metrics": {
+    "utility_mae": 0.006720017208083989,
+    "utility_corr": 0.8330260116378324,
+    "learned_physics_score_corr": 0.8330260116378323,
+    "progress_mae": 0.006105249439957827,
+    "progress_corr": 0.6523780581223282,
+    "final_distance_mae": 0.0431204960394631,
+    "energy_mae": 0.16024930924611439,
+    "success_mae": 0.0
+  },
+  "task_metrics": [
+    {
+      "env_id": "robocasa/OpenDrawer",
+      "utility_mae": 0.006103909016584826,
+      "utility_corr": 0.8392587843892654,
+      "learned_physics_score_corr": 0.839258784389266,
+      "progress_mae": 0.005463101605152483,
+      "progress_corr": 0.4804129354325184,
+      "final_distance_mae": 0.01255700818497553,
+      "energy_mae": 0.11448818634302782,
+      "success_mae": 0.0
+    },
+    {
+      "env_id": "robocasa/OpenCabinet",
+      "utility_mae": 0.005595853593275715,
+      "utility_corr": 0.9192604058852596,
+      "learned_physics_score_corr": 0.9192604058852604,
+      "progress_mae": 0.003960896737023221,
+      "progress_corr": 0.41512935018770675,
+      "final_distance_mae": 0.020399974990123457,
+      "energy_mae": 0.20149855461630056,
+      "success_mae": 0.0
+    },
+    {
+      "env_id": "robocasa/OpenMicrowave",
+      "utility_mae": 0.005150585081774282,
+      "utility_corr": 0.8342119565851808,
+      "learned_physics_score_corr": 0.8342119565851801,
+      "progress_mae": 0.0049460041749374035,
+      "progress_corr": 0.2021365768505846,
+      "final_distance_mae": 0.0779834728826829,
+      "energy_mae": 0.16271397437488205,
+      "success_mae": 0.0
+    },
+    {
+      "env_id": "robocasa/TurnOnSinkFaucet",
+      "utility_mae": 0.007673060209910744,
+      "utility_corr": 0.9282266778144869,
+      "learned_physics_score_corr": 0.9282266778144863,
+      "progress_mae": 0.007235004803607167,
+      "progress_corr": 0.6894731622943607,
+      "final_distance_mae": 0.015500878674996485,
+      "energy_mae": 0.17982797108166848,
+      "success_mae": 0.0
+    },
+    {
+      "env_id": "robocasa/CloseDrawer",
+      "utility_mae": 0.00848125392811587,
+      "utility_corr": 0.8066281911129549,
+      "learned_physics_score_corr": 0.8066281911129547,
+      "progress_mae": 0.007346109254843124,
+      "progress_corr": 0.7147318880513077,
+      "final_distance_mae": 0.08717056916208507,
+      "energy_mae": 0.15866942089129488,
+      "success_mae": 0.0
+    },
+    {
+      "env_id": "robocasa/CloseCabinet",
+      "utility_mae": 0.008142134369738575,
+      "utility_corr": 0.11170122247797293,
+      "learned_physics_score_corr": 0.11170122247797618,
+      "progress_mae": 0.00845748317024159,
+      "progress_corr": 0.11549648031631725,
+      "final_distance_mae": 0.019064897138674645,
+      "energy_mae": 0.13235413267280233,
+      "success_mae": 0.0
+    },
+    {
+      "env_id": "robocasa/CloseMicrowave",
+      "utility_mae": 0.005412219589113126,
+      "utility_corr": 0.9590686180798015,
+      "learned_physics_score_corr": 0.959068618079801,
+      "progress_mae": 0.004476925744145139,
+      "progress_corr": 0.754210163732612,
+      "final_distance_mae": 0.011170619426435949,
+      "energy_mae": 0.19608728192326308,
+      "success_mae": 0.0
+    },
+    {
+      "env_id": "robocasa/TurnOffSinkFaucet",
+      "utility_mae": 0.005749540687796549,
+      "utility_corr": 0.9514225146726033,
+      "learned_physics_score_corr": 0.9514225146726029,
+      "progress_mae": 0.005455342125302217,
+      "progress_corr": 0.8960101962425373,
+      "final_distance_mae": 0.06833832379493614,
+      "energy_mae": 0.1055541945196129,
+      "success_mae": 0.0
+    },
+    {
+      "env_id": "robocasa/TurnOnStove",
+      "utility_mae": 0.0113509127653478,
+      "utility_corr": 0.6549581525944594,
+      "learned_physics_score_corr": 0.6549581525944583,
+      "progress_mae": 0.010494747420968741,
+      "progress_corr": 0.5189114353599219,
+      "final_distance_mae": 0.04790527102236189,
+      "energy_mae": 0.12941976734195193,
+      "success_mae": 0.0
+    },
+    {
+      "env_id": "robocasa/TurnOffStove",
+      "utility_mae": 0.00420024849645793,
+      "utility_corr": 0.9255134398133661,
+      "learned_physics_score_corr": 0.9255134398133656,
+      "progress_mae": 0.0052065163286060265,
+      "progress_corr": 0.7568746992955759,
+      "final_distance_mae": 0.09374556396711192,
+      "energy_mae": 0.14651501482869905,
+      "success_mae": 0.0
+    },
+    {
+      "env_id": "robocasa/OpenOven",
+      "utility_mae": 0.009751930140857863,
+      "utility_corr": 0.9731366697534963,
+      "learned_physics_score_corr": 0.9731366697534958,
+      "progress_mae": 0.007146166608293636,
+      "progress_corr": 0.8630688686002935,
+      "final_distance_mae": 0.026447723524610972,
+      "energy_mae": 0.29358554386944297,
+      "success_mae": 0.0
+    },
+    {
+      "env_id": "robocasa/CloseOven",
+      "utility_mae": 0.0030285586180345903,
+      "utility_corr": 0.909416442775407,
+      "learned_physics_score_corr": 0.9094164427754067,
+      "progress_mae": 0.0030746953063731813,
+      "progress_corr": 0.9076151224123409,
+      "final_distance_mae": 0.03716164970456215,
+      "energy_mae": 0.10227766849042674,
+      "success_mae": 0.0
+    }
+  ],
+  "exact_law_utility_mae": 0.0002923520485543551,
+  "confidence_intervals": {
+    "learned_wam_minus_random_N8": {
+      "n": 24,
+      "mean": 0.22637453812763586,
+      "std": 0.2743994861791421,
+      "stderr": 0.056011560568398594,
+      "ci95": 0.10978265871406125,
+      "lo": 0.11659187941357461,
+      "hi": 0.3361571968416971
+    },
+    "learned_physics_minus_random_N8": {
+      "n": 24,
+      "mean": 0.22637453812763586,
+      "std": 0.2743994861791421,
+      "stderr": 0.056011560568398594,
+      "ci95": 0.10978265871406125,
+      "lo": 0.11659187941357461,
+      "hi": 0.3361571968416971
+    },
+    "learned_energy_regularized_minus_random_N8": {
+      "n": 24,
+      "mean": 0.2736319931949471,
+      "std": 0.2264236150811513,
+      "stderr": 0.04621852688876389,
+      "ci95": 0.09058831270197723,
+      "lo": 0.18304368049296985,
+      "hi": 0.36422030589692433
+    },
+    "best_learned_minus_random_N8": {
+      "n": 24,
+      "mean": 0.2736319931949471,
+      "std": 0.2264236150811513,
+      "stderr": 0.04621852688876389,
+      "ci95": 0.09058831270197723,
+      "lo": 0.18304368049296985,
+      "hi": 0.36422030589692433
+    },
+    "oracle_minus_random_N8": {
+      "n": 24,
+      "mean": 0.3524943682372139,
+      "std": 0.23303141446540046,
+      "stderr": 0.04756733828993783,
+      "ci95": 0.09323198304827815,
+      "lo": 0.25926238518893574,
+      "hi": 0.4457263512854921
+    },
+    "oracle_minus_best_learned_N8": {
+      "n": 24,
+      "mean": 0.04571415493372696,
+      "std": 0.05328507798883114,
+      "stderr": 0.010876770998086966,
+      "ci95": 0.021318471156250452,
+      "lo": 0.024395683777476505,
+      "hi": 0.06703262608997741
+    }
+  },
+  "promoted_scorer": "learned_energy_regularized",
+  "learned_energy_regularizer": 0.03,
+  "curves_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family12_curves.csv",
+  "exact_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family12_exact_law.csv",
+  "data_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family12_train_validation.csv",
+  "eval_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family12_eval_rollouts.csv",
+  "task_metrics_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family12_task_metrics.csv",
+  "seed_metrics_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family12_seed_metrics.csv",
+  "report_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_family12_wam_report.md",
+  "note": "Optional task conditioned RoboCasa learned WAM-lite across multiple kitchen task IDs; promoted only when a learned scorer beats random with positive heldout CI."
+}
