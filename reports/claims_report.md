@@ -2,7 +2,7 @@
 
 ## Counts
 
-- verified: `83`
+- verified: `84`
 - partial: `0`
 - unsupported: `0`
 - failed: `0`
@@ -90,9 +90,10 @@
 - 78. RoboCasa kitchen benchmark smoke verified. Evidence: env=robocasa/PickPlaceCounterToCabinet, pools=5, rollouts=80, exact MAE=0.0002724664778796843, oracle-random CI={'n': 5, 'mean': 0.2737591862068588, 'std': 0.13943158358342508, 'stderr': 0.06235569982059644, 'ci95': 0.12221717164836901, 'lo': 0.15154201455848978, 'hi': 0.3959763578552278}
 - 79. RoboCasa learned WAM-lite scorer beats random with CI. Evidence: train=80, val=32, eval=80, utility corr=0.7639608394479505, learned-random CI={'n': 5, 'mean': 0.14832993183038654, 'std': 0.11178217873717447, 'stderr': 0.04999051006587074, 'ci95': 0.09798139972910665, 'lo': 0.05034853210127989, 'hi': 0.2463113315594932}
 - 80. RoboCasa three-task learned WAM-lite scorer beats random with CI. Evidence: tasks=['robocasa/PickPlaceCounterToCabinet', 'robocasa/PickPlaceCounterToDrawer', 'robocasa/PickPlaceCounterToMicrowave'], train=144, val=96, eval=240, utility corr=0.6751791364461345, promoted=learned_energy_regularized, learned-random CI={'n': 15, 'mean': 0.23492695125782703, 'std': 0.13017328673923353, 'stderr': 0.03361059811080895, 'ci95': 0.06587677229718554, 'lo': 0.1690501789606415, 'hi': 0.30080372355501256}, oracle-learned CI={'n': 15, 'mean': 0.05812674657491653, 'std': 0.04447418542048683, 'stderr': 0.01148318529797908, 'ci95': 0.022507043184038997, 'lo': 0.035619703390877534, 'hi': 0.08063378975895552}
+- 83. LIBERO rollout-pool learned WAM-lite benchmark verified. Evidence: tasks=['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2'], train=192, val=96, eval=240, exact MAE=0.0001402348651464976, utility corr=0.3526483541014925, learned-random CI={'n': 15, 'mean': 0.3375863022441559, 'std': 0.14290935532341625, 'stderr': 0.03689903687898863, 'ci95': 0.07232211228281771, 'lo': 0.2652641899613382, 'hi': 0.40990841452697363}
+- 84. RoboCasa broad task family learned WAM-lite scorer beats random with CI. Evidence: tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet'], train=64, val=32, eval=128, utility corr=0.8598503519742565, promoted=learned_wam, learned-random CI={'n': 16, 'mean': 0.3045073082302883, 'std': 0.19051552386059456, 'stderr': 0.04762888096514864, 'ci95': 0.09335260669169133, 'lo': 0.211154701538597, 'hi': 0.39785991492197964}
 - 81. README has no unsupported claims. Evidence: README overclaims=0
 - 82. paper_outline has no unsupported claims. Evidence: paper overclaims=0
-- 83. LIBERO rollout-pool learned WAM-lite benchmark verified. Evidence: tasks=['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2'], train=192, val=96, eval=240, exact MAE=0.0001402348651464976, utility corr=0.3526483541014925, learned-random CI={'n': 15, 'mean': 0.3375863022441559, 'std': 0.14290935532341625, 'stderr': 0.03689903687898863, 'ci95': 0.07232211228281771, 'lo': 0.2652641899613382, 'hi': 0.40990841452697363}
 
 ## Partial
 

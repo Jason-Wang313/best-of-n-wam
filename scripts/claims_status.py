@@ -83,6 +83,7 @@ def main() -> None:
     robocasa = load_json("benchmark_robocasa_smoke.json")
     robocasa_learned = load_json("benchmark_robocasa_learned_wam.json")
     robocasa_multitask = load_json("benchmark_robocasa_multitask_wam.json")
+    robocasa_broad = load_json("benchmark_robocasa_broad_wam.json")
     libero_wam = load_json("benchmark_libero_wam.json")
     audit = load_json("inference_audit_framework.json")
     audit_learned = load_json("inference_audit_framework_learned.json")
@@ -637,20 +638,6 @@ def main() -> None:
         f"tasks={robocasa_multitask.get('env_ids')}, train={robocasa_multitask.get('train_samples')}, val={robocasa_multitask.get('validation_samples')}, eval={robocasa_multitask.get('eval_samples')}, utility corr={((robocasa_multitask.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_multitask.get('promoted_scorer')}, learned-random CI={robocasa_multitask_ci.get('best_learned_minus_random_N8')}, oracle-learned CI={robocasa_multitask_ci.get('oracle_minus_best_learned_N8')}",
     )
 
-    readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
-    paper_text = PAPER.read_text(encoding="utf-8") if PAPER.exists() else ""
-    claim_by_id = {c["id"]: c for c in claims}
-    overclaims = []
-    for cid, c in claim_by_id.items():
-        pattern = f"VERIFIED CLAIM {cid}"
-        if pattern.lower() in readme_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
-            overclaims.append({"surface": "README", "id": cid, "pattern": pattern, "status": c["status"]})
-        if pattern.lower() in paper_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
-            overclaims.append({"surface": "paper_outline", "id": cid, "pattern": pattern, "status": c["status"]})
-
-    add(claims, 81, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
-    add(claims, 82, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
-
     libero_ci = libero_wam.get("confidence_intervals") or {}
     libero_max_n = max(libero_wam.get("n_values") or [8])
     add(
@@ -673,6 +660,42 @@ def main() -> None:
         ),
         f"tasks={libero_wam.get('tasks')}, train={libero_wam.get('train_samples')}, val={libero_wam.get('validation_samples')}, eval={libero_wam.get('eval_samples')}, exact MAE={libero_wam.get('exact_law_utility_mae')}, utility corr={((libero_wam.get('model_metrics') or {}).get('utility_corr'))}, learned-random CI={libero_ci.get(f'best_learned_minus_random_N{libero_max_n}')}",
     )
+    robocasa_broad_ci = robocasa_broad.get("confidence_intervals") or {}
+    robocasa_broad_max_n = max(robocasa_broad.get("n_values") or [8])
+    add(
+        claims,
+        84,
+        "RoboCasa broad task family learned WAM-lite scorer beats random with CI.",
+        status(
+            bool(robocasa_broad)
+            and robocasa_broad.get("available", False)
+            and robocasa_broad.get("verified", False)
+            and len(robocasa_broad.get("env_ids") or []) >= 4
+            and (robocasa_broad.get("train_samples") or 0) >= 64
+            and (robocasa_broad.get("validation_samples") or 0) >= 32
+            and (robocasa_broad.get("eval_samples") or 0) >= 128
+            and (robocasa_broad.get("eval_rollout_pools") or 0) >= 16
+            and ((robocasa_broad.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
+            and (robocasa_broad.get("exact_law_utility_mae") or 1.0) < 0.01
+            and ((robocasa_broad_ci.get(f"best_learned_minus_random_N{robocasa_broad_max_n}") or {}).get("lo") or 0.0) > 0.0,
+            bool(robocasa_broad),
+        ),
+        f"tasks={robocasa_broad.get('env_ids')}, train={robocasa_broad.get('train_samples')}, val={robocasa_broad.get('validation_samples')}, eval={robocasa_broad.get('eval_samples')}, utility corr={((robocasa_broad.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_broad.get('promoted_scorer')}, learned-random CI={robocasa_broad_ci.get(f'best_learned_minus_random_N{robocasa_broad_max_n}')}",
+    )
+
+    readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
+    paper_text = PAPER.read_text(encoding="utf-8") if PAPER.exists() else ""
+    claim_by_id = {c["id"]: c for c in claims}
+    overclaims = []
+    for cid, c in claim_by_id.items():
+        pattern = f"VERIFIED CLAIM {cid}"
+        if pattern.lower() in readme_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
+            overclaims.append({"surface": "README", "id": cid, "pattern": pattern, "status": c["status"]})
+        if pattern.lower() in paper_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
+            overclaims.append({"surface": "paper_outline", "id": cid, "pattern": pattern, "status": c["status"]})
+
+    add(claims, 81, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
+    add(claims, 82, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
 
     payload = {
         "claims": claims,

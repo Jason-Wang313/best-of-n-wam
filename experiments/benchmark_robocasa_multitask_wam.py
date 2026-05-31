@@ -32,6 +32,33 @@ DEFAULT_ENV_IDS = [
 DEFAULT_N_VALUES = [1, 2, 4, 8]
 
 
+def _artifact_paths(output_tag: str = "") -> dict[str, Path]:
+    if output_tag:
+        table_prefix = f"benchmark_robocasa_{output_tag}"
+        return {
+            "summary": results_dir() / f"{table_prefix}_wam.json",
+            "model": results_dir() / "models" / f"{table_prefix}_ridge_wam.npz",
+            "curves": results_dir() / "tables" / f"{table_prefix}_curves.csv",
+            "exact": results_dir() / "tables" / f"{table_prefix}_exact_law.csv",
+            "train_val": results_dir() / "tables" / f"{table_prefix}_train_validation.csv",
+            "eval": results_dir() / "tables" / f"{table_prefix}_eval_rollouts.csv",
+            "task_metrics": results_dir() / "tables" / f"{table_prefix}_task_metrics.csv",
+            "seed_metrics": results_dir() / "tables" / f"{table_prefix}_seed_metrics.csv",
+            "report": ROOT / "reports" / f"robocasa_{output_tag}_wam_report.md",
+        }
+    return {
+        "summary": results_dir() / "benchmark_robocasa_multitask_wam.json",
+        "model": results_dir() / "models" / "benchmark_robocasa_multitask_ridge_wam.npz",
+        "curves": results_dir() / "tables" / "benchmark_robocasa_multitask_curves.csv",
+        "exact": results_dir() / "tables" / "benchmark_robocasa_multitask_exact_law.csv",
+        "train_val": results_dir() / "tables" / "benchmark_robocasa_multitask_train_validation.csv",
+        "eval": results_dir() / "tables" / "benchmark_robocasa_multitask_eval_rollouts.csv",
+        "task_metrics": results_dir() / "tables" / "benchmark_robocasa_multitask_task_metrics.csv",
+        "seed_metrics": results_dir() / "tables" / "benchmark_robocasa_multitask_seed_metrics.csv",
+        "report": ROOT / "reports" / "robocasa_multitask_wam_report.md",
+    }
+
+
 @dataclass
 class TaskData:
     env_id: str
@@ -232,19 +259,23 @@ def _write_report(summary: dict[str, Any]) -> None:
             "",
             "This is a task conditioned RoboCasa WAM-lite artifact over multiple kitchen task IDs. It is promoted only if the exact-law check passes and a learned scorer beats random with a positive heldout CI.",
         ]
-    (report_dir / "robocasa_multitask_wam_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    report_path = Path(summary.get("report_path") or _artifact_paths(str(summary.get("output_tag") or ""))["report"])
+    report_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
-def _unavailable(reason: str) -> dict[str, Any]:
+def _unavailable(reason: str, output_tag: str = "") -> dict[str, Any]:
     ensure_result_dirs()
+    paths = _artifact_paths(output_tag)
     summary = {
-        "experiment": "benchmark_robocasa_multitask_wam",
+        "experiment": paths["summary"].stem,
         "attempted": True,
         "available": False,
         "verified": False,
+        "output_tag": output_tag,
         "reason": reason,
+        "report_path": str(paths["report"]),
     }
-    write_json(results_dir() / "benchmark_robocasa_multitask_wam.json", summary)
+    write_json(paths["summary"], summary)
     _write_report(summary)
     return summary
 
@@ -253,7 +284,8 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     ensure_result_dirs()
     ok, reason = is_robocasa_available()
     if not ok:
-        return _unavailable(reason)
+        return _unavailable(reason, getattr(args, "output_tag", ""))
+    paths = _artifact_paths(str(getattr(args, "output_tag", "") or ""))
 
     env_ids = [str(e) for e in args.env_ids]
     n_tasks = len(env_ids)
@@ -275,7 +307,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             unavailable.append({"env_id": env_id, "reason": f"{type(exc).__name__}: {exc}"})
     if len(task_data) < args.min_tasks:
         summary = {
-            "experiment": "benchmark_robocasa_multitask_wam",
+            "experiment": paths["summary"].stem,
             "attempted": True,
             "available": bool(task_data),
             "verified": False,
@@ -283,7 +315,9 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
             "unavailable": unavailable,
             "reason": f"only {len(task_data)} task(s) ran; min_tasks={args.min_tasks}",
         }
-        write_json(results_dir() / "benchmark_robocasa_multitask_wam.json", summary)
+        summary["output_tag"] = str(getattr(args, "output_tag", "") or "")
+        summary["report_path"] = str(paths["report"])
+        write_json(paths["summary"], summary)
         _write_report(summary)
         return summary
 
@@ -295,7 +329,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     val_pred = model.predict(val_x)
     model_metrics = _model_metrics(val_pred, val_y, args)
 
-    model_path = results_dir() / "models" / "benchmark_robocasa_multitask_ridge_wam.npz"
+    model_path = paths["model"]
     save_model(
         model,
         model_path,
@@ -393,12 +427,12 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     exact = pd.DataFrame(exact_rows)
     train_val = pd.DataFrame(train_val_rows)
     eval_detail = pd.DataFrame(eval_detail_rows)
-    curves_path = results_dir() / "tables" / "benchmark_robocasa_multitask_curves.csv"
-    exact_path = results_dir() / "tables" / "benchmark_robocasa_multitask_exact_law.csv"
-    train_val_path = results_dir() / "tables" / "benchmark_robocasa_multitask_train_validation.csv"
-    eval_path = results_dir() / "tables" / "benchmark_robocasa_multitask_eval_rollouts.csv"
-    task_metrics_path = results_dir() / "tables" / "benchmark_robocasa_multitask_task_metrics.csv"
-    seed_metrics_path = results_dir() / "tables" / "benchmark_robocasa_multitask_seed_metrics.csv"
+    curves_path = paths["curves"]
+    exact_path = paths["exact"]
+    train_val_path = paths["train_val"]
+    eval_path = paths["eval"]
+    task_metrics_path = paths["task_metrics"]
+    seed_metrics_path = paths["seed_metrics"]
     curves.to_csv(curves_path, index=False)
     exact.to_csv(exact_path, index=False)
     train_val.to_csv(train_val_path, index=False)
@@ -467,10 +501,11 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         and model_metrics["learned_physics_score_corr"] > 0.0
     )
     summary = {
-        "experiment": "benchmark_robocasa_multitask_wam",
+        "experiment": paths["summary"].stem,
         "attempted": True,
         "available": True,
         "verified": bool(verified),
+        "output_tag": str(getattr(args, "output_tag", "") or ""),
         "env_ids": [d.env_id for d in task_data],
         "unavailable": unavailable,
         "split": args.split,
@@ -500,9 +535,10 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         "eval_path": str(eval_path),
         "task_metrics_path": str(task_metrics_path),
         "seed_metrics_path": str(seed_metrics_path),
+        "report_path": str(paths["report"]),
         "note": "Optional task conditioned RoboCasa learned WAM-lite across multiple kitchen task IDs; promoted only when a learned scorer beats random with positive heldout CI.",
     }
-    write_json(results_dir() / "benchmark_robocasa_multitask_wam.json", summary)
+    write_json(paths["summary"], summary)
     _write_report(summary)
     return summary
 
@@ -529,6 +565,7 @@ def main() -> None:
     parser.add_argument("--max-exact-mae", type=float, default=0.02)
     parser.add_argument("--min-tasks", type=int, default=3)
     parser.add_argument("--min-eval-pools", type=int, default=6)
+    parser.add_argument("--output-tag", default="")
     args = parser.parse_args()
     summary = run(args)
     print(summary)

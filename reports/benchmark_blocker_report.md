@@ -36,6 +36,12 @@ A task conditioned ridge state/action-sequence WAM-lite was trained across `3` R
 Validation utility correlation is `0.6751791364461345`; promoted scorer `learned_energy_regularized` has learned-minus-random N8 CI lower bound `0.1690501789606415`.
 This supports a three-task RoboCasa pick-place family artifact, not full RoboCasa-wide validation.
 
+## Separate RoboCasa Broad Task Family Learned-WAM Artifact
+
+A task conditioned ridge state/action-sequence WAM-lite was trained across `4` non-pick-place RoboCasa task IDs with `64` train rollouts and `128` heldout eval rollouts.
+Validation utility correlation is `0.8598503519742565`; promoted scorer `learned_wam` has learned-minus-random N8 CI lower bound `0.211154701538597`.
+This supports broad RoboCasa rollout-pool dense-utility validation across atomic kitchen manipulation tasks, not full RoboCasa-wide validation or solved-policy performance.
+
 ## Separate LIBERO Three-Task Learned-WAM Artifact
 
 A ridge state/action-sequence WAM-lite was trained across `3` LIBERO Spatial tasks with `192` train rollout samples and `240` heldout eval rollout samples.

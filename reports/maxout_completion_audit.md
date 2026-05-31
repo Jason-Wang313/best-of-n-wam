@@ -4,7 +4,7 @@ Audit date: 2026-05-30.
 
 ## Execution Tier
 
-Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, Gymnasium Robotics Fetch benchmark, Meta-World ML1, RoboSuite Panda benchmark, ManiSkill3 state-mode benchmark, RoboCasa single-task and three-task learned WAM-lite, LIBERO Spatial three-task rollout-pool WAM-lite, toy visual mode, Reacher RGB WAM-lite, and Fetch RGB WAM-lite.
+Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, Gymnasium Robotics Fetch benchmark, Meta-World ML1, RoboSuite Panda benchmark, ManiSkill3 state-mode benchmark, RoboCasa single-task, three-task pick-place-family, and broad four-task learned WAM-lite, LIBERO Spatial three-task rollout-pool WAM-lite, toy visual mode, Reacher RGB WAM-lite, and Fetch RGB WAM-lite.
 
 ## Artifact Coverage
 
@@ -19,6 +19,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - ManiSkill suite: `['PickCube-v1', 'PushCube-v1', 'PegInsertionSide-v1']`; rollout pools: `30`; exact-law MAE: `0.0034`; control: `pd_joint_delta_pos`.
 - RoboCasa learned WAM-lite: verified `True`; train samples `80`; eval samples `80`; utility corr `0.7640`; learned-random N8 CI lower `0.0503`.
 - RoboCasa three-task WAM-lite: verified `True`; tasks `['robocasa/PickPlaceCounterToCabinet', 'robocasa/PickPlaceCounterToDrawer', 'robocasa/PickPlaceCounterToMicrowave']`; train/eval samples `144`/`240`; utility corr `0.6752`; promoted scorer `learned_energy_regularized`; learned-random N8 CI lower `0.1691`.
+- RoboCasa broad task family WAM-lite: verified `True`; tasks `['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet']`; train/eval samples `64`/`128`; utility corr `0.8599`; promoted scorer `learned_wam`; learned-random N8 CI lower `0.2112`.
 - LIBERO WAM-lite: verified `True`; tasks `['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2']`; train/eval samples `192`/`240`; utility corr `0.3526`; exact-law MAE `0.0001`; learned-random N8 CI lower `0.2653`.
 - Visual attempted: `True`; visual verified: `True`.
 - Benchmark visual verified: `True`.
@@ -47,6 +48,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboCasa: `PickPlaceCounterToCabinet` kitchen smoke artifact generated in a separate RoboCasa-compatible environment; exact-law utility MAE `0.0003` over `80` rollouts.
 - RoboCasa learned WAM-lite: single-task `PickPlaceCounterToCabinet` ridge state/action-sequence WAM trained on `80` rollouts and evaluated on `80` heldout rollouts.
 - RoboCasa three-task learned WAM-lite: task conditioned ridge WAM over `['robocasa/PickPlaceCounterToCabinet', 'robocasa/PickPlaceCounterToDrawer', 'robocasa/PickPlaceCounterToMicrowave']` trained on `144` rollouts and evaluated on `240` heldout rollouts.
+- RoboCasa broad task family learned WAM-lite: task conditioned ridge WAM over `['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet']` trained on `64` rollouts and evaluated on `128` heldout rollouts.
 - LIBERO learned WAM-lite: three Spatial tasks `['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2']` trained on `192` rollout samples and evaluated on `240` heldout rollout samples with dense progress utility.
 - Visual: toy visual mode verified with MAE `0.0185`.
 - Benchmark visual WAM: Reacher-v5 RGB-frame/action-sequence model verified with visual-random N32 CI lower bound `0.1998`.
@@ -75,6 +77,9 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboCasa learned-random N8 CI lower: `0.0503`.
 - RoboCasa three-task WAM utility corr: `0.6752`.
 - RoboCasa three-task learned-random N8 CI lower: `0.1691`.
+- RoboCasa broad WAM utility corr: `0.8599`.
+- RoboCasa broad learned-random N8 CI lower: `0.2112`.
+- RoboCasa broad exact-law utility MAE: `0.0004`.
 - LIBERO WAM utility corr: `0.3526`.
 - LIBERO learned-random N8 CI lower: `0.2653`.
 - LIBERO exact-law utility MAE: `0.0001`.

@@ -205,6 +205,38 @@ class RoboCasaAdapter:
             obj = np.asarray(raw["obj_pos"], dtype=float).reshape(-1)[:3]
             eef = np.asarray(raw["robot0_eef_pos"], dtype=float).reshape(-1)[:3]
             return float(np.linalg.norm(obj - eef))
+        preferred = (
+            "drawer_obj_to_robot0_eef_pos",
+            "door_obj_to_robot0_eef_pos",
+            "microwave_obj_to_robot0_eef_pos",
+            "sink_obj_to_robot0_eef_pos",
+            "stove_obj_to_robot0_eef_pos",
+            "faucet_obj_to_robot0_eef_pos",
+            "knob_obj_to_robot0_eef_pos",
+            "distr_sink_to_robot0_eef_pos",
+            "distr_stove_to_robot0_eef_pos",
+        )
+        for key in preferred:
+            if key in raw:
+                return float(np.linalg.norm(np.asarray(raw[key], dtype=float).reshape(-1)[:3]))
+        candidates: list[tuple[int, str, float]] = []
+        for key, value in raw.items():
+            lower = key.lower()
+            if not lower.endswith("_to_robot0_eef_pos"):
+                continue
+            if "counter" in lower:
+                continue
+            priority = 1
+            if any(name in lower for name in ("drawer", "door", "microwave", "sink", "stove", "faucet", "knob", "handle")):
+                priority = 0
+            try:
+                distance = float(np.linalg.norm(np.asarray(value, dtype=float).reshape(-1)[:3]))
+            except (TypeError, ValueError):
+                continue
+            candidates.append((priority, key, distance))
+        if candidates:
+            candidates.sort(key=lambda item: (item[0], item[2], item[1]))
+            return float(candidates[0][2])
         return 0.0
 
     def evaluate_success(self, state: np.ndarray | None = None) -> bool:

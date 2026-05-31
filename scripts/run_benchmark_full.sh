@@ -26,6 +26,7 @@ if [[ -n "${ROBOCASA_PYTHON:-}" ]]; then
   "$ROBOCASA_PYTHON" experiments/benchmark_robocasa_smoke.py --states 5 --rollouts 16 --horizon 3 --mc-trials 2500 --closed-loop
   "$ROBOCASA_PYTHON" experiments/benchmark_robocasa_learned_wam.py --train-states 5 --train-rollouts 16 --val-states 2 --val-rollouts 16 --eval-states 5 --eval-rollouts 16 --horizon 3 --mc-trials 2500
   "$ROBOCASA_PYTHON" experiments/benchmark_robocasa_multitask_wam.py --train-states 3 --train-rollouts 16 --val-states 2 --val-rollouts 16 --eval-states 5 --eval-rollouts 16 --horizon 3 --mc-trials 1500 --min-eval-pools 15
+  "$ROBOCASA_PYTHON" experiments/benchmark_robocasa_multitask_wam.py --output-tag broad --env-ids robocasa/OpenDrawer robocasa/OpenCabinet robocasa/OpenMicrowave robocasa/TurnOnSinkFaucet --train-states 2 --train-rollouts 8 --val-states 1 --val-rollouts 8 --eval-states 4 --eval-rollouts 8 --horizon 2 --mc-trials 1000 --min-tasks 4 --min-eval-pools 16 --max-exact-mae 0.03
 else
   echo "Skipping optional RoboCasa smoke: set ROBOCASA_PYTHON to a RoboCasa-compatible interpreter to run it."
 fi

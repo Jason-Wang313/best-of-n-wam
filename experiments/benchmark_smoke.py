@@ -21,6 +21,8 @@ def run() -> dict:
     learned_path = results_dir() / "benchmark_robocasa_learned_wam.json"
     robocasa_multitask = {}
     multitask_path = results_dir() / "benchmark_robocasa_multitask_wam.json"
+    robocasa_broad = {}
+    broad_path = results_dir() / "benchmark_robocasa_broad_wam.json"
     libero_wam = {}
     libero_path = results_dir() / "benchmark_libero_wam.json"
     if smoke_path.exists():
@@ -35,6 +37,10 @@ def run() -> dict:
         import json
 
         robocasa_multitask = json.loads(multitask_path.read_text(encoding="utf-8"))
+    if broad_path.exists():
+        import json
+
+        robocasa_broad = json.loads(broad_path.read_text(encoding="utf-8"))
     if libero_path.exists():
         import json
 
@@ -106,6 +112,19 @@ def run() -> dict:
                     f"A task conditioned ridge state/action-sequence WAM-lite was trained across `{len(robocasa_multitask.get('env_ids') or [])}` RoboCasa task IDs with `{robocasa_multitask.get('train_samples')}` train rollouts and `{robocasa_multitask.get('eval_samples')}` heldout eval rollouts.",
                     f"Validation utility correlation is `{metrics.get('utility_corr')}`; promoted scorer `{robocasa_multitask.get('promoted_scorer')}` has learned-minus-random N8 CI lower bound `{ci.get('lo')}`.",
                     "This supports a three-task RoboCasa pick-place family artifact, not full RoboCasa-wide validation.",
+                ]
+            )
+        if robocasa_broad.get("verified"):
+            metrics = robocasa_broad.get("model_metrics") or {}
+            ci = (robocasa_broad.get("confidence_intervals") or {}).get("best_learned_minus_random_N8") or {}
+            report.extend(
+                [
+                    "",
+                    "## Separate RoboCasa Broad Task Family Learned-WAM Artifact",
+                    "",
+                    f"A task conditioned ridge state/action-sequence WAM-lite was trained across `{len(robocasa_broad.get('env_ids') or [])}` non-pick-place RoboCasa task IDs with `{robocasa_broad.get('train_samples')}` train rollouts and `{robocasa_broad.get('eval_samples')}` heldout eval rollouts.",
+                    f"Validation utility correlation is `{metrics.get('utility_corr')}`; promoted scorer `{robocasa_broad.get('promoted_scorer')}` has learned-minus-random N8 CI lower bound `{ci.get('lo')}`.",
+                    "This supports broad RoboCasa rollout-pool dense-utility validation across atomic kitchen manipulation tasks, not full RoboCasa-wide validation or solved-policy performance.",
                 ]
             )
         if libero_wam.get("verified"):
