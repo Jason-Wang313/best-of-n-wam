@@ -128,7 +128,7 @@ The audit suite includes a heldout scorer-repair experiment. A small pilot set w
 
 ## Benchmark Validation
 
-The repo includes adapters for ManiSkill, Gym-style manipulation, Meta-World, and RoboSuite, plus future-facing skeletons for LIBERO and RoboCasa under `src/wam_inference_value/benchmarks/`.
+The repo includes adapters for ManiSkill, Gym-style manipulation, Meta-World, RoboSuite, and optional RoboCasa smoke validation, plus a future-facing LIBERO skeleton under `src/wam_inference_value/benchmarks/`.
 
 Current benchmark artifacts include:
 
@@ -145,15 +145,22 @@ Current benchmark artifacts include:
 - ManiSkill3 state-mode `PickCube-v1`
 - ManiSkill3 state-mode `PushCube-v1`
 - ManiSkill3 state-mode `PegInsertionSide-v1`
+- RoboCasa `PickPlaceCounterToCabinet` kitchen smoke artifact
 
-The Gymnasium Robotics artifacts add contact-rich Fetch manipulation tasks with state/action-sequence WAM-lite training, exact-law validation, scorer comparison, closed-loop evaluation, RGB-frame/action-sequence visual WAM-lite validation, and RGB frame artifacts. Meta-World artifacts add a separate multi-task Sawyer manipulation suite with learned state/action-sequence WAM-lite, exact-law validation, scorer comparison, and small closed-loop traces. RoboSuite artifacts add Panda Lift/Stack/Door clone-restored MuJoCo rollout pools with learned state/action-sequence WAM-lite, exact-law validation, open-loop scorer comparison, and small closed-loop learned/reward-versus-random evaluation. The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the optional Pinocchio dependency was unavailable; the repo also includes a generated ManiSkill visual/EE-control probe so that this limitation is artifact-backed rather than anecdotal. LIBERO and RoboCasa remain future work unless their dependencies and artifacts are added.
+The Gymnasium Robotics artifacts add contact-rich Fetch manipulation tasks with state/action-sequence WAM-lite training, exact-law validation, scorer comparison, closed-loop evaluation, RGB-frame/action-sequence visual WAM-lite validation, and RGB frame artifacts. Meta-World artifacts add a separate multi-task Sawyer manipulation suite with learned state/action-sequence WAM-lite, exact-law validation, scorer comparison, and small closed-loop traces. RoboSuite artifacts add Panda Lift/Stack/Door clone-restored MuJoCo rollout pools with learned state/action-sequence WAM-lite, exact-law validation, open-loop scorer comparison, and small closed-loop learned/reward-versus-random evaluation. The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the optional Pinocchio dependency was unavailable; the repo also includes a generated ManiSkill visual/EE-control probe so that this limitation is artifact-backed rather than anecdotal. RoboCasa is verified only as an optional kitchen smoke artifact: one `PickPlaceCounterToCabinet` reset/clone-restored rollout pool, exact-law utility MAE `0.00018`, and a tiny closed-loop trace generated in a separate RoboCasa-compatible virtual environment with the official kitchen assets. It is not a full RoboCasa learned-WAM benchmark. LIBERO remains future work unless its dependencies and artifacts are added.
 
 ```bash
 bash scripts/run_benchmark_smoke.sh
 bash scripts/run_benchmark_full.sh
 ```
 
-Current benchmark artifacts include rollout pools, learned benchmark WAM-lite training, exact-law validation, score comparison, real-vs-predicted utility gap, closed-loop evaluation, contact-rich Gymnasium Robotics Fetch validation, Meta-World ML1 validation, RoboSuite Panda validation, and RGB WAM-lite validation for the Gymnasium/MuJoCo path.
+Current benchmark artifacts include rollout pools, learned benchmark WAM-lite training, exact-law validation, score comparison, real-vs-predicted utility gap, closed-loop evaluation, contact-rich Gymnasium Robotics Fetch validation, Meta-World ML1 validation, RoboSuite Panda validation, optional RoboCasa kitchen smoke validation, and RGB WAM-lite validation for the Gymnasium/MuJoCo and Fetch paths.
+
+The optional RoboCasa smoke is not run by default because RoboCasa365 pins a separate MuJoCo stack and requires about 10 GB of kitchen assets. To regenerate it, set `ROBOCASA_PYTHON` to a RoboCasa-compatible interpreter and run:
+
+```bash
+ROBOCASA_PYTHON=/path/to/robocasa/python bash scripts/run_benchmark_full.sh
+```
 
 ## Visual Modes
 
@@ -204,4 +211,4 @@ This is learned-toy and multi-env toy validation, not real-robot evidence. It do
 
 ## Future Work
 
-The natural next step is a Robot Chinchilla-style WAM optimizer: jointly allocate dataset scale, model capacity, rollout horizon, scorer quality, safety constraints, and test-time rollout budget. A second high-value extension is LIBERO or RoboCasa validation beyond the current Gymnasium Robotics, Meta-World, RoboSuite, and ManiSkill state-mode suites.
+The natural next step is a Robot Chinchilla-style WAM optimizer: jointly allocate dataset scale, model capacity, rollout horizon, scorer quality, safety constraints, and test-time rollout budget. A second high-value extension is full LIBERO or full RoboCasa learned-WAM validation beyond the current Gymnasium Robotics, Meta-World, RoboSuite, ManiSkill state-mode, and RoboCasa smoke artifacts.

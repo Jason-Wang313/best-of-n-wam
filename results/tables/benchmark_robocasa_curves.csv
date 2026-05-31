@@ -1,0 +1,17 @@
+env_id,seed,state_id,scorer,N,real_utility,normalized_real_utility
+robocasa/PickPlaceCounterToCabinet,23,0,random,1,-0.0758043625098572,0.4657700828936302
+robocasa/PickPlaceCounterToCabinet,23,0,random,2,-0.07809118184007835,0.42385195862264563
+robocasa/PickPlaceCounterToCabinet,23,0,random,4,-0.07942888789839275,0.3993313819205725
+robocasa/PickPlaceCounterToCabinet,23,0,random,8,-0.07989463605712163,0.39079407031988245
+robocasa/PickPlaceCounterToCabinet,23,0,distance_progress,1,-0.07580436250985718,0.4657700828936302
+robocasa/PickPlaceCounterToCabinet,23,0,distance_progress,2,-0.07018874195659346,0.5687061903069071
+robocasa/PickPlaceCounterToCabinet,23,0,distance_progress,4,-0.0645403190890138,0.67224357455465
+robocasa/PickPlaceCounterToCabinet,23,0,distance_progress,8,-0.05817647367123735,0.7888948812575234
+robocasa/PickPlaceCounterToCabinet,23,0,low_energy,1,-0.07580436250985718,0.46577008289363014
+robocasa/PickPlaceCounterToCabinet,23,0,low_energy,2,-0.06778413176362857,0.6127834584845508
+robocasa/PickPlaceCounterToCabinet,23,0,low_energy,4,-0.05972407091932111,0.7605269324172734
+robocasa/PickPlaceCounterToCabinet,23,0,low_energy,8,-0.05300509824667742,0.8836878344365808
+robocasa/PickPlaceCounterToCabinet,23,0,oracle_real_utility,1,-0.07580436250985718,0.46577008289363014
+robocasa/PickPlaceCounterToCabinet,23,0,oracle_real_utility,2,-0.06696855871399175,0.6277331713870719
+robocasa/PickPlaceCounterToCabinet,23,0,oracle_real_utility,4,-0.05881864532177617,0.7771236710465329
+robocasa/PickPlaceCounterToCabinet,23,0,oracle_real_utility,8,-0.05212771213817981,0.8997706003305009

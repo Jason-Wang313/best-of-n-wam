@@ -1,0 +1,9 @@
+env_id,seed,state_id,scorer,N,utility_exact,utility_mc,utility_abs_error
+robocasa/PickPlaceCounterToCabinet,23,0,distance_progress,1,-0.07580436250985718,-0.07574502272022393,5.933978963325315e-05
+robocasa/PickPlaceCounterToCabinet,23,0,distance_progress,2,-0.07018874195659346,-0.07023543284145335,4.66908848598957e-05
+robocasa/PickPlaceCounterToCabinet,23,0,distance_progress,4,-0.0645403190890138,-0.06391759162640606,0.0006227274626077334
+robocasa/PickPlaceCounterToCabinet,23,0,distance_progress,8,-0.05817647367123735,-0.058215275756279064,3.880208504171423e-05
+robocasa/PickPlaceCounterToCabinet,23,0,oracle_real_utility,1,-0.07580436250985718,-0.07574502272022393,5.933978963325315e-05
+robocasa/PickPlaceCounterToCabinet,23,0,oracle_real_utility,2,-0.06696855871399175,-0.06677674241204051,0.00019181630195123922
+robocasa/PickPlaceCounterToCabinet,23,0,oracle_real_utility,4,-0.05881864532177617,-0.0585575235546668,0.0002611217671093721
+robocasa/PickPlaceCounterToCabinet,23,0,oracle_real_utility,8,-0.05212771213817981,-0.05225447109285401,0.0001267589546742054

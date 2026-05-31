@@ -80,6 +80,7 @@ def main() -> None:
     maniskill_dependency_probe = load_json("benchmark_maniskill_dependency_probe.json")
     metaworld = load_json("benchmark_metaworld_suite.json")
     robosuite = load_json("benchmark_robosuite_suite.json")
+    robocasa = load_json("benchmark_robocasa_smoke.json")
     audit = load_json("inference_audit_framework.json")
     audit_learned = load_json("inference_audit_framework_learned.json")
     repair = load_json("scorer_repair_experiment.json")
@@ -573,6 +574,21 @@ def main() -> None:
         ),
         f"learned-random CI={robosuite_ci.get('closed_loop_learned_minus_random_N8')}; reward-random CI={robosuite_ci.get('closed_loop_reward_minus_random_N8')}",
     )
+    add(
+        claims,
+        78,
+        "RoboCasa kitchen benchmark smoke verified.",
+        status(
+            bool(robocasa)
+            and robocasa.get("available", False)
+            and robocasa.get("verified", False)
+            and (robocasa.get("n_rollouts_total") or 0) >= 12
+            and robocasa.get("exact_law_utility_mae") is not None
+            and robocasa.get("exact_law_utility_mae") < 0.01,
+            bool(robocasa),
+        ),
+        f"env={robocasa.get('env_id')}, rollouts={robocasa.get('n_rollouts_total')}, exact MAE={robocasa.get('exact_law_utility_mae')}",
+    )
 
     readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
     paper_text = PAPER.read_text(encoding="utf-8") if PAPER.exists() else ""
@@ -585,8 +601,8 @@ def main() -> None:
         if pattern.lower() in paper_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
             overclaims.append({"surface": "paper_outline", "id": cid, "pattern": pattern, "status": c["status"]})
 
-    add(claims, 78, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
-    add(claims, 79, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
+    add(claims, 79, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
+    add(claims, 80, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
 
     payload = {
         "claims": claims,

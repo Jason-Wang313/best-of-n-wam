@@ -1,0 +1,54 @@
+{
+  "experiment": "benchmark_robocasa_smoke",
+  "attempted": true,
+  "available": true,
+  "verified": true,
+  "env_id": "robocasa/PickPlaceCounterToCabinet",
+  "split": "pretrain",
+  "states": 1,
+  "rollouts": 16,
+  "horizon": 3,
+  "n_rollout_pools": 1,
+  "n_rollouts_total": 16,
+  "n_values": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "exact_law_utility_mae": 0.0001758246294388333,
+  "confidence_intervals": {
+    "distance_progress_minus_random_N8": {
+      "n": 1,
+      "mean": 0.39810081093764094,
+      "std": 0.0,
+      "stderr": 0.0,
+      "ci95": 0.0,
+      "lo": 0.39810081093764094,
+      "hi": 0.39810081093764094
+    },
+    "oracle_minus_random_N8": {
+      "n": 1,
+      "mean": 0.5089765300106185,
+      "std": 0.0,
+      "stderr": 0.0,
+      "ci95": 0.0,
+      "lo": 0.5089765300106185,
+      "hi": 0.5089765300106185
+    },
+    "oracle_minus_distance_progress_N8": {
+      "n": 1,
+      "mean": 0.11087571907297755,
+      "std": 0.0,
+      "stderr": 0.0,
+      "ci95": 0.0,
+      "lo": 0.11087571907297755,
+      "hi": 0.11087571907297755
+    }
+  },
+  "curves_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_curves.csv",
+  "exact_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_exact_law.csv",
+  "rollouts_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_rollouts.csv",
+  "closed_loop_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_closed_loop.csv",
+  "note": "RoboCasa smoke only: external dependency and kitchen assets are optional; this is not full learned-WAM RoboCasa validation."
+}

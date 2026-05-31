@@ -464,19 +464,25 @@
     },
     {
       "id": 78,
+      "claim": "RoboCasa kitchen benchmark smoke verified.",
+      "status": "VERIFIED",
+      "evidence": "env=robocasa/PickPlaceCounterToCabinet, rollouts=16, exact MAE=0.0001758246294388333"
+    },
+    {
+      "id": 79,
       "claim": "README has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "README overclaims=0"
     },
     {
-      "id": 79,
+      "id": 80,
       "claim": "paper_outline has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "paper overclaims=0"
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 79,
+  "num_verified": 80,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

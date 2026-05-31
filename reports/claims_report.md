@@ -2,7 +2,7 @@
 
 ## Counts
 
-- verified: `79`
+- verified: `80`
 - partial: `0`
 - unsupported: `0`
 - failed: `0`
@@ -87,8 +87,9 @@
 - 75. RoboSuite learned WAM scorer beats random open-loop with CI. Evidence: learned-random CI={'n': 5, 'mean': 0.32020186708958887, 'std': 0.08614749302461966, 'stderr': 0.038526330098847705, 'ci95': 0.0755116069937415, 'lo': 0.24469026009584738, 'hi': 0.39571347408333035}
 - 76. RoboSuite reward, progress, and oracle scorers beat random with CI. Evidence: reward-random CI={'n': 5, 'mean': 0.33580473945491357, 'std': 0.0845123155588677, 'stderr': 0.03779505650510826, 'ci95': 0.07407831075001219, 'lo': 0.26172642870490137, 'hi': 0.40988305020492577}; progress-random CI={'n': 5, 'mean': 0.1829135769086768, 'std': 0.11887225635263822, 'stderr': 0.053161289168656055, 'ci95': 0.10419612677056586, 'lo': 0.07871745013811093, 'hi': 0.28710970367924266}; oracle-random CI={'n': 5, 'mean': 0.3554064768118671, 'std': 0.09637875214875093, 'stderr': 0.0431018882782422, 'ci95': 0.08447970102535471, 'lo': 0.27092677578651236, 'hi': 0.43988617783722184}
 - 77. RoboSuite closed-loop learned and reward scorers beat random. Evidence: learned-random CI={'n': 5, 'mean': 0.08618701545420379, 'std': 0.00732792326762759, 'stderr': 0.0032771469120635353, 'ci95': 0.006423207947644529, 'lo': 0.07976380750655926, 'hi': 0.09261022340184832}; reward-random CI={'n': 5, 'mean': 0.0742545661373815, 'std': 0.02836672038992971, 'stderr': 0.012685983018122434, 'ci95': 0.02486452671551997, 'lo': 0.04939003942186153, 'hi': 0.09911909285290148}
-- 78. README has no unsupported claims. Evidence: README overclaims=0
-- 79. paper_outline has no unsupported claims. Evidence: paper overclaims=0
+- 78. RoboCasa kitchen benchmark smoke verified. Evidence: env=robocasa/PickPlaceCounterToCabinet, rollouts=16, exact MAE=0.0001758246294388333
+- 79. README has no unsupported claims. Evidence: README overclaims=0
+- 80. paper_outline has no unsupported claims. Evidence: paper overclaims=0
 
 ## Partial
 

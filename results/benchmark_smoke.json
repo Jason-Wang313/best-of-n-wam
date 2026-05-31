@@ -36,7 +36,7 @@
     {
       "name": "robocasa",
       "available": false,
-      "reason": "adapter skeleton only; dependency not installed/validated"
+      "reason": "robocasa import not found"
     }
   ],
   "verified_benchmark_claims": []

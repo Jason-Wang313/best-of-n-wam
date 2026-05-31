@@ -9,7 +9,7 @@ External benchmark integration was attempted.
 - metaworld: available=True reason=reach-v3 available
 - robosuite: available=True reason=Lift/Panda available
 - libero: available=False reason=libero import not found; local pip install failed while building hf-egl-probe/egl_probe on Windows
-- robocasa: available=False reason=adapter skeleton only; dependency not installed/validated
+- robocasa: available=False reason=robocasa import not found
 
 ## Current Outcome
 
@@ -18,3 +18,8 @@ At least one optional external benchmark path is available. Run `bash scripts/ru
 ## Remaining Blockers
 
 Remaining unavailable adapters: libero, robocasa.
+
+## Separate RoboCasa Smoke Artifact
+
+RoboCasa is unavailable in the active Python environment but has a verified external smoke artifact: `robocasa/PickPlaceCounterToCabinet`, `16` rollouts, exact-law utility MAE `0.0001758246294388333`.
+This is smoke-only, not full RoboCasa learned-WAM validation.

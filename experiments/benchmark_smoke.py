@@ -15,6 +15,12 @@ from wam_inference_value.evaluation import ensure_result_dirs, results_dir, writ
 def run() -> dict:
     ensure_result_dirs()
     statuses = [s.__dict__ for s in benchmark_statuses()]
+    robocasa_smoke = {}
+    smoke_path = results_dir() / "benchmark_robocasa_smoke.json"
+    if smoke_path.exists():
+        import json
+
+        robocasa_smoke = json.loads(smoke_path.read_text(encoding="utf-8"))
     any_available = any(s["available"] for s in statuses)
     summary = {
         "experiment": "benchmark_smoke",
@@ -48,6 +54,16 @@ def run() -> dict:
                 ("Remaining unavailable adapters: " + ", ".join(remaining) + ".") if remaining else "No registered benchmark adapter is currently blocked.",
             ]
         )
+        if robocasa_smoke.get("verified"):
+            report.extend(
+                [
+                    "",
+                    "## Separate RoboCasa Smoke Artifact",
+                    "",
+                    f"RoboCasa is unavailable in the active Python environment but has a verified external smoke artifact: `{robocasa_smoke.get('env_id')}`, `{robocasa_smoke.get('n_rollouts_total')}` rollouts, exact-law utility MAE `{robocasa_smoke.get('exact_law_utility_mae')}`.",
+                    "This is smoke-only, not full RoboCasa learned-WAM validation.",
+                ]
+            )
     else:
         report.extend(
             [
