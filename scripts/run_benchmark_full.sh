@@ -29,4 +29,12 @@ if [[ -n "${ROBOCASA_PYTHON:-}" ]]; then
 else
   echo "Skipping optional RoboCasa smoke: set ROBOCASA_PYTHON to a RoboCasa-compatible interpreter to run it."
 fi
+if [[ -n "${LIBERO_PYTHON:-}" ]]; then
+  if [[ -n "${LIBERO_SOURCE_PATH:-}" ]]; then
+    export PYTHONPATH="${LIBERO_SOURCE_PATH}:${PYTHONPATH}"
+  fi
+  "$LIBERO_PYTHON" experiments/benchmark_libero_wam.py --train-states 4 --train-rollouts 16 --val-states 2 --val-rollouts 16 --eval-states 5 --eval-rollouts 16 --horizon 4 --mc-trials 1500 --min-eval-pools 5
+else
+  echo "Skipping optional LIBERO WAM run: set LIBERO_PYTHON and, if needed, LIBERO_SOURCE_PATH/LIBERO_CONFIG_PATH."
+fi
 bash scripts/run_benchmark_visual_optional.sh

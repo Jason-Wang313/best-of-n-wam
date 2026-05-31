@@ -1,0 +1,119 @@
+{
+  "experiment": "benchmark_libero_wam",
+  "attempted": true,
+  "available": true,
+  "verified": true,
+  "tasks": [
+    "libero_spatial/0",
+    "libero_spatial/1",
+    "libero_spatial/2"
+  ],
+  "task_names": [
+    "libero_spatial/pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate",
+    "libero_spatial/pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+    "libero_spatial/pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate"
+  ],
+  "unavailable": [],
+  "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_libero_ridge_wam.npz",
+  "model_type": "libero_ridge_state_action_sequence_wam",
+  "train_states_per_task": 4,
+  "train_rollouts": 16,
+  "train_samples": 192,
+  "validation_states_per_task": 2,
+  "validation_rollouts": 16,
+  "validation_samples": 96,
+  "eval_states_per_task": 5,
+  "eval_rollouts": 16,
+  "eval_samples": 240,
+  "eval_rollout_pools": 15,
+  "horizon": 4,
+  "n_values": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "model_metrics": {
+    "utility_mae": 0.03129261716338622,
+    "utility_corr": 0.3526483541014925,
+    "learned_physics_score_corr": 0.3526483541014941,
+    "progress_mae": 0.03127958196510574,
+    "progress_corr": 0.22432824998969084,
+    "final_distance_mae": 0.03409322791695276,
+    "energy_mae": 0.08267996346046819,
+    "success_mae": 0.0
+  },
+  "exact_law_utility_mae": 0.0001402348651464976,
+  "confidence_intervals": {
+    "learned_wam_minus_random_N8": {
+      "n": 15,
+      "mean": 0.22423533178829594,
+      "std": 0.14432109713564437,
+      "stderr": 0.03726354704751557,
+      "ci95": 0.07303655221313052,
+      "lo": 0.15119877957516542,
+      "hi": 0.29727188400142646
+    },
+    "learned_physics_minus_random_N8": {
+      "n": 15,
+      "mean": 0.22423533178829594,
+      "std": 0.14432109713564437,
+      "stderr": 0.03726354704751557,
+      "ci95": 0.07303655221313052,
+      "lo": 0.15119877957516542,
+      "hi": 0.29727188400142646
+    },
+    "learned_energy_regularized_minus_random_N8": {
+      "n": 15,
+      "mean": 0.3375863022441559,
+      "std": 0.14290935532341625,
+      "stderr": 0.03689903687898863,
+      "ci95": 0.07232211228281771,
+      "lo": 0.2652641899613382,
+      "hi": 0.40990841452697363
+    },
+    "best_learned_minus_random_N8": {
+      "n": 15,
+      "mean": 0.3375863022441559,
+      "std": 0.14290935532341625,
+      "stderr": 0.03689903687898863,
+      "ci95": 0.07232211228281771,
+      "lo": 0.2652641899613382,
+      "hi": 0.40990841452697363
+    },
+    "oracle_minus_random_N8": {
+      "n": 15,
+      "mean": 0.39448323209117697,
+      "std": 0.13738275116421114,
+      "stderr": 0.03547207382100982,
+      "ci95": 0.06952526468917924,
+      "lo": 0.3249579674019977,
+      "hi": 0.4640084967803562
+    },
+    "oracle_minus_best_learned_N8": {
+      "n": 15,
+      "mean": 0.056896929847021105,
+      "std": 0.052785902216965,
+      "stderr": 0.013629261346722573,
+      "ci95": 0.026713352239576243,
+      "lo": 0.03018357760744486,
+      "hi": 0.08361028208659735
+    },
+    "benchmark_reward_minus_random_N8": {
+      "n": 15,
+      "mean": 0.03210651499519551,
+      "std": 0.1575345483870279,
+      "stderr": 0.040675245490351036,
+      "ci95": 0.07972348116108803,
+      "lo": -0.04761696616589252,
+      "hi": 0.11182999615628354
+    }
+  },
+  "promoted_scorer": "learned_energy_regularized",
+  "curves_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_libero_curves.csv",
+  "exact_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_libero_exact_law.csv",
+  "data_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_libero_train_validation.csv",
+  "eval_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_libero_eval_rollouts.csv",
+  "seed_metrics_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_libero_seed_metrics.csv",
+  "note": "Optional LIBERO rollout-pool WAM-lite validation with dense progress utility; not a solved-task policy-performance claim."
+}

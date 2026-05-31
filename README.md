@@ -128,7 +128,7 @@ The audit suite includes a heldout scorer-repair experiment. A small pilot set w
 
 ## Benchmark Validation
 
-The repo includes adapters for ManiSkill, Gym-style manipulation, Meta-World, RoboSuite, and optional RoboCasa validation, plus a future-facing LIBERO skeleton under `src/wam_inference_value/benchmarks/`.
+The repo includes adapters for ManiSkill, Gym-style manipulation, Meta-World, RoboSuite, optional RoboCasa validation, and optional LIBERO validation under `src/wam_inference_value/benchmarks/`.
 
 Current benchmark artifacts include:
 
@@ -146,20 +146,27 @@ Current benchmark artifacts include:
 - ManiSkill3 state-mode `PushCube-v1`
 - ManiSkill3 state-mode `PegInsertionSide-v1`
 - RoboCasa three-task pick-place family kitchen artifact
+- LIBERO Spatial three-task rollout-pool WAM-lite artifact
 
-The Gymnasium Robotics artifacts add contact-rich Fetch manipulation tasks with state/action-sequence WAM-lite training, exact-law validation, scorer comparison, closed-loop evaluation, RGB-frame/action-sequence visual WAM-lite validation, and RGB frame artifacts. Meta-World artifacts add a separate multi-task Sawyer manipulation suite with learned state/action-sequence WAM-lite, exact-law validation, scorer comparison, and small closed-loop traces. RoboSuite artifacts add Panda Lift/Stack/Door clone-restored MuJoCo rollout pools with learned state/action-sequence WAM-lite, exact-law validation, open-loop scorer comparison, and small closed-loop learned/reward-versus-random evaluation. The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the optional Pinocchio dependency was unavailable; the repo also includes a generated ManiSkill visual/EE-control probe so that this limitation is artifact-backed rather than anecdotal. RoboCasa is verified in two optional layers: a single-task `PickPlaceCounterToCabinet` artifact with exact-law MAE `0.00023` and learned-minus-random N8 CI lower `0.0503`, plus a three-task task conditioned artifact over `PickPlaceCounterToCabinet`, `PickPlaceCounterToDrawer`, and `PickPlaceCounterToMicrowave`. The three-task artifact trains a ridge state/action-sequence WAM-lite on 144 rollouts, validates on 96 rollouts with utility correlation `0.675`, evaluates on 240 heldout rollouts, has exact-law MAE `0.00035`, and the promoted learned energy-regularized scorer beats random at N8 with CI lower `0.169`. This is a three-task pick-place family result, not full RoboCasa-wide validation. LIBERO remains future work unless its dependencies and artifacts are added.
+The Gymnasium Robotics artifacts add contact-rich Fetch manipulation tasks with state/action-sequence WAM-lite training, exact-law validation, scorer comparison, closed-loop evaluation, RGB-frame/action-sequence visual WAM-lite validation, and RGB frame artifacts. Meta-World artifacts add a separate multi-task Sawyer manipulation suite with learned state/action-sequence WAM-lite, exact-law validation, scorer comparison, and small closed-loop traces. RoboSuite artifacts add Panda Lift/Stack/Door clone-restored MuJoCo rollout pools with learned state/action-sequence WAM-lite, exact-law validation, open-loop scorer comparison, and small closed-loop learned/reward-versus-random evaluation. The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the optional Pinocchio dependency was unavailable; the repo also includes a generated ManiSkill visual/EE-control probe so that this limitation is artifact-backed rather than anecdotal. RoboCasa is verified in two optional layers: a single-task `PickPlaceCounterToCabinet` artifact with exact-law MAE `0.00023` and learned-minus-random N8 CI lower `0.0503`, plus a three-task task conditioned artifact over `PickPlaceCounterToCabinet`, `PickPlaceCounterToDrawer`, and `PickPlaceCounterToMicrowave`. The three-task artifact trains a ridge state/action-sequence WAM-lite on 144 rollouts, validates on 96 rollouts with utility correlation `0.675`, evaluates on 240 heldout rollouts, has exact-law MAE `0.00035`, and the promoted learned energy-regularized scorer beats random at N8 with CI lower `0.169`. This is a three-task pick-place family result, not full RoboCasa-wide validation. LIBERO is verified in a separate optional layer over three `libero_spatial` tasks: 192 train rollout samples, 96 validation samples, 240 heldout eval samples, exact-law utility MAE `0.00014`, validation utility correlation `0.353`, and learned energy-regularized scorer minus random N8 CI lower `0.265`. This is rollout-pool dense-utility validation, not solved-task LIBERO policy performance.
 
 ```bash
 bash scripts/run_benchmark_smoke.sh
 bash scripts/run_benchmark_full.sh
 ```
 
-Current benchmark artifacts include rollout pools, learned benchmark WAM-lite training, exact-law validation, score comparison, real-vs-predicted utility gap, closed-loop evaluation, contact-rich Gymnasium Robotics Fetch validation, Meta-World ML1 validation, RoboSuite Panda validation, optional RoboCasa single-task and three-task learned-WAM validation, and RGB WAM-lite validation for the Gymnasium/MuJoCo and Fetch paths.
+Current benchmark artifacts include rollout pools, learned benchmark WAM-lite training, exact-law validation, score comparison, real-vs-predicted utility gap, closed-loop evaluation, contact-rich Gymnasium Robotics Fetch validation, Meta-World ML1 validation, RoboSuite Panda validation, optional RoboCasa single-task and three-task learned-WAM validation, optional LIBERO three-task rollout-pool learned-WAM validation, and RGB WAM-lite validation for the Gymnasium/MuJoCo and Fetch paths.
 
 The optional RoboCasa runs are not run by default because RoboCasa365 pins a separate MuJoCo stack and requires about 10 GB of kitchen assets. To regenerate them, set `ROBOCASA_PYTHON` to a RoboCasa-compatible interpreter and run:
 
 ```bash
 ROBOCASA_PYTHON=/path/to/robocasa/python bash scripts/run_benchmark_full.sh
+```
+
+The optional LIBERO run is not run by default because LIBERO expects a separate RoboSuite 1.4 era runtime. To regenerate the committed LIBERO artifact, set `LIBERO_PYTHON` to a compatible interpreter, point `LIBERO_SOURCE_PATH` at the LIBERO source checkout if needed, set `LIBERO_CONFIG_PATH`, and run:
+
+```bash
+LIBERO_PYTHON=/path/to/libero/python LIBERO_SOURCE_PATH=/path/to/LIBERO bash scripts/run_benchmark_full.sh
 ```
 
 ## Visual Modes
@@ -207,8 +214,8 @@ Claims are classified as `VERIFIED`, `PARTIAL`, `UNSUPPORTED`, or `FAILED` from 
 
 ## Limitations
 
-This is learned-toy and multi-env toy validation, not real-robot evidence. It does not solve WAM training, robot generalization, or universal train/test compute allocation. Pilot estimates are statistical objects with uncertainty; the exact theorem assumes the relevant score/utility distribution is known. Oracle scorers are diagnostic upper bounds, not deployable controllers.
+This is learned-toy, multi-env toy, and benchmark rollout-pool validation, not real-robot evidence. The LIBERO result is dense rollout-pool utility evidence, not solved-task policy performance. The repo does not solve WAM training, robot generalization, or universal train/test compute allocation. Pilot estimates are statistical objects with uncertainty; the exact theorem assumes the relevant score/utility distribution is known. Oracle scorers are diagnostic upper bounds, not deployable controllers.
 
 ## Future Work
 
-The natural next step is a Robot Chinchilla-style WAM optimizer: jointly allocate dataset scale, model capacity, rollout horizon, scorer quality, safety constraints, and test-time rollout budget. A second high-value extension is LIBERO or broader RoboCasa validation beyond the current three-task pick-place family artifact.
+The natural next step is a Robot Chinchilla-style WAM optimizer: jointly allocate dataset scale, model capacity, rollout horizon, scorer quality, safety constraints, and test-time rollout budget. A second high-value extension is solved-task LIBERO policy evaluation or broader RoboCasa validation beyond the current three-task pick-place family artifact.

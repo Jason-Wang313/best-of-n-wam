@@ -21,6 +21,8 @@ def run() -> dict:
     learned_path = results_dir() / "benchmark_robocasa_learned_wam.json"
     robocasa_multitask = {}
     multitask_path = results_dir() / "benchmark_robocasa_multitask_wam.json"
+    libero_wam = {}
+    libero_path = results_dir() / "benchmark_libero_wam.json"
     if smoke_path.exists():
         import json
 
@@ -33,6 +35,10 @@ def run() -> dict:
         import json
 
         robocasa_multitask = json.loads(multitask_path.read_text(encoding="utf-8"))
+    if libero_path.exists():
+        import json
+
+        libero_wam = json.loads(libero_path.read_text(encoding="utf-8"))
     any_available = any(s["available"] for s in statuses)
     summary = {
         "experiment": "benchmark_smoke",
@@ -100,6 +106,19 @@ def run() -> dict:
                     f"A task conditioned ridge state/action-sequence WAM-lite was trained across `{len(robocasa_multitask.get('env_ids') or [])}` RoboCasa task IDs with `{robocasa_multitask.get('train_samples')}` train rollouts and `{robocasa_multitask.get('eval_samples')}` heldout eval rollouts.",
                     f"Validation utility correlation is `{metrics.get('utility_corr')}`; promoted scorer `{robocasa_multitask.get('promoted_scorer')}` has learned-minus-random N8 CI lower bound `{ci.get('lo')}`.",
                     "This supports a three-task RoboCasa pick-place family artifact, not full RoboCasa-wide validation.",
+                ]
+            )
+        if libero_wam.get("verified"):
+            metrics = libero_wam.get("model_metrics") or {}
+            ci = (libero_wam.get("confidence_intervals") or {}).get("best_learned_minus_random_N8") or {}
+            report.extend(
+                [
+                    "",
+                    "## Separate LIBERO Three-Task Learned-WAM Artifact",
+                    "",
+                    f"A ridge state/action-sequence WAM-lite was trained across `{len(libero_wam.get('tasks') or [])}` LIBERO Spatial tasks with `{libero_wam.get('train_samples')}` train rollout samples and `{libero_wam.get('eval_samples')}` heldout eval rollout samples.",
+                    f"Validation utility correlation is `{metrics.get('utility_corr')}`; promoted scorer `{libero_wam.get('promoted_scorer')}` has learned-minus-random N8 CI lower bound `{ci.get('lo')}`.",
+                    "This supports LIBERO rollout-pool dense-utility validation, not solved-task LIBERO policy performance.",
                 ]
             )
     else:

@@ -13,8 +13,8 @@ Audit date: 2026-05-30.
 ## 2. Toy-Only
 
 - The main controlled environments are CPU toy environments.
-- Gymnasium/MuJoCo Reacher-v5, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill3 state-mode tasks, and RoboCasa kitchen smoke plus single-task and three-task learned-WAM artifacts now have external benchmark artifacts.
-- No real robot, DreamZero, UWM, or LIBERO result is claimed; RoboCasa is verified only for a three-task pick-place family, not full RoboCasa-wide validation.
+- Gymnasium/MuJoCo Reacher-v5, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill3 state-mode tasks, RoboCasa kitchen smoke plus single-task and three-task learned-WAM artifacts, and LIBERO Spatial rollout-pool WAM artifacts now have external benchmark artifacts.
+- No real robot, DreamZero, UWM, or solved-task LIBERO policy-performance result is claimed; RoboCasa is verified only for a three-task pick-place family, and LIBERO is verified only as a three-task rollout-pool dense-utility artifact.
 
 ## 3. Learned-Model Evidence
 
@@ -25,7 +25,7 @@ Audit date: 2026-05-30.
 
 ## 4. Missing For Robotics Reviewers
 
-- LIBERO benchmark artifacts are still missing.
+- LIBERO solved-task policy-performance artifacts are still missing; current LIBERO evidence is a three-task Spatial rollout-pool WAM-lite artifact with dense progress utility.
 - Full RoboCasa-wide learned-WAM benchmark artifacts are still missing; current RoboCasa evidence is a single-task smoke rollout pool, a single-task learned-WAM artifact, and a three-task pick-place family learned-WAM artifact.
 - ManiSkill evidence is state-mode and joint-delta controlled; end-effector delta-pose control is not claimed because Pinocchio was unavailable.
 - Meta-World ML1 evidence covers `reach-v3`, `push-v3`, and `drawer-open-v3` with state/action-sequence WAM-lite artifacts.
@@ -42,7 +42,7 @@ Audit date: 2026-05-30.
 
 ## 6. README Claim Guarding
 
-- README must state LIBERO as optional/future and RoboCasa as three-task pick-place family validation unless broader task family artifacts exist.
+- README must state LIBERO as optional/separate-environment and limited to three Spatial rollout-pool dense-utility validation; RoboCasa remains three-task pick-place family validation unless broader task family artifacts exist.
 - README must state ManiSkill as state-mode joint-delta evidence only, not EE-control or real-robot evidence.
 - README must call current evidence learned-toy and multi-env toy validation.
 - README must not claim real robot evidence or universal WAM training laws.

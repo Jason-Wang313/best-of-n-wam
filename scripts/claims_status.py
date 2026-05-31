@@ -83,6 +83,7 @@ def main() -> None:
     robocasa = load_json("benchmark_robocasa_smoke.json")
     robocasa_learned = load_json("benchmark_robocasa_learned_wam.json")
     robocasa_multitask = load_json("benchmark_robocasa_multitask_wam.json")
+    libero_wam = load_json("benchmark_libero_wam.json")
     audit = load_json("inference_audit_framework.json")
     audit_learned = load_json("inference_audit_framework_learned.json")
     repair = load_json("scorer_repair_experiment.json")
@@ -649,6 +650,29 @@ def main() -> None:
 
     add(claims, 81, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
     add(claims, 82, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
+
+    libero_ci = libero_wam.get("confidence_intervals") or {}
+    libero_max_n = max(libero_wam.get("n_values") or [8])
+    add(
+        claims,
+        83,
+        "LIBERO rollout-pool learned WAM-lite benchmark verified.",
+        status(
+            bool(libero_wam)
+            and libero_wam.get("available", False)
+            and libero_wam.get("verified", False)
+            and len(libero_wam.get("tasks") or []) >= 1
+            and (libero_wam.get("train_samples") or 0) >= 64
+            and (libero_wam.get("validation_samples") or 0) >= 32
+            and (libero_wam.get("eval_samples") or 0) >= 80
+            and (libero_wam.get("eval_rollout_pools") or 0) >= 5
+            and (libero_wam.get("exact_law_utility_mae") or 1.0) < 0.03
+            and ((libero_wam.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
+            and ((libero_ci.get(f"best_learned_minus_random_N{libero_max_n}") or {}).get("lo") or 0.0) > 0.0,
+            bool(libero_wam),
+        ),
+        f"tasks={libero_wam.get('tasks')}, train={libero_wam.get('train_samples')}, val={libero_wam.get('validation_samples')}, eval={libero_wam.get('eval_samples')}, exact MAE={libero_wam.get('exact_law_utility_mae')}, utility corr={((libero_wam.get('model_metrics') or {}).get('utility_corr'))}, learned-random CI={libero_ci.get(f'best_learned_minus_random_N{libero_max_n}')}",
+    )
 
     payload = {
         "claims": claims,

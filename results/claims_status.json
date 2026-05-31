@@ -491,10 +491,16 @@
       "claim": "paper_outline has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "paper overclaims=0"
+    },
+    {
+      "id": 83,
+      "claim": "LIBERO rollout-pool learned WAM-lite benchmark verified.",
+      "status": "VERIFIED",
+      "evidence": "tasks=['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2'], train=192, val=96, eval=240, exact MAE=0.0001402348651464976, utility corr=0.3526483541014925, learned-random CI={'n': 15, 'mean': 0.3375863022441559, 'std': 0.14290935532341625, 'stderr': 0.03689903687898863, 'ci95': 0.07232211228281771, 'lo': 0.2652641899613382, 'hi': 0.40990841452697363}"
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 82,
+  "num_verified": 83,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

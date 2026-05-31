@@ -8,7 +8,7 @@ External benchmark integration was attempted.
 - gym_robotics: available=True reason=FetchPush-v4 available
 - metaworld: available=True reason=reach-v3 available
 - robosuite: available=True reason=Lift/Panda available
-- libero: available=False reason=libero import not found; local pip install failed while building hf-egl-probe/egl_probe on Windows
+- libero: available=False reason=libero import not found
 - robocasa: available=False reason=robocasa import not found
 
 ## Current Outcome
@@ -35,3 +35,9 @@ This supports only a single-task contact-rich sanity check, not a multi-task Rob
 A task conditioned ridge state/action-sequence WAM-lite was trained across `3` RoboCasa task IDs with `144` train rollouts and `240` heldout eval rollouts.
 Validation utility correlation is `0.6751791364461345`; promoted scorer `learned_energy_regularized` has learned-minus-random N8 CI lower bound `0.1690501789606415`.
 This supports a three-task RoboCasa pick-place family artifact, not full RoboCasa-wide validation.
+
+## Separate LIBERO Three-Task Learned-WAM Artifact
+
+A ridge state/action-sequence WAM-lite was trained across `3` LIBERO Spatial tasks with `192` train rollout samples and `240` heldout eval rollout samples.
+Validation utility correlation is `0.3526483541014925`; promoted scorer `learned_energy_regularized` has learned-minus-random N8 CI lower bound `0.2652641899613382`.
+This supports LIBERO rollout-pool dense-utility validation, not solved-task LIBERO policy performance.
