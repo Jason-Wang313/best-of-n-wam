@@ -87,6 +87,7 @@ def main() -> None:
     robocasa_family12 = load_json("benchmark_robocasa_family12_wam.json")
     libero_wam = load_json("benchmark_libero_wam.json")
     libero_scripted = load_json("benchmark_libero_scripted_policy.json")
+    libero_action_head = load_json("benchmark_libero_learned_action_head.json")
     audit = load_json("inference_audit_framework.json")
     audit_learned = load_json("inference_audit_framework_learned.json")
     repair = load_json("scorer_repair_experiment.json")
@@ -726,6 +727,25 @@ def main() -> None:
             bool(libero_scripted),
         ),
         f"episodes={libero_scripted.get('n_episodes')}, successes={libero_scripted.get('n_successes')}, success CI={libero_scripted_ci}",
+    )
+    libero_action_head_ci = (libero_action_head.get("confidence_intervals") or {}).get("eval_success_rate") or {}
+    add(
+        claims,
+        87,
+        "LIBERO learned action-head sparse-success smoke verified.",
+        status(
+            bool(libero_action_head)
+            and libero_action_head.get("available", False)
+            and libero_action_head.get("verified", False)
+            and len(libero_action_head.get("tasks") or []) >= 6
+            and (libero_action_head.get("train_episodes") or 0) >= 12
+            and (libero_action_head.get("train_examples") or 0) >= 2000
+            and (libero_action_head.get("eval_episodes") or 0) >= 18
+            and (libero_action_head.get("eval_successes") or 0) == (libero_action_head.get("eval_episodes") or -1)
+            and (libero_action_head_ci.get("lo") or 0.0) >= 0.9,
+            bool(libero_action_head),
+        ),
+        f"tasks={libero_action_head.get('tasks')}, eval={libero_action_head.get('eval_successes')}/{libero_action_head.get('eval_episodes')}, success CI={libero_action_head_ci}",
     )
 
     readme_text = README.read_text(encoding="utf-8") if README.exists() else ""

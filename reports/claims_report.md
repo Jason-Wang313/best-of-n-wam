@@ -2,7 +2,7 @@
 
 ## Counts
 
-- verified: `86`
+- verified: `87`
 - partial: `0`
 - unsupported: `0`
 - failed: `0`
@@ -94,6 +94,7 @@
 - 84. RoboCasa broad task family learned WAM-lite scorer beats random with CI. Evidence: tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet'], train=64, val=32, eval=128, utility corr=0.8598503519742565, promoted=learned_wam, learned-random CI={'n': 16, 'mean': 0.3045073082302883, 'std': 0.19051552386059456, 'stderr': 0.04762888096514864, 'ci95': 0.09335260669169133, 'lo': 0.211154701538597, 'hi': 0.39785991492197964}
 - 85. RoboCasa 12-task family learned WAM-lite scorer beats random with CI. Evidence: tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet', 'robocasa/CloseDrawer', 'robocasa/CloseCabinet', 'robocasa/CloseMicrowave', 'robocasa/TurnOffSinkFaucet', 'robocasa/TurnOnStove', 'robocasa/TurnOffStove', 'robocasa/OpenOven', 'robocasa/CloseOven'], train=96, val=96, eval=192, utility corr=0.8330260116378324, promoted=learned_energy_regularized, learned-random CI={'n': 24, 'mean': 0.2736319931949471, 'std': 0.2264236150811513, 'stderr': 0.04621852688876389, 'ci95': 0.09058831270197723, 'lo': 0.18304368049296985, 'hi': 0.36422030589692433}
 - 86. LIBERO sparse-success scripted policy smoke verified. Evidence: episodes=50, successes=30, success CI={'n': 50, 'mean': 0.6, 'lo': 0.46, 'hi': 0.74, 'std': 0.49487165930539356}
+- 87. LIBERO learned action-head sparse-success smoke verified. Evidence: tasks=['libero_object/0', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/7', 'libero_object/9'], eval=18/18, success CI={'n': 18, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}
 - 81. README has no unsupported claims. Evidence: README overclaims=0
 - 82. paper_outline has no unsupported claims. Evidence: paper overclaims=0
 

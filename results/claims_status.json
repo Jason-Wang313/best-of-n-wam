@@ -505,6 +505,12 @@
       "evidence": "episodes=50, successes=30, success CI={'n': 50, 'mean': 0.6, 'lo': 0.46, 'hi': 0.74, 'std': 0.49487165930539356}"
     },
     {
+      "id": 87,
+      "claim": "LIBERO learned action-head sparse-success smoke verified.",
+      "status": "VERIFIED",
+      "evidence": "tasks=['libero_object/0', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/7', 'libero_object/9'], eval=18/18, success CI={'n': 18, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}"
+    },
+    {
       "id": 81,
       "claim": "README has no unsupported claims.",
       "status": "VERIFIED",
@@ -518,7 +524,7 @@
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 86,
+  "num_verified": 87,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

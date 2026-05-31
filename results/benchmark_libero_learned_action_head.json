@@ -1,0 +1,47 @@
+{
+  "experiment": "benchmark_libero_learned_action_head",
+  "available": true,
+  "attempted": true,
+  "verified": true,
+  "tasks": [
+    "libero_object/0",
+    "libero_object/2",
+    "libero_object/3",
+    "libero_object/4",
+    "libero_object/7",
+    "libero_object/9"
+  ],
+  "train_seeds": [
+    100,
+    101
+  ],
+  "eval_seeds": [
+    200,
+    201,
+    202
+  ],
+  "train_episodes": 12,
+  "train_successes": 12,
+  "train_examples": 2580,
+  "eval_episodes": 18,
+  "eval_successes": 18,
+  "eval_success_rate": 1.0,
+  "confidence_intervals": {
+    "eval_success_rate": {
+      "n": 18,
+      "mean": 1.0,
+      "lo": 1.0,
+      "hi": 1.0,
+      "std": 0.0
+    }
+  },
+  "train_action_mae": 0.013739316733548198,
+  "train_action_rmse": 0.037799868549832916,
+  "model_path": "results\\models\\benchmark_libero_learned_action_head.npz",
+  "artifact_paths": {
+    "json": "results/benchmark_libero_learned_action_head.json",
+    "episodes_csv": "results/tables/benchmark_libero_learned_action_head_episodes.csv",
+    "report": "reports/libero_learned_action_head_report.md"
+  },
+  "note": "Learned ridge action head with scripted phases and target points; not autonomous learned LIBERO policy performance."
+}

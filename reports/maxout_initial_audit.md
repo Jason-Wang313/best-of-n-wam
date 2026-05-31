@@ -13,8 +13,8 @@ Audit date: 2026-05-30.
 ## 2. Toy-Only
 
 - The main controlled environments are CPU toy environments.
-- Gymnasium/MuJoCo Reacher-v5, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill3 state-mode tasks, RoboCasa kitchen smoke plus single-task, three-task pick-place-family, broad four-task, and 12-task family learned-WAM artifacts, LIBERO Spatial rollout-pool WAM artifacts, and a LIBERO Object sparse-success scripted smoke now have external benchmark artifacts.
-- No real robot, DreamZero, UWM, or learned sparse-success LIBERO policy result is claimed; RoboCasa is verified for pick-place-family, broad atomic kitchen, and 12-task family rollout-pool artifacts, and LIBERO is verified as a three-task rollout-pool dense-utility artifact plus a narrow scripted sparse-success smoke.
+- Gymnasium/MuJoCo Reacher-v5, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill3 state-mode tasks, RoboCasa kitchen smoke plus single-task, three-task pick-place-family, broad four-task, and 12-task family learned-WAM artifacts, LIBERO Spatial rollout-pool WAM artifacts, a LIBERO Object sparse-success scripted smoke, and a LIBERO learned action-head smoke now have external benchmark artifacts.
+- No real robot, DreamZero, UWM, or autonomous learned sparse-success LIBERO policy result is claimed; RoboCasa is verified for pick-place-family, broad atomic kitchen, and 12-task family rollout-pool artifacts, and LIBERO is verified as a three-task rollout-pool dense-utility artifact plus narrow scripted and learned action-head sparse-success smokes.
 
 ## 3. Learned-Model Evidence
 
@@ -25,7 +25,7 @@ Audit date: 2026-05-30.
 
 ## 4. Missing For Robotics Reviewers
 
-- Learned sparse-success LIBERO policy artifacts are still missing; current LIBERO evidence is a three-task Spatial rollout-pool WAM-lite artifact with dense progress utility and a hand scripted Object sparse-success smoke.
+- Autonomous learned sparse-success LIBERO policy artifacts are still missing; current LIBERO evidence is a three-task Spatial rollout-pool WAM-lite artifact with dense progress utility, a hand scripted Object sparse-success smoke, and a learned action-head smoke with scripted phases and target points.
 - Full RoboCasa-wide learned-WAM benchmark artifacts are still missing; current RoboCasa evidence is a single-task smoke rollout pool, a single-task learned-WAM artifact, a three-task pick-place family learned-WAM artifact, a broad four-task atomic-manipulation artifact, and a 12-task open/close/turn family artifact.
 - ManiSkill evidence is state-mode and joint-delta controlled; end-effector delta-pose control is not claimed because Pinocchio was unavailable.
 - Meta-World ML1 evidence covers `reach-v3`, `push-v3`, and `drawer-open-v3` with state/action-sequence WAM-lite artifacts.
@@ -42,7 +42,7 @@ Audit date: 2026-05-30.
 
 ## 6. README Claim Guarding
 
-- README must state LIBERO as optional/separate-environment and limited to three Spatial rollout-pool dense-utility validation plus Object sparse-success scripted smoke; RoboCasa is optional/separate-environment and includes pick-place-family, broad atomic-manipulation, and 12-task family rollout-pool validation, not full RoboCasa-wide validation.
+- README must state LIBERO as optional/separate-environment and limited to three Spatial rollout-pool dense-utility validation plus Object sparse-success scripted and learned action-head smokes; RoboCasa is optional/separate-environment and includes pick-place-family, broad atomic-manipulation, and 12-task family rollout-pool validation, not full RoboCasa-wide validation.
 - README must state ManiSkill as state-mode joint-delta evidence only, not EE-control or real-robot evidence.
 - README must call current evidence learned-toy and multi-env toy validation.
 - README must not claim real robot evidence or universal WAM training laws.

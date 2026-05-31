@@ -29,6 +29,8 @@ def run() -> dict:
     libero_path = results_dir() / "benchmark_libero_wam.json"
     libero_scripted = {}
     libero_scripted_path = results_dir() / "benchmark_libero_scripted_policy.json"
+    libero_action_head = {}
+    libero_action_head_path = results_dir() / "benchmark_libero_learned_action_head.json"
     if smoke_path.exists():
         import json
 
@@ -57,6 +59,10 @@ def run() -> dict:
         import json
 
         libero_scripted = json.loads(libero_scripted_path.read_text(encoding="utf-8"))
+    if libero_action_head_path.exists():
+        import json
+
+        libero_action_head = json.loads(libero_action_head_path.read_text(encoding="utf-8"))
     any_available = any(s["available"] for s in statuses)
     summary = {
         "experiment": "benchmark_smoke",
@@ -175,6 +181,18 @@ def run() -> dict:
                     f"A hand scripted OSC pick-place controller was evaluated on `{libero_scripted.get('n_episodes')}` LIBERO Object episodes across `{libero_scripted.get('n_tasks')}` tasks and `{libero_scripted.get('n_seeds')}` seeds.",
                     f"It achieved `{libero_scripted.get('n_successes')}` sparse successes; success-rate bootstrap CI is [`{ci.get('lo')}`, `{ci.get('hi')}`].",
                     "This supports a narrow sparse-success simulator smoke, not learned policy performance or full LIBERO validation.",
+                ]
+            )
+        if libero_action_head.get("verified"):
+            ci = (libero_action_head.get("confidence_intervals") or {}).get("eval_success_rate") or {}
+            report.extend(
+                [
+                    "",
+                    "## Separate LIBERO Learned Action-Head Smoke",
+                    "",
+                    f"A ridge action head imitated the successful scripted controller subset on `{libero_action_head.get('train_examples')}` action examples.",
+                    f"It was evaluated on `{libero_action_head.get('eval_episodes')}` heldout episodes across `{len(libero_action_head.get('tasks') or [])}` LIBERO Object tasks and achieved `{libero_action_head.get('eval_successes')}` sparse successes; success-rate bootstrap CI is [`{ci.get('lo')}`, `{ci.get('hi')}`].",
+                    "The high-level phase schedule and target points remain scripted, so this is a learned action-head smoke rather than autonomous learned LIBERO policy performance.",
                 ]
             )
     else:

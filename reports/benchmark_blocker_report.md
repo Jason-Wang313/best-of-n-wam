@@ -59,3 +59,9 @@ This supports LIBERO rollout-pool dense-utility validation, not solved-task LIBE
 A hand scripted OSC pick-place controller was evaluated on `50` LIBERO Object episodes across `10` tasks and `5` seeds.
 It achieved `30` sparse successes; success-rate bootstrap CI is [`0.46`, `0.74`].
 This supports a narrow sparse-success simulator smoke, not learned policy performance or full LIBERO validation.
+
+## Separate LIBERO Learned Action-Head Smoke
+
+A ridge action head imitated the successful scripted controller subset on `2580` action examples.
+It was evaluated on `18` heldout episodes across `6` LIBERO Object tasks and achieved `18` sparse successes; success-rate bootstrap CI is [`1.0`, `1.0`].
+The high-level phase schedule and target points remain scripted, so this is a learned action-head smoke rather than autonomous learned LIBERO policy performance.
