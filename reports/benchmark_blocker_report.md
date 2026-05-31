@@ -71,3 +71,9 @@ The high-level phase schedule and target points remain scripted, so this is a le
 A low-dimensional kNN behavior-cloned policy was trained on `6450` successful scripted action examples and evaluated on `30` heldout episodes across `6` LIBERO Object tasks.
 It achieved `30` sparse successes; success-rate bootstrap CI is [`1.0`, `1.0`].
 The policy uses simulator state, task ID, previous action, and a finite-horizon step clock, but no scripted phase labels or target-point commands. It is still not image/language LIBERO or broad robust autonomous policy evidence.
+
+## Separate LIBERO RGB/Language BC Smoke
+
+A lightweight RGB/proprio/language kNN behavior-cloned policy was trained on `6450` successful scripted action examples and evaluated on `30` heldout episodes across `6` LIBERO Object tasks.
+It achieved `30` sparse successes; success-rate bootstrap CI is [`1.0`, `1.0`].
+The policy uses RGB frame features, robot proprioception, task language, previous action, and a finite-horizon step clock, but no simulator object state, task ID, phase labels, or target-point commands. It is still a lightweight feature-kNN smoke, not full LIBERO or modern VLA evidence.

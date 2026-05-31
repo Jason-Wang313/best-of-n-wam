@@ -2,7 +2,7 @@
 
 ## Counts
 
-- verified: `88`
+- verified: `89`
 - partial: `0`
 - unsupported: `0`
 - failed: `0`
@@ -96,6 +96,7 @@
 - 86. LIBERO sparse-success scripted policy smoke verified. Evidence: episodes=50, successes=30, success CI={'n': 50, 'mean': 0.6, 'lo': 0.46, 'hi': 0.74, 'std': 0.49487165930539356}
 - 87. LIBERO learned action-head sparse-success smoke verified. Evidence: tasks=['libero_object/0', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/7', 'libero_object/9'], eval=18/18, success CI={'n': 18, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}
 - 88. LIBERO time-conditioned autonomous low-dimensional BC sparse-success smoke verified. Evidence: tasks=['libero_object/0', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/7', 'libero_object/9'], train=6450, eval=30/30, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'low_dim_knn_behavior_cloning', 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_task_id': True, 'uses_previous_action': True, 'uses_step_clock': True, 'knn_k': 3, 'knn_temperature': 0.05}
+- 89. LIBERO RGB/proprio/language BC sparse-success smoke verified. Evidence: tasks=['libero_object/0', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/7', 'libero_object/9'], train=6450, eval=30/30, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'rgb_proprio_language_knn_behavior_cloning', 'uses_rgb': True, 'uses_language': True, 'uses_robot_proprio': True, 'uses_simulator_object_state': False, 'uses_task_id': False, 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_previous_action': True, 'uses_step_clock': True, 'knn_k': 3, 'knn_temperature': 0.05, 'image_grid': 8, 'language_hash_dim': 64}
 - 81. README has no unsupported claims. Evidence: README overclaims=0
 - 82. paper_outline has no unsupported claims. Evidence: paper overclaims=0
 

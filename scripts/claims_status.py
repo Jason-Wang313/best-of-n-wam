@@ -89,6 +89,7 @@ def main() -> None:
     libero_scripted = load_json("benchmark_libero_scripted_policy.json")
     libero_action_head = load_json("benchmark_libero_learned_action_head.json")
     libero_autonomous_bc = load_json("benchmark_libero_autonomous_bc_policy.json")
+    libero_visual_language_bc = load_json("benchmark_libero_visual_language_bc_policy.json")
     audit = load_json("inference_audit_framework.json")
     audit_learned = load_json("inference_audit_framework_learned.json")
     repair = load_json("scorer_repair_experiment.json")
@@ -770,6 +771,33 @@ def main() -> None:
             bool(libero_autonomous_bc),
         ),
         f"tasks={libero_autonomous_bc.get('tasks')}, train={libero_autonomous_bc.get('train_examples')}, eval={libero_autonomous_bc.get('eval_successes')}/{libero_autonomous_bc.get('eval_episodes')}, success CI={libero_autonomous_bc_ci}, policy={libero_autonomous_bc_policy}",
+    )
+    libero_visual_language_bc_ci = (libero_visual_language_bc.get("confidence_intervals") or {}).get("eval_success_rate") or {}
+    libero_visual_language_bc_policy = libero_visual_language_bc.get("policy") or {}
+    add(
+        claims,
+        89,
+        "LIBERO RGB/proprio/language BC sparse-success smoke verified.",
+        status(
+            bool(libero_visual_language_bc)
+            and libero_visual_language_bc.get("available", False)
+            and libero_visual_language_bc.get("verified", False)
+            and len(libero_visual_language_bc.get("tasks") or []) >= 6
+            and (libero_visual_language_bc.get("train_episodes") or 0) >= 30
+            and (libero_visual_language_bc.get("train_examples") or 0) >= 6000
+            and (libero_visual_language_bc.get("eval_episodes") or 0) >= 30
+            and (libero_visual_language_bc.get("eval_success_rate") or 0.0) >= 0.8
+            and (libero_visual_language_bc_ci.get("lo") or 0.0) >= 0.6
+            and libero_visual_language_bc_policy.get("uses_rgb") is True
+            and libero_visual_language_bc_policy.get("uses_language") is True
+            and libero_visual_language_bc_policy.get("uses_robot_proprio") is True
+            and libero_visual_language_bc_policy.get("uses_simulator_object_state") is False
+            and libero_visual_language_bc_policy.get("uses_task_id") is False
+            and libero_visual_language_bc_policy.get("uses_phase_index") is False
+            and libero_visual_language_bc_policy.get("uses_target_point_command") is False,
+            bool(libero_visual_language_bc),
+        ),
+        f"tasks={libero_visual_language_bc.get('tasks')}, train={libero_visual_language_bc.get('train_examples')}, eval={libero_visual_language_bc.get('eval_successes')}/{libero_visual_language_bc.get('eval_episodes')}, success CI={libero_visual_language_bc_ci}, policy={libero_visual_language_bc_policy}",
     )
 
     readme_text = README.read_text(encoding="utf-8") if README.exists() else ""

@@ -39,6 +39,7 @@ if [[ -n "${LIBERO_PYTHON:-}" ]]; then
   "$LIBERO_PYTHON" experiments/benchmark_libero_scripted_policy.py --suite libero_object --tasks 0 1 2 3 4 5 6 7 8 9 --seeds 100 101 102 103 104 --horizon 512 --bootstrap-samples 3000
   "$LIBERO_PYTHON" experiments/benchmark_libero_learned_action_head.py --bootstrap-samples 2000
   "$LIBERO_PYTHON" experiments/benchmark_libero_autonomous_bc_policy.py --train-seeds 100 101 102 103 104 --eval-seeds 200 201 202 203 204 --bootstrap-samples 3000 --knn-k 3 --knn-temperature 0.05
+  "$LIBERO_PYTHON" experiments/benchmark_libero_visual_language_bc_policy.py --train-seeds 100 101 102 103 104 --eval-seeds 200 201 202 203 204 --bootstrap-samples 3000
 else
   echo "Skipping optional LIBERO WAM run: set LIBERO_PYTHON and, if needed, LIBERO_SOURCE_PATH/LIBERO_CONFIG_PATH."
 fi
