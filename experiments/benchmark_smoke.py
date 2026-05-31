@@ -31,6 +31,8 @@ def run() -> dict:
     libero_scripted_path = results_dir() / "benchmark_libero_scripted_policy.json"
     libero_action_head = {}
     libero_action_head_path = results_dir() / "benchmark_libero_learned_action_head.json"
+    libero_autonomous_bc = {}
+    libero_autonomous_bc_path = results_dir() / "benchmark_libero_autonomous_bc_policy.json"
     if smoke_path.exists():
         import json
 
@@ -63,6 +65,10 @@ def run() -> dict:
         import json
 
         libero_action_head = json.loads(libero_action_head_path.read_text(encoding="utf-8"))
+    if libero_autonomous_bc_path.exists():
+        import json
+
+        libero_autonomous_bc = json.loads(libero_autonomous_bc_path.read_text(encoding="utf-8"))
     any_available = any(s["available"] for s in statuses)
     summary = {
         "experiment": "benchmark_smoke",
@@ -193,6 +199,18 @@ def run() -> dict:
                     f"A ridge action head imitated the successful scripted controller subset on `{libero_action_head.get('train_examples')}` action examples.",
                     f"It was evaluated on `{libero_action_head.get('eval_episodes')}` heldout episodes across `{len(libero_action_head.get('tasks') or [])}` LIBERO Object tasks and achieved `{libero_action_head.get('eval_successes')}` sparse successes; success-rate bootstrap CI is [`{ci.get('lo')}`, `{ci.get('hi')}`].",
                     "The high-level phase schedule and target points remain scripted, so this is a learned action-head smoke rather than autonomous learned LIBERO policy performance.",
+                ]
+            )
+        if libero_autonomous_bc.get("verified"):
+            ci = (libero_autonomous_bc.get("confidence_intervals") or {}).get("eval_success_rate") or {}
+            report.extend(
+                [
+                    "",
+                    "## Separate LIBERO Time-Conditioned Autonomous BC Smoke",
+                    "",
+                    f"A low-dimensional kNN behavior-cloned policy was trained on `{libero_autonomous_bc.get('train_examples')}` successful scripted action examples and evaluated on `{libero_autonomous_bc.get('eval_episodes')}` heldout episodes across `{len(libero_autonomous_bc.get('tasks') or [])}` LIBERO Object tasks.",
+                    f"It achieved `{libero_autonomous_bc.get('eval_successes')}` sparse successes; success-rate bootstrap CI is [`{ci.get('lo')}`, `{ci.get('hi')}`].",
+                    "The policy uses simulator state, task ID, previous action, and a finite-horizon step clock, but no scripted phase labels or target-point commands. It is still not image/language LIBERO or broad robust autonomous policy evidence.",
                 ]
             )
     else:

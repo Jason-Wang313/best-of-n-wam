@@ -511,6 +511,12 @@
       "evidence": "tasks=['libero_object/0', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/7', 'libero_object/9'], eval=18/18, success CI={'n': 18, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}"
     },
     {
+      "id": 88,
+      "claim": "LIBERO time-conditioned autonomous low-dimensional BC sparse-success smoke verified.",
+      "status": "VERIFIED",
+      "evidence": "tasks=['libero_object/0', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/7', 'libero_object/9'], train=6450, eval=30/30, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'low_dim_knn_behavior_cloning', 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_task_id': True, 'uses_previous_action': True, 'uses_step_clock': True, 'knn_k': 3, 'knn_temperature': 0.05}"
+    },
+    {
       "id": 81,
       "claim": "README has no unsupported claims.",
       "status": "VERIFIED",
@@ -524,7 +530,7 @@
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 87,
+  "num_verified": 88,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

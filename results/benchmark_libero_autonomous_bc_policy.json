@@ -1,0 +1,60 @@
+{
+  "experiment": "benchmark_libero_autonomous_bc_policy",
+  "available": true,
+  "attempted": true,
+  "verified": true,
+  "tasks": [
+    "libero_object/0",
+    "libero_object/2",
+    "libero_object/3",
+    "libero_object/4",
+    "libero_object/7",
+    "libero_object/9"
+  ],
+  "train_seeds": [
+    100,
+    101,
+    102,
+    103,
+    104
+  ],
+  "eval_seeds": [
+    200,
+    201,
+    202,
+    203,
+    204
+  ],
+  "train_episodes": 30,
+  "train_successes": 30,
+  "train_examples": 6450,
+  "eval_episodes": 30,
+  "eval_successes": 30,
+  "eval_success_rate": 1.0,
+  "confidence_intervals": {
+    "eval_success_rate": {
+      "n": 30,
+      "mean": 1.0,
+      "lo": 1.0,
+      "hi": 1.0,
+      "std": 0.0
+    }
+  },
+  "policy": {
+    "type": "low_dim_knn_behavior_cloning",
+    "uses_phase_index": false,
+    "uses_target_point_command": false,
+    "uses_task_id": true,
+    "uses_previous_action": true,
+    "uses_step_clock": true,
+    "knn_k": 3,
+    "knn_temperature": 0.05
+  },
+  "model_path": "results\\models\\benchmark_libero_autonomous_bc_policy.npz",
+  "artifact_paths": {
+    "json": "results/benchmark_libero_autonomous_bc_policy.json",
+    "episodes_csv": "results/tables/benchmark_libero_autonomous_bc_policy_episodes.csv",
+    "report": "reports/libero_autonomous_bc_policy_report.md"
+  },
+  "note": "Low-dimensional time-conditioned simulator-state BC policy without scripted phase labels or target-point commands; not image/language LIBERO."
+}

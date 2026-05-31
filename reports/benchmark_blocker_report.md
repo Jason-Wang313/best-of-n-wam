@@ -65,3 +65,9 @@ This supports a narrow sparse-success simulator smoke, not learned policy perfor
 A ridge action head imitated the successful scripted controller subset on `2580` action examples.
 It was evaluated on `18` heldout episodes across `6` LIBERO Object tasks and achieved `18` sparse successes; success-rate bootstrap CI is [`1.0`, `1.0`].
 The high-level phase schedule and target points remain scripted, so this is a learned action-head smoke rather than autonomous learned LIBERO policy performance.
+
+## Separate LIBERO Time-Conditioned Autonomous BC Smoke
+
+A low-dimensional kNN behavior-cloned policy was trained on `6450` successful scripted action examples and evaluated on `30` heldout episodes across `6` LIBERO Object tasks.
+It achieved `30` sparse successes; success-rate bootstrap CI is [`1.0`, `1.0`].
+The policy uses simulator state, task ID, previous action, and a finite-horizon step clock, but no scripted phase labels or target-point commands. It is still not image/language LIBERO or broad robust autonomous policy evidence.

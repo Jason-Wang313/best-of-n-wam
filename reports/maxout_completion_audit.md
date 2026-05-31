@@ -4,7 +4,7 @@ Audit date: 2026-05-30.
 
 ## Execution Tier
 
-Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, Gymnasium Robotics Fetch benchmark, Meta-World ML1, RoboSuite Panda benchmark, ManiSkill3 state-mode benchmark, RoboCasa single-task, three-task pick-place-family, broad four-task, and 12-task family learned WAM-lite, LIBERO Spatial three-task rollout-pool WAM-lite, LIBERO Object sparse-success scripted smoke, LIBERO learned action-head smoke, toy visual mode, Reacher RGB WAM-lite, and Fetch RGB WAM-lite.
+Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, Gymnasium Robotics Fetch benchmark, Meta-World ML1, RoboSuite Panda benchmark, ManiSkill3 state-mode benchmark, RoboCasa single-task, three-task pick-place-family, broad four-task, and 12-task family learned WAM-lite, LIBERO Spatial three-task rollout-pool WAM-lite, LIBERO Object sparse-success scripted smoke, LIBERO learned action-head smoke, LIBERO time-conditioned autonomous low-dimensional BC smoke, toy visual mode, Reacher RGB WAM-lite, and Fetch RGB WAM-lite.
 
 ## Artifact Coverage
 
@@ -24,6 +24,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - LIBERO WAM-lite: verified `True`; tasks `['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2']`; train/eval samples `192`/`240`; utility corr `0.3526`; exact-law MAE `0.0001`; learned-random N8 CI lower `0.2653`.
 - LIBERO scripted sparse-success smoke: verified `True`; episodes `50`; successes `30`; success-rate CI lower `0.4600`.
 - LIBERO learned action-head smoke: verified `True`; train examples `2580`; eval successes `18`/`18`; success-rate CI lower `1.0000`.
+- LIBERO time-conditioned autonomous low-dimensional BC smoke: verified `True`; train examples `6450`; eval successes `30`/`30`; success-rate CI lower `1.0000`; uses phase labels `False`; uses target commands `False`; uses step clock `True`.
 - Visual attempted: `True`; visual verified: `True`.
 - Benchmark visual verified: `True`.
 - Benchmark RGB WAM-lite: `extra_trees_visual_wam`; verified: `True`; utility corr: `0.2199`; utility MAE: `0.5208`; exact-law MAE: `0.0157`.
@@ -56,6 +57,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - LIBERO learned WAM-lite: three Spatial tasks `['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2']` trained on `192` rollout samples and evaluated on `240` heldout rollout samples with dense progress utility.
 - LIBERO sparse-success scripted smoke: all 10 Object tasks evaluated over `5` seeds with `30` successes over `50` episodes.
 - LIBERO learned action-head smoke: ridge action head trained on `2580` scripted action examples and evaluated on `18` heldout sparse-success episodes over the scripted-success Object subset.
+- LIBERO time-conditioned autonomous low-dimensional BC smoke: kNN behavior cloning trained on `6450` scripted action examples and evaluated on `30` heldout sparse-success episodes over the scripted-success Object subset without phase labels or target-point commands at evaluation time.
 - Visual: toy visual mode verified with MAE `0.0185`.
 - Benchmark visual WAM: Reacher-v5 RGB-frame/action-sequence model verified with visual-random N32 CI lower bound `0.1998`.
 - Gymnasium Robotics visual WAM: Fetch RGB-frame/action-sequence models verified with visual-random N32 CI lower bound `0.3475`.
@@ -94,4 +96,5 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - LIBERO exact-law utility MAE: `0.0001`.
 - LIBERO Object scripted success rate: `0.6000` with CI [`0.4600`, `0.7400`].
 - LIBERO learned action-head heldout success rate: `1.0000` with CI [`1.0000`, `1.0000`].
+- LIBERO time-conditioned autonomous low-dimensional BC heldout success rate: `1.0000` with CI [`1.0000`, `1.0000`].
 - Falsification anti-scorer N64 mean utility: `-26.5657`.
