@@ -3,5 +3,6 @@ maniskill,True,available with state-mode joint-delta control
 gym_manip,True,Reacher-v5 available
 gym_robotics,True,FetchPush-v4 available
 metaworld,True,reach-v3 available
+robosuite,True,Lift/Panda available
 libero,False,libero import not found; local pip install failed while building hf-egl-probe/egl_probe on Windows
 robocasa,False,adapter skeleton only; dependency not installed/validated

@@ -199,7 +199,7 @@ def area_under_inference_curve(df: pd.DataFrame, value_col: str = "real_utility"
     y = np.asarray(sub[value_col], dtype=float)
     if len(x) < 2:
         return float(y[0]) if len(y) else float("nan")
-    return float(np.trapezoid(y, x) / (x[-1] - x[0]))
+    return float(np.trapz(y, x) / (x[-1] - x[0]))
 
 
 def marginal_greedy_allocate(pred_curves: list[np.ndarray], total_budget: int) -> list[int]:

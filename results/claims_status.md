@@ -4,25 +4,25 @@
 - Claim 2: **VERIFIED** - Utility-valued finite law verified. Evidence: utility MAE=0.013762680427723635
 - Claim 3: **VERIFIED** - N=2 AUC identity verified. Evidence: max identity error=0.0
 - Claim 4: **VERIFIED** - High-N moment hierarchy verified. Evidence: same-p/kappa gap=0.9988209815422198
-- Claim 5: **VERIFIED** - Pilot-to-heldout improves with K. Evidence: relative MAE reduction=0.36981841294484663
-- Claim 6: **VERIFIED** - Pilot uncertainty is reported. Evidence: pilot improvement CI={'n': 3, 'mean': 0.4562385545786219, 'std': 0.6526343629570743, 'stderr': 0.3767986251356668, 'ci95': 0.738525305265907, 'lo': -0.2822867506872851, 'hi': 1.194763859844529}
-- Claim 7: **VERIFIED** - Score function controls inference value. Evidence: oracle-random N64=6.6877116595064265
+- Claim 5: **VERIFIED** - Pilot-to-heldout improves with K. Evidence: relative MAE reduction=0.43698115249631736
+- Claim 6: **VERIFIED** - Pilot uncertainty is reported. Evidence: pilot improvement CI={'n': 16, 'mean': 0.44172358371190434, 'std': 0.6445133007518349, 'stderr': 0.16112832518795872, 'ci95': 0.3158115173683991, 'lo': 0.12591206634350527, 'hi': 0.7575351010803034}
+- Claim 7: **VERIFIED** - Score function controls inference value. Evidence: oracle-random N64=6.976857029097962
 - Claim 8: **VERIFIED** - Best non-oracle beats random with CI. Evidence: learned CI={'n': 5, 'mean': 5.97838149808149, 'std': 1.2959235541324863, 'stderr': 0.5795546321366736, 'ci95': 1.1359270789878801, 'lo': 4.8424544190936105, 'hi': 7.11430857706937}
 - Claim 9: **VERIFIED** - Oracle remains above learned/non-oracle. Evidence: oracle-learned CI={'n': 5, 'mean': 1.9951266518211337, 'std': 0.18826614525085428, 'stderr': 0.08419517972855187, 'ci95': 0.16502255226796164, 'lo': 1.830104099553172, 'hi': 2.1601492040890955}
-- Claim 10: **VERIFIED** - Real-vs-imagined utility gap verified. Evidence: severe-none=15.179989463689903
-- Claim 11: **VERIFIED** - Mismatch gap grows with N. Evidence: learned severe gap CI={'n': 5, 'mean': 13.8807751738171, 'std': 0.7005630946072382, 'stderr': 0.3133013404138802, 'ci95': 0.6140706272112052, 'lo': 13.266704546605894, 'hi': 14.494845801028305}
+- Claim 10: **VERIFIED** - Real-vs-imagined utility gap verified. Evidence: severe-none=16.435472824968038
+- Claim 11: **VERIFIED** - Mismatch gap grows with N. Evidence: learned severe gap CI={'n': 5, 'mean': 13.880775173817053, 'std': 0.7005630946072381, 'stderr': 0.31330134041388014, 'ci95': 0.6140706272112051, 'lo': 13.266704546605848, 'hi': 14.494845801028259}
 - Claim 12: **VERIFIED** - Bad scorer falsification verified. Evidence: anti N64=-26.565706083129044, N1=-14.101561337022474
 - Claim 13: **VERIFIED** - Randomized dynamics falsification verified. Evidence: randomized-oracle N64 gap=13.393867700179667
 - Claim 14: **VERIFIED** - Moment/adaptive allocation beats uniform with CI. Evidence: moment-uniform CI={'n': 5, 'mean': 0.30066408929367955, 'std': 0.028847241897066837, 'stderr': 0.012900878769044288, 'ci95': 0.025285722387326803, 'lo': 0.27537836690635276, 'hi': 0.32594981168100634}
 - Claim 15: **VERIFIED** - Adaptive allocation reduces oracle regret. Evidence: oracle-uniform=0.3055113080821638
-- Claim 16: **VERIFIED** - Closed-loop high-N gain verified. Evidence: analytic useful N64-N1=0.0; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}
+- Claim 16: **VERIFIED** - Closed-loop high-N gain verified. Evidence: analytic useful N64-N1=0.5; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}
 - Claim 17: **VERIFIED** - Useful scorer beats random in closed loop. Evidence: learned useful-random CI={'n': 5, 'mean': 0.3166666666666667, 'std': 0.06972166887783962, 'stderr': 0.031180478223116172, 'ci95': 0.061113737317307695, 'lo': 0.255552929349359, 'hi': 0.3777804039839744}
 - Claim 18: **VERIFIED** - Oracle first-action remains upper bound. Evidence: oracle-useful CI={'n': 5, 'mean': 0.16666666666666666, 'std': 0.11785113019775793, 'stderr': 0.052704627669472995, 'ci95': 0.10330107023216707, 'lo': 0.06336559643449959, 'hi': 0.26996773689883374}
 - Claim 19: **VERIFIED** - Conditional law verified under distribution shift. Evidence: MAE=0.006278872119413491
 - Claim 20: **VERIFIED** - Stale estimates fail/degrade under shift. Evidence: stale post-pre CI={'n': 48, 'mean': 0.06053148468706062, 'std': 0.1237430819653073, 'stderr': 0.017860775420756023, 'ci95': 0.035007119824681805, 'lo': 0.025524364862378815, 'hi': 0.09553860451174243}
 - Claim 21: **VERIFIED** - Adaptive re-estimation helps under shift. Evidence: stale-adaptive post CI={'n': 48, 'mean': 0.10238434930665018, 'std': 0.14521811815578564, 'stderr': 0.020960429902113432, 'ci95': 0.041082442608142325, 'lo': 0.06130190669850785, 'hi': 0.1434667919147925}
 - Claim 22: **VERIFIED** - Learned WAM trained. Evidence: model=results\models\learned_wam_lite_toy.npz
-- Claim 23: **VERIFIED** - Learned WAM ID error reported. Evidence: validation={'split': 'validation', 'mismatch': 'mild', 'n_samples': 768, 'final_delta_mae': 0.0736601208533958, 'final_position_l2_mae': 0.11172250197070284, 'utility_mae': 0.8623689603284173, 'utility_rmse': 1.1687153364750877, 'utility_corr': 0.8944539743322287}
+- Claim 23: **VERIFIED** - Learned WAM ID error reported. Evidence: validation={'split': 'validation', 'mismatch': 'mild', 'n_samples': 768, 'final_delta_mae': 0.07366012085339552, 'final_position_l2_mae': 0.11172250197070248, 'utility_mae': 0.8623689603284147, 'utility_rmse': 1.1687153364750862, 'utility_corr': 0.894453974332229}
 - Claim 24: **VERIFIED** - Learned WAM OOD error reported. Evidence: ood count=3
 - Claim 25: **VERIFIED** - Learned WAM reproduces key inference-value claims. Evidence: learned-analytic CI={'n': 5, 'mean': 1.169836264042242, 'std': 0.24964325385176853, 'stderr': 0.11164385714735812, 'ci95': 0.21882196000882193, 'lo': 0.95101430403342, 'hi': 1.3886582240510639}
 - Claim 26: **VERIFIED** - BlockPush verified. Evidence: multi-env or canonical artifacts
@@ -34,7 +34,7 @@
 - Claim 32: **VERIFIED** - Benchmark rollout pools collected. Evidence: pools=25
 - Claim 33: **VERIFIED** - Benchmark exact law verified. Evidence: utility MAE=0.018753143169510465
 - Claim 34: **VERIFIED** - Benchmark score comparison verified. Evidence: oracle-random CI={'n': 5, 'mean': 1.7107893171571196, 'std': 0.3902710091578448, 'stderr': 0.17453450122487676, 'ci95': 0.34208762240075846, 'lo': 1.368701694756361, 'hi': 2.052876939557878}
-- Claim 35: **VERIFIED** - Benchmark real-vs-imagined gap verified. Evidence: gap growth=0.14372151651340698
+- Claim 35: **VERIFIED** - Benchmark real-vs-imagined gap verified. Evidence: gap growth=0.14372151651340617
 - Claim 36: **VERIFIED** - Benchmark closed-loop verified. Evidence: learned-random closed-loop CI={'n': 5, 'mean': 1.7643643582266495, 'std': 1.5449273707487574, 'stderr': 0.6909125242588483, 'ci95': 1.3541885475473427, 'lo': 0.41017581067930675, 'hi': 3.118552905773992}
 - Claim 37: **VERIFIED** - Benchmark learned WAM trained. Evidence: model=C:\Users\wangz\best-of-n-wam\results\models\benchmark_gym_manip_horizon_wam.npz
 - Claim 38: **VERIFIED** - Visual toy WAM attempted. Evidence: visual=True
@@ -54,7 +54,7 @@
 - Claim 52: **VERIFIED** - ManiSkill WAM-lite trained and evaluated. Evidence: model metric rows=6
 - Claim 53: **VERIFIED** - ManiSkill closed-loop learned scorer beats random. Evidence: learned-random closed-loop CI={'n': 5, 'mean': 0.027762312500152514, 'std': 0.020055963136210424, 'stderr': 0.008969299385359276, 'ci95': 0.01757982679530418, 'lo': 0.010182485704848334, 'hi': 0.04534213929545669}
 - Claim 54: **VERIFIED** - ManiSkill learned open-loop scorer is honestly reported. Evidence: learned-random open-loop CI={'n': 5, 'mean': -0.005754620067846242, 'std': 0.04861601605708501, 'stderr': 0.021741743339772673, 'ci95': 0.04261381694595444, 'lo': -0.04836843701380068, 'hi': 0.036859196878108194}
-- Claim 55: **VERIFIED** - Benchmark RGB visual WAM-lite trained and evaluated. Evidence: model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.21993289086640203, 'success_mae': 0.18271949404761903}
+- Claim 55: **VERIFIED** - Benchmark RGB visual WAM-lite trained and evaluated. Evidence: model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.21993289086640205, 'success_mae': 0.18271949404761903}
 - Claim 56: **VERIFIED** - Benchmark RGB visual WAM exact law verified. Evidence: utility MAE=0.01571480996432407
 - Claim 57: **VERIFIED** - Benchmark RGB visual WAM scorer beats random with CI. Evidence: visual-random CI={'n': 5, 'mean': 0.2367775727718704, 'std': 0.04220964852617569, 'stderr': 0.01887672868218053, 'ci95': 0.03699838821707384, 'lo': 0.19977918455479654, 'hi': 0.27377596098894424}
 - Claim 58: **VERIFIED** - Benchmark RGB visual WAM oracle gap reported. Evidence: oracle-visual CI={'n': 5, 'mean': 0.3433881226502652, 'std': 0.09104423341118655, 'stderr': 0.04071621897335413, 'ci95': 0.0798037891877741, 'lo': 0.2635843334624911, 'hi': 0.4231919118380393}
@@ -63,14 +63,18 @@
 - Claim 61: **VERIFIED** - Gymnasium Robotics learned WAM scorer beats random with CI. Evidence: learned-random CI={'n': 5, 'mean': 0.5183591980928537, 'std': 0.08832562568455588, 'stderr': 0.03950042063717366, 'ci95': 0.07742082444886038, 'lo': 0.4409383736439933, 'hi': 0.595780022541714}
 - Claim 62: **VERIFIED** - Gymnasium Robotics closed-loop learned scorer beats random. Evidence: closed-loop learned-random CI={'n': 5, 'mean': 0.7086378606835364, 'std': 0.5149831233310606, 'stderr': 0.23030745420668186, 'ci95': 0.4514026102450964, 'lo': 0.25723525043844, 'hi': 1.160040470928633}
 - Claim 63: **VERIFIED** - Gymnasium Robotics oracle gap reported. Evidence: oracle-learned CI={'n': 5, 'mean': 0.03423794265616582, 'std': 0.021599643753640783, 'stderr': 0.009659654344583902, 'ci95': 0.018932922515384448, 'lo': 0.015305020140781375, 'hi': 0.05317086517155027}
-- Claim 64: **VERIFIED** - Gymnasium Robotics RGB visual WAM trained and evaluated. Evidence: envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.7325062733110718
+- Claim 64: **VERIFIED** - Gymnasium Robotics RGB visual WAM trained and evaluated. Evidence: envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.732506273311072
 - Claim 65: **VERIFIED** - Gymnasium Robotics RGB visual exact law verified. Evidence: utility MAE=0.010612997381058541
 - Claim 66: **VERIFIED** - Gymnasium Robotics RGB visual scorer beats random with CI. Evidence: visual-random CI={'n': 5, 'mean': 0.4888505704773543, 'std': 0.16122603373528005, 'stderr': 0.0721024742349521, 'ci95': 0.1413208495005061, 'lo': 0.3475297209768482, 'hi': 0.6301714199778604}
 - Claim 67: **VERIFIED** - Gymnasium Robotics RGB visual oracle gap is reported without requiring significance. Evidence: oracle-visual CI={'n': 5, 'mean': 0.02680333126025487, 'std': 0.03203449057950047, 'stderr': 0.014326259712067935, 'ci95': 0.028079469035653153, 'lo': -0.0012761377753982839, 'hi': 0.05488280029590802}
 - Claim 68: **VERIFIED** - ManiSkill RGB/RGB-D and EE-control probe is artifact-documented. Evidence: visual_success=False, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pin_binary=False
 - Claim 69: **VERIFIED** - Meta-World ML1 benchmark suite verified. Evidence: tasks=['reach-v3', 'push-v3', 'drawer-open-v3'], pools=45
-- Claim 70: **VERIFIED** - Meta-World exact law verified. Evidence: utility MAE=0.023526234387278428
-- Claim 71: **VERIFIED** - Meta-World learned WAM scorer beats random open-loop with CI. Evidence: learned-random CI={'n': 5, 'mean': 0.1321569963083081, 'std': 0.052626968366564504, 'stderr': 0.02353549574347386, 'ci95': 0.04612957165720876, 'lo': 0.08602742465109933, 'hi': 0.17828656796551687}
-- Claim 72: **VERIFIED** - Meta-World oracle and benchmark-reward scorers beat random with CI. Evidence: reward-random CI={'n': 5, 'mean': 0.4645505227694846, 'std': 0.03137175314810848, 'stderr': 0.014029874522502716, 'ci95': 0.027498554064105323, 'lo': 0.43705196870537927, 'hi': 0.49204907683358995}; oracle-random CI={'n': 5, 'mean': 0.5191204413622994, 'std': 0.035016716358778836, 'stderr': 0.01565995162541168, 'ci95': 0.03069350518580689, 'lo': 0.4884269361764925, 'hi': 0.5498139465481063}
-- Claim 73: **VERIFIED** - README has no unsupported claims. Evidence: README overclaims=0
-- Claim 74: **VERIFIED** - paper_outline has no unsupported claims. Evidence: paper overclaims=0
+- Claim 70: **VERIFIED** - Meta-World exact law verified. Evidence: utility MAE=0.029992138628937036
+- Claim 71: **VERIFIED** - Meta-World learned WAM scorer beats random open-loop with CI. Evidence: learned-random CI={'n': 5, 'mean': 0.10349710533879537, 'std': 0.09029444087378327, 'stderr': 0.04038090155682298, 'ci95': 0.07914656705137305, 'lo': 0.024350538287422327, 'hi': 0.18264367239016843}
+- Claim 72: **VERIFIED** - Meta-World oracle and benchmark-reward scorers beat random with CI. Evidence: reward-random CI={'n': 5, 'mean': 0.5479080643743025, 'std': 0.0714613539476861, 'stderr': 0.031958489038239814, 'ci95': 0.06263863851495004, 'lo': 0.48526942585935245, 'hi': 0.6105467028892525}; oracle-random CI={'n': 5, 'mean': 0.5747757207564779, 'std': 0.05954906939708425, 'stderr': 0.026631153433746557, 'ci95': 0.05219706073014325, 'lo': 0.5225786600263346, 'hi': 0.6269727814866212}
+- Claim 73: **VERIFIED** - RoboSuite Panda manipulation benchmark suite verified. Evidence: envs=['Lift', 'Stack', 'Door'], pools=30
+- Claim 74: **VERIFIED** - RoboSuite exact law verified. Evidence: utility MAE=0.002398391968090119
+- Claim 75: **VERIFIED** - RoboSuite learned WAM scorer beats random open-loop with CI. Evidence: learned-random CI={'n': 5, 'mean': 0.34011995703989517, 'std': 0.0904063887583726, 'stderr': 0.04043096617279879, 'ci95': 0.07924469369868563, 'lo': 0.26087526334120953, 'hi': 0.4193646507385808}
+- Claim 76: **VERIFIED** - RoboSuite reward, progress, and oracle scorers beat random with CI. Evidence: reward-random CI={'n': 5, 'mean': 0.35581913680152766, 'std': 0.09194514548172689, 'stderr': 0.04111911909964979, 'ci95': 0.08059347343531359, 'lo': 0.27522566336621407, 'hi': 0.43641261023684125}; progress-random CI={'n': 5, 'mean': 0.19880147876047494, 'std': 0.12062499535466874, 'stderr': 0.05394513787972713, 'ci95': 0.10573247024426517, 'lo': 0.09306900851620976, 'hi': 0.3045339490047401}; oracle-random CI={'n': 5, 'mean': 0.3676657007706588, 'std': 0.09166374882303482, 'stderr': 0.04099327468815444, 'ci95': 0.0803468183887827, 'lo': 0.2873188823818761, 'hi': 0.4480125191594415}
+- Claim 77: **VERIFIED** - README has no unsupported claims. Evidence: README overclaims=0
+- Claim 78: **VERIFIED** - paper_outline has no unsupported claims. Evidence: paper overclaims=0

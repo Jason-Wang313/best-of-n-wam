@@ -1,9 +1,9 @@
 {
   "experiment": "auc_vs_moment_hierarchy",
-  "states": 3,
-  "rollouts_per_state": 32,
+  "states": 8,
+  "rollouts_per_state": 64,
   "max_n2_identity_error": 0.0,
-  "mean_auc_only_mae_high_n": 0.010871861876268568,
+  "mean_auc_only_mae_high_n": 0.009343270621601295,
   "mean_moment_mae_high_n": 0.0,
   "same_p_kappa_counterexample_gap_N64": 0.9988209815422198,
   "counterexample_p": 0.2,
@@ -11,44 +11,44 @@
   "by_n": [
     {
       "N": 1,
-      "exact": 0.052083333333333336,
+      "exact": 0.05078125,
       "auc_only_mae": 0.0,
       "moment_mae": 0.0
     },
     {
       "N": 2,
-      "exact": 0.08821614583333333,
+      "exact": 0.0860595703125,
       "auc_only_mae": 0.0,
       "moment_mae": 0.0
     },
     {
       "N": 4,
-      "exact": 0.12754281361897787,
-      "auc_only_mae": 0.0005413867809154482,
+      "exact": 0.1260741949081421,
+      "auc_only_mae": 0.0008956282585859329,
       "moment_mae": 0.0
     },
     {
       "N": 8,
-      "exact": 0.1378400358756456,
-      "auc_only_mae": 0.00442215371032791,
+      "exact": 0.14446536796791065,
+      "auc_only_mae": 0.005621076557253048,
       "moment_mae": 0.0
     },
     {
       "N": 16,
-      "exact": 0.09259727840743698,
-      "auc_only_mae": 0.015533246648346608,
+      "exact": 0.11507267166419462,
+      "auc_only_mae": 0.014090860325827454,
       "moment_mae": 0.0
     },
     {
       "N": 32,
-      "exact": 0.03352047284655985,
-      "auc_only_mae": 0.019025046492125334,
+      "exact": 0.06303276704508887,
+      "auc_only_mae": 0.013505631150126764,
       "moment_mae": 0.0
     },
     {
       "N": 64,
-      "exact": 0.004816945142581442,
-      "auc_only_mae": 0.004507000654274422,
+      "exact": 0.03305830438913431,
+      "auc_only_mae": 0.00415551445319792,
       "moment_mae": 0.0
     }
   ],

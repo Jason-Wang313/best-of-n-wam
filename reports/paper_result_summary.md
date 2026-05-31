@@ -7,7 +7,7 @@
 - More imagination helps only when scores align with real utility.
 - Under model mismatch or bad scoring, high-N selection can amplify hallucinated futures.
 - Inference-value audits diagnose tail alignment, stop rules, scorer repair, and compute-quality frontiers from artifacts.
-- Gymnasium/MuJoCo, Gymnasium Robotics Fetch, Meta-World ML1, RGB WAM-lite on Reacher-v5 and Fetch frames, and ManiSkill3 state-mode artifacts validate the benchmark path without claiming hardware evidence.
+- Gymnasium/MuJoCo, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, RGB WAM-lite on Reacher-v5 and Fetch frames, and ManiSkill3 state-mode artifacts validate the benchmark path without claiming hardware evidence.
 - ManiSkill RGB/RGB-D and EE-control attempts are documented as a blocker artifact, not counted as visual validation.
 - ManiSkill Pinocchio dependency probing documents why EE-control is not claimed in this environment.
 - Learned toy and multi-env toy artifacts support these claims with confidence intervals where the claim gate marks them verified.

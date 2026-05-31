@@ -1,8 +1,8 @@
 {
   "experiment": "adaptive_rollout_allocation",
   "dynamics_backend": "analytic",
-  "states": 4,
-  "rollouts_per_state": 144,
+  "states": 12,
+  "rollouts_per_state": 160,
   "pilot_k": 32,
   "mismatch": "mild",
   "scorer": "predicted_utility",
@@ -15,98 +15,98 @@
     32
   ],
   "seeds": [
-    206
+    106
   ],
   "num_seeds": 1,
   "reference_budget": 32,
   "ranking_at_reference_budget": [
     {
       "policy": "oracle",
-      "seed": 206.0,
+      "seed": 106.0,
       "seed_id": 0.0,
       "mean_budget": 32.0,
-      "success": 0.27104021512150805,
-      "mean_allocated_samples": 12.25,
-      "allocation_std": 3.344772040064913,
+      "success": 0.16138445465589765,
+      "mean_allocated_samples": 8.666666666666666,
+      "allocation_std": 2.953340857778225,
       "pilot_k": 32.0,
-      "num_states": 4.0
+      "num_states": 12.0
     },
     {
       "policy": "auc_kappa",
-      "seed": 206.0,
+      "seed": 106.0,
       "seed_id": 0.0,
       "mean_budget": 32.0,
-      "success": 0.21304380667511552,
-      "mean_allocated_samples": 9.5,
-      "allocation_std": 6.800735254367722,
+      "success": 0.14128316123648346,
+      "mean_allocated_samples": 8.5,
+      "allocation_std": 5.923118547972287,
       "pilot_k": 32.0,
-      "num_states": 4.0
+      "num_states": 12.0
     },
     {
       "policy": "moment_law",
-      "seed": 206.0,
+      "seed": 106.0,
       "seed_id": 0.0,
       "mean_budget": 32.0,
-      "success": 0.19853590557239756,
-      "mean_allocated_samples": 18.25,
-      "allocation_std": 13.754544703478919,
+      "success": 0.1315379805021179,
+      "mean_allocated_samples": 11.166666666666666,
+      "allocation_std": 8.763877883423271,
       "pilot_k": 32.0,
-      "num_states": 4.0
-    },
-    {
-      "policy": "coverage_p_only",
-      "seed": 206.0,
-      "seed_id": 0.0,
-      "mean_budget": 32.0,
-      "success": 0.1652269588014908,
-      "mean_allocated_samples": 32.0,
-      "allocation_std": 0.0,
-      "pilot_k": 32.0,
-      "num_states": 4.0
-    },
-    {
-      "policy": "uniform",
-      "seed": 206.0,
-      "seed_id": 0.0,
-      "mean_budget": 32.0,
-      "success": 0.1652269588014908,
-      "mean_allocated_samples": 32.0,
-      "allocation_std": 0.0,
-      "pilot_k": 32.0,
-      "num_states": 4.0
+      "num_states": 12.0
     },
     {
       "policy": "uncertainty",
-      "seed": 206.0,
+      "seed": 106.0,
       "seed_id": 0.0,
       "mean_budget": 32.0,
-      "success": 0.08036550627505468,
-      "mean_allocated_samples": 1.5,
-      "allocation_std": 0.8660254037844386,
+      "success": 0.07145131540164584,
+      "mean_allocated_samples": 1.6666666666666667,
+      "allocation_std": 1.312334645668635,
       "pilot_k": 32.0,
-      "num_states": 4.0
+      "num_states": 12.0
+    },
+    {
+      "policy": "coverage_p_only",
+      "seed": 106.0,
+      "seed_id": 0.0,
+      "mean_budget": 32.0,
+      "success": 0.06564089192435481,
+      "mean_allocated_samples": 32.0,
+      "allocation_std": 0.0,
+      "pilot_k": 32.0,
+      "num_states": 12.0
+    },
+    {
+      "policy": "uniform",
+      "seed": 106.0,
+      "seed_id": 0.0,
+      "mean_budget": 32.0,
+      "success": 0.06564089192435481,
+      "mean_allocated_samples": 32.0,
+      "allocation_std": 0.0,
+      "pilot_k": 32.0,
+      "num_states": 12.0
     }
   ],
-  "moment_law_improvement_over_uniform": 0.03330894677090676,
-  "oracle_improvement_over_uniform": 0.10581325632001726,
+  "moment_law_improvement_over_uniform": 0.0658970885777631,
+  "oracle_improvement_over_uniform": 0.09574356273154284,
   "confidence_intervals": {
     "moment_law_improvement_over_uniform": {
       "n": 1,
-      "mean": 0.03330894677090676,
+      "mean": 0.0658970885777631,
       "std": 0.0,
       "stderr": 0.0,
       "ci95": 0.0,
-      "lo": 0.03330894677090676,
-      "hi": 0.03330894677090676
+      "lo": 0.0658970885777631,
+      "hi": 0.0658970885777631
     },
     "oracle_improvement_over_uniform": {
       "n": 1,
-      "mean": 0.10581325632001726,
+      "mean": 0.09574356273154284,
       "std": 0.0,
       "stderr": 0.0,
       "ci95": 0.0,
-      "lo": 0.10581325632001726,
-      "hi": 0.10581325632001726
+      "lo": 0.09574356273154284,
+      "hi": 0.09574356273154284
     }
   },
   "artifacts": {

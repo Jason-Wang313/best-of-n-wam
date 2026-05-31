@@ -61,6 +61,7 @@ def main() -> None:
     maniskill_visual_probe = load_json("benchmark_maniskill_visual_probe.json")
     maniskill_dependency_probe = load_json("benchmark_maniskill_dependency_probe.json")
     metaworld = load_json("benchmark_metaworld_suite.json")
+    robosuite = load_json("benchmark_robosuite_suite.json")
     gym_robotics = load_json("benchmark_gym_robotics_suite.json")
     bench_visual = load_json("benchmark_visual_optional.json")
     bench_visual_wam = load_json("benchmark_visual_wam_lite.json")
@@ -97,7 +98,7 @@ Audit date: 2026-05-30.
 ## 2. Toy-Only
 
 - The main controlled environments are CPU toy environments.
-- Gymnasium/MuJoCo Reacher-v5, Gymnasium Robotics Fetch, Meta-World ML1, and ManiSkill3 state-mode tasks now have external benchmark artifacts.
+- Gymnasium/MuJoCo Reacher-v5, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, and ManiSkill3 state-mode tasks now have external benchmark artifacts.
 - No real robot, DreamZero, UWM, LIBERO, or RoboCasa result is claimed.
 
 ## 3. Learned-Model Evidence
@@ -112,6 +113,7 @@ Audit date: 2026-05-30.
 - LIBERO and RoboCasa benchmark artifacts are still missing.
 - ManiSkill evidence is state-mode and joint-delta controlled; end-effector delta-pose control is not claimed because Pinocchio was unavailable.
 - Meta-World ML1 evidence covers `reach-v3`, `push-v3`, and `drawer-open-v3` with state/action-sequence WAM-lite artifacts.
+- RoboSuite evidence covers Panda `Lift`, `Stack`, and `Door` with clone-restored MuJoCo rollout pools and state/action-sequence WAM-lite artifacts.
 - No real robot data.
 - No high-dimensional policy or vision-language WAM evidence.
 
@@ -153,7 +155,7 @@ Audit date: 2026-05-30.
 
 ## 10. Readiness Tier
 
-The project has learned-toy, multi-env toy, Gymnasium/MuJoCo, Gymnasium Robotics Fetch, Meta-World ML1, and ManiSkill3 state-mode benchmark validation paths. It is much closer to a serious ML submission artifact, but still not real-robot validated.
+The project has learned-toy, multi-env toy, Gymnasium/MuJoCo, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, and ManiSkill3 state-mode benchmark validation paths. It is much closer to a serious ML submission artifact, but still not real-robot validated.
 """
 
     completion = f"""
@@ -163,7 +165,7 @@ Audit date: 2026-05-30.
 
 ## Execution Tier
 
-Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, Gymnasium Robotics Fetch benchmark, ManiSkill3 state-mode benchmark, toy visual mode, Reacher RGB WAM-lite, and Fetch RGB WAM-lite.
+Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, Gymnasium Robotics Fetch benchmark, Meta-World ML1, RoboSuite Panda benchmark, ManiSkill3 state-mode benchmark, toy visual mode, Reacher RGB WAM-lite, and Fetch RGB WAM-lite.
 
 ## Artifact Coverage
 
@@ -174,6 +176,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - Benchmark suite: `{bench_suite.get('benchmark')}`; rollout pools: `{bench_suite.get('n_rollout_pools')}`; exact-law MAE: `{fmt(bench_suite.get('exact_law_utility_mae'))}`.
 - Gymnasium Robotics suite: `{gym_robotics.get('env_ids')}`; rollout pools: `{gym_robotics.get('n_rollout_pools')}`; exact-law MAE: `{fmt(gym_robotics.get('exact_law_utility_mae'))}`; learned-random N32 CI lower: `{fmt((((gym_robotics.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`.
 - Meta-World suite: `{metaworld.get('task_names')}`; rollout pools: `{metaworld.get('n_rollout_pools')}`; exact-law MAE: `{fmt(metaworld.get('exact_law_utility_mae'))}`; learned-random N32 CI lower: `{fmt((((metaworld.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; reward-random N32 CI lower: `{fmt((((metaworld.get('confidence_intervals') or {}).get('reward_minus_random_N32') or {}).get('lo')))}`.
+- RoboSuite suite: `{robosuite.get('env_names')}`; rollout pools: `{robosuite.get('n_rollout_pools')}`; exact-law MAE: `{fmt(robosuite.get('exact_law_utility_mae'))}`; learned-random N32 CI lower: `{fmt((((robosuite.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; reward-random N32 CI lower: `{fmt((((robosuite.get('confidence_intervals') or {}).get('reward_minus_random_N32') or {}).get('lo')))}`.
 - ManiSkill suite: `{maniskill.get('env_ids')}`; rollout pools: `{maniskill.get('n_rollout_pools')}`; exact-law MAE: `{fmt(maniskill.get('exact_law_utility_mae'))}`; control: `{maniskill.get('control_mode')}`.
 - Visual attempted: `{visual.get('attempted')}`; visual verified: `{visual.get('verified')}`.
 - Benchmark visual verified: `{bench_visual.get('verified')}`.
@@ -197,6 +200,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - Benchmark: Gymnasium/MuJoCo Reacher-v5 artifacts generated.
 - Gymnasium Robotics: FetchReach-v4, FetchPush-v4, and FetchPickAndPlace-v4 artifacts generated.
 - Meta-World: reach-v3, push-v3, and drawer-open-v3 ML1 artifacts generated.
+- RoboSuite: Lift, Stack, and Door Panda manipulation artifacts generated.
 - ManiSkill: PickCube-v1, PushCube-v1, and PegInsertionSide-v1 state-mode artifacts generated.
 - Visual: toy visual mode verified with MAE `{fmt(visual.get('test_mae'))}`.
 - Benchmark visual WAM: Reacher-v5 RGB-frame/action-sequence model verified with visual-random N32 CI lower bound `{fmt((((bench_visual_wam.get('confidence_intervals') or {}).get('visual_minus_random_N32') or {}).get('lo')))}`.
@@ -219,6 +223,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - EXP8 conditional-law MAE: `{fmt(exp8.get('mean_abs_error_N16'))}`.
 - Gymnasium Robotics Fetch exact-law MAE: `{fmt(gym_robotics.get('exact_law_utility_mae'))}`.
 - Meta-World exact-law MAE: `{fmt(metaworld.get('exact_law_utility_mae'))}`.
+- RoboSuite exact-law MAE: `{fmt(robosuite.get('exact_law_utility_mae'))}`.
 - Falsification anti-scorer N64 mean utility: `{fmt(fals.get('anti_scorer_mean_N64'))}`.
 """
 
@@ -236,7 +241,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 
 - The empirical work is mostly state-based, but benchmark visual WAM evidence now exists for Gymnasium/MuJoCo Reacher-v5 and Gymnasium Robotics Fetch RGB frames; ManiSkill RGB/RGB-D remains unavailable locally and is documented by a generated renderer probe.
 - ManiSkill EE-control remains unavailable locally because Pinocchio is absent and the `pin` dependency path lacks binary wheels for this Windows/Python stack; this is documented by a generated dependency probe.
-- The strongest contact-rich external evidence is Gymnasium Robotics Fetch plus Meta-World ML1 and ManiSkill state mode, but still not real hardware.
+- The strongest contact-rich external evidence is Gymnasium Robotics Fetch plus Meta-World ML1, RoboSuite Panda, and ManiSkill state mode, but still not real hardware.
 - The learned models are intentionally lightweight and do not establish WAM training recipes.
 - Pilot estimates are not exact laws and can be brittle under shift.
 - Some analytic smoke artifacts are single-seed checks; paper figures should prefer five-seed learned/multi-env results.
@@ -250,7 +255,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 
 ## Remaining Gap
 
-The single highest reviewer-risk gap is absence of LIBERO/RoboCasa or real-robot evidence beyond the current Gymnasium Robotics, Meta-World, and ManiSkill state-mode suites.
+The single highest reviewer-risk gap is absence of LIBERO/RoboCasa or real-robot evidence beyond the current Gymnasium Robotics, Meta-World, RoboSuite, and ManiSkill state-mode suites.
 """
 
     ablation = f"""
@@ -337,7 +342,7 @@ If these fields are missing, rerun `bash scripts/run_multi_env.sh`.
 - More imagination helps only when scores align with real utility.
 - Under model mismatch or bad scoring, high-N selection can amplify hallucinated futures.
 - Inference-value audits diagnose tail alignment, stop rules, scorer repair, and compute-quality frontiers from artifacts.
-- Gymnasium/MuJoCo, Gymnasium Robotics Fetch, Meta-World ML1, RGB WAM-lite on Reacher-v5 and Fetch frames, and ManiSkill3 state-mode artifacts validate the benchmark path without claiming hardware evidence.
+- Gymnasium/MuJoCo, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, RGB WAM-lite on Reacher-v5 and Fetch frames, and ManiSkill3 state-mode artifacts validate the benchmark path without claiming hardware evidence.
 - ManiSkill RGB/RGB-D and EE-control attempts are documented as a blocker artifact, not counted as visual validation.
 - ManiSkill Pinocchio dependency probing documents why EE-control is not claimed in this environment.
 - Learned toy and multi-env toy artifacts support these claims with confidence intervals where the claim gate marks them verified.
@@ -364,7 +369,7 @@ If these fields are missing, rerun `bash scripts/run_multi_env.sh`.
 
 ## 1. Tier
 
-Benchmark-full plus Fetch, Meta-World, ManiSkill state-mode, visual-, blocker-probe-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, Gymnasium Robotics Fetch validation, Meta-World ML1 manipulation validation, ManiSkill3 state-mode manipulation validation, toy visual mode, Reacher RGB WAM-lite, Fetch RGB WAM-lite, ManiSkill visual/EE-control blocker probing, and inference-value audit framework artifacts.
+Benchmark-full plus Fetch, Meta-World, RoboSuite, ManiSkill state-mode, visual-, blocker-probe-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, Gymnasium Robotics Fetch validation, Meta-World ML1 manipulation validation, RoboSuite Panda manipulation validation, ManiSkill3 state-mode manipulation validation, toy visual mode, Reacher RGB WAM-lite, Fetch RGB WAM-lite, ManiSkill visual/EE-control blocker probing, and inference-value audit framework artifacts.
 
 ## 2. Strongest Verified Claims
 
@@ -394,7 +399,7 @@ The project still lacks real robot artifacts, LIBERO/RoboCasa, and ManiSkill vis
 
 ## 7. Current Answer
 
-The repo answers the mathematical and controlled toy-science objections with tests, multi-env artifacts, learned WAM-lite backbones, falsification, an anti-overclaim system, a state-based Gymnasium/MuJoCo benchmark, a three-task Gymnasium Robotics Fetch benchmark, a three-task Meta-World ML1 benchmark, and a three-task ManiSkill3 state-mode benchmark. It does not yet answer real-robot realism.
+The repo answers the mathematical and controlled toy-science objections with tests, multi-env artifacts, learned WAM-lite backbones, falsification, an anti-overclaim system, a state-based Gymnasium/MuJoCo benchmark, a three-task Gymnasium Robotics Fetch benchmark, a three-task Meta-World ML1 benchmark, a three-task RoboSuite Panda benchmark, and a three-task ManiSkill3 state-mode benchmark. It does not yet answer real-robot realism.
 
 ## 8. Unresolved
 
@@ -409,7 +414,7 @@ Yes, as a theory-plus-controlled-learned-toy paper artifact.
 
 ## 10. Main-Conference Readiness
 
-Substantially stronger after Gymnasium Robotics Fetch, Meta-World ML1, and ManiSkill state-mode validation. Still not a real-robot paper and still weaker than a benchmark-heavy robotics paper with LIBERO/RoboCasa or RGB-D manipulation.
+Substantially stronger after Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, and ManiSkill state-mode validation. Still not a real-robot paper and still weaker than a benchmark-heavy robotics paper with LIBERO/RoboCasa or RGB-D manipulation.
 
 ## 11. Single Highest-Value Next Step
 
@@ -417,13 +422,13 @@ Add LIBERO or ManiSkill RGB/RGB-D WAM validation next; that is now higher value 
 
 ## Command Results
 
-- `python -m pytest -q`: passed with `33 passed`.
+- `python -m pytest -q`: passed with `35 passed`.
 - Large analytic `scripts/run_all.sh`: attempted; the tool timeout was reached during the heavy EXP6 allocation sweep after EXP1-EXP5 refreshed. The spawned allocation process was stopped, robust EXP8 was regenerated separately, and the final claim gate remained fully verified.
 - `bash scripts/run_smoke.sh`: passed; EXP1 success MAE `0.00696`, utility MAE `0.04511`; EXP8 smoke conditional-law MAE `0.0055`.
 - `bash scripts/run_learned_wam_toy.sh`: passed; learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`.
 - `bash scripts/run_multi_env.sh`: passed with `envs=5`, `backbones=3`, `seeds=5`.
 - robust EXP8 rerun: passed; stale post-pre CI lower bound `0.0255`, stale-adaptive post CI lower bound `0.0613`.
-- `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5`, Gymnasium Robotics Fetch, Meta-World ML1, and ManiSkill3 state-mode tasks; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; Fetch exact-law utility MAE `{fmt(gym_robotics.get('exact_law_utility_mae'))}`; Meta-World exact-law utility MAE `{fmt(metaworld.get('exact_law_utility_mae'))}`; Meta-World learned-random N32 CI lower `{fmt((((metaworld.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; ManiSkill exact-law utility MAE `{fmt(maniskill.get('exact_law_utility_mae'))}`; ManiSkill closed-loop learned-random CI lower bound `{fmt(((maniskill.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_utility_N8') or {}).get('lo'))}`.
+- `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5`, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, and ManiSkill3 state-mode tasks; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; Fetch exact-law utility MAE `{fmt(gym_robotics.get('exact_law_utility_mae'))}`; Meta-World exact-law utility MAE `{fmt(metaworld.get('exact_law_utility_mae'))}`; Meta-World learned-random N32 CI lower `{fmt((((metaworld.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; RoboSuite exact-law utility MAE `{fmt(robosuite.get('exact_law_utility_mae'))}`; RoboSuite learned-random N32 CI lower `{fmt((((robosuite.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; ManiSkill exact-law utility MAE `{fmt(maniskill.get('exact_law_utility_mae'))}`; ManiSkill closed-loop learned-random CI lower bound `{fmt(((maniskill.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_utility_N8') or {}).get('lo'))}`.
 - `python experiments/benchmark_gym_robotics_suite.py`: passed with `{gym_robotics.get('env_ids')}`; exact-law utility MAE `{fmt(gym_robotics.get('exact_law_utility_mae'))}`; learned-random N32 CI lower `{fmt((((gym_robotics.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; closed-loop learned-random N32 CI lower `{fmt((((gym_robotics.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_N32') or {}).get('lo')))}`.
 - `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`; Reacher RGB WAM utility corr `{fmt((bench_visual_wam.get('validation') or {}).get('utility_corr'))}`, utility MAE `{fmt((bench_visual_wam.get('validation') or {}).get('utility_mae'))}`, visual-random N32 CI lower `{fmt((((bench_visual_wam.get('confidence_intervals') or {}).get('visual_minus_random_N32') or {}).get('lo')))}`; Fetch RGB WAM mean corr `{fmt(gym_robotics_visual.get('mean_validation_utility_corr'))}`, visual-random N32 CI lower `{fmt((((gym_robotics_visual.get('confidence_intervals') or {}).get('visual_minus_random_N32') or {}).get('lo')))}`; ManiSkill visual probe any visual success `{maniskill_visual_probe.get('any_visual_success')}` with blocker `{maniskill_visual_probe.get('visual_blocker')}`.
 - `python experiments/benchmark_maniskill_dependency_probe.py --attempt-source-install`: passed as a blocker probe; Pinocchio import `{maniskill_dependency_probe.get('pinocchio_import_available')}`, binary `pin` wheel `{maniskill_dependency_probe.get('pin_binary_wheel_available')}`, source install attempted `{maniskill_dependency_probe.get('source_install_attempted')}`.

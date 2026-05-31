@@ -1,0 +1,145 @@
+{
+  "experiment": "benchmark_robosuite_suite",
+  "attempted": true,
+  "available": true,
+  "benchmark": "RoboSuite",
+  "env_names": [
+    "Lift",
+    "Stack",
+    "Door"
+  ],
+  "robot": "Panda",
+  "controller": "BASIC",
+  "n_tasks_verified": 3,
+  "n_rollout_pools": 30,
+  "n_rollouts": 40,
+  "seeds": [
+    16001,
+    16002,
+    16003,
+    16004,
+    16005
+  ],
+  "N_values": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "model_metrics": [
+    {
+      "benchmark": "Lift",
+      "available": true,
+      "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_robosuite_Lift_wam.joblib",
+      "model_metrics": {
+        "utility_mae": 0.09973250370353985,
+        "utility_corr": 0.9107338608790962,
+        "success_mae": 0.0,
+        "distance_mae": 0.001996748902459405,
+        "reward_mae": 0.0075503628363110635,
+        "total_reward_mae": 0.03522673984489158,
+        "train_samples": 384,
+        "validation_samples": 120
+      }
+    },
+    {
+      "benchmark": "Stack",
+      "available": true,
+      "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_robosuite_Stack_wam.joblib",
+      "model_metrics": {
+        "utility_mae": 0.03319775472625897,
+        "utility_corr": 0.9658795808229008,
+        "success_mae": 0.0,
+        "distance_mae": 0.020963921849268756,
+        "reward_mae": 0.0021344623199404766,
+        "total_reward_mae": 0.010968848898851186,
+        "train_samples": 384,
+        "validation_samples": 120
+      }
+    },
+    {
+      "benchmark": "Door",
+      "available": true,
+      "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_robosuite_Door_wam.joblib",
+      "model_metrics": {
+        "utility_mae": 0.04139044766459517,
+        "utility_corr": 0.9204069223188646,
+        "success_mae": 0.0,
+        "distance_mae": 0.003617190874688034,
+        "reward_mae": 0.002821178930068025,
+        "total_reward_mae": 0.012108821689034962,
+        "train_samples": 384,
+        "validation_samples": 120
+      }
+    }
+  ],
+  "exact_law_utility_mae": 0.002398391968090119,
+  "score_comparison": {
+    "learned_minus_random_N32": 0.34011995703989517,
+    "reward_minus_random_N32": 0.35581913680152766,
+    "progress_minus_random_N32": 0.19880147876047494,
+    "oracle_minus_random_N32": 0.3676657007706588,
+    "oracle_minus_learned_N32": 0.027545743730763617
+  },
+  "closed_loop": {
+    "learned_minus_random_N8": null,
+    "reward_minus_random_N8": null
+  },
+  "confidence_intervals": {
+    "learned_minus_random_N32": {
+      "n": 5,
+      "mean": 0.34011995703989517,
+      "std": 0.0904063887583726,
+      "stderr": 0.04043096617279879,
+      "ci95": 0.07924469369868563,
+      "lo": 0.26087526334120953,
+      "hi": 0.4193646507385808
+    },
+    "reward_minus_random_N32": {
+      "n": 5,
+      "mean": 0.35581913680152766,
+      "std": 0.09194514548172689,
+      "stderr": 0.04111911909964979,
+      "ci95": 0.08059347343531359,
+      "lo": 0.27522566336621407,
+      "hi": 0.43641261023684125
+    },
+    "progress_minus_random_N32": {
+      "n": 5,
+      "mean": 0.19880147876047494,
+      "std": 0.12062499535466874,
+      "stderr": 0.05394513787972713,
+      "ci95": 0.10573247024426517,
+      "lo": 0.09306900851620976,
+      "hi": 0.3045339490047401
+    },
+    "oracle_minus_random_N32": {
+      "n": 5,
+      "mean": 0.3676657007706588,
+      "std": 0.09166374882303482,
+      "stderr": 0.04099327468815444,
+      "ci95": 0.0803468183887827,
+      "lo": 0.2873188823818761,
+      "hi": 0.4480125191594415
+    },
+    "oracle_minus_learned_N32": {
+      "n": 5,
+      "mean": 0.027545743730763617,
+      "std": 0.012628742530719862,
+      "stderr": 0.005647745353806468,
+      "ci95": 0.011069580893460676,
+      "lo": 0.01647616283730294,
+      "hi": 0.03861532462422429
+    }
+  },
+  "artifacts": {
+    "curves": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robosuite_curves.csv",
+    "curves_aggregate": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robosuite_curves_aggregate.csv",
+    "exact_law": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robosuite_exact_law.csv",
+    "closed_loop": null,
+    "seed_metrics": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robosuite_seed_metrics.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\benchmark_robosuite_curves.png"
+  }
+}

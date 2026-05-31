@@ -5,16 +5,16 @@
     {
       "split": "train",
       "n_samples": 1152,
-      "state_delta_mae": 0.03302589021050047,
-      "utility_mae": 0.31716007367161314,
-      "utility_corr": 0.30013309963915574
+      "state_delta_mae": 0.03302589021050106,
+      "utility_mae": 0.31716007367161364,
+      "utility_corr": 0.300133099639156
     },
     {
       "split": "validation",
       "n_samples": 256,
-      "state_delta_mae": 0.1882917912341998,
-      "utility_mae": 0.6074046559672108,
-      "utility_corr": 0.047033720027014614
+      "state_delta_mae": 0.18829179123422446,
+      "utility_mae": 0.6074046559672143,
+      "utility_corr": 0.047033720027016876
     }
   ]
 }

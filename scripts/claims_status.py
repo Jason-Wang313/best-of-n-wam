@@ -79,6 +79,7 @@ def main() -> None:
     maniskill_visual_probe = load_json("benchmark_maniskill_visual_probe.json")
     maniskill_dependency_probe = load_json("benchmark_maniskill_dependency_probe.json")
     metaworld = load_json("benchmark_metaworld_suite.json")
+    robosuite = load_json("benchmark_robosuite_suite.json")
     audit = load_json("inference_audit_framework.json")
     audit_learned = load_json("inference_audit_framework_learned.json")
     repair = load_json("scorer_repair_experiment.json")
@@ -508,6 +509,57 @@ def main() -> None:
         ),
         f"reward-random CI={metaworld_ci.get('reward_minus_random_N32')}; oracle-random CI={metaworld_ci.get('oracle_minus_random_N32')}",
     )
+    robosuite_ci = robosuite.get("confidence_intervals") or {}
+    add(
+        claims,
+        73,
+        "RoboSuite Panda manipulation benchmark suite verified.",
+        status(
+            bool(robosuite)
+            and robosuite.get("available", False)
+            and (robosuite.get("n_tasks_verified") or 0) >= 3
+            and (robosuite.get("n_rollout_pools") or 0) >= 30,
+            bool(robosuite),
+        ),
+        f"envs={robosuite.get('env_names')}, pools={robosuite.get('n_rollout_pools')}",
+    )
+    add(
+        claims,
+        74,
+        "RoboSuite exact law verified.",
+        status(
+            robosuite.get("exact_law_utility_mae") is not None
+            and robosuite.get("exact_law_utility_mae") < 0.02,
+            bool(robosuite),
+        ),
+        f"utility MAE={robosuite.get('exact_law_utility_mae')}",
+    )
+    add(
+        claims,
+        75,
+        "RoboSuite learned WAM scorer beats random open-loop with CI.",
+        status(
+            (robosuite_ci.get("learned_minus_random_N32") or {}).get("lo") is not None
+            and (robosuite_ci.get("learned_minus_random_N32") or {}).get("lo") > 0.0,
+            bool(robosuite),
+        ),
+        f"learned-random CI={robosuite_ci.get('learned_minus_random_N32')}",
+    )
+    add(
+        claims,
+        76,
+        "RoboSuite reward, progress, and oracle scorers beat random with CI.",
+        status(
+            (robosuite_ci.get("reward_minus_random_N32") or {}).get("lo") is not None
+            and (robosuite_ci.get("reward_minus_random_N32") or {}).get("lo") > 0.0
+            and (robosuite_ci.get("progress_minus_random_N32") or {}).get("lo") is not None
+            and (robosuite_ci.get("progress_minus_random_N32") or {}).get("lo") > 0.0
+            and (robosuite_ci.get("oracle_minus_random_N32") or {}).get("lo") is not None
+            and (robosuite_ci.get("oracle_minus_random_N32") or {}).get("lo") > 0.0,
+            bool(robosuite),
+        ),
+        f"reward-random CI={robosuite_ci.get('reward_minus_random_N32')}; progress-random CI={robosuite_ci.get('progress_minus_random_N32')}; oracle-random CI={robosuite_ci.get('oracle_minus_random_N32')}",
+    )
 
     readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
     paper_text = PAPER.read_text(encoding="utf-8") if PAPER.exists() else ""
@@ -520,8 +572,8 @@ def main() -> None:
         if pattern.lower() in paper_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
             overclaims.append({"surface": "paper_outline", "id": cid, "pattern": pattern, "status": c["status"]})
 
-    add(claims, 73, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
-    add(claims, 74, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
+    add(claims, 77, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
+    add(claims, 78, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
 
     payload = {
         "claims": claims,

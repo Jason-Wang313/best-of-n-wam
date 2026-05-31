@@ -28,19 +28,19 @@
       "id": 5,
       "claim": "Pilot-to-heldout improves with K.",
       "status": "VERIFIED",
-      "evidence": "relative MAE reduction=0.36981841294484663"
+      "evidence": "relative MAE reduction=0.43698115249631736"
     },
     {
       "id": 6,
       "claim": "Pilot uncertainty is reported.",
       "status": "VERIFIED",
-      "evidence": "pilot improvement CI={'n': 3, 'mean': 0.4562385545786219, 'std': 0.6526343629570743, 'stderr': 0.3767986251356668, 'ci95': 0.738525305265907, 'lo': -0.2822867506872851, 'hi': 1.194763859844529}"
+      "evidence": "pilot improvement CI={'n': 16, 'mean': 0.44172358371190434, 'std': 0.6445133007518349, 'stderr': 0.16112832518795872, 'ci95': 0.3158115173683991, 'lo': 0.12591206634350527, 'hi': 0.7575351010803034}"
     },
     {
       "id": 7,
       "claim": "Score function controls inference value.",
       "status": "VERIFIED",
-      "evidence": "oracle-random N64=6.6877116595064265"
+      "evidence": "oracle-random N64=6.976857029097962"
     },
     {
       "id": 8,
@@ -58,13 +58,13 @@
       "id": 10,
       "claim": "Real-vs-imagined utility gap verified.",
       "status": "VERIFIED",
-      "evidence": "severe-none=15.179989463689903"
+      "evidence": "severe-none=16.435472824968038"
     },
     {
       "id": 11,
       "claim": "Mismatch gap grows with N.",
       "status": "VERIFIED",
-      "evidence": "learned severe gap CI={'n': 5, 'mean': 13.8807751738171, 'std': 0.7005630946072382, 'stderr': 0.3133013404138802, 'ci95': 0.6140706272112052, 'lo': 13.266704546605894, 'hi': 14.494845801028305}"
+      "evidence": "learned severe gap CI={'n': 5, 'mean': 13.880775173817053, 'std': 0.7005630946072381, 'stderr': 0.31330134041388014, 'ci95': 0.6140706272112051, 'lo': 13.266704546605848, 'hi': 14.494845801028259}"
     },
     {
       "id": 12,
@@ -94,7 +94,7 @@
       "id": 16,
       "claim": "Closed-loop high-N gain verified.",
       "status": "VERIFIED",
-      "evidence": "analytic useful N64-N1=0.0; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}"
+      "evidence": "analytic useful N64-N1=0.5; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}"
     },
     {
       "id": 17,
@@ -136,7 +136,7 @@
       "id": 23,
       "claim": "Learned WAM ID error reported.",
       "status": "VERIFIED",
-      "evidence": "validation={'split': 'validation', 'mismatch': 'mild', 'n_samples': 768, 'final_delta_mae': 0.0736601208533958, 'final_position_l2_mae': 0.11172250197070284, 'utility_mae': 0.8623689603284173, 'utility_rmse': 1.1687153364750877, 'utility_corr': 0.8944539743322287}"
+      "evidence": "validation={'split': 'validation', 'mismatch': 'mild', 'n_samples': 768, 'final_delta_mae': 0.07366012085339552, 'final_position_l2_mae': 0.11172250197070248, 'utility_mae': 0.8623689603284147, 'utility_rmse': 1.1687153364750862, 'utility_corr': 0.894453974332229}"
     },
     {
       "id": 24,
@@ -208,7 +208,7 @@
       "id": 35,
       "claim": "Benchmark real-vs-imagined gap verified.",
       "status": "VERIFIED",
-      "evidence": "gap growth=0.14372151651340698"
+      "evidence": "gap growth=0.14372151651340617"
     },
     {
       "id": 36,
@@ -328,7 +328,7 @@
       "id": 55,
       "claim": "Benchmark RGB visual WAM-lite trained and evaluated.",
       "status": "VERIFIED",
-      "evidence": "model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.21993289086640203, 'success_mae': 0.18271949404761903}"
+      "evidence": "model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.21993289086640205, 'success_mae': 0.18271949404761903}"
     },
     {
       "id": 56,
@@ -382,7 +382,7 @@
       "id": 64,
       "claim": "Gymnasium Robotics RGB visual WAM trained and evaluated.",
       "status": "VERIFIED",
-      "evidence": "envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.7325062733110718"
+      "evidence": "envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.732506273311072"
     },
     {
       "id": 65,
@@ -418,35 +418,59 @@
       "id": 70,
       "claim": "Meta-World exact law verified.",
       "status": "VERIFIED",
-      "evidence": "utility MAE=0.023526234387278428"
+      "evidence": "utility MAE=0.029992138628937036"
     },
     {
       "id": 71,
       "claim": "Meta-World learned WAM scorer beats random open-loop with CI.",
       "status": "VERIFIED",
-      "evidence": "learned-random CI={'n': 5, 'mean': 0.1321569963083081, 'std': 0.052626968366564504, 'stderr': 0.02353549574347386, 'ci95': 0.04612957165720876, 'lo': 0.08602742465109933, 'hi': 0.17828656796551687}"
+      "evidence": "learned-random CI={'n': 5, 'mean': 0.10349710533879537, 'std': 0.09029444087378327, 'stderr': 0.04038090155682298, 'ci95': 0.07914656705137305, 'lo': 0.024350538287422327, 'hi': 0.18264367239016843}"
     },
     {
       "id": 72,
       "claim": "Meta-World oracle and benchmark-reward scorers beat random with CI.",
       "status": "VERIFIED",
-      "evidence": "reward-random CI={'n': 5, 'mean': 0.4645505227694846, 'std': 0.03137175314810848, 'stderr': 0.014029874522502716, 'ci95': 0.027498554064105323, 'lo': 0.43705196870537927, 'hi': 0.49204907683358995}; oracle-random CI={'n': 5, 'mean': 0.5191204413622994, 'std': 0.035016716358778836, 'stderr': 0.01565995162541168, 'ci95': 0.03069350518580689, 'lo': 0.4884269361764925, 'hi': 0.5498139465481063}"
+      "evidence": "reward-random CI={'n': 5, 'mean': 0.5479080643743025, 'std': 0.0714613539476861, 'stderr': 0.031958489038239814, 'ci95': 0.06263863851495004, 'lo': 0.48526942585935245, 'hi': 0.6105467028892525}; oracle-random CI={'n': 5, 'mean': 0.5747757207564779, 'std': 0.05954906939708425, 'stderr': 0.026631153433746557, 'ci95': 0.05219706073014325, 'lo': 0.5225786600263346, 'hi': 0.6269727814866212}"
     },
     {
       "id": 73,
+      "claim": "RoboSuite Panda manipulation benchmark suite verified.",
+      "status": "VERIFIED",
+      "evidence": "envs=['Lift', 'Stack', 'Door'], pools=30"
+    },
+    {
+      "id": 74,
+      "claim": "RoboSuite exact law verified.",
+      "status": "VERIFIED",
+      "evidence": "utility MAE=0.002398391968090119"
+    },
+    {
+      "id": 75,
+      "claim": "RoboSuite learned WAM scorer beats random open-loop with CI.",
+      "status": "VERIFIED",
+      "evidence": "learned-random CI={'n': 5, 'mean': 0.34011995703989517, 'std': 0.0904063887583726, 'stderr': 0.04043096617279879, 'ci95': 0.07924469369868563, 'lo': 0.26087526334120953, 'hi': 0.4193646507385808}"
+    },
+    {
+      "id": 76,
+      "claim": "RoboSuite reward, progress, and oracle scorers beat random with CI.",
+      "status": "VERIFIED",
+      "evidence": "reward-random CI={'n': 5, 'mean': 0.35581913680152766, 'std': 0.09194514548172689, 'stderr': 0.04111911909964979, 'ci95': 0.08059347343531359, 'lo': 0.27522566336621407, 'hi': 0.43641261023684125}; progress-random CI={'n': 5, 'mean': 0.19880147876047494, 'std': 0.12062499535466874, 'stderr': 0.05394513787972713, 'ci95': 0.10573247024426517, 'lo': 0.09306900851620976, 'hi': 0.3045339490047401}; oracle-random CI={'n': 5, 'mean': 0.3676657007706588, 'std': 0.09166374882303482, 'stderr': 0.04099327468815444, 'ci95': 0.0803468183887827, 'lo': 0.2873188823818761, 'hi': 0.4480125191594415}"
+    },
+    {
+      "id": 77,
       "claim": "README has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "README overclaims=0"
     },
     {
-      "id": 74,
+      "id": 78,
       "claim": "paper_outline has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "paper overclaims=0"
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 74,
+  "num_verified": 78,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

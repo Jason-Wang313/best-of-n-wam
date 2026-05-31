@@ -24,6 +24,11 @@
       "reason": "reach-v3 available"
     },
     {
+      "name": "robosuite",
+      "available": true,
+      "reason": "Lift/Panda available"
+    },
+    {
       "name": "libero",
       "available": false,
       "reason": "libero import not found; local pip install failed while building hf-egl-probe/egl_probe on Windows"

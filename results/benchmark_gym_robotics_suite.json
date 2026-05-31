@@ -23,7 +23,7 @@
         "utility_mae": 0.3620516374475817,
         "utility_corr": 0.9489949929455764,
         "success_mae": 0.10459587191358025,
-        "distance_mae": 0.03270217264771076,
+        "distance_mae": 0.03270217264771077,
         "train_samples": 768,
         "validation_samples": 288
       }
@@ -37,7 +37,7 @@
         "utility_mae": 0.5755488778690753,
         "utility_corr": 0.3002657535838115,
         "success_mae": 0.17709780092592595,
-        "distance_mae": 0.057122815386701976,
+        "distance_mae": 0.05712281538670197,
         "train_samples": 768,
         "validation_samples": 288
       }
@@ -51,7 +51,7 @@
         "utility_mae": 0.0666936059129334,
         "utility_corr": 0.6921316797643627,
         "success_mae": 0.0,
-        "distance_mae": 0.06519398794910417,
+        "distance_mae": 0.06519398794910418,
         "train_samples": 768,
         "validation_samples": 288
       }

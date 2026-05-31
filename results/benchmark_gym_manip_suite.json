@@ -25,16 +25,16 @@
     {
       "split": "train",
       "n_samples": 1152,
-      "state_delta_mae": 0.03302589021050047,
-      "utility_mae": 0.31716007367161314,
-      "utility_corr": 0.30013309963915574
+      "state_delta_mae": 0.03302589021050106,
+      "utility_mae": 0.31716007367161364,
+      "utility_corr": 0.300133099639156
     },
     {
       "split": "validation",
       "n_samples": 256,
-      "state_delta_mae": 0.1882917912341998,
-      "utility_mae": 0.6074046559672108,
-      "utility_corr": 0.047033720027014614
+      "state_delta_mae": 0.18829179123422446,
+      "utility_mae": 0.6074046559672143,
+      "utility_corr": 0.047033720027016876
     }
   ],
   "exact_law_utility_mae": 0.018753143169510465,
@@ -44,7 +44,7 @@
     "oracle_minus_random_real_utility_N32": 1.7107893171571196
   },
   "real_vs_predicted_gap": {
-    "gap_growth_N32_minus_N1": 0.14372151651340698
+    "gap_growth_N32_minus_N1": 0.14372151651340617
   },
   "closed_loop": {
     "learned_minus_random_utility_N32": 1.7643643582266495

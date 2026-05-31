@@ -33,33 +33,33 @@
       "benchmark": "PickCube-v1",
       "split": "train",
       "n_samples": 128,
-      "state_delta_mae": 0.01086310159071392,
+      "state_delta_mae": 0.010863101590713919,
       "utility_mae": 0.08192695224360386,
-      "utility_corr": 0.6785251356097004
+      "utility_corr": 0.6785251356097003
     },
     {
       "benchmark": "PickCube-v1",
       "split": "validation",
       "n_samples": 48,
-      "state_delta_mae": 0.024803164489814088,
-      "utility_mae": 0.15002156176033457,
-      "utility_corr": -0.13516216185848468
+      "state_delta_mae": 0.024803164489959024,
+      "utility_mae": 0.1500215617716668,
+      "utility_corr": -0.135162161862313
     },
     {
       "benchmark": "PushCube-v1",
       "split": "train",
       "n_samples": 128,
-      "state_delta_mae": 0.009424460933493592,
-      "utility_mae": 0.11492025761685379,
-      "utility_corr": 0.6645973864639606
+      "state_delta_mae": 0.00942446093349359,
+      "utility_mae": 0.1149202576168538,
+      "utility_corr": 0.6645973864639603
     },
     {
       "benchmark": "PushCube-v1",
       "split": "validation",
       "n_samples": 48,
-      "state_delta_mae": 0.020710539531849006,
-      "utility_mae": 0.19431730926143567,
-      "utility_corr": 0.0447834605615621
+      "state_delta_mae": 0.0207105395318438,
+      "utility_mae": 0.19431730925817414,
+      "utility_corr": 0.04478346056030674
     },
     {
       "benchmark": "PegInsertionSide-v1",
@@ -67,15 +67,15 @@
       "n_samples": 128,
       "state_delta_mae": 0.011373494020374861,
       "utility_mae": 0.03226629324393962,
-      "utility_corr": 0.7030182201335277
+      "utility_corr": 0.7030182201335274
     },
     {
       "benchmark": "PegInsertionSide-v1",
       "split": "validation",
       "n_samples": 48,
-      "state_delta_mae": 0.023306306872445084,
-      "utility_mae": 0.06017837865202058,
-      "utility_corr": 0.47275014846433344
+      "state_delta_mae": 0.02330630687271009,
+      "utility_mae": 0.060178378644762026,
+      "utility_corr": 0.47275014835073587
     }
   ],
   "exact_law_utility_mae": 0.0034490668019852445,
@@ -86,7 +86,7 @@
     "oracle_minus_learned_real_utility_N32": 0.25361343470829395
   },
   "real_vs_predicted_gap": {
-    "gap_growth_N32_minus_N1": 0.2341811559581971
+    "gap_growth_N32_minus_N1": 0.23418115595819683
   },
   "closed_loop": {
     "learned_minus_random_utility_N8": 0.027762312500152514

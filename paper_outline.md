@@ -92,6 +92,8 @@ Gymnasium Robotics Fetch is integrated on `FetchReach-v4`, `FetchPush-v4`, and `
 
 Meta-World ML1 is integrated on `reach-v3`, `push-v3`, and `drawer-open-v3`, adding an independent Sawyer manipulation benchmark with learned state/action-sequence WAM-lite training, exact-law validation, scorer comparison, and small closed-loop traces. Artifact-backed Meta-World claims are open-loop; the current closed-loop Meta-World deltas are reported but not promoted because their CIs cross zero.
 
+RoboSuite is integrated on Panda `Lift`, `Stack`, and `Door`, adding an independent MuJoCo manipulation benchmark with clone-restored rollout pools, learned state/action-sequence WAM-lite training, exact-law validation, and open-loop scorer comparison. Closed-loop RoboSuite is not promoted because the current artifact is open-loop only.
+
 ManiSkill3 is integrated in CPU state mode on `PickCube-v1`, `PushCube-v1`, and `PegInsertionSide-v1` with `pd_joint_delta_pos` control. Artifact-backed ManiSkill claims include rollout pools, exact-law validation, score comparison, WAM-lite training, and a small closed-loop learned-versus-random comparison. End-effector delta-pose control is not claimed because Pinocchio was unavailable in this Windows environment; a generated probe records the failed EE-control attempts.
 
 A separate ManiSkill dependency probe records that Pinocchio is not importable and that pip does not expose binary `pin`/`cmeel-boost` wheels for this Windows/Python stack. This supports the limitation statement; it is not evidence for EE-control validation.
