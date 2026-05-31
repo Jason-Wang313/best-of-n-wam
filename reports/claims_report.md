@@ -2,7 +2,7 @@
 
 ## Counts
 
-- verified: `80`
+- verified: `81`
 - partial: `0`
 - unsupported: `0`
 - failed: `0`
@@ -88,8 +88,9 @@
 - 76. RoboSuite reward, progress, and oracle scorers beat random with CI. Evidence: reward-random CI={'n': 5, 'mean': 0.33580473945491357, 'std': 0.0845123155588677, 'stderr': 0.03779505650510826, 'ci95': 0.07407831075001219, 'lo': 0.26172642870490137, 'hi': 0.40988305020492577}; progress-random CI={'n': 5, 'mean': 0.1829135769086768, 'std': 0.11887225635263822, 'stderr': 0.053161289168656055, 'ci95': 0.10419612677056586, 'lo': 0.07871745013811093, 'hi': 0.28710970367924266}; oracle-random CI={'n': 5, 'mean': 0.3554064768118671, 'std': 0.09637875214875093, 'stderr': 0.0431018882782422, 'ci95': 0.08447970102535471, 'lo': 0.27092677578651236, 'hi': 0.43988617783722184}
 - 77. RoboSuite closed-loop learned and reward scorers beat random. Evidence: learned-random CI={'n': 5, 'mean': 0.08618701545420379, 'std': 0.00732792326762759, 'stderr': 0.0032771469120635353, 'ci95': 0.006423207947644529, 'lo': 0.07976380750655926, 'hi': 0.09261022340184832}; reward-random CI={'n': 5, 'mean': 0.0742545661373815, 'std': 0.02836672038992971, 'stderr': 0.012685983018122434, 'ci95': 0.02486452671551997, 'lo': 0.04939003942186153, 'hi': 0.09911909285290148}
 - 78. RoboCasa kitchen benchmark smoke verified. Evidence: env=robocasa/PickPlaceCounterToCabinet, pools=5, rollouts=80, exact MAE=0.0002724664778796843, oracle-random CI={'n': 5, 'mean': 0.2737591862068588, 'std': 0.13943158358342508, 'stderr': 0.06235569982059644, 'ci95': 0.12221717164836901, 'lo': 0.15154201455848978, 'hi': 0.3959763578552278}
-- 79. README has no unsupported claims. Evidence: README overclaims=0
-- 80. paper_outline has no unsupported claims. Evidence: paper overclaims=0
+- 79. RoboCasa learned WAM-lite scorer beats random with CI. Evidence: train=80, val=32, eval=80, utility corr=0.7639608394479505, learned-random CI={'n': 5, 'mean': 0.14832993183038654, 'std': 0.11178217873717447, 'stderr': 0.04999051006587074, 'ci95': 0.09798139972910665, 'lo': 0.05034853210127989, 'hi': 0.2463113315594932}
+- 80. README has no unsupported claims. Evidence: README overclaims=0
+- 81. paper_outline has no unsupported claims. Evidence: paper overclaims=0
 
 ## Partial
 

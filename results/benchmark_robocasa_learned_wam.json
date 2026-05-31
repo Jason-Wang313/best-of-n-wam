@@ -1,0 +1,80 @@
+{
+  "experiment": "benchmark_robocasa_learned_wam",
+  "attempted": true,
+  "available": true,
+  "verified": true,
+  "env_id": "robocasa/PickPlaceCounterToCabinet",
+  "split": "pretrain",
+  "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_robocasa_ridge_wam.npz",
+  "model_type": "ridge_state_action_sequence_wam",
+  "train_states": 5,
+  "train_rollouts": 16,
+  "train_samples": 80,
+  "validation_states": 2,
+  "validation_rollouts": 16,
+  "validation_samples": 32,
+  "eval_states": 5,
+  "eval_rollouts": 16,
+  "eval_samples": 80,
+  "horizon": 3,
+  "n_values": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "model_metrics": {
+    "utility_mae": 0.013778430339888795,
+    "utility_corr": 0.7639608394479505,
+    "progress_mae": 0.0128273513407309,
+    "progress_corr": 0.5241753131400312,
+    "final_distance_mae": 0.32034040744536074,
+    "energy_mae": 0.5466521423718547,
+    "success_mae": 0.0
+  },
+  "exact_law_utility_mae": 0.0002343183527097224,
+  "confidence_intervals": {
+    "learned_minus_random_N8": {
+      "n": 5,
+      "mean": 0.14832993183038654,
+      "std": 0.11178217873717447,
+      "stderr": 0.04999051006587074,
+      "ci95": 0.09798139972910665,
+      "lo": 0.05034853210127989,
+      "hi": 0.2463113315594932
+    },
+    "oracle_minus_random_N8": {
+      "n": 5,
+      "mean": 0.27496385031695886,
+      "std": 0.08094330152635058,
+      "stderr": 0.03619894490723648,
+      "ci95": 0.07094993201818349,
+      "lo": 0.20401391829877535,
+      "hi": 0.34591378233514236
+    },
+    "oracle_minus_learned_N8": {
+      "n": 5,
+      "mean": 0.12663391848657232,
+      "std": 0.05562720957166419,
+      "stderr": 0.024877244400173616,
+      "ci95": 0.04875939902434029,
+      "lo": 0.07787451946223203,
+      "hi": 0.1753933175109126
+    },
+    "low_energy_minus_random_N8": {
+      "n": 5,
+      "mean": 0.17163538560473257,
+      "std": 0.13313270291639395,
+      "stderr": 0.05953875474986827,
+      "ci95": 0.1166959593097418,
+      "lo": 0.05493942629499077,
+      "hi": 0.2883313449144744
+    }
+  },
+  "curves_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_learned_curves.csv",
+  "exact_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_learned_exact_law.csv",
+  "data_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_learned_train_validation.csv",
+  "eval_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_learned_eval_rollouts.csv",
+  "seed_metrics_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_learned_seed_metrics.csv",
+  "note": "Lightweight optional RoboCasa learned WAM-lite; promoted only when learned-vs-random CI is positive."
+}

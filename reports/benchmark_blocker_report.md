@@ -22,4 +22,10 @@ Remaining unavailable adapters: libero, robocasa.
 ## Separate RoboCasa Smoke Artifact
 
 RoboCasa is unavailable in the active Python environment but has a verified external smoke artifact: `robocasa/PickPlaceCounterToCabinet`, `80` rollouts, exact-law utility MAE `0.0002724664778796843`.
-This is smoke-only, not full RoboCasa learned-WAM validation.
+This is single task only, not full multi-task RoboCasa validation.
+
+## Separate RoboCasa Learned-WAM Artifact
+
+A lightweight ridge state/action-sequence WAM-lite was trained on `80` single-task RoboCasa rollouts and evaluated on `80` heldout rollouts.
+Validation utility correlation is `0.7639608394479505`; learned-minus-random N8 CI lower bound is `0.05034853210127989`.
+This supports only a single-task contact-rich sanity check, not a multi-task RoboCasa benchmark.

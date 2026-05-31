@@ -63,6 +63,7 @@ def main() -> None:
     metaworld = load_json("benchmark_metaworld_suite.json")
     robosuite = load_json("benchmark_robosuite_suite.json")
     robocasa = load_json("benchmark_robocasa_smoke.json")
+    robocasa_learned = load_json("benchmark_robocasa_learned_wam.json")
     gym_robotics = load_json("benchmark_gym_robotics_suite.json")
     bench_visual = load_json("benchmark_visual_optional.json")
     bench_visual_wam = load_json("benchmark_visual_wam_lite.json")
@@ -99,8 +100,8 @@ Audit date: 2026-05-30.
 ## 2. Toy-Only
 
 - The main controlled environments are CPU toy environments.
-- Gymnasium/MuJoCo Reacher-v5, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill3 state-mode tasks, and RoboCasa kitchen smoke now have external benchmark artifacts.
-- No real robot, DreamZero, UWM, or LIBERO result is claimed; RoboCasa is smoke-only, not a full learned-WAM benchmark.
+- Gymnasium/MuJoCo Reacher-v5, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill3 state-mode tasks, and RoboCasa kitchen smoke plus single-task learned-WAM artifacts now have external benchmark artifacts.
+- No real robot, DreamZero, UWM, or LIBERO result is claimed; RoboCasa is single-task only, not a full multi-task benchmark.
 
 ## 3. Learned-Model Evidence
 
@@ -112,7 +113,7 @@ Audit date: 2026-05-30.
 ## 4. Missing For Robotics Reviewers
 
 - LIBERO benchmark artifacts are still missing.
-- Full RoboCasa learned-WAM benchmark artifacts are still missing; current RoboCasa evidence is a single-task smoke rollout pool.
+- Full multi-task RoboCasa learned-WAM benchmark artifacts are still missing; current RoboCasa evidence is a single-task smoke rollout pool plus a lightweight learned-WAM sanity check.
 - ManiSkill evidence is state-mode and joint-delta controlled; end-effector delta-pose control is not claimed because Pinocchio was unavailable.
 - Meta-World ML1 evidence covers `reach-v3`, `push-v3`, and `drawer-open-v3` with state/action-sequence WAM-lite artifacts.
 - RoboSuite evidence covers Panda `Lift`, `Stack`, and `Door` with clone-restored MuJoCo rollout pools, state/action-sequence WAM-lite artifacts, and small closed-loop learned/reward-versus-random evaluation.
@@ -128,7 +129,7 @@ Audit date: 2026-05-30.
 
 ## 6. README Claim Guarding
 
-- README must state LIBERO as optional/future and RoboCasa as smoke-only unless full artifacts exist.
+- README must state LIBERO as optional/future and RoboCasa as single-task unless full multi-task artifacts exist.
 - README must state ManiSkill as state-mode joint-delta evidence only, not EE-control or real-robot evidence.
 - README must call current evidence learned-toy and multi-env toy validation.
 - README must not claim real robot evidence or universal WAM training laws.
@@ -167,7 +168,7 @@ Audit date: 2026-05-30.
 
 ## Execution Tier
 
-Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, Gymnasium Robotics Fetch benchmark, Meta-World ML1, RoboSuite Panda benchmark, ManiSkill3 state-mode benchmark, toy visual mode, Reacher RGB WAM-lite, and Fetch RGB WAM-lite.
+Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium/MuJoCo Reacher-v5 benchmark, Gymnasium Robotics Fetch benchmark, Meta-World ML1, RoboSuite Panda benchmark, ManiSkill3 state-mode benchmark, RoboCasa single-task learned WAM-lite, toy visual mode, Reacher RGB WAM-lite, and Fetch RGB WAM-lite.
 
 ## Artifact Coverage
 
@@ -180,6 +181,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - Meta-World suite: `{metaworld.get('task_names')}`; rollout pools: `{metaworld.get('n_rollout_pools')}`; exact-law MAE: `{fmt(metaworld.get('exact_law_utility_mae'))}`; learned-random N32 CI lower: `{fmt((((metaworld.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; reward-random N32 CI lower: `{fmt((((metaworld.get('confidence_intervals') or {}).get('reward_minus_random_N32') or {}).get('lo')))}`.
 - RoboSuite suite: `{robosuite.get('env_names')}`; rollout pools: `{robosuite.get('n_rollout_pools')}`; exact-law MAE: `{fmt(robosuite.get('exact_law_utility_mae'))}`; learned-random N32 CI lower: `{fmt((((robosuite.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; reward-random N32 CI lower: `{fmt((((robosuite.get('confidence_intervals') or {}).get('reward_minus_random_N32') or {}).get('lo')))}`; closed-loop learned-random N8 CI lower: `{fmt((((robosuite.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_N8') or {}).get('lo')))}`.
 - ManiSkill suite: `{maniskill.get('env_ids')}`; rollout pools: `{maniskill.get('n_rollout_pools')}`; exact-law MAE: `{fmt(maniskill.get('exact_law_utility_mae'))}`; control: `{maniskill.get('control_mode')}`.
+- RoboCasa learned WAM-lite: verified `{robocasa_learned.get('verified')}`; train samples `{robocasa_learned.get('train_samples')}`; eval samples `{robocasa_learned.get('eval_samples')}`; utility corr `{fmt(((robocasa_learned.get('model_metrics') or {}).get('utility_corr')))}`; learned-random N8 CI lower `{fmt((((robocasa_learned.get('confidence_intervals') or {}).get('learned_minus_random_N8') or {}).get('lo')))}`.
 - Visual attempted: `{visual.get('attempted')}`; visual verified: `{visual.get('verified')}`.
 - Benchmark visual verified: `{bench_visual.get('verified')}`.
 - Benchmark RGB WAM-lite: `{bench_visual_wam.get('model_type')}`; verified: `{bench_visual_wam.get('verified')}`; utility corr: `{fmt((bench_visual_wam.get('validation') or {}).get('utility_corr'))}`; utility MAE: `{fmt((bench_visual_wam.get('validation') or {}).get('utility_mae'))}`; exact-law MAE: `{fmt(bench_visual_wam.get('exact_law_utility_mae'))}`.
@@ -205,6 +207,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboSuite: Lift, Stack, and Door Panda manipulation artifacts generated, including small closed-loop traces.
 - ManiSkill: PickCube-v1, PushCube-v1, and PegInsertionSide-v1 state-mode artifacts generated.
 - RoboCasa: `PickPlaceCounterToCabinet` kitchen smoke artifact generated in a separate RoboCasa-compatible environment; exact-law utility MAE `{fmt(robocasa.get('exact_law_utility_mae'))}` over `{robocasa.get('n_rollouts_total')}` rollouts.
+- RoboCasa learned WAM-lite: single-task `PickPlaceCounterToCabinet` ridge state/action-sequence WAM trained on `{robocasa_learned.get('train_samples')}` rollouts and evaluated on `{robocasa_learned.get('eval_samples')}` heldout rollouts.
 - Visual: toy visual mode verified with MAE `{fmt(visual.get('test_mae'))}`.
 - Benchmark visual WAM: Reacher-v5 RGB-frame/action-sequence model verified with visual-random N32 CI lower bound `{fmt((((bench_visual_wam.get('confidence_intervals') or {}).get('visual_minus_random_N32') or {}).get('lo')))}`.
 - Gymnasium Robotics visual WAM: Fetch RGB-frame/action-sequence models verified with visual-random N32 CI lower bound `{fmt((((gym_robotics_visual.get('confidence_intervals') or {}).get('visual_minus_random_N32') or {}).get('lo')))}`.
@@ -228,6 +231,8 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - Meta-World exact-law MAE: `{fmt(metaworld.get('exact_law_utility_mae'))}`.
 - RoboSuite exact-law MAE: `{fmt(robosuite.get('exact_law_utility_mae'))}`.
 - RoboCasa smoke exact-law MAE: `{fmt(robocasa.get('exact_law_utility_mae'))}`.
+- RoboCasa learned WAM utility corr: `{fmt(((robocasa_learned.get('model_metrics') or {}).get('utility_corr')))}`.
+- RoboCasa learned-random N8 CI lower: `{fmt((((robocasa_learned.get('confidence_intervals') or {}).get('learned_minus_random_N8') or {}).get('lo')))}`.
 - Falsification anti-scorer N64 mean utility: `{fmt(fals.get('anti_scorer_mean_N64'))}`.
 """
 
@@ -259,7 +264,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 
 ## Remaining Gap
 
-The single highest reviewer-risk gap is absence of full LIBERO/full RoboCasa learned-WAM or real-robot evidence beyond the current Gymnasium Robotics, Meta-World, RoboSuite, ManiSkill state-mode suites, and RoboCasa smoke.
+The single highest reviewer-risk gap is absence of LIBERO, multi-task RoboCasa, or real-robot evidence beyond the current Gymnasium Robotics, Meta-World, RoboSuite, ManiSkill state-mode suites, and single-task RoboCasa artifacts.
 """
 
     ablation = f"""
@@ -346,14 +351,14 @@ If these fields are missing, rerun `bash scripts/run_multi_env.sh`.
 - More imagination helps only when scores align with real utility.
 - Under model mismatch or bad scoring, high-N selection can amplify hallucinated futures.
 - Inference-value audits diagnose tail alignment, stop rules, scorer repair, and compute-quality frontiers from artifacts.
-- Gymnasium/MuJoCo, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, RGB WAM-lite on Reacher-v5 and Fetch frames, ManiSkill3 state-mode, and RoboCasa kitchen-smoke artifacts validate the benchmark path without claiming hardware evidence.
+- Gymnasium/MuJoCo, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, RGB WAM-lite on Reacher-v5 and Fetch frames, ManiSkill3 state-mode, and single-task RoboCasa kitchen learned-WAM artifacts validate the benchmark path without claiming hardware evidence.
 - ManiSkill RGB/RGB-D and EE-control attempts are documented as a blocker artifact, not counted as visual validation.
 - ManiSkill Pinocchio dependency probing documents why EE-control is not claimed in this environment.
 - Learned toy and multi-env toy artifacts support these claims with confidence intervals where the claim gate marks them verified.
 
 ## Discussion-Only Claims
 
-- LIBERO integration readiness and full RoboCasa learned-WAM validation.
+- LIBERO integration readiness and multi-task/full RoboCasa learned-WAM validation.
 - ManiSkill beyond state-mode joint-delta control.
 - ManiSkill RGB/RGB-D WAM validation.
 - Universal WAM train-inference optimization.
@@ -362,7 +367,7 @@ If these fields are missing, rerun `bash scripts/run_multi_env.sh`.
 ## Do Not Claim
 
 - Real robot validation.
-- LIBERO validation or full RoboCasa validation.
+- LIBERO validation or multi-task/full RoboCasa validation.
 - ManiSkill RGB/RGB-D or EE-control validation.
 - A universal WAM training recipe.
 - That increasing N is intrinsically beneficial.
@@ -373,7 +378,7 @@ If these fields are missing, rerun `bash scripts/run_multi_env.sh`.
 
 ## 1. Tier
 
-Benchmark-full plus Fetch, Meta-World, RoboSuite, ManiSkill state-mode, RoboCasa smoke, visual-, blocker-probe-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, Gymnasium Robotics Fetch validation, Meta-World ML1 manipulation validation, RoboSuite Panda manipulation validation, ManiSkill3 state-mode manipulation validation, RoboCasa kitchen smoke validation, toy visual mode, Reacher RGB WAM-lite, Fetch RGB WAM-lite, ManiSkill visual/EE-control blocker probing, and inference-value audit framework artifacts.
+Benchmark-full plus Fetch, Meta-World, RoboSuite, ManiSkill state-mode, RoboCasa single-task learned WAM-lite, visual-, blocker-probe-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, Gymnasium Robotics Fetch validation, Meta-World ML1 manipulation validation, RoboSuite Panda manipulation validation, ManiSkill3 state-mode manipulation validation, RoboCasa kitchen smoke and learned-WAM validation, toy visual mode, Reacher RGB WAM-lite, Fetch RGB WAM-lite, ManiSkill visual/EE-control blocker probing, and inference-value audit framework artifacts.
 
 ## 2. Strongest Verified Claims
 
@@ -392,23 +397,23 @@ Benchmark-full plus Fetch, Meta-World, RoboSuite, ManiSkill state-mode, RoboCasa
 
 ## 5. Discussion-Only Claims
 
-- LIBERO integration and full RoboCasa learned-WAM validation.
+- LIBERO integration and multi-task/full RoboCasa learned-WAM validation.
 - ManiSkill RGB/RGB-D or EE-control validation.
 - ManiSkill RGB/RGB-D benchmark WAM validation.
 - Universal WAM training and train-inference scaling.
 
 ## 6. Skeptical Reviewer Attack
 
-The project still lacks real robot artifacts, LIBERO, full RoboCasa learned-WAM validation, and ManiSkill visual or EE-control validation.
+The project still lacks real robot artifacts, LIBERO, multi-task RoboCasa learned-WAM validation, and ManiSkill visual or EE-control validation.
 
 ## 7. Current Answer
 
-The repo answers the mathematical and controlled toy-science objections with tests, multi-env artifacts, learned WAM-lite backbones, falsification, an anti-overclaim system, a state-based Gymnasium/MuJoCo benchmark, a three-task Gymnasium Robotics Fetch benchmark, a three-task Meta-World ML1 benchmark, a three-task RoboSuite Panda benchmark, a three-task ManiSkill3 state-mode benchmark, and a RoboCasa kitchen smoke probe. It does not yet answer real-robot realism.
+The repo answers the mathematical and controlled toy-science objections with tests, multi-env artifacts, learned WAM-lite backbones, falsification, an anti-overclaim system, a state-based Gymnasium/MuJoCo benchmark, a three-task Gymnasium Robotics Fetch benchmark, a three-task Meta-World ML1 benchmark, a three-task RoboSuite Panda benchmark, a three-task ManiSkill3 state-mode benchmark, and a single-task RoboCasa kitchen learned-WAM artifact. It does not yet answer real-robot realism.
 
 ## 8. Unresolved
 
 - LIBERO rollout collection.
-- Full RoboCasa learned-WAM rollout collection beyond the smoke artifact.
+- Multi-task/full RoboCasa learned-WAM rollout collection beyond the single-task artifact.
 - ManiSkill RGB/RGB-D or end-effector-control validation.
 - Real robot validation.
 - Strong ManiSkill RGB/RGB-D WAM evidence; current repo has only a local failure probe with exact renderer/control blockers.
@@ -419,21 +424,21 @@ Yes, as a theory-plus-controlled-learned-toy paper artifact.
 
 ## 10. Main-Conference Readiness
 
-Substantially stronger after Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill state-mode validation, and RoboCasa smoke. Still not a real-robot paper and still weaker than a benchmark-heavy robotics paper with full LIBERO/full RoboCasa or RGB-D manipulation.
+Substantially stronger after Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill state-mode validation, and single-task RoboCasa learned-WAM validation. Still not a real-robot paper and still weaker than a benchmark-heavy robotics paper with full LIBERO/multi-task RoboCasa or RGB-D manipulation.
 
 ## 11. Single Highest-Value Next Step
 
-Add full RoboCasa learned-WAM or LIBERO validation next; ManiSkill RGB/RGB-D WAM validation remains the other high-value path if the local SAPIEN/Vulkan blocker is cleared.
+Add multi-task RoboCasa learned-WAM or LIBERO validation next; ManiSkill RGB/RGB-D WAM validation remains the other high-value path if the local SAPIEN/Vulkan blocker is cleared.
 
 ## Command Results
 
-- `python -m pytest -q`: passed with `35 passed`.
+- `python -m pytest -q`: passed with `36 passed`.
 - Large analytic `scripts/run_all.sh`: attempted; the tool timeout was reached during the heavy EXP6 allocation sweep after EXP1-EXP5 refreshed. The spawned allocation process was stopped, robust EXP8 was regenerated separately, and the final claim gate remained fully verified.
 - `bash scripts/run_smoke.sh`: passed; EXP1 success MAE `0.00696`, utility MAE `0.04511`; EXP8 smoke conditional-law MAE `0.0055`.
 - `bash scripts/run_learned_wam_toy.sh`: passed; learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`.
 - `bash scripts/run_multi_env.sh`: passed with `envs=5`, `backbones=3`, `seeds=5`.
 - robust EXP8 rerun: passed; stale post-pre CI lower bound `0.0255`, stale-adaptive post CI lower bound `0.0613`.
-- `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5`, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, and ManiSkill3 state-mode tasks; optional RoboCasa smoke was generated separately with `ROBOCASA_PYTHON`; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; Fetch exact-law utility MAE `{fmt(gym_robotics.get('exact_law_utility_mae'))}`; Meta-World exact-law utility MAE `{fmt(metaworld.get('exact_law_utility_mae'))}`; Meta-World learned-random N32 CI lower `{fmt((((metaworld.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; RoboSuite exact-law utility MAE `{fmt(robosuite.get('exact_law_utility_mae'))}`; RoboSuite learned-random N32 CI lower `{fmt((((robosuite.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; RoboSuite closed-loop learned-random N8 CI lower `{fmt((((robosuite.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_N8') or {}).get('lo')))}`; ManiSkill exact-law utility MAE `{fmt(maniskill.get('exact_law_utility_mae'))}`; ManiSkill closed-loop learned-random CI lower bound `{fmt(((maniskill.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_utility_N8') or {}).get('lo'))}`; RoboCasa smoke exact-law utility MAE `{fmt(robocasa.get('exact_law_utility_mae'))}`.
+- `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5`, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, and ManiSkill3 state-mode tasks; optional RoboCasa smoke and learned-WAM runs were generated separately with `ROBOCASA_PYTHON`; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; Fetch exact-law utility MAE `{fmt(gym_robotics.get('exact_law_utility_mae'))}`; Meta-World exact-law utility MAE `{fmt(metaworld.get('exact_law_utility_mae'))}`; Meta-World learned-random N32 CI lower `{fmt((((metaworld.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; RoboSuite exact-law utility MAE `{fmt(robosuite.get('exact_law_utility_mae'))}`; RoboSuite learned-random N32 CI lower `{fmt((((robosuite.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; RoboSuite closed-loop learned-random N8 CI lower `{fmt((((robosuite.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_N8') or {}).get('lo')))}`; ManiSkill exact-law utility MAE `{fmt(maniskill.get('exact_law_utility_mae'))}`; ManiSkill closed-loop learned-random CI lower bound `{fmt(((maniskill.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_utility_N8') or {}).get('lo'))}`; RoboCasa smoke exact-law utility MAE `{fmt(robocasa.get('exact_law_utility_mae'))}`; RoboCasa learned utility corr `{fmt(((robocasa_learned.get('model_metrics') or {}).get('utility_corr')))}`; RoboCasa learned-random N8 CI lower `{fmt((((robocasa_learned.get('confidence_intervals') or {}).get('learned_minus_random_N8') or {}).get('lo')))}`.
 - `python experiments/benchmark_gym_robotics_suite.py`: passed with `{gym_robotics.get('env_ids')}`; exact-law utility MAE `{fmt(gym_robotics.get('exact_law_utility_mae'))}`; learned-random N32 CI lower `{fmt((((gym_robotics.get('confidence_intervals') or {}).get('learned_minus_random_N32') or {}).get('lo')))}`; closed-loop learned-random N32 CI lower `{fmt((((gym_robotics.get('confidence_intervals') or {}).get('closed_loop_learned_minus_random_N32') or {}).get('lo')))}`.
 - `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`; Reacher RGB WAM utility corr `{fmt((bench_visual_wam.get('validation') or {}).get('utility_corr'))}`, utility MAE `{fmt((bench_visual_wam.get('validation') or {}).get('utility_mae'))}`, visual-random N32 CI lower `{fmt((((bench_visual_wam.get('confidence_intervals') or {}).get('visual_minus_random_N32') or {}).get('lo')))}`; Fetch RGB WAM mean corr `{fmt(gym_robotics_visual.get('mean_validation_utility_corr'))}`, visual-random N32 CI lower `{fmt((((gym_robotics_visual.get('confidence_intervals') or {}).get('visual_minus_random_N32') or {}).get('lo')))}`; ManiSkill visual probe any visual success `{maniskill_visual_probe.get('any_visual_success')}` with blocker `{maniskill_visual_probe.get('visual_blocker')}`.
 - `python experiments/benchmark_maniskill_dependency_probe.py --attempt-source-install`: passed as a blocker probe; Pinocchio import `{maniskill_dependency_probe.get('pinocchio_import_available')}`, binary `pin` wheel `{maniskill_dependency_probe.get('pin_binary_wheel_available')}`, source install attempted `{maniskill_dependency_probe.get('source_install_attempted')}`.

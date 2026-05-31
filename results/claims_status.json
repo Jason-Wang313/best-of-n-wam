@@ -470,19 +470,25 @@
     },
     {
       "id": 79,
+      "claim": "RoboCasa learned WAM-lite scorer beats random with CI.",
+      "status": "VERIFIED",
+      "evidence": "train=80, val=32, eval=80, utility corr=0.7639608394479505, learned-random CI={'n': 5, 'mean': 0.14832993183038654, 'std': 0.11178217873717447, 'stderr': 0.04999051006587074, 'ci95': 0.09798139972910665, 'lo': 0.05034853210127989, 'hi': 0.2463113315594932}"
+    },
+    {
+      "id": 80,
       "claim": "README has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "README overclaims=0"
     },
     {
-      "id": 80,
+      "id": 81,
       "claim": "paper_outline has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "paper overclaims=0"
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 80,
+  "num_verified": 81,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

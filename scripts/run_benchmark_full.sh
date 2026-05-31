@@ -24,6 +24,7 @@ bash scripts/run_benchmark_smoke.sh
 "${PY[@]}" experiments/benchmark_maniskill_suite.py --closed-loop
 if [[ -n "${ROBOCASA_PYTHON:-}" ]]; then
   "$ROBOCASA_PYTHON" experiments/benchmark_robocasa_smoke.py --states 5 --rollouts 16 --horizon 3 --mc-trials 2500 --closed-loop
+  "$ROBOCASA_PYTHON" experiments/benchmark_robocasa_learned_wam.py --train-states 5 --train-rollouts 16 --val-states 2 --val-rollouts 16 --eval-states 5 --eval-rollouts 16 --horizon 3 --mc-trials 2500
 else
   echo "Skipping optional RoboCasa smoke: set ROBOCASA_PYTHON to a RoboCasa-compatible interpreter to run it."
 fi

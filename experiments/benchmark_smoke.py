@@ -17,10 +17,16 @@ def run() -> dict:
     statuses = [s.__dict__ for s in benchmark_statuses()]
     robocasa_smoke = {}
     smoke_path = results_dir() / "benchmark_robocasa_smoke.json"
+    robocasa_learned = {}
+    learned_path = results_dir() / "benchmark_robocasa_learned_wam.json"
     if smoke_path.exists():
         import json
 
         robocasa_smoke = json.loads(smoke_path.read_text(encoding="utf-8"))
+    if learned_path.exists():
+        import json
+
+        robocasa_learned = json.loads(learned_path.read_text(encoding="utf-8"))
     any_available = any(s["available"] for s in statuses)
     summary = {
         "experiment": "benchmark_smoke",
@@ -61,7 +67,20 @@ def run() -> dict:
                     "## Separate RoboCasa Smoke Artifact",
                     "",
                     f"RoboCasa is unavailable in the active Python environment but has a verified external smoke artifact: `{robocasa_smoke.get('env_id')}`, `{robocasa_smoke.get('n_rollouts_total')}` rollouts, exact-law utility MAE `{robocasa_smoke.get('exact_law_utility_mae')}`.",
-                    "This is smoke-only, not full RoboCasa learned-WAM validation.",
+                    "This is single task only, not full multi-task RoboCasa validation.",
+                ]
+            )
+        if robocasa_learned.get("verified"):
+            metrics = robocasa_learned.get("model_metrics") or {}
+            ci = (robocasa_learned.get("confidence_intervals") or {}).get("learned_minus_random_N8") or {}
+            report.extend(
+                [
+                    "",
+                    "## Separate RoboCasa Learned-WAM Artifact",
+                    "",
+                    f"A lightweight ridge state/action-sequence WAM-lite was trained on `{robocasa_learned.get('train_samples')}` single-task RoboCasa rollouts and evaluated on `{robocasa_learned.get('eval_samples')}` heldout rollouts.",
+                    f"Validation utility correlation is `{metrics.get('utility_corr')}`; learned-minus-random N8 CI lower bound is `{ci.get('lo')}`.",
+                    "This supports only a single-task contact-rich sanity check, not a multi-task RoboCasa benchmark.",
                 ]
             )
     else:

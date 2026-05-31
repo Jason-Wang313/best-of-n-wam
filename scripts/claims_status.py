@@ -81,6 +81,7 @@ def main() -> None:
     metaworld = load_json("benchmark_metaworld_suite.json")
     robosuite = load_json("benchmark_robosuite_suite.json")
     robocasa = load_json("benchmark_robocasa_smoke.json")
+    robocasa_learned = load_json("benchmark_robocasa_learned_wam.json")
     audit = load_json("inference_audit_framework.json")
     audit_learned = load_json("inference_audit_framework_learned.json")
     repair = load_json("scorer_repair_experiment.json")
@@ -592,6 +593,25 @@ def main() -> None:
         ),
         f"env={robocasa.get('env_id')}, pools={robocasa.get('n_rollout_pools')}, rollouts={robocasa.get('n_rollouts_total')}, exact MAE={robocasa.get('exact_law_utility_mae')}, oracle-random CI={((robocasa.get('confidence_intervals') or {}).get('oracle_minus_random_N8'))}",
     )
+    robocasa_learned_ci = robocasa_learned.get("confidence_intervals") or {}
+    add(
+        claims,
+        79,
+        "RoboCasa learned WAM-lite scorer beats random with CI.",
+        status(
+            bool(robocasa_learned)
+            and robocasa_learned.get("available", False)
+            and robocasa_learned.get("verified", False)
+            and (robocasa_learned.get("train_samples") or 0) >= 80
+            and (robocasa_learned.get("validation_samples") or 0) >= 32
+            and (robocasa_learned.get("eval_samples") or 0) >= 80
+            and ((robocasa_learned.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
+            and (robocasa_learned.get("exact_law_utility_mae") or 1.0) < 0.01
+            and ((robocasa_learned_ci.get("learned_minus_random_N8") or {}).get("lo") or 0.0) > 0.0,
+            bool(robocasa_learned),
+        ),
+        f"train={robocasa_learned.get('train_samples')}, val={robocasa_learned.get('validation_samples')}, eval={robocasa_learned.get('eval_samples')}, utility corr={((robocasa_learned.get('model_metrics') or {}).get('utility_corr'))}, learned-random CI={robocasa_learned_ci.get('learned_minus_random_N8')}",
+    )
 
     readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
     paper_text = PAPER.read_text(encoding="utf-8") if PAPER.exists() else ""
@@ -604,8 +624,8 @@ def main() -> None:
         if pattern.lower() in paper_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
             overclaims.append({"surface": "paper_outline", "id": cid, "pattern": pattern, "status": c["status"]})
 
-    add(claims, 79, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
-    add(claims, 80, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
+    add(claims, 80, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
+    add(claims, 81, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
 
     payload = {
         "claims": claims,

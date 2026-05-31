@@ -25,4 +25,4 @@
 
 ## Remaining Gap
 
-The single highest reviewer-risk gap is absence of full LIBERO/full RoboCasa learned-WAM or real-robot evidence beyond the current Gymnasium Robotics, Meta-World, RoboSuite, ManiSkill state-mode suites, and RoboCasa smoke.
+The single highest reviewer-risk gap is absence of LIBERO, multi-task RoboCasa, or real-robot evidence beyond the current Gymnasium Robotics, Meta-World, RoboSuite, ManiSkill state-mode suites, and single-task RoboCasa artifacts.
