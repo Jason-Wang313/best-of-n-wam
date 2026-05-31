@@ -53,3 +53,9 @@ This supports a wider RoboCasa task family rollout-pool dense-utility artifact, 
 A ridge state/action-sequence WAM-lite was trained across `3` LIBERO Spatial tasks with `192` train rollout samples and `240` heldout eval rollout samples.
 Validation utility correlation is `0.3526483541014925`; promoted scorer `learned_energy_regularized` has learned-minus-random N8 CI lower bound `0.2652641899613382`.
 This supports LIBERO rollout-pool dense-utility validation, not solved-task LIBERO policy performance.
+
+## Separate LIBERO Object Sparse-Success Scripted Smoke
+
+A hand scripted OSC pick-place controller was evaluated on `50` LIBERO Object episodes across `10` tasks and `5` seeds.
+It achieved `30` sparse successes; success-rate bootstrap CI is [`0.46`, `0.74`].
+This supports a narrow sparse-success simulator smoke, not learned policy performance or full LIBERO validation.

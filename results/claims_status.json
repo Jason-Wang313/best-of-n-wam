@@ -28,19 +28,19 @@
       "id": 5,
       "claim": "Pilot-to-heldout improves with K.",
       "status": "VERIFIED",
-      "evidence": "relative MAE reduction=0.36981841294484663"
+      "evidence": "relative MAE reduction=0.7280063038060411"
     },
     {
       "id": 6,
       "claim": "Pilot uncertainty is reported.",
       "status": "VERIFIED",
-      "evidence": "pilot improvement CI={'n': 3, 'mean': 0.4562385545786219, 'std': 0.6526343629570743, 'stderr': 0.3767986251356668, 'ci95': 0.738525305265907, 'lo': -0.2822867506872851, 'hi': 1.194763859844529}"
+      "evidence": "pilot improvement CI={'n': 1200, 'mean': 0.8233589071075791, 'std': 0.7110080730202641, 'stderr': 0.020525035117712326, 'ci95': 0.04022906883071616, 'lo': 0.7831298382768629, 'hi': 0.8635879759382953}"
     },
     {
       "id": 7,
       "claim": "Score function controls inference value.",
       "status": "VERIFIED",
-      "evidence": "oracle-random N64=6.6877116595064265"
+      "evidence": "oracle-random N64=7.084333950224235"
     },
     {
       "id": 8,
@@ -58,7 +58,7 @@
       "id": 10,
       "claim": "Real-vs-imagined utility gap verified.",
       "status": "VERIFIED",
-      "evidence": "severe-none=15.179989463689903"
+      "evidence": "severe-none=16.725668702334993"
     },
     {
       "id": 11,
@@ -94,7 +94,7 @@
       "id": 16,
       "claim": "Closed-loop high-N gain verified.",
       "status": "VERIFIED",
-      "evidence": "analytic useful N64-N1=0.0; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}"
+      "evidence": "analytic useful N64-N1=0.20833333333333337; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}"
     },
     {
       "id": 17,
@@ -499,6 +499,12 @@
       "evidence": "tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet', 'robocasa/CloseDrawer', 'robocasa/CloseCabinet', 'robocasa/CloseMicrowave', 'robocasa/TurnOffSinkFaucet', 'robocasa/TurnOnStove', 'robocasa/TurnOffStove', 'robocasa/OpenOven', 'robocasa/CloseOven'], train=96, val=96, eval=192, utility corr=0.8330260116378324, promoted=learned_energy_regularized, learned-random CI={'n': 24, 'mean': 0.2736319931949471, 'std': 0.2264236150811513, 'stderr': 0.04621852688876389, 'ci95': 0.09058831270197723, 'lo': 0.18304368049296985, 'hi': 0.36422030589692433}"
     },
     {
+      "id": 86,
+      "claim": "LIBERO sparse-success scripted policy smoke verified.",
+      "status": "VERIFIED",
+      "evidence": "episodes=50, successes=30, success CI={'n': 50, 'mean': 0.6, 'lo': 0.46, 'hi': 0.74, 'std': 0.49487165930539356}"
+    },
+    {
       "id": 81,
       "claim": "README has no unsupported claims.",
       "status": "VERIFIED",
@@ -512,7 +518,7 @@
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 85,
+  "num_verified": 86,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

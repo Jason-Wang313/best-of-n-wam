@@ -1,0 +1,143 @@
+{
+  "experiment": "benchmark_libero_scripted_policy",
+  "available": true,
+  "attempted": true,
+  "verified": true,
+  "suite": "libero_object",
+  "tasks": [
+    "libero_object/0",
+    "libero_object/1",
+    "libero_object/2",
+    "libero_object/3",
+    "libero_object/4",
+    "libero_object/5",
+    "libero_object/6",
+    "libero_object/7",
+    "libero_object/8",
+    "libero_object/9"
+  ],
+  "n_tasks": 10,
+  "seeds": [
+    100,
+    101,
+    102,
+    103,
+    104
+  ],
+  "n_seeds": 5,
+  "n_episodes": 50,
+  "n_successes": 30,
+  "success_rate": 0.6,
+  "confidence_intervals": {
+    "success_rate": {
+      "n": 50,
+      "mean": 0.6,
+      "lo": 0.46,
+      "hi": 0.74,
+      "std": 0.49487165930539356
+    },
+    "total_reward": {
+      "n": 50,
+      "mean": 0.6,
+      "lo": 0.46,
+      "hi": 0.72,
+      "std": 0.49487165930539356
+    },
+    "utility": {
+      "n": 50,
+      "mean": 1.1119387764629745,
+      "lo": 0.7490677191577916,
+      "hi": 1.4682751081499956,
+      "std": 1.2965989378799812
+    },
+    "progress": {
+      "n": 50,
+      "mean": 0.23662653117312016,
+      "lo": 0.1610880814712804,
+      "hi": 0.31019261466718284,
+      "std": 0.2724320017473246
+    }
+  },
+  "by_task": {
+    "libero_object/0": {
+      "task_name": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+      "n": 5,
+      "success_rate": 1.0,
+      "n_successes": 5
+    },
+    "libero_object/1": {
+      "task_name": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+      "n": 5,
+      "success_rate": 0.0,
+      "n_successes": 0
+    },
+    "libero_object/2": {
+      "task_name": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+      "n": 5,
+      "success_rate": 1.0,
+      "n_successes": 5
+    },
+    "libero_object/3": {
+      "task_name": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+      "n": 5,
+      "success_rate": 1.0,
+      "n_successes": 5
+    },
+    "libero_object/4": {
+      "task_name": "pick_up_the_ketchup_and_place_it_in_the_basket",
+      "n": 5,
+      "success_rate": 1.0,
+      "n_successes": 5
+    },
+    "libero_object/5": {
+      "task_name": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+      "n": 5,
+      "success_rate": 0.0,
+      "n_successes": 0
+    },
+    "libero_object/6": {
+      "task_name": "pick_up_the_butter_and_place_it_in_the_basket",
+      "n": 5,
+      "success_rate": 0.0,
+      "n_successes": 0
+    },
+    "libero_object/7": {
+      "task_name": "pick_up_the_milk_and_place_it_in_the_basket",
+      "n": 5,
+      "success_rate": 1.0,
+      "n_successes": 5
+    },
+    "libero_object/8": {
+      "task_name": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+      "n": 5,
+      "success_rate": 0.0,
+      "n_successes": 0
+    },
+    "libero_object/9": {
+      "task_name": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+      "n": 5,
+      "success_rate": 1.0,
+      "n_successes": 5
+    }
+  },
+  "controller": {
+    "type": "scripted_osc_pick_place",
+    "controller": "OSC_POSE",
+    "horizon": 512,
+    "safe_lift": 0.25,
+    "approach_z_offset": 0.055,
+    "grasp_z_offset": 0.035,
+    "place_z_offset": 0.11,
+    "grasp_offset": [
+      0.0,
+      0.0
+    ],
+    "servo_gain": 8.0
+  },
+  "artifact_paths": {
+    "json": "results/benchmark_libero_scripted_policy.json",
+    "episodes_csv": "results/tables/benchmark_libero_scripted_policy_episodes.csv",
+    "report": "reports/libero_scripted_policy_report.md"
+  },
+  "note": "Sparse-success scripted LIBERO smoke. This is not learned WAM policy performance and not full LIBERO validation."
+}

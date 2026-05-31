@@ -27,6 +27,8 @@ def run() -> dict:
     family12_path = results_dir() / "benchmark_robocasa_family12_wam.json"
     libero_wam = {}
     libero_path = results_dir() / "benchmark_libero_wam.json"
+    libero_scripted = {}
+    libero_scripted_path = results_dir() / "benchmark_libero_scripted_policy.json"
     if smoke_path.exists():
         import json
 
@@ -51,6 +53,10 @@ def run() -> dict:
         import json
 
         libero_wam = json.loads(libero_path.read_text(encoding="utf-8"))
+    if libero_scripted_path.exists():
+        import json
+
+        libero_scripted = json.loads(libero_scripted_path.read_text(encoding="utf-8"))
     any_available = any(s["available"] for s in statuses)
     summary = {
         "experiment": "benchmark_smoke",
@@ -157,6 +163,18 @@ def run() -> dict:
                     f"A ridge state/action-sequence WAM-lite was trained across `{len(libero_wam.get('tasks') or [])}` LIBERO Spatial tasks with `{libero_wam.get('train_samples')}` train rollout samples and `{libero_wam.get('eval_samples')}` heldout eval rollout samples.",
                     f"Validation utility correlation is `{metrics.get('utility_corr')}`; promoted scorer `{libero_wam.get('promoted_scorer')}` has learned-minus-random N8 CI lower bound `{ci.get('lo')}`.",
                     "This supports LIBERO rollout-pool dense-utility validation, not solved-task LIBERO policy performance.",
+                ]
+            )
+        if libero_scripted.get("verified"):
+            ci = (libero_scripted.get("confidence_intervals") or {}).get("success_rate") or {}
+            report.extend(
+                [
+                    "",
+                    "## Separate LIBERO Object Sparse-Success Scripted Smoke",
+                    "",
+                    f"A hand scripted OSC pick-place controller was evaluated on `{libero_scripted.get('n_episodes')}` LIBERO Object episodes across `{libero_scripted.get('n_tasks')}` tasks and `{libero_scripted.get('n_seeds')}` seeds.",
+                    f"It achieved `{libero_scripted.get('n_successes')}` sparse successes; success-rate bootstrap CI is [`{ci.get('lo')}`, `{ci.get('hi')}`].",
+                    "This supports a narrow sparse-success simulator smoke, not learned policy performance or full LIBERO validation.",
                 ]
             )
     else:

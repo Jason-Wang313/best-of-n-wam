@@ -86,6 +86,7 @@ def main() -> None:
     robocasa_broad = load_json("benchmark_robocasa_broad_wam.json")
     robocasa_family12 = load_json("benchmark_robocasa_family12_wam.json")
     libero_wam = load_json("benchmark_libero_wam.json")
+    libero_scripted = load_json("benchmark_libero_scripted_policy.json")
     audit = load_json("inference_audit_framework.json")
     audit_learned = load_json("inference_audit_framework_learned.json")
     repair = load_json("scorer_repair_experiment.json")
@@ -705,6 +706,26 @@ def main() -> None:
             bool(robocasa_family12),
         ),
         f"tasks={robocasa_family12.get('env_ids')}, train={robocasa_family12.get('train_samples')}, val={robocasa_family12.get('validation_samples')}, eval={robocasa_family12.get('eval_samples')}, utility corr={((robocasa_family12.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_family12.get('promoted_scorer')}, learned-random CI={robocasa_family12_ci.get(f'best_learned_minus_random_N{robocasa_family12_max_n}')}",
+    )
+
+    libero_scripted_ci = (libero_scripted.get("confidence_intervals") or {}).get("success_rate") or {}
+    add(
+        claims,
+        86,
+        "LIBERO sparse-success scripted policy smoke verified.",
+        status(
+            bool(libero_scripted)
+            and libero_scripted.get("available", False)
+            and libero_scripted.get("verified", False)
+            and (libero_scripted.get("n_tasks") or 0) >= 10
+            and (libero_scripted.get("n_seeds") or 0) >= 5
+            and (libero_scripted.get("n_episodes") or 0) >= 50
+            and (libero_scripted.get("n_successes") or 0) >= 20
+            and (libero_scripted.get("success_rate") or 0.0) >= 0.5
+            and (libero_scripted_ci.get("lo") or 0.0) > 0.25,
+            bool(libero_scripted),
+        ),
+        f"episodes={libero_scripted.get('n_episodes')}, successes={libero_scripted.get('n_successes')}, success CI={libero_scripted_ci}",
     )
 
     readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
