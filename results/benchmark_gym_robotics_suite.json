@@ -23,7 +23,7 @@
         "utility_mae": 0.3620516374475817,
         "utility_corr": 0.9489949929455764,
         "success_mae": 0.10459587191358025,
-        "distance_mae": 0.03270217264771077,
+        "distance_mae": 0.03270217264771076,
         "train_samples": 768,
         "validation_samples": 288
       }
@@ -48,8 +48,8 @@
       "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_robotics_FetchPickAndPlace-v4_wam.joblib",
       "frame_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\benchmark_gym_robotics_FetchPickAndPlace-v4_frame.png",
       "model_metrics": {
-        "utility_mae": 0.0666936059129334,
-        "utility_corr": 0.6921316797643627,
+        "utility_mae": 0.06669360591293341,
+        "utility_corr": 0.6921316797643626,
         "success_mae": 0.0,
         "distance_mae": 0.06519398794910418,
         "train_samples": 768,

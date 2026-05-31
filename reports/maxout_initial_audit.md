@@ -28,7 +28,7 @@ Audit date: 2026-05-30.
 - LIBERO and RoboCasa benchmark artifacts are still missing.
 - ManiSkill evidence is state-mode and joint-delta controlled; end-effector delta-pose control is not claimed because Pinocchio was unavailable.
 - Meta-World ML1 evidence covers `reach-v3`, `push-v3`, and `drawer-open-v3` with state/action-sequence WAM-lite artifacts.
-- RoboSuite evidence covers Panda `Lift`, `Stack`, and `Door` with clone-restored MuJoCo rollout pools and state/action-sequence WAM-lite artifacts.
+- RoboSuite evidence covers Panda `Lift`, `Stack`, and `Door` with clone-restored MuJoCo rollout pools, state/action-sequence WAM-lite artifacts, and small closed-loop learned/reward-versus-random evaluation.
 - No real robot data.
 - No high-dimensional policy or vision-language WAM evidence.
 

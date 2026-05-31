@@ -10,12 +10,12 @@ Benchmark-full plus Fetch, Meta-World, RoboSuite, ManiSkill state-mode, visual-,
 - 2. Utility-valued finite law verified. Evidence: utility MAE=0.013762680427723635
 - 3. N=2 AUC identity verified. Evidence: max identity error=0.0
 - 4. High-N moment hierarchy verified. Evidence: same-p/kappa gap=0.9988209815422198
-- 5. Pilot-to-heldout improves with K. Evidence: relative MAE reduction=0.43698115249631736
-- 6. Pilot uncertainty is reported. Evidence: pilot improvement CI={'n': 16, 'mean': 0.44172358371190434, 'std': 0.6445133007518349, 'stderr': 0.16112832518795872, 'ci95': 0.3158115173683991, 'lo': 0.12591206634350527, 'hi': 0.7575351010803034}
-- 7. Score function controls inference value. Evidence: oracle-random N64=6.976857029097962
+- 5. Pilot-to-heldout improves with K. Evidence: relative MAE reduction=0.36981841294484663
+- 6. Pilot uncertainty is reported. Evidence: pilot improvement CI={'n': 3, 'mean': 0.4562385545786219, 'std': 0.6526343629570743, 'stderr': 0.3767986251356668, 'ci95': 0.738525305265907, 'lo': -0.2822867506872851, 'hi': 1.194763859844529}
+- 7. Score function controls inference value. Evidence: oracle-random N64=6.6877116595064265
 - 8. Best non-oracle beats random with CI. Evidence: learned CI={'n': 5, 'mean': 5.97838149808149, 'std': 1.2959235541324863, 'stderr': 0.5795546321366736, 'ci95': 1.1359270789878801, 'lo': 4.8424544190936105, 'hi': 7.11430857706937}
 - 9. Oracle remains above learned/non-oracle. Evidence: oracle-learned CI={'n': 5, 'mean': 1.9951266518211337, 'std': 0.18826614525085428, 'stderr': 0.08419517972855187, 'ci95': 0.16502255226796164, 'lo': 1.830104099553172, 'hi': 2.1601492040890955}
-- 10. Real-vs-imagined utility gap verified. Evidence: severe-none=16.435472824968038
+- 10. Real-vs-imagined utility gap verified. Evidence: severe-none=15.179989463689903
 - 11. Mismatch gap grows with N. Evidence: learned severe gap CI={'n': 5, 'mean': 13.880775173817053, 'std': 0.7005630946072381, 'stderr': 0.31330134041388014, 'ci95': 0.6140706272112051, 'lo': 13.266704546605848, 'hi': 14.494845801028259}
 - 12. Bad scorer falsification verified. Evidence: anti N64=-26.565706083129044, N1=-14.101561337022474
 
@@ -72,9 +72,9 @@ Add LIBERO or ManiSkill RGB/RGB-D WAM validation next; that is now higher value 
 - `bash scripts/run_learned_wam_toy.sh`: passed; learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`.
 - `bash scripts/run_multi_env.sh`: passed with `envs=5`, `backbones=3`, `seeds=5`.
 - robust EXP8 rerun: passed; stale post-pre CI lower bound `0.0255`, stale-adaptive post CI lower bound `0.0613`.
-- `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5`, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, and ManiSkill3 state-mode tasks; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; Fetch exact-law utility MAE `0.0126`; Meta-World exact-law utility MAE `0.0300`; Meta-World learned-random N32 CI lower `0.0244`; RoboSuite exact-law utility MAE `0.0024`; RoboSuite learned-random N32 CI lower `0.2609`; ManiSkill exact-law utility MAE `0.0034`; ManiSkill closed-loop learned-random CI lower bound `0.0102`.
+- `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5`, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, and ManiSkill3 state-mode tasks; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; Fetch exact-law utility MAE `0.0126`; Meta-World exact-law utility MAE `0.0298`; Meta-World learned-random N32 CI lower `0.0975`; RoboSuite exact-law utility MAE `0.0024`; RoboSuite learned-random N32 CI lower `0.2447`; RoboSuite closed-loop learned-random N8 CI lower `0.0798`; ManiSkill exact-law utility MAE `0.0034`; ManiSkill closed-loop learned-random CI lower bound `0.0102`.
 - `python experiments/benchmark_gym_robotics_suite.py`: passed with `['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4']`; exact-law utility MAE `0.0126`; learned-random N32 CI lower `0.4409`; closed-loop learned-random N32 CI lower `0.2572`.
 - `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`; Reacher RGB WAM utility corr `0.2199`, utility MAE `0.5208`, visual-random N32 CI lower `0.1998`; Fetch RGB WAM mean corr `0.7325`, visual-random N32 CI lower `0.3475`; ManiSkill visual probe any visual success `False` with blocker `vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory`.
 - `python experiments/benchmark_maniskill_dependency_probe.py --attempt-source-install`: passed as a blocker probe; Pinocchio import `False`, binary `pin` wheel `False`, source install attempted `True`.
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `0.9864`, repair-predicted N64 CI mean `0.3489`, predicted N128-N1 scaling gain `0.0255`.
-- `python scripts/claims_status.py`: passed with `78` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.
+- `python scripts/claims_status.py`: passed with `79` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.

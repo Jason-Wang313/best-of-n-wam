@@ -560,6 +560,19 @@ def main() -> None:
         ),
         f"reward-random CI={robosuite_ci.get('reward_minus_random_N32')}; progress-random CI={robosuite_ci.get('progress_minus_random_N32')}; oracle-random CI={robosuite_ci.get('oracle_minus_random_N32')}",
     )
+    add(
+        claims,
+        77,
+        "RoboSuite closed-loop learned and reward scorers beat random.",
+        status(
+            (robosuite_ci.get("closed_loop_learned_minus_random_N8") or {}).get("lo") is not None
+            and (robosuite_ci.get("closed_loop_learned_minus_random_N8") or {}).get("lo") > 0.0
+            and (robosuite_ci.get("closed_loop_reward_minus_random_N8") or {}).get("lo") is not None
+            and (robosuite_ci.get("closed_loop_reward_minus_random_N8") or {}).get("lo") > 0.0,
+            bool(robosuite),
+        ),
+        f"learned-random CI={robosuite_ci.get('closed_loop_learned_minus_random_N8')}; reward-random CI={robosuite_ci.get('closed_loop_reward_minus_random_N8')}",
+    )
 
     readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
     paper_text = PAPER.read_text(encoding="utf-8") if PAPER.exists() else ""
@@ -572,8 +585,8 @@ def main() -> None:
         if pattern.lower() in paper_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
             overclaims.append({"surface": "paper_outline", "id": cid, "pattern": pattern, "status": c["status"]})
 
-    add(claims, 77, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
-    add(claims, 78, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
+    add(claims, 78, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
+    add(claims, 79, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
 
     payload = {
         "claims": claims,
