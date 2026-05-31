@@ -67,7 +67,7 @@
 - Claim 65: **VERIFIED** - Gymnasium Robotics RGB visual exact law verified. Evidence: utility MAE=0.010612997381058541
 - Claim 66: **VERIFIED** - Gymnasium Robotics RGB visual scorer beats random with CI. Evidence: visual-random CI={'n': 5, 'mean': 0.4888505704773543, 'std': 0.16122603373528005, 'stderr': 0.0721024742349521, 'ci95': 0.1413208495005061, 'lo': 0.3475297209768482, 'hi': 0.6301714199778604}
 - Claim 67: **VERIFIED** - Gymnasium Robotics RGB visual oracle gap is reported without requiring significance. Evidence: oracle-visual CI={'n': 5, 'mean': 0.02680333126025487, 'std': 0.03203449057950047, 'stderr': 0.014326259712067935, 'ci95': 0.028079469035653153, 'lo': -0.0012761377753982839, 'hi': 0.05488280029590802}
-- Claim 68: **VERIFIED** - ManiSkill RGB/RGB-D and EE-control probe is artifact-documented. Evidence: visual_success=False, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory
+- Claim 68: **VERIFIED** - ManiSkill RGB/RGB-D and EE-control probe is artifact-documented. Evidence: visual_success=False, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pin_binary=False
 - Claim 69: **VERIFIED** - Meta-World ML1 benchmark suite verified. Evidence: tasks=['reach-v3', 'push-v3', 'drawer-open-v3'], pools=45
 - Claim 70: **VERIFIED** - Meta-World exact law verified. Evidence: utility MAE=0.023526234387278428
 - Claim 71: **VERIFIED** - Meta-World learned WAM scorer beats random open-loop with CI. Evidence: learned-random CI={'n': 5, 'mean': 0.1321569963083081, 'std': 0.052626968366564504, 'stderr': 0.02353549574347386, 'ci95': 0.04612957165720876, 'lo': 0.08602742465109933, 'hi': 0.17828656796551687}

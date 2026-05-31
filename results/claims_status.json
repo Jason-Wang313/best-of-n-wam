@@ -406,7 +406,7 @@
       "id": 68,
       "claim": "ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.",
       "status": "VERIFIED",
-      "evidence": "visual_success=False, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory"
+      "evidence": "visual_success=False, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pin_binary=False"
     },
     {
       "id": 69,

@@ -171,6 +171,14 @@ python experiments/benchmark_maniskill_visual_probe.py
 
 It writes `results/benchmark_maniskill_visual_probe.json`, `results/tables/benchmark_maniskill_visual_probe.csv`, and `reports/maniskill_visual_blocker_report.md`.
 
+The optional ManiSkill dependency probe is:
+
+```bash
+python experiments/benchmark_maniskill_dependency_probe.py --attempt-source-install
+```
+
+It writes `results/benchmark_maniskill_dependency_probe.json` and `reports/maniskill_dependency_blocker_report.md`. The committed artifact documents that Pinocchio is not importable on this Windows/Python stack and that pip did not expose binary `pin`/`cmeel-boost` wheels, so ManiSkill end-effector-control validation is not claimed.
+
 ## Full Max-Out Run
 
 ```bash

@@ -94,6 +94,8 @@ Meta-World ML1 is integrated on `reach-v3`, `push-v3`, and `drawer-open-v3`, add
 
 ManiSkill3 is integrated in CPU state mode on `PickCube-v1`, `PushCube-v1`, and `PegInsertionSide-v1` with `pd_joint_delta_pos` control. Artifact-backed ManiSkill claims include rollout pools, exact-law validation, score comparison, WAM-lite training, and a small closed-loop learned-versus-random comparison. End-effector delta-pose control is not claimed because Pinocchio was unavailable in this Windows environment; a generated probe records the failed EE-control attempts.
 
+A separate ManiSkill dependency probe records that Pinocchio is not importable and that pip does not expose binary `pin`/`cmeel-boost` wheels for this Windows/Python stack. This supports the limitation statement; it is not evidence for EE-control validation.
+
 Benchmark RGB WAM-lite validation is integrated on Gymnasium/MuJoCo `Reacher-v5` and Gymnasium Robotics Fetch, where RGB rendering works. The model consumes rendered RGB frame features and action sequences, predicts rollout utility, and is evaluated with exact-law and best-of-N scorer-comparison artifacts. ManiSkill RGB/RGB-D WAM validation is not claimed because the local SAPIEN/Vulkan renderer failed during RGB observation creation; the exact probe matrix and errors are saved in `results/benchmark_maniskill_visual_probe.json` and `reports/maniskill_visual_blocker_report.md`. LIBERO and RoboCasa remain engineering scaffolds until their dependencies and task adapters are completed.
 
 ## 12. Falsification And Limitations

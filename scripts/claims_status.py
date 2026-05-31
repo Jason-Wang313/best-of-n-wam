@@ -77,6 +77,7 @@ def main() -> None:
     gym_robotics = load_json("benchmark_gym_robotics_suite.json")
     gym_robotics_visual = load_json("benchmark_gym_robotics_visual_wam.json")
     maniskill_visual_probe = load_json("benchmark_maniskill_visual_probe.json")
+    maniskill_dependency_probe = load_json("benchmark_maniskill_dependency_probe.json")
     metaworld = load_json("benchmark_metaworld_suite.json")
     audit = load_json("inference_audit_framework.json")
     audit_learned = load_json("inference_audit_framework_learned.json")
@@ -449,10 +450,14 @@ def main() -> None:
             and maniskill_visual_probe.get("attempted", False)
             and maniskill_visual_probe.get("state_baseline_ok", False)
             and (maniskill_visual_probe.get("visual_attempt_count") or 0) >= 5
-            and "ErrorOutOfPoolMemory" in str(maniskill_visual_probe.get("visual_blocker", "")),
+            and "ErrorOutOfPoolMemory" in str(maniskill_visual_probe.get("visual_blocker", ""))
+            and bool(maniskill_dependency_probe)
+            and maniskill_dependency_probe.get("attempted", False)
+            and not maniskill_dependency_probe.get("pinocchio_import_available", True)
+            and not maniskill_dependency_probe.get("pin_binary_wheel_available", True),
             bool(maniskill_visual_probe),
         ),
-        f"visual_success={maniskill_visual_probe.get('any_visual_success')}, blocker={maniskill_visual_probe.get('visual_blocker')}",
+        f"visual_success={maniskill_visual_probe.get('any_visual_success')}, blocker={maniskill_visual_probe.get('visual_blocker')}; pinocchio={maniskill_dependency_probe.get('pinocchio_import_available')}, pin_binary={maniskill_dependency_probe.get('pin_binary_wheel_available')}",
     )
     metaworld_ci = metaworld.get("confidence_intervals") or {}
     add(
