@@ -23,10 +23,10 @@
       "frame_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\benchmark_gym_robotics_visual_FetchReach-v4_frame.png",
       "model_type": "extra_trees_visual_wam",
       "validation": {
-        "utility_mae": 0.49748813127644986,
+        "utility_mae": 0.49748813127644975,
         "utility_corr": 0.883947273673222,
         "success_mae": 0.15547619047619046,
-        "distance_mae": 0.050758094247727106,
+        "distance_mae": 0.05075809424772709,
         "train_samples": 400,
         "validation_samples": 160
       }
@@ -39,7 +39,7 @@
       "model_type": "extra_trees_visual_wam",
       "validation": {
         "utility_mae": 0.07983029570071357,
-        "utility_corr": 0.4313281928983881,
+        "utility_corr": 0.43132819289838764,
         "success_mae": 0.0,
         "distance_mae": 0.07843653041634133,
         "train_samples": 400,
@@ -56,7 +56,7 @@
         "utility_mae": 0.03693334956140014,
         "utility_corr": 0.8822433533616054,
         "success_mae": 0.0,
-        "distance_mae": 0.03592660859043948,
+        "distance_mae": 0.03592660859043947,
         "train_samples": 400,
         "validation_samples": 160
       }

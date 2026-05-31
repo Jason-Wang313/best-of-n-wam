@@ -2,7 +2,7 @@
 
 ## 1. Tier
 
-Benchmark-full plus Fetch, ManiSkill state-mode, visual-, blocker-probe-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, Gymnasium Robotics Fetch validation, ManiSkill3 state-mode manipulation validation, toy visual mode, Reacher RGB WAM-lite, Fetch RGB WAM-lite, ManiSkill visual/EE-control blocker probing, and inference-value audit framework artifacts.
+Benchmark-full plus Fetch, Meta-World, ManiSkill state-mode, visual-, blocker-probe-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, Gymnasium Robotics Fetch validation, Meta-World ML1 manipulation validation, ManiSkill3 state-mode manipulation validation, toy visual mode, Reacher RGB WAM-lite, Fetch RGB WAM-lite, ManiSkill visual/EE-control blocker probing, and inference-value audit framework artifacts.
 
 ## 2. Strongest Verified Claims
 
@@ -43,7 +43,7 @@ The project still lacks real robot artifacts, LIBERO/RoboCasa, and ManiSkill vis
 
 ## 7. Current Answer
 
-The repo answers the mathematical and controlled toy-science objections with tests, multi-env artifacts, learned WAM-lite backbones, falsification, an anti-overclaim system, a state-based Gymnasium/MuJoCo benchmark, a three-task Gymnasium Robotics Fetch benchmark, and a three-task ManiSkill3 state-mode benchmark. It does not yet answer real-robot realism.
+The repo answers the mathematical and controlled toy-science objections with tests, multi-env artifacts, learned WAM-lite backbones, falsification, an anti-overclaim system, a state-based Gymnasium/MuJoCo benchmark, a three-task Gymnasium Robotics Fetch benchmark, a three-task Meta-World ML1 benchmark, and a three-task ManiSkill3 state-mode benchmark. It does not yet answer real-robot realism.
 
 ## 8. Unresolved
 
@@ -58,7 +58,7 @@ Yes, as a theory-plus-controlled-learned-toy paper artifact.
 
 ## 10. Main-Conference Readiness
 
-Substantially stronger after Gymnasium Robotics Fetch and ManiSkill state-mode validation. Still not a real-robot paper and still weaker than a benchmark-heavy robotics paper with LIBERO/RoboCasa or RGB-D manipulation.
+Substantially stronger after Gymnasium Robotics Fetch, Meta-World ML1, and ManiSkill state-mode validation. Still not a real-robot paper and still weaker than a benchmark-heavy robotics paper with LIBERO/RoboCasa or RGB-D manipulation.
 
 ## 11. Single Highest-Value Next Step
 
@@ -72,8 +72,8 @@ Add LIBERO or ManiSkill RGB/RGB-D WAM validation next; that is now higher value 
 - `bash scripts/run_learned_wam_toy.sh`: passed; learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`.
 - `bash scripts/run_multi_env.sh`: passed with `envs=5`, `backbones=3`, `seeds=5`.
 - robust EXP8 rerun: passed; stale post-pre CI lower bound `0.0255`, stale-adaptive post CI lower bound `0.0613`.
-- `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5`, Gymnasium Robotics Fetch, and ManiSkill3 state-mode tasks; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; Fetch exact-law utility MAE `0.0126`; ManiSkill exact-law utility MAE `0.0034`; ManiSkill closed-loop learned-random CI lower bound `0.0102`.
+- `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5`, Gymnasium Robotics Fetch, Meta-World ML1, and ManiSkill3 state-mode tasks; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; Fetch exact-law utility MAE `0.0126`; Meta-World exact-law utility MAE `0.0235`; Meta-World learned-random N32 CI lower `0.0860`; ManiSkill exact-law utility MAE `0.0034`; ManiSkill closed-loop learned-random CI lower bound `0.0102`.
 - `python experiments/benchmark_gym_robotics_suite.py`: passed with `['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4']`; exact-law utility MAE `0.0126`; learned-random N32 CI lower `0.4409`; closed-loop learned-random N32 CI lower `0.2572`.
 - `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`; Reacher RGB WAM utility corr `0.2199`, utility MAE `0.5208`, visual-random N32 CI lower `0.1998`; Fetch RGB WAM mean corr `0.7325`, visual-random N32 CI lower `0.3475`; ManiSkill visual probe any visual success `False` with blocker `vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory`.
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `0.9864`, repair-predicted N64 CI mean `0.3489`, predicted N128-N1 scaling gain `0.0255`.
-- `python scripts/claims_status.py`: passed with `70` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.
+- `python scripts/claims_status.py`: passed with `74` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.

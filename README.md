@@ -136,18 +136,21 @@ Current benchmark artifacts include:
 - Gymnasium Robotics `FetchReach-v4`
 - Gymnasium Robotics `FetchPush-v4`
 - Gymnasium Robotics `FetchPickAndPlace-v4`
+- Meta-World ML1 `reach-v3`
+- Meta-World ML1 `push-v3`
+- Meta-World ML1 `drawer-open-v3`
 - ManiSkill3 state-mode `PickCube-v1`
 - ManiSkill3 state-mode `PushCube-v1`
 - ManiSkill3 state-mode `PegInsertionSide-v1`
 
-The Gymnasium Robotics artifacts add contact-rich Fetch manipulation tasks with state/action-sequence WAM-lite training, exact-law validation, scorer comparison, closed-loop evaluation, RGB-frame/action-sequence visual WAM-lite validation, and RGB frame artifacts. The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the optional Pinocchio dependency was unavailable; the repo also includes a generated ManiSkill visual/EE-control probe so that this limitation is artifact-backed rather than anecdotal. LIBERO and RoboCasa remain future work unless their dependencies and artifacts are added.
+The Gymnasium Robotics artifacts add contact-rich Fetch manipulation tasks with state/action-sequence WAM-lite training, exact-law validation, scorer comparison, closed-loop evaluation, RGB-frame/action-sequence visual WAM-lite validation, and RGB frame artifacts. Meta-World artifacts add a separate multi-task Sawyer manipulation suite with learned state/action-sequence WAM-lite, exact-law validation, scorer comparison, and small closed-loop traces. The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the optional Pinocchio dependency was unavailable; the repo also includes a generated ManiSkill visual/EE-control probe so that this limitation is artifact-backed rather than anecdotal. LIBERO and RoboCasa remain future work unless their dependencies and artifacts are added.
 
 ```bash
 bash scripts/run_benchmark_smoke.sh
 bash scripts/run_benchmark_full.sh
 ```
 
-Current benchmark artifacts include rollout pools, learned benchmark WAM-lite training, exact-law validation, score comparison, real-vs-predicted utility gap, closed-loop evaluation, contact-rich Gymnasium Robotics Fetch validation, and RGB WAM-lite validation for the Gymnasium/MuJoCo path.
+Current benchmark artifacts include rollout pools, learned benchmark WAM-lite training, exact-law validation, score comparison, real-vs-predicted utility gap, closed-loop evaluation, contact-rich Gymnasium Robotics Fetch validation, Meta-World ML1 validation, and RGB WAM-lite validation for the Gymnasium/MuJoCo path.
 
 ## Visual Modes
 
@@ -190,4 +193,4 @@ This is learned-toy and multi-env toy validation, not real-robot evidence. It do
 
 ## Future Work
 
-The natural next step is a Robot Chinchilla-style WAM optimizer: jointly allocate dataset scale, model capacity, rollout horizon, scorer quality, safety constraints, and test-time rollout budget. A second high-value extension is LIBERO or RoboCasa validation beyond the current ManiSkill state-mode suite.
+The natural next step is a Robot Chinchilla-style WAM optimizer: jointly allocate dataset scale, model capacity, rollout horizon, scorer quality, safety constraints, and test-time rollout budget. A second high-value extension is LIBERO or RoboCasa validation beyond the current Gymnasium Robotics, Meta-World, and ManiSkill state-mode suites.

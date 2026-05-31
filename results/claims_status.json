@@ -410,19 +410,43 @@
     },
     {
       "id": 69,
+      "claim": "Meta-World ML1 benchmark suite verified.",
+      "status": "VERIFIED",
+      "evidence": "tasks=['reach-v3', 'push-v3', 'drawer-open-v3'], pools=45"
+    },
+    {
+      "id": 70,
+      "claim": "Meta-World exact law verified.",
+      "status": "VERIFIED",
+      "evidence": "utility MAE=0.023526234387278428"
+    },
+    {
+      "id": 71,
+      "claim": "Meta-World learned WAM scorer beats random open-loop with CI.",
+      "status": "VERIFIED",
+      "evidence": "learned-random CI={'n': 5, 'mean': 0.1321569963083081, 'std': 0.052626968366564504, 'stderr': 0.02353549574347386, 'ci95': 0.04612957165720876, 'lo': 0.08602742465109933, 'hi': 0.17828656796551687}"
+    },
+    {
+      "id": 72,
+      "claim": "Meta-World oracle and benchmark-reward scorers beat random with CI.",
+      "status": "VERIFIED",
+      "evidence": "reward-random CI={'n': 5, 'mean': 0.4645505227694846, 'std': 0.03137175314810848, 'stderr': 0.014029874522502716, 'ci95': 0.027498554064105323, 'lo': 0.43705196870537927, 'hi': 0.49204907683358995}; oracle-random CI={'n': 5, 'mean': 0.5191204413622994, 'std': 0.035016716358778836, 'stderr': 0.01565995162541168, 'ci95': 0.03069350518580689, 'lo': 0.4884269361764925, 'hi': 0.5498139465481063}"
+    },
+    {
+      "id": 73,
       "claim": "README has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "README overclaims=0"
     },
     {
-      "id": 70,
+      "id": 74,
       "claim": "paper_outline has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "paper overclaims=0"
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 70,
+  "num_verified": 74,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

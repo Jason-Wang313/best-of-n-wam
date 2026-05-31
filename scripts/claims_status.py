@@ -77,6 +77,7 @@ def main() -> None:
     gym_robotics = load_json("benchmark_gym_robotics_suite.json")
     gym_robotics_visual = load_json("benchmark_gym_robotics_visual_wam.json")
     maniskill_visual_probe = load_json("benchmark_maniskill_visual_probe.json")
+    metaworld = load_json("benchmark_metaworld_suite.json")
     audit = load_json("inference_audit_framework.json")
     audit_learned = load_json("inference_audit_framework_learned.json")
     repair = load_json("scorer_repair_experiment.json")
@@ -453,6 +454,55 @@ def main() -> None:
         ),
         f"visual_success={maniskill_visual_probe.get('any_visual_success')}, blocker={maniskill_visual_probe.get('visual_blocker')}",
     )
+    metaworld_ci = metaworld.get("confidence_intervals") or {}
+    add(
+        claims,
+        69,
+        "Meta-World ML1 benchmark suite verified.",
+        status(
+            bool(metaworld)
+            and metaworld.get("available", False)
+            and (metaworld.get("n_tasks_verified") or 0) >= 3
+            and (metaworld.get("n_rollout_pools") or 0) >= 45,
+            bool(metaworld),
+        ),
+        f"tasks={metaworld.get('task_names')}, pools={metaworld.get('n_rollout_pools')}",
+    )
+    add(
+        claims,
+        70,
+        "Meta-World exact law verified.",
+        status(
+            metaworld.get("exact_law_utility_mae") is not None
+            and metaworld.get("exact_law_utility_mae") < 0.04,
+            bool(metaworld),
+        ),
+        f"utility MAE={metaworld.get('exact_law_utility_mae')}",
+    )
+    add(
+        claims,
+        71,
+        "Meta-World learned WAM scorer beats random open-loop with CI.",
+        status(
+            (metaworld_ci.get("learned_minus_random_N32") or {}).get("lo") is not None
+            and (metaworld_ci.get("learned_minus_random_N32") or {}).get("lo") > 0.0,
+            bool(metaworld),
+        ),
+        f"learned-random CI={metaworld_ci.get('learned_minus_random_N32')}",
+    )
+    add(
+        claims,
+        72,
+        "Meta-World oracle and benchmark-reward scorers beat random with CI.",
+        status(
+            (metaworld_ci.get("reward_minus_random_N32") or {}).get("lo") is not None
+            and (metaworld_ci.get("reward_minus_random_N32") or {}).get("lo") > 0.0
+            and (metaworld_ci.get("oracle_minus_random_N32") or {}).get("lo") is not None
+            and (metaworld_ci.get("oracle_minus_random_N32") or {}).get("lo") > 0.0,
+            bool(metaworld),
+        ),
+        f"reward-random CI={metaworld_ci.get('reward_minus_random_N32')}; oracle-random CI={metaworld_ci.get('oracle_minus_random_N32')}",
+    )
 
     readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
     paper_text = PAPER.read_text(encoding="utf-8") if PAPER.exists() else ""
@@ -465,8 +515,8 @@ def main() -> None:
         if pattern.lower() in paper_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
             overclaims.append({"surface": "paper_outline", "id": cid, "pattern": pattern, "status": c["status"]})
 
-    add(claims, 69, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
-    add(claims, 70, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
+    add(claims, 73, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
+    add(claims, 74, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
 
     payload = {
         "claims": claims,

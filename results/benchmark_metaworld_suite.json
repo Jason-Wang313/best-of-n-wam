@@ -1,0 +1,148 @@
+{
+  "experiment": "benchmark_metaworld_suite",
+  "attempted": true,
+  "available": true,
+  "benchmark": "Meta-World ML1",
+  "task_names": [
+    "reach-v3",
+    "push-v3",
+    "drawer-open-v3"
+  ],
+  "n_tasks_verified": 3,
+  "n_rollout_pools": 45,
+  "n_rollouts": 48,
+  "seeds": [
+    15001,
+    15002,
+    15003,
+    15004,
+    15005
+  ],
+  "N_values": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "model_metrics": [
+    {
+      "benchmark": "reach-v3",
+      "available": true,
+      "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_metaworld_reach_v3_wam.joblib",
+      "model_metrics": {
+        "utility_mae": 2.4170682224038473,
+        "utility_corr": 0.36538542591414713,
+        "success_mae": 0.0,
+        "distance_mae": 0.04650907609216918,
+        "reward_mae": 2.286054372130055,
+        "train_samples": 640,
+        "validation_samples": 192
+      }
+    },
+    {
+      "benchmark": "push-v3",
+      "available": true,
+      "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_metaworld_push_v3_wam.joblib",
+      "model_metrics": {
+        "utility_mae": 0.01844862351727429,
+        "utility_corr": 0.8336771285019522,
+        "success_mae": 0.0,
+        "distance_mae": 0.0063434687982661464,
+        "reward_mae": 0.016444228365476345,
+        "train_samples": 640,
+        "validation_samples": 192
+      }
+    },
+    {
+      "benchmark": "drawer-open-v3",
+      "available": true,
+      "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_metaworld_drawer_open_v3_wam.joblib",
+      "model_metrics": {
+        "utility_mae": 0.6223389321387035,
+        "utility_corr": 0.49957338550474933,
+        "success_mae": 0.0,
+        "distance_mae": 0.008418304390524019,
+        "reward_mae": 0.6278108243522768,
+        "train_samples": 640,
+        "validation_samples": 192
+      }
+    }
+  ],
+  "exact_law_utility_mae": 0.023526234387278428,
+  "score_comparison": {
+    "learned_minus_random_N32": 0.1321569963083081,
+    "reward_minus_random_N32": 0.4645505227694846,
+    "oracle_minus_random_N32": 0.5191204413622994,
+    "oracle_minus_learned_N32": 0.38696344505399133
+  },
+  "closed_loop": {
+    "learned_minus_random_N32": -0.08940760581706204,
+    "reward_minus_random_N32": 0.13851879703447825
+  },
+  "confidence_intervals": {
+    "learned_minus_random_N32": {
+      "n": 5,
+      "mean": 0.1321569963083081,
+      "std": 0.052626968366564504,
+      "stderr": 0.02353549574347386,
+      "ci95": 0.04612957165720876,
+      "lo": 0.08602742465109933,
+      "hi": 0.17828656796551687
+    },
+    "reward_minus_random_N32": {
+      "n": 5,
+      "mean": 0.4645505227694846,
+      "std": 0.03137175314810848,
+      "stderr": 0.014029874522502716,
+      "ci95": 0.027498554064105323,
+      "lo": 0.43705196870537927,
+      "hi": 0.49204907683358995
+    },
+    "oracle_minus_random_N32": {
+      "n": 5,
+      "mean": 0.5191204413622994,
+      "std": 0.035016716358778836,
+      "stderr": 0.01565995162541168,
+      "ci95": 0.03069350518580689,
+      "lo": 0.4884269361764925,
+      "hi": 0.5498139465481063
+    },
+    "oracle_minus_learned_N32": {
+      "n": 5,
+      "mean": 0.38696344505399133,
+      "std": 0.055211679969063975,
+      "stderr": 0.024691413912558104,
+      "ci95": 0.04839517126861388,
+      "lo": 0.33856827378537746,
+      "hi": 0.4353586163226052
+    },
+    "closed_loop_learned_minus_random_N32": {
+      "n": 5,
+      "mean": -0.08940760581706204,
+      "std": 0.2529564966957782,
+      "stderr": 0.11312558439239219,
+      "ci95": 0.2217261454090887,
+      "lo": -0.3111337512261507,
+      "hi": 0.13231853959202666
+    },
+    "closed_loop_reward_minus_random_N32": {
+      "n": 5,
+      "mean": 0.13851879703447825,
+      "std": 0.8036832620913731,
+      "stderr": 0.359418081283018,
+      "ci95": 0.7044594393147152,
+      "lo": -0.565940642280237,
+      "hi": 0.8429782363491934
+    }
+  },
+  "artifacts": {
+    "curves": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_metaworld_curves.csv",
+    "curves_aggregate": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_metaworld_curves_aggregate.csv",
+    "exact_law": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_metaworld_exact_law.csv",
+    "closed_loop": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_metaworld_closed_loop.csv",
+    "seed_metrics": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_metaworld_seed_metrics.csv",
+    "figure": "C:\\Users\\wangz\\best-of-n-wam\\results\\figures\\benchmark_metaworld_curves.png"
+  }
+}

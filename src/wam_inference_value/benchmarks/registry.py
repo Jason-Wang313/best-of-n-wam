@@ -5,6 +5,7 @@ from wam_inference_value.benchmarks.gym_manip_adapter import is_gym_manip_availa
 from wam_inference_value.benchmarks.gym_robotics_adapter import is_gym_robotics_available
 from wam_inference_value.benchmarks.libero_adapter import is_libero_available
 from wam_inference_value.benchmarks.maniskill_adapter import is_maniskill_available
+from wam_inference_value.benchmarks.metaworld_adapter import is_metaworld_available
 
 
 def benchmark_statuses() -> list[BenchmarkStatus]:
@@ -19,6 +20,8 @@ def benchmark_statuses() -> list[BenchmarkStatus]:
     statuses.append(BenchmarkStatus(name="gym_manip", available=gym_ok, reason=gym_reason))
     robotics_ok, robotics_reason = is_gym_robotics_available()
     statuses.append(BenchmarkStatus(name="gym_robotics", available=robotics_ok, reason=robotics_reason))
+    metaworld_ok, metaworld_reason = is_metaworld_available()
+    statuses.append(BenchmarkStatus(name="metaworld", available=metaworld_ok, reason=metaworld_reason))
     libero_ok, libero_reason = is_libero_available()
     statuses.append(BenchmarkStatus(name="libero", available=libero_ok, reason=libero_reason))
     statuses.append(BenchmarkStatus(name="robocasa", available=False, reason="adapter skeleton only; dependency not installed/validated"))

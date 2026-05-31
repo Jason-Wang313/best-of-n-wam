@@ -13,7 +13,7 @@ Audit date: 2026-05-30.
 ## 2. Toy-Only
 
 - The main controlled environments are CPU toy environments.
-- Gymnasium/MuJoCo Reacher-v5, Gymnasium Robotics Fetch, and ManiSkill3 state-mode tasks now have external benchmark artifacts.
+- Gymnasium/MuJoCo Reacher-v5, Gymnasium Robotics Fetch, Meta-World ML1, and ManiSkill3 state-mode tasks now have external benchmark artifacts.
 - No real robot, DreamZero, UWM, LIBERO, or RoboCasa result is claimed.
 
 ## 3. Learned-Model Evidence
@@ -27,6 +27,7 @@ Audit date: 2026-05-30.
 
 - LIBERO and RoboCasa benchmark artifacts are still missing.
 - ManiSkill evidence is state-mode and joint-delta controlled; end-effector delta-pose control is not claimed because Pinocchio was unavailable.
+- Meta-World ML1 evidence covers `reach-v3`, `push-v3`, and `drawer-open-v3` with state/action-sequence WAM-lite artifacts.
 - No real robot data.
 - No high-dimensional policy or vision-language WAM evidence.
 
@@ -68,4 +69,4 @@ Audit date: 2026-05-30.
 
 ## 10. Readiness Tier
 
-The project has learned-toy, multi-env toy, Gymnasium/MuJoCo, Gymnasium Robotics Fetch, and ManiSkill3 state-mode benchmark validation paths. It is much closer to a serious ML submission artifact, but still not real-robot validated.
+The project has learned-toy, multi-env toy, Gymnasium/MuJoCo, Gymnasium Robotics Fetch, Meta-World ML1, and ManiSkill3 state-mode benchmark validation paths. It is much closer to a serious ML submission artifact, but still not real-robot validated.

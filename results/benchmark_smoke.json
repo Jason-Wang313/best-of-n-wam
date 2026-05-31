@@ -19,6 +19,11 @@
       "reason": "FetchPush-v4 available"
     },
     {
+      "name": "metaworld",
+      "available": true,
+      "reason": "reach-v3 available"
+    },
+    {
       "name": "libero",
       "available": false,
       "reason": "libero import not found; local pip install failed while building hf-egl-probe/egl_probe on Windows"
