@@ -502,25 +502,25 @@
       "id": 86,
       "claim": "LIBERO sparse-success scripted policy smoke verified.",
       "status": "VERIFIED",
-      "evidence": "episodes=50, successes=30, success CI={'n': 50, 'mean': 0.6, 'lo': 0.46, 'hi': 0.74, 'std': 0.49487165930539356}"
+      "evidence": "episodes=50, successes=50, success CI={'n': 50, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}"
     },
     {
       "id": 87,
       "claim": "LIBERO learned action-head sparse-success smoke verified.",
       "status": "VERIFIED",
-      "evidence": "tasks=['libero_object/0', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/7', 'libero_object/9'], eval=18/18, success CI={'n': 18, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}"
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], eval=30/30, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}"
     },
     {
       "id": 88,
       "claim": "LIBERO time-conditioned autonomous low-dimensional BC sparse-success smoke verified.",
       "status": "VERIFIED",
-      "evidence": "tasks=['libero_object/0', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/7', 'libero_object/9'], train=6450, eval=30/30, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'low_dim_knn_behavior_cloning', 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_task_id': True, 'uses_previous_action': True, 'uses_step_clock': True, 'knn_k': 3, 'knn_temperature': 0.05}"
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], train=12310, eval=50/50, success CI={'n': 50, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'low_dim_knn_behavior_cloning', 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_task_id': True, 'uses_previous_action': True, 'uses_step_clock': True, 'knn_k': 3, 'knn_temperature': 0.05}"
     },
     {
       "id": 89,
       "claim": "LIBERO RGB/proprio/language BC sparse-success smoke verified.",
       "status": "VERIFIED",
-      "evidence": "tasks=['libero_object/0', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/7', 'libero_object/9'], train=6450, eval=30/30, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'rgb_proprio_language_knn_behavior_cloning', 'uses_rgb': True, 'uses_language': True, 'uses_robot_proprio': True, 'uses_simulator_object_state': False, 'uses_task_id': False, 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_previous_action': True, 'uses_step_clock': True, 'knn_k': 3, 'knn_temperature': 0.05, 'image_grid': 8, 'language_hash_dim': 64}"
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], train=7386, eval=28/30, success CI={'n': 30, 'mean': 0.9333333333333333, 'lo': 0.8333333333333334, 'hi': 1.0, 'std': 0.2537081317024624}, policy={'type': 'rgb_proprio_language_knn_behavior_cloning', 'uses_rgb': True, 'uses_language': True, 'uses_robot_proprio': True, 'uses_simulator_object_state': False, 'uses_task_id': False, 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_previous_action': True, 'uses_step_clock': True, 'uses_language_candidate_filter': True, 'knn_k': 3, 'knn_temperature': 0.05, 'image_grid': 8, 'language_hash_dim': 64}"
     },
     {
       "id": 81,

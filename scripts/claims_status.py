@@ -723,9 +723,9 @@ def main() -> None:
             and (libero_scripted.get("n_tasks") or 0) >= 10
             and (libero_scripted.get("n_seeds") or 0) >= 5
             and (libero_scripted.get("n_episodes") or 0) >= 50
-            and (libero_scripted.get("n_successes") or 0) >= 20
-            and (libero_scripted.get("success_rate") or 0.0) >= 0.5
-            and (libero_scripted_ci.get("lo") or 0.0) > 0.25,
+            and (libero_scripted.get("n_successes") or 0) == (libero_scripted.get("n_episodes") or -1)
+            and (libero_scripted.get("success_rate") or 0.0) >= 0.95
+            and (libero_scripted_ci.get("lo") or 0.0) >= 0.9,
             bool(libero_scripted),
         ),
         f"episodes={libero_scripted.get('n_episodes')}, successes={libero_scripted.get('n_successes')}, success CI={libero_scripted_ci}",
@@ -739,10 +739,10 @@ def main() -> None:
             bool(libero_action_head)
             and libero_action_head.get("available", False)
             and libero_action_head.get("verified", False)
-            and len(libero_action_head.get("tasks") or []) >= 6
-            and (libero_action_head.get("train_episodes") or 0) >= 12
+            and len(libero_action_head.get("tasks") or []) >= 10
+            and (libero_action_head.get("train_episodes") or 0) >= 20
             and (libero_action_head.get("train_examples") or 0) >= 2000
-            and (libero_action_head.get("eval_episodes") or 0) >= 18
+            and (libero_action_head.get("eval_episodes") or 0) >= 30
             and (libero_action_head.get("eval_successes") or 0) == (libero_action_head.get("eval_episodes") or -1)
             and (libero_action_head_ci.get("lo") or 0.0) >= 0.9,
             bool(libero_action_head),
@@ -759,12 +759,12 @@ def main() -> None:
             bool(libero_autonomous_bc)
             and libero_autonomous_bc.get("available", False)
             and libero_autonomous_bc.get("verified", False)
-            and len(libero_autonomous_bc.get("tasks") or []) >= 6
-            and (libero_autonomous_bc.get("train_episodes") or 0) >= 30
+            and len(libero_autonomous_bc.get("tasks") or []) >= 10
+            and (libero_autonomous_bc.get("train_episodes") or 0) >= 50
             and (libero_autonomous_bc.get("train_examples") or 0) >= 6000
-            and (libero_autonomous_bc.get("eval_episodes") or 0) >= 30
-            and (libero_autonomous_bc.get("eval_success_rate") or 0.0) >= 0.8
-            and (libero_autonomous_bc_ci.get("lo") or 0.0) >= 0.6
+            and (libero_autonomous_bc.get("eval_episodes") or 0) >= 50
+            and (libero_autonomous_bc.get("eval_success_rate") or 0.0) >= 0.95
+            and (libero_autonomous_bc_ci.get("lo") or 0.0) >= 0.9
             and libero_autonomous_bc_policy.get("uses_phase_index") is False
             and libero_autonomous_bc_policy.get("uses_target_point_command") is False
             and libero_autonomous_bc_policy.get("uses_step_clock") is True,
@@ -782,12 +782,12 @@ def main() -> None:
             bool(libero_visual_language_bc)
             and libero_visual_language_bc.get("available", False)
             and libero_visual_language_bc.get("verified", False)
-            and len(libero_visual_language_bc.get("tasks") or []) >= 6
+            and len(libero_visual_language_bc.get("tasks") or []) >= 10
             and (libero_visual_language_bc.get("train_episodes") or 0) >= 30
             and (libero_visual_language_bc.get("train_examples") or 0) >= 6000
             and (libero_visual_language_bc.get("eval_episodes") or 0) >= 30
-            and (libero_visual_language_bc.get("eval_success_rate") or 0.0) >= 0.8
-            and (libero_visual_language_bc_ci.get("lo") or 0.0) >= 0.6
+            and (libero_visual_language_bc.get("eval_success_rate") or 0.0) >= 0.9
+            and (libero_visual_language_bc_ci.get("lo") or 0.0) >= 0.8
             and libero_visual_language_bc_policy.get("uses_rgb") is True
             and libero_visual_language_bc_policy.get("uses_language") is True
             and libero_visual_language_bc_policy.get("uses_robot_proprio") is True

@@ -26,36 +26,36 @@
   ],
   "n_seeds": 5,
   "n_episodes": 50,
-  "n_successes": 30,
-  "success_rate": 0.6,
+  "n_successes": 50,
+  "success_rate": 1.0,
   "confidence_intervals": {
     "success_rate": {
       "n": 50,
-      "mean": 0.6,
-      "lo": 0.46,
-      "hi": 0.74,
-      "std": 0.49487165930539356
+      "mean": 1.0,
+      "lo": 1.0,
+      "hi": 1.0,
+      "std": 0.0
     },
     "total_reward": {
       "n": 50,
-      "mean": 0.6,
-      "lo": 0.46,
-      "hi": 0.72,
-      "std": 0.49487165930539356
+      "mean": 1.0,
+      "lo": 1.0,
+      "hi": 1.0,
+      "std": 0.0
     },
     "utility": {
       "n": 50,
-      "mean": 1.1119387764629745,
-      "lo": 0.7490677191577916,
-      "hi": 1.4682751081499956,
-      "std": 1.2965989378799812
+      "mean": 2.1265534723071444,
+      "lo": 2.1069773051921503,
+      "hi": 2.1463643349640678,
+      "std": 0.07201241368405677
     },
     "progress": {
       "n": 50,
-      "mean": 0.23662653117312016,
-      "lo": 0.1610880814712804,
-      "hi": 0.31019261466718284,
-      "std": 0.2724320017473246
+      "mean": 0.4573053300833027,
+      "lo": 0.43573200536857726,
+      "hi": 0.47956058671197466,
+      "std": 0.07985519292168464
     }
   },
   "by_task": {
@@ -68,8 +68,8 @@
     "libero_object/1": {
       "task_name": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
       "n": 5,
-      "success_rate": 0.0,
-      "n_successes": 0
+      "success_rate": 1.0,
+      "n_successes": 5
     },
     "libero_object/2": {
       "task_name": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
@@ -92,14 +92,14 @@
     "libero_object/5": {
       "task_name": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
       "n": 5,
-      "success_rate": 0.0,
-      "n_successes": 0
+      "success_rate": 1.0,
+      "n_successes": 5
     },
     "libero_object/6": {
       "task_name": "pick_up_the_butter_and_place_it_in_the_basket",
       "n": 5,
-      "success_rate": 0.0,
-      "n_successes": 0
+      "success_rate": 1.0,
+      "n_successes": 5
     },
     "libero_object/7": {
       "task_name": "pick_up_the_milk_and_place_it_in_the_basket",
@@ -110,8 +110,8 @@
     "libero_object/8": {
       "task_name": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
       "n": 5,
-      "success_rate": 0.0,
-      "n_successes": 0
+      "success_rate": 1.0,
+      "n_successes": 5
     },
     "libero_object/9": {
       "task_name": "pick_up_the_orange_juice_and_place_it_in_the_basket",
@@ -124,6 +124,8 @@
     "type": "scripted_osc_pick_place",
     "controller": "OSC_POSE",
     "horizon": 512,
+    "object_grasp_tuning": true,
+    "tuning_note": "Hand-coded object-conditioned grasp heights for LIBERO Object smoke; not learned policy evidence.",
     "safe_lift": 0.25,
     "approach_z_offset": 0.055,
     "grasp_z_offset": 0.035,

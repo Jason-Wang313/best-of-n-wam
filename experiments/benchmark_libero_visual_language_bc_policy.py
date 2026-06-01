@@ -21,6 +21,7 @@ from benchmark_libero_learned_action_head import (
     scripted_action,
     task_index,
 )
+from libero_object_grasp_tuning import ALL_LIBERO_OBJECT_TASKS
 from wam_inference_value.benchmarks.libero_adapter import LIBEROAdapter, LIBEROUnavailableError, is_libero_available
 from wam_inference_value.stats import bootstrap_ci
 
@@ -77,11 +78,13 @@ def _obs_vector(raw: dict[str, Any], key: str, size: int) -> np.ndarray:
 def _image_features(raw: dict[str, Any], key: str, grid: int) -> np.ndarray:
     if key not in raw:
         pooled = np.zeros((grid, grid), dtype=float)
+        pooled_rgb = np.zeros((grid, grid, 3), dtype=float)
         color = np.zeros((0, 3), dtype=float)
     else:
         img = np.asarray(raw[key])
         if img.ndim != 3 or img.shape[-1] < 3:
             pooled = np.zeros((grid, grid), dtype=float)
+            pooled_rgb = np.zeros((grid, grid, 3), dtype=float)
             color = np.zeros((0, 3), dtype=float)
         else:
             img = img[..., :3].astype(float) / 255.0
@@ -95,13 +98,14 @@ def _image_features(raw: dict[str, Any], key: str, grid: int) -> np.ndarray:
                 img = np.pad(img, ((0, pad_h), (0, pad_w), (0, 0)), mode="edge")
             gray = img.mean(axis=2)
             pooled = gray.reshape(grid, h2 // grid, grid, w2 // grid).mean(axis=(1, 3))
+            pooled_rgb = img.reshape(grid, h2 // grid, grid, w2 // grid, 3).mean(axis=(1, 3))
             color = img.reshape(-1, 3)
     stats = []
     if color.size:
         stats.extend([color.mean(axis=0), color.std(axis=0), color.min(axis=0), color.max(axis=0)])
     else:
         stats.extend([np.zeros(3, dtype=float) for _ in range(4)])
-    return np.concatenate([pooled.reshape(-1), *stats]).astype(float)
+    return np.concatenate([pooled.reshape(-1), pooled_rgb.reshape(-1), *stats]).astype(float)
 
 
 def _language_features(text: str, dim: int) -> np.ndarray:
@@ -170,8 +174,15 @@ def knn_predict(
     *,
     k: int,
     temperature: float,
+    candidate_indices: np.ndarray | None = None,
 ) -> np.ndarray:
-    diff = x_train_z - x_z.reshape(1, -1)
+    if candidate_indices is not None and candidate_indices.size:
+        x_candidates = x_train_z[candidate_indices]
+        y_candidates = y_train[candidate_indices]
+    else:
+        x_candidates = x_train_z
+        y_candidates = y_train
+    diff = x_candidates - x_z.reshape(1, -1)
     dist2 = np.sum(diff * diff, axis=1)
     k_eff = min(int(k), len(dist2))
     idx = np.argpartition(dist2, k_eff - 1)[:k_eff]
@@ -180,13 +191,18 @@ def knn_predict(
     weights = np.exp(-(local - float(np.min(local))) / scale)
     if not np.isfinite(weights).all() or float(np.sum(weights)) <= 1e-12:
         weights = np.ones_like(weights)
-    return np.average(y_train[idx], axis=0, weights=weights)
+    return np.average(y_candidates[idx], axis=0, weights=weights)
+
+
+def current_language(adapter: LIBEROAdapter) -> str:
+    return str(getattr(adapter.task, "language", "") or getattr(adapter.task, "name", "") or "")
 
 
 def collect_scripted_episode(adapter: LIBEROAdapter, args: argparse.Namespace) -> dict[str, Any]:
     features: list[np.ndarray] = []
     actions: list[np.ndarray] = []
     feature_weights: np.ndarray | None = None
+    language = current_language(adapter)
     prev_action = np.zeros(adapter.action_dim, dtype=float)
     initial_distance = float(adapter.task_distance())
     total_reward = 0.0
@@ -235,6 +251,7 @@ def collect_scripted_episode(adapter: LIBEROAdapter, args: argparse.Namespace) -
         "progress": float(initial_distance - final_distance),
         "energy": float(energy),
         "steps": int(steps),
+        "language": language,
     }
 
 
@@ -246,6 +263,7 @@ def run_bc_episode(
     mean: np.ndarray,
     scale: np.ndarray,
     feature_weights: np.ndarray,
+    language_to_indices: dict[str, np.ndarray],
 ) -> dict[str, Any]:
     prev_action = np.zeros(adapter.action_dim, dtype=float)
     initial_distance = float(adapter.task_distance())
@@ -253,6 +271,8 @@ def run_bc_episode(
     energy = 0.0
     steps = 0
     failure_reason = None
+    language = current_language(adapter)
+    candidate_indices = language_to_indices.get(language)
     for _ in range(int(args.eval_steps)):
         if getattr(adapter, "last_done", False) or adapter.evaluate_success():
             break
@@ -261,7 +281,14 @@ def run_bc_episode(
             failure_reason = "feature weight shape changed"
             break
         z = ((feature - mean) / scale) * feature_weights
-        action = knn_predict(x_train_z, y_train, z, k=args.knn_k, temperature=args.knn_temperature)
+        action = knn_predict(
+            x_train_z,
+            y_train,
+            z,
+            k=args.knn_k,
+            temperature=args.knn_temperature,
+            candidate_indices=candidate_indices,
+        )
         action = np.clip(action, adapter.action_low, adapter.action_high)
         try:
             _, reward, done, truncated, _ = adapter.step(action)
@@ -284,6 +311,7 @@ def run_bc_episode(
         "energy": float(energy),
         "steps": int(steps),
         "failure_reason": failure_reason,
+        "language": language,
     }
 
 
@@ -307,7 +335,9 @@ def write_report(summary: dict[str, Any]) -> None:
         "",
         "- This uses RGB observations and task language, but it is still a lightweight feature-kNN behavior clone, not a modern vision-language policy.",
         "- It does not use simulator object state, scripted phase labels, task IDs, or commanded target points at evaluation time.",
-        "- It is time-conditioned and limited to the Object tasks where the scripted controller produced successful demonstrations.",
+        "- It uses task language to restrict nearest-neighbor candidates to demonstrations with the same instruction.",
+        "- The default artifact evaluates all ten LIBERO Object tasks, not all LIBERO suites.",
+        "- Demonstrations come from the hand-coded object-tuned scripted controller.",
     ]
     (REPORTS / "libero_visual_language_bc_policy_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -326,7 +356,7 @@ def unavailable_summary(reason: str, args: argparse.Namespace) -> dict[str, Any]
 def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
     parser.add_argument("--suite", default="libero_object")
-    parser.add_argument("--tasks", nargs="+", default=["0", "2", "3", "4", "7", "9"])
+    parser.add_argument("--tasks", nargs="+", default=ALL_LIBERO_OBJECT_TASKS)
     parser.add_argument("--train-seeds", nargs="+", type=int, default=[100, 101, 102, 103, 104])
     parser.add_argument("--eval-seeds", nargs="+", type=int, default=[200, 201, 202, 203, 204])
     parser.add_argument("--horizon", type=int, default=512)
@@ -364,6 +394,8 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--place-steps", type=int, default=25)
     parser.add_argument("--open-steps", type=int, default=35)
     parser.add_argument("--retreat-steps", type=int, default=20)
+    parser.add_argument("--object-grasp-tuning", dest="object_grasp_tuning", action="store_true", default=True)
+    parser.add_argument("--disable-object-grasp-tuning", dest="object_grasp_tuning", action="store_false")
     return parser
 
 
@@ -382,6 +414,7 @@ def main() -> None:
     rows: list[dict[str, Any]] = []
     x_parts: list[np.ndarray] = []
     y_parts: list[np.ndarray] = []
+    language_parts: list[np.ndarray] = []
     feature_weights: np.ndarray | None = None
     adapter: LIBEROAdapter | None = None
     try:
@@ -402,6 +435,7 @@ def main() -> None:
                 if out["features"] and out["actions"]:
                     x_parts.append(np.vstack(out["features"]))
                     y_parts.append(np.vstack(out["actions"]))
+                    language_parts.append(np.full(len(out["features"]), str(out.get("language", "")), dtype=object))
                     if feature_weights is None:
                         feature_weights = np.asarray(out["feature_weights"], dtype=float)
                 rows.append(
@@ -418,8 +452,13 @@ def main() -> None:
             raise RuntimeError("no train examples collected")
         x = np.vstack(x_parts)
         y = np.vstack(y_parts)
+        train_languages = np.concatenate(language_parts)
         mean, scale = standardize_fit(x)
         x_z = ((x - mean) / scale) * feature_weights.reshape(1, -1)
+        language_to_indices = {
+            str(language): np.flatnonzero(train_languages == language)
+            for language in sorted({str(v) for v in train_languages.tolist()})
+        }
         model_path = RESULTS / "models" / "benchmark_libero_visual_language_bc_policy.npz"
         np.savez(
             model_path,
@@ -428,6 +467,7 @@ def main() -> None:
             mean=mean.astype(np.float32),
             scale=scale.astype(np.float32),
             feature_weights=feature_weights.astype(np.float32),
+            train_languages=train_languages,
             task_ids=np.asarray(task_ids, dtype=object),
             train_seeds=np.asarray(args.train_seeds, dtype=int),
             eval_seeds=np.asarray(args.eval_seeds, dtype=int),
@@ -435,7 +475,7 @@ def main() -> None:
         for tid in task_ids:
             for seed in args.eval_seeds:
                 adapter.reset(int(seed), task_id=tid)
-                out = run_bc_episode(adapter, args, x_z, y, mean, scale, feature_weights)
+                out = run_bc_episode(adapter, args, x_z, y, mean, scale, feature_weights, language_to_indices)
                 rows.append(
                     {
                         "split": "eval_visual_language_bc",
@@ -494,11 +534,13 @@ def main() -> None:
             "uses_target_point_command": False,
             "uses_previous_action": True,
             "uses_step_clock": True,
+            "uses_language_candidate_filter": True,
             "knn_k": int(args.knn_k),
             "knn_temperature": float(args.knn_temperature),
             "image_grid": int(args.image_grid),
             "language_hash_dim": int(args.language_hash_dim),
         },
+        "object_grasp_tuning": bool(getattr(args, "object_grasp_tuning", True)),
         "model_path": str(model_path.relative_to(ROOT)),
         "artifact_paths": {
             "json": "results/benchmark_libero_visual_language_bc_policy.json",

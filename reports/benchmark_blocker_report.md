@@ -57,23 +57,23 @@ This supports LIBERO rollout-pool dense-utility validation, not solved-task LIBE
 ## Separate LIBERO Object Sparse-Success Scripted Smoke
 
 A hand scripted OSC pick-place controller was evaluated on `50` LIBERO Object episodes across `10` tasks and `5` seeds.
-It achieved `30` sparse successes; success-rate bootstrap CI is [`0.46`, `0.74`].
+It achieved `50` sparse successes; success-rate bootstrap CI is [`1.0`, `1.0`].
 This supports a narrow sparse-success simulator smoke, not learned policy performance or full LIBERO validation.
 
 ## Separate LIBERO Learned Action-Head Smoke
 
-A ridge action head imitated the successful scripted controller subset on `2580` action examples.
-It was evaluated on `18` heldout episodes across `6` LIBERO Object tasks and achieved `18` sparse successes; success-rate bootstrap CI is [`1.0`, `1.0`].
+A `knn` action head imitated the all-ten scripted controller on `4924` action examples.
+It was evaluated on `30` heldout episodes across `10` LIBERO Object tasks and achieved `30` sparse successes; success-rate bootstrap CI is [`1.0`, `1.0`].
 The high-level phase schedule and target points remain scripted, so this is a learned action-head smoke rather than autonomous learned LIBERO policy performance.
 
 ## Separate LIBERO Time-Conditioned Autonomous BC Smoke
 
-A low-dimensional kNN behavior-cloned policy was trained on `6450` successful scripted action examples and evaluated on `30` heldout episodes across `6` LIBERO Object tasks.
-It achieved `30` sparse successes; success-rate bootstrap CI is [`1.0`, `1.0`].
+A low-dimensional kNN behavior-cloned policy was trained on `12310` successful scripted action examples and evaluated on `50` heldout episodes across `10` LIBERO Object tasks.
+It achieved `50` sparse successes; success-rate bootstrap CI is [`1.0`, `1.0`].
 The policy uses simulator state, task ID, previous action, and a finite-horizon step clock, but no scripted phase labels or target-point commands. It is still not image/language LIBERO or broad robust autonomous policy evidence.
 
 ## Separate LIBERO RGB/Language BC Smoke
 
-A lightweight RGB/proprio/language kNN behavior-cloned policy was trained on `6450` successful scripted action examples and evaluated on `30` heldout episodes across `6` LIBERO Object tasks.
-It achieved `30` sparse successes; success-rate bootstrap CI is [`1.0`, `1.0`].
+A lightweight RGB/proprio/language kNN behavior-cloned policy was trained on `7386` successful scripted action examples and evaluated on `30` heldout episodes across `10` LIBERO Object tasks.
+It achieved `28` sparse successes; success-rate bootstrap CI is [`0.8333333333333334`, `1.0`].
 The policy uses RGB frame features, robot proprioception, task language, previous action, and a finite-horizon step clock, but no simulator object state, task ID, phase labels, or target-point commands. It is still a lightweight feature-kNN smoke, not full LIBERO or modern VLA evidence.

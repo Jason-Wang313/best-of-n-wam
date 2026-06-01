@@ -19,6 +19,7 @@ from benchmark_libero_learned_action_head import (
     scripted_action,
     task_index,
 )
+from libero_object_grasp_tuning import ALL_LIBERO_OBJECT_TASKS
 from wam_inference_value.benchmarks.libero_adapter import LIBEROAdapter, LIBEROUnavailableError, is_libero_available
 from wam_inference_value.stats import bootstrap_ci
 
@@ -277,7 +278,8 @@ def write_report(summary: dict[str, Any]) -> None:
         "- This is low-dimensional simulator-state behavior cloning, not image-based or language-conditioned LIBERO.",
         "- It does not use scripted phase labels or target-point commands at evaluation time.",
         "- It is time-conditioned; this is stronger than a scripted target/action-head smoke but still not a broad robust autonomous LIBERO policy.",
-        "- It is limited to the Object tasks where the scripted controller produced successful demonstrations.",
+        "- The default artifact evaluates all ten LIBERO Object tasks, not all LIBERO suites.",
+        "- Demonstrations come from the hand-coded object-tuned scripted controller.",
     ]
     (REPORTS / "libero_autonomous_bc_policy_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -296,7 +298,7 @@ def unavailable_summary(reason: str, args: argparse.Namespace) -> dict[str, Any]
 def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
     parser.add_argument("--suite", default="libero_object")
-    parser.add_argument("--tasks", nargs="+", default=["0", "2", "3", "4", "7", "9"])
+    parser.add_argument("--tasks", nargs="+", default=ALL_LIBERO_OBJECT_TASKS)
     parser.add_argument("--train-seeds", nargs="+", type=int, default=[100, 101, 102])
     parser.add_argument("--eval-seeds", nargs="+", type=int, default=[200, 201, 202])
     parser.add_argument("--horizon", type=int, default=512)
@@ -324,6 +326,8 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--place-steps", type=int, default=25)
     parser.add_argument("--open-steps", type=int, default=35)
     parser.add_argument("--retreat-steps", type=int, default=20)
+    parser.add_argument("--object-grasp-tuning", dest="object_grasp_tuning", action="store_true", default=True)
+    parser.add_argument("--disable-object-grasp-tuning", dest="object_grasp_tuning", action="store_false")
     return parser
 
 
@@ -447,6 +451,7 @@ def main() -> None:
             "knn_k": int(args.knn_k),
             "knn_temperature": float(args.knn_temperature),
         },
+        "object_grasp_tuning": bool(getattr(args, "object_grasp_tuning", True)),
         "model_path": str(model_path.relative_to(ROOT)),
         "artifact_paths": {
             "json": "results/benchmark_libero_autonomous_bc_policy.json",

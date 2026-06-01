@@ -5,10 +5,14 @@
   "verified": true,
   "tasks": [
     "libero_object/0",
+    "libero_object/1",
     "libero_object/2",
     "libero_object/3",
     "libero_object/4",
+    "libero_object/5",
+    "libero_object/6",
     "libero_object/7",
+    "libero_object/8",
     "libero_object/9"
   ],
   "train_seeds": [
@@ -25,15 +29,15 @@
     203,
     204
   ],
-  "train_episodes": 30,
-  "train_successes": 30,
-  "train_examples": 6450,
-  "eval_episodes": 30,
-  "eval_successes": 30,
+  "train_episodes": 50,
+  "train_successes": 50,
+  "train_examples": 12310,
+  "eval_episodes": 50,
+  "eval_successes": 50,
   "eval_success_rate": 1.0,
   "confidence_intervals": {
     "eval_success_rate": {
-      "n": 30,
+      "n": 50,
       "mean": 1.0,
       "lo": 1.0,
       "hi": 1.0,
@@ -50,6 +54,7 @@
     "knn_k": 3,
     "knn_temperature": 0.05
   },
+  "object_grasp_tuning": true,
   "model_path": "results\\models\\benchmark_libero_autonomous_bc_policy.npz",
   "artifact_paths": {
     "json": "results/benchmark_libero_autonomous_bc_policy.json",

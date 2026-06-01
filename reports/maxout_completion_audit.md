@@ -22,10 +22,10 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboCasa broad task family WAM-lite: verified `True`; tasks `['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet']`; train/eval samples `64`/`128`; utility corr `0.8599`; promoted scorer `learned_wam`; learned-random N8 CI lower `0.2112`.
 - RoboCasa 12-task family WAM-lite: verified `True`; tasks `12`; train/eval samples `96`/`192`; utility corr `0.8330`; promoted scorer `learned_energy_regularized`; learned-random N8 CI lower `0.1830`.
 - LIBERO WAM-lite: verified `True`; tasks `['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2']`; train/eval samples `192`/`240`; utility corr `0.3526`; exact-law MAE `0.0001`; learned-random N8 CI lower `0.2653`.
-- LIBERO scripted sparse-success smoke: verified `True`; episodes `50`; successes `30`; success-rate CI lower `0.4600`.
-- LIBERO learned action-head smoke: verified `True`; train examples `2580`; eval successes `18`/`18`; success-rate CI lower `1.0000`.
-- LIBERO time-conditioned autonomous low-dimensional BC smoke: verified `True`; train examples `6450`; eval successes `30`/`30`; success-rate CI lower `1.0000`; uses phase labels `False`; uses target commands `False`; uses step clock `True`.
-- LIBERO RGB/proprio/language BC smoke: verified `True`; train examples `6450`; eval successes `30`/`30`; success-rate CI lower `1.0000`; uses RGB `True`; uses language `True`; uses object state `False`.
+- LIBERO scripted sparse-success smoke: verified `True`; episodes `50`; successes `50`; success-rate CI lower `1.0000`.
+- LIBERO learned action-head smoke: verified `True`; train examples `4924`; eval successes `30`/`30`; success-rate CI lower `1.0000`.
+- LIBERO time-conditioned autonomous low-dimensional BC smoke: verified `True`; train examples `12310`; eval successes `50`/`50`; success-rate CI lower `1.0000`; uses phase labels `False`; uses target commands `False`; uses step clock `True`.
+- LIBERO RGB/proprio/language BC smoke: verified `True`; train examples `7386`; eval successes `28`/`30`; success-rate CI lower `0.8333`; uses RGB `True`; uses language `True`; uses object state `False`.
 - Visual attempted: `True`; visual verified: `True`.
 - Benchmark visual verified: `True`.
 - Benchmark RGB WAM-lite: `extra_trees_visual_wam`; verified: `True`; utility corr: `0.2199`; utility MAE: `0.5208`; exact-law MAE: `0.0157`.
@@ -56,10 +56,10 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboCasa broad task family learned WAM-lite: task conditioned ridge WAM over `['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet']` trained on `64` rollouts and evaluated on `128` heldout rollouts.
 - RoboCasa 12-task family learned WAM-lite: task conditioned ridge WAM over `['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet', 'robocasa/CloseDrawer', 'robocasa/CloseCabinet', 'robocasa/CloseMicrowave', 'robocasa/TurnOffSinkFaucet', 'robocasa/TurnOnStove', 'robocasa/TurnOffStove', 'robocasa/OpenOven', 'robocasa/CloseOven']` trained on `96` rollouts and evaluated on `192` heldout rollouts.
 - LIBERO learned WAM-lite: three Spatial tasks `['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2']` trained on `192` rollout samples and evaluated on `240` heldout rollout samples with dense progress utility.
-- LIBERO sparse-success scripted smoke: all 10 Object tasks evaluated over `5` seeds with `30` successes over `50` episodes.
-- LIBERO learned action-head smoke: ridge action head trained on `2580` scripted action examples and evaluated on `18` heldout sparse-success episodes over the scripted-success Object subset.
-- LIBERO time-conditioned autonomous low-dimensional BC smoke: kNN behavior cloning trained on `6450` scripted action examples and evaluated on `30` heldout sparse-success episodes over the scripted-success Object subset without phase labels or target-point commands at evaluation time.
-- LIBERO RGB/proprio/language BC smoke: feature-kNN behavior cloning trained on `6450` scripted action examples and evaluated on `30` heldout sparse-success episodes over the scripted-success Object subset without object state, task IDs, phase labels, or target-point commands at evaluation time.
+- LIBERO sparse-success scripted smoke: all 10 Object tasks evaluated over `5` seeds with `50` successes over `50` episodes.
+- LIBERO learned action-head smoke: `knn` action head trained on `4924` scripted action examples and evaluated on `30` heldout sparse-success episodes over all 10 Object tasks.
+- LIBERO time-conditioned autonomous low-dimensional BC smoke: kNN behavior cloning trained on `12310` scripted action examples and evaluated on `50` heldout sparse-success episodes over all 10 Object tasks without phase labels or target-point commands at evaluation time.
+- LIBERO RGB/proprio/language BC smoke: feature-kNN behavior cloning trained on `7386` scripted action examples and evaluated on `30` heldout sparse-success episodes over all 10 Object tasks without object state, task IDs, phase labels, or target-point commands at evaluation time.
 - Visual: toy visual mode verified with MAE `0.0185`.
 - Benchmark visual WAM: Reacher-v5 RGB-frame/action-sequence model verified with visual-random N32 CI lower bound `0.1998`.
 - Gymnasium Robotics visual WAM: Fetch RGB-frame/action-sequence models verified with visual-random N32 CI lower bound `0.3475`.
@@ -96,8 +96,8 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - LIBERO WAM utility corr: `0.3526`.
 - LIBERO learned-random N8 CI lower: `0.2653`.
 - LIBERO exact-law utility MAE: `0.0001`.
-- LIBERO Object scripted success rate: `0.6000` with CI [`0.4600`, `0.7400`].
+- LIBERO Object scripted success rate: `1.0000` with CI [`1.0000`, `1.0000`].
 - LIBERO learned action-head heldout success rate: `1.0000` with CI [`1.0000`, `1.0000`].
 - LIBERO time-conditioned autonomous low-dimensional BC heldout success rate: `1.0000` with CI [`1.0000`, `1.0000`].
-- LIBERO RGB/proprio/language BC heldout success rate: `1.0000` with CI [`1.0000`, `1.0000`].
+- LIBERO RGB/proprio/language BC heldout success rate: `0.9333` with CI [`0.8333`, `1.0000`].
 - Falsification anti-scorer N64 mean utility: `-26.5657`.

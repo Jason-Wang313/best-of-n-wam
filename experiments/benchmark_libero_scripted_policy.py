@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 import numpy as np
 
+from libero_object_grasp_tuning import ALL_LIBERO_OBJECT_TASKS, grasp_profile_name, tuned_args_for_object
 from wam_inference_value.benchmarks.libero_adapter import LIBEROAdapter, LIBEROUnavailableError, is_libero_available
 from wam_inference_value.stats import bootstrap_ci
 
@@ -129,28 +130,29 @@ def run_pick_place_script(adapter: LIBEROAdapter, args: argparse.Namespace) -> d
             "objects": objects,
         }
 
-    grasp_xy = np.asarray([obj[0] + args.grasp_offset_x, obj[1] + args.grasp_offset_y], dtype=float)
-    zsafe = max(float(obj[2]), float(target[2])) + float(args.safe_lift)
+    phase_args = tuned_args_for_object(args, obj_name)
+    grasp_xy = np.asarray([obj[0] + phase_args.grasp_offset_x, obj[1] + phase_args.grasp_offset_y], dtype=float)
+    zsafe = max(float(obj[2]), float(target[2])) + float(phase_args.safe_lift)
     total_reward = 0.0
     energy = 0.0
     steps = 0
     errors: list[str] = []
 
     phase_specs: list[tuple[str, np.ndarray, float, int]] = [
-        ("open_above_object", np.asarray([grasp_xy[0], grasp_xy[1], zsafe], dtype=float), -1.0, args.above_steps),
+        ("open_above_object", np.asarray([grasp_xy[0], grasp_xy[1], zsafe], dtype=float), -1.0, phase_args.above_steps),
         (
             "descend_open",
-            np.asarray([grasp_xy[0], grasp_xy[1], float(obj[2]) + args.approach_z_offset], dtype=float),
+            np.asarray([grasp_xy[0], grasp_xy[1], float(obj[2]) + phase_args.approach_z_offset], dtype=float),
             -1.0,
-            args.descend_steps,
+            phase_args.descend_steps,
         ),
         (
             "close_gripper",
-            np.asarray([grasp_xy[0], grasp_xy[1], float(obj[2]) + args.grasp_z_offset], dtype=float),
+            np.asarray([grasp_xy[0], grasp_xy[1], float(obj[2]) + phase_args.grasp_z_offset], dtype=float),
             1.0,
-            args.close_steps,
+            phase_args.close_steps,
         ),
-        ("lift_object", np.asarray([grasp_xy[0], grasp_xy[1], zsafe], dtype=float), 1.0, args.lift_steps),
+        ("lift_object", np.asarray([grasp_xy[0], grasp_xy[1], zsafe], dtype=float), 1.0, phase_args.lift_steps),
     ]
 
     for name, target_pos, gripper, n_steps in phase_specs:
@@ -159,7 +161,7 @@ def run_pick_place_script(adapter: LIBEROAdapter, args: argparse.Namespace) -> d
             target_pos,
             gripper,
             steps=n_steps,
-            gain=args.servo_gain,
+            gain=phase_args.servo_gain,
         )
         total_reward += reward
         energy += phase_energy
@@ -176,20 +178,20 @@ def run_pick_place_script(adapter: LIBEROAdapter, args: argparse.Namespace) -> d
             errors.append("target position unavailable after lift")
         else:
             place_specs: list[tuple[str, np.ndarray, float, int]] = [
-                ("move_to_target", np.asarray([target[0], target[1], zsafe], dtype=float), 1.0, args.move_steps),
+                ("move_to_target", np.asarray([target[0], target[1], zsafe], dtype=float), 1.0, phase_args.move_steps),
                 (
                     "lower_to_target",
-                    np.asarray([target[0], target[1], float(target[2]) + args.place_z_offset], dtype=float),
+                    np.asarray([target[0], target[1], float(target[2]) + phase_args.place_z_offset], dtype=float),
                     1.0,
-                    args.place_steps,
+                    phase_args.place_steps,
                 ),
                 (
                     "open_gripper",
-                    np.asarray([target[0], target[1], float(target[2]) + args.place_z_offset], dtype=float),
+                    np.asarray([target[0], target[1], float(target[2]) + phase_args.place_z_offset], dtype=float),
                     -1.0,
-                    args.open_steps,
+                    phase_args.open_steps,
                 ),
-                ("retreat", np.asarray([target[0], target[1], zsafe], dtype=float), -1.0, args.retreat_steps),
+                ("retreat", np.asarray([target[0], target[1], zsafe], dtype=float), -1.0, phase_args.retreat_steps),
             ]
             for name, target_pos, gripper, n_steps in place_specs:
                 reward, phase_energy, phase_steps, error = servo_to(
@@ -197,7 +199,7 @@ def run_pick_place_script(adapter: LIBEROAdapter, args: argparse.Namespace) -> d
                     target_pos,
                     gripper,
                     steps=n_steps,
-                    gain=args.servo_gain,
+                    gain=phase_args.servo_gain,
                 )
                 total_reward += reward
                 energy += phase_energy
@@ -217,6 +219,7 @@ def run_pick_place_script(adapter: LIBEROAdapter, args: argparse.Namespace) -> d
         "objects": objects,
         "object_name": obj_name,
         "target_name": target_name,
+        "grasp_profile": grasp_profile_name(obj_name, args),
     }
 
 
@@ -237,6 +240,7 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         "steps",
         "object_name",
         "target_name",
+        "grasp_profile",
         "failure_reason",
     ]
     with path.open("w", newline="", encoding="utf-8") as f:
@@ -292,7 +296,8 @@ def write_report(summary: dict[str, Any], rows: list[dict[str, Any]], path: Path
             "",
             "- This is a scripted sparse-success smoke, not a learned WAM policy and not a demonstration that the project solves LIBERO.",
             "- The controller uses object and target positions exposed by the simulator, so it is diagnostic benchmark evidence rather than deployable perception.",
-            "- Failed tasks remain reported in the CSV/JSON artifact; the claim is limited to the measured success subset.",
+            "- The default smoke uses hand-coded object-conditioned grasp heights for LIBERO Object; this is benchmark engineering, not learned policy evidence.",
+            "- Failed tasks, if any, remain reported in the CSV/JSON artifact; the claim is limited to the measured success subset.",
         ]
     )
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -315,7 +320,7 @@ def unavailable_summary(reason: str, args: argparse.Namespace) -> dict[str, Any]
 def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--suite", default="libero_object")
-    parser.add_argument("--tasks", nargs="+", default=[str(i) for i in range(10)])
+    parser.add_argument("--tasks", nargs="+", default=ALL_LIBERO_OBJECT_TASKS)
     parser.add_argument("--seeds", nargs="+", type=int, default=[100])
     parser.add_argument("--horizon", type=int, default=512)
     parser.add_argument("--controller", default="OSC_POSE")
@@ -336,6 +341,8 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--place-steps", type=int, default=25)
     parser.add_argument("--open-steps", type=int, default=35)
     parser.add_argument("--retreat-steps", type=int, default=20)
+    parser.add_argument("--object-grasp-tuning", dest="object_grasp_tuning", action="store_true", default=True)
+    parser.add_argument("--disable-object-grasp-tuning", dest="object_grasp_tuning", action="store_false")
     parser.add_argument("--success-bonus", type=float, default=1.0)
     parser.add_argument("--energy-penalty", type=float, default=0.001)
     parser.add_argument("--min-success-rate", type=float, default=0.5)
@@ -401,6 +408,7 @@ def main() -> None:
                         "steps": int(outcome["steps"]),
                         "object_name": outcome.get("object_name"),
                         "target_name": outcome.get("target_name"),
+                        "grasp_profile": outcome.get("grasp_profile"),
                         "objects": outcome.get("objects"),
                         "failure_reason": outcome.get("failure_reason"),
                         "initial_state_dim": int(np.asarray(state).size),
@@ -476,6 +484,8 @@ def main() -> None:
             "type": "scripted_osc_pick_place",
             "controller": args.controller,
             "horizon": args.horizon,
+            "object_grasp_tuning": bool(getattr(args, "object_grasp_tuning", True)),
+            "tuning_note": "Hand-coded object-conditioned grasp heights for LIBERO Object smoke; not learned policy evidence.",
             "safe_lift": args.safe_lift,
             "approach_z_offset": args.approach_z_offset,
             "grasp_z_offset": args.grasp_z_offset,

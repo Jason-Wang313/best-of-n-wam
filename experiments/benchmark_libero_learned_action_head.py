@@ -12,6 +12,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 import numpy as np
 
+from libero_object_grasp_tuning import ALL_LIBERO_OBJECT_TASKS, grasp_profile_name, tuned_args_for_object
 from wam_inference_value.benchmarks.libero_adapter import LIBEROAdapter, LIBEROUnavailableError, is_libero_available
 from wam_inference_value.stats import bootstrap_ci
 
@@ -118,12 +119,41 @@ def fit_ridge(x: np.ndarray, y: np.ndarray, alpha: float) -> dict[str, np.ndarra
     reg = float(alpha) * np.eye(z.shape[1])
     reg[0, 0] = 0.0
     weights = np.linalg.solve(z.T @ z + reg, z.T @ y)
-    return {"mean": mean, "scale": scale, "weights": weights}
+    return {"type": np.asarray("ridge"), "mean": mean, "scale": scale, "weights": weights}
+
+
+def fit_knn(x: np.ndarray, y: np.ndarray) -> dict[str, np.ndarray]:
+    x = np.asarray(x, dtype=float)
+    y = np.asarray(y, dtype=float)
+    mean = np.mean(x, axis=0)
+    scale = np.std(x, axis=0)
+    scale[scale < 1e-8] = 1.0
+    return {"type": np.asarray("knn"), "mean": mean, "scale": scale, "x_train": (x - mean) / scale, "y_train": y}
+
+
+def _model_type(model: dict[str, np.ndarray]) -> str:
+    raw = model.get("type")
+    if raw is None:
+        return "ridge"
+    return str(np.asarray(raw).item())
 
 
 def predict(model: dict[str, np.ndarray], x: np.ndarray) -> np.ndarray:
     arr = np.asarray(x, dtype=float).reshape(1, -1)
     z = (arr - model["mean"]) / model["scale"]
+    if _model_type(model) == "knn":
+        x_train = np.asarray(model["x_train"], dtype=float)
+        y_train = np.asarray(model["y_train"], dtype=float)
+        diff = x_train - z.reshape(1, -1)
+        dist2 = np.sum(diff * diff, axis=1)
+        k_eff = min(int(np.asarray(model.get("knn_k", np.asarray(3))).item()), len(dist2))
+        idx = np.argpartition(dist2, k_eff - 1)[:k_eff]
+        local = dist2[idx]
+        temp = max(float(np.asarray(model.get("knn_temperature", np.asarray(0.05))).item()), 1e-8)
+        weights = np.exp(-(local - float(np.min(local))) / temp)
+        if not np.isfinite(weights).all() or float(np.sum(weights)) <= 1e-12:
+            weights = np.ones_like(weights)
+        return np.average(y_train[idx], axis=0, weights=weights)
     z = np.column_stack([np.ones(len(z)), z])
     return (z @ model["weights"])[0]
 
@@ -146,37 +176,38 @@ def phase_targets(adapter: LIBEROAdapter, args: argparse.Namespace) -> list[tupl
     target = adapter._position(objects[1])
     if obj is None or target is None:
         return []
-    grasp_xy = np.asarray([obj[0] + args.grasp_offset_x, obj[1] + args.grasp_offset_y], dtype=float)
-    zsafe = max(float(obj[2]), float(target[2])) + float(args.safe_lift)
+    phase_args = tuned_args_for_object(args, objects[0])
+    grasp_xy = np.asarray([obj[0] + phase_args.grasp_offset_x, obj[1] + phase_args.grasp_offset_y], dtype=float)
+    zsafe = max(float(obj[2]), float(target[2])) + float(phase_args.safe_lift)
     return [
-        ("open_above_object", np.asarray([grasp_xy[0], grasp_xy[1], zsafe], dtype=float), -1.0, args.above_steps),
+        ("open_above_object", np.asarray([grasp_xy[0], grasp_xy[1], zsafe], dtype=float), -1.0, phase_args.above_steps),
         (
             "descend_open",
-            np.asarray([grasp_xy[0], grasp_xy[1], float(obj[2]) + args.approach_z_offset], dtype=float),
+            np.asarray([grasp_xy[0], grasp_xy[1], float(obj[2]) + phase_args.approach_z_offset], dtype=float),
             -1.0,
-            args.descend_steps,
+            phase_args.descend_steps,
         ),
         (
             "close_gripper",
-            np.asarray([grasp_xy[0], grasp_xy[1], float(obj[2]) + args.grasp_z_offset], dtype=float),
+            np.asarray([grasp_xy[0], grasp_xy[1], float(obj[2]) + phase_args.grasp_z_offset], dtype=float),
             1.0,
-            args.close_steps,
+            phase_args.close_steps,
         ),
-        ("lift_object", np.asarray([grasp_xy[0], grasp_xy[1], zsafe], dtype=float), 1.0, args.lift_steps),
-        ("move_to_target", np.asarray([target[0], target[1], zsafe], dtype=float), 1.0, args.move_steps),
+        ("lift_object", np.asarray([grasp_xy[0], grasp_xy[1], zsafe], dtype=float), 1.0, phase_args.lift_steps),
+        ("move_to_target", np.asarray([target[0], target[1], zsafe], dtype=float), 1.0, phase_args.move_steps),
         (
             "lower_to_target",
-            np.asarray([target[0], target[1], float(target[2]) + args.place_z_offset], dtype=float),
+            np.asarray([target[0], target[1], float(target[2]) + phase_args.place_z_offset], dtype=float),
             1.0,
-            args.place_steps,
+            phase_args.place_steps,
         ),
         (
             "open_gripper",
-            np.asarray([target[0], target[1], float(target[2]) + args.place_z_offset], dtype=float),
+            np.asarray([target[0], target[1], float(target[2]) + phase_args.place_z_offset], dtype=float),
             -1.0,
-            args.open_steps,
+            phase_args.open_steps,
         ),
-        ("retreat", np.asarray([target[0], target[1], zsafe], dtype=float), -1.0, args.retreat_steps),
+        ("retreat", np.asarray([target[0], target[1], zsafe], dtype=float), -1.0, phase_args.retreat_steps),
     ]
 
 
@@ -195,9 +226,16 @@ def run_episode(
     total_reward = 0.0
     energy = 0.0
     steps = 0
+    objects = list(getattr(adapter.env, "obj_of_interest", []) or [])
     phases = phase_targets(adapter, args)
     if not phases:
-        return {"success": False, "features": features, "actions": actions, "failure_reason": "phase targets unavailable"}
+        return {
+            "success": False,
+            "features": features,
+            "actions": actions,
+            "failure_reason": "phase targets unavailable",
+            "grasp_profile": grasp_profile_name(objects[0], args) if objects else None,
+        }
     for phase_index, (_, target, gripper, n_steps) in enumerate(phases):
         for _ in range(int(n_steps)):
             if getattr(adapter, "last_done", False) or adapter.evaluate_success():
@@ -221,6 +259,7 @@ def run_episode(
                     "total_reward": total_reward,
                     "energy": energy,
                     "steps": steps,
+                    "grasp_profile": grasp_profile_name(objects[0], args) if objects else None,
                 }
             total_reward += float(reward)
             energy += float(np.sum(action * action))
@@ -242,6 +281,7 @@ def run_episode(
         "progress": progress,
         "energy": float(energy),
         "steps": int(steps),
+        "grasp_profile": grasp_profile_name(objects[0], args) if objects else None,
     }
 
 
@@ -258,6 +298,7 @@ def write_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         "progress",
         "energy",
         "steps",
+        "grasp_profile",
         "failure_reason",
     ]
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -273,7 +314,7 @@ def write_report(summary: dict[str, Any], rows: list[dict[str, Any]]) -> None:
     lines = [
         "# LIBERO Learned Action-Head Smoke Report",
         "",
-        "This optional artifact imitates the successful LIBERO Object scripted controller with a learned ridge action head. The phase schedule and target points are still scripted, so this is a narrow learned-control smoke, not a learned autonomous LIBERO policy.",
+        "This optional artifact imitates the successful LIBERO Object scripted controller with a learned continuous action head. The phase schedule and target points are still scripted, so this is a narrow learned-control smoke, not a learned autonomous LIBERO policy.",
         "",
         "## Summary",
         "",
@@ -284,13 +325,15 @@ def write_report(summary: dict[str, Any], rows: list[dict[str, Any]]) -> None:
         f"- Eval episodes: `{summary.get('eval_episodes')}`.",
         f"- Eval successes: `{summary.get('eval_successes')}`.",
         f"- Eval success rate: `{ci.get('mean')}` with bootstrap CI [`{ci.get('lo')}`, `{ci.get('hi')}`].",
+        f"- Action-head model: `{summary.get('action_head_model')}`.",
         f"- Action MAE on collected train examples: `{summary.get('train_action_mae')}`.",
         "",
         "## Limitations",
         "",
         "- The learned component is only the continuous action head.",
         "- High-level phase ordering and target-point construction are still scripted.",
-        "- The artifact evaluates the scripted-success LIBERO Object subset, not all LIBERO suites.",
+        "- The default artifact evaluates all ten LIBERO Object tasks, not all LIBERO suites.",
+        "- The phase targets inherit hand-coded object-conditioned grasp heights from the scripted smoke; this is not learned policy discovery.",
     ]
     REPORTS.mkdir(parents=True, exist_ok=True)
     (REPORTS / "libero_learned_action_head_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -311,11 +354,14 @@ def unavailable_summary(reason: str, args: argparse.Namespace) -> dict[str, Any]
 def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser()
     parser.add_argument("--suite", default="libero_object")
-    parser.add_argument("--tasks", nargs="+", default=["0", "2", "3", "4", "7", "9"])
+    parser.add_argument("--tasks", nargs="+", default=ALL_LIBERO_OBJECT_TASKS)
     parser.add_argument("--train-seeds", nargs="+", type=int, default=[100, 101])
     parser.add_argument("--eval-seeds", nargs="+", type=int, default=[200, 201, 202])
     parser.add_argument("--horizon", type=int, default=512)
     parser.add_argument("--controller", default="OSC_POSE")
+    parser.add_argument("--action-head-model", choices=["knn", "ridge"], default="knn")
+    parser.add_argument("--knn-k", type=int, default=3)
+    parser.add_argument("--knn-temperature", type=float, default=0.05)
     parser.add_argument("--ridge-alpha", type=float, default=1e-4)
     parser.add_argument("--bootstrap-samples", type=int, default=2000)
     parser.add_argument("--seed", type=int, default=919)
@@ -337,6 +383,8 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--place-steps", type=int, default=25)
     parser.add_argument("--open-steps", type=int, default=35)
     parser.add_argument("--retreat-steps", type=int, default=20)
+    parser.add_argument("--object-grasp-tuning", dest="object_grasp_tuning", action="store_true", default=True)
+    parser.add_argument("--disable-object-grasp-tuning", dest="object_grasp_tuning", action="store_false")
     return parser
 
 
@@ -378,7 +426,7 @@ def main() -> None:
                         "task_id": tid,
                         "task_name": str(getattr(adapter.task, "name", tid)),
                         "seed": int(seed),
-                        **{k: out.get(k) for k in ["success", "total_reward", "initial_distance", "final_distance", "progress", "energy", "steps", "failure_reason"]},
+                        **{k: out.get(k) for k in ["success", "total_reward", "initial_distance", "final_distance", "progress", "energy", "steps", "grasp_profile", "failure_reason"]},
                     }
                 )
                 print(f"train {tid} seed={seed} success={out.get('success')} examples={len(out['features'])}")
@@ -386,7 +434,12 @@ def main() -> None:
             raise RuntimeError("no train examples collected")
         x = np.vstack(x_parts)
         y = np.vstack(y_parts)
-        model = fit_ridge(x, y, args.ridge_alpha)
+        if args.action_head_model == "ridge":
+            model = fit_ridge(x, y, args.ridge_alpha)
+        else:
+            model = fit_knn(x, y)
+            model["knn_k"] = np.asarray(args.knn_k, dtype=int)
+            model["knn_temperature"] = np.asarray(args.knn_temperature, dtype=float)
         pred_train = np.asarray([predict(model, feat) for feat in x], dtype=float)
         action_mae = float(np.mean(np.abs(pred_train - y)))
         action_rmse = float(np.sqrt(np.mean((pred_train - y) ** 2)))
@@ -395,7 +448,12 @@ def main() -> None:
             model_path,
             mean=model["mean"],
             scale=model["scale"],
-            weights=model["weights"],
+            weights=model.get("weights", np.zeros((0, 0), dtype=float)),
+            x_train=model.get("x_train", np.zeros((0, x.shape[1]), dtype=float)),
+            y_train=model.get("y_train", np.zeros((0, y.shape[1]), dtype=float)),
+            action_head_model=np.asarray(args.action_head_model, dtype=object),
+            knn_k=np.asarray(args.knn_k, dtype=int),
+            knn_temperature=np.asarray(args.knn_temperature, dtype=float),
             task_ids=np.asarray(task_ids, dtype=object),
             train_seeds=np.asarray(args.train_seeds, dtype=int),
             eval_seeds=np.asarray(args.eval_seeds, dtype=int),
@@ -410,7 +468,7 @@ def main() -> None:
                         "task_id": tid,
                         "task_name": str(getattr(adapter.task, "name", tid)),
                         "seed": int(seed),
-                        **{k: out.get(k) for k in ["success", "total_reward", "initial_distance", "final_distance", "progress", "energy", "steps", "failure_reason"]},
+                        **{k: out.get(k) for k in ["success", "total_reward", "initial_distance", "final_distance", "progress", "energy", "steps", "grasp_profile", "failure_reason"]},
                     }
                 )
                 print(f"eval {tid} seed={seed} success={out.get('success')} progress={out.get('progress')}")
@@ -453,13 +511,17 @@ def main() -> None:
         "confidence_intervals": {"eval_success_rate": ci},
         "train_action_mae": action_mae,
         "train_action_rmse": action_rmse,
+        "action_head_model": args.action_head_model,
+        "knn_k": int(args.knn_k),
+        "knn_temperature": float(args.knn_temperature),
+        "object_grasp_tuning": bool(getattr(args, "object_grasp_tuning", True)),
         "model_path": str(model_path.relative_to(ROOT)),
         "artifact_paths": {
             "json": "results/benchmark_libero_learned_action_head.json",
             "episodes_csv": "results/tables/benchmark_libero_learned_action_head_episodes.csv",
             "report": "reports/libero_learned_action_head_report.md",
         },
-        "note": "Learned ridge action head with scripted phases and target points; not autonomous learned LIBERO policy performance.",
+        "note": "Learned action head with scripted phases and target points; not autonomous learned LIBERO policy performance.",
     }
     write_json(RESULTS / "benchmark_libero_learned_action_head.json", summary)
     write_csv(RESULTS / "tables" / "benchmark_libero_learned_action_head_episodes.csv", rows)

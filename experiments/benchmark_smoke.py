@@ -202,7 +202,7 @@ def run() -> dict:
                     "",
                     "## Separate LIBERO Learned Action-Head Smoke",
                     "",
-                    f"A ridge action head imitated the successful scripted controller subset on `{libero_action_head.get('train_examples')}` action examples.",
+                    f"A `{libero_action_head.get('action_head_model')}` action head imitated the all-ten scripted controller on `{libero_action_head.get('train_examples')}` action examples.",
                     f"It was evaluated on `{libero_action_head.get('eval_episodes')}` heldout episodes across `{len(libero_action_head.get('tasks') or [])}` LIBERO Object tasks and achieved `{libero_action_head.get('eval_successes')}` sparse successes; success-rate bootstrap CI is [`{ci.get('lo')}`, `{ci.get('hi')}`].",
                     "The high-level phase schedule and target points remain scripted, so this is a learned action-head smoke rather than autonomous learned LIBERO policy performance.",
                 ]
