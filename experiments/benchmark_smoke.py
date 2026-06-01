@@ -29,6 +29,8 @@ def run() -> dict:
     family24_path = results_dir() / "benchmark_robocasa_family24_wam.json"
     robocasa_catalog = {}
     catalog_path = results_dir() / "benchmark_robocasa_catalog_probe.json"
+    robocasa_micro = {}
+    micro_path = results_dir() / "benchmark_robocasa_micro_rollout_extra.json"
     libero_wam = {}
     libero_path = results_dir() / "benchmark_libero_wam.json"
     libero_scripted = {}
@@ -67,6 +69,10 @@ def run() -> dict:
         import json
 
         robocasa_catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
+    if micro_path.exists():
+        import json
+
+        robocasa_micro = json.loads(micro_path.read_text(encoding="utf-8"))
     if libero_path.exists():
         import json
 
@@ -201,8 +207,18 @@ def run() -> dict:
                     "",
                     "## Separate RoboCasa Registry Coverage Audit",
                     "",
-                    f"The local RoboCasa registry exposes `{robocasa_catalog.get('registry_count')}` task IDs; verified rollout-pool artifacts currently cover `{robocasa_catalog.get('verified_artifact_task_count')}` task IDs, coverage fraction `{robocasa_catalog.get('coverage_fraction')}`.",
+                    f"The local RoboCasa registry exposes `{robocasa_catalog.get('registry_count')}` task IDs; verified rollout-pool artifacts currently cover `{robocasa_catalog.get('verified_artifact_task_count')}` task IDs, micro-rollout probes cover `{robocasa_catalog.get('micro_rollout_task_count')}` more, and any committed artifact covers `{robocasa_catalog.get('any_artifact_task_count')}` task IDs.",
                     "This quantifies the remaining full-RoboCasa-wide gap; it is a registry audit, not validation evidence for uncovered tasks.",
+                ]
+            )
+        if robocasa_micro.get("verified"):
+            report.extend(
+                [
+                    "",
+                    "## Separate RoboCasa Extra-Task Micro-Rollout Probe",
+                    "",
+                    f"The micro probe reset and sampled short rollouts for `{robocasa_micro.get('nondegenerate_task_count')}` additional RoboCasa task IDs: `{robocasa_micro.get('nondegenerate_env_ids')}`.",
+                    "This verifies reset/clone/short-rollout viability only; it is not learned-WAM, exact-law, closed-loop, solved-policy, or full-suite validation.",
                 ]
             )
         if libero_wam.get("verified"):

@@ -508,7 +508,13 @@
       "id": 91,
       "claim": "RoboCasa registry coverage audit is artifacted.",
       "status": "VERIFIED",
-      "evidence": "registered=396, covered=24, coverage=0.06060606060606061"
+      "evidence": "registered=396, rollout_pool_covered=24, micro_covered=4, any_artifact=28"
+    },
+    {
+      "id": 92,
+      "claim": "RoboCasa extra-task micro-rollout viability probe verified.",
+      "status": "VERIFIED",
+      "evidence": "candidates=4, nondegenerate=4, envs=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter']"
     },
     {
       "id": 86,
@@ -548,7 +554,7 @@
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 91,
+  "num_verified": 92,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

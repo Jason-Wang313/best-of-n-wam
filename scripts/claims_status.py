@@ -87,6 +87,7 @@ def main() -> None:
     robocasa_family12 = load_json("benchmark_robocasa_family12_wam.json")
     robocasa_family24 = load_json("benchmark_robocasa_family24_wam.json")
     robocasa_catalog = load_json("benchmark_robocasa_catalog_probe.json")
+    robocasa_micro = load_json("benchmark_robocasa_micro_rollout_extra.json")
     libero_wam = load_json("benchmark_libero_wam.json")
     libero_scripted = load_json("benchmark_libero_scripted_policy.json")
     libero_action_head = load_json("benchmark_libero_learned_action_head.json")
@@ -748,7 +749,23 @@ def main() -> None:
             and robocasa_catalog.get("coverage_fraction") is not None,
             bool(robocasa_catalog),
         ),
-        f"registered={robocasa_catalog.get('registry_count')}, covered={robocasa_catalog.get('verified_artifact_task_count')}, coverage={robocasa_catalog.get('coverage_fraction')}",
+        f"registered={robocasa_catalog.get('registry_count')}, rollout_pool_covered={robocasa_catalog.get('verified_artifact_task_count')}, micro_covered={robocasa_catalog.get('micro_rollout_task_count')}, any_artifact={robocasa_catalog.get('any_artifact_task_count')}",
+    )
+    add(
+        claims,
+        92,
+        "RoboCasa extra-task micro-rollout viability probe verified.",
+        status(
+            bool(robocasa_micro)
+            and robocasa_micro.get("available", False)
+            and robocasa_micro.get("verified", False)
+            and (robocasa_micro.get("candidate_task_count") or 0) >= 4
+            and (robocasa_micro.get("nondegenerate_task_count") or 0) >= 4
+            and (robocasa_micro.get("rollouts_per_task") or 0) >= 2
+            and (robocasa_micro.get("horizon") or 0) >= 1,
+            bool(robocasa_micro),
+        ),
+        f"candidates={robocasa_micro.get('candidate_task_count')}, nondegenerate={robocasa_micro.get('nondegenerate_task_count')}, envs={robocasa_micro.get('nondegenerate_env_ids')}",
     )
 
     libero_scripted_ci = (libero_scripted.get("confidence_intervals") or {}).get("success_rate") or {}

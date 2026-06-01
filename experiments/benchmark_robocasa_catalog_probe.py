@@ -24,6 +24,10 @@ ROBOCASA_ARTIFACTS = [
     "benchmark_robocasa_family32_wam.json",
 ]
 
+ROBOCASA_MICRO_ARTIFACTS = [
+    "benchmark_robocasa_micro_rollout_extra.json",
+]
+
 
 def _load_result(name: str) -> dict[str, Any]:
     path = results_dir() / name
@@ -38,6 +42,12 @@ def _artifact_env_ids(payload: dict[str, Any]) -> list[str]:
     if payload.get("env_id"):
         return [str(payload["env_id"])]
     return [str(e) for e in payload.get("env_ids") or []]
+
+
+def _micro_env_ids(payload: dict[str, Any]) -> list[str]:
+    if not payload or not payload.get("verified", False):
+        return []
+    return [str(e) for e in payload.get("nondegenerate_env_ids") or []]
 
 
 def _category(env_id: str) -> str:
@@ -87,6 +97,7 @@ def run() -> dict[str, Any]:
 
     registry_ids = sorted(spec.id for spec in gym.envs.registry.values() if spec.id.startswith("robocasa/"))
     covered: set[str] = set()
+    micro_covered: set[str] = set()
     artifact_rows: list[dict[str, Any]] = []
     for name in ROBOCASA_ARTIFACTS:
         payload = _load_result(name)
@@ -99,16 +110,34 @@ def run() -> dict[str, Any]:
                 "verified": bool(payload.get("verified", False)),
                 "n_env_ids": len(env_ids),
                 "env_ids": ";".join(env_ids),
+                "evidence_level": "rollout_pool_learned_wam_or_smoke",
+            }
+        )
+    for name in ROBOCASA_MICRO_ARTIFACTS:
+        payload = _load_result(name)
+        env_ids = _micro_env_ids(payload)
+        micro_covered.update(env_ids)
+        artifact_rows.append(
+            {
+                "artifact": name,
+                "present": bool(payload),
+                "verified": bool(payload.get("verified", False)),
+                "n_env_ids": len(env_ids),
+                "env_ids": ";".join(env_ids),
+                "evidence_level": "micro_rollout_viability",
             }
         )
 
     registry_rows = []
+    any_artifact = covered | micro_covered
     for env_id in registry_ids:
         registry_rows.append(
             {
                 "env_id": env_id,
                 "category": _category(env_id),
-                "covered_by_verified_artifact": env_id in covered,
+                "covered_by_verified_rollout_pool_artifact": env_id in covered,
+                "covered_by_micro_rollout_probe": env_id in micro_covered,
+                "covered_by_any_committed_artifact": env_id in any_artifact,
             }
         )
     registry_df = pd.DataFrame(registry_rows)
@@ -120,14 +149,25 @@ def run() -> dict[str, Any]:
 
     category_counts = (
         registry_df.groupby("category")
-        .agg(registered=("env_id", "count"), covered=("covered_by_verified_artifact", "sum"))
+        .agg(
+            registered=("env_id", "count"),
+            rollout_pool_covered=("covered_by_verified_rollout_pool_artifact", "sum"),
+            micro_rollout_covered=("covered_by_micro_rollout_probe", "sum"),
+            any_artifact_covered=("covered_by_any_committed_artifact", "sum"),
+        )
         .reset_index()
         .to_dict(orient="records")
     )
     verified_artifact_env_ids = sorted(covered)
+    micro_env_ids = sorted(micro_covered)
+    any_artifact_env_ids = sorted(any_artifact)
     registry_count = len(registry_ids)
     covered_count = len(verified_artifact_env_ids)
+    micro_count = len(micro_env_ids)
+    any_count = len(any_artifact_env_ids)
     coverage_fraction = float(covered_count / registry_count) if registry_count else 0.0
+    micro_coverage_fraction = float(micro_count / registry_count) if registry_count else 0.0
+    any_coverage_fraction = float(any_count / registry_count) if registry_count else 0.0
     summary = {
         "experiment": "benchmark_robocasa_catalog_probe",
         "attempted": True,
@@ -136,11 +176,17 @@ def run() -> dict[str, Any]:
         "registry_count": registry_count,
         "verified_artifact_task_count": covered_count,
         "coverage_fraction": coverage_fraction,
+        "micro_rollout_task_count": micro_count,
+        "micro_rollout_coverage_fraction": micro_coverage_fraction,
+        "any_artifact_task_count": any_count,
+        "any_artifact_coverage_fraction": any_coverage_fraction,
         "verified_artifact_env_ids": verified_artifact_env_ids,
+        "micro_rollout_env_ids": micro_env_ids,
+        "any_artifact_env_ids": any_artifact_env_ids,
         "category_counts": category_counts,
         "registry_path": str(registry_path),
         "artifact_coverage_path": str(artifact_path),
-        "note": "Registry-level coverage audit only; this is not environment reset, rollout, learned-WAM, or solved-policy evidence for uncovered tasks.",
+        "note": "Registry-level coverage audit only; rollout-pool coverage and micro-rollout viability are separate evidence tiers and neither validates uncovered tasks.",
     }
     write_json(results_dir() / "benchmark_robocasa_catalog_probe.json", summary)
 
@@ -150,13 +196,19 @@ def run() -> dict[str, Any]:
         "- status: `verified`",
         f"- registered RoboCasa task IDs: `{registry_count}`",
         f"- task IDs covered by verified rollout-pool artifacts: `{covered_count}`",
-        f"- coverage fraction: `{coverage_fraction:.4f}`",
+        f"- rollout-pool coverage fraction: `{coverage_fraction:.4f}`",
+        f"- task IDs covered by micro-rollout viability probes: `{micro_count}`",
+        f"- any-artifact task coverage: `{any_count}`",
+        f"- any-artifact coverage fraction: `{any_coverage_fraction:.4f}`",
         "",
         "## Coverage By Category",
         "",
     ]
     for row in category_counts:
-        lines.append(f"- `{row['category']}`: covered `{int(row['covered'])}` / registered `{int(row['registered'])}`")
+        lines.append(
+            f"- `{row['category']}`: rollout-pool `{int(row['rollout_pool_covered'])}`, "
+            f"micro-rollout `{int(row['micro_rollout_covered'])}`, any `{int(row['any_artifact_covered'])}` / registered `{int(row['registered'])}`"
+        )
     lines.extend(
         [
             "",

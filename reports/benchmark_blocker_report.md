@@ -56,8 +56,13 @@ This broadens RoboCasa rollout-pool dense-utility validation, but it is still no
 
 ## Separate RoboCasa Registry Coverage Audit
 
-The local RoboCasa registry exposes `396` task IDs; verified rollout-pool artifacts currently cover `24` task IDs, coverage fraction `0.06060606060606061`.
+The local RoboCasa registry exposes `396` task IDs; verified rollout-pool artifacts currently cover `24` task IDs, micro-rollout probes cover `4` more, and any committed artifact covers `28` task IDs.
 This quantifies the remaining full-RoboCasa-wide gap; it is a registry audit, not validation evidence for uncovered tasks.
+
+## Separate RoboCasa Extra-Task Micro-Rollout Probe
+
+The micro probe reset and sampled short rollouts for `4` additional RoboCasa task IDs: `['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter']`.
+This verifies reset/clone/short-rollout viability only; it is not learned-WAM, exact-law, closed-loop, solved-policy, or full-suite validation.
 
 ## Separate LIBERO Three-Task Learned-WAM Artifact
 
