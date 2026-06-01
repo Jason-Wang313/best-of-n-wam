@@ -1,0 +1,85 @@
+{
+  "experiment": "benchmark_robocasa_catalog_probe",
+  "attempted": true,
+  "available": true,
+  "verified": true,
+  "registry_count": 396,
+  "verified_artifact_task_count": 24,
+  "coverage_fraction": 0.06060606060606061,
+  "verified_artifact_env_ids": [
+    "robocasa/CloseCabinet",
+    "robocasa/CloseDishwasher",
+    "robocasa/CloseDrawer",
+    "robocasa/CloseFridge",
+    "robocasa/CloseMicrowave",
+    "robocasa/CloseOven",
+    "robocasa/OpenCabinet",
+    "robocasa/OpenDishwasher",
+    "robocasa/OpenDrawer",
+    "robocasa/OpenFridge",
+    "robocasa/OpenFridgeDrawer",
+    "robocasa/OpenMicrowave",
+    "robocasa/OpenOven",
+    "robocasa/PickPlaceCounterToBlender",
+    "robocasa/PickPlaceCounterToCabinet",
+    "robocasa/PickPlaceCounterToDrawer",
+    "robocasa/PickPlaceCounterToMicrowave",
+    "robocasa/PickPlaceCounterToOven",
+    "robocasa/PickPlaceCounterToSink",
+    "robocasa/PickPlaceCounterToStove",
+    "robocasa/TurnOffSinkFaucet",
+    "robocasa/TurnOffStove",
+    "robocasa/TurnOnSinkFaucet",
+    "robocasa/TurnOnStove"
+  ],
+  "category_counts": [
+    {
+      "category": "cleaning",
+      "registered": 35,
+      "covered": 0
+    },
+    {
+      "category": "close",
+      "registered": 13,
+      "covered": 6
+    },
+    {
+      "category": "cooking",
+      "registered": 40,
+      "covered": 0
+    },
+    {
+      "category": "long_horizon_or_compositional",
+      "registered": 249,
+      "covered": 0
+    },
+    {
+      "category": "manipulate",
+      "registered": 5,
+      "covered": 0
+    },
+    {
+      "category": "move",
+      "registered": 4,
+      "covered": 0
+    },
+    {
+      "category": "open",
+      "registered": 13,
+      "covered": 7
+    },
+    {
+      "category": "pick_place",
+      "registered": 25,
+      "covered": 7
+    },
+    {
+      "category": "turn",
+      "registered": 12,
+      "covered": 4
+    }
+  ],
+  "registry_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_catalog_registry.csv",
+  "artifact_coverage_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_catalog_artifact_coverage.csv",
+  "note": "Registry-level coverage audit only; this is not environment reset, rollout, learned-WAM, or solved-policy evidence for uncovered tasks."
+}

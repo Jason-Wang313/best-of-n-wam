@@ -86,6 +86,7 @@ def main() -> None:
     robocasa_broad = load_json("benchmark_robocasa_broad_wam.json")
     robocasa_family12 = load_json("benchmark_robocasa_family12_wam.json")
     robocasa_family24 = load_json("benchmark_robocasa_family24_wam.json")
+    robocasa_catalog = load_json("benchmark_robocasa_catalog_probe.json")
     libero_wam = load_json("benchmark_libero_wam.json")
     libero_scripted = load_json("benchmark_libero_scripted_policy.json")
     libero_action_head = load_json("benchmark_libero_learned_action_head.json")
@@ -733,6 +734,21 @@ def main() -> None:
             bool(robocasa_family24),
         ),
         f"tasks={len(robocasa_family24.get('env_ids') or [])}, train={robocasa_family24.get('train_samples')}, val={robocasa_family24.get('validation_samples')}, eval={robocasa_family24.get('eval_samples')}, utility corr={((robocasa_family24.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_family24.get('promoted_scorer')}, learned-random CI={robocasa_family24_ci.get(f'best_learned_minus_random_N{robocasa_family24_max_n}')}",
+    )
+    add(
+        claims,
+        91,
+        "RoboCasa registry coverage audit is artifacted.",
+        status(
+            bool(robocasa_catalog)
+            and robocasa_catalog.get("available", False)
+            and robocasa_catalog.get("verified", False)
+            and (robocasa_catalog.get("registry_count") or 0) >= 300
+            and (robocasa_catalog.get("verified_artifact_task_count") or 0) >= 24
+            and robocasa_catalog.get("coverage_fraction") is not None,
+            bool(robocasa_catalog),
+        ),
+        f"registered={robocasa_catalog.get('registry_count')}, covered={robocasa_catalog.get('verified_artifact_task_count')}, coverage={robocasa_catalog.get('coverage_fraction')}",
     )
 
     libero_scripted_ci = (libero_scripted.get("confidence_intervals") or {}).get("success_rate") or {}

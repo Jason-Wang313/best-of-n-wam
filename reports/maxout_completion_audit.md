@@ -22,6 +22,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboCasa broad task family WAM-lite: verified `True`; tasks `['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet']`; train/eval samples `64`/`128`; utility corr `0.8599`; promoted scorer `learned_wam`; learned-random N8 CI lower `0.2112`.
 - RoboCasa 12-task family WAM-lite: verified `True`; tasks `12`; train/eval samples `96`/`192`; utility corr `0.8330`; promoted scorer `learned_energy_regularized`; learned-random N8 CI lower `0.1830`.
 - RoboCasa 24-task family WAM-lite: verified `True`; tasks `24`; train/eval samples `192`/`384`; utility corr `0.8523`; promoted scorer `learned_energy_regularized`; learned-random N8 CI lower `0.2393`.
+- RoboCasa registry coverage audit: registered task IDs `396`; verified-artifact task IDs `24`; coverage fraction `0.0606`.
 - LIBERO WAM-lite: verified `True`; tasks `['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2']`; train/eval samples `192`/`240`; utility corr `0.3526`; exact-law MAE `0.0001`; learned-random N8 CI lower `0.2653`.
 - LIBERO scripted sparse-success smoke: verified `True`; episodes `50`; successes `50`; success-rate CI lower `1.0000`.
 - LIBERO learned action-head smoke: verified `True`; train examples `5014`; eval successes `30`/`30`; success-rate CI lower `1.0000`.
@@ -57,6 +58,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboCasa broad task family learned WAM-lite: task conditioned ridge WAM over `['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet']` trained on `64` rollouts and evaluated on `128` heldout rollouts.
 - RoboCasa 12-task family learned WAM-lite: task conditioned ridge WAM over `['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet', 'robocasa/CloseDrawer', 'robocasa/CloseCabinet', 'robocasa/CloseMicrowave', 'robocasa/TurnOffSinkFaucet', 'robocasa/TurnOnStove', 'robocasa/TurnOffStove', 'robocasa/OpenOven', 'robocasa/CloseOven']` trained on `96` rollouts and evaluated on `192` heldout rollouts.
 - RoboCasa 24-task family learned WAM-lite: task conditioned ridge WAM over `['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet', 'robocasa/CloseDrawer', 'robocasa/CloseCabinet', 'robocasa/CloseMicrowave', 'robocasa/TurnOffSinkFaucet', 'robocasa/TurnOnStove', 'robocasa/TurnOffStove', 'robocasa/OpenOven', 'robocasa/CloseOven', 'robocasa/OpenDishwasher', 'robocasa/CloseDishwasher', 'robocasa/OpenFridge', 'robocasa/CloseFridge', 'robocasa/OpenFridgeDrawer', 'robocasa/PickPlaceCounterToCabinet', 'robocasa/PickPlaceCounterToDrawer', 'robocasa/PickPlaceCounterToMicrowave', 'robocasa/PickPlaceCounterToSink', 'robocasa/PickPlaceCounterToStove', 'robocasa/PickPlaceCounterToOven', 'robocasa/PickPlaceCounterToBlender']` trained on `192` rollouts and evaluated on `384` heldout rollouts.
+- RoboCasa catalog coverage audit: local registry contains `396` task IDs; verified rollout-pool artifacts cover `24` of them. This is coverage accounting, not validation for uncovered IDs.
 - LIBERO learned WAM-lite: three Spatial tasks `['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2']` trained on `192` rollout samples and evaluated on `240` heldout rollout samples with dense progress utility.
 - LIBERO sparse-success scripted smoke: all 10 Object tasks evaluated over `5` seeds with `50` successes over `50` episodes.
 - LIBERO learned action-head smoke: `knn` action head trained on `5014` scripted action examples and evaluated on `30` heldout sparse-success episodes over all 10 Object tasks.
@@ -98,6 +100,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboCasa 24-task family WAM utility corr: `0.8523`.
 - RoboCasa 24-task family learned-random N8 CI lower: `0.2393`.
 - RoboCasa 24-task family exact-law utility MAE: `0.0003`.
+- RoboCasa catalog coverage: `24` / `396` registered task IDs covered by verified rollout-pool artifacts.
 - LIBERO WAM utility corr: `0.3526`.
 - LIBERO learned-random N8 CI lower: `0.2653`.
 - LIBERO exact-law utility MAE: `0.0001`.

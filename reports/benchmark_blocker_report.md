@@ -54,6 +54,11 @@ A task conditioned ridge state/action-sequence WAM-lite was trained across `24` 
 Validation utility correlation is `0.8523480255953249`; promoted scorer `learned_energy_regularized` has learned-minus-random N8 CI lower bound `0.2393010282035808`.
 This broadens RoboCasa rollout-pool dense-utility validation, but it is still not full RoboCasa-wide validation or solved-policy performance.
 
+## Separate RoboCasa Registry Coverage Audit
+
+The local RoboCasa registry exposes `396` task IDs; verified rollout-pool artifacts currently cover `24` task IDs, coverage fraction `0.06060606060606061`.
+This quantifies the remaining full-RoboCasa-wide gap; it is a registry audit, not validation evidence for uncovered tasks.
+
 ## Separate LIBERO Three-Task Learned-WAM Artifact
 
 A ridge state/action-sequence WAM-lite was trained across `3` LIBERO Spatial tasks with `192` train rollout samples and `240` heldout eval rollout samples.

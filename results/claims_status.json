@@ -505,6 +505,12 @@
       "evidence": "tasks=24, train=192, val=192, eval=384, utility corr=0.8523480255953249, promoted=learned_energy_regularized, learned-random CI={'n': 48, 'mean': 0.30556743688204, 'std': 0.2342383401351318, 'stderr': 0.03380939218288737, 'ci95': 0.06626640867845925, 'lo': 0.2393010282035808, 'hi': 0.37183384556049925}"
     },
     {
+      "id": 91,
+      "claim": "RoboCasa registry coverage audit is artifacted.",
+      "status": "VERIFIED",
+      "evidence": "registered=396, covered=24, coverage=0.06060606060606061"
+    },
+    {
       "id": 86,
       "claim": "LIBERO sparse-success scripted policy smoke verified.",
       "status": "VERIFIED",
@@ -542,7 +548,7 @@
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 90,
+  "num_verified": 91,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

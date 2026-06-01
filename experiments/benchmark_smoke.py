@@ -27,6 +27,8 @@ def run() -> dict:
     family12_path = results_dir() / "benchmark_robocasa_family12_wam.json"
     robocasa_family24 = {}
     family24_path = results_dir() / "benchmark_robocasa_family24_wam.json"
+    robocasa_catalog = {}
+    catalog_path = results_dir() / "benchmark_robocasa_catalog_probe.json"
     libero_wam = {}
     libero_path = results_dir() / "benchmark_libero_wam.json"
     libero_scripted = {}
@@ -61,6 +63,10 @@ def run() -> dict:
         import json
 
         robocasa_family24 = json.loads(family24_path.read_text(encoding="utf-8"))
+    if catalog_path.exists():
+        import json
+
+        robocasa_catalog = json.loads(catalog_path.read_text(encoding="utf-8"))
     if libero_path.exists():
         import json
 
@@ -187,6 +193,16 @@ def run() -> dict:
                     f"A task conditioned ridge state/action-sequence WAM-lite was trained across `{len(robocasa_family24.get('env_ids') or [])}` RoboCasa open/close/turn/pick-place task IDs with `{robocasa_family24.get('train_samples')}` train rollouts and `{robocasa_family24.get('eval_samples')}` heldout eval rollouts.",
                     f"Validation utility correlation is `{metrics.get('utility_corr')}`; promoted scorer `{robocasa_family24.get('promoted_scorer')}` has learned-minus-random N8 CI lower bound `{ci.get('lo')}`.",
                     "This broadens RoboCasa rollout-pool dense-utility validation, but it is still not full RoboCasa-wide validation or solved-policy performance.",
+                ]
+            )
+        if robocasa_catalog.get("verified"):
+            report.extend(
+                [
+                    "",
+                    "## Separate RoboCasa Registry Coverage Audit",
+                    "",
+                    f"The local RoboCasa registry exposes `{robocasa_catalog.get('registry_count')}` task IDs; verified rollout-pool artifacts currently cover `{robocasa_catalog.get('verified_artifact_task_count')}` task IDs, coverage fraction `{robocasa_catalog.get('coverage_fraction')}`.",
+                    "This quantifies the remaining full-RoboCasa-wide gap; it is a registry audit, not validation evidence for uncovered tasks.",
                 ]
             )
         if libero_wam.get("verified"):
