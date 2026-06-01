@@ -499,6 +499,12 @@
       "evidence": "tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet', 'robocasa/CloseDrawer', 'robocasa/CloseCabinet', 'robocasa/CloseMicrowave', 'robocasa/TurnOffSinkFaucet', 'robocasa/TurnOnStove', 'robocasa/TurnOffStove', 'robocasa/OpenOven', 'robocasa/CloseOven'], train=96, val=96, eval=192, utility corr=0.8330260116378324, promoted=learned_energy_regularized, learned-random CI={'n': 24, 'mean': 0.2736319931949471, 'std': 0.2264236150811513, 'stderr': 0.04621852688876389, 'ci95': 0.09058831270197723, 'lo': 0.18304368049296985, 'hi': 0.36422030589692433}"
     },
     {
+      "id": 90,
+      "claim": "RoboCasa 24-task family learned WAM-lite scorer beats random with CI.",
+      "status": "VERIFIED",
+      "evidence": "tasks=24, train=192, val=192, eval=384, utility corr=0.8523480255953249, promoted=learned_energy_regularized, learned-random CI={'n': 48, 'mean': 0.30556743688204, 'std': 0.2342383401351318, 'stderr': 0.03380939218288737, 'ci95': 0.06626640867845925, 'lo': 0.2393010282035808, 'hi': 0.37183384556049925}"
+    },
+    {
       "id": 86,
       "claim": "LIBERO sparse-success scripted policy smoke verified.",
       "status": "VERIFIED",
@@ -536,7 +542,7 @@
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 89,
+  "num_verified": 90,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0
