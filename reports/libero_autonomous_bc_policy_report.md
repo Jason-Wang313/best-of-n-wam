@@ -6,7 +6,7 @@ This optional artifact evaluates a low-dimensional behavior-cloned kNN policy on
 
 - Available: `True`.
 - Verified: `True`.
-- Train action examples: `12310`.
+- Train action examples: `12535`.
 - Eval episodes: `50`.
 - Eval successes: `50`.
 - Eval success rate: `1.0` with bootstrap CI [`1.0`, `1.0`].

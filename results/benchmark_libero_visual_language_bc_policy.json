@@ -27,17 +27,17 @@
   ],
   "train_episodes": 30,
   "train_successes": 30,
-  "train_examples": 7386,
+  "train_examples": 7521,
   "eval_episodes": 30,
-  "eval_successes": 28,
-  "eval_success_rate": 0.9333333333333333,
+  "eval_successes": 30,
+  "eval_success_rate": 1.0,
   "confidence_intervals": {
     "eval_success_rate": {
       "n": 30,
-      "mean": 0.9333333333333333,
-      "lo": 0.8333333333333334,
+      "mean": 1.0,
+      "lo": 1.0,
       "hi": 1.0,
-      "std": 0.2537081317024624
+      "std": 0.0
     }
   },
   "policy": {

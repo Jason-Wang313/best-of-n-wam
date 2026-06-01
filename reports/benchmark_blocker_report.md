@@ -62,18 +62,18 @@ This supports a narrow sparse-success simulator smoke, not learned policy perfor
 
 ## Separate LIBERO Learned Action-Head Smoke
 
-A `knn` action head imitated the all-ten scripted controller on `4924` action examples.
+A `knn` action head imitated the all-ten scripted controller on `5014` action examples.
 It was evaluated on `30` heldout episodes across `10` LIBERO Object tasks and achieved `30` sparse successes; success-rate bootstrap CI is [`1.0`, `1.0`].
 The high-level phase schedule and target points remain scripted, so this is a learned action-head smoke rather than autonomous learned LIBERO policy performance.
 
 ## Separate LIBERO Time-Conditioned Autonomous BC Smoke
 
-A low-dimensional kNN behavior-cloned policy was trained on `12310` successful scripted action examples and evaluated on `50` heldout episodes across `10` LIBERO Object tasks.
+A low-dimensional kNN behavior-cloned policy was trained on `12535` successful scripted action examples and evaluated on `50` heldout episodes across `10` LIBERO Object tasks.
 It achieved `50` sparse successes; success-rate bootstrap CI is [`1.0`, `1.0`].
 The policy uses simulator state, task ID, previous action, and a finite-horizon step clock, but no scripted phase labels or target-point commands. It is still not image/language LIBERO or broad robust autonomous policy evidence.
 
 ## Separate LIBERO RGB/Language BC Smoke
 
-A lightweight RGB/proprio/language kNN behavior-cloned policy was trained on `7386` successful scripted action examples and evaluated on `30` heldout episodes across `10` LIBERO Object tasks.
-It achieved `28` sparse successes; success-rate bootstrap CI is [`0.8333333333333334`, `1.0`].
+A lightweight RGB/proprio/language kNN behavior-cloned policy was trained on `7521` successful scripted action examples and evaluated on `30` heldout episodes across `10` LIBERO Object tasks.
+It achieved `30` sparse successes; success-rate bootstrap CI is [`1.0`, `1.0`].
 The policy uses RGB frame features, robot proprioception, task language, previous action, and a finite-horizon step clock, but no simulator object state, task ID, phase labels, or target-point commands. It is still a lightweight feature-kNN smoke, not full LIBERO or modern VLA evidence.

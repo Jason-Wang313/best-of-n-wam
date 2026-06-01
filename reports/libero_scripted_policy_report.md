@@ -44,11 +44,11 @@ This optional artifact runs a hand scripted OSC pick-place controller against LI
 - `libero_object/5` seed `102`: `pick_up_the_tomato_sauce_and_place_it_in_the_basket`; reward `1.0`, progress `0.37319017636738083`.
 - `libero_object/5` seed `103`: `pick_up_the_tomato_sauce_and_place_it_in_the_basket`; reward `1.0`, progress `0.3819371134147449`.
 - `libero_object/5` seed `104`: `pick_up_the_tomato_sauce_and_place_it_in_the_basket`; reward `1.0`, progress `0.38193398899169745`.
-- `libero_object/6` seed `100`: `pick_up_the_butter_and_place_it_in_the_basket`; reward `1.0`, progress `0.551171265542219`.
-- `libero_object/6` seed `101`: `pick_up_the_butter_and_place_it_in_the_basket`; reward `1.0`, progress `0.5419805563833828`.
-- `libero_object/6` seed `102`: `pick_up_the_butter_and_place_it_in_the_basket`; reward `1.0`, progress `0.5547903271230878`.
-- `libero_object/6` seed `103`: `pick_up_the_butter_and_place_it_in_the_basket`; reward `1.0`, progress `0.566452546151617`.
-- `libero_object/6` seed `104`: `pick_up_the_butter_and_place_it_in_the_basket`; reward `1.0`, progress `0.5689957936501743`.
+- `libero_object/6` seed `100`: `pick_up_the_butter_and_place_it_in_the_basket`; reward `1.0`, progress `0.5534442487590658`.
+- `libero_object/6` seed `101`: `pick_up_the_butter_and_place_it_in_the_basket`; reward `1.0`, progress `0.5442379961383793`.
+- `libero_object/6` seed `102`: `pick_up_the_butter_and_place_it_in_the_basket`; reward `1.0`, progress `0.5572791422136141`.
+- `libero_object/6` seed `103`: `pick_up_the_butter_and_place_it_in_the_basket`; reward `1.0`, progress `0.5689417445229681`.
+- `libero_object/6` seed `104`: `pick_up_the_butter_and_place_it_in_the_basket`; reward `1.0`, progress `0.571295885723685`.
 - `libero_object/7` seed `100`: `pick_up_the_milk_and_place_it_in_the_basket`; reward `1.0`, progress `0.5074388791824416`.
 - `libero_object/7` seed `101`: `pick_up_the_milk_and_place_it_in_the_basket`; reward `1.0`, progress `0.5009118776552713`.
 - `libero_object/7` seed `102`: `pick_up_the_milk_and_place_it_in_the_basket`; reward `1.0`, progress `0.5163874935919872`.

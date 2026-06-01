@@ -31,7 +31,7 @@
   ],
   "train_episodes": 50,
   "train_successes": 50,
-  "train_examples": 12310,
+  "train_examples": 12535,
   "eval_episodes": 50,
   "eval_successes": 50,
   "eval_success_rate": 1.0,

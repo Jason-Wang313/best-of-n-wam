@@ -28,7 +28,12 @@ OBJECT_TUNED_GRASPS = {
         "lift_steps": 60,
     },
     "tomato_sauce_1": DEFAULT_TUNED_GRASP,
-    "butter_1": DEFAULT_TUNED_GRASP,
+    "butter_1": {
+        "approach_z_offset": 0.015,
+        "grasp_z_offset": -0.015,
+        "close_steps": 70,
+        "lift_steps": 75,
+    },
 }
 
 

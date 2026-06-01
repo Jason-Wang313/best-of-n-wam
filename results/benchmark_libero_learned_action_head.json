@@ -26,7 +26,7 @@
   ],
   "train_episodes": 20,
   "train_successes": 20,
-  "train_examples": 4924,
+  "train_examples": 5014,
   "eval_episodes": 30,
   "eval_successes": 30,
   "eval_success_rate": 1.0,
@@ -39,8 +39,8 @@
       "std": 0.0
     }
   },
-  "train_action_mae": 0.00019167935088328474,
-  "train_action_rmse": 0.0010951872251766606,
+  "train_action_mae": 0.00018707860726079986,
+  "train_action_rmse": 0.001084953222453304,
   "action_head_model": "knn",
   "knn_k": 3,
   "knn_temperature": 0.05,

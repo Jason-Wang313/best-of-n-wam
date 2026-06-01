@@ -7,12 +7,12 @@ This optional artifact imitates the successful LIBERO Object scripted controller
 - Available: `True`.
 - Verified: `True`.
 - Train episodes: `20`.
-- Train action examples: `4924`.
+- Train action examples: `5014`.
 - Eval episodes: `30`.
 - Eval successes: `30`.
 - Eval success rate: `1.0` with bootstrap CI [`1.0`, `1.0`].
 - Action-head model: `knn`.
-- Action MAE on collected train examples: `0.00019167935088328474`.
+- Action MAE on collected train examples: `0.00018707860726079986`.
 
 ## Limitations
 
