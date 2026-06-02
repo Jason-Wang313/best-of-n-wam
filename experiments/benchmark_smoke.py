@@ -31,6 +31,8 @@ def run() -> dict:
     extra4_path = results_dir() / "benchmark_robocasa_extra4_wam.json"
     robocasa_family28 = {}
     family28_path = results_dir() / "benchmark_robocasa_family28_wam.json"
+    robocasa_family32 = {}
+    family32_path = results_dir() / "benchmark_robocasa_family32_wam.json"
     robocasa_catalog = {}
     catalog_path = results_dir() / "benchmark_robocasa_catalog_probe.json"
     robocasa_micro = {}
@@ -77,6 +79,10 @@ def run() -> dict:
         import json
 
         robocasa_family28 = json.loads(family28_path.read_text(encoding="utf-8"))
+    if family32_path.exists():
+        import json
+
+        robocasa_family32 = json.loads(family32_path.read_text(encoding="utf-8"))
     if catalog_path.exists():
         import json
 
@@ -236,6 +242,19 @@ def run() -> dict:
                     "",
                     f"A task conditioned ridge state/action-sequence WAM-lite was trained jointly across `{len(robocasa_family28.get('env_ids') or [])}` RoboCasa task IDs with `{robocasa_family28.get('train_samples')}` train rollouts and `{robocasa_family28.get('eval_samples')}` heldout eval rollouts.",
                     f"Validation utility correlation is `{metrics.get('utility_corr')}`; promoted scorer `{robocasa_family28.get('promoted_scorer')}` has learned-minus-random N8 CI lower bound `{ci.get('lo')}`.",
+                    "This is the strongest current RoboCasa family artifact, but it is still not full RoboCasa-wide validation or solved-policy performance.",
+                ]
+            )
+        if robocasa_family32.get("verified"):
+            metrics = robocasa_family32.get("model_metrics") or {}
+            ci = (robocasa_family32.get("confidence_intervals") or {}).get("best_learned_minus_random_N8") or {}
+            report.extend(
+                [
+                    "",
+                    "## Separate RoboCasa 32-Task Combined Family Learned-WAM Artifact",
+                    "",
+                    f"A task conditioned ridge state/action-sequence WAM-lite was trained jointly across `{len(robocasa_family32.get('env_ids') or [])}` RoboCasa task IDs with `{robocasa_family32.get('train_samples')}` train rollouts and `{robocasa_family32.get('eval_samples')}` heldout eval rollouts.",
+                    f"Validation utility correlation is `{metrics.get('utility_corr')}`; promoted scorer `{robocasa_family32.get('promoted_scorer')}` has learned-minus-random N8 CI lower bound `{ci.get('lo')}`.",
                     "This is the strongest current RoboCasa family artifact, but it is still not full RoboCasa-wide validation or solved-policy performance.",
                 ]
             )

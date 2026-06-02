@@ -4,17 +4,18 @@
   "available": true,
   "verified": true,
   "registry_count": 396,
-  "verified_artifact_task_count": 28,
-  "coverage_fraction": 0.0707070707070707,
+  "verified_artifact_task_count": 32,
+  "coverage_fraction": 0.08080808080808081,
   "micro_rollout_task_count": 4,
   "micro_rollout_coverage_fraction": 0.010101010101010102,
-  "any_artifact_task_count": 28,
-  "any_artifact_coverage_fraction": 0.0707070707070707,
+  "any_artifact_task_count": 32,
+  "any_artifact_coverage_fraction": 0.08080808080808081,
   "verified_artifact_env_ids": [
     "robocasa/CloseCabinet",
     "robocasa/CloseDishwasher",
     "robocasa/CloseDrawer",
     "robocasa/CloseFridge",
+    "robocasa/CloseFridgeDrawer",
     "robocasa/CloseMicrowave",
     "robocasa/CloseOven",
     "robocasa/OpenCabinet",
@@ -24,6 +25,7 @@
     "robocasa/OpenFridgeDrawer",
     "robocasa/OpenMicrowave",
     "robocasa/OpenOven",
+    "robocasa/PickPlaceCabinetToCounter",
     "robocasa/PickPlaceCounterToBlender",
     "robocasa/PickPlaceCounterToCabinet",
     "robocasa/PickPlaceCounterToDrawer",
@@ -35,8 +37,10 @@
     "robocasa/PickPlaceCounterToToasterOven",
     "robocasa/PickPlaceDrawerToCounter",
     "robocasa/PickPlaceMicrowaveToCounter",
+    "robocasa/PickPlaceSinkToCounter",
     "robocasa/TurnOffSinkFaucet",
     "robocasa/TurnOffStove",
+    "robocasa/TurnOnBlender",
     "robocasa/TurnOnSinkFaucet",
     "robocasa/TurnOnStove"
   ],
@@ -51,6 +55,7 @@
     "robocasa/CloseDishwasher",
     "robocasa/CloseDrawer",
     "robocasa/CloseFridge",
+    "robocasa/CloseFridgeDrawer",
     "robocasa/CloseMicrowave",
     "robocasa/CloseOven",
     "robocasa/OpenCabinet",
@@ -60,6 +65,7 @@
     "robocasa/OpenFridgeDrawer",
     "robocasa/OpenMicrowave",
     "robocasa/OpenOven",
+    "robocasa/PickPlaceCabinetToCounter",
     "robocasa/PickPlaceCounterToBlender",
     "robocasa/PickPlaceCounterToCabinet",
     "robocasa/PickPlaceCounterToDrawer",
@@ -71,8 +77,10 @@
     "robocasa/PickPlaceCounterToToasterOven",
     "robocasa/PickPlaceDrawerToCounter",
     "robocasa/PickPlaceMicrowaveToCounter",
+    "robocasa/PickPlaceSinkToCounter",
     "robocasa/TurnOffSinkFaucet",
     "robocasa/TurnOffStove",
+    "robocasa/TurnOnBlender",
     "robocasa/TurnOnSinkFaucet",
     "robocasa/TurnOnStove"
   ],
@@ -87,9 +95,9 @@
     {
       "category": "close",
       "registered": 13,
-      "rollout_pool_covered": 6,
+      "rollout_pool_covered": 7,
       "micro_rollout_covered": 0,
-      "any_artifact_covered": 6
+      "any_artifact_covered": 7
     },
     {
       "category": "cooking",
@@ -129,16 +137,16 @@
     {
       "category": "pick_place",
       "registered": 25,
-      "rollout_pool_covered": 11,
+      "rollout_pool_covered": 13,
       "micro_rollout_covered": 4,
-      "any_artifact_covered": 11
+      "any_artifact_covered": 13
     },
     {
       "category": "turn",
       "registered": 12,
-      "rollout_pool_covered": 4,
+      "rollout_pool_covered": 5,
       "micro_rollout_covered": 0,
-      "any_artifact_covered": 4
+      "any_artifact_covered": 5
     }
   ],
   "registry_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_catalog_registry.csv",

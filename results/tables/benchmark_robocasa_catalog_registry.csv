@@ -66,7 +66,7 @@ robocasa/CloseDrawer,close,True,False,True
 robocasa/CloseDropDownDoor,close,False,False,False
 robocasa/CloseElectricKettleLid,close,False,False,False
 robocasa/CloseFridge,close,True,False,True
-robocasa/CloseFridgeDrawer,close,False,False,False
+robocasa/CloseFridgeDrawer,close,True,False,True
 robocasa/CloseMicrowave,close,True,False,True
 robocasa/CloseOven,close,True,False,True
 robocasa/CloseStandMixerHead,close,False,False,False
@@ -206,7 +206,7 @@ robocasa/PanTransfer,long_horizon_or_compositional,False,False,False
 robocasa/PastryDisplay,long_horizon_or_compositional,False,False,False
 robocasa/PickPlace,pick_place,False,False,False
 robocasa/PickPlaceBread,pick_place,False,False,False
-robocasa/PickPlaceCabinetToCounter,pick_place,False,False,False
+robocasa/PickPlaceCabinetToCounter,pick_place,True,False,True
 robocasa/PickPlaceCan,pick_place,False,False,False
 robocasa/PickPlaceCereal,pick_place,False,False,False
 robocasa/PickPlaceCoffee,pick_place,False,False,False
@@ -225,7 +225,7 @@ robocasa/PickPlaceFridgeShelfToDrawer,pick_place,False,False,False
 robocasa/PickPlaceMicrowaveToCounter,pick_place,True,True,True
 robocasa/PickPlaceMilk,pick_place,False,False,False
 robocasa/PickPlaceSingle,pick_place,False,False,False
-robocasa/PickPlaceSinkToCounter,pick_place,False,False,False
+robocasa/PickPlaceSinkToCounter,pick_place,True,False,True
 robocasa/PickPlaceStoveToCounter,pick_place,False,False,False
 robocasa/PickPlaceToasterOvenToCounter,pick_place,False,False,False
 robocasa/PickPlaceToasterToCounter,pick_place,False,False,False
@@ -371,7 +371,7 @@ robocasa/TurnOffMicrowave,turn,False,False,False
 robocasa/TurnOffSimmeredSauceHeat,turn,False,False,False
 robocasa/TurnOffSinkFaucet,turn,True,False,True
 robocasa/TurnOffStove,turn,True,False,True
-robocasa/TurnOnBlender,turn,False,False,False
+robocasa/TurnOnBlender,turn,True,False,True
 robocasa/TurnOnElectricKettle,turn,False,False,False
 robocasa/TurnOnMicrowave,turn,False,False,False
 robocasa/TurnOnSinkFaucet,turn,True,False,True

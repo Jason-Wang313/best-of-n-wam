@@ -88,6 +88,7 @@ def main() -> None:
     robocasa_family24 = load_json("benchmark_robocasa_family24_wam.json")
     robocasa_extra4 = load_json("benchmark_robocasa_extra4_wam.json")
     robocasa_family28 = load_json("benchmark_robocasa_family28_wam.json")
+    robocasa_family32 = load_json("benchmark_robocasa_family32_wam.json")
     robocasa_catalog = load_json("benchmark_robocasa_catalog_probe.json")
     robocasa_micro = load_json("benchmark_robocasa_micro_rollout_extra.json")
     libero_wam = load_json("benchmark_libero_wam.json")
@@ -814,6 +815,29 @@ def main() -> None:
             bool(robocasa_family28),
         ),
         f"tasks={len(robocasa_family28.get('env_ids') or [])}, train={robocasa_family28.get('train_samples')}, val={robocasa_family28.get('validation_samples')}, eval={robocasa_family28.get('eval_samples')}, utility corr={((robocasa_family28.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_family28.get('promoted_scorer')}, learned-random CI={robocasa_family28_ci.get(f'best_learned_minus_random_N{robocasa_family28_max_n}')}, oracle-learned CI={robocasa_family28_ci.get(f'oracle_minus_best_learned_N{robocasa_family28_max_n}')}",
+    )
+    robocasa_family32_ci = robocasa_family32.get("confidence_intervals") or {}
+    robocasa_family32_max_n = max(robocasa_family32.get("n_values") or [8])
+    add(
+        claims,
+        95,
+        "RoboCasa combined 32-task family learned WAM-lite scorer beats random with CI.",
+        status(
+            bool(robocasa_family32)
+            and robocasa_family32.get("available", False)
+            and robocasa_family32.get("verified", False)
+            and len(robocasa_family32.get("env_ids") or []) >= 32
+            and (robocasa_family32.get("train_samples") or 0) >= 512
+            and (robocasa_family32.get("validation_samples") or 0) >= 256
+            and (robocasa_family32.get("eval_samples") or 0) >= 512
+            and (robocasa_family32.get("eval_rollout_pools") or 0) >= 64
+            and ((robocasa_family32.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
+            and (robocasa_family32.get("exact_law_utility_mae") or 1.0) < 0.01
+            and ((robocasa_family32_ci.get(f"best_learned_minus_random_N{robocasa_family32_max_n}") or {}).get("lo") or 0.0) > 0.0
+            and ((robocasa_family32_ci.get(f"oracle_minus_best_learned_N{robocasa_family32_max_n}") or {}).get("lo") or 0.0) > 0.0,
+            bool(robocasa_family32),
+        ),
+        f"tasks={len(robocasa_family32.get('env_ids') or [])}, train={robocasa_family32.get('train_samples')}, val={robocasa_family32.get('validation_samples')}, eval={robocasa_family32.get('eval_samples')}, utility corr={((robocasa_family32.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_family32.get('promoted_scorer')}, learned-random CI={robocasa_family32_ci.get(f'best_learned_minus_random_N{robocasa_family32_max_n}')}, oracle-learned CI={robocasa_family32_ci.get(f'oracle_minus_best_learned_N{robocasa_family32_max_n}')}",
     )
 
     libero_scripted_ci = (libero_scripted.get("confidence_intervals") or {}).get("success_rate") or {}
