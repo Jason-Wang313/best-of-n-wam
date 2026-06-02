@@ -64,23 +64,34 @@ This promotes the previously micro-probed task IDs to rollout-pool learned-WAM e
 
 A task conditioned ridge state/action-sequence WAM-lite was trained jointly across `28` RoboCasa task IDs with `448` train rollouts and `448` heldout eval rollouts.
 Validation utility correlation is `0.8335286692076076`; promoted scorer `learned_wam` has learned-minus-random N8 CI lower bound `0.23531453640389255`.
-This is the strongest current RoboCasa family artifact, but it is still not full RoboCasa-wide validation or solved-policy performance.
+This is a broad RoboCasa family artifact, but it is still not full RoboCasa-wide validation or solved-policy performance.
 
 ## Separate RoboCasa 32-Task Combined Family Learned-WAM Artifact
 
 A task conditioned ridge state/action-sequence WAM-lite was trained jointly across `32` RoboCasa task IDs with `512` train rollouts and `512` heldout eval rollouts.
 Validation utility correlation is `0.8384486971259033`; promoted scorer `learned_energy_regularized` has learned-minus-random N8 CI lower bound `0.22757977055557377`.
-This is the strongest current RoboCasa family artifact, but it is still not full RoboCasa-wide validation or solved-policy performance.
+This is a broad RoboCasa family artifact, but it is still not full RoboCasa-wide validation or solved-policy performance.
+
+## Separate RoboCasa 55-Task Stratified Learned-WAM Artifact
+
+A task conditioned ridge state/action-sequence WAM-lite was trained jointly across `55` RoboCasa task IDs with `880` train rollouts and `880` heldout eval rollouts.
+Validation utility correlation is `0.832609714619887`; promoted scorer `learned_wam` has learned-minus-random N8 CI lower bound `0.2742782233399787`.
+This is the strongest current RoboCasa rollout-pool learned-WAM artifact, but it is still not full RoboCasa-wide validation or solved-policy performance.
 
 ## Separate RoboCasa Registry Coverage Audit
 
-The local RoboCasa registry exposes `396` task IDs; verified rollout-pool artifacts currently cover `32` task IDs, micro-rollout probes cover `4` task IDs, and any committed artifact covers `32` task IDs.
+The local RoboCasa registry exposes `396` task IDs; verified rollout-pool artifacts currently cover `55` task IDs, micro-rollout probes cover `27` task IDs, and any committed artifact covers `55` task IDs.
 This quantifies the remaining full-RoboCasa-wide gap; it is a registry audit, not validation evidence for uncovered tasks.
 
 ## Separate RoboCasa Extra-Task Micro-Rollout Probe
 
 The micro probe reset and sampled short rollouts for `4` RoboCasa task IDs: `['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter']`.
 This remains a reset/clone/short-rollout viability artifact; the separate extra four-task WAM artifact is the stronger learned-WAM evidence for the same task IDs.
+
+## Separate RoboCasa Stratified Micro-Rollout Probe
+
+The stratified micro probe reset and sampled short rollouts for `23` RoboCasa task IDs across cleaning, cooking, transport, filling, loading, arranging, gathering, and control families.
+This remains a reset/clone/short-rollout viability artifact; the separate 55-task WAM artifact is the stronger learned-WAM evidence for promoted task IDs.
 
 ## Separate LIBERO Three-Task Learned-WAM Artifact
 

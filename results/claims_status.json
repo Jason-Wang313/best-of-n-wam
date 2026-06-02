@@ -508,7 +508,7 @@
       "id": 91,
       "claim": "RoboCasa registry coverage audit is artifacted.",
       "status": "VERIFIED",
-      "evidence": "registered=396, rollout_pool_covered=32, micro_covered=4, any_artifact=32"
+      "evidence": "registered=396, rollout_pool_covered=55, micro_covered=27, any_artifact=55"
     },
     {
       "id": 92,
@@ -533,6 +533,12 @@
       "claim": "RoboCasa combined 32-task family learned WAM-lite scorer beats random with CI.",
       "status": "VERIFIED",
       "evidence": "tasks=32, train=512, val=256, eval=512, utility corr=0.8384486971259033, promoted=learned_energy_regularized, learned-random CI={'n': 64, 'mean': 0.2881867956710381, 'std': 0.247375612716181, 'stderr': 0.030921951589522625, 'ci95': 0.06060702511546434, 'lo': 0.22757977055557377, 'hi': 0.34879382078650245}, oracle-learned CI={'n': 64, 'mean': 0.050325265600648775, 'std': 0.06460926803737874, 'stderr': 0.008076158504672342, 'ci95': 0.01582927066915779, 'lo': 0.034495994931490984, 'hi': 0.06615453626980657}"
+    },
+    {
+      "id": 96,
+      "claim": "RoboCasa stratified 55-task learned WAM-lite scorer beats random with CI.",
+      "status": "VERIFIED",
+      "evidence": "tasks=55, train=880, val=440, eval=880, utility corr=0.832609714619887, promoted=learned_wam, learned-random CI={'n': 110, 'mean': 0.32174102442400815, 'std': 0.2539765598768874, 'stderr': 0.024215714838790526, 'ci95': 0.04746280108402943, 'lo': 0.2742782233399787, 'hi': 0.3692038255080376}, oracle-learned CI={'n': 110, 'mean': 0.045837012164936755, 'std': 0.06301391787274645, 'stderr': 0.0060081413293457935, 'ci95': 0.011775957005517755, 'lo': 0.034061055159419, 'hi': 0.05761296917045451}"
     },
     {
       "id": 86,
@@ -572,7 +578,7 @@
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 95,
+  "num_verified": 96,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0
