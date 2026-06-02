@@ -1,0 +1,157 @@
+{
+  "experiment": "benchmark_robocasa_extra4_wam",
+  "attempted": true,
+  "available": true,
+  "verified": true,
+  "output_tag": "extra4",
+  "env_ids": [
+    "robocasa/PickPlaceCounterToStandMixer",
+    "robocasa/PickPlaceCounterToToasterOven",
+    "robocasa/PickPlaceDrawerToCounter",
+    "robocasa/PickPlaceMicrowaveToCounter"
+  ],
+  "unavailable": [],
+  "split": "pretrain",
+  "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_robocasa_extra4_ridge_wam.npz",
+  "model_type": "task_conditioned_ridge_state_action_sequence_wam",
+  "train_states_per_task": 2,
+  "train_rollouts": 8,
+  "train_samples": 64,
+  "validation_states_per_task": 1,
+  "validation_rollouts": 8,
+  "validation_samples": 32,
+  "eval_states_per_task": 4,
+  "eval_rollouts": 8,
+  "eval_samples": 128,
+  "eval_rollout_pools": 16,
+  "horizon": 2,
+  "n_values": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "model_metrics": {
+    "utility_mae": 0.008086907306594159,
+    "utility_corr": 0.7993479173648391,
+    "learned_physics_score_corr": 0.7993479173648383,
+    "progress_mae": 0.00788753637994752,
+    "progress_corr": 0.33759939893119656,
+    "final_distance_mae": 0.047764341097960614,
+    "energy_mae": 0.22885669010662987,
+    "success_mae": 0.0
+  },
+  "task_metrics": [
+    {
+      "env_id": "robocasa/PickPlaceCounterToStandMixer",
+      "utility_mae": 0.007881113879799145,
+      "utility_corr": 0.8140037456449734,
+      "learned_physics_score_corr": 0.8140037456449734,
+      "progress_mae": 0.005593972078647825,
+      "progress_corr": 0.7253405453001798,
+      "final_distance_mae": 0.015117050759745981,
+      "energy_mae": 0.24092368885196724,
+      "success_mae": 0.0
+    },
+    {
+      "env_id": "robocasa/PickPlaceCounterToToasterOven",
+      "utility_mae": 0.005812786505866421,
+      "utility_corr": 0.7615303577978322,
+      "learned_physics_score_corr": 0.7615303577978331,
+      "progress_mae": 0.005773831710809857,
+      "progress_corr": 0.3237921586282706,
+      "final_distance_mae": 0.0764000258903674,
+      "energy_mae": 0.25046863981139944,
+      "success_mae": 0.0
+    },
+    {
+      "env_id": "robocasa/PickPlaceDrawerToCounter",
+      "utility_mae": 0.00538886674184789,
+      "utility_corr": 0.9484720329999436,
+      "learned_physics_score_corr": 0.9484720329999436,
+      "progress_mae": 0.006773586996323474,
+      "progress_corr": 0.6484096108271886,
+      "final_distance_mae": 0.033238778953668474,
+      "energy_mae": 0.23671183921436384,
+      "success_mae": 0.0
+    },
+    {
+      "env_id": "robocasa/PickPlaceMicrowaveToCounter",
+      "utility_mae": 0.01326486209886318,
+      "utility_corr": 0.7476320315126893,
+      "learned_physics_score_corr": 0.7476320315126893,
+      "progress_mae": 0.013408754734008922,
+      "progress_corr": -0.43833030714743487,
+      "final_distance_mae": 0.06630150878806058,
+      "energy_mae": 0.18732259254878897,
+      "success_mae": 0.0
+    }
+  ],
+  "exact_law_utility_mae": 0.0003025652032180008,
+  "confidence_intervals": {
+    "learned_wam_minus_random_N8": {
+      "n": 16,
+      "mean": 0.389104640308091,
+      "std": 0.2902967972911619,
+      "stderr": 0.07257419932279048,
+      "ci95": 0.14224543067266934,
+      "lo": 0.24685920963542166,
+      "hi": 0.5313500709807604
+    },
+    "learned_physics_minus_random_N8": {
+      "n": 16,
+      "mean": 0.389104640308091,
+      "std": 0.2902967972911619,
+      "stderr": 0.07257419932279048,
+      "ci95": 0.14224543067266934,
+      "lo": 0.24685920963542166,
+      "hi": 0.5313500709807604
+    },
+    "learned_energy_regularized_minus_random_N8": {
+      "n": 16,
+      "mean": 0.3569038941207424,
+      "std": 0.2912948110632975,
+      "stderr": 0.07282370276582438,
+      "ci95": 0.1427344574210158,
+      "lo": 0.21416943669972663,
+      "hi": 0.4996383515417582
+    },
+    "best_learned_minus_random_N8": {
+      "n": 16,
+      "mean": 0.389104640308091,
+      "std": 0.2902967972911619,
+      "stderr": 0.07257419932279048,
+      "ci95": 0.14224543067266934,
+      "lo": 0.24685920963542166,
+      "hi": 0.5313500709807604
+    },
+    "oracle_minus_random_N8": {
+      "n": 16,
+      "mean": 0.43421832128186033,
+      "std": 0.28061775831624325,
+      "stderr": 0.07015443957906081,
+      "ci95": 0.1375027015749592,
+      "lo": 0.29671561970690113,
+      "hi": 0.5717210228568195
+    },
+    "oracle_minus_best_learned_N8": {
+      "n": 16,
+      "mean": 0.03704235447364291,
+      "std": 0.061917841878265635,
+      "stderr": 0.015479460469566409,
+      "ci95": 0.03033974252035016,
+      "lo": 0.0067026119532927475,
+      "hi": 0.06738209699399307
+    }
+  },
+  "promoted_scorer": "learned_wam",
+  "learned_energy_regularizer": 0.03,
+  "curves_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_extra4_curves.csv",
+  "exact_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_extra4_exact_law.csv",
+  "data_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_extra4_train_validation.csv",
+  "eval_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_extra4_eval_rollouts.csv",
+  "task_metrics_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_extra4_task_metrics.csv",
+  "seed_metrics_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_extra4_seed_metrics.csv",
+  "report_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_extra4_wam_report.md",
+  "note": "Optional task conditioned RoboCasa learned WAM-lite across multiple kitchen task IDs; promoted only when a learned scorer beats random with positive heldout CI."
+}

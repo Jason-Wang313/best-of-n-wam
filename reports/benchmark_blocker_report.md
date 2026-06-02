@@ -54,15 +54,21 @@ A task conditioned ridge state/action-sequence WAM-lite was trained across `24` 
 Validation utility correlation is `0.8523480255953249`; promoted scorer `learned_energy_regularized` has learned-minus-random N8 CI lower bound `0.2393010282035808`.
 This broadens RoboCasa rollout-pool dense-utility validation, but it is still not full RoboCasa-wide validation or solved-policy performance.
 
+## Separate RoboCasa Extra Four-Task Learned-WAM Artifact
+
+A task conditioned ridge state/action-sequence WAM-lite was trained across `4` additional RoboCasa pick-place task IDs with `64` train rollouts and `128` heldout eval rollouts.
+Validation utility correlation is `0.7993479173648391`; promoted scorer `learned_wam` has learned-minus-random N8 CI lower bound `0.24685920963542166`.
+This promotes the previously micro-probed task IDs to rollout-pool learned-WAM evidence, but it is still not full RoboCasa-wide validation or solved-policy performance.
+
 ## Separate RoboCasa Registry Coverage Audit
 
-The local RoboCasa registry exposes `396` task IDs; verified rollout-pool artifacts currently cover `24` task IDs, micro-rollout probes cover `4` more, and any committed artifact covers `28` task IDs.
+The local RoboCasa registry exposes `396` task IDs; verified rollout-pool artifacts currently cover `28` task IDs, micro-rollout probes cover `4` task IDs, and any committed artifact covers `28` task IDs.
 This quantifies the remaining full-RoboCasa-wide gap; it is a registry audit, not validation evidence for uncovered tasks.
 
 ## Separate RoboCasa Extra-Task Micro-Rollout Probe
 
-The micro probe reset and sampled short rollouts for `4` additional RoboCasa task IDs: `['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter']`.
-This verifies reset/clone/short-rollout viability only; it is not learned-WAM, exact-law, closed-loop, solved-policy, or full-suite validation.
+The micro probe reset and sampled short rollouts for `4` RoboCasa task IDs: `['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter']`.
+This remains a reset/clone/short-rollout viability artifact; the separate extra four-task WAM artifact is the stronger learned-WAM evidence for the same task IDs.
 
 ## Separate LIBERO Three-Task Learned-WAM Artifact
 

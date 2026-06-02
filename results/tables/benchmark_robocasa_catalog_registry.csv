@@ -216,13 +216,13 @@ robocasa/PickPlaceCounterToDrawer,pick_place,True,False,True
 robocasa/PickPlaceCounterToMicrowave,pick_place,True,False,True
 robocasa/PickPlaceCounterToOven,pick_place,True,False,True
 robocasa/PickPlaceCounterToSink,pick_place,True,False,True
-robocasa/PickPlaceCounterToStandMixer,pick_place,False,True,True
+robocasa/PickPlaceCounterToStandMixer,pick_place,True,True,True
 robocasa/PickPlaceCounterToStove,pick_place,True,False,True
-robocasa/PickPlaceCounterToToasterOven,pick_place,False,True,True
-robocasa/PickPlaceDrawerToCounter,pick_place,False,True,True
+robocasa/PickPlaceCounterToToasterOven,pick_place,True,True,True
+robocasa/PickPlaceDrawerToCounter,pick_place,True,True,True
 robocasa/PickPlaceFridgeDrawerToShelf,pick_place,False,False,False
 robocasa/PickPlaceFridgeShelfToDrawer,pick_place,False,False,False
-robocasa/PickPlaceMicrowaveToCounter,pick_place,False,True,True
+robocasa/PickPlaceMicrowaveToCounter,pick_place,True,True,True
 robocasa/PickPlaceMilk,pick_place,False,False,False
 robocasa/PickPlaceSingle,pick_place,False,False,False
 robocasa/PickPlaceSinkToCounter,pick_place,False,False,False

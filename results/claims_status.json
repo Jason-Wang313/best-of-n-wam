@@ -508,13 +508,19 @@
       "id": 91,
       "claim": "RoboCasa registry coverage audit is artifacted.",
       "status": "VERIFIED",
-      "evidence": "registered=396, rollout_pool_covered=24, micro_covered=4, any_artifact=28"
+      "evidence": "registered=396, rollout_pool_covered=28, micro_covered=4, any_artifact=28"
     },
     {
       "id": 92,
       "claim": "RoboCasa extra-task micro-rollout viability probe verified.",
       "status": "VERIFIED",
       "evidence": "candidates=4, nondegenerate=4, envs=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter']"
+    },
+    {
+      "id": 93,
+      "claim": "RoboCasa extra four-task learned WAM-lite scorer beats random with CI.",
+      "status": "VERIFIED",
+      "evidence": "tasks=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter'], train=64, val=32, eval=128, utility corr=0.7993479173648391, promoted=learned_wam, learned-random CI={'n': 16, 'mean': 0.389104640308091, 'std': 0.2902967972911619, 'stderr': 0.07257419932279048, 'ci95': 0.14224543067266934, 'lo': 0.24685920963542166, 'hi': 0.5313500709807604}, oracle-learned CI={'n': 16, 'mean': 0.03704235447364291, 'std': 0.061917841878265635, 'stderr': 0.015479460469566409, 'ci95': 0.03033974252035016, 'lo': 0.0067026119532927475, 'hi': 0.06738209699399307}"
     },
     {
       "id": 86,
@@ -554,7 +560,7 @@
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 92,
+  "num_verified": 93,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

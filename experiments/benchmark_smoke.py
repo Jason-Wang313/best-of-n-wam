@@ -27,6 +27,8 @@ def run() -> dict:
     family12_path = results_dir() / "benchmark_robocasa_family12_wam.json"
     robocasa_family24 = {}
     family24_path = results_dir() / "benchmark_robocasa_family24_wam.json"
+    robocasa_extra4 = {}
+    extra4_path = results_dir() / "benchmark_robocasa_extra4_wam.json"
     robocasa_catalog = {}
     catalog_path = results_dir() / "benchmark_robocasa_catalog_probe.json"
     robocasa_micro = {}
@@ -65,6 +67,10 @@ def run() -> dict:
         import json
 
         robocasa_family24 = json.loads(family24_path.read_text(encoding="utf-8"))
+    if extra4_path.exists():
+        import json
+
+        robocasa_extra4 = json.loads(extra4_path.read_text(encoding="utf-8"))
     if catalog_path.exists():
         import json
 
@@ -201,13 +207,26 @@ def run() -> dict:
                     "This broadens RoboCasa rollout-pool dense-utility validation, but it is still not full RoboCasa-wide validation or solved-policy performance.",
                 ]
             )
+        if robocasa_extra4.get("verified"):
+            metrics = robocasa_extra4.get("model_metrics") or {}
+            ci = (robocasa_extra4.get("confidence_intervals") or {}).get("best_learned_minus_random_N8") or {}
+            report.extend(
+                [
+                    "",
+                    "## Separate RoboCasa Extra Four-Task Learned-WAM Artifact",
+                    "",
+                    f"A task conditioned ridge state/action-sequence WAM-lite was trained across `{len(robocasa_extra4.get('env_ids') or [])}` additional RoboCasa pick-place task IDs with `{robocasa_extra4.get('train_samples')}` train rollouts and `{robocasa_extra4.get('eval_samples')}` heldout eval rollouts.",
+                    f"Validation utility correlation is `{metrics.get('utility_corr')}`; promoted scorer `{robocasa_extra4.get('promoted_scorer')}` has learned-minus-random N8 CI lower bound `{ci.get('lo')}`.",
+                    "This promotes the previously micro-probed task IDs to rollout-pool learned-WAM evidence, but it is still not full RoboCasa-wide validation or solved-policy performance.",
+                ]
+            )
         if robocasa_catalog.get("verified"):
             report.extend(
                 [
                     "",
                     "## Separate RoboCasa Registry Coverage Audit",
                     "",
-                    f"The local RoboCasa registry exposes `{robocasa_catalog.get('registry_count')}` task IDs; verified rollout-pool artifacts currently cover `{robocasa_catalog.get('verified_artifact_task_count')}` task IDs, micro-rollout probes cover `{robocasa_catalog.get('micro_rollout_task_count')}` more, and any committed artifact covers `{robocasa_catalog.get('any_artifact_task_count')}` task IDs.",
+                    f"The local RoboCasa registry exposes `{robocasa_catalog.get('registry_count')}` task IDs; verified rollout-pool artifacts currently cover `{robocasa_catalog.get('verified_artifact_task_count')}` task IDs, micro-rollout probes cover `{robocasa_catalog.get('micro_rollout_task_count')}` task IDs, and any committed artifact covers `{robocasa_catalog.get('any_artifact_task_count')}` task IDs.",
                     "This quantifies the remaining full-RoboCasa-wide gap; it is a registry audit, not validation evidence for uncovered tasks.",
                 ]
             )
@@ -217,8 +236,8 @@ def run() -> dict:
                     "",
                     "## Separate RoboCasa Extra-Task Micro-Rollout Probe",
                     "",
-                    f"The micro probe reset and sampled short rollouts for `{robocasa_micro.get('nondegenerate_task_count')}` additional RoboCasa task IDs: `{robocasa_micro.get('nondegenerate_env_ids')}`.",
-                    "This verifies reset/clone/short-rollout viability only; it is not learned-WAM, exact-law, closed-loop, solved-policy, or full-suite validation.",
+                    f"The micro probe reset and sampled short rollouts for `{robocasa_micro.get('nondegenerate_task_count')}` RoboCasa task IDs: `{robocasa_micro.get('nondegenerate_env_ids')}`.",
+                    "This remains a reset/clone/short-rollout viability artifact; the separate extra four-task WAM artifact is the stronger learned-WAM evidence for the same task IDs.",
                 ]
             )
         if libero_wam.get("verified"):

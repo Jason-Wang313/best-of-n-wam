@@ -20,6 +20,7 @@ ROBOCASA_ARTIFACTS = [
     "benchmark_robocasa_broad_wam.json",
     "benchmark_robocasa_family12_wam.json",
     "benchmark_robocasa_family24_wam.json",
+    "benchmark_robocasa_extra4_wam.json",
     "benchmark_robocasa_family28_wam.json",
     "benchmark_robocasa_family32_wam.json",
 ]
