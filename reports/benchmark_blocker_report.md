@@ -60,6 +60,12 @@ A task conditioned ridge state/action-sequence WAM-lite was trained across `4` a
 Validation utility correlation is `0.7993479173648391`; promoted scorer `learned_wam` has learned-minus-random N8 CI lower bound `0.24685920963542166`.
 This promotes the previously micro-probed task IDs to rollout-pool learned-WAM evidence, but it is still not full RoboCasa-wide validation or solved-policy performance.
 
+## Separate RoboCasa 28-Task Combined Family Learned-WAM Artifact
+
+A task conditioned ridge state/action-sequence WAM-lite was trained jointly across `28` RoboCasa task IDs with `448` train rollouts and `448` heldout eval rollouts.
+Validation utility correlation is `0.8335286692076076`; promoted scorer `learned_wam` has learned-minus-random N8 CI lower bound `0.23531453640389255`.
+This is the strongest current RoboCasa family artifact, but it is still not full RoboCasa-wide validation or solved-policy performance.
+
 ## Separate RoboCasa Registry Coverage Audit
 
 The local RoboCasa registry exposes `396` task IDs; verified rollout-pool artifacts currently cover `28` task IDs, micro-rollout probes cover `4` task IDs, and any committed artifact covers `28` task IDs.

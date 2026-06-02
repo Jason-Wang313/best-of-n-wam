@@ -523,6 +523,12 @@
       "evidence": "tasks=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter'], train=64, val=32, eval=128, utility corr=0.7993479173648391, promoted=learned_wam, learned-random CI={'n': 16, 'mean': 0.389104640308091, 'std': 0.2902967972911619, 'stderr': 0.07257419932279048, 'ci95': 0.14224543067266934, 'lo': 0.24685920963542166, 'hi': 0.5313500709807604}, oracle-learned CI={'n': 16, 'mean': 0.03704235447364291, 'std': 0.061917841878265635, 'stderr': 0.015479460469566409, 'ci95': 0.03033974252035016, 'lo': 0.0067026119532927475, 'hi': 0.06738209699399307}"
     },
     {
+      "id": 94,
+      "claim": "RoboCasa combined 28-task family learned WAM-lite scorer beats random with CI.",
+      "status": "VERIFIED",
+      "evidence": "tasks=28, train=448, val=224, eval=448, utility corr=0.8335286692076076, promoted=learned_wam, learned-random CI={'n': 56, 'mean': 0.30243909345319026, 'std': 0.2562827497116669, 'stderr': 0.034247222984335565, 'ci95': 0.0671245570492977, 'lo': 0.23531453640389255, 'hi': 0.36956365050248796}, oracle-learned CI={'n': 56, 'mean': 0.05083792808385431, 'std': 0.06357723600802802, 'stderr': 0.008495865526432438, 'ci95': 0.01665189643180758, 'lo': 0.03418603165204673, 'hi': 0.06748982451566189}"
+    },
+    {
       "id": 86,
       "claim": "LIBERO sparse-success scripted policy smoke verified.",
       "status": "VERIFIED",
@@ -560,7 +566,7 @@
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 93,
+  "num_verified": 94,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0
