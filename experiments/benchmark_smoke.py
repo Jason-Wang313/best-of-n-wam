@@ -35,12 +35,16 @@ def run() -> dict:
     family32_path = results_dir() / "benchmark_robocasa_family32_wam.json"
     robocasa_stratified55 = {}
     stratified55_path = results_dir() / "benchmark_robocasa_stratified55_wam.json"
+    robocasa_stratified97 = {}
+    stratified97_path = results_dir() / "benchmark_robocasa_stratified97_wam.json"
     robocasa_catalog = {}
     catalog_path = results_dir() / "benchmark_robocasa_catalog_probe.json"
     robocasa_micro = {}
     micro_path = results_dir() / "benchmark_robocasa_micro_rollout_extra.json"
     robocasa_micro_stratified = {}
     micro_stratified_path = results_dir() / "benchmark_robocasa_micro_rollout_stratified_probe.json"
+    robocasa_micro_frontier = {}
+    micro_frontier_path = results_dir() / "benchmark_robocasa_micro_rollout_frontier_probe.json"
     libero_wam = {}
     libero_path = results_dir() / "benchmark_libero_wam.json"
     libero_scripted = {}
@@ -91,6 +95,10 @@ def run() -> dict:
         import json
 
         robocasa_stratified55 = json.loads(stratified55_path.read_text(encoding="utf-8"))
+    if stratified97_path.exists():
+        import json
+
+        robocasa_stratified97 = json.loads(stratified97_path.read_text(encoding="utf-8"))
     if catalog_path.exists():
         import json
 
@@ -103,6 +111,10 @@ def run() -> dict:
         import json
 
         robocasa_micro_stratified = json.loads(micro_stratified_path.read_text(encoding="utf-8"))
+    if micro_frontier_path.exists():
+        import json
+
+        robocasa_micro_frontier = json.loads(micro_frontier_path.read_text(encoding="utf-8"))
     if libero_path.exists():
         import json
 
@@ -280,6 +292,20 @@ def run() -> dict:
                     "",
                     f"A task conditioned ridge state/action-sequence WAM-lite was trained jointly across `{len(robocasa_stratified55.get('env_ids') or [])}` RoboCasa task IDs with `{robocasa_stratified55.get('train_samples')}` train rollouts and `{robocasa_stratified55.get('eval_samples')}` heldout eval rollouts.",
                     f"Validation utility correlation is `{metrics.get('utility_corr')}`; promoted scorer `{robocasa_stratified55.get('promoted_scorer')}` has learned-minus-random N8 CI lower bound `{ci.get('lo')}`.",
+                    "This is a broad RoboCasa rollout-pool learned-WAM artifact and precursor to the 97-task layer, but it is still not full RoboCasa-wide validation or solved-policy performance.",
+                ]
+            )
+        if robocasa_stratified97.get("verified"):
+            metrics = robocasa_stratified97.get("model_metrics") or {}
+            ci = (robocasa_stratified97.get("confidence_intervals") or {}).get("best_learned_minus_random_N8") or {}
+            oracle_ci = (robocasa_stratified97.get("confidence_intervals") or {}).get("oracle_minus_best_learned_N8") or {}
+            report.extend(
+                [
+                    "",
+                    "## Separate RoboCasa 97-Task Stratified Learned-WAM Artifact",
+                    "",
+                    f"A task conditioned ridge state/action-sequence WAM-lite was trained jointly across `{len(robocasa_stratified97.get('env_ids') or [])}` RoboCasa task IDs with `{robocasa_stratified97.get('train_samples')}` train rollouts, `{robocasa_stratified97.get('validation_samples')}` validation rollouts, and `{robocasa_stratified97.get('eval_samples')}` heldout eval rollouts from `{robocasa_stratified97.get('eval_rollout_pools')}` rollout pools.",
+                    f"Validation utility correlation is `{metrics.get('utility_corr')}`; promoted scorer `{robocasa_stratified97.get('promoted_scorer')}` has learned-minus-random N8 CI lower bound `{ci.get('lo')}` and oracle-minus-learned N8 CI lower bound `{oracle_ci.get('lo')}`.",
                     "This is the strongest current RoboCasa rollout-pool learned-WAM artifact, but it is still not full RoboCasa-wide validation or solved-policy performance.",
                 ]
             )
@@ -310,7 +336,17 @@ def run() -> dict:
                     "## Separate RoboCasa Stratified Micro-Rollout Probe",
                     "",
                     f"The stratified micro probe reset and sampled short rollouts for `{robocasa_micro_stratified.get('nondegenerate_task_count')}` RoboCasa task IDs across cleaning, cooking, transport, filling, loading, arranging, gathering, and control families.",
-                    "This remains a reset/clone/short-rollout viability artifact; the separate 55-task WAM artifact is the stronger learned-WAM evidence for promoted task IDs.",
+                    "This remains a reset/clone/short-rollout viability artifact; the separate 55-task and 97-task WAM artifacts are stronger learned-WAM evidence for promoted task IDs.",
+                ]
+            )
+        if robocasa_micro_frontier.get("verified"):
+            report.extend(
+                [
+                    "",
+                    "## Separate RoboCasa Frontier Micro-Rollout Probe",
+                    "",
+                    f"The frontier micro probe attempted `{robocasa_micro_frontier.get('candidate_task_count')}` RoboCasa task IDs, found `{robocasa_micro_frontier.get('runnable_task_count')}` runnable IDs, and sampled short nondegenerate rollouts for `{robocasa_micro_frontier.get('nondegenerate_task_count')}` task IDs.",
+                    "This remains lower-tier reset/clone/short-rollout viability evidence; the 97-task stratified WAM artifact is the stronger learned-WAM evidence for promoted task IDs.",
                 ]
             )
         if libero_wam.get("verified"):

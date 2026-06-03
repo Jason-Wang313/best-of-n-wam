@@ -76,11 +76,17 @@ This is a broad RoboCasa family artifact, but it is still not full RoboCasa-wide
 
 A task conditioned ridge state/action-sequence WAM-lite was trained jointly across `55` RoboCasa task IDs with `880` train rollouts and `880` heldout eval rollouts.
 Validation utility correlation is `0.832609714619887`; promoted scorer `learned_wam` has learned-minus-random N8 CI lower bound `0.2742782233399787`.
+This is a broad RoboCasa rollout-pool learned-WAM artifact and precursor to the 97-task layer, but it is still not full RoboCasa-wide validation or solved-policy performance.
+
+## Separate RoboCasa 97-Task Stratified Learned-WAM Artifact
+
+A task conditioned ridge state/action-sequence WAM-lite was trained jointly across `97` RoboCasa task IDs with `1552` train rollouts, `776` validation rollouts, and `1552` heldout eval rollouts from `194` rollout pools.
+Validation utility correlation is `0.8380299394502633`; promoted scorer `learned_wam` has learned-minus-random N8 CI lower bound `0.31486715069050375` and oracle-minus-learned N8 CI lower bound `0.03692932017550557`.
 This is the strongest current RoboCasa rollout-pool learned-WAM artifact, but it is still not full RoboCasa-wide validation or solved-policy performance.
 
 ## Separate RoboCasa Registry Coverage Audit
 
-The local RoboCasa registry exposes `396` task IDs; verified rollout-pool artifacts currently cover `55` task IDs, micro-rollout probes cover `27` task IDs, and any committed artifact covers `55` task IDs.
+The local RoboCasa registry exposes `396` task IDs; verified rollout-pool artifacts currently cover `97` task IDs, micro-rollout probes cover `69` task IDs, and any committed artifact covers `97` task IDs.
 This quantifies the remaining full-RoboCasa-wide gap; it is a registry audit, not validation evidence for uncovered tasks.
 
 ## Separate RoboCasa Extra-Task Micro-Rollout Probe
@@ -91,7 +97,12 @@ This remains a reset/clone/short-rollout viability artifact; the separate extra 
 ## Separate RoboCasa Stratified Micro-Rollout Probe
 
 The stratified micro probe reset and sampled short rollouts for `23` RoboCasa task IDs across cleaning, cooking, transport, filling, loading, arranging, gathering, and control families.
-This remains a reset/clone/short-rollout viability artifact; the separate 55-task WAM artifact is the stronger learned-WAM evidence for promoted task IDs.
+This remains a reset/clone/short-rollout viability artifact; the separate 55-task and 97-task WAM artifacts are stronger learned-WAM evidence for promoted task IDs.
+
+## Separate RoboCasa Frontier Micro-Rollout Probe
+
+The frontier micro probe attempted `64` RoboCasa task IDs, found `52` runnable IDs, and sampled short nondegenerate rollouts for `42` task IDs.
+This remains lower-tier reset/clone/short-rollout viability evidence; the 97-task stratified WAM artifact is the stronger learned-WAM evidence for promoted task IDs.
 
 ## Separate LIBERO Three-Task Learned-WAM Artifact
 

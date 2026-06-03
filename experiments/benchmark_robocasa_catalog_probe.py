@@ -24,11 +24,13 @@ ROBOCASA_ARTIFACTS = [
     "benchmark_robocasa_family28_wam.json",
     "benchmark_robocasa_family32_wam.json",
     "benchmark_robocasa_stratified55_wam.json",
+    "benchmark_robocasa_stratified97_wam.json",
 ]
 
 ROBOCASA_MICRO_ARTIFACTS = [
     "benchmark_robocasa_micro_rollout_extra.json",
     "benchmark_robocasa_micro_rollout_stratified_probe.json",
+    "benchmark_robocasa_micro_rollout_frontier_probe.json",
 ]
 
 
