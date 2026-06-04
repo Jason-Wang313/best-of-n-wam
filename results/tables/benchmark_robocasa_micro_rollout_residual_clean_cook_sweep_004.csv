@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/BoilEggs,0,2026,2,1,True,True,True,0.3582093085418978,0.3562884507108124,0.0019208578310854207,-0.016590503052627346,0.002871352480279076,-0.019461855532906424,-0.013719150572348272,0,True,,229.76755714416504

@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/ClusterItemsForClearing,0,2026,2,1,True,True,True,0.47462497118652014,0.47531049538007264,-0.0006855241935525003,-0.019196885077265267,0.002276334511079602,-0.02147321958834487,-0.016920550566185667,0,True,,154.17428064346313

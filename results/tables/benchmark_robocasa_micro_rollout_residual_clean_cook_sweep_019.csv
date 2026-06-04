@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/FreezeCookedFood,0,2026,2,1,True,True,True,0.38084648373906466,0.3821484844403779,-0.001302000701313255,-0.019813361585026022,0.004111029139627508,-0.023924390724653532,-0.015702332445398516,0,True,,187.83877062797546

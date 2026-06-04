@@ -1,0 +1,23 @@
+{
+  "experiment": "benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_027",
+  "attempted": true,
+  "available": true,
+  "verified": true,
+  "output_tag": "residual_clean_cook_sweep_027",
+  "candidate_task_count": 1,
+  "runnable_task_count": 1,
+  "nondegenerate_task_count": 1,
+  "runnable_env_ids": [
+    "robocasa/PlaceLidToBoil"
+  ],
+  "nondegenerate_env_ids": [
+    "robocasa/PlaceLidToBoil"
+  ],
+  "rollouts_per_task": 2,
+  "horizon": 1,
+  "split": "pretrain",
+  "wall_clock_seconds": 157.751202583313,
+  "table_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_027.csv",
+  "report_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_micro_rollout_residual_clean_cook_sweep_027_report.md",
+  "note": "RoboCasa micro-rollout viability only; not learned-WAM, exact-law, closed-loop, solved-policy, or full-suite validation."
+}

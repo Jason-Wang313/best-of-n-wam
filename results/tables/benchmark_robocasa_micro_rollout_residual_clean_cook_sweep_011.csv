@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/ClearSinkSpace,0,2026,2,1,True,True,True,0.6476548918333729,0.6454627227634315,0.0021921690699414076,-0.01631919181377136,0.0020243594877746175,-0.01834355130154598,-0.014294832325996744,0,True,,223.3207025527954

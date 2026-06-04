@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/CoolBakedCookies,0,2026,2,1,True,True,True,0.6262526495805711,0.6258483115980454,0.0004043379825257043,-0.018107022901187063,0.003238087619898399,-0.021345110521085463,-0.014868935281288666,0,True,,252.88578534126282

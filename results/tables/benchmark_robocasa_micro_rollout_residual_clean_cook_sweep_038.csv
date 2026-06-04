@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/SweetSavoryToastSetup,0,2026,2,1,True,True,True,0.3409396135699355,0.3398534260548619,0.0010861875150736111,-0.017425173368639156,0.0040758944447513035,-0.02150106781339046,-0.013349278923887854,0,True,,170.77602124214172

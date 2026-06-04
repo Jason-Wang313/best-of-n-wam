@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/SortingCleanup,0,2026,2,1,True,True,True,0.6298680686715992,0.63436672456577,-0.004498655894170811,-0.023010016777883578,0.004009853511648108,-0.027019870289531688,-0.01900016326623547,0,True,,303.9309048652649

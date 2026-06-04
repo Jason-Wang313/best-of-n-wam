@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/PrepSinkForCleaning,0,2026,2,1,True,True,True,0.5216351736061472,0.5261958630111121,-0.004560689404964846,-0.023072050288677613,0.004039486054838769,-0.027111536343516384,-0.019032564233838846,0,True,,208.68971610069275

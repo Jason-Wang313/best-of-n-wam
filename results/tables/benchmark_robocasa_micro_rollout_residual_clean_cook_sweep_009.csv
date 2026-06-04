@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/ClearReceptaclesForCleaning,0,2026,2,1,True,True,True,1.219537282931162,1.2129518625409972,0.006585420390164853,-0.011925940493547916,0.0010696381715748927,-0.012995578665122808,-0.010856302321973023,0,True,,356.00733947753906

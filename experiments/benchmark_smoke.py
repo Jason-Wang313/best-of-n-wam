@@ -37,6 +37,8 @@ def run() -> dict:
     stratified55_path = results_dir() / "benchmark_robocasa_stratified55_wam.json"
     robocasa_stratified97 = {}
     stratified97_path = results_dir() / "benchmark_robocasa_stratified97_wam.json"
+    robocasa_residual35 = {}
+    residual35_path = results_dir() / "benchmark_robocasa_residual35_h1_n4_wam.json"
     robocasa_catalog = {}
     catalog_path = results_dir() / "benchmark_robocasa_catalog_probe.json"
     robocasa_micro = {}
@@ -99,6 +101,10 @@ def run() -> dict:
         import json
 
         robocasa_stratified97 = json.loads(stratified97_path.read_text(encoding="utf-8"))
+    if residual35_path.exists():
+        import json
+
+        robocasa_residual35 = json.loads(residual35_path.read_text(encoding="utf-8"))
     if catalog_path.exists():
         import json
 
@@ -307,6 +313,21 @@ def run() -> dict:
                     f"A task conditioned ridge state/action-sequence WAM-lite was trained jointly across `{len(robocasa_stratified97.get('env_ids') or [])}` RoboCasa task IDs with `{robocasa_stratified97.get('train_samples')}` train rollouts, `{robocasa_stratified97.get('validation_samples')}` validation rollouts, and `{robocasa_stratified97.get('eval_samples')}` heldout eval rollouts from `{robocasa_stratified97.get('eval_rollout_pools')}` rollout pools.",
                     f"Validation utility correlation is `{metrics.get('utility_corr')}`; promoted scorer `{robocasa_stratified97.get('promoted_scorer')}` has learned-minus-random N8 CI lower bound `{ci.get('lo')}` and oracle-minus-learned N8 CI lower bound `{oracle_ci.get('lo')}`.",
                     "This is the strongest current RoboCasa rollout-pool learned-WAM artifact, but it is still not full RoboCasa-wide validation or solved-policy performance.",
+                ]
+            )
+        if robocasa_residual35.get("verified"):
+            metrics = robocasa_residual35.get("model_metrics") or {}
+            max_n = max(robocasa_residual35.get("n_values") or [4])
+            ci = (robocasa_residual35.get("confidence_intervals") or {}).get(f"best_learned_minus_random_N{max_n}") or {}
+            oracle_ci = (robocasa_residual35.get("confidence_intervals") or {}).get(f"oracle_minus_best_learned_N{max_n}") or {}
+            report.extend(
+                [
+                    "",
+                    "## Separate RoboCasa Residual 35-Task Clean/Cook Learned-WAM Artifact",
+                    "",
+                    f"A task conditioned ridge state/action-sequence WAM-lite was trained across `{len(robocasa_residual35.get('env_ids') or [])}` previously uncovered RoboCasa clean/cook task IDs with `{robocasa_residual35.get('train_samples')}` train rollouts, `{robocasa_residual35.get('validation_samples')}` validation rollouts, and `{robocasa_residual35.get('eval_samples')}` heldout eval rollouts from `{robocasa_residual35.get('eval_rollout_pools')}` rollout pools.",
+                    f"Validation utility correlation is `{metrics.get('utility_corr')}`; exact-law utility MAE is `{robocasa_residual35.get('exact_law_utility_mae')}`; promoted scorer `{robocasa_residual35.get('promoted_scorer')}` has learned-minus-random N{max_n} CI lower bound `{ci.get('lo')}` and oracle-minus-learned N{max_n} CI lower bound `{oracle_ci.get('lo')}`.",
+                    "This promotes the residual clean/cook frontier from micro-rollout viability to rollout-pool learned-WAM evidence, but it remains horizon-1/N4 dense-utility benchmark evidence, not solved-policy or full RoboCasa-wide validation.",
                 ]
             )
         if robocasa_catalog.get("verified"):

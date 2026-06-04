@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/DryDishes,0,2026,2,1,True,True,True,0.5429754686793156,0.541635040424485,0.0013404282548306612,-0.017170932628882106,0.0029711022096260854,-0.020142034838508193,-0.014199830419256022,0,True,,201.663236618042

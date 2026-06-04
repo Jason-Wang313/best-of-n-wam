@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/ToastOneSlotPair,0,2026,2,1,True,True,True,0.3830146751407957,0.3854866016760763,-0.0024719265352806385,-0.020983287418993406,0.001649141560589611,-0.02263242897958302,-0.019334145858403796,0,True,,164.91774153709412

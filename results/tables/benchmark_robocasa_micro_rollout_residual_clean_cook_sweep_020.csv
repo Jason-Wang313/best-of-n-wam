@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/HeatKebabSandwich,0,2026,2,1,True,True,True,0.3678908597096878,0.36691650660040587,0.0009743531092819835,-0.017537007774430784,0.0033131380763803554,-0.02085014585081114,-0.01422386969805043,0,True,,157.36206221580505

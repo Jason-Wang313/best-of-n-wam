@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/CookieDoughPrep,0,2026,2,1,False,False,False,,,,,,,,0,False,ValueError: ,50.81297564506531

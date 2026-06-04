@@ -240,7 +240,12 @@ def _write_report(summary: dict[str, Any]) -> None:
             f"- reason: {summary.get('reason')}",
         ]
     else:
-        ci = (summary.get("confidence_intervals") or {}).get("best_learned_minus_random_N8") or {}
+        n_values = [int(n) for n in (summary.get("n_values") or [])]
+        n_max = max(n_values) if n_values else 8
+        ci_key = f"best_learned_minus_random_N{n_max}"
+        ci = (summary.get("confidence_intervals") or {}).get(ci_key) or (
+            summary.get("confidence_intervals") or {}
+        ).get("best_learned_minus_random_N8") or {}
         metrics = summary.get("model_metrics") or {}
         lines = [
             "# RoboCasa Multi-Task WAM Report",
@@ -255,7 +260,7 @@ def _write_report(summary: dict[str, Any]) -> None:
             f"- validation utility correlation: `{metrics.get('utility_corr')}`",
             f"- validation learned-physics correlation: `{metrics.get('learned_physics_score_corr')}`",
             f"- promoted learned scorer: `{summary.get('promoted_scorer')}`",
-            f"- promoted scorer minus random N8 CI: `{ci}`",
+            f"- promoted scorer minus random N{n_max} CI: `{ci}`",
             "",
             "This is a task conditioned RoboCasa WAM-lite artifact over multiple kitchen task IDs. It is promoted only if the exact-law check passes and a learned scorer beats random with a positive heldout CI.",
         ]

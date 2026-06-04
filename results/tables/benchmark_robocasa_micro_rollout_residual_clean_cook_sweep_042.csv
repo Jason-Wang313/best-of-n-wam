@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/ToasterOvenBroilFish,0,2026,2,1,True,True,True,0.42054209649020385,0.41862092882169,0.0019211676685138845,-0.016590193215198883,0.0028516427635089815,-0.019441835978707866,-0.013738550451689903,0,True,,153.3760781288147

@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/OrganizeCleaningSupplies,0,2026,2,1,True,True,True,0.48959303194756504,0.4965502258366409,-0.006957193889075869,-0.025468554772788636,3.529560773348102e-05,-0.02550385038052212,-0.025433259165055157,0,True,,216.38708877563477

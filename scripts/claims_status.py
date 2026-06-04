@@ -91,6 +91,7 @@ def main() -> None:
     robocasa_family32 = load_json("benchmark_robocasa_family32_wam.json")
     robocasa_stratified55 = load_json("benchmark_robocasa_stratified55_wam.json")
     robocasa_stratified97 = load_json("benchmark_robocasa_stratified97_wam.json")
+    robocasa_residual35 = load_json("benchmark_robocasa_residual35_h1_n4_wam.json")
     robocasa_catalog = load_json("benchmark_robocasa_catalog_probe.json")
     robocasa_micro = load_json("benchmark_robocasa_micro_rollout_extra.json")
     libero_wam = load_json("benchmark_libero_wam.json")
@@ -886,6 +887,29 @@ def main() -> None:
             bool(robocasa_stratified97),
         ),
         f"tasks={len(robocasa_stratified97.get('env_ids') or [])}, train={robocasa_stratified97.get('train_samples')}, val={robocasa_stratified97.get('validation_samples')}, eval={robocasa_stratified97.get('eval_samples')}, pools={robocasa_stratified97.get('eval_rollout_pools')}, utility corr={((robocasa_stratified97.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_stratified97.get('promoted_scorer')}, learned-random CI={robocasa_stratified97_ci.get(f'best_learned_minus_random_N{robocasa_stratified97_max_n}')}, oracle-learned CI={robocasa_stratified97_ci.get(f'oracle_minus_best_learned_N{robocasa_stratified97_max_n}')}",
+    )
+    robocasa_residual35_ci = robocasa_residual35.get("confidence_intervals") or {}
+    robocasa_residual35_max_n = max(robocasa_residual35.get("n_values") or [4])
+    add(
+        claims,
+        98,
+        "RoboCasa residual 35-task clean/cook learned WAM-lite scorer beats random with CI.",
+        status(
+            bool(robocasa_residual35)
+            and robocasa_residual35.get("available", False)
+            and robocasa_residual35.get("verified", False)
+            and len(robocasa_residual35.get("env_ids") or []) >= 35
+            and (robocasa_residual35.get("train_samples") or 0) >= 140
+            and (robocasa_residual35.get("validation_samples") or 0) >= 140
+            and (robocasa_residual35.get("eval_samples") or 0) >= 280
+            and (robocasa_residual35.get("eval_rollout_pools") or 0) >= 35
+            and ((robocasa_residual35.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
+            and (robocasa_residual35.get("exact_law_utility_mae") or 1.0) < 0.01
+            and ((robocasa_residual35_ci.get(f"best_learned_minus_random_N{robocasa_residual35_max_n}") or {}).get("lo") or 0.0) > 0.0
+            and ((robocasa_residual35_ci.get(f"oracle_minus_best_learned_N{robocasa_residual35_max_n}") or {}).get("lo") or 0.0) > 0.0,
+            bool(robocasa_residual35),
+        ),
+        f"tasks={len(robocasa_residual35.get('env_ids') or [])}, train={robocasa_residual35.get('train_samples')}, val={robocasa_residual35.get('validation_samples')}, eval={robocasa_residual35.get('eval_samples')}, pools={robocasa_residual35.get('eval_rollout_pools')}, horizon={robocasa_residual35.get('horizon')}, Nmax={robocasa_residual35_max_n}, utility corr={((robocasa_residual35.get('model_metrics') or {}).get('utility_corr'))}, exact MAE={robocasa_residual35.get('exact_law_utility_mae')}, promoted={robocasa_residual35.get('promoted_scorer')}, learned-random CI={robocasa_residual35_ci.get(f'best_learned_minus_random_N{robocasa_residual35_max_n}')}, oracle-learned CI={robocasa_residual35_ci.get(f'oracle_minus_best_learned_N{robocasa_residual35_max_n}')}",
     )
 
     libero_scripted_ci = (libero_scripted.get("confidence_intervals") or {}).get("success_rate") or {}

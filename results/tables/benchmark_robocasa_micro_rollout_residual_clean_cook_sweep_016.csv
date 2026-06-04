@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/CupcakeCleanup,0,2026,2,1,True,True,True,0.48344791190891895,0.48752125990556916,-0.004073347996650212,-0.02258470888036298,0.004134393669666047,-0.026719102550029027,-0.018450315210696934,0,True,,230.99064445495605

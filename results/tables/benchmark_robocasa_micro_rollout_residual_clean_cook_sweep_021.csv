@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/HeatMultipleWater,0,2026,2,1,True,True,True,0.7588095564779428,0.7643203380497225,-0.005510781571779755,-0.024022142455492522,0.0036599128242511426,-0.027682055279743666,-0.02036222963124138,0,True,,175.30042672157288

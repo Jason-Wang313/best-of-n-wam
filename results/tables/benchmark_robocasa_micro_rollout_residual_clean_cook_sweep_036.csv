@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/SteamInMicrowave,0,2026,2,1,True,True,True,0.48461095594017045,0.4794084654809144,0.005202490459256054,-0.013308870424456715,0.0007448673846980492,-0.014053737809154764,-0.012564003039758666,0,True,,215.67922449111938

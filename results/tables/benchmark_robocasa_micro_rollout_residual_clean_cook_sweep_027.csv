@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/PlaceLidToBoil,0,2026,2,1,True,True,True,0.4259195181139901,0.4296000899481156,-0.0036805718341255123,-0.02219193271783828,0.0011812016158301974,-0.02337313433366848,-0.021010731102008084,0,True,,156.43928909301758

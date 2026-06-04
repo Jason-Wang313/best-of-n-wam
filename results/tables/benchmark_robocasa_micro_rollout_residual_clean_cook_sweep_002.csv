@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/BeginSlowCooking,0,2026,2,1,True,True,True,0.38606430002540043,0.38166145819914565,0.00440284182625475,-0.01410851905745802,0.001143822383416886,-0.015252341440874905,-0.012964696674041133,0,True,,173.32603216171265

@@ -56,6 +56,9 @@ if [[ -n "${ROBOCASA_PYTHON:-}" ]]; then
   )
   "$ROBOCASA_PYTHON" experiments/benchmark_robocasa_multitask_wam.py --output-tag stratified97 --env-ids "${ROBOCASA_STRATIFIED97_IDS[@]}" --train-states 2 --train-rollouts 8 --val-states 1 --val-rollouts 8 --eval-states 2 --eval-rollouts 8 --horizon 2 --mc-trials 1000 --min-tasks 97 --min-eval-pools 194 --max-exact-mae 0.03
   "$ROBOCASA_PYTHON" experiments/benchmark_robocasa_micro_rollout_probe.py --output-tag extra --rollouts 2 --horizon 1 --min-tasks 4
+  if [[ "${RUN_ROBOCASA_RESIDUAL_PROBES:-0}" == "1" ]]; then
+    bash scripts/run_robocasa_residual_probes.sh
+  fi
   "$ROBOCASA_PYTHON" experiments/benchmark_robocasa_catalog_probe.py
 else
   echo "Skipping optional RoboCasa smoke: set ROBOCASA_PYTHON to a RoboCasa-compatible interpreter to run it."

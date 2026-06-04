@@ -84,9 +84,15 @@ A task conditioned ridge state/action-sequence WAM-lite was trained jointly acro
 Validation utility correlation is `0.8380299394502633`; promoted scorer `learned_wam` has learned-minus-random N8 CI lower bound `0.31486715069050375` and oracle-minus-learned N8 CI lower bound `0.03692932017550557`.
 This is the strongest current RoboCasa rollout-pool learned-WAM artifact, but it is still not full RoboCasa-wide validation or solved-policy performance.
 
+## Separate RoboCasa Residual 35-Task Clean/Cook Learned-WAM Artifact
+
+A task conditioned ridge state/action-sequence WAM-lite was trained across `35` previously uncovered RoboCasa clean/cook task IDs with `140` train rollouts, `140` validation rollouts, and `280` heldout eval rollouts from `35` rollout pools.
+Validation utility correlation is `0.8345242481462408`; exact-law utility MAE is `0.00024620294740340757`; promoted scorer `learned_wam` has learned-minus-random N4 CI lower bound `0.19739340175662884` and oracle-minus-learned N4 CI lower bound `0.013710622553376713`.
+This promotes the residual clean/cook frontier from micro-rollout viability to rollout-pool learned-WAM evidence, but it remains horizon-1/N4 dense-utility benchmark evidence, not solved-policy or full RoboCasa-wide validation.
+
 ## Separate RoboCasa Registry Coverage Audit
 
-The local RoboCasa registry exposes `396` task IDs; verified rollout-pool artifacts currently cover `97` task IDs, micro-rollout probes cover `69` task IDs, and any committed artifact covers `97` task IDs.
+The local RoboCasa registry exposes `396` task IDs; verified rollout-pool artifacts currently cover `132` task IDs, micro-rollout probes cover `106` task IDs, and any committed artifact covers `134` task IDs.
 This quantifies the remaining full-RoboCasa-wide gap; it is a registry audit, not validation evidence for uncovered tasks.
 
 ## Separate RoboCasa Extra-Task Micro-Rollout Probe

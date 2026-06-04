@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/PreRinseStation,0,2026,2,1,True,True,True,0.39293386024619936,0.3913294244567055,0.0016044357894938743,-0.016906925094218893,0.0023331614123109235,-0.019240086506529818,-0.014573763681907971,0,True,,194.29108333587646

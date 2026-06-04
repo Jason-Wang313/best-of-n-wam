@@ -11,7 +11,7 @@
 
 - The empirical work is mostly state-based, but benchmark visual WAM evidence now exists for Gymnasium/MuJoCo Reacher-v5 and Gymnasium Robotics Fetch RGB frames; ManiSkill RGB/RGB-D remains unavailable locally and is documented by a generated renderer probe.
 - ManiSkill EE-control remains unavailable locally because Pinocchio is absent and the `pin` dependency path lacks binary wheels for this Windows/Python stack; this is documented by a generated dependency probe.
-- The strongest contact-rich external evidence is Gymnasium Robotics Fetch plus Meta-World ML1, RoboSuite Panda, ManiSkill state mode, RoboCasa three-task pick-place, broad four-task atomic-manipulation, 12-task, 24-task family, extra four-task, combined 28-task, combined 32-task, stratified 55-task, and stratified 97-task artifacts, LIBERO Spatial rollout-pool validation, LIBERO Object sparse-success scripted smoke, LIBERO learned action-head smoke, LIBERO time-conditioned low-dimensional autonomous BC smoke, and LIBERO RGB/proprio/language BC smoke, but still not real hardware.
+- The strongest contact-rich external evidence is Gymnasium Robotics Fetch plus Meta-World ML1, RoboSuite Panda, ManiSkill state mode, RoboCasa three-task pick-place, broad four-task atomic-manipulation, 12-task, 24-task family, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook artifacts, LIBERO Spatial rollout-pool validation, LIBERO Object sparse-success scripted smoke, LIBERO learned action-head smoke, LIBERO time-conditioned low-dimensional autonomous BC smoke, and LIBERO RGB/proprio/language BC smoke, but still not real hardware.
 - The learned models are intentionally lightweight and do not establish WAM training recipes.
 - Pilot estimates are not exact laws and can be brittle under shift.
 - Some analytic smoke artifacts are single-seed checks; paper figures should prefer five-seed learned/multi-env results.
@@ -25,4 +25,4 @@
 
 ## Remaining Gap
 
-The single highest reviewer-risk gap is absence of real-robot evidence, modern VLA-style benchmark policy validation, and full benchmark-suite policy coverage. LIBERO is now present as a three-task dense-utility rollout-pool WAM artifact plus sparse-success scripted, learned action-head, time-conditioned low-dimensional BC, and RGB/proprio/language Object smokes, but not full LIBERO policy evidence.
+The single highest reviewer-risk gap is absence of real-robot evidence, modern VLA-style benchmark policy validation, and full benchmark-suite policy coverage. LIBERO is now present as a three-task dense-utility rollout-pool WAM artifact plus sparse-success scripted, learned action-head, time-conditioned low-dimensional BC, and RGB/proprio/language Object smokes, but not full LIBERO policy evidence. RoboCasa is substantially broader than before, including a residual 35-task clean/cook artifact, but still not full RoboCasa-wide validation.

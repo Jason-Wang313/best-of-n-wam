@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/MicrowaveDefrostMeat,0,2026,2,1,True,True,True,0.6142358849409497,0.6199990697949005,-0.005763184853950776,-0.024274545737663543,0.0026989598290835127,-0.026973505566747057,-0.021575585908580032,0,True,,147.26792740821838

@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/DryDrinkware,0,2026,2,1,True,True,True,0.4553113222321295,0.4508471557885281,0.004464166443601453,-0.014047194440111316,0.0010328742960113591,-0.015080068736122675,-0.013014320144099957,0,True,,207.7415268421173

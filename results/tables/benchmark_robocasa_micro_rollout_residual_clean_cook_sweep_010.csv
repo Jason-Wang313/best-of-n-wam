@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/ClearSinkArea,0,2026,2,1,True,True,True,0.4595403936847337,0.45488456637593316,0.004655827308800542,-0.013855533574912227,0.0011522240830332143,-0.015007757657945441,-0.012703309491879013,0,True,,218.84673023223877

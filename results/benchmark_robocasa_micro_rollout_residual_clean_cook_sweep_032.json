@@ -1,0 +1,19 @@
+{
+  "experiment": "benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_032",
+  "attempted": true,
+  "available": true,
+  "verified": false,
+  "output_tag": "residual_clean_cook_sweep_032",
+  "candidate_task_count": 1,
+  "runnable_task_count": 0,
+  "nondegenerate_task_count": 0,
+  "runnable_env_ids": [],
+  "nondegenerate_env_ids": [],
+  "timed_out": true,
+  "timeout_seconds": 420.0,
+  "wall_clock_seconds": 424.848016500473,
+  "env_ids": [
+    "robocasa/ReturnWashingSupplies"
+  ],
+  "note": "Chunk timed out during RoboCasa micro-rollout probing; no validation claim is promoted."
+}

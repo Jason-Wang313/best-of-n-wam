@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/ToastOnCorrectRack,0,2026,2,1,True,True,True,0.5309771760192137,0.5261993018714383,0.004777874147775418,-0.01373348673593735,0.0009021803279319774,-0.014635667063869328,-0.012831306408005373,0,True,,342.8058567047119

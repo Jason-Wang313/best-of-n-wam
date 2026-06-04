@@ -1,0 +1,2 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/CleanBoard,0,2026,2,1,True,True,True,0.37077293136273604,0.37080245979946286,-2.952843672682226e-05,-0.01854088932043959,0.0036853678503041987,-0.02222625717074379,-0.014855521470135392,0,True,,308.84874057769775
