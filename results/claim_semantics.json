@@ -1,7 +1,7 @@
 {
   "experiment": "claim_semantics",
   "verified": true,
-  "n_claims": 110,
+  "n_claims": 111,
   "n_checks": 168,
   "n_issues": 0,
   "n_ci_claims": 51,
@@ -14,12 +14,12 @@
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=110"
+      "detail": "claims=111"
     },
     {
       "name": "all_claims_verified",
       "ok": true,
-      "detail": "claims=110"
+      "detail": "claims=111"
     },
     {
       "name": "claim_1_error_below_threshold",
@@ -824,12 +824,12 @@
     {
       "name": "claim_100_zero_issue_or_overclaim_count",
       "ok": true,
-      "detail": "evidence=refs=625, issues=0, status_counts={'ok': 625}"
+      "detail": "evidence=refs=629, issues=0, status_counts={'ok': 629}"
     },
     {
       "name": "claim_103_zero_issue_or_overclaim_count",
       "ok": true,
-      "detail": "evidence=claims=110, max_id=110, checks=21, issues=0"
+      "detail": "evidence=claims=111, max_id=111, checks=21, issues=0"
     },
     {
       "name": "ci_claim_coverage",

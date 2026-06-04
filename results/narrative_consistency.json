@@ -1,6 +1,6 @@
 {
   "verified": true,
-  "n_checks": 36,
+  "n_checks": 37,
   "n_issues": 0,
   "checks": [
     {
@@ -140,7 +140,7 @@
       "surface": "final_decision_report",
       "name": "artifact_integrity_command",
       "ok": true,
-      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `625` artifact references checked and `0` issues",
+      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `629` artifact references checked and `0` issues",
       "detail": "found"
     },
     {
@@ -180,23 +180,30 @@
     },
     {
       "surface": "final_decision_report",
+      "name": "source_manifest_command",
+      "ok": true,
+      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `161` source files, `1158445` bytes, `14` source-manifest checks, and `0` issues",
+      "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
       "name": "script_contracts_command",
       "ok": true,
-      "expected": "`python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `61` contract checks, and `0` issues",
+      "expected": "`python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `65` contract checks, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "claim_semantics_command",
       "ok": true,
-      "expected": "`python scripts/claim_semantics.py --fail-on-error`: passed with `110` claims, `168` semantic checks, `51` CI-backed claims, and `0` issues",
+      "expected": "`python scripts/claim_semantics.py --fail-on-error`: passed with `111` claims, `168` semantic checks, `51` CI-backed claims, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "claim_evidence_quality_command",
       "ok": true,
-      "expected": "`python scripts/claim_evidence_quality.py --fail-on-error`: passed with `110` claims, `141` source links, `7` evidence checks, and `0` issues",
+      "expected": "`python scripts/claim_evidence_quality.py --fail-on-error`: passed with `111` claims, `143` source links, `7` evidence checks, and `0` issues",
       "detail": "found"
     },
     {

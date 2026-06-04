@@ -34,6 +34,7 @@ NARRATIVE_SURFACES = [
     ("result_consistency_report", REPORTS / "result_consistency_report.md"),
     ("raw_result_recompute_report", REPORTS / "raw_result_recompute_report.md"),
     ("table_schema_report", REPORTS / "table_schema_report.md"),
+    ("source_manifest_report", REPORTS / "source_manifest_report.md"),
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
     ("claim_semantics_report", REPORTS / "claim_semantics_report.md"),
     ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
@@ -300,6 +301,7 @@ def main() -> None:
     result_consistency = load_json("result_consistency.json")
     raw_result_recompute = load_json("raw_result_recompute.json")
     table_schema = load_json("table_schema.json")
+    source_manifest = load_json("source_manifest.json")
     narrative_consistency = load_json("narrative_consistency.json")
     script_contracts = load_json("script_contracts.json")
     claim_semantics = load_json("claim_semantics.json")
@@ -1762,12 +1764,32 @@ def main() -> None:
             f"issues={table_schema.get('n_issues')}"
         ),
     }
+    source_manifest_claim = {
+        "id": 111,
+        "claim": "Source and verification code have a deterministic hash manifest.",
+        "status": status(
+            bool(source_manifest)
+            and source_manifest.get("verified", False)
+            and (source_manifest.get("n_files") or 0) >= 150
+            and (source_manifest.get("total_bytes") or 0) >= 1_000_000
+            and (source_manifest.get("n_checks") or 0) >= 14
+            and source_manifest.get("n_issues") == 0
+            and artifact_exists(RESULTS / "source_manifest.json")
+            and artifact_exists(REPORTS / "source_manifest_report.md"),
+            bool(source_manifest),
+        ),
+        "evidence": (
+            f"files={source_manifest.get('n_files')}, bytes={source_manifest.get('total_bytes')}, "
+            f"dirs={source_manifest.get('counts_by_dir')}, checks={source_manifest.get('n_checks')}, "
+            f"issues={source_manifest.get('n_issues')}"
+        ),
+    }
     candidate_claims = claims + [
         {
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=110, max_id=110, checks=pending, issues=0",
+            "evidence": "claims=111, max_id=111, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
@@ -1776,6 +1798,7 @@ def main() -> None:
         artifact_manifest_claim,
         figure_quality_claim,
         table_schema_claim,
+        source_manifest_claim,
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
@@ -1796,6 +1819,7 @@ def main() -> None:
     claims.append(artifact_manifest_claim)
     claims.append(figure_quality_claim)
     claims.append(table_schema_claim)
+    claims.append(source_manifest_claim)
 
     payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)

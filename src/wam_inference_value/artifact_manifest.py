@@ -21,6 +21,7 @@ EXCLUDED_RESULT_NAMES = {
     "raw_result_recompute.json",
     "result_consistency.json",
     "script_contracts.json",
+    "source_manifest.json",
     "table_schema.json",
 }
 

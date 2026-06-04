@@ -10,6 +10,7 @@ CORE_GATE_SEQUENCE = [
     "scripts/result_consistency.py --fail-on-error",
     "scripts/raw_result_recompute.py --fail-on-error",
     "scripts/table_schema.py --fail-on-error",
+    "scripts/source_manifest.py --fail-on-error",
     "scripts/artifact_manifest.py --fail-on-error",
     "scripts/figure_quality.py --fail-on-error",
     "scripts/narrative_consistency.py --fail-on-error",
@@ -133,7 +134,8 @@ def audit_core_script(root: Path, script: str, required_snippets: list[str], che
     add(checks, f"{label}_gate_sequence", ordered_subsequence(text, CORE_GATE_SEQUENCE), "core gate sequence is ordered")
     add(checks, f"{label}_raw_recompute_gate", count_occurrences(text, "scripts/raw_result_recompute.py --fail-on-error") >= 1, "raw recompute gate runs after result consistency")
     add(checks, f"{label}_table_schema_gate", count_occurrences(text, "scripts/table_schema.py --fail-on-error") >= 1, "table schema gate runs after raw recompute")
-    add(checks, f"{label}_artifact_manifest_gate", count_occurrences(text, "scripts/artifact_manifest.py --fail-on-error") >= 1, "artifact manifest gate runs after table schema")
+    add(checks, f"{label}_source_manifest_gate", count_occurrences(text, "scripts/source_manifest.py --fail-on-error") >= 1, "source manifest gate runs after table schema")
+    add(checks, f"{label}_artifact_manifest_gate", count_occurrences(text, "scripts/artifact_manifest.py --fail-on-error") >= 1, "artifact manifest gate runs after source manifest")
     add(checks, f"{label}_figure_quality_gate", count_occurrences(text, "scripts/figure_quality.py --fail-on-error") >= 1, "figure quality gate runs after artifact manifest")
     add(checks, f"{label}_double_claim_semantics", count_occurrences(text, "scripts/claim_semantics.py --fail-on-error") >= 2, "claim semantic gate runs before both ledger gates")
     add(checks, f"{label}_double_claim_evidence_quality", count_occurrences(text, "scripts/claim_evidence_quality.py --fail-on-error") >= 2, "claim evidence gate runs before both ledger gates")
@@ -203,6 +205,6 @@ def script_contracts_markdown(payload: dict[str, Any]) -> str:
         for issue in issues:
             lines.append(f"- `{issue.get('name')}`: {issue.get('detail')}")
     else:
-        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered artifact/result/raw-recompute/table-schema/manifest/figure-quality/narrative/script-contract/claim/semantic/evidence/ledger gates.")
+        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered artifact/result/raw-recompute/table-schema/source-manifest/result-manifest/figure-quality/narrative/script-contract/claim/semantic/evidence/ledger gates.")
     lines.append("")
     return "\n".join(lines)

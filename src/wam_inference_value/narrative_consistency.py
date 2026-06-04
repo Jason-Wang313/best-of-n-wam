@@ -88,6 +88,7 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{result_consistency.",
         "{raw_result_recompute.",
         "{table_schema.",
+        "{source_manifest.",
         "{narrative_consistency.",
         "{script_contracts.",
         "{claim_semantics.",
@@ -266,6 +267,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     result_consistency = load_json(results_dir, "result_consistency.json")
     raw_result_recompute = load_json(results_dir, "raw_result_recompute.json")
     table_schema = load_json(results_dir, "table_schema.json")
+    source_manifest = load_json(results_dir, "source_manifest.json")
     script_contracts = load_json(results_dir, "script_contracts.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
@@ -395,6 +397,17 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
             f"`python scripts/table_schema.py --fail-on-error`: passed with `{table_schema.get('n_tables')}` tables, "
             f"`{table_schema.get('total_rows')}` rows, `{table_schema.get('n_checks')}` schema checks, "
             f"and `{table_schema.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "source_manifest_command",
+        (
+            f"`python scripts/source_manifest.py --fail-on-error`: passed with `{source_manifest.get('n_files')}` source files, "
+            f"`{source_manifest.get('total_bytes')}` bytes, `{source_manifest.get('n_checks')}` source-manifest checks, "
+            f"and `{source_manifest.get('n_issues')}` issues"
         ),
     )
     add_contains(
