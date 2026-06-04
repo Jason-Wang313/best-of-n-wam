@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 131,
-  "n_unique_tests": 131,
-  "trailer_count": 131,
+  "n_tests": 133,
+  "n_unique_tests": 133,
+  "trailer_count": 133,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -44,6 +44,8 @@
     "tests/test_claim_semantics.py::test_claim_semantics_requires_ci_for_positive_empirical_claims",
     "tests/test_claim_semantics.py::test_claim_semantics_flags_exact_law_without_small_error",
     "tests/test_claim_semantics.py::test_claim_semantics_flags_nonzero_overclaims",
+    "tests/test_claim_semantics.py::test_claim_semantics_accepts_ideal_boundary_nonpromotability",
+    "tests/test_claim_semantics.py::test_claim_semantics_rejects_ideal_boundary_all_promotable",
     "tests/test_command_result_consistency.py::test_command_result_consistency_accepts_current_report",
     "tests/test_command_result_consistency.py::test_command_result_consistency_rejects_stale_pytest_count",
     "tests/test_command_result_consistency.py::test_command_result_consistency_rejects_stale_ledger_issue_count",
@@ -148,7 +150,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=131"
+      "detail": "nodeids=133"
     },
     {
       "name": "nodeids_unique",
@@ -158,12 +160,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=131"
+      "detail": "nodeids=133"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=131, nodeids=131"
+      "detail": "trailer=133, nodeids=133"
     },
     {
       "name": "required_test_families_present",

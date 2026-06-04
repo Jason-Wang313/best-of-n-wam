@@ -10,7 +10,7 @@ from typing import Any
 
 
 NUMBER_RE = re.compile(r"(?<![A-Za-z0-9_.])[-+]?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?")
-LABELED_NUMBER_RE = re.compile(r"([A-Za-z][A-Za-z0-9 _./+-]*?)\s*=\s*([-+]?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?)")
+LABELED_NUMBER_RE = re.compile(r"([A-Za-z][A-Za-z0-9_ ./+-]*?)\s*=\s*([-+]?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?)")
 
 
 @dataclass(frozen=True)
@@ -196,6 +196,23 @@ def evidence_has_positive_count_or_artifact(evidence: str) -> bool:
     return False
 
 
+def claim_requires_ideal_boundary_semantics(claim: str) -> bool:
+    lower = claim.lower()
+    return "ideal claim boundary" in lower or "future-only non-claims" in lower
+
+
+def evidence_has_ideal_boundary_semantics(evidence: str) -> bool:
+    lower = evidence.lower()
+    values = labeled_numbers(evidence)
+    return (
+        values.get("ideal", 0.0) >= 1.0
+        and values.get("promotable", 0.0) >= 1.0
+        and values.get("future_only", 0.0) >= 1.0
+        and values.get("issues", 1.0) == 0.0
+        and "all_promotable=false" in lower
+    )
+
+
 def audit_claim_semantics_payload(payload: dict[str, Any]) -> dict[str, Any]:
     claims = [claim for claim in payload.get("claims") or [] if isinstance(claim, dict)]
     checks: list[ClaimSemanticCheck] = []
@@ -204,6 +221,7 @@ def audit_claim_semantics_payload(payload: dict[str, Any]) -> dict[str, Any]:
     error_threshold_claim_ids: list[int] = []
     zero_count_claim_ids: list[int] = []
     positive_count_claim_ids: list[int] = []
+    ideal_boundary_claim_ids: list[int] = []
     sane_ci_count = 0
 
     add(checks, "claims_present", bool(claims), f"claims={len(claims)}")
@@ -243,10 +261,14 @@ def audit_claim_semantics_payload(payload: dict[str, Any]) -> dict[str, Any]:
         if claim_requires_positive_count(text):
             positive_count_claim_ids.append(cid)
             add(checks, f"claim_{cid}_positive_count_or_artifact", evidence_has_positive_count_or_artifact(evidence), f"evidence={evidence[:120]}")
+        if claim_requires_ideal_boundary_semantics(text):
+            ideal_boundary_claim_ids.append(cid)
+            add(checks, f"claim_{cid}_ideal_boundary_semantics", evidence_has_ideal_boundary_semantics(evidence), f"evidence={evidence[:160]}")
 
     add(checks, "ci_claim_coverage", len(ci_claim_ids) >= 45, f"ci_claims={len(ci_claim_ids)}")
     add(checks, "positive_ci_claim_coverage", len(positive_ci_claim_ids) >= 25, f"positive_ci_claims={len(positive_ci_claim_ids)}")
     add(checks, "error_threshold_claim_coverage", len(error_threshold_claim_ids) >= 10, f"error_claims={len(error_threshold_claim_ids)}")
+    add(checks, "ideal_boundary_claim_coverage", len(ideal_boundary_claim_ids) >= 1, f"ideal_boundary_claims={len(ideal_boundary_claim_ids)}")
     add(checks, "semantic_ci_objects_present", sane_ci_count >= 55, f"sane_ci_objects={sane_ci_count}")
 
     issues = [check for check in checks if not check.ok]
@@ -261,6 +283,7 @@ def audit_claim_semantics_payload(payload: dict[str, Any]) -> dict[str, Any]:
         "n_error_threshold_claims": len(error_threshold_claim_ids),
         "n_zero_count_claims": len(zero_count_claim_ids),
         "n_positive_count_claims": len(positive_count_claim_ids),
+        "n_ideal_boundary_claims": len(ideal_boundary_claim_ids),
         "n_sane_ci_objects": sane_ci_count,
         "checks": [check.__dict__ for check in checks],
         "issues": [check.__dict__ for check in issues],
@@ -269,6 +292,7 @@ def audit_claim_semantics_payload(payload: dict[str, Any]) -> dict[str, Any]:
         "error_threshold_claim_ids": error_threshold_claim_ids,
         "zero_count_claim_ids": zero_count_claim_ids,
         "positive_count_claim_ids": positive_count_claim_ids,
+        "ideal_boundary_claim_ids": ideal_boundary_claim_ids,
     }
 
 
@@ -291,6 +315,7 @@ def claim_semantics_markdown(payload: dict[str, Any]) -> str:
         f"- CI-backed claims: {payload.get('n_ci_claims')}",
         f"- Positive-CI semantic claims: {payload.get('n_positive_ci_claims')}",
         f"- Error-threshold claims: {payload.get('n_error_threshold_claims')}",
+        f"- Ideal-boundary semantic claims: {payload.get('n_ideal_boundary_claims')}",
         f"- Sane CI objects: {payload.get('n_sane_ci_objects')}",
         "",
     ]
@@ -301,6 +326,6 @@ def claim_semantics_markdown(payload: dict[str, Any]) -> str:
         for issue in issues[:50]:
             lines.append(f"- `{issue.get('name')}`: {issue.get('detail')}")
     else:
-        lines.append("Verified claim wording is backed by the expected threshold semantics: required CIs exist, positive-comparison claims have positive CI lower bounds, exact-law claims have small errors, and meta-claims report zero issues or overclaims.")
+        lines.append("Verified claim wording is backed by the expected threshold semantics: required CIs exist, positive-comparison claims have positive CI lower bounds, exact-law claims have small errors, ideal-boundary claims preserve future-only non-promotability, and meta-claims report zero issues or overclaims.")
     lines.append("")
     return "\n".join(lines)

@@ -2,13 +2,14 @@
   "experiment": "claim_semantics",
   "verified": true,
   "n_claims": 127,
-  "n_checks": 175,
+  "n_checks": 177,
   "n_issues": 0,
   "n_ci_claims": 53,
   "n_positive_ci_claims": 33,
   "n_error_threshold_claims": 11,
   "n_zero_count_claims": 5,
   "n_positive_count_claims": 14,
+  "n_ideal_boundary_claims": 1,
   "n_sane_ci_objects": 69,
   "checks": [
     {
@@ -844,7 +845,7 @@
     {
       "name": "claim_100_zero_issue_or_overclaim_count",
       "ok": true,
-      "detail": "evidence=refs=699, issues=0, status_counts={'ok': 699}"
+      "detail": "evidence=refs=705, issues=0, status_counts={'ok': 705}"
     },
     {
       "name": "claim_103_zero_issue_or_overclaim_count",
@@ -854,17 +855,22 @@
     {
       "name": "claim_116_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=tests=131, unique=131, trailer=131, checks=6, issues=0"
+      "detail": "evidence=tests=133, unique=133, trailer=133, checks=6, issues=0"
     },
     {
       "name": "claim_117_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=claims=126, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json"
+      "detail": "evidence=claims=127, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json"
     },
     {
       "name": "claim_118_positive_count_or_artifact",
       "ok": true,
       "detail": "evidence=reports=8, files=8, checks=9, issues=0, hashes_recorded_in=results/report_generation_consistency.json"
+    },
+    {
+      "name": "claim_127_ideal_boundary_semantics",
+      "ok": true,
+      "detail": "evidence=ideal=9, promotable=4, future_only=5, all_promotable=False, issues=0, results/ideal_claim_boundary.json"
     },
     {
       "name": "ci_claim_coverage",
@@ -880,6 +886,11 @@
       "name": "error_threshold_claim_coverage",
       "ok": true,
       "detail": "error_claims=11"
+    },
+    {
+      "name": "ideal_boundary_claim_coverage",
+      "ok": true,
+      "detail": "ideal_boundary_claims=1"
     },
     {
       "name": "semantic_ci_objects_present",
@@ -1013,5 +1024,8 @@
     116,
     117,
     118
+  ],
+  "ideal_boundary_claim_ids": [
+    127
   ]
 }

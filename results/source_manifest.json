@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 209,
-  "total_bytes": 1474601,
+  "total_bytes": 1477242,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 192,
@@ -789,8 +789,8 @@
     {
       "path": "src/wam_inference_value/claim_semantics.py",
       "suffix": ".py",
-      "bytes": 11414,
-      "sha256": "437dc0199e1ee43a85347cc88f4a230ca4d30b51ffb46c89f66232ee325991b6"
+      "bytes": 12686,
+      "sha256": "60daba396c01ac3993310fdbfd9dc1c408857f5cf38a7d61a742fc4272996e7a"
     },
     {
       "path": "src/wam_inference_value/command_result_consistency.py",
@@ -1047,8 +1047,8 @@
     {
       "path": "tests/test_claim_semantics.py",
       "suffix": ".py",
-      "bytes": 2986,
-      "sha256": "dfaf9ec162800b6e73443bed8105f717a3c5b777f1bd17a425616979b1b53917"
+      "bytes": 4355,
+      "sha256": "92278cf7701f4a6b75a6fb93c17f6805e30f28ec4c1beb56a1d3ba177c091843"
     },
     {
       "path": "tests/test_command_result_consistency.py",
@@ -1296,7 +1296,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1474601, scan=1474601"
+      "detail": "payload=1477242, scan=1477242"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1341,7 +1341,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1474601"
+      "detail": "bytes=1477242"
     },
     {
       "name": "source_manifest_dir_coverage",

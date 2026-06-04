@@ -94,3 +94,39 @@ def test_claim_semantics_flags_nonzero_overclaims() -> None:
 
     issue_names = {issue["name"] for issue in audit["issues"]}
     assert "claim_1_zero_issue_or_overclaim_count" in issue_names
+
+
+def test_claim_semantics_accepts_ideal_boundary_nonpromotability() -> None:
+    audit = audit_claim_semantics_payload(
+        payload(
+            [
+                {
+                    "id": 127,
+                    "claim": "Ideal claim boundary separates promotable artifact-backed results from future-only non-claims.",
+                    "status": "VERIFIED",
+                    "evidence": "ideal=9, promotable=4, future_only=5, all_promotable=False, issues=0, results/ideal_claim_boundary.json",
+                }
+            ]
+        )
+    )
+
+    issue_names = {issue["name"] for issue in audit["issues"]}
+    assert "claim_127_ideal_boundary_semantics" not in issue_names
+
+
+def test_claim_semantics_rejects_ideal_boundary_all_promotable() -> None:
+    audit = audit_claim_semantics_payload(
+        payload(
+            [
+                {
+                    "id": 127,
+                    "claim": "Ideal claim boundary separates promotable artifact-backed results from future-only non-claims.",
+                    "status": "VERIFIED",
+                    "evidence": "ideal=9, promotable=9, future_only=0, all_promotable=True, issues=0, results/ideal_claim_boundary.json",
+                }
+            ]
+        )
+    )
+
+    issue_names = {issue["name"] for issue in audit["issues"]}
+    assert "claim_127_ideal_boundary_semantics" in issue_names

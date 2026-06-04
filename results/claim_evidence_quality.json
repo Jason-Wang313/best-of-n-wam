@@ -1265,7 +1265,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_semantics.json",
       "exists": true,
       "ok": true,
-      "bytes": 22686,
+      "bytes": 23111,
       "detail": "json"
     },
     {
@@ -1274,7 +1274,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claim_semantics_report.md",
       "exists": true,
       "ok": true,
-      "bytes": 446,
+      "bytes": 545,
       "detail": "md"
     },
     {
@@ -1427,7 +1427,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
       "ok": true,
-      "bytes": 13093,
+      "bytes": 13291,
       "detail": "json"
     },
     {

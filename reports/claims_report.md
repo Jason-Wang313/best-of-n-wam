@@ -118,16 +118,16 @@
 - 104. Canonical execution scripts preserve required gate contracts. Evidence: scripts=7, checks=133, issues=0
 - 105. Verified claims have mapped source artifacts and quality-checked evidence. Evidence: claims=127, mapped=127, sources=175, issues=0
 - 106. Published summary metrics recompute from raw result tables. Evidence: aggregate metrics=10710, exact files=20, seed CI columns=125, issues=0
-- 107. Verified claim wording satisfies semantic threshold checks. Evidence: claims=127, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0
+- 107. Verified claim wording satisfies semantic threshold checks. Evidence: claims=127, checks=177, CI claims=53, positive CI claims=33, error claims=11, issues=0
 - 108. Scientific result artifacts have a deterministic hash manifest. Evidence: files=397, bytes=56421681, suffixes={'.json': 105, '.npz': 41, '.png': 36, '.csv': 215}, issues=0
 - 109. Publication figure artifacts pass image-quality checks. Evidence: figures=36, expected=25, checks=8, issues=0
 - 110. Canonical CSV result tables pass schema and numeric-sanity checks. Evidence: tables=215, rows=212858, numeric_columns=1959, checks=17, issues=0
-- 111. Source and verification code have a deterministic hash manifest. Evidence: files=209, bytes=1474601, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 41, 'src': 58, 'tests': 49}, checks=14, issues=0
+- 111. Source and verification code have a deterministic hash manifest. Evidence: files=209, bytes=1477242, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 41, 'src': 58, 'tests': 49}, checks=14, issues=0
 - 112. Runtime and dependency environment metadata has a verified manifest. Evidence: python=3.10.11, core=4, absent=0, version_issues=0, optional_available=5/5, modules=13, commands=5, checks=15, issues=0
 - 113. Canonical experiment families have verified registry coverage. Evidence: entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=297, rows=260523, figures=40, failed=0, checks=10, issues=0
 - 114. Committed learned-model artifacts are loadable and numerically sane. Evidence: models=49, suffixes={'.npz': 36, '.joblib': 13}, bytes=119450103, npz_arrays=315, npz_elements=6077793, joblib_predictors=13, checks=10, issues=0
 - 115. Published final-report command results match current verification artifacts. Evidence: snippets=28, python_commands=31, pytest=131, checks=31, issues=0
-- 116. Pytest command-result counts come from a verified collected-test inventory. Evidence: tests=131, unique=131, trailer=131, checks=6, issues=0
+- 116. Pytest command-result counts come from a verified collected-test inventory. Evidence: tests=133, unique=133, trailer=133, checks=6, issues=0
 - 117. Generated claim-status artifacts are byte-stable under rerunning the claim generator. Evidence: claims=127, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json
 - 118. Generated max-out narrative reports are byte-stable under rerunning the report generator. Evidence: reports=8, files=8, checks=9, issues=0, hashes_recorded_in=results/report_generation_consistency.json
 - 119. Claim evidence artifacts and published artifact references are represented in the git index. Evidence: claim_sources=119, artifact_refs=449, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0
