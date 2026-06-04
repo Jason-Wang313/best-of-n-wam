@@ -1,9 +1,9 @@
 # Test Inventory Report
 
 - Verified: True
-- Tests collected: 144
-- Unique tests: 144
-- Trailer count: 144
+- Tests collected: 145
+- Unique tests: 145
+- Trailer count: 145
 - Checks: 6
 - Issues: 0
 

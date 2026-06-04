@@ -646,7 +646,7 @@
       "id": 108,
       "claim": "Scientific result artifacts have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=401, bytes=56478927, suffixes={'.json': 109, '.npz': 41, '.png': 36, '.csv': 215}, issues=0"
+      "evidence": "files=402, bytes=56480677, suffixes={'.json': 110, '.npz': 41, '.png': 36, '.csv': 215}, issues=0"
     },
     {
       "id": 109,
@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=221, bytes=1566677, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 53}, checks=14, issues=0"
+      "evidence": "files=221, bytes=1576293, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 53}, checks=14, issues=0"
     },
     {
       "id": 112,
@@ -688,13 +688,13 @@
       "id": 115,
       "claim": "Published final-report command results match current verification artifacts.",
       "status": "VERIFIED",
-      "evidence": "snippets=28, python_commands=31, pytest=144, checks=31, issues=0"
+      "evidence": "snippets=28, python_commands=31, pytest=145, checks=31, issues=0"
     },
     {
       "id": 116,
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
       "status": "VERIFIED",
-      "evidence": "tests=144, unique=144, trailer=144, checks=6, issues=0"
+      "evidence": "tests=145, unique=145, trailer=145, checks=6, issues=0"
     },
     {
       "id": 117,
@@ -754,7 +754,7 @@
       "id": 126,
       "claim": "Ideal frontier robotics endpoints remain explicitly guarded and unpromoted.",
       "status": "VERIFIED",
-      "evidence": "frontiers=4, guarded=84, unguarded=0, promoted=0, issues=0, results/frontier_integrity.json"
+      "evidence": "frontiers=4, guarded=85, unguarded=0, promoted=0, issues=0, results/frontier_integrity.json"
     },
     {
       "id": 127,

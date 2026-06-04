@@ -7,7 +7,7 @@ import json
 import re
 import sys
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
@@ -194,6 +194,89 @@ def knn_predict(
     return np.average(y_candidates[idx], axis=0, weights=weights)
 
 
+def _import_torch() -> Any:
+    try:
+        import torch
+    except Exception as exc:  # pragma: no cover - depends on optional benchmark env.
+        raise RuntimeError(f"torch unavailable for tiny neural VLA policy: {type(exc).__name__}: {exc}") from exc
+    return torch
+
+
+def train_tiny_neural_vla(
+    x_train_z: np.ndarray,
+    y_train: np.ndarray,
+    args: argparse.Namespace,
+) -> tuple[Any, dict[str, np.ndarray], list[float]]:
+    torch = _import_torch()
+    torch.manual_seed(int(args.seed))
+    torch.set_num_threads(max(1, int(getattr(args, "torch_threads", 1))))
+    device = torch.device("cpu")
+
+    y_mean = np.mean(y_train, axis=0)
+    y_scale = np.std(y_train, axis=0)
+    y_scale[y_scale < 1e-8] = 1.0
+    y_z = (y_train - y_mean.reshape(1, -1)) / y_scale.reshape(1, -1)
+
+    x_tensor = torch.as_tensor(x_train_z.astype(np.float32), device=device)
+    y_tensor = torch.as_tensor(y_z.astype(np.float32), device=device)
+    n_features = int(x_tensor.shape[1])
+    n_actions = int(y_tensor.shape[1])
+    hidden = int(args.neural_hidden_dim)
+    model = torch.nn.Sequential(
+        torch.nn.Linear(n_features, hidden),
+        torch.nn.LayerNorm(hidden),
+        torch.nn.GELU(),
+        torch.nn.Linear(hidden, hidden),
+        torch.nn.LayerNorm(hidden),
+        torch.nn.GELU(),
+        torch.nn.Linear(hidden, n_actions),
+    ).to(device)
+    optimizer = torch.optim.AdamW(
+        model.parameters(),
+        lr=float(args.neural_lr),
+        weight_decay=float(args.neural_weight_decay),
+    )
+    generator = torch.Generator(device=device)
+    generator.manual_seed(int(args.seed))
+    batch_size = min(int(args.neural_batch_size), int(x_tensor.shape[0]))
+    losses: list[float] = []
+    model.train()
+    for _ in range(int(args.neural_epochs)):
+        perm = torch.randperm(int(x_tensor.shape[0]), generator=generator, device=device)
+        epoch_loss = 0.0
+        n_seen = 0
+        for start in range(0, int(x_tensor.shape[0]), batch_size):
+            idx = perm[start : start + batch_size]
+            pred = model(x_tensor[idx])
+            loss = torch.nn.functional.smooth_l1_loss(pred, y_tensor[idx])
+            optimizer.zero_grad(set_to_none=True)
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=5.0)
+            optimizer.step()
+            n_batch = int(idx.numel())
+            epoch_loss += float(loss.detach().cpu()) * n_batch
+            n_seen += n_batch
+        losses.append(epoch_loss / max(n_seen, 1))
+
+    arrays: dict[str, np.ndarray] = {
+        "y_mean": y_mean.astype(np.float32),
+        "y_scale": y_scale.astype(np.float32),
+        "neural_train_loss": np.asarray(losses, dtype=np.float32),
+    }
+    for name, tensor in model.state_dict().items():
+        arrays[f"torch_{name.replace('.', '_')}"] = tensor.detach().cpu().numpy().astype(np.float32)
+    model.eval()
+    return model, arrays, losses
+
+
+def neural_predict(model: Any, x_z: np.ndarray, y_mean: np.ndarray, y_scale: np.ndarray) -> np.ndarray:
+    torch = _import_torch()
+    with torch.no_grad():
+        x_tensor = torch.as_tensor(x_z.reshape(1, -1).astype(np.float32))
+        pred_z = model(x_tensor).detach().cpu().numpy()[0]
+    return pred_z * y_scale + y_mean
+
+
 def current_language(adapter: LIBEROAdapter) -> str:
     return str(getattr(adapter.task, "language", "") or getattr(adapter.task, "name", "") or "")
 
@@ -258,12 +341,10 @@ def collect_scripted_episode(adapter: LIBEROAdapter, args: argparse.Namespace) -
 def run_bc_episode(
     adapter: LIBEROAdapter,
     args: argparse.Namespace,
-    x_train_z: np.ndarray,
-    y_train: np.ndarray,
     mean: np.ndarray,
     scale: np.ndarray,
     feature_weights: np.ndarray,
-    language_to_indices: dict[str, np.ndarray],
+    predict_action: Callable[[np.ndarray, str], np.ndarray],
 ) -> dict[str, Any]:
     prev_action = np.zeros(adapter.action_dim, dtype=float)
     initial_distance = float(adapter.task_distance())
@@ -272,7 +353,6 @@ def run_bc_episode(
     steps = 0
     failure_reason = None
     language = current_language(adapter)
-    candidate_indices = language_to_indices.get(language)
     for _ in range(int(args.eval_steps)):
         if getattr(adapter, "last_done", False) or adapter.evaluate_success():
             break
@@ -281,14 +361,7 @@ def run_bc_episode(
             failure_reason = "feature weight shape changed"
             break
         z = ((feature - mean) / scale) * feature_weights
-        action = knn_predict(
-            x_train_z,
-            y_train,
-            z,
-            k=args.knn_k,
-            temperature=args.knn_temperature,
-            candidate_indices=candidate_indices,
-        )
+        action = predict_action(z, language)
         action = np.clip(action, adapter.action_low, adapter.action_high)
         try:
             _, reward, done, truncated, _ = adapter.step(action)
@@ -317,15 +390,34 @@ def run_bc_episode(
 
 def write_report(summary: dict[str, Any]) -> None:
     ci = (summary.get("confidence_intervals") or {}).get("eval_success_rate") or {}
+    policy = summary.get("policy") if isinstance(summary.get("policy"), dict) else {}
+    policy_type = str(policy.get("type") or "unavailable")
+    is_neural = bool(policy.get("is_neural"))
+    model_class_text = (
+        "a tiny neural RGB/proprio/language behavior-cloned policy"
+        if is_neural
+        else "a low-dimensional RGB/proprio/language behavior-cloned kNN policy"
+    )
+    boundary = (
+        "- This is a tiny neural visual-language-action style smoke, not VLA-scale pretraining or broad LIBERO policy evidence."
+        if is_neural
+        else "- This uses RGB observations and task language, but it is still a lightweight feature-kNN behavior clone, not a modern vision-language policy."
+    )
+    language_filter = (
+        "- It encodes task language as hashed text features and does not restrict evaluation by task ID or simulator object state."
+        if is_neural
+        else "- It uses task language to restrict nearest-neighbor candidates to demonstrations with the same instruction."
+    )
     lines = [
         "# LIBERO Visual-Language BC Policy Report",
         "",
-        "This optional artifact evaluates a low-dimensional RGB/proprio/language behavior-cloned kNN policy on LIBERO Object tasks. The policy receives rendered `agentview` and wrist RGB features, robot proprioception, task language, previous action memory, and a finite-horizon step clock.",
+        f"This optional artifact evaluates {model_class_text} on LIBERO Object tasks. The policy receives rendered `agentview` and wrist RGB features, robot proprioception, task language, previous action memory, and a finite-horizon step clock.",
         "",
         "## Summary",
         "",
         f"- Available: `{summary.get('available')}`.",
         f"- Verified: `{summary.get('verified')}`.",
+        f"- Policy type: `{policy_type}`.",
         f"- Train action examples: `{summary.get('train_examples')}`.",
         f"- Eval episodes: `{summary.get('eval_episodes')}`.",
         f"- Eval successes: `{summary.get('eval_successes')}`.",
@@ -333,9 +425,9 @@ def write_report(summary: dict[str, Any]) -> None:
         "",
         "## Claim Boundary",
         "",
-        "- This uses RGB observations and task language, but it is still a lightweight feature-kNN behavior clone, not a modern vision-language policy.",
+        boundary,
         "- It does not use simulator object state, scripted phase labels, task IDs, or commanded target points at evaluation time.",
-        "- It uses task language to restrict nearest-neighbor candidates to demonstrations with the same instruction.",
+        language_filter,
         "- The default artifact evaluates all ten LIBERO Object tasks, not all LIBERO suites.",
         "- Demonstrations come from the hand-coded object-tuned scripted controller.",
     ]
@@ -365,8 +457,15 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--camera-height", type=int, default=64)
     parser.add_argument("--offscreen-renderer", action="store_true")
     parser.add_argument("--eval-steps", type=int, default=280)
+    parser.add_argument("--policy-backend", choices=["knn", "tiny_neural_vla"], default="knn")
     parser.add_argument("--knn-k", type=int, default=3)
     parser.add_argument("--knn-temperature", type=float, default=0.05)
+    parser.add_argument("--neural-hidden-dim", type=int, default=128)
+    parser.add_argument("--neural-epochs", type=int, default=60)
+    parser.add_argument("--neural-batch-size", type=int, default=512)
+    parser.add_argument("--neural-lr", type=float, default=3e-4)
+    parser.add_argument("--neural-weight-decay", type=float, default=1e-4)
+    parser.add_argument("--torch-threads", type=int, default=1)
     parser.add_argument("--image-grid", type=int, default=8)
     parser.add_argument("--language-hash-dim", type=int, default=64)
     parser.add_argument("--image-weight", type=float, default=0.45)
@@ -460,6 +559,29 @@ def main() -> None:
             for language in sorted({str(v) for v in train_languages.tolist()})
         }
         model_path = RESULTS / "models" / "benchmark_libero_visual_language_bc_policy.npz"
+        neural_arrays: dict[str, np.ndarray] = {}
+        neural_losses: list[float] = []
+        neural_model: Any | None = None
+        if args.policy_backend == "tiny_neural_vla":
+            neural_model, neural_arrays, neural_losses = train_tiny_neural_vla(x_z, y, args)
+            y_mean = neural_arrays["y_mean"].astype(float)
+            y_scale = neural_arrays["y_scale"].astype(float)
+
+            def predict_action(z: np.ndarray, _: str) -> np.ndarray:
+                return neural_predict(neural_model, z, y_mean, y_scale)
+
+        else:
+
+            def predict_action(z: np.ndarray, language: str) -> np.ndarray:
+                return knn_predict(
+                    x_z,
+                    y,
+                    z,
+                    k=args.knn_k,
+                    temperature=args.knn_temperature,
+                    candidate_indices=language_to_indices.get(language),
+                )
+
         np.savez(
             model_path,
             x_train=x.astype(np.float32),
@@ -471,11 +593,13 @@ def main() -> None:
             task_ids=np.asarray(task_ids, dtype=object),
             train_seeds=np.asarray(args.train_seeds, dtype=int),
             eval_seeds=np.asarray(args.eval_seeds, dtype=int),
+            policy_backend=np.asarray(args.policy_backend),
+            **neural_arrays,
         )
         for tid in task_ids:
             for seed in args.eval_seeds:
                 adapter.reset(int(seed), task_id=tid)
-                out = run_bc_episode(adapter, args, x_z, y, mean, scale, feature_weights, language_to_indices)
+                out = run_bc_episode(adapter, args, mean, scale, feature_weights, predict_action)
                 rows.append(
                     {
                         "split": "eval_visual_language_bc",
@@ -524,7 +648,8 @@ def main() -> None:
         "eval_success_rate": float(np.mean(successes)) if successes else 0.0,
         "confidence_intervals": {"eval_success_rate": ci},
         "policy": {
-            "type": "rgb_proprio_language_knn_behavior_cloning",
+            "type": "tiny_neural_vla_behavior_cloning" if args.policy_backend == "tiny_neural_vla" else "rgb_proprio_language_knn_behavior_cloning",
+            "is_neural": args.policy_backend == "tiny_neural_vla",
             "uses_rgb": True,
             "uses_language": True,
             "uses_robot_proprio": True,
@@ -534,11 +659,14 @@ def main() -> None:
             "uses_target_point_command": False,
             "uses_previous_action": True,
             "uses_step_clock": True,
-            "uses_language_candidate_filter": True,
-            "knn_k": int(args.knn_k),
-            "knn_temperature": float(args.knn_temperature),
+            "uses_language_candidate_filter": args.policy_backend == "knn",
             "image_grid": int(args.image_grid),
             "language_hash_dim": int(args.language_hash_dim),
+            "neural_hidden_dim": int(args.neural_hidden_dim) if args.policy_backend == "tiny_neural_vla" else None,
+            "neural_epochs": int(args.neural_epochs) if args.policy_backend == "tiny_neural_vla" else None,
+            "neural_final_train_loss": float(neural_losses[-1]) if neural_losses else None,
+            "knn_k": int(args.knn_k) if args.policy_backend == "knn" else None,
+            "knn_temperature": float(args.knn_temperature) if args.policy_backend == "knn" else None,
         },
         "object_grasp_tuning": bool(getattr(args, "object_grasp_tuning", True)),
         "model_path": str(model_path.relative_to(ROOT)),
@@ -547,7 +675,11 @@ def main() -> None:
             "episodes_csv": "results/tables/benchmark_libero_visual_language_bc_policy_episodes.csv",
             "report": "reports/libero_visual_language_bc_policy_report.md",
         },
-        "note": "RGB/proprio/language time-conditioned BC policy without simulator object state, task IDs, phase labels, or target-point commands; not full LIBERO or modern VLA evidence.",
+        "note": (
+            "Tiny neural RGB/proprio/language time-conditioned BC policy without simulator object state, task IDs, phase labels, target-point commands, or language-candidate retrieval; a VLA-style smoke, not VLA-scale evidence."
+            if args.policy_backend == "tiny_neural_vla"
+            else "RGB/proprio/language time-conditioned BC policy without simulator object state, task IDs, phase labels, or target-point commands; not full LIBERO or modern VLA evidence."
+        ),
     }
     write_json(RESULTS / "benchmark_libero_visual_language_bc_policy.json", summary)
     write_csv(RESULTS / "tables" / "benchmark_libero_visual_language_bc_policy_episodes.csv", rows)

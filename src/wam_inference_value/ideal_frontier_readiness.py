@@ -102,9 +102,15 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     _signal(modern_vla, "model_artifact_present", _model_exists(root, libero_vl), f"model_path={libero_vl.get('model_path')}")
     _signal(
         modern_vla,
-        "modern_vla_model_class",
-        bool(policy_type) and "knn" not in policy_type and "scripted" not in policy_type,
-        f"policy_type={policy_type!r}",
+        "neural_visual_language_model_class",
+        policy.get("is_neural") is True and bool(policy_type) and "knn" not in policy_type and "scripted" not in policy_type,
+        f"policy_type={policy_type!r}, is_neural={policy.get('is_neural')}",
+    )
+    _signal(
+        modern_vla,
+        "modern_vla_scale_or_pretrained_model",
+        policy.get("pretrained_vla") is True or int(policy.get("vla_scale_parameters") or 0) >= 1_000_000,
+        f"pretrained_vla={policy.get('pretrained_vla')}, vla_scale_parameters={policy.get('vla_scale_parameters')}",
     )
     _signal(
         modern_vla,
@@ -116,7 +122,7 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
         _row(
             "modern_vla_libero",
             modern_vla,
-            next_action="Run a neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs.",
+            next_action="Run a pretrained or VLA-scale neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs.",
         )
     )
 

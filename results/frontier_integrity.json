@@ -4,8 +4,8 @@
   "n_frontier_items": 4,
   "n_claims_loaded": 127,
   "n_publication_surfaces": 7,
-  "n_frontier_mentions": 84,
-  "n_guarded_frontier_mentions": 84,
+  "n_frontier_mentions": 85,
+  "n_guarded_frontier_mentions": 85,
   "n_unguarded_frontier_mentions": 0,
   "n_promoted_frontier_claims": 0,
   "frontier_items": [
@@ -25,8 +25,8 @@
       "frontier_id": "modern_vla_libero",
       "label": "Modern VLA-style LIBERO sparse-success policy evidence",
       "status": "guarded_not_promoted",
-      "n_mentions": 18,
-      "n_guarded_mentions": 18,
+      "n_mentions": 19,
+      "n_guarded_mentions": 19,
       "n_unguarded_mentions": 0,
       "n_promoted_claims": 0,
       "n_required_artifacts": 0,
@@ -375,6 +375,14 @@
       "heading": "4. Missing For Robotics Reviewers",
       "guarded": true,
       "text": "- Modern VLA-style or full-suite LIBERO policy artifacts are still missing; current LIBERO evidence is a three-task Spatial rollout-pool WAM-lite artifact with dense progress utility, a hand scripted Object sparse-success smoke, a learned action-head smoke with scripted phases and target points, a time-conditioned low-dimensional BC smoke without phase labels or target commands at evaluation time, and an RGB/proprio/language feature-kNN BC smoke without object state or task IDs."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "reports/maxout_completion_audit.md",
+      "line": 86,
+      "heading": "Acceptance Status",
+      "guarded": true,
+      "text": "- LIBERO RGB/proprio/language BC smoke: `feature-kNN RGB/proprio/language behavior cloning` trained on `7521` scripted action examples and evaluated on `30` heldout sparse-success episodes over all 10 Object tasks without object state, task IDs, phase labels, or target-point commands at evaluation time; this is `a lightweight feature-kNN smoke, not full LIBERO or modern VLA evidence`."
     },
     {
       "frontier_id": "full_robocasa_wide",
@@ -822,7 +830,7 @@
     {
       "name": "modern_vla_libero_guarded_mentions_present",
       "ok": true,
-      "detail": "guarded=18, required=3"
+      "detail": "guarded=19, required=3"
     },
     {
       "name": "modern_vla_libero_no_unguarded_publication_mentions",

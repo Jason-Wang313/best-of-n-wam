@@ -68,7 +68,43 @@ def test_ideal_frontier_readiness_keeps_future_frontiers_unpromoted(tmp_path: Pa
     assert payload["n_ready_to_promote"] == 0
     by_id = {row["frontier_id"]: row for row in payload["rows"]}
     modern = by_id["modern_vla_libero"]
-    assert "modern_vla_model_class" in modern["missing_signals"]
+    assert "neural_visual_language_model_class" in modern["missing_signals"]
+    assert "modern_vla_scale_or_pretrained_model" in modern["missing_signals"]
     assert "current_runtime_can_rerun_libero" not in modern["missing_signals"]
     assert modern["n_met_signals"] >= 5
     assert "full_registry_rollout_pool_coverage" in by_id["full_robocasa_wide"]["missing_signals"]
+
+
+def test_ideal_frontier_readiness_accepts_neural_libero_policy_class(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    results.mkdir()
+    model = tmp_path / "results" / "models" / "libero_neural.npz"
+    model.parent.mkdir()
+    model.write_bytes(b"model")
+    write_json(
+        results / "benchmark_libero_visual_language_bc_policy.json",
+        {
+            "verified": True,
+            "eval_episodes": 3,
+            "model_path": "results/models/libero_neural.npz",
+            "confidence_intervals": {"eval_success_rate": {"n": 3}},
+            "policy": {
+                "type": "tiny_neural_vla_behavior_cloning",
+                "is_neural": True,
+                "uses_rgb": True,
+                "uses_language": True,
+                "uses_simulator_object_state": False,
+                "uses_task_id": False,
+                "uses_phase_index": False,
+                "uses_target_point_command": False,
+            },
+        },
+    )
+    write_json(results / "external_benchmark_runtime_probe.json", {"verified": True, "libero_import_available": True})
+
+    payload = audit_ideal_frontier_readiness(tmp_path, results)
+
+    modern = {row["frontier_id"]: row for row in payload["rows"]}["modern_vla_libero"]
+    assert modern["ready_to_promote"] is False
+    assert "neural_visual_language_model_class" not in modern["missing_signals"]
+    assert modern["missing_signals"] == ["modern_vla_scale_or_pretrained_model"]

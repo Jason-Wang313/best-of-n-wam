@@ -1,0 +1,39 @@
+{
+  "experiment": "benchmark_libero_tiny_neural_vla_attempt",
+  "attempted": true,
+  "verified": false,
+  "status": "timed_out",
+  "date": "2026-06-04",
+  "timeout_seconds": 900,
+  "policy_backend": "tiny_neural_vla",
+  "suite": "libero_object",
+  "tasks": [
+    "libero_object/0",
+    "libero_object/1",
+    "libero_object/2",
+    "libero_object/3",
+    "libero_object/4",
+    "libero_object/5",
+    "libero_object/6",
+    "libero_object/7",
+    "libero_object/8",
+    "libero_object/9"
+  ],
+  "train_seeds": [
+    100,
+    101,
+    102
+  ],
+  "eval_seeds": [
+    200,
+    201,
+    202
+  ],
+  "eval_steps": 350,
+  "neural_epochs": 80,
+  "neural_hidden_dim": 128,
+  "canonical_sparse_success_artifact_preserved": true,
+  "claim_promoted": false,
+  "reason": "The optional tiny neural RGB/proprio/language BC policy run exceeded the 900 second cap before producing a verified sparse-success artifact. The existing verified kNN LIBERO visual-language BC artifact was left unchanged.",
+  "next_action": "Run a shorter neural policy smoke first, then scale up only if sparse-success evaluation completes; otherwise use a pretrained or VLA-scale LIBERO policy class."
+}

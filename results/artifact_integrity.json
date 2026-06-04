@@ -2,7 +2,7 @@
   "experiment": "artifact_integrity",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_result_json": 137,
+  "n_result_json": 138,
   "n_references": 705,
   "status_counts": {
     "ok": 705
@@ -5868,7 +5868,7 @@
       "raw_path": "results/artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 91953,
+      "bytes": 92172,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5879,7 +5879,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 91953,
+      "bytes": 92172,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6220,7 +6220,7 @@
       "raw_path": "results/test_inventory.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
-      "bytes": 14451,
+      "bytes": 14564,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6231,7 +6231,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
-      "bytes": 14451,
+      "bytes": 14564,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6660,7 +6660,7 @@
       "raw_path": "results/frontier_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "exists": true,
-      "bytes": 78290,
+      "bytes": 78891,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6671,7 +6671,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "exists": true,
-      "bytes": 78290,
+      "bytes": 78891,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6704,7 +6704,7 @@
       "raw_path": "results/ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 32750,
+      "bytes": 33046,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6715,7 +6715,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 32750,
+      "bytes": 33046,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6726,7 +6726,7 @@
       "raw_path": "reports/ideal_claim_boundary_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
       "exists": true,
-      "bytes": 8695,
+      "bytes": 8804,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6737,7 +6737,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
       "exists": true,
-      "bytes": 8695,
+      "bytes": 8804,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6836,7 +6836,7 @@
       "raw_path": "results/frontier_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "exists": true,
-      "bytes": 78290,
+      "bytes": 78891,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6847,7 +6847,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "exists": true,
-      "bytes": 78290,
+      "bytes": 78891,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6858,7 +6858,7 @@
       "raw_path": "results/ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 32750,
+      "bytes": 33046,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6869,7 +6869,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 32750,
+      "bytes": 33046,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -7338,7 +7338,7 @@
     },
     {
       "source_json": "frontier_integrity.json",
-      "json_path": "records.84.artifact.path",
+      "json_path": "records.85.artifact.path",
       "raw_path": "results/benchmark_maniskill_visual_probe.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_visual_probe.json",
       "exists": true,
@@ -7349,7 +7349,7 @@
     },
     {
       "source_json": "frontier_integrity.json",
-      "json_path": "records.85.artifact.path",
+      "json_path": "records.86.artifact.path",
       "raw_path": "results/benchmark_maniskill_dependency_probe.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_dependency_probe.json",
       "exists": true,
@@ -7360,7 +7360,7 @@
     },
     {
       "source_json": "frontier_integrity.json",
-      "json_path": "records.86.artifact.path",
+      "json_path": "records.87.artifact.path",
       "raw_path": "reports/maniskill_visual_blocker_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\maniskill_visual_blocker_report.md",
       "exists": true,
@@ -7371,7 +7371,7 @@
     },
     {
       "source_json": "frontier_integrity.json",
-      "json_path": "records.87.artifact.path",
+      "json_path": "records.88.artifact.path",
       "raw_path": "reports/maniskill_dependency_blocker_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\maniskill_dependency_blocker_report.md",
       "exists": true,

@@ -40,11 +40,12 @@
     {
       "frontier_id": "modern_vla_libero",
       "ready_to_promote": false,
-      "n_signals": 6,
+      "n_signals": 7,
       "n_met_signals": 5,
-      "n_missing_signals": 1,
+      "n_missing_signals": 2,
       "missing_signals": [
-        "modern_vla_model_class"
+        "neural_visual_language_model_class",
+        "modern_vla_scale_or_pretrained_model"
       ],
       "signals": [
         {
@@ -68,9 +69,14 @@
           "detail": "model_path=results\\models\\benchmark_libero_visual_language_bc_policy.npz"
         },
         {
-          "name": "modern_vla_model_class",
+          "name": "neural_visual_language_model_class",
           "ok": false,
-          "detail": "policy_type='rgb_proprio_language_knn_behavior_cloning'"
+          "detail": "policy_type='rgb_proprio_language_knn_behavior_cloning', is_neural=None"
+        },
+        {
+          "name": "modern_vla_scale_or_pretrained_model",
+          "ok": false,
+          "detail": "pretrained_vla=None, vla_scale_parameters=None"
         },
         {
           "name": "current_runtime_can_rerun_libero",
@@ -78,7 +84,7 @@
           "detail": "runtime_probe_verified=True, libero=True"
         }
       ],
-      "next_action": "Run a neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs."
+      "next_action": "Run a pretrained or VLA-scale neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs."
     },
     {
       "frontier_id": "full_robocasa_wide",

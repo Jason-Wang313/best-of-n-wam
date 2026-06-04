@@ -115,6 +115,8 @@ IDEAL_CLAIM_ROWS = [
             "reports/ideal_frontier_readiness_report.md",
             "results/external_benchmark_runtime_probe.json",
             "reports/external_benchmark_runtime_probe_report.md",
+            "results/benchmark_libero_tiny_neural_vla_attempt.json",
+            "reports/libero_tiny_neural_vla_attempt_report.md",
             "results/benchmark_libero_wam.json",
             "results/benchmark_libero_visual_language_bc_policy.json",
             "reports/final_decision_report.md",

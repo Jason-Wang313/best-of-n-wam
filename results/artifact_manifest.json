@@ -2,10 +2,10 @@
   "experiment": "artifact_manifest",
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_files": 401,
-  "total_bytes": 56478927,
+  "n_files": 402,
+  "total_bytes": 56480677,
   "counts_by_suffix": {
-    ".json": 109,
+    ".json": 110,
     ".npz": 41,
     ".png": 36,
     ".csv": 215
@@ -58,6 +58,12 @@
       "suffix": ".json",
       "bytes": 3804,
       "sha256": "3d968feca61b47d9e75bacd6687786c530c5ca90b1497dc30d06becde9640054"
+    },
+    {
+      "path": "results/benchmark_libero_tiny_neural_vla_attempt.json",
+      "suffix": ".json",
+      "bytes": 1165,
+      "sha256": "f43b49eb3bf609db8f60aa69a08701de21033a66b789714fe362bcbde93ebaa4"
     },
     {
       "path": "results/benchmark_libero_visual_language_bc_policy.json",
@@ -848,14 +854,14 @@
     {
       "path": "results/ideal_completion_audit.json",
       "suffix": ".json",
-      "bytes": 10726,
-      "sha256": "184bbc861eed2977c466c3180350afa5857a09d42a524aced65dc9b7cf16944a"
+      "bytes": 11022,
+      "sha256": "1ca7d7f6ab095bd76b48313dfb5068853fd8ef646b5cdb3e94d3a255978d1e04"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 7056,
-      "sha256": "6f3fd3bdc00dc9c0206290a263bfb2b9d8ca94a08b058914253f08e0d91291f4"
+      "bytes": 7345,
+      "sha256": "cc772d621fe5d99ece7643d0e482a33a94ab8d670eb392fa21b1ce653fc9ab83"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -2425,22 +2431,22 @@
     {
       "name": "manifest_records_present",
       "ok": true,
-      "detail": "records=401"
+      "detail": "records=402"
     },
     {
       "name": "manifest_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=401, scan=401"
+      "detail": "payload=402, scan=402"
     },
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=56478927, scan=56478927"
+      "detail": "payload=56480677, scan=56480677"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
       "ok": true,
-      "detail": "payload={'.json': 109, '.npz': 41, '.png': 36, '.csv': 215}, scan={'.json': 109, '.npz': 41, '.png': 36, '.csv': 215}"
+      "detail": "payload={'.json': 110, '.npz': 41, '.png': 36, '.csv': 215}, scan={'.json': 110, '.npz': 41, '.png': 36, '.csv': 215}"
     },
     {
       "name": "manifest_has_no_missing_current_artifacts",
@@ -2470,7 +2476,7 @@
     {
       "name": "manifest_scientific_artifact_file_count",
       "ok": true,
-      "detail": "files=401"
+      "detail": "files=402"
     },
     {
       "name": "manifest_table_count",
@@ -2480,7 +2486,7 @@
     {
       "name": "manifest_json_count",
       "ok": true,
-      "detail": "json=109"
+      "detail": "json=110"
     },
     {
       "name": "manifest_model_count",
@@ -2495,7 +2501,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=56478927"
+      "detail": "bytes=56480677"
     }
   ],
   "issues": [],

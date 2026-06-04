@@ -421,14 +421,26 @@ def run() -> dict:
             )
         if libero_visual_language_bc.get("verified"):
             ci = (libero_visual_language_bc.get("confidence_intervals") or {}).get("eval_success_rate") or {}
+            policy = libero_visual_language_bc.get("policy") if isinstance(libero_visual_language_bc.get("policy"), dict) else {}
+            policy_type = str(policy.get("type") or "missing")
+            policy_descriptor = (
+                "tiny neural RGB/proprio/language behavior-cloned"
+                if policy.get("is_neural") is True
+                else "lightweight RGB/proprio/language kNN behavior-cloned"
+            )
+            scope = (
+                "a tiny neural VLA-style smoke, not VLA-scale pretraining or full LIBERO evidence"
+                if policy.get("is_neural") is True
+                else "a lightweight feature-kNN smoke, not full LIBERO or modern VLA evidence"
+            )
             report.extend(
                 [
                     "",
                     "## Separate LIBERO RGB/Language BC Smoke",
                     "",
-                    f"A lightweight RGB/proprio/language kNN behavior-cloned policy was trained on `{libero_visual_language_bc.get('train_examples')}` successful scripted action examples and evaluated on `{libero_visual_language_bc.get('eval_episodes')}` heldout episodes across `{len(libero_visual_language_bc.get('tasks') or [])}` LIBERO Object tasks.",
+                    f"A `{policy_type}` {policy_descriptor} policy was trained on `{libero_visual_language_bc.get('train_examples')}` successful scripted action examples and evaluated on `{libero_visual_language_bc.get('eval_episodes')}` heldout episodes across `{len(libero_visual_language_bc.get('tasks') or [])}` LIBERO Object tasks.",
                     f"It achieved `{libero_visual_language_bc.get('eval_successes')}` sparse successes; success-rate bootstrap CI is [`{ci.get('lo')}`, `{ci.get('hi')}`].",
-                    "The policy uses RGB frame features, robot proprioception, task language, previous action, and a finite-horizon step clock, but no simulator object state, task ID, phase labels, or target-point commands. It is still a lightweight feature-kNN smoke, not full LIBERO or modern VLA evidence.",
+                    f"The policy uses RGB frame features, robot proprioception, task language, previous action, and a finite-horizon step clock, but no simulator object state, task ID, phase labels, or target-point commands. It is still {scope}.",
                 ]
             )
     else:

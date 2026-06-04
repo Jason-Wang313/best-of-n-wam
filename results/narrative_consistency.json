@@ -91,14 +91,14 @@
       "surface": "final_decision_report",
       "name": "pytest_count",
       "ok": true,
-      "expected": "`python -m pytest -q`: passed with `144 passed`",
+      "expected": "`python -m pytest -q`: passed with `145 passed`",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "test_inventory_command",
       "ok": true,
-      "expected": "`python scripts/test_inventory.py --fail-on-error`: passed with `144` collected tests, `6` inventory checks, and `0` issues",
+      "expected": "`python scripts/test_inventory.py --fail-on-error`: passed with `145` collected tests, `6` inventory checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -154,7 +154,7 @@
       "surface": "final_decision_report",
       "name": "artifact_manifest_command",
       "ok": true,
-      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `401` scientific artifacts, `56478927` bytes, `15` manifest checks, and `0` issues",
+      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `402` scientific artifacts, `56480677` bytes, `15` manifest checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -189,7 +189,7 @@
       "surface": "final_decision_report",
       "name": "source_manifest_command",
       "ok": true,
-      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `221` source files, `1566677` bytes, `14` source-manifest checks, and `0` issues",
+      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `221` source files, `1576293` bytes, `14` source-manifest checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -238,7 +238,7 @@
       "surface": "final_decision_report",
       "name": "frontier_integrity_command",
       "ok": true,
-      "expected": "`python scripts/frontier_integrity.py --fail-on-error`: passed with `4` frontier items, `84` guarded mentions, `0` promoted frontier claims, and `0` issues",
+      "expected": "`python scripts/frontier_integrity.py --fail-on-error`: passed with `4` frontier items, `85` guarded mentions, `0` promoted frontier claims, and `0` issues",
       "detail": "found"
     },
     {

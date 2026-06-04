@@ -127,6 +127,18 @@ def main() -> None:
     repo_bound_artifact_audit = load_json("repo_bound_artifact_audit.json")
     abstract_claim_support = load_json("abstract_claim_support.json")
     publication_scope = load_json("publication_scope.json")
+    libero_visual_policy = libero_visual_language_bc.get("policy") if isinstance(libero_visual_language_bc.get("policy"), dict) else {}
+    libero_visual_policy_type = str(libero_visual_policy.get("type") or "missing")
+    libero_visual_policy_descriptor = (
+        "tiny neural RGB/proprio/language behavior cloning"
+        if libero_visual_policy.get("is_neural") is True
+        else "feature-kNN RGB/proprio/language behavior cloning"
+    )
+    libero_visual_scope = (
+        "a tiny neural VLA-style smoke, not VLA-scale pretraining or full LIBERO policy evidence"
+        if libero_visual_policy.get("is_neural") is True
+        else "a lightweight feature-kNN smoke, not full LIBERO or modern VLA evidence"
+    )
 
     val = (learned.get("metrics") or {}).get("validation") or {}
     ood = (learned.get("metrics") or {}).get("ood") or []
@@ -299,7 +311,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - LIBERO scripted sparse-success smoke: verified `{libero_scripted.get('verified')}`; episodes `{libero_scripted.get('n_episodes')}`; successes `{libero_scripted.get('n_successes')}`; success-rate CI lower `{fmt((((libero_scripted.get('confidence_intervals') or {}).get('success_rate') or {}).get('lo')))}`.
 - LIBERO learned action-head smoke: verified `{libero_action_head.get('verified')}`; train examples `{libero_action_head.get('train_examples')}`; eval successes `{libero_action_head.get('eval_successes')}`/`{libero_action_head.get('eval_episodes')}`; success-rate CI lower `{fmt((((libero_action_head.get('confidence_intervals') or {}).get('eval_success_rate') or {}).get('lo')))}`.
 - LIBERO time-conditioned autonomous low-dimensional BC smoke: verified `{libero_autonomous_bc.get('verified')}`; train examples `{libero_autonomous_bc.get('train_examples')}`; eval successes `{libero_autonomous_bc.get('eval_successes')}`/`{libero_autonomous_bc.get('eval_episodes')}`; success-rate CI lower `{fmt((((libero_autonomous_bc.get('confidence_intervals') or {}).get('eval_success_rate') or {}).get('lo')))}`; uses phase labels `{fmt(((libero_autonomous_bc.get('policy') or {}).get('uses_phase_index')))}`; uses target commands `{fmt(((libero_autonomous_bc.get('policy') or {}).get('uses_target_point_command')))}`; uses step clock `{fmt(((libero_autonomous_bc.get('policy') or {}).get('uses_step_clock')))}`.
-- LIBERO RGB/proprio/language BC smoke: verified `{libero_visual_language_bc.get('verified')}`; train examples `{libero_visual_language_bc.get('train_examples')}`; eval successes `{libero_visual_language_bc.get('eval_successes')}`/`{libero_visual_language_bc.get('eval_episodes')}`; success-rate CI lower `{fmt((((libero_visual_language_bc.get('confidence_intervals') or {}).get('eval_success_rate') or {}).get('lo')))}`; uses RGB `{fmt(((libero_visual_language_bc.get('policy') or {}).get('uses_rgb')))}`; uses language `{fmt(((libero_visual_language_bc.get('policy') or {}).get('uses_language')))}`; uses object state `{fmt(((libero_visual_language_bc.get('policy') or {}).get('uses_simulator_object_state')))}`.
+- LIBERO RGB/proprio/language BC smoke: verified `{libero_visual_language_bc.get('verified')}`; policy `{libero_visual_policy_type}`; train examples `{libero_visual_language_bc.get('train_examples')}`; eval successes `{libero_visual_language_bc.get('eval_successes')}`/`{libero_visual_language_bc.get('eval_episodes')}`; success-rate CI lower `{fmt((((libero_visual_language_bc.get('confidence_intervals') or {}).get('eval_success_rate') or {}).get('lo')))}`; uses RGB `{fmt(libero_visual_policy.get('uses_rgb'))}`; uses language `{fmt(libero_visual_policy.get('uses_language'))}`; uses object state `{fmt(libero_visual_policy.get('uses_simulator_object_state'))}`.
 - Visual attempted: `{visual.get('attempted')}`; visual verified: `{visual.get('verified')}`.
 - Benchmark visual verified: `{bench_visual.get('verified')}`.
 - Benchmark RGB WAM-lite: `{bench_visual_wam.get('model_type')}`; verified: `{bench_visual_wam.get('verified')}`; utility corr: `{fmt((bench_visual_wam.get('validation') or {}).get('utility_corr'))}`; utility MAE: `{fmt((bench_visual_wam.get('validation') or {}).get('utility_mae'))}`; exact-law MAE: `{fmt(bench_visual_wam.get('exact_law_utility_mae'))}`.
@@ -345,7 +357,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - LIBERO sparse-success scripted smoke: all 10 Object tasks evaluated over `{libero_scripted.get('n_seeds')}` seeds with `{libero_scripted.get('n_successes')}` successes over `{libero_scripted.get('n_episodes')}` episodes.
 - LIBERO learned action-head smoke: `{libero_action_head.get('action_head_model')}` action head trained on `{libero_action_head.get('train_examples')}` scripted action examples and evaluated on `{libero_action_head.get('eval_episodes')}` heldout sparse-success episodes over all 10 Object tasks.
 - LIBERO time-conditioned autonomous low-dimensional BC smoke: kNN behavior cloning trained on `{libero_autonomous_bc.get('train_examples')}` scripted action examples and evaluated on `{libero_autonomous_bc.get('eval_episodes')}` heldout sparse-success episodes over all 10 Object tasks without phase labels or target-point commands at evaluation time.
-- LIBERO RGB/proprio/language BC smoke: feature-kNN behavior cloning trained on `{libero_visual_language_bc.get('train_examples')}` scripted action examples and evaluated on `{libero_visual_language_bc.get('eval_episodes')}` heldout sparse-success episodes over all 10 Object tasks without object state, task IDs, phase labels, or target-point commands at evaluation time.
+- LIBERO RGB/proprio/language BC smoke: `{libero_visual_policy_descriptor}` trained on `{libero_visual_language_bc.get('train_examples')}` scripted action examples and evaluated on `{libero_visual_language_bc.get('eval_episodes')}` heldout sparse-success episodes over all 10 Object tasks without object state, task IDs, phase labels, or target-point commands at evaluation time; this is `{libero_visual_scope}`.
 - Visual: toy visual mode verified with MAE `{fmt(visual.get('test_mae'))}`.
 - Benchmark visual WAM: Reacher-v5 RGB-frame/action-sequence model verified with visual-random N32 CI lower bound `{fmt((((bench_visual_wam.get('confidence_intervals') or {}).get('visual_minus_random_N32') or {}).get('lo')))}`.
 - Gymnasium Robotics visual WAM: Fetch RGB-frame/action-sequence models verified with visual-random N32 CI lower bound `{fmt((((gym_robotics_visual.get('confidence_intervals') or {}).get('visual_minus_random_N32') or {}).get('lo')))}`.

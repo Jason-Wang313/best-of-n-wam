@@ -941,7 +941,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 42922,
+      "bytes": 42923,
       "detail": "json"
     },
     {
@@ -959,7 +959,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 42922,
+      "bytes": 42923,
       "detail": "json"
     },
     {
@@ -1112,7 +1112,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 42922,
+      "bytes": 42923,
       "detail": "json"
     },
     {
@@ -1121,7 +1121,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claims_report.md",
       "exists": true,
       "ok": true,
-      "bytes": 32271,
+      "bytes": 32278,
       "detail": "md"
     },
     {
@@ -1202,7 +1202,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 42922,
+      "bytes": 42923,
       "detail": "json"
     },
     {
@@ -1283,7 +1283,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
       "ok": true,
-      "bytes": 91953,
+      "bytes": 92172,
       "detail": "json"
     },
     {
@@ -1409,7 +1409,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\command_result_consistency.json",
       "exists": true,
       "ok": true,
-      "bytes": 8119,
+      "bytes": 8118,
       "detail": "json"
     },
     {
@@ -1427,7 +1427,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
       "ok": true,
-      "bytes": 14451,
+      "bytes": 14564,
       "detail": "json"
     },
     {
@@ -1625,7 +1625,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
       "ok": true,
-      "bytes": 32750,
+      "bytes": 33046,
       "detail": "json"
     },
     {
@@ -1634,7 +1634,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
       "exists": true,
       "ok": true,
-      "bytes": 8695,
+      "bytes": 8804,
       "detail": "md"
     }
   ]

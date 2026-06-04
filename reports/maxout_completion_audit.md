@@ -37,7 +37,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - LIBERO scripted sparse-success smoke: verified `True`; episodes `50`; successes `50`; success-rate CI lower `1.0000`.
 - LIBERO learned action-head smoke: verified `True`; train examples `5014`; eval successes `30`/`30`; success-rate CI lower `1.0000`.
 - LIBERO time-conditioned autonomous low-dimensional BC smoke: verified `True`; train examples `12535`; eval successes `50`/`50`; success-rate CI lower `1.0000`; uses phase labels `False`; uses target commands `False`; uses step clock `True`.
-- LIBERO RGB/proprio/language BC smoke: verified `True`; train examples `7521`; eval successes `30`/`30`; success-rate CI lower `1.0000`; uses RGB `True`; uses language `True`; uses object state `False`.
+- LIBERO RGB/proprio/language BC smoke: verified `True`; policy `rgb_proprio_language_knn_behavior_cloning`; train examples `7521`; eval successes `30`/`30`; success-rate CI lower `1.0000`; uses RGB `True`; uses language `True`; uses object state `False`.
 - Visual attempted: `True`; visual verified: `True`.
 - Benchmark visual verified: `True`.
 - Benchmark RGB WAM-lite: `extra_trees_visual_wam`; verified: `True`; utility corr: `0.2199`; utility MAE: `0.5208`; exact-law MAE: `0.0157`.
@@ -83,7 +83,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - LIBERO sparse-success scripted smoke: all 10 Object tasks evaluated over `5` seeds with `50` successes over `50` episodes.
 - LIBERO learned action-head smoke: `knn` action head trained on `5014` scripted action examples and evaluated on `30` heldout sparse-success episodes over all 10 Object tasks.
 - LIBERO time-conditioned autonomous low-dimensional BC smoke: kNN behavior cloning trained on `12535` scripted action examples and evaluated on `50` heldout sparse-success episodes over all 10 Object tasks without phase labels or target-point commands at evaluation time.
-- LIBERO RGB/proprio/language BC smoke: feature-kNN behavior cloning trained on `7521` scripted action examples and evaluated on `30` heldout sparse-success episodes over all 10 Object tasks without object state, task IDs, phase labels, or target-point commands at evaluation time.
+- LIBERO RGB/proprio/language BC smoke: `feature-kNN RGB/proprio/language behavior cloning` trained on `7521` scripted action examples and evaluated on `30` heldout sparse-success episodes over all 10 Object tasks without object state, task IDs, phase labels, or target-point commands at evaluation time; this is `a lightweight feature-kNN smoke, not full LIBERO or modern VLA evidence`.
 - Visual: toy visual mode verified with MAE `0.0185`.
 - Benchmark visual WAM: Reacher-v5 RGB-frame/action-sequence model verified with visual-random N32 CI lower bound `0.1998`.
 - Gymnasium Robotics visual WAM: Fetch RGB-frame/action-sequence models verified with visual-random N32 CI lower bound `0.3475`.
