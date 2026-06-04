@@ -25,6 +25,7 @@ Audit date: 2026-05-30.
 - `abstract_claim_support.py` verifies that final-report abstract claims are exactly the approved headline set, directly backed by verified claim IDs, and free of future-only robotics evidence.
 - `publication_scope.py` verifies that risky publication-facing robotics phrases are explicitly guarded as limitations, blockers, future work, discussion-only claims, or non-claims.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.
+- `claim_scope_audit.py` verifies that broad claim wording is scoped by task/env names, sample counts, modes, smoke/probe qualifiers, or explicit limitation evidence.
 - `claim_evidence_quality.py` verifies that each current claim ID is mapped to source artifacts and has structured, non-placeholder evidence.
 - `tracked_artifact_provenance.py` verifies that each current claim source and published artifact reference is represented in the git index.
 - `repo_bound_artifact_audit.py` verifies that every current claim source and published artifact reference resolves inside the repository and spans the expected artifact classes.

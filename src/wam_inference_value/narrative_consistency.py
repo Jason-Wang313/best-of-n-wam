@@ -97,6 +97,7 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{abstract_claim_support.",
         "{publication_scope.",
         "{claim_semantics.",
+        "{claim_scope_audit.",
         "{claim_evidence_quality.",
         "{tracked_artifact_provenance.",
         "{evidence_hash_coverage.",
@@ -287,6 +288,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     abstract_claim_support = load_json(results_dir, "abstract_claim_support.json")
     publication_scope = load_json(results_dir, "publication_scope.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
+    claim_scope_audit = load_json(results_dir, "claim_scope_audit.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
     tracked_artifact_provenance = load_json(results_dir, "tracked_artifact_provenance.json")
     evidence_hash_coverage = load_json(results_dir, "evidence_hash_coverage.json")
@@ -522,6 +524,17 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
             f"`python scripts/claim_semantics.py --fail-on-error`: passed with `{claim_semantics.get('n_claims')}` claims, "
             f"`{claim_semantics.get('n_checks')}` semantic checks, `{claim_semantics.get('n_ci_claims')}` CI-backed claims, "
             f"and `{claim_semantics.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "claim_scope_audit_command",
+        (
+            f"`python scripts/claim_scope_audit.py --fail-on-error`: passed with `{claim_scope_audit.get('n_claims')}` claims, "
+            f"`{claim_scope_audit.get('n_scope_mentions')}` scoped broad-claim mentions, `{claim_scope_audit.get('n_checks')}` checks, "
+            f"and `{claim_scope_audit.get('n_issues')}` issues"
         ),
     )
     add_contains(

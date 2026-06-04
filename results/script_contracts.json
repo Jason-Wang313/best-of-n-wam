@@ -2,7 +2,7 @@
   "experiment": "script_contracts",
   "verified": true,
   "n_scripts": 7,
-  "n_checks": 117,
+  "n_checks": 121,
   "n_issues": 0,
   "core_gate_sequence": [
     "scripts/test_inventory.py --fail-on-error",
@@ -24,6 +24,7 @@
     "scripts/publication_scope.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_semantics.py --fail-on-error",
+    "scripts/claim_scope_audit.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_evidence_quality.py --fail-on-error",
     "scripts/tracked_artifact_provenance.py --fail-on-error",
@@ -39,6 +40,7 @@
     "scripts/publication_scope.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_semantics.py --fail-on-error",
+    "scripts/claim_scope_audit.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_evidence_quality.py --fail-on-error",
     "scripts/tracked_artifact_provenance.py --fail-on-error",
@@ -140,6 +142,11 @@
       "name": "run_smoke_double_claim_semantics",
       "ok": true,
       "detail": "claim semantic gate runs before both ledger gates"
+    },
+    {
+      "name": "run_smoke_double_claim_scope_audit",
+      "ok": true,
+      "detail": "claim-scope audit runs after both semantic gates"
     },
     {
       "name": "run_smoke_double_claim_evidence_quality",
@@ -272,6 +279,11 @@
       "detail": "claim semantic gate runs before both ledger gates"
     },
     {
+      "name": "run_learned_wam_toy_double_claim_scope_audit",
+      "ok": true,
+      "detail": "claim-scope audit runs after both semantic gates"
+    },
+    {
       "name": "run_learned_wam_toy_double_claim_evidence_quality",
       "ok": true,
       "detail": "claim evidence gate runs before both ledger gates"
@@ -402,6 +414,11 @@
       "detail": "claim semantic gate runs before both ledger gates"
     },
     {
+      "name": "run_all_double_claim_scope_audit",
+      "ok": true,
+      "detail": "claim-scope audit runs after both semantic gates"
+    },
+    {
       "name": "run_all_double_claim_evidence_quality",
       "ok": true,
       "detail": "claim evidence gate runs before both ledger gates"
@@ -530,6 +547,11 @@
       "name": "run_inference_audit_double_claim_semantics",
       "ok": true,
       "detail": "claim semantic gate runs before both ledger gates"
+    },
+    {
+      "name": "run_inference_audit_double_claim_scope_audit",
+      "ok": true,
+      "detail": "claim-scope audit runs after both semantic gates"
     },
     {
       "name": "run_inference_audit_double_claim_evidence_quality",

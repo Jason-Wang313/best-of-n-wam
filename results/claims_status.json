@@ -70,7 +70,7 @@
       "id": 12,
       "claim": "Bad scorer falsification verified.",
       "status": "VERIFIED",
-      "evidence": "anti N64=-26.565706083129044, N1=-14.101561337022474"
+      "evidence": "anti_scorer utility N64=-26.565706083129044, utility N1=-14.101561337022474"
     },
     {
       "id": 13,
@@ -142,7 +142,7 @@
       "id": 24,
       "claim": "Learned WAM OOD error reported.",
       "status": "VERIFIED",
-      "evidence": "ood count=3"
+      "evidence": "ood count=3, samples=[192, 192, 192], utility_mae=[2.2723724651895516, 2.127490419092671, 1.0671464005106506]"
     },
     {
       "id": 25,
@@ -184,43 +184,43 @@
       "id": 31,
       "claim": "Benchmark adapter available.",
       "status": "VERIFIED",
-      "evidence": "attempted=True, any_available=True"
+      "evidence": "attempted=True, any_available=True, available=['maniskill', 'gym_manip', 'gym_robotics', 'metaworld', 'robosuite']"
     },
     {
       "id": 32,
       "claim": "Benchmark rollout pools collected.",
       "status": "VERIFIED",
-      "evidence": "pools=25"
+      "evidence": "benchmark=Reacher-v5, pools=25, rollouts=64, rows=600"
     },
     {
       "id": 33,
       "claim": "Benchmark exact law verified.",
       "status": "VERIFIED",
-      "evidence": "utility MAE=0.018753143169510465"
+      "evidence": "benchmark=Reacher-v5, utility MAE=0.018753143169510465, exact rows=150"
     },
     {
       "id": 34,
       "claim": "Benchmark score comparison verified.",
       "status": "VERIFIED",
-      "evidence": "oracle-random CI={'n': 5, 'mean': 1.7107893171571196, 'std': 0.3902710091578448, 'stderr': 0.17453450122487676, 'ci95': 0.34208762240075846, 'lo': 1.368701694756361, 'hi': 2.052876939557878}"
+      "evidence": "benchmark=Reacher-v5, oracle-random CI={'n': 5, 'mean': 1.7107893171571196, 'std': 0.3902710091578448, 'stderr': 0.17453450122487676, 'ci95': 0.34208762240075846, 'lo': 1.368701694756361, 'hi': 2.052876939557878}"
     },
     {
       "id": 35,
       "claim": "Benchmark real-vs-imagined gap verified.",
       "status": "VERIFIED",
-      "evidence": "gap growth=0.14372151651340617"
+      "evidence": "benchmark=Reacher-v5, gap growth=0.14372151651340617"
     },
     {
       "id": 36,
       "claim": "Benchmark closed-loop verified.",
       "status": "VERIFIED",
-      "evidence": "learned-random closed-loop CI={'n': 5, 'mean': 1.7643643582266495, 'std': 1.5449273707487574, 'stderr': 0.6909125242588483, 'ci95': 1.3541885475473427, 'lo': 0.41017581067930675, 'hi': 3.118552905773992}"
+      "evidence": "benchmark=Reacher-v5, learned-random closed-loop CI={'n': 5, 'mean': 1.7643643582266495, 'std': 1.5449273707487574, 'stderr': 0.6909125242588483, 'ci95': 1.3541885475473427, 'lo': 0.41017581067930675, 'hi': 3.118552905773992}"
     },
     {
       "id": 37,
       "claim": "Benchmark learned WAM trained.",
       "status": "VERIFIED",
-      "evidence": "model=C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz"
+      "evidence": "benchmark=Reacher-v5, model=C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz, metrics=2"
     },
     {
       "id": 38,
@@ -616,7 +616,7 @@
       "id": 103,
       "claim": "Claim ledger is structurally consistent.",
       "status": "VERIFIED",
-      "evidence": "claims=123, max_id=123, checks=21, issues=0"
+      "evidence": "claims=124, max_id=124, checks=21, issues=0"
     },
     {
       "id": 104,
@@ -628,7 +628,7 @@
       "id": 105,
       "claim": "Verified claims have mapped source artifacts and quality-checked evidence.",
       "status": "VERIFIED",
-      "evidence": "claims=123, mapped=123, sources=167, issues=0"
+      "evidence": "claims=124, mapped=124, sources=169, issues=0"
     },
     {
       "id": 106,
@@ -640,7 +640,7 @@
       "id": 107,
       "claim": "Verified claim wording satisfies semantic threshold checks.",
       "status": "VERIFIED",
-      "evidence": "claims=123, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0"
+      "evidence": "claims=124, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0"
     },
     {
       "id": 108,
@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=197, bytes=1393229, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 37, 'src': 54, 'tests': 45}, checks=14, issues=0"
+      "evidence": "files=200, bytes=1412938, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 38, 'src': 55, 'tests': 46}, checks=14, issues=0"
     },
     {
       "id": 112,
@@ -688,19 +688,19 @@
       "id": 115,
       "claim": "Published final-report command results match current verification artifacts.",
       "status": "VERIFIED",
-      "evidence": "snippets=24, python_commands=27, pytest=117, checks=27, issues=0"
+      "evidence": "snippets=25, python_commands=28, pytest=120, checks=28, issues=0"
     },
     {
       "id": 116,
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
       "status": "VERIFIED",
-      "evidence": "tests=117, unique=117, trailer=117, checks=6, issues=0"
+      "evidence": "tests=120, unique=120, trailer=120, checks=6, issues=0"
     },
     {
       "id": 117,
       "claim": "Generated claim-status artifacts are byte-stable under rerunning the claim generator.",
       "status": "VERIFIED",
-      "evidence": "claims=123, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json"
+      "evidence": "claims=124, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json"
     },
     {
       "id": 118,
@@ -712,19 +712,19 @@
       "id": 119,
       "claim": "Claim evidence artifacts and published artifact references are represented in the git index.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=111, artifact_refs=441, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
+      "evidence": "claim_sources=113, artifact_refs=441, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
     },
     {
       "id": 120,
       "claim": "Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=109, artifact_refs=439, hashed=548, self_outputs_excluded=4, issues=0"
+      "evidence": "claim_sources=111, artifact_refs=439, hashed=550, self_outputs_excluded=4, issues=0"
     },
     {
       "id": 121,
       "claim": "Claim evidence artifacts and published artifact references are repository-bound.",
       "status": "VERIFIED",
-      "evidence": "records=848, claim_sources=167, artifact_refs=681, outside=0, absent=0, traversal=0, issues=0"
+      "evidence": "records=850, claim_sources=169, artifact_refs=681, outside=0, absent=0, traversal=0, issues=0"
     },
     {
       "id": 122,
@@ -737,6 +737,12 @@
       "claim": "Publication-surface risky robotics claims are guarded as limitations or future work.",
       "status": "VERIFIED",
       "evidence": "surfaces=5, risk_mentions=72, guarded=72, unguarded=0, issues=0"
+    },
+    {
+      "id": 124,
+      "claim": "Broad claim wording is scoped by concrete evidence.",
+      "status": "VERIFIED",
+      "evidence": "claims=124, scope_mentions=154, categories={'verification': 41, 'model': 24, 'benchmark': 57, 'visual': 13, 'suite_family': 15, 'policy_success': 4}, checks=159, issues=0"
     }
   ],
   "readme_overclaims": [],
@@ -744,7 +750,7 @@
   "report_overclaims": [],
   "narrative_overclaims": [],
   "overclaims": [],
-  "num_verified": 123,
+  "num_verified": 124,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

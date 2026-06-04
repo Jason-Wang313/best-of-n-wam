@@ -52,6 +52,7 @@ def audit_pytest_collection(*, stdout: str, returncode: int) -> dict[str, Any]:
         add(checks, "trailer_count_present", False, "pytest collect output did not include collected-count trailer")
     required_prefixes = [
         "tests/test_abstract_claim_support.py::",
+        "tests/test_claim_scope_audit.py::",
         "tests/test_command_result_consistency.py::",
         "tests/test_model_artifact_integrity.py::",
         "tests/test_publication_scope.py::",

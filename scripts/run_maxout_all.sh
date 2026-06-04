@@ -43,6 +43,7 @@ bash scripts/run_inference_audit.sh
 "${PY[@]}" scripts/publication_scope.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_semantics.py --fail-on-error
+"${PY[@]}" scripts/claim_scope_audit.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_evidence_quality.py --fail-on-error
 "${PY[@]}" scripts/tracked_artifact_provenance.py --fail-on-error
@@ -58,6 +59,7 @@ bash scripts/run_inference_audit.sh
 "${PY[@]}" scripts/publication_scope.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_semantics.py --fail-on-error
+"${PY[@]}" scripts/claim_scope_audit.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_evidence_quality.py --fail-on-error
 "${PY[@]}" scripts/tracked_artifact_provenance.py --fail-on-error
@@ -88,6 +90,7 @@ bash scripts/run_inference_audit.sh
 "${PY[@]}" scripts/publication_scope.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_semantics.py --fail-on-error
+"${PY[@]}" scripts/claim_scope_audit.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_evidence_quality.py --fail-on-error
 "${PY[@]}" scripts/tracked_artifact_provenance.py --fail-on-error
@@ -103,6 +106,7 @@ bash scripts/run_inference_audit.sh
 "${PY[@]}" scripts/publication_scope.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_semantics.py --fail-on-error
+"${PY[@]}" scripts/claim_scope_audit.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_evidence_quality.py --fail-on-error
 "${PY[@]}" scripts/tracked_artifact_provenance.py --fail-on-error

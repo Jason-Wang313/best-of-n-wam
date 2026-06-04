@@ -4,6 +4,7 @@ from wam_inference_value.test_inventory import audit_pytest_collection, parse_py
 def sample_stdout(count: int = 94) -> str:
     nodeids = [
         "tests/test_abstract_claim_support.py::test_abstract_claim_support_accepts_exact_supported_headlines",
+        "tests/test_claim_scope_audit.py::test_claim_scope_audit_accepts_scoped_benchmark_and_smoke_claims",
         "tests/test_command_result_consistency.py::test_command_result_consistency_accepts_current_report",
         "tests/test_model_artifact_integrity.py::test_model_artifact_integrity_accepts_loadable_npz",
         "tests/test_publication_scope.py::test_publication_scope_accepts_guarded_risk_mentions",

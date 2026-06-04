@@ -43,6 +43,7 @@ NARRATIVE_SURFACES = [
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
     ("claim_semantics_report", REPORTS / "claim_semantics_report.md"),
     ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
+    ("claim_scope_audit_report", REPORTS / "claim_scope_audit_report.md"),
     ("claim_generation_consistency_report", REPORTS / "claim_generation_consistency_report.md"),
     ("report_generation_consistency_report", REPORTS / "report_generation_consistency_report.md"),
     ("script_contracts_report", REPORTS / "script_contracts_report.md"),
@@ -322,6 +323,7 @@ def main() -> None:
     narrative_consistency = load_json("narrative_consistency.json")
     script_contracts = load_json("script_contracts.json")
     claim_semantics = load_json("claim_semantics.json")
+    claim_scope_audit = load_json("claim_scope_audit.json")
     claim_evidence_quality = load_json("claim_evidence_quality.json")
     tracked_artifact_provenance = load_json("tracked_artifact_provenance.json")
     evidence_hash_coverage = load_json("evidence_hash_coverage.json")
@@ -357,7 +359,7 @@ def main() -> None:
     add(claims, 9, "Oracle remains above learned/non-oracle.", status(nested_ci_positive(learned_cmp, "deltas", "oracle_minus_learned_real_utility_N64"), bool(learned_cmp)), f"oracle-learned CI={((learned_cmp.get('confidence_intervals') or {}).get('deltas') or {}).get('oracle_minus_learned_real_utility_N64')}")
     add(claims, 10, "Real-vs-imagined utility gap verified.", status(bool(exp5) and exp5.get("severe_gap_growth_minus_none", 0.0) > 0.35, bool(exp5)), f"severe-none={exp5.get('severe_gap_growth_minus_none')}")
     add(claims, 11, "Mismatch gap grows with N.", status(ci_positive(learned_exp5, "severe_gap_growth_minus_none"), bool(learned_exp5)), f"learned severe gap CI={((learned_exp5.get('confidence_intervals') or {}).get('severe_gap_growth_minus_none'))}")
-    add(claims, 12, "Bad scorer falsification verified.", status(bool(fals) and fals.get("anti_scorer_mean_N64", 0.0) < fals.get("anti_scorer_mean_N1", -1e9), bool(fals)), f"anti N64={fals.get('anti_scorer_mean_N64')}, N1={fals.get('anti_scorer_mean_N1')}")
+    add(claims, 12, "Bad scorer falsification verified.", status(bool(fals) and fals.get("anti_scorer_mean_N64", 0.0) < fals.get("anti_scorer_mean_N1", -1e9), bool(fals)), f"anti_scorer utility N64={fals.get('anti_scorer_mean_N64')}, utility N1={fals.get('anti_scorer_mean_N1')}")
     rnd_gap = fals.get("randomized_dynamics_oracle_gap_N64")
     add(
         claims,
@@ -454,7 +456,8 @@ def main() -> None:
             and all((row.get("n_samples") or 0) > 0 and row.get("utility_mae") is not None for row in learned_ood),
             bool(learned_train),
         ),
-        f"ood count={len(learned_ood)}",
+        f"ood count={len(learned_ood)}, samples={[row.get('n_samples') for row in learned_ood]}, "
+        f"utility_mae={[row.get('utility_mae') for row in learned_ood]}",
     )
     add(claims, 25, "Learned WAM reproduces key inference-value claims.", status(nested_ci_positive(learned_cmp, "deltas", "learned_minus_analytic_real_utility_N64"), bool(learned_cmp)), f"learned-analytic CI={((learned_cmp.get('confidence_intervals') or {}).get('deltas') or {}).get('learned_minus_analytic_real_utility_N64')}")
     envs = set(multi.get("envs") or [])
@@ -506,12 +509,16 @@ def main() -> None:
         31,
         "Benchmark adapter available.",
         status(bool(bench) and bench.get("attempted", False) and all(path.exists() for path in benchmark_adapter_files), False),
-        f"attempted={bench.get('attempted')}, any_available={bench.get('any_available')}",
+        f"attempted={bench.get('attempted')}, any_available={bench.get('any_available')}, "
+        f"available={[status_row.get('name') for status_row in (bench.get('statuses') or []) if status_row.get('available')]}",
     )
     bench_score_ci = (benchmark_score.get("confidence_intervals") or {}).get("oracle_minus_random_real_utility_N32") or {}
     bench_closed_ci = (benchmark_closed.get("confidence_intervals") or {}).get("closed_loop_learned_minus_random_utility_N32") or {}
     benchmark_curves_path = RESULTS / "tables" / "benchmark_gym_manip_curves.csv"
     benchmark_exact_path = benchmark_exact.get("artifact")
+    benchmark_name = benchmark_pools.get("benchmark") or benchmark_exact.get("benchmark") or benchmark_wam.get("benchmark")
+    benchmark_curves_rows = csv_row_count(benchmark_curves_path)
+    benchmark_exact_rows = csv_row_count(benchmark_exact_path)
     add(
         claims,
         32,
@@ -519,10 +526,11 @@ def main() -> None:
         status(
             (benchmark_pools.get("n_rollout_pools", 0) >= 25)
             and (benchmark_pools.get("n_rollouts", 0) >= 64)
-            and csv_row_count(benchmark_curves_path) >= 500,
+            and benchmark_curves_rows >= 500,
             bool(bench) and bench.get("any_available", False),
         ),
-        f"pools={benchmark_pools.get('n_rollout_pools')}",
+        f"benchmark={benchmark_name}, pools={benchmark_pools.get('n_rollout_pools')}, "
+        f"rollouts={benchmark_pools.get('n_rollouts')}, rows={benchmark_curves_rows}",
     )
     add(
         claims,
@@ -532,12 +540,12 @@ def main() -> None:
             benchmark_exact.get("utility_mae") is not None
             and benchmark_exact.get("utility_mae") < 0.08
             and artifact_exists(benchmark_exact_path)
-            and csv_row_count(benchmark_exact_path) >= 100,
+            and benchmark_exact_rows >= 100,
             bool(benchmark_exact),
         ),
-        f"utility MAE={benchmark_exact.get('utility_mae')}",
+        f"benchmark={benchmark_name}, utility MAE={benchmark_exact.get('utility_mae')}, exact rows={benchmark_exact_rows}",
     )
-    add(claims, 34, "Benchmark score comparison verified.", status(bench_score_ci.get("lo") is not None and bench_score_ci.get("lo") > 0.0, bool(benchmark_score)), f"oracle-random CI={bench_score_ci}")
+    add(claims, 34, "Benchmark score comparison verified.", status(bench_score_ci.get("lo") is not None and bench_score_ci.get("lo") > 0.0, bool(benchmark_score)), f"benchmark={benchmark_name}, oracle-random CI={bench_score_ci}")
     add(
         claims,
         35,
@@ -548,9 +556,9 @@ def main() -> None:
             and artifact_exists(benchmark_gap.get("artifact")),
             bool(benchmark_gap),
         ),
-        f"gap growth={benchmark_gap.get('gap_growth_N32_minus_N1')}",
+        f"benchmark={benchmark_name}, gap growth={benchmark_gap.get('gap_growth_N32_minus_N1')}",
     )
-    add(claims, 36, "Benchmark closed-loop verified.", status(bench_closed_ci.get("lo") is not None and bench_closed_ci.get("lo") > 0.0, bool(benchmark_closed)), f"learned-random closed-loop CI={bench_closed_ci}")
+    add(claims, 36, "Benchmark closed-loop verified.", status(bench_closed_ci.get("lo") is not None and bench_closed_ci.get("lo") > 0.0, bool(benchmark_closed)), f"benchmark={benchmark_name}, learned-random closed-loop CI={bench_closed_ci}")
     add(
         claims,
         37,
@@ -561,7 +569,8 @@ def main() -> None:
             and len(benchmark_wam.get("model_metrics") or []) >= 2,
             bool(benchmark_wam),
         ),
-        f"model={benchmark_wam.get('model_path')}",
+        f"benchmark={benchmark_wam.get('benchmark')}, model={benchmark_wam.get('model_path')}, "
+        f"metrics={len(benchmark_wam.get('model_metrics') or [])}",
     )
     add(claims, 38, "Visual toy WAM attempted.", status(bool(visual) and visual.get("attempted", False) and artifact_exists(visual.get("artifact")), False), f"visual={visual.get('attempted')}")
     add(
@@ -1922,9 +1931,9 @@ def main() -> None:
         "status": status(
             bool(command_result_consistency)
             and command_result_consistency.get("verified", False)
-            and (command_result_consistency.get("n_expected_snippets") or 0) >= 24
-            and (command_result_consistency.get("n_python_command_lines") or 0) >= 23
-            and (command_result_consistency.get("n_checks") or 0) >= 27
+            and (command_result_consistency.get("n_expected_snippets") or 0) >= 25
+            and (command_result_consistency.get("n_python_command_lines") or 0) >= 24
+            and (command_result_consistency.get("n_checks") or 0) >= 28
             and command_result_consistency.get("n_issues") == 0
             and artifact_exists(RESULTS / "command_result_consistency.json")
             and artifact_exists(REPORTS / "command_result_consistency_report.md"),
@@ -2054,6 +2063,28 @@ def main() -> None:
             f"issues={publication_scope.get('n_issues')}"
         ),
     }
+    claim_scope_audit_claim = {
+        "id": 124,
+        "claim": "Broad claim wording is scoped by concrete evidence.",
+        "status": status(
+            bool(claim_scope_audit)
+            and claim_scope_audit.get("verified", False)
+            and (claim_scope_audit.get("n_claims") or 0) >= 123
+            and (claim_scope_audit.get("n_scope_mentions") or 0) >= 140
+            and ((claim_scope_audit.get("category_counts") or {}).get("benchmark") or 0) >= 50
+            and ((claim_scope_audit.get("category_counts") or {}).get("verification") or 0) >= 35
+            and (claim_scope_audit.get("n_checks") or 0) >= 150
+            and claim_scope_audit.get("n_issues") == 0
+            and artifact_exists(RESULTS / "claim_scope_audit.json")
+            and artifact_exists(REPORTS / "claim_scope_audit_report.md"),
+            bool(claim_scope_audit),
+        ),
+        "evidence": (
+            f"claims={claim_scope_audit.get('n_claims')}, scope_mentions={claim_scope_audit.get('n_scope_mentions')}, "
+            f"categories={claim_scope_audit.get('category_counts')}, checks={claim_scope_audit.get('n_checks')}, "
+            f"issues={claim_scope_audit.get('n_issues')}"
+        ),
+    }
     test_inventory_claim = {
         "id": 116,
         "claim": "Pytest command-result counts come from a verified collected-test inventory.",
@@ -2119,7 +2150,7 @@ def main() -> None:
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=123, max_id=123, checks=pending, issues=0",
+            "evidence": "claims=124, max_id=124, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
@@ -2128,6 +2159,7 @@ def main() -> None:
         repo_bound_artifact_audit_claim,
         abstract_claim_support_claim,
         publication_scope_claim,
+        claim_scope_audit_claim,
         raw_result_recompute_claim,
         claim_semantics_claim,
         artifact_manifest_claim,
@@ -2161,6 +2193,7 @@ def main() -> None:
     claims.append(repo_bound_artifact_audit_claim)
     claims.append(abstract_claim_support_claim)
     claims.append(publication_scope_claim)
+    claims.append(claim_scope_audit_claim)
     claims.append(raw_result_recompute_claim)
     claims.append(claim_semantics_claim)
     claims.append(artifact_manifest_claim)

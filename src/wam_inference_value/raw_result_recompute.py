@@ -18,6 +18,7 @@ SELF_OUTPUTS = {
     "claim_evidence_quality.json",
     "claim_generation_consistency.json",
     "claim_ledger_integrity.json",
+    "claim_scope_audit.json",
     "claims_status.json",
     "command_result_consistency.json",
     "evidence_hash_coverage.json",

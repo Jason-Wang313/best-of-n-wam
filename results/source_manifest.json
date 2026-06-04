@@ -2,11 +2,11 @@
   "experiment": "source_manifest",
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
-  "n_files": 197,
-  "total_bytes": 1393229,
+  "n_files": 200,
+  "total_bytes": 1412938,
   "counts_by_suffix": {
     ".md": 3,
-    ".py": 180,
+    ".py": 183,
     ".toml": 1,
     ".txt": 2,
     ".sh": 11
@@ -19,9 +19,9 @@
     "README.md": 1,
     "requirements-benchmark.txt": 1,
     "requirements.txt": 1,
-    "scripts": 37,
-    "src": 54,
-    "tests": 45
+    "scripts": 38,
+    "src": 55,
+    "tests": 46
   },
   "records": [
     {
@@ -375,8 +375,8 @@
     {
       "path": "README.md",
       "suffix": ".md",
-      "bytes": 23155,
-      "sha256": "ff041da217ae97a08cee2cd2005d3daf2ef7af7cdead79ad5704f0ff9a6b9eda"
+      "bytes": 23207,
+      "sha256": "1cf8305f6cbd72e71f5143b8cb1bcae14a675bce6548f204486b20dcb0a350a6"
     },
     {
       "path": "requirements-benchmark.txt",
@@ -427,6 +427,12 @@
       "sha256": "1543145c5d4e4fce497259f4cb50db141eaae95a7ee5ff2073dbac4a28bf487a"
     },
     {
+      "path": "scripts/claim_scope_audit.py",
+      "suffix": ".py",
+      "bytes": 1848,
+      "sha256": "bf226a32c6517a5cfc6d4da8f8731a9eb571f06f130c42452ae6a1238c6d9512"
+    },
+    {
       "path": "scripts/claim_semantics.py",
       "suffix": ".py",
       "bytes": 1889,
@@ -435,8 +441,8 @@
     {
       "path": "scripts/claims_status.py",
       "suffix": ".py",
-      "bytes": 120658,
-      "sha256": "a04420930f1967f275e4f48a29c31878e4d59d260aa56d4c86bcca6a380445dc"
+      "bytes": 122963,
+      "sha256": "89fe212bebb4b5471a7a33c73930748e4492d5487193e5a06bf32a859f19897b"
     },
     {
       "path": "scripts/command_result_consistency.py",
@@ -507,8 +513,8 @@
     {
       "path": "scripts/run_all.sh",
       "suffix": ".sh",
-      "bytes": 3728,
-      "sha256": "8b968aa323ccf3bb00c1eb6c6d5e7af088c523ef7cdd3c14f931f8b47239df6f"
+      "bytes": 3840,
+      "sha256": "e8cbc4fb000ee0ba592d8286640729f167e2006f7c6159e1416afea4203e1db8"
     },
     {
       "path": "scripts/run_benchmark_full.sh",
@@ -531,20 +537,20 @@
     {
       "path": "scripts/run_inference_audit.sh",
       "suffix": ".sh",
-      "bytes": 3694,
-      "sha256": "377d09e803ed6e3a490a3fb0f49246ede48ae72e990e4f2d031e01536d1b6e0c"
+      "bytes": 3806,
+      "sha256": "7fef751260349aac5488952fb980ea4e94a2d4a0a682e07e6170ba0e20be2152"
     },
     {
       "path": "scripts/run_learned_wam_toy.sh",
       "suffix": ".sh",
-      "bytes": 4553,
-      "sha256": "481a118b3bed761f0ab4821585baac71549ed40782d51467a891081db7f72bc9"
+      "bytes": 4665,
+      "sha256": "0f6ba5a3917e37ebda64a51bc58e6aefc686619a5c193ae2f6ad05160eb9c8b1"
     },
     {
       "path": "scripts/run_maxout_all.sh",
       "suffix": ".sh",
-      "bytes": 5688,
-      "sha256": "25323a20cea86795b75cdfee1b4fb27b880e11b38e51c5a4bbb4328c6ddb218f"
+      "bytes": 5912,
+      "sha256": "f276c82ff61f818125d1765d598e03dfced150468bfe998dc293e9b80fe07b15"
     },
     {
       "path": "scripts/run_multi_env.sh",
@@ -561,8 +567,8 @@
     {
       "path": "scripts/run_smoke.sh",
       "suffix": ".sh",
-      "bytes": 7078,
-      "sha256": "5b986c6ccce76985d347e3cdd22eebadfd5a815f1ed35445ba9aefe0dfb36180"
+      "bytes": 7272,
+      "sha256": "2a6c1d60f20a5c5842134d233b7132fc8e887259c69635620fd2506324cdeec0"
     },
     {
       "path": "scripts/run_visual_optional.sh",
@@ -609,8 +615,8 @@
     {
       "path": "scripts/write_maxout_reports.py",
       "suffix": ".py",
-      "bytes": 81471,
-      "sha256": "498d3471d4eeded6e8fedee9952caf9ac12aab1af4f2db3aa6a23963dfd0c868"
+      "bytes": 81984,
+      "sha256": "c90df28cbf9e4dc6ba2361fb25f2594f408505ce79832066ff5df0cd8107fde8"
     },
     {
       "path": "src/wam_inference_value/__init__.py",
@@ -633,8 +639,8 @@
     {
       "path": "src/wam_inference_value/artifact_manifest.py",
       "suffix": ".py",
-      "bytes": 9006,
-      "sha256": "4f11ff2272ec4327c1cb12a24335fd0365bfbe98c3bde9ec693bdcc09fcdc3c4"
+      "bytes": 9036,
+      "sha256": "31dd6fe47e6a1ff506335cad56ace58d0080fd022ffdce7896b81bdf17468d8c"
     },
     {
       "path": "src/wam_inference_value/audit.py",
@@ -735,8 +741,8 @@
     {
       "path": "src/wam_inference_value/claim_evidence_quality.py",
       "suffix": ".py",
-      "bytes": 15094,
-      "sha256": "e2b44ef18f608eae6f9b4cda5be00c131802658eb1993f001b193a6590f9afd8"
+      "bytes": 15201,
+      "sha256": "a0244b0b0ce3b758c0b9bdb434c557718cc6069e3e58893cfc725d1b52b6f8be"
     },
     {
       "path": "src/wam_inference_value/claim_generation_consistency.py",
@@ -751,6 +757,12 @@
       "sha256": "d6a11e044a693fb71808fb5df95549a3aee9847005f3916a544d8b40c40aea53"
     },
     {
+      "path": "src/wam_inference_value/claim_scope_audit.py",
+      "suffix": ".py",
+      "bytes": 9777,
+      "sha256": "219c6e5933c96cafa5034f3ef62e605db9c63cec4dfcd5334b34f3b1b7721aed"
+    },
+    {
       "path": "src/wam_inference_value/claim_semantics.py",
       "suffix": ".py",
       "bytes": 11414,
@@ -759,8 +771,8 @@
     {
       "path": "src/wam_inference_value/command_result_consistency.py",
       "suffix": ".py",
-      "bytes": 16307,
-      "sha256": "fb2845e5e83814ff5895dc923bb343705d3bcdf90aea8e4929b3ca9760e238cf"
+      "bytes": 16805,
+      "sha256": "4ccad242825cad606ce2c956ead8dacd11dc9bd8d43116a41ce3f5c5d6095147"
     },
     {
       "path": "src/wam_inference_value/envs/__init__.py",
@@ -831,8 +843,8 @@
     {
       "path": "src/wam_inference_value/narrative_consistency.py",
       "suffix": ".py",
-      "bytes": 28324,
-      "sha256": "5cd79372d1cc33979ad960038a91c72445cb9dd2a698abab49c6821a29fdb4e8"
+      "bytes": 28903,
+      "sha256": "be5d6674a508300469de73e585d73dac6a590e46d8e098ec9061459505ef7cda"
     },
     {
       "path": "src/wam_inference_value/publication_scope.py",
@@ -843,8 +855,8 @@
     {
       "path": "src/wam_inference_value/raw_result_recompute.py",
       "suffix": ".py",
-      "bytes": 14014,
-      "sha256": "767abdb4aa239fbebbe6bc12ecc4adfc5bd3482aeaf1b476e28afffc2c002229"
+      "bytes": 14044,
+      "sha256": "e3be0a458aa421dfeb2716bdb0c34b0bc1f6aa697437d39a6766a40f1cc7e2b6"
     },
     {
       "path": "src/wam_inference_value/rendering/__init__.py",
@@ -897,8 +909,8 @@
     {
       "path": "src/wam_inference_value/script_contracts.py",
       "suffix": ".py",
-      "bytes": 14189,
-      "sha256": "ed0613484e35140c62848c31eb730a55a72ce6be5392f11a18c9f1d4189e0797"
+      "bytes": 14488,
+      "sha256": "6ccf55b7f484f1071a6105bdb87eb8bfe9d188de54d37ed86ec9f534c821bca2"
     },
     {
       "path": "src/wam_inference_value/source_manifest.py",
@@ -921,8 +933,8 @@
     {
       "path": "src/wam_inference_value/test_inventory.py",
       "suffix": ".py",
-      "bytes": 4581,
-      "sha256": "e3d65fdcf94adc41580f6e2a76a24ce8ba5245dfa2ce436ed73f9ae89972d0be"
+      "bytes": 4626,
+      "sha256": "d5318acdd0908c0b9615d4eb28577cccfb98675356017bbd80e6cd7517176754"
     },
     {
       "path": "src/wam_inference_value/theorem.py",
@@ -985,6 +997,12 @@
       "sha256": "d604b5e1f66bd190c369797f06af7f07080adc7cd84eecc5b428cae5afce88d6"
     },
     {
+      "path": "tests/test_claim_scope_audit.py",
+      "suffix": ".py",
+      "bytes": 2636,
+      "sha256": "264cf8e9fd5641b0d34aad4ae26a40b129a76505303016ae1fd21ce8c45efa46"
+    },
+    {
       "path": "tests/test_claim_semantics.py",
       "suffix": ".py",
       "bytes": 2986,
@@ -993,8 +1011,8 @@
     {
       "path": "tests/test_command_result_consistency.py",
       "suffix": ".py",
-      "bytes": 5511,
-      "sha256": "d73ccd375cb84a2672e1cd908c02c33817349c81761eff4428ef693200aeef30"
+      "bytes": 5638,
+      "sha256": "d414e484f29e43b7e2b9130d306f564dc4133a4095c5493836ddc27434335868"
     },
     {
       "path": "tests/test_envs.py",
@@ -1173,8 +1191,8 @@
     {
       "path": "tests/test_test_inventory.py",
       "suffix": ".py",
-      "bytes": 1822,
-      "sha256": "0816fb3fdf78a2b64d9161cd933e371943c204983360be65ccc87c842bb99e82"
+      "bytes": 1931,
+      "sha256": "dcfd9c4ee5a041692b5944afb7d5e6cb02107a0f0ae69a8a21d9629e68e142ad"
     },
     {
       "path": "tests/test_theorem_auc.py",
@@ -1214,27 +1232,27 @@
     {
       "name": "source_manifest_records_present",
       "ok": true,
-      "detail": "records=197"
+      "detail": "records=200"
     },
     {
       "name": "source_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=197, scan=197"
+      "detail": "payload=200, scan=200"
     },
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1393229, scan=1393229"
+      "detail": "payload=1412938, scan=1412938"
     },
     {
       "name": "source_suffix_counts_match_scan",
       "ok": true,
-      "detail": "payload={'.md': 3, '.py': 180, '.toml': 1, '.txt': 2, '.sh': 11}, scan={'.md': 3, '.py': 180, '.toml': 1, '.txt': 2, '.sh': 11}"
+      "detail": "payload={'.md': 3, '.py': 183, '.toml': 1, '.txt': 2, '.sh': 11}, scan={'.md': 3, '.py': 183, '.toml': 1, '.txt': 2, '.sh': 11}"
     },
     {
       "name": "source_dir_counts_match_scan",
       "ok": true,
-      "detail": "payload={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 37, 'src': 54, 'tests': 45}, scan={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 37, 'src': 54, 'tests': 45}"
+      "detail": "payload={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 38, 'src': 55, 'tests': 46}, scan={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 38, 'src': 55, 'tests': 46}"
     },
     {
       "name": "source_manifest_has_no_missing_current_files",
@@ -1264,17 +1282,17 @@
     {
       "name": "source_manifest_file_count",
       "ok": true,
-      "detail": "files=197"
+      "detail": "files=200"
     },
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1393229"
+      "detail": "bytes=1412938"
     },
     {
       "name": "source_manifest_dir_coverage",
       "ok": true,
-      "detail": "dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 37, 'src': 54, 'tests': 45}"
+      "detail": "dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 38, 'src': 55, 'tests': 46}"
     },
     {
       "name": "source_manifest_root_file_coverage",

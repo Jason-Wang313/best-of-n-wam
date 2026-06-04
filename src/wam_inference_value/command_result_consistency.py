@@ -55,6 +55,7 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
     abstract_claim_support = load_json(results_dir, "abstract_claim_support.json")
     publication_scope = load_json(results_dir, "publication_scope.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
+    claim_scope_audit = load_json(results_dir, "claim_scope_audit.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
     tracked_artifact_provenance = load_json(results_dir, "tracked_artifact_provenance.json")
     evidence_hash_coverage = load_json(results_dir, "evidence_hash_coverage.json")
@@ -212,6 +213,14 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
                 f"`python scripts/claim_semantics.py --fail-on-error`: passed with "
                 f"`{claim_semantics.get('n_claims')}` claims, `{claim_semantics.get('n_checks')}` semantic checks, "
                 f"`{claim_semantics.get('n_ci_claims')}` CI-backed claims, and `{claim_semantics.get('n_issues')}` issues"
+            ),
+        ),
+        (
+            "claim_scope_audit",
+            (
+                f"`python scripts/claim_scope_audit.py --fail-on-error`: passed with "
+                f"`{claim_scope_audit.get('n_claims')}` claims, `{claim_scope_audit.get('n_scope_mentions')}` scoped broad-claim mentions, "
+                f"`{claim_scope_audit.get('n_checks')}` checks, and `{claim_scope_audit.get('n_issues')}` issues"
             ),
         ),
         (

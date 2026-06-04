@@ -1,11 +1,11 @@
 {
   "experiment": "command_result_consistency",
   "verified": true,
-  "n_expected_snippets": 24,
-  "n_python_command_lines": 27,
-  "n_checks": 27,
+  "n_expected_snippets": 25,
+  "n_python_command_lines": 28,
+  "n_checks": 28,
   "n_issues": 0,
-  "expected_pytest_passed": 117,
+  "expected_pytest_passed": 120,
   "checks": [
     {
       "name": "command_section_present",
@@ -15,12 +15,12 @@
     {
       "name": "pytest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python -m pytest -q`: passed with `117 passed`"
+      "detail": "expected=`python -m pytest -q`: passed with `120 passed`"
     },
     {
       "name": "test_inventory_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/test_inventory.py --fail-on-error`: passed with `117` collected tests, `6` inventory checks, and `0` issues"
+      "detail": "expected=`python scripts/test_inventory.py --fail-on-error`: passed with `120` collected tests, `6` inventory checks, and `0` issues"
     },
     {
       "name": "artifact_integrity_snippet_matches_artifact",
@@ -55,7 +55,7 @@
     {
       "name": "source_manifest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `197` source files, `1393229` bytes, `14` source-manifest checks, and `0` issues"
+      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `200` source files, `1412938` bytes, `14` source-manifest checks, and `0` issues"
     },
     {
       "name": "runtime_environment_snippet_matches_artifact",
@@ -95,37 +95,42 @@
     {
       "name": "claim_semantics_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/claim_semantics.py --fail-on-error`: passed with `123` claims, `175` semantic checks, `53` CI-backed claims, and `0` issues"
+      "detail": "expected=`python scripts/claim_semantics.py --fail-on-error`: passed with `124` claims, `175` semantic checks, `53` CI-backed claims, and `0` issues"
+    },
+    {
+      "name": "claim_scope_audit_snippet_matches_artifact",
+      "ok": true,
+      "detail": "expected=`python scripts/claim_scope_audit.py --fail-on-error`: passed with `124` claims, `154` scoped broad-claim mentions, `159` checks, and `0` issues"
     },
     {
       "name": "claim_evidence_quality_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/claim_evidence_quality.py --fail-on-error`: passed with `123` claims, `167` source links, `7` evidence checks, and `0` issues"
+      "detail": "expected=`python scripts/claim_evidence_quality.py --fail-on-error`: passed with `124` claims, `169` source links, `7` evidence checks, and `0` issues"
     },
     {
       "name": "tracked_artifact_provenance_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `111` claim sources, `441` artifact references, and `0` issues"
+      "detail": "expected=`python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `113` claim sources, `441` artifact references, and `0` issues"
     },
     {
       "name": "repo_bound_artifact_audit_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `848` records, `167` claim sources, `681` artifact references, `0` outside-repo records, `0` missing records, and `0` issues"
+      "detail": "expected=`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `850` records, `169` claim sources, `681` artifact references, `0` outside-repo records, `0` missing records, and `0` issues"
     },
     {
       "name": "evidence_hash_coverage_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `109` claim sources, `439` artifact references, `548` hashed records, and `0` issues"
+      "detail": "expected=`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `111` claim sources, `439` artifact references, `550` hashed records, and `0` issues"
     },
     {
       "name": "claim_ledger_integrity_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `123` claims, `31` ledger checks, and `0` issues"
+      "detail": "expected=`python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `124` claims, `31` ledger checks, and `0` issues"
     },
     {
       "name": "claim_generation_consistency_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/claim_generation_consistency.py --fail-on-error`: passed with `123` claims, `10` generation checks, and `0` issues"
+      "detail": "expected=`python scripts/claim_generation_consistency.py --fail-on-error`: passed with `124` claims, `10` generation checks, and `0` issues"
     },
     {
       "name": "report_generation_consistency_snippet_matches_artifact",
@@ -135,7 +140,7 @@
     {
       "name": "python_command_lines_present",
       "ok": true,
-      "detail": "lines=27"
+      "detail": "lines=28"
     },
     {
       "name": "no_known_stale_command_tokens",

@@ -11,7 +11,7 @@
 - Claim 9: **VERIFIED** - Oracle remains above learned/non-oracle. Evidence: oracle-learned CI={'n': 5, 'mean': 1.9951266518211337, 'std': 0.18826614525085428, 'stderr': 0.08419517972855187, 'ci95': 0.16502255226796164, 'lo': 1.830104099553172, 'hi': 2.1601492040890955}
 - Claim 10: **VERIFIED** - Real-vs-imagined utility gap verified. Evidence: severe-none=16.725668702334993
 - Claim 11: **VERIFIED** - Mismatch gap grows with N. Evidence: learned severe gap CI={'n': 5, 'mean': 13.880775173817053, 'std': 0.7005630946072381, 'stderr': 0.31330134041388014, 'ci95': 0.6140706272112051, 'lo': 13.266704546605848, 'hi': 14.494845801028259}
-- Claim 12: **VERIFIED** - Bad scorer falsification verified. Evidence: anti N64=-26.565706083129044, N1=-14.101561337022474
+- Claim 12: **VERIFIED** - Bad scorer falsification verified. Evidence: anti_scorer utility N64=-26.565706083129044, utility N1=-14.101561337022474
 - Claim 13: **VERIFIED** - Randomized dynamics falsification verified. Evidence: randomized-oracle N64 gap=13.393867700179667
 - Claim 14: **VERIFIED** - Moment/adaptive allocation beats uniform with CI. Evidence: moment-uniform CI={'n': 5, 'mean': 0.30066408929367955, 'std': 0.028847241897066837, 'stderr': 0.012900878769044288, 'ci95': 0.025285722387326803, 'lo': 0.27537836690635276, 'hi': 0.32594981168100634}
 - Claim 15: **VERIFIED** - Adaptive allocation reduces oracle regret. Evidence: moment-uniform CI={'n': 5, 'mean': 0.30066408929367955, 'std': 0.028847241897066837, 'stderr': 0.012900878769044288, 'ci95': 0.025285722387326803, 'lo': 0.27537836690635276, 'hi': 0.32594981168100634}; oracle-uniform CI={'n': 5, 'mean': 0.30551130808216387, 'std': 0.033303340743805754, 'stderr': 0.014893706756197615, 'ci95': 0.029191665242147325, 'lo': 0.27631964284001653, 'hi': 0.3347029733243112}
@@ -23,20 +23,20 @@
 - Claim 21: **VERIFIED** - Adaptive re-estimation helps under shift. Evidence: stale-adaptive post CI={'n': 48, 'mean': 0.10238434930665018, 'std': 0.14521811815578564, 'stderr': 0.020960429902113432, 'ci95': 0.041082442608142325, 'lo': 0.06130190669850785, 'hi': 0.1434667919147925}
 - Claim 22: **VERIFIED** - Learned WAM trained. Evidence: model=results\models\learned_wam_lite_toy.npz
 - Claim 23: **VERIFIED** - Learned WAM ID error reported. Evidence: validation={'split': 'validation', 'mismatch': 'mild', 'n_samples': 768, 'final_delta_mae': 0.07366012085339552, 'final_position_l2_mae': 0.11172250197070248, 'utility_mae': 0.8623689603284147, 'utility_rmse': 1.1687153364750862, 'utility_corr': 0.894453974332229}
-- Claim 24: **VERIFIED** - Learned WAM OOD error reported. Evidence: ood count=3
+- Claim 24: **VERIFIED** - Learned WAM OOD error reported. Evidence: ood count=3, samples=[192, 192, 192], utility_mae=[2.2723724651895516, 2.127490419092671, 1.0671464005106506]
 - Claim 25: **VERIFIED** - Learned WAM reproduces key inference-value claims. Evidence: learned-analytic CI={'n': 5, 'mean': 1.169836264042242, 'std': 0.24964325385176853, 'stderr': 0.11164385714735812, 'ci95': 0.21882196000882193, 'lo': 0.95101430403342, 'hi': 1.3886582240510639}
 - Claim 26: **VERIFIED** - BlockPush verified. Evidence: env=block_push, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
 - Claim 27: **VERIFIED** - DrawerPull verified. Evidence: env=drawer_pull, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
 - Claim 28: **VERIFIED** - SlipperyGrasp verified. Evidence: env=slippery_grasp, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
 - Claim 29: **VERIFIED** - Nonstationary verified. Evidence: env=nonstationary_shift, exp8_mae=0.002711190528210008, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
 - Claim 30: **VERIFIED** - Deformable optional. Evidence: env=deformable_toy, implemented=True, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
-- Claim 31: **VERIFIED** - Benchmark adapter available. Evidence: attempted=True, any_available=True
-- Claim 32: **VERIFIED** - Benchmark rollout pools collected. Evidence: pools=25
-- Claim 33: **VERIFIED** - Benchmark exact law verified. Evidence: utility MAE=0.018753143169510465
-- Claim 34: **VERIFIED** - Benchmark score comparison verified. Evidence: oracle-random CI={'n': 5, 'mean': 1.7107893171571196, 'std': 0.3902710091578448, 'stderr': 0.17453450122487676, 'ci95': 0.34208762240075846, 'lo': 1.368701694756361, 'hi': 2.052876939557878}
-- Claim 35: **VERIFIED** - Benchmark real-vs-imagined gap verified. Evidence: gap growth=0.14372151651340617
-- Claim 36: **VERIFIED** - Benchmark closed-loop verified. Evidence: learned-random closed-loop CI={'n': 5, 'mean': 1.7643643582266495, 'std': 1.5449273707487574, 'stderr': 0.6909125242588483, 'ci95': 1.3541885475473427, 'lo': 0.41017581067930675, 'hi': 3.118552905773992}
-- Claim 37: **VERIFIED** - Benchmark learned WAM trained. Evidence: model=C:\Users\wangz\best-of-n-wam\results\models\benchmark_gym_manip_horizon_wam.npz
+- Claim 31: **VERIFIED** - Benchmark adapter available. Evidence: attempted=True, any_available=True, available=['maniskill', 'gym_manip', 'gym_robotics', 'metaworld', 'robosuite']
+- Claim 32: **VERIFIED** - Benchmark rollout pools collected. Evidence: benchmark=Reacher-v5, pools=25, rollouts=64, rows=600
+- Claim 33: **VERIFIED** - Benchmark exact law verified. Evidence: benchmark=Reacher-v5, utility MAE=0.018753143169510465, exact rows=150
+- Claim 34: **VERIFIED** - Benchmark score comparison verified. Evidence: benchmark=Reacher-v5, oracle-random CI={'n': 5, 'mean': 1.7107893171571196, 'std': 0.3902710091578448, 'stderr': 0.17453450122487676, 'ci95': 0.34208762240075846, 'lo': 1.368701694756361, 'hi': 2.052876939557878}
+- Claim 35: **VERIFIED** - Benchmark real-vs-imagined gap verified. Evidence: benchmark=Reacher-v5, gap growth=0.14372151651340617
+- Claim 36: **VERIFIED** - Benchmark closed-loop verified. Evidence: benchmark=Reacher-v5, learned-random closed-loop CI={'n': 5, 'mean': 1.7643643582266495, 'std': 1.5449273707487574, 'stderr': 0.6909125242588483, 'ci95': 1.3541885475473427, 'lo': 0.41017581067930675, 'hi': 3.118552905773992}
+- Claim 37: **VERIFIED** - Benchmark learned WAM trained. Evidence: benchmark=Reacher-v5, model=C:\Users\wangz\best-of-n-wam\results\models\benchmark_gym_manip_horizon_wam.npz, metrics=2
 - Claim 38: **VERIFIED** - Visual toy WAM attempted. Evidence: visual=True
 - Claim 39: **VERIFIED** - Visual toy WAM verified if artifacts exist. Evidence: test MAE=0.018500254396187476
 - Claim 40: **VERIFIED** - Benchmark visual optional. Evidence: verified=True, frame_std=24.34952509299029
@@ -102,24 +102,25 @@
 - Claim 100: **VERIFIED** - Published result artifact references are internally consistent. Evidence: refs=681, issues=0, status_counts={'ok': 681}
 - Claim 101: **VERIFIED** - Published result summaries agree with canonical tables. Evidence: checks=157, issues=0
 - Claim 102: **VERIFIED** - Published narrative numbers match current artifacts. Evidence: checks=48, issues=0
-- Claim 103: **VERIFIED** - Claim ledger is structurally consistent. Evidence: claims=123, max_id=123, checks=21, issues=0
+- Claim 103: **VERIFIED** - Claim ledger is structurally consistent. Evidence: claims=124, max_id=124, checks=21, issues=0
 - Claim 104: **VERIFIED** - Canonical execution scripts preserve required gate contracts. Evidence: scripts=7, checks=117, issues=0
-- Claim 105: **VERIFIED** - Verified claims have mapped source artifacts and quality-checked evidence. Evidence: claims=123, mapped=123, sources=167, issues=0
+- Claim 105: **VERIFIED** - Verified claims have mapped source artifacts and quality-checked evidence. Evidence: claims=124, mapped=124, sources=169, issues=0
 - Claim 106: **VERIFIED** - Published summary metrics recompute from raw result tables. Evidence: aggregate metrics=10710, exact files=20, seed CI columns=125, issues=0
-- Claim 107: **VERIFIED** - Verified claim wording satisfies semantic threshold checks. Evidence: claims=123, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0
+- Claim 107: **VERIFIED** - Verified claim wording satisfies semantic threshold checks. Evidence: claims=124, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0
 - Claim 108: **VERIFIED** - Scientific result artifacts have a deterministic hash manifest. Evidence: files=397, bytes=56421681, suffixes={'.json': 105, '.npz': 41, '.png': 36, '.csv': 215}, issues=0
 - Claim 109: **VERIFIED** - Publication figure artifacts pass image-quality checks. Evidence: figures=36, expected=25, checks=8, issues=0
 - Claim 110: **VERIFIED** - Canonical CSV result tables pass schema and numeric-sanity checks. Evidence: tables=215, rows=212858, numeric_columns=1959, checks=17, issues=0
-- Claim 111: **VERIFIED** - Source and verification code have a deterministic hash manifest. Evidence: files=197, bytes=1393229, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 37, 'src': 54, 'tests': 45}, checks=14, issues=0
+- Claim 111: **VERIFIED** - Source and verification code have a deterministic hash manifest. Evidence: files=200, bytes=1412938, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 38, 'src': 55, 'tests': 46}, checks=14, issues=0
 - Claim 112: **VERIFIED** - Runtime and dependency environment metadata has a verified manifest. Evidence: python=3.10.11, core=4, absent=0, version_issues=0, optional_available=5/5, modules=13, commands=5, checks=15, issues=0
 - Claim 113: **VERIFIED** - Canonical experiment families have verified registry coverage. Evidence: entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=297, rows=260523, figures=40, failed=0, checks=10, issues=0
 - Claim 114: **VERIFIED** - Committed learned-model artifacts are loadable and numerically sane. Evidence: models=49, suffixes={'.npz': 36, '.joblib': 13}, bytes=119450103, npz_arrays=315, npz_elements=6077793, joblib_predictors=13, checks=10, issues=0
-- Claim 115: **VERIFIED** - Published final-report command results match current verification artifacts. Evidence: snippets=24, python_commands=27, pytest=117, checks=27, issues=0
-- Claim 116: **VERIFIED** - Pytest command-result counts come from a verified collected-test inventory. Evidence: tests=117, unique=117, trailer=117, checks=6, issues=0
-- Claim 117: **VERIFIED** - Generated claim-status artifacts are byte-stable under rerunning the claim generator. Evidence: claims=123, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json
+- Claim 115: **VERIFIED** - Published final-report command results match current verification artifacts. Evidence: snippets=25, python_commands=28, pytest=120, checks=28, issues=0
+- Claim 116: **VERIFIED** - Pytest command-result counts come from a verified collected-test inventory. Evidence: tests=120, unique=120, trailer=120, checks=6, issues=0
+- Claim 117: **VERIFIED** - Generated claim-status artifacts are byte-stable under rerunning the claim generator. Evidence: claims=124, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json
 - Claim 118: **VERIFIED** - Generated max-out narrative reports are byte-stable under rerunning the report generator. Evidence: reports=8, files=8, checks=9, issues=0, hashes_recorded_in=results/report_generation_consistency.json
-- Claim 119: **VERIFIED** - Claim evidence artifacts and published artifact references are represented in the git index. Evidence: claim_sources=111, artifact_refs=441, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0
-- Claim 120: **VERIFIED** - Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage. Evidence: claim_sources=109, artifact_refs=439, hashed=548, self_outputs_excluded=4, issues=0
-- Claim 121: **VERIFIED** - Claim evidence artifacts and published artifact references are repository-bound. Evidence: records=848, claim_sources=167, artifact_refs=681, outside=0, absent=0, traversal=0, issues=0
+- Claim 119: **VERIFIED** - Claim evidence artifacts and published artifact references are represented in the git index. Evidence: claim_sources=113, artifact_refs=441, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0
+- Claim 120: **VERIFIED** - Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage. Evidence: claim_sources=111, artifact_refs=439, hashed=550, self_outputs_excluded=4, issues=0
+- Claim 121: **VERIFIED** - Claim evidence artifacts and published artifact references are repository-bound. Evidence: records=850, claim_sources=169, artifact_refs=681, outside=0, absent=0, traversal=0, issues=0
 - Claim 122: **VERIFIED** - Final-report abstract-level claims are directly evidence-backed and scope-limited. Evidence: abstract_claims=4, approved=4, backing_links=23, headline_forbidden=0, issues=0
 - Claim 123: **VERIFIED** - Publication-surface risky robotics claims are guarded as limitations or future work. Evidence: surfaces=5, risk_mentions=72, guarded=72, unguarded=0, issues=0
+- Claim 124: **VERIFIED** - Broad claim wording is scoped by concrete evidence. Evidence: claims=124, scope_mentions=154, categories={'verification': 41, 'model': 24, 'benchmark': 57, 'visual': 13, 'suite_family': 15, 'policy_success': 4}, checks=159, issues=0

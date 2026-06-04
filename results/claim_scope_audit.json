@@ -1,0 +1,2048 @@
+{
+  "experiment": "claim_scope_audit",
+  "verified": true,
+  "n_claims": 124,
+  "n_scope_mentions": 154,
+  "category_counts": {
+    "verification": 41,
+    "model": 24,
+    "benchmark": 57,
+    "visual": 13,
+    "suite_family": 15,
+    "policy_success": 4
+  },
+  "n_checks": 159,
+  "n_issues": 0,
+  "records": [
+    {
+      "claim_id": 1,
+      "category": "verification",
+      "claim": "Exact finite binary law verified.",
+      "evidence": "success MAE=0.002104612037108505",
+      "has_numeric_scope": true,
+      "has_concrete_scope": false
+    },
+    {
+      "claim_id": 2,
+      "category": "verification",
+      "claim": "Utility-valued finite law verified.",
+      "evidence": "utility MAE=0.013762680427723635",
+      "has_numeric_scope": true,
+      "has_concrete_scope": false
+    },
+    {
+      "claim_id": 3,
+      "category": "verification",
+      "claim": "N=2 AUC identity verified.",
+      "evidence": "max identity error=0.0",
+      "has_numeric_scope": true,
+      "has_concrete_scope": false
+    },
+    {
+      "claim_id": 4,
+      "category": "verification",
+      "claim": "High-N moment hierarchy verified.",
+      "evidence": "same-p/kappa gap=0.9988209815422198",
+      "has_numeric_scope": true,
+      "has_concrete_scope": false
+    },
+    {
+      "claim_id": 10,
+      "category": "verification",
+      "claim": "Real-vs-imagined utility gap verified.",
+      "evidence": "severe-none=16.725668702334993",
+      "has_numeric_scope": true,
+      "has_concrete_scope": false
+    },
+    {
+      "claim_id": 12,
+      "category": "verification",
+      "claim": "Bad scorer falsification verified.",
+      "evidence": "anti_scorer utility N64=-26.565706083129044, utility N1=-14.101561337022474",
+      "has_numeric_scope": true,
+      "has_concrete_scope": false
+    },
+    {
+      "claim_id": 13,
+      "category": "verification",
+      "claim": "Randomized dynamics falsification verified.",
+      "evidence": "randomized-oracle N64 gap=13.393867700179667",
+      "has_numeric_scope": true,
+      "has_concrete_scope": false
+    },
+    {
+      "claim_id": 16,
+      "category": "verification",
+      "claim": "Closed-loop high-N gain verified.",
+      "evidence": "analytic useful N64-N1=0.20833333333333337; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 19,
+      "category": "verification",
+      "claim": "Conditional law verified under distribution shift.",
+      "evidence": "MAE=0.002711190528210008",
+      "has_numeric_scope": true,
+      "has_concrete_scope": false
+    },
+    {
+      "claim_id": 22,
+      "category": "model",
+      "claim": "Learned WAM trained.",
+      "evidence": "model=results\\models\\learned_wam_lite_toy.npz",
+      "has_numeric_scope": false,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 23,
+      "category": "model",
+      "claim": "Learned WAM ID error reported.",
+      "evidence": "validation={'split': 'validation', 'mismatch': 'mild', 'n_samples': 768, 'final_delta_mae': 0.07366012085339552, 'final_position_l2_mae': 0.11172250197070248, 'utility_mae': 0.8623689603284147, 'utility_rmse': 1.1687153364750862, 'utility_corr': 0.894453974332229}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": false
+    },
+    {
+      "claim_id": 24,
+      "category": "model",
+      "claim": "Learned WAM OOD error reported.",
+      "evidence": "ood count=3, samples=[192, 192, 192], utility_mae=[2.2723724651895516, 2.127490419092671, 1.0671464005106506]",
+      "has_numeric_scope": true,
+      "has_concrete_scope": false
+    },
+    {
+      "claim_id": 25,
+      "category": "model",
+      "claim": "Learned WAM reproduces key inference-value claims.",
+      "evidence": "learned-analytic CI={'n': 5, 'mean': 1.169836264042242, 'std': 0.24964325385176853, 'stderr': 0.11164385714735812, 'ci95': 0.21882196000882193, 'lo': 0.95101430403342, 'hi': 1.3886582240510639}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": false
+    },
+    {
+      "claim_id": 26,
+      "category": "verification",
+      "claim": "BlockPush verified.",
+      "evidence": "env=block_push, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 27,
+      "category": "verification",
+      "claim": "DrawerPull verified.",
+      "evidence": "env=drawer_pull, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 28,
+      "category": "verification",
+      "claim": "SlipperyGrasp verified.",
+      "evidence": "env=slippery_grasp, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 29,
+      "category": "verification",
+      "claim": "Nonstationary verified.",
+      "evidence": "env=nonstationary_shift, exp8_mae=0.002711190528210008, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 31,
+      "category": "benchmark",
+      "claim": "Benchmark adapter available.",
+      "evidence": "attempted=True, any_available=True, available=['maniskill', 'gym_manip', 'gym_robotics', 'metaworld', 'robosuite']",
+      "has_numeric_scope": false,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 32,
+      "category": "benchmark",
+      "claim": "Benchmark rollout pools collected.",
+      "evidence": "benchmark=Reacher-v5, pools=25, rollouts=64, rows=600",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 33,
+      "category": "verification",
+      "claim": "Benchmark exact law verified.",
+      "evidence": "benchmark=Reacher-v5, utility MAE=0.018753143169510465, exact rows=150",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 33,
+      "category": "benchmark",
+      "claim": "Benchmark exact law verified.",
+      "evidence": "benchmark=Reacher-v5, utility MAE=0.018753143169510465, exact rows=150",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 34,
+      "category": "verification",
+      "claim": "Benchmark score comparison verified.",
+      "evidence": "benchmark=Reacher-v5, oracle-random CI={'n': 5, 'mean': 1.7107893171571196, 'std': 0.3902710091578448, 'stderr': 0.17453450122487676, 'ci95': 0.34208762240075846, 'lo': 1.368701694756361, 'hi': 2.052876939557878}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 34,
+      "category": "benchmark",
+      "claim": "Benchmark score comparison verified.",
+      "evidence": "benchmark=Reacher-v5, oracle-random CI={'n': 5, 'mean': 1.7107893171571196, 'std': 0.3902710091578448, 'stderr': 0.17453450122487676, 'ci95': 0.34208762240075846, 'lo': 1.368701694756361, 'hi': 2.052876939557878}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 35,
+      "category": "verification",
+      "claim": "Benchmark real-vs-imagined gap verified.",
+      "evidence": "benchmark=Reacher-v5, gap growth=0.14372151651340617",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 35,
+      "category": "benchmark",
+      "claim": "Benchmark real-vs-imagined gap verified.",
+      "evidence": "benchmark=Reacher-v5, gap growth=0.14372151651340617",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 36,
+      "category": "verification",
+      "claim": "Benchmark closed-loop verified.",
+      "evidence": "benchmark=Reacher-v5, learned-random closed-loop CI={'n': 5, 'mean': 1.7643643582266495, 'std': 1.5449273707487574, 'stderr': 0.6909125242588483, 'ci95': 1.3541885475473427, 'lo': 0.41017581067930675, 'hi': 3.118552905773992}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 36,
+      "category": "benchmark",
+      "claim": "Benchmark closed-loop verified.",
+      "evidence": "benchmark=Reacher-v5, learned-random closed-loop CI={'n': 5, 'mean': 1.7643643582266495, 'std': 1.5449273707487574, 'stderr': 0.6909125242588483, 'ci95': 1.3541885475473427, 'lo': 0.41017581067930675, 'hi': 3.118552905773992}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 37,
+      "category": "benchmark",
+      "claim": "Benchmark learned WAM trained.",
+      "evidence": "benchmark=Reacher-v5, model=C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz, metrics=2",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 37,
+      "category": "model",
+      "claim": "Benchmark learned WAM trained.",
+      "evidence": "benchmark=Reacher-v5, model=C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz, metrics=2",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 38,
+      "category": "visual",
+      "claim": "Visual toy WAM attempted.",
+      "evidence": "visual=True",
+      "has_numeric_scope": false,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 39,
+      "category": "verification",
+      "claim": "Visual toy WAM verified if artifacts exist.",
+      "evidence": "test MAE=0.018500254396187476",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 39,
+      "category": "visual",
+      "claim": "Visual toy WAM verified if artifacts exist.",
+      "evidence": "test MAE=0.018500254396187476",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 40,
+      "category": "benchmark",
+      "claim": "Benchmark visual optional.",
+      "evidence": "verified=True, frame_std=24.34952509299029",
+      "has_numeric_scope": false,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 40,
+      "category": "visual",
+      "claim": "Benchmark visual optional.",
+      "evidence": "verified=True, frame_std=24.34952509299029",
+      "has_numeric_scope": false,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 48,
+      "category": "verification",
+      "claim": "ManiSkill state benchmark suite verified.",
+      "evidence": "envs=['PickCube-v1', 'PushCube-v1', 'PegInsertionSide-v1'], control=pd_joint_delta_pos",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 48,
+      "category": "benchmark",
+      "claim": "ManiSkill state benchmark suite verified.",
+      "evidence": "envs=['PickCube-v1', 'PushCube-v1', 'PegInsertionSide-v1'], control=pd_joint_delta_pos",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 48,
+      "category": "suite_family",
+      "claim": "ManiSkill state benchmark suite verified.",
+      "evidence": "envs=['PickCube-v1', 'PushCube-v1', 'PegInsertionSide-v1'], control=pd_joint_delta_pos",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 49,
+      "category": "benchmark",
+      "claim": "ManiSkill rollout pools collected.",
+      "evidence": "pools=30, rollouts=32, rows=900",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 50,
+      "category": "verification",
+      "claim": "ManiSkill exact law verified.",
+      "evidence": "utility MAE=0.0034490668019852445, exact rows=180",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 50,
+      "category": "benchmark",
+      "claim": "ManiSkill exact law verified.",
+      "evidence": "utility MAE=0.0034490668019852445, exact rows=180",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 51,
+      "category": "verification",
+      "claim": "ManiSkill score comparison verified.",
+      "evidence": "dense-random CI={'n': 5, 'mean': 0.24732126597363005, 'std': 0.023695650387774738, 'stderr': 0.010597017007626712, 'ci95': 0.020770153334948357, 'lo': 0.2265511126386817, 'hi': 0.2680914193085784}; oracle-random CI={'n': 5, 'mean': 0.24785881464044768, 'std': 0.024027854839175085, 'stderr': 0.010745583354778553, 'ci95': 0.021061343375365964, 'lo': 0.2267974712650817, 'hi': 0.26892015801581365}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 51,
+      "category": "benchmark",
+      "claim": "ManiSkill score comparison verified.",
+      "evidence": "dense-random CI={'n': 5, 'mean': 0.24732126597363005, 'std': 0.023695650387774738, 'stderr': 0.010597017007626712, 'ci95': 0.020770153334948357, 'lo': 0.2265511126386817, 'hi': 0.2680914193085784}; oracle-random CI={'n': 5, 'mean': 0.24785881464044768, 'std': 0.024027854839175085, 'stderr': 0.010745583354778553, 'ci95': 0.021061343375365964, 'lo': 0.2267974712650817, 'hi': 0.26892015801581365}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 52,
+      "category": "benchmark",
+      "claim": "ManiSkill WAM-lite trained and evaluated.",
+      "evidence": "model metric rows=6, table rows=6",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 52,
+      "category": "model",
+      "claim": "ManiSkill WAM-lite trained and evaluated.",
+      "evidence": "model metric rows=6, table rows=6",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 53,
+      "category": "benchmark",
+      "claim": "ManiSkill closed-loop learned scorer beats random.",
+      "evidence": "learned-random closed-loop CI={'n': 5, 'mean': 0.027762312500152514, 'std': 0.020055963136210424, 'stderr': 0.008969299385359276, 'ci95': 0.01757982679530418, 'lo': 0.010182485704848334, 'hi': 0.04534213929545669}, rows=90",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 54,
+      "category": "benchmark",
+      "claim": "ManiSkill learned open-loop scorer is honestly reported.",
+      "evidence": "learned-random open-loop CI={'n': 5, 'mean': -0.005754620067846242, 'std': 0.04861601605708501, 'stderr': 0.021741743339772673, 'ci95': 0.04261381694595444, 'lo': -0.04836843701380068, 'hi': 0.036859196878108194}, rows=900",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 55,
+      "category": "benchmark",
+      "claim": "Benchmark RGB visual WAM-lite trained and evaluated.",
+      "evidence": "model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.2199328908664021, 'success_mae': 0.18271949404761903}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 55,
+      "category": "visual",
+      "claim": "Benchmark RGB visual WAM-lite trained and evaluated.",
+      "evidence": "model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.2199328908664021, 'success_mae': 0.18271949404761903}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 55,
+      "category": "model",
+      "claim": "Benchmark RGB visual WAM-lite trained and evaluated.",
+      "evidence": "model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.2199328908664021, 'success_mae': 0.18271949404761903}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 56,
+      "category": "verification",
+      "claim": "Benchmark RGB visual WAM exact law verified.",
+      "evidence": "utility MAE=0.01571480996432407, exact rows=150",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 56,
+      "category": "benchmark",
+      "claim": "Benchmark RGB visual WAM exact law verified.",
+      "evidence": "utility MAE=0.01571480996432407, exact rows=150",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 56,
+      "category": "visual",
+      "claim": "Benchmark RGB visual WAM exact law verified.",
+      "evidence": "utility MAE=0.01571480996432407, exact rows=150",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 57,
+      "category": "benchmark",
+      "claim": "Benchmark RGB visual WAM scorer beats random with CI.",
+      "evidence": "visual-random CI={'n': 5, 'mean': 0.2367775727718704, 'std': 0.04220964852617569, 'stderr': 0.01887672868218053, 'ci95': 0.03699838821707384, 'lo': 0.19977918455479654, 'hi': 0.27377596098894424}, rows=750",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 57,
+      "category": "visual",
+      "claim": "Benchmark RGB visual WAM scorer beats random with CI.",
+      "evidence": "visual-random CI={'n': 5, 'mean': 0.2367775727718704, 'std': 0.04220964852617569, 'stderr': 0.01887672868218053, 'ci95': 0.03699838821707384, 'lo': 0.19977918455479654, 'hi': 0.27377596098894424}, rows=750",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 58,
+      "category": "benchmark",
+      "claim": "Benchmark RGB visual WAM oracle gap reported.",
+      "evidence": "oracle-visual CI={'n': 5, 'mean': 0.3433881226502652, 'std': 0.09104423341118655, 'stderr': 0.04071621897335413, 'ci95': 0.0798037891877741, 'lo': 0.2635843334624911, 'hi': 0.4231919118380393}, rows=750",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 58,
+      "category": "visual",
+      "claim": "Benchmark RGB visual WAM oracle gap reported.",
+      "evidence": "oracle-visual CI={'n': 5, 'mean': 0.3433881226502652, 'std': 0.09104423341118655, 'stderr': 0.04071621897335413, 'ci95': 0.0798037891877741, 'lo': 0.2635843334624911, 'hi': 0.4231919118380393}, rows=750",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 59,
+      "category": "verification",
+      "claim": "Gymnasium Robotics Fetch benchmark suite verified.",
+      "evidence": "envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], pools=60, rows=1800",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 59,
+      "category": "benchmark",
+      "claim": "Gymnasium Robotics Fetch benchmark suite verified.",
+      "evidence": "envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], pools=60, rows=1800",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 59,
+      "category": "suite_family",
+      "claim": "Gymnasium Robotics Fetch benchmark suite verified.",
+      "evidence": "envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], pools=60, rows=1800",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 60,
+      "category": "verification",
+      "claim": "Gymnasium Robotics Fetch exact law verified.",
+      "evidence": "utility MAE=0.012637772476737578, exact rows=360",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 60,
+      "category": "benchmark",
+      "claim": "Gymnasium Robotics Fetch exact law verified.",
+      "evidence": "utility MAE=0.012637772476737578, exact rows=360",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 61,
+      "category": "benchmark",
+      "claim": "Gymnasium Robotics learned WAM scorer beats random with CI.",
+      "evidence": "learned-random CI={'n': 5, 'mean': 0.5183591980928537, 'std': 0.08832562568455588, 'stderr': 0.03950042063717366, 'ci95': 0.07742082444886038, 'lo': 0.4409383736439933, 'hi': 0.595780022541714}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 61,
+      "category": "model",
+      "claim": "Gymnasium Robotics learned WAM scorer beats random with CI.",
+      "evidence": "learned-random CI={'n': 5, 'mean': 0.5183591980928537, 'std': 0.08832562568455588, 'stderr': 0.03950042063717366, 'ci95': 0.07742082444886038, 'lo': 0.4409383736439933, 'hi': 0.595780022541714}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 62,
+      "category": "benchmark",
+      "claim": "Gymnasium Robotics closed-loop learned scorer beats random.",
+      "evidence": "closed-loop learned-random CI={'n': 5, 'mean': 0.7086378606835364, 'std': 0.5149831233310606, 'stderr': 0.23030745420668186, 'ci95': 0.4514026102450964, 'lo': 0.25723525043844, 'hi': 1.160040470928633}, rows=135",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 63,
+      "category": "benchmark",
+      "claim": "Gymnasium Robotics oracle gap reported.",
+      "evidence": "oracle-learned CI={'n': 5, 'mean': 0.03423794265616582, 'std': 0.021599643753640783, 'stderr': 0.009659654344583902, 'ci95': 0.018932922515384448, 'lo': 0.015305020140781375, 'hi': 0.05317086517155027}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 64,
+      "category": "benchmark",
+      "claim": "Gymnasium Robotics RGB visual WAM trained and evaluated.",
+      "evidence": "envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.7325062733110719, rows=1350",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 64,
+      "category": "visual",
+      "claim": "Gymnasium Robotics RGB visual WAM trained and evaluated.",
+      "evidence": "envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.7325062733110719, rows=1350",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 64,
+      "category": "model",
+      "claim": "Gymnasium Robotics RGB visual WAM trained and evaluated.",
+      "evidence": "envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.7325062733110719, rows=1350",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 65,
+      "category": "verification",
+      "claim": "Gymnasium Robotics RGB visual exact law verified.",
+      "evidence": "utility MAE=0.010612997381058541, exact rows=270",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 65,
+      "category": "benchmark",
+      "claim": "Gymnasium Robotics RGB visual exact law verified.",
+      "evidence": "utility MAE=0.010612997381058541, exact rows=270",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 65,
+      "category": "visual",
+      "claim": "Gymnasium Robotics RGB visual exact law verified.",
+      "evidence": "utility MAE=0.010612997381058541, exact rows=270",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 66,
+      "category": "benchmark",
+      "claim": "Gymnasium Robotics RGB visual scorer beats random with CI.",
+      "evidence": "visual-random CI={'n': 5, 'mean': 0.4888505704773543, 'std': 0.16122603373528005, 'stderr': 0.0721024742349521, 'ci95': 0.1413208495005061, 'lo': 0.3475297209768482, 'hi': 0.6301714199778604}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 66,
+      "category": "visual",
+      "claim": "Gymnasium Robotics RGB visual scorer beats random with CI.",
+      "evidence": "visual-random CI={'n': 5, 'mean': 0.4888505704773543, 'std': 0.16122603373528005, 'stderr': 0.0721024742349521, 'ci95': 0.1413208495005061, 'lo': 0.3475297209768482, 'hi': 0.6301714199778604}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 67,
+      "category": "benchmark",
+      "claim": "Gymnasium Robotics RGB visual oracle gap is reported without requiring significance.",
+      "evidence": "oracle-visual CI={'n': 5, 'mean': 0.02680333126025487, 'std': 0.03203449057950047, 'stderr': 0.014326259712067935, 'ci95': 0.028079469035653153, 'lo': -0.0012761377753982839, 'hi': 0.05488280029590802}, rows=1350",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 67,
+      "category": "visual",
+      "claim": "Gymnasium Robotics RGB visual oracle gap is reported without requiring significance.",
+      "evidence": "oracle-visual CI={'n': 5, 'mean': 0.02680333126025487, 'std': 0.03203449057950047, 'stderr': 0.014326259712067935, 'ci95': 0.028079469035653153, 'lo': -0.0012761377753982839, 'hi': 0.05488280029590802}, rows=1350",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 68,
+      "category": "benchmark",
+      "claim": "ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.",
+      "evidence": "visual_success=False, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pin_binary=False",
+      "has_numeric_scope": false,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 68,
+      "category": "visual",
+      "claim": "ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.",
+      "evidence": "visual_success=False, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pin_binary=False",
+      "has_numeric_scope": false,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 69,
+      "category": "verification",
+      "claim": "Meta-World ML1 benchmark suite verified.",
+      "evidence": "tasks=['reach-v3', 'push-v3', 'drawer-open-v3'], pools=45, rows=1620",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 69,
+      "category": "benchmark",
+      "claim": "Meta-World ML1 benchmark suite verified.",
+      "evidence": "tasks=['reach-v3', 'push-v3', 'drawer-open-v3'], pools=45, rows=1620",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 69,
+      "category": "suite_family",
+      "claim": "Meta-World ML1 benchmark suite verified.",
+      "evidence": "tasks=['reach-v3', 'push-v3', 'drawer-open-v3'], pools=45, rows=1620",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 70,
+      "category": "verification",
+      "claim": "Meta-World exact law verified.",
+      "evidence": "utility MAE=0.029769105761603815, exact rows=270",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 70,
+      "category": "benchmark",
+      "claim": "Meta-World exact law verified.",
+      "evidence": "utility MAE=0.029769105761603815, exact rows=270",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 71,
+      "category": "benchmark",
+      "claim": "Meta-World learned WAM scorer beats random open-loop with CI.",
+      "evidence": "learned-random CI={'n': 5, 'mean': 0.11054551953348397, 'std': 0.014837925371412848, 'stderr': 0.0066357219551095884, 'ci95': 0.013006015032014793, 'lo': 0.09753950450146918, 'hi': 0.12355153456549876}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 71,
+      "category": "model",
+      "claim": "Meta-World learned WAM scorer beats random open-loop with CI.",
+      "evidence": "learned-random CI={'n': 5, 'mean': 0.11054551953348397, 'std': 0.014837925371412848, 'stderr': 0.0066357219551095884, 'ci95': 0.013006015032014793, 'lo': 0.09753950450146918, 'hi': 0.12355153456549876}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 72,
+      "category": "benchmark",
+      "claim": "Meta-World oracle and benchmark-reward scorers beat random with CI.",
+      "evidence": "reward-random CI={'n': 5, 'mean': 0.5208496009041265, 'std': 0.06185776418102653, 'stderr': 0.027663633128985385, 'ci95': 0.054220720932811356, 'lo': 0.4666288799713151, 'hi': 0.5750703218369378}; oracle-random CI={'n': 5, 'mean': 0.5576417182681597, 'std': 0.04380737850483259, 'stderr': 0.019591255250573755, 'ci95': 0.038398860291124555, 'lo': 0.5192428579770351, 'hi': 0.5960405785592843}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 73,
+      "category": "verification",
+      "claim": "RoboSuite Panda manipulation benchmark suite verified.",
+      "evidence": "envs=['Lift', 'Stack', 'Door'], pools=30, rows=1260",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 73,
+      "category": "benchmark",
+      "claim": "RoboSuite Panda manipulation benchmark suite verified.",
+      "evidence": "envs=['Lift', 'Stack', 'Door'], pools=30, rows=1260",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 73,
+      "category": "suite_family",
+      "claim": "RoboSuite Panda manipulation benchmark suite verified.",
+      "evidence": "envs=['Lift', 'Stack', 'Door'], pools=30, rows=1260",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 74,
+      "category": "verification",
+      "claim": "RoboSuite exact law verified.",
+      "evidence": "utility MAE=0.0023698818100493587, exact rows=180",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 74,
+      "category": "benchmark",
+      "claim": "RoboSuite exact law verified.",
+      "evidence": "utility MAE=0.0023698818100493587, exact rows=180",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 75,
+      "category": "benchmark",
+      "claim": "RoboSuite learned WAM scorer beats random open-loop with CI.",
+      "evidence": "learned-random CI={'n': 5, 'mean': 0.32020186708958887, 'std': 0.08614749302461966, 'stderr': 0.038526330098847705, 'ci95': 0.0755116069937415, 'lo': 0.24469026009584738, 'hi': 0.39571347408333035}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 75,
+      "category": "model",
+      "claim": "RoboSuite learned WAM scorer beats random open-loop with CI.",
+      "evidence": "learned-random CI={'n': 5, 'mean': 0.32020186708958887, 'std': 0.08614749302461966, 'stderr': 0.038526330098847705, 'ci95': 0.0755116069937415, 'lo': 0.24469026009584738, 'hi': 0.39571347408333035}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 76,
+      "category": "benchmark",
+      "claim": "RoboSuite reward, progress, and oracle scorers beat random with CI.",
+      "evidence": "reward-random CI={'n': 5, 'mean': 0.33580473945491357, 'std': 0.0845123155588677, 'stderr': 0.03779505650510826, 'ci95': 0.07407831075001219, 'lo': 0.26172642870490137, 'hi': 0.40988305020492577}; progress-random CI={'n': 5, 'mean': 0.1829135769086768, 'std': 0.11887225635263822, 'stderr': 0.053161289168656055, 'ci95': 0.10419612677056586, 'lo': 0.07871745013811093, 'hi': 0.28710970367924266}; oracle-random CI={'n': 5, 'mean': 0.3554064768118671, 'std': 0.09637875214875093, 'stderr': 0.0431018882782422, 'ci95': 0.08447970102535471, 'lo': 0.27092677578651236, 'hi': 0.43988617783722184}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 77,
+      "category": "benchmark",
+      "claim": "RoboSuite closed-loop learned and reward scorers beat random.",
+      "evidence": "learned-random CI={'n': 5, 'mean': 0.08618701545420379, 'std': 0.00732792326762759, 'stderr': 0.0032771469120635353, 'ci95': 0.006423207947644529, 'lo': 0.07976380750655926, 'hi': 0.09261022340184832}; reward-random CI={'n': 5, 'mean': 0.0742545661373815, 'std': 0.02836672038992971, 'stderr': 0.012685983018122434, 'ci95': 0.02486452671551997, 'lo': 0.04939003942186153, 'hi': 0.09911909285290148}, rows=120",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 78,
+      "category": "verification",
+      "claim": "RoboCasa kitchen benchmark smoke verified.",
+      "evidence": "env=robocasa/PickPlaceCounterToCabinet, pools=5, rollouts=80, exact MAE=0.0002724664778796843, oracle-random CI={'n': 5, 'mean': 0.2737591862068588, 'std': 0.13943158358342508, 'stderr': 0.06235569982059644, 'ci95': 0.12221717164836901, 'lo': 0.15154201455848978, 'hi': 0.3959763578552278}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 78,
+      "category": "benchmark",
+      "claim": "RoboCasa kitchen benchmark smoke verified.",
+      "evidence": "env=robocasa/PickPlaceCounterToCabinet, pools=5, rollouts=80, exact MAE=0.0002724664778796843, oracle-random CI={'n': 5, 'mean': 0.2737591862068588, 'std': 0.13943158358342508, 'stderr': 0.06235569982059644, 'ci95': 0.12221717164836901, 'lo': 0.15154201455848978, 'hi': 0.3959763578552278}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 79,
+      "category": "benchmark",
+      "claim": "RoboCasa learned WAM-lite scorer beats random with CI.",
+      "evidence": "train=80, val=32, eval=80, utility corr=0.7639608394479505, learned-random CI={'n': 5, 'mean': 0.14832993183038654, 'std': 0.11178217873717447, 'stderr': 0.04999051006587074, 'ci95': 0.09798139972910665, 'lo': 0.05034853210127989, 'hi': 0.2463113315594932}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 79,
+      "category": "model",
+      "claim": "RoboCasa learned WAM-lite scorer beats random with CI.",
+      "evidence": "train=80, val=32, eval=80, utility corr=0.7639608394479505, learned-random CI={'n': 5, 'mean': 0.14832993183038654, 'std': 0.11178217873717447, 'stderr': 0.04999051006587074, 'ci95': 0.09798139972910665, 'lo': 0.05034853210127989, 'hi': 0.2463113315594932}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 80,
+      "category": "benchmark",
+      "claim": "RoboCasa three-task learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=['robocasa/PickPlaceCounterToCabinet', 'robocasa/PickPlaceCounterToDrawer', 'robocasa/PickPlaceCounterToMicrowave'], train=144, val=96, eval=240, utility corr=0.6751791364461345, promoted=learned_energy_regularized, learned-random CI={'n': 15, 'mean': 0.23492695125782703, 'std': 0.13017328673923353, 'stderr': 0.03361059811080895, 'ci95': 0.06587677229718554, 'lo': 0.1690501789606415, 'hi': 0.30080372355501256}, oracle-learned CI={'n': 15, 'mean': 0.05812674657491653, 'std': 0.04447418542048683, 'stderr': 0.01148318529797908, 'ci95': 0.022507043184038997, 'lo': 0.035619703390877534, 'hi': 0.08063378975895552}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 80,
+      "category": "suite_family",
+      "claim": "RoboCasa three-task learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=['robocasa/PickPlaceCounterToCabinet', 'robocasa/PickPlaceCounterToDrawer', 'robocasa/PickPlaceCounterToMicrowave'], train=144, val=96, eval=240, utility corr=0.6751791364461345, promoted=learned_energy_regularized, learned-random CI={'n': 15, 'mean': 0.23492695125782703, 'std': 0.13017328673923353, 'stderr': 0.03361059811080895, 'ci95': 0.06587677229718554, 'lo': 0.1690501789606415, 'hi': 0.30080372355501256}, oracle-learned CI={'n': 15, 'mean': 0.05812674657491653, 'std': 0.04447418542048683, 'stderr': 0.01148318529797908, 'ci95': 0.022507043184038997, 'lo': 0.035619703390877534, 'hi': 0.08063378975895552}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 80,
+      "category": "model",
+      "claim": "RoboCasa three-task learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=['robocasa/PickPlaceCounterToCabinet', 'robocasa/PickPlaceCounterToDrawer', 'robocasa/PickPlaceCounterToMicrowave'], train=144, val=96, eval=240, utility corr=0.6751791364461345, promoted=learned_energy_regularized, learned-random CI={'n': 15, 'mean': 0.23492695125782703, 'std': 0.13017328673923353, 'stderr': 0.03361059811080895, 'ci95': 0.06587677229718554, 'lo': 0.1690501789606415, 'hi': 0.30080372355501256}, oracle-learned CI={'n': 15, 'mean': 0.05812674657491653, 'std': 0.04447418542048683, 'stderr': 0.01148318529797908, 'ci95': 0.022507043184038997, 'lo': 0.035619703390877534, 'hi': 0.08063378975895552}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 83,
+      "category": "verification",
+      "claim": "LIBERO rollout-pool learned WAM-lite benchmark verified.",
+      "evidence": "tasks=['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2'], train=192, val=96, eval=240, exact MAE=0.0001402348651464976, utility corr=0.3526483541014925, learned-random CI={'n': 15, 'mean': 0.3375863022441559, 'std': 0.14290935532341625, 'stderr': 0.03689903687898863, 'ci95': 0.07232211228281771, 'lo': 0.2652641899613382, 'hi': 0.40990841452697363}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 83,
+      "category": "benchmark",
+      "claim": "LIBERO rollout-pool learned WAM-lite benchmark verified.",
+      "evidence": "tasks=['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2'], train=192, val=96, eval=240, exact MAE=0.0001402348651464976, utility corr=0.3526483541014925, learned-random CI={'n': 15, 'mean': 0.3375863022441559, 'std': 0.14290935532341625, 'stderr': 0.03689903687898863, 'ci95': 0.07232211228281771, 'lo': 0.2652641899613382, 'hi': 0.40990841452697363}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 83,
+      "category": "model",
+      "claim": "LIBERO rollout-pool learned WAM-lite benchmark verified.",
+      "evidence": "tasks=['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2'], train=192, val=96, eval=240, exact MAE=0.0001402348651464976, utility corr=0.3526483541014925, learned-random CI={'n': 15, 'mean': 0.3375863022441559, 'std': 0.14290935532341625, 'stderr': 0.03689903687898863, 'ci95': 0.07232211228281771, 'lo': 0.2652641899613382, 'hi': 0.40990841452697363}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 84,
+      "category": "benchmark",
+      "claim": "RoboCasa broad task family learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet'], train=64, val=32, eval=128, utility corr=0.8598503519742565, promoted=learned_wam, learned-random CI={'n': 16, 'mean': 0.3045073082302883, 'std': 0.19051552386059456, 'stderr': 0.04762888096514864, 'ci95': 0.09335260669169133, 'lo': 0.211154701538597, 'hi': 0.39785991492197964}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 84,
+      "category": "suite_family",
+      "claim": "RoboCasa broad task family learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet'], train=64, val=32, eval=128, utility corr=0.8598503519742565, promoted=learned_wam, learned-random CI={'n': 16, 'mean': 0.3045073082302883, 'std': 0.19051552386059456, 'stderr': 0.04762888096514864, 'ci95': 0.09335260669169133, 'lo': 0.211154701538597, 'hi': 0.39785991492197964}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 84,
+      "category": "model",
+      "claim": "RoboCasa broad task family learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet'], train=64, val=32, eval=128, utility corr=0.8598503519742565, promoted=learned_wam, learned-random CI={'n': 16, 'mean': 0.3045073082302883, 'std': 0.19051552386059456, 'stderr': 0.04762888096514864, 'ci95': 0.09335260669169133, 'lo': 0.211154701538597, 'hi': 0.39785991492197964}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 85,
+      "category": "benchmark",
+      "claim": "RoboCasa 12-task family learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet', 'robocasa/CloseDrawer', 'robocasa/CloseCabinet', 'robocasa/CloseMicrowave', 'robocasa/TurnOffSinkFaucet', 'robocasa/TurnOnStove', 'robocasa/TurnOffStove', 'robocasa/OpenOven', 'robocasa/CloseOven'], train=96, val=96, eval=192, utility corr=0.8330260116378324, promoted=learned_energy_regularized, learned-random CI={'n': 24, 'mean': 0.2736319931949471, 'std': 0.2264236150811513, 'stderr': 0.04621852688876389, 'ci95': 0.09058831270197723, 'lo': 0.18304368049296985, 'hi': 0.36422030589692433}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 85,
+      "category": "suite_family",
+      "claim": "RoboCasa 12-task family learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet', 'robocasa/CloseDrawer', 'robocasa/CloseCabinet', 'robocasa/CloseMicrowave', 'robocasa/TurnOffSinkFaucet', 'robocasa/TurnOnStove', 'robocasa/TurnOffStove', 'robocasa/OpenOven', 'robocasa/CloseOven'], train=96, val=96, eval=192, utility corr=0.8330260116378324, promoted=learned_energy_regularized, learned-random CI={'n': 24, 'mean': 0.2736319931949471, 'std': 0.2264236150811513, 'stderr': 0.04621852688876389, 'ci95': 0.09058831270197723, 'lo': 0.18304368049296985, 'hi': 0.36422030589692433}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 85,
+      "category": "model",
+      "claim": "RoboCasa 12-task family learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet', 'robocasa/CloseDrawer', 'robocasa/CloseCabinet', 'robocasa/CloseMicrowave', 'robocasa/TurnOffSinkFaucet', 'robocasa/TurnOnStove', 'robocasa/TurnOffStove', 'robocasa/OpenOven', 'robocasa/CloseOven'], train=96, val=96, eval=192, utility corr=0.8330260116378324, promoted=learned_energy_regularized, learned-random CI={'n': 24, 'mean': 0.2736319931949471, 'std': 0.2264236150811513, 'stderr': 0.04621852688876389, 'ci95': 0.09058831270197723, 'lo': 0.18304368049296985, 'hi': 0.36422030589692433}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 86,
+      "category": "verification",
+      "claim": "LIBERO sparse-success scripted policy smoke verified.",
+      "evidence": "episodes=50, successes=50, rows=50, success CI={'n': 50, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 86,
+      "category": "benchmark",
+      "claim": "LIBERO sparse-success scripted policy smoke verified.",
+      "evidence": "episodes=50, successes=50, rows=50, success CI={'n': 50, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 86,
+      "category": "policy_success",
+      "claim": "LIBERO sparse-success scripted policy smoke verified.",
+      "evidence": "episodes=50, successes=50, rows=50, success CI={'n': 50, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 87,
+      "category": "verification",
+      "claim": "LIBERO learned action-head sparse-success smoke verified.",
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], eval=30/30, rows=50, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 87,
+      "category": "benchmark",
+      "claim": "LIBERO learned action-head sparse-success smoke verified.",
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], eval=30/30, rows=50, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 87,
+      "category": "policy_success",
+      "claim": "LIBERO learned action-head sparse-success smoke verified.",
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], eval=30/30, rows=50, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 88,
+      "category": "verification",
+      "claim": "LIBERO time-conditioned autonomous low-dimensional BC sparse-success smoke verified.",
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], train=12535, eval=50/50, rows=100, success CI={'n': 50, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'low_dim_knn_behavior_cloning', 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_task_id': True, 'uses_previous_action': True, 'uses_step_clock': True, 'knn_k': 3, 'knn_temperature': 0.05}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 88,
+      "category": "benchmark",
+      "claim": "LIBERO time-conditioned autonomous low-dimensional BC sparse-success smoke verified.",
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], train=12535, eval=50/50, rows=100, success CI={'n': 50, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'low_dim_knn_behavior_cloning', 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_task_id': True, 'uses_previous_action': True, 'uses_step_clock': True, 'knn_k': 3, 'knn_temperature': 0.05}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 88,
+      "category": "policy_success",
+      "claim": "LIBERO time-conditioned autonomous low-dimensional BC sparse-success smoke verified.",
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], train=12535, eval=50/50, rows=100, success CI={'n': 50, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'low_dim_knn_behavior_cloning', 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_task_id': True, 'uses_previous_action': True, 'uses_step_clock': True, 'knn_k': 3, 'knn_temperature': 0.05}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 89,
+      "category": "verification",
+      "claim": "LIBERO RGB/proprio/language BC sparse-success smoke verified.",
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], train=7521, eval=30/30, rows=60, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'rgb_proprio_language_knn_behavior_cloning', 'uses_rgb': True, 'uses_language': True, 'uses_robot_proprio': True, 'uses_simulator_object_state': False, 'uses_task_id': False, 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_previous_action': True, 'uses_step_clock': True, 'uses_language_candidate_filter': True, 'knn_k': 3, 'knn_temperature': 0.05, 'image_grid': 8, 'language_hash_dim': 64}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 89,
+      "category": "benchmark",
+      "claim": "LIBERO RGB/proprio/language BC sparse-success smoke verified.",
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], train=7521, eval=30/30, rows=60, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'rgb_proprio_language_knn_behavior_cloning', 'uses_rgb': True, 'uses_language': True, 'uses_robot_proprio': True, 'uses_simulator_object_state': False, 'uses_task_id': False, 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_previous_action': True, 'uses_step_clock': True, 'uses_language_candidate_filter': True, 'knn_k': 3, 'knn_temperature': 0.05, 'image_grid': 8, 'language_hash_dim': 64}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 89,
+      "category": "visual",
+      "claim": "LIBERO RGB/proprio/language BC sparse-success smoke verified.",
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], train=7521, eval=30/30, rows=60, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'rgb_proprio_language_knn_behavior_cloning', 'uses_rgb': True, 'uses_language': True, 'uses_robot_proprio': True, 'uses_simulator_object_state': False, 'uses_task_id': False, 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_previous_action': True, 'uses_step_clock': True, 'uses_language_candidate_filter': True, 'knn_k': 3, 'knn_temperature': 0.05, 'image_grid': 8, 'language_hash_dim': 64}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 89,
+      "category": "policy_success",
+      "claim": "LIBERO RGB/proprio/language BC sparse-success smoke verified.",
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], train=7521, eval=30/30, rows=60, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'rgb_proprio_language_knn_behavior_cloning', 'uses_rgb': True, 'uses_language': True, 'uses_robot_proprio': True, 'uses_simulator_object_state': False, 'uses_task_id': False, 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_previous_action': True, 'uses_step_clock': True, 'uses_language_candidate_filter': True, 'knn_k': 3, 'knn_temperature': 0.05, 'image_grid': 8, 'language_hash_dim': 64}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 90,
+      "category": "benchmark",
+      "claim": "RoboCasa 24-task family learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=24, train=192, val=192, eval=384, utility corr=0.8523480255953249, promoted=learned_energy_regularized, learned-random CI={'n': 48, 'mean': 0.30556743688204, 'std': 0.2342383401351318, 'stderr': 0.03380939218288737, 'ci95': 0.06626640867845925, 'lo': 0.2393010282035808, 'hi': 0.37183384556049925}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 90,
+      "category": "suite_family",
+      "claim": "RoboCasa 24-task family learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=24, train=192, val=192, eval=384, utility corr=0.8523480255953249, promoted=learned_energy_regularized, learned-random CI={'n': 48, 'mean': 0.30556743688204, 'std': 0.2342383401351318, 'stderr': 0.03380939218288737, 'ci95': 0.06626640867845925, 'lo': 0.2393010282035808, 'hi': 0.37183384556049925}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 90,
+      "category": "model",
+      "claim": "RoboCasa 24-task family learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=24, train=192, val=192, eval=384, utility corr=0.8523480255953249, promoted=learned_energy_regularized, learned-random CI={'n': 48, 'mean': 0.30556743688204, 'std': 0.2342383401351318, 'stderr': 0.03380939218288737, 'ci95': 0.06626640867845925, 'lo': 0.2393010282035808, 'hi': 0.37183384556049925}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 91,
+      "category": "benchmark",
+      "claim": "RoboCasa registry coverage audit is artifacted.",
+      "evidence": "registered=396, rollout_pool_covered=132, micro_covered=106, any_artifact=134",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 92,
+      "category": "verification",
+      "claim": "RoboCasa extra-task micro-rollout viability probe verified.",
+      "evidence": "candidates=4, nondegenerate=4, envs=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter']",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 92,
+      "category": "benchmark",
+      "claim": "RoboCasa extra-task micro-rollout viability probe verified.",
+      "evidence": "candidates=4, nondegenerate=4, envs=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter']",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 92,
+      "category": "suite_family",
+      "claim": "RoboCasa extra-task micro-rollout viability probe verified.",
+      "evidence": "candidates=4, nondegenerate=4, envs=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter']",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 93,
+      "category": "benchmark",
+      "claim": "RoboCasa extra four-task learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter'], train=64, val=32, eval=128, utility corr=0.7993479173648391, promoted=learned_wam, learned-random CI={'n': 16, 'mean': 0.389104640308091, 'std': 0.2902967972911619, 'stderr': 0.07257419932279048, 'ci95': 0.14224543067266934, 'lo': 0.24685920963542166, 'hi': 0.5313500709807604}, oracle-learned CI={'n': 16, 'mean': 0.03704235447364291, 'std': 0.061917841878265635, 'stderr': 0.015479460469566409, 'ci95': 0.03033974252035016, 'lo': 0.0067026119532927475, 'hi': 0.06738209699399307}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 93,
+      "category": "suite_family",
+      "claim": "RoboCasa extra four-task learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter'], train=64, val=32, eval=128, utility corr=0.7993479173648391, promoted=learned_wam, learned-random CI={'n': 16, 'mean': 0.389104640308091, 'std': 0.2902967972911619, 'stderr': 0.07257419932279048, 'ci95': 0.14224543067266934, 'lo': 0.24685920963542166, 'hi': 0.5313500709807604}, oracle-learned CI={'n': 16, 'mean': 0.03704235447364291, 'std': 0.061917841878265635, 'stderr': 0.015479460469566409, 'ci95': 0.03033974252035016, 'lo': 0.0067026119532927475, 'hi': 0.06738209699399307}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 93,
+      "category": "model",
+      "claim": "RoboCasa extra four-task learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter'], train=64, val=32, eval=128, utility corr=0.7993479173648391, promoted=learned_wam, learned-random CI={'n': 16, 'mean': 0.389104640308091, 'std': 0.2902967972911619, 'stderr': 0.07257419932279048, 'ci95': 0.14224543067266934, 'lo': 0.24685920963542166, 'hi': 0.5313500709807604}, oracle-learned CI={'n': 16, 'mean': 0.03704235447364291, 'std': 0.061917841878265635, 'stderr': 0.015479460469566409, 'ci95': 0.03033974252035016, 'lo': 0.0067026119532927475, 'hi': 0.06738209699399307}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 94,
+      "category": "benchmark",
+      "claim": "RoboCasa combined 28-task family learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=28, train=448, val=224, eval=448, utility corr=0.8335286692076076, promoted=learned_wam, learned-random CI={'n': 56, 'mean': 0.30243909345319026, 'std': 0.2562827497116669, 'stderr': 0.034247222984335565, 'ci95': 0.0671245570492977, 'lo': 0.23531453640389255, 'hi': 0.36956365050248796}, oracle-learned CI={'n': 56, 'mean': 0.05083792808385431, 'std': 0.06357723600802802, 'stderr': 0.008495865526432438, 'ci95': 0.01665189643180758, 'lo': 0.03418603165204673, 'hi': 0.06748982451566189}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 94,
+      "category": "suite_family",
+      "claim": "RoboCasa combined 28-task family learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=28, train=448, val=224, eval=448, utility corr=0.8335286692076076, promoted=learned_wam, learned-random CI={'n': 56, 'mean': 0.30243909345319026, 'std': 0.2562827497116669, 'stderr': 0.034247222984335565, 'ci95': 0.0671245570492977, 'lo': 0.23531453640389255, 'hi': 0.36956365050248796}, oracle-learned CI={'n': 56, 'mean': 0.05083792808385431, 'std': 0.06357723600802802, 'stderr': 0.008495865526432438, 'ci95': 0.01665189643180758, 'lo': 0.03418603165204673, 'hi': 0.06748982451566189}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 94,
+      "category": "model",
+      "claim": "RoboCasa combined 28-task family learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=28, train=448, val=224, eval=448, utility corr=0.8335286692076076, promoted=learned_wam, learned-random CI={'n': 56, 'mean': 0.30243909345319026, 'std': 0.2562827497116669, 'stderr': 0.034247222984335565, 'ci95': 0.0671245570492977, 'lo': 0.23531453640389255, 'hi': 0.36956365050248796}, oracle-learned CI={'n': 56, 'mean': 0.05083792808385431, 'std': 0.06357723600802802, 'stderr': 0.008495865526432438, 'ci95': 0.01665189643180758, 'lo': 0.03418603165204673, 'hi': 0.06748982451566189}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 95,
+      "category": "benchmark",
+      "claim": "RoboCasa combined 32-task family learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=32, train=512, val=256, eval=512, utility corr=0.8384486971259033, promoted=learned_energy_regularized, learned-random CI={'n': 64, 'mean': 0.2881867956710381, 'std': 0.247375612716181, 'stderr': 0.030921951589522625, 'ci95': 0.06060702511546434, 'lo': 0.22757977055557377, 'hi': 0.34879382078650245}, oracle-learned CI={'n': 64, 'mean': 0.050325265600648775, 'std': 0.06460926803737874, 'stderr': 0.008076158504672342, 'ci95': 0.01582927066915779, 'lo': 0.034495994931490984, 'hi': 0.06615453626980657}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 95,
+      "category": "suite_family",
+      "claim": "RoboCasa combined 32-task family learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=32, train=512, val=256, eval=512, utility corr=0.8384486971259033, promoted=learned_energy_regularized, learned-random CI={'n': 64, 'mean': 0.2881867956710381, 'std': 0.247375612716181, 'stderr': 0.030921951589522625, 'ci95': 0.06060702511546434, 'lo': 0.22757977055557377, 'hi': 0.34879382078650245}, oracle-learned CI={'n': 64, 'mean': 0.050325265600648775, 'std': 0.06460926803737874, 'stderr': 0.008076158504672342, 'ci95': 0.01582927066915779, 'lo': 0.034495994931490984, 'hi': 0.06615453626980657}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 95,
+      "category": "model",
+      "claim": "RoboCasa combined 32-task family learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=32, train=512, val=256, eval=512, utility corr=0.8384486971259033, promoted=learned_energy_regularized, learned-random CI={'n': 64, 'mean': 0.2881867956710381, 'std': 0.247375612716181, 'stderr': 0.030921951589522625, 'ci95': 0.06060702511546434, 'lo': 0.22757977055557377, 'hi': 0.34879382078650245}, oracle-learned CI={'n': 64, 'mean': 0.050325265600648775, 'std': 0.06460926803737874, 'stderr': 0.008076158504672342, 'ci95': 0.01582927066915779, 'lo': 0.034495994931490984, 'hi': 0.06615453626980657}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 96,
+      "category": "benchmark",
+      "claim": "RoboCasa stratified 55-task learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=55, train=880, val=440, eval=880, utility corr=0.832609714619887, promoted=learned_wam, learned-random CI={'n': 110, 'mean': 0.32174102442400815, 'std': 0.2539765598768874, 'stderr': 0.024215714838790526, 'ci95': 0.04746280108402943, 'lo': 0.2742782233399787, 'hi': 0.3692038255080376}, oracle-learned CI={'n': 110, 'mean': 0.045837012164936755, 'std': 0.06301391787274645, 'stderr': 0.0060081413293457935, 'ci95': 0.011775957005517755, 'lo': 0.034061055159419, 'hi': 0.05761296917045451}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 96,
+      "category": "suite_family",
+      "claim": "RoboCasa stratified 55-task learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=55, train=880, val=440, eval=880, utility corr=0.832609714619887, promoted=learned_wam, learned-random CI={'n': 110, 'mean': 0.32174102442400815, 'std': 0.2539765598768874, 'stderr': 0.024215714838790526, 'ci95': 0.04746280108402943, 'lo': 0.2742782233399787, 'hi': 0.3692038255080376}, oracle-learned CI={'n': 110, 'mean': 0.045837012164936755, 'std': 0.06301391787274645, 'stderr': 0.0060081413293457935, 'ci95': 0.011775957005517755, 'lo': 0.034061055159419, 'hi': 0.05761296917045451}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 96,
+      "category": "model",
+      "claim": "RoboCasa stratified 55-task learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=55, train=880, val=440, eval=880, utility corr=0.832609714619887, promoted=learned_wam, learned-random CI={'n': 110, 'mean': 0.32174102442400815, 'std': 0.2539765598768874, 'stderr': 0.024215714838790526, 'ci95': 0.04746280108402943, 'lo': 0.2742782233399787, 'hi': 0.3692038255080376}, oracle-learned CI={'n': 110, 'mean': 0.045837012164936755, 'std': 0.06301391787274645, 'stderr': 0.0060081413293457935, 'ci95': 0.011775957005517755, 'lo': 0.034061055159419, 'hi': 0.05761296917045451}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 97,
+      "category": "benchmark",
+      "claim": "RoboCasa stratified 97-task learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=97, train=1552, val=776, eval=1552, pools=194, utility corr=0.8380299394502633, promoted=learned_wam, learned-random CI={'n': 194, 'mean': 0.34790032435530055, 'std': 0.2347443208321136, 'stderr': 0.016853660033059582, 'ci95': 0.03303317366479678, 'lo': 0.31486715069050375, 'hi': 0.38093349802009735}, oracle-learned CI={'n': 194, 'mean': 0.04578491854497242, 'std': 0.0629307206718025, 'stderr': 0.0045181624334014545, 'ci95': 0.00885559836946685, 'lo': 0.03692932017550557, 'hi': 0.054640516914439274}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 97,
+      "category": "suite_family",
+      "claim": "RoboCasa stratified 97-task learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=97, train=1552, val=776, eval=1552, pools=194, utility corr=0.8380299394502633, promoted=learned_wam, learned-random CI={'n': 194, 'mean': 0.34790032435530055, 'std': 0.2347443208321136, 'stderr': 0.016853660033059582, 'ci95': 0.03303317366479678, 'lo': 0.31486715069050375, 'hi': 0.38093349802009735}, oracle-learned CI={'n': 194, 'mean': 0.04578491854497242, 'std': 0.0629307206718025, 'stderr': 0.0045181624334014545, 'ci95': 0.00885559836946685, 'lo': 0.03692932017550557, 'hi': 0.054640516914439274}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 97,
+      "category": "model",
+      "claim": "RoboCasa stratified 97-task learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=97, train=1552, val=776, eval=1552, pools=194, utility corr=0.8380299394502633, promoted=learned_wam, learned-random CI={'n': 194, 'mean': 0.34790032435530055, 'std': 0.2347443208321136, 'stderr': 0.016853660033059582, 'ci95': 0.03303317366479678, 'lo': 0.31486715069050375, 'hi': 0.38093349802009735}, oracle-learned CI={'n': 194, 'mean': 0.04578491854497242, 'std': 0.0629307206718025, 'stderr': 0.0045181624334014545, 'ci95': 0.00885559836946685, 'lo': 0.03692932017550557, 'hi': 0.054640516914439274}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 98,
+      "category": "benchmark",
+      "claim": "RoboCasa residual 35-task clean/cook learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=35, train=140, val=140, eval=280, pools=35, horizon=1, Nmax=4, utility corr=0.8345242481462408, exact MAE=0.00024620294740340757, promoted=learned_wam, learned-random CI={'n': 35, 'mean': 0.2408146016473912, 'std': 0.13106289940391155, 'stderr': 0.02215367341365428, 'ci95': 0.04342119989076239, 'lo': 0.19739340175662884, 'hi': 0.2842358015381536}, oracle-learned CI={'n': 35, 'mean': 0.02177076474637765, 'std': 0.024328798100469916, 'stderr': 0.00411231744540864, 'ci95': 0.008060142193000936, 'lo': 0.013710622553376713, 'hi': 0.029830906939378586}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 98,
+      "category": "suite_family",
+      "claim": "RoboCasa residual 35-task clean/cook learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=35, train=140, val=140, eval=280, pools=35, horizon=1, Nmax=4, utility corr=0.8345242481462408, exact MAE=0.00024620294740340757, promoted=learned_wam, learned-random CI={'n': 35, 'mean': 0.2408146016473912, 'std': 0.13106289940391155, 'stderr': 0.02215367341365428, 'ci95': 0.04342119989076239, 'lo': 0.19739340175662884, 'hi': 0.2842358015381536}, oracle-learned CI={'n': 35, 'mean': 0.02177076474637765, 'std': 0.024328798100469916, 'stderr': 0.00411231744540864, 'ci95': 0.008060142193000936, 'lo': 0.013710622553376713, 'hi': 0.029830906939378586}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 98,
+      "category": "model",
+      "claim": "RoboCasa residual 35-task clean/cook learned WAM-lite scorer beats random with CI.",
+      "evidence": "tasks=35, train=140, val=140, eval=280, pools=35, horizon=1, Nmax=4, utility corr=0.8345242481462408, exact MAE=0.00024620294740340757, promoted=learned_wam, learned-random CI={'n': 35, 'mean': 0.2408146016473912, 'std': 0.13106289940391155, 'stderr': 0.02215367341365428, 'ci95': 0.04342119989076239, 'lo': 0.19739340175662884, 'hi': 0.2842358015381536}, oracle-learned CI={'n': 35, 'mean': 0.02177076474637765, 'std': 0.024328798100469916, 'stderr': 0.00411231744540864, 'ci95': 0.008060142193000936, 'lo': 0.013710622553376713, 'hi': 0.029830906939378586}",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 105,
+      "category": "verification",
+      "claim": "Verified claims have mapped source artifacts and quality-checked evidence.",
+      "evidence": "claims=124, mapped=124, sources=169, issues=0",
+      "has_numeric_scope": true,
+      "has_concrete_scope": false
+    },
+    {
+      "claim_id": 107,
+      "category": "verification",
+      "claim": "Verified claim wording satisfies semantic threshold checks.",
+      "evidence": "claims=124, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0",
+      "has_numeric_scope": true,
+      "has_concrete_scope": false
+    },
+    {
+      "claim_id": 112,
+      "category": "verification",
+      "claim": "Runtime and dependency environment metadata has a verified manifest.",
+      "evidence": "python=3.10.11, core=4, absent=0, version_issues=0, optional_available=5/5, modules=13, commands=5, checks=15, issues=0",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 113,
+      "category": "verification",
+      "claim": "Canonical experiment families have verified registry coverage.",
+      "evidence": "entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=297, rows=260523, figures=40, failed=0, checks=10, issues=0",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 114,
+      "category": "model",
+      "claim": "Committed learned-model artifacts are loadable and numerically sane.",
+      "evidence": "models=49, suffixes={'.npz': 36, '.joblib': 13}, bytes=119450103, npz_arrays=315, npz_elements=6077793, joblib_predictors=13, checks=10, issues=0",
+      "has_numeric_scope": true,
+      "has_concrete_scope": false
+    },
+    {
+      "claim_id": 116,
+      "category": "verification",
+      "claim": "Pytest command-result counts come from a verified collected-test inventory.",
+      "evidence": "tests=120, unique=120, trailer=120, checks=6, issues=0",
+      "has_numeric_scope": true,
+      "has_concrete_scope": false
+    }
+  ],
+  "checks": [
+    {
+      "name": "claims_present",
+      "ok": true,
+      "detail": "claims=124"
+    },
+    {
+      "name": "claim_1_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Exact finite binary law verified.; evidence=success MAE=0.002104612037108505"
+    },
+    {
+      "name": "claim_2_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Utility-valued finite law verified.; evidence=utility MAE=0.013762680427723635"
+    },
+    {
+      "name": "claim_3_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=N=2 AUC identity verified.; evidence=max identity error=0.0"
+    },
+    {
+      "name": "claim_4_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=High-N moment hierarchy verified.; evidence=same-p/kappa gap=0.9988209815422198"
+    },
+    {
+      "name": "claim_10_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Real-vs-imagined utility gap verified.; evidence=severe-none=16.725668702334993"
+    },
+    {
+      "name": "claim_12_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Bad scorer falsification verified.; evidence=anti_scorer utility N64=-26.565706083129044, utility N1=-14.101561337022474"
+    },
+    {
+      "name": "claim_13_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Randomized dynamics falsification verified.; evidence=randomized-oracle N64 gap=13.393867700179667"
+    },
+    {
+      "name": "claim_16_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Closed-loop high-N gain verified.; evidence=analytic useful N64-N1=0.20833333333333337; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': "
+    },
+    {
+      "name": "claim_19_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Conditional law verified under distribution shift.; evidence=MAE=0.002711190528210008"
+    },
+    {
+      "name": "claim_22_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=Learned WAM trained.; evidence=model=results\\models\\learned_wam_lite_toy.npz"
+    },
+    {
+      "name": "claim_23_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=Learned WAM ID error reported.; evidence=validation={'split': 'validation', 'mismatch': 'mild', 'n_samples': 768, 'final_delta_mae': 0.07366012085339552, 'final_position_l2_mae': 0.11172250197070248, 'utility_mae': 0.8623"
+    },
+    {
+      "name": "claim_24_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=Learned WAM OOD error reported.; evidence=ood count=3, samples=[192, 192, 192], utility_mae=[2.2723724651895516, 2.127490419092671, 1.0671464005106506]"
+    },
+    {
+      "name": "claim_25_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=Learned WAM reproduces key inference-value claims.; evidence=learned-analytic CI={'n': 5, 'mean': 1.169836264042242, 'std': 0.24964325385176853, 'stderr': 0.11164385714735812, 'ci95': 0.21882196000882193, 'lo': 0.95101430403342, 'hi': 1.3886"
+    },
+    {
+      "name": "claim_26_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=BlockPush verified.; evidence=env=block_push, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['e"
+    },
+    {
+      "name": "claim_27_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=DrawerPull verified.; evidence=env=drawer_pull, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['"
+    },
+    {
+      "name": "claim_28_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=SlipperyGrasp verified.; evidence=env=slippery_grasp, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones"
+    },
+    {
+      "name": "claim_29_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Nonstationary verified.; evidence=env=nonstationary_shift, exp8_mae=0.002711190528210008, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_"
+    },
+    {
+      "name": "claim_31_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Benchmark adapter available.; evidence=attempted=True, any_available=True, available=['maniskill', 'gym_manip', 'gym_robotics', 'metaworld', 'robosuite']"
+    },
+    {
+      "name": "claim_32_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Benchmark rollout pools collected.; evidence=benchmark=Reacher-v5, pools=25, rollouts=64, rows=600"
+    },
+    {
+      "name": "claim_33_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Benchmark exact law verified.; evidence=benchmark=Reacher-v5, utility MAE=0.018753143169510465, exact rows=150"
+    },
+    {
+      "name": "claim_33_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Benchmark exact law verified.; evidence=benchmark=Reacher-v5, utility MAE=0.018753143169510465, exact rows=150"
+    },
+    {
+      "name": "claim_34_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Benchmark score comparison verified.; evidence=benchmark=Reacher-v5, oracle-random CI={'n': 5, 'mean': 1.7107893171571196, 'std': 0.3902710091578448, 'stderr': 0.17453450122487676, 'ci95': 0.3420876224007584"
+    },
+    {
+      "name": "claim_34_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Benchmark score comparison verified.; evidence=benchmark=Reacher-v5, oracle-random CI={'n': 5, 'mean': 1.7107893171571196, 'std': 0.3902710091578448, 'stderr': 0.17453450122487676, 'ci95': 0.34208762240075846, 'lo': 1.368701694"
+    },
+    {
+      "name": "claim_35_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Benchmark real-vs-imagined gap verified.; evidence=benchmark=Reacher-v5, gap growth=0.14372151651340617"
+    },
+    {
+      "name": "claim_35_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Benchmark real-vs-imagined gap verified.; evidence=benchmark=Reacher-v5, gap growth=0.14372151651340617"
+    },
+    {
+      "name": "claim_36_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Benchmark closed-loop verified.; evidence=benchmark=Reacher-v5, learned-random closed-loop CI={'n': 5, 'mean': 1.7643643582266495, 'std': 1.5449273707487574, 'stderr': 0.6909125242588483, 'ci95': 1.3541"
+    },
+    {
+      "name": "claim_36_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Benchmark closed-loop verified.; evidence=benchmark=Reacher-v5, learned-random closed-loop CI={'n': 5, 'mean': 1.7643643582266495, 'std': 1.5449273707487574, 'stderr': 0.6909125242588483, 'ci95': 1.3541885475473427, 'lo': "
+    },
+    {
+      "name": "claim_37_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Benchmark learned WAM trained.; evidence=benchmark=Reacher-v5, model=C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz, metrics=2"
+    },
+    {
+      "name": "claim_37_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=Benchmark learned WAM trained.; evidence=benchmark=Reacher-v5, model=C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz, metrics=2"
+    },
+    {
+      "name": "claim_38_visual_wording_has_observation_scope",
+      "ok": true,
+      "detail": "claim=Visual toy WAM attempted.; evidence=visual=True"
+    },
+    {
+      "name": "claim_39_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Visual toy WAM verified if artifacts exist.; evidence=test MAE=0.018500254396187476"
+    },
+    {
+      "name": "claim_39_visual_wording_has_observation_scope",
+      "ok": true,
+      "detail": "claim=Visual toy WAM verified if artifacts exist.; evidence=test MAE=0.018500254396187476"
+    },
+    {
+      "name": "claim_40_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Benchmark visual optional.; evidence=verified=True, frame_std=24.34952509299029"
+    },
+    {
+      "name": "claim_40_visual_wording_has_observation_scope",
+      "ok": true,
+      "detail": "claim=Benchmark visual optional.; evidence=verified=True, frame_std=24.34952509299029"
+    },
+    {
+      "name": "claim_48_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=ManiSkill state benchmark suite verified.; evidence=envs=['PickCube-v1', 'PushCube-v1', 'PegInsertionSide-v1'], control=pd_joint_delta_pos"
+    },
+    {
+      "name": "claim_48_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=ManiSkill state benchmark suite verified.; evidence=envs=['PickCube-v1', 'PushCube-v1', 'PegInsertionSide-v1'], control=pd_joint_delta_pos"
+    },
+    {
+      "name": "claim_48_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=ManiSkill state benchmark suite verified.; evidence=envs=['PickCube-v1', 'PushCube-v1', 'PegInsertionSide-v1'], control=pd_joint_delta_pos"
+    },
+    {
+      "name": "claim_49_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=ManiSkill rollout pools collected.; evidence=pools=30, rollouts=32, rows=900"
+    },
+    {
+      "name": "claim_50_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=ManiSkill exact law verified.; evidence=utility MAE=0.0034490668019852445, exact rows=180"
+    },
+    {
+      "name": "claim_50_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=ManiSkill exact law verified.; evidence=utility MAE=0.0034490668019852445, exact rows=180"
+    },
+    {
+      "name": "claim_51_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=ManiSkill score comparison verified.; evidence=dense-random CI={'n': 5, 'mean': 0.24732126597363005, 'std': 0.023695650387774738, 'stderr': 0.010597017007626712, 'ci95': 0.020770153334948357, 'lo': 0.2265511"
+    },
+    {
+      "name": "claim_51_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=ManiSkill score comparison verified.; evidence=dense-random CI={'n': 5, 'mean': 0.24732126597363005, 'std': 0.023695650387774738, 'stderr': 0.010597017007626712, 'ci95': 0.020770153334948357, 'lo': 0.2265511126386817, 'hi': 0.2"
+    },
+    {
+      "name": "claim_52_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=ManiSkill WAM-lite trained and evaluated.; evidence=model metric rows=6, table rows=6"
+    },
+    {
+      "name": "claim_52_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=ManiSkill WAM-lite trained and evaluated.; evidence=model metric rows=6, table rows=6"
+    },
+    {
+      "name": "claim_53_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=ManiSkill closed-loop learned scorer beats random.; evidence=learned-random closed-loop CI={'n': 5, 'mean': 0.027762312500152514, 'std': 0.020055963136210424, 'stderr': 0.008969299385359276, 'ci95': 0.01757982679530418, 'lo': 0.0101824857048"
+    },
+    {
+      "name": "claim_54_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=ManiSkill learned open-loop scorer is honestly reported.; evidence=learned-random open-loop CI={'n': 5, 'mean': -0.005754620067846242, 'std': 0.04861601605708501, 'stderr': 0.021741743339772673, 'ci95': 0.04261381694595444, 'lo': -0.04836843701380"
+    },
+    {
+      "name": "claim_55_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Benchmark RGB visual WAM-lite trained and evaluated.; evidence=model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.2199328908664021, 'success_mae': 0.18271949404761903}"
+    },
+    {
+      "name": "claim_55_visual_wording_has_observation_scope",
+      "ok": true,
+      "detail": "claim=Benchmark RGB visual WAM-lite trained and evaluated.; evidence=model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.2199328908664021, 'success_mae': 0.18271949404761903}"
+    },
+    {
+      "name": "claim_55_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=Benchmark RGB visual WAM-lite trained and evaluated.; evidence=model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.2199328908664021, 'success_mae': 0.18271949404761903}"
+    },
+    {
+      "name": "claim_56_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Benchmark RGB visual WAM exact law verified.; evidence=utility MAE=0.01571480996432407, exact rows=150"
+    },
+    {
+      "name": "claim_56_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Benchmark RGB visual WAM exact law verified.; evidence=utility MAE=0.01571480996432407, exact rows=150"
+    },
+    {
+      "name": "claim_56_visual_wording_has_observation_scope",
+      "ok": true,
+      "detail": "claim=Benchmark RGB visual WAM exact law verified.; evidence=utility MAE=0.01571480996432407, exact rows=150"
+    },
+    {
+      "name": "claim_57_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Benchmark RGB visual WAM scorer beats random with CI.; evidence=visual-random CI={'n': 5, 'mean': 0.2367775727718704, 'std': 0.04220964852617569, 'stderr': 0.01887672868218053, 'ci95': 0.03699838821707384, 'lo': 0.19977918455479654, 'hi': 0.273"
+    },
+    {
+      "name": "claim_57_visual_wording_has_observation_scope",
+      "ok": true,
+      "detail": "claim=Benchmark RGB visual WAM scorer beats random with CI.; evidence=visual-random CI={'n': 5, 'mean': 0.2367775727718704, 'std': 0.04220964852617569, 'stderr': 0.01887672868218053, 'ci95': 0.03699838821707384, 'lo': 0.19977918455479654, 'hi': 0.273"
+    },
+    {
+      "name": "claim_58_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Benchmark RGB visual WAM oracle gap reported.; evidence=oracle-visual CI={'n': 5, 'mean': 0.3433881226502652, 'std': 0.09104423341118655, 'stderr': 0.04071621897335413, 'ci95': 0.0798037891877741, 'lo': 0.2635843334624911, 'hi': 0.42319"
+    },
+    {
+      "name": "claim_58_visual_wording_has_observation_scope",
+      "ok": true,
+      "detail": "claim=Benchmark RGB visual WAM oracle gap reported.; evidence=oracle-visual CI={'n': 5, 'mean': 0.3433881226502652, 'std': 0.09104423341118655, 'stderr': 0.04071621897335413, 'ci95': 0.0798037891877741, 'lo': 0.2635843334624911, 'hi': 0.42319"
+    },
+    {
+      "name": "claim_59_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics Fetch benchmark suite verified.; evidence=envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], pools=60, rows=1800"
+    },
+    {
+      "name": "claim_59_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics Fetch benchmark suite verified.; evidence=envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], pools=60, rows=1800"
+    },
+    {
+      "name": "claim_59_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics Fetch benchmark suite verified.; evidence=envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], pools=60, rows=1800"
+    },
+    {
+      "name": "claim_60_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics Fetch exact law verified.; evidence=utility MAE=0.012637772476737578, exact rows=360"
+    },
+    {
+      "name": "claim_60_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics Fetch exact law verified.; evidence=utility MAE=0.012637772476737578, exact rows=360"
+    },
+    {
+      "name": "claim_61_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics learned WAM scorer beats random with CI.; evidence=learned-random CI={'n': 5, 'mean': 0.5183591980928537, 'std': 0.08832562568455588, 'stderr': 0.03950042063717366, 'ci95': 0.07742082444886038, 'lo': 0.4409383736439933, 'hi': 0.595"
+    },
+    {
+      "name": "claim_61_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics learned WAM scorer beats random with CI.; evidence=learned-random CI={'n': 5, 'mean': 0.5183591980928537, 'std': 0.08832562568455588, 'stderr': 0.03950042063717366, 'ci95': 0.07742082444886038, 'lo': 0.4409383736439933, 'hi': 0.595"
+    },
+    {
+      "name": "claim_62_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics closed-loop learned scorer beats random.; evidence=closed-loop learned-random CI={'n': 5, 'mean': 0.7086378606835364, 'std': 0.5149831233310606, 'stderr': 0.23030745420668186, 'ci95': 0.4514026102450964, 'lo': 0.25723525043844, 'hi"
+    },
+    {
+      "name": "claim_63_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics oracle gap reported.; evidence=oracle-learned CI={'n': 5, 'mean': 0.03423794265616582, 'std': 0.021599643753640783, 'stderr': 0.009659654344583902, 'ci95': 0.018932922515384448, 'lo': 0.015305020140781375, 'hi':"
+    },
+    {
+      "name": "claim_64_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics RGB visual WAM trained and evaluated.; evidence=envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.7325062733110719, rows=1350"
+    },
+    {
+      "name": "claim_64_visual_wording_has_observation_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics RGB visual WAM trained and evaluated.; evidence=envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.7325062733110719, rows=1350"
+    },
+    {
+      "name": "claim_64_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics RGB visual WAM trained and evaluated.; evidence=envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.7325062733110719, rows=1350"
+    },
+    {
+      "name": "claim_65_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics RGB visual exact law verified.; evidence=utility MAE=0.010612997381058541, exact rows=270"
+    },
+    {
+      "name": "claim_65_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics RGB visual exact law verified.; evidence=utility MAE=0.010612997381058541, exact rows=270"
+    },
+    {
+      "name": "claim_65_visual_wording_has_observation_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics RGB visual exact law verified.; evidence=utility MAE=0.010612997381058541, exact rows=270"
+    },
+    {
+      "name": "claim_66_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics RGB visual scorer beats random with CI.; evidence=visual-random CI={'n': 5, 'mean': 0.4888505704773543, 'std': 0.16122603373528005, 'stderr': 0.0721024742349521, 'ci95': 0.1413208495005061, 'lo': 0.3475297209768482, 'hi': 0.630171"
+    },
+    {
+      "name": "claim_66_visual_wording_has_observation_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics RGB visual scorer beats random with CI.; evidence=visual-random CI={'n': 5, 'mean': 0.4888505704773543, 'std': 0.16122603373528005, 'stderr': 0.0721024742349521, 'ci95': 0.1413208495005061, 'lo': 0.3475297209768482, 'hi': 0.630171"
+    },
+    {
+      "name": "claim_67_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics RGB visual oracle gap is reported without requiring significance.; evidence=oracle-visual CI={'n': 5, 'mean': 0.02680333126025487, 'std': 0.03203449057950047, 'stderr': 0.014326259712067935, 'ci95': 0.028079469035653153, 'lo': -0.0012761377753982839, 'hi':"
+    },
+    {
+      "name": "claim_67_visual_wording_has_observation_scope",
+      "ok": true,
+      "detail": "claim=Gymnasium Robotics RGB visual oracle gap is reported without requiring significance.; evidence=oracle-visual CI={'n': 5, 'mean': 0.02680333126025487, 'std': 0.03203449057950047, 'stderr': 0.014326259712067935, 'ci95': 0.028079469035653153, 'lo': -0.0012761377753982839, 'hi':"
+    },
+    {
+      "name": "claim_68_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.; evidence=visual_success=False, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pin_binary=False"
+    },
+    {
+      "name": "claim_68_visual_wording_has_observation_scope",
+      "ok": true,
+      "detail": "claim=ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.; evidence=visual_success=False, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pin_binary=False"
+    },
+    {
+      "name": "claim_69_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Meta-World ML1 benchmark suite verified.; evidence=tasks=['reach-v3', 'push-v3', 'drawer-open-v3'], pools=45, rows=1620"
+    },
+    {
+      "name": "claim_69_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Meta-World ML1 benchmark suite verified.; evidence=tasks=['reach-v3', 'push-v3', 'drawer-open-v3'], pools=45, rows=1620"
+    },
+    {
+      "name": "claim_69_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=Meta-World ML1 benchmark suite verified.; evidence=tasks=['reach-v3', 'push-v3', 'drawer-open-v3'], pools=45, rows=1620"
+    },
+    {
+      "name": "claim_70_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Meta-World exact law verified.; evidence=utility MAE=0.029769105761603815, exact rows=270"
+    },
+    {
+      "name": "claim_70_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Meta-World exact law verified.; evidence=utility MAE=0.029769105761603815, exact rows=270"
+    },
+    {
+      "name": "claim_71_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Meta-World learned WAM scorer beats random open-loop with CI.; evidence=learned-random CI={'n': 5, 'mean': 0.11054551953348397, 'std': 0.014837925371412848, 'stderr': 0.0066357219551095884, 'ci95': 0.013006015032014793, 'lo': 0.09753950450146918, 'hi':"
+    },
+    {
+      "name": "claim_71_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=Meta-World learned WAM scorer beats random open-loop with CI.; evidence=learned-random CI={'n': 5, 'mean': 0.11054551953348397, 'std': 0.014837925371412848, 'stderr': 0.0066357219551095884, 'ci95': 0.013006015032014793, 'lo': 0.09753950450146918, 'hi':"
+    },
+    {
+      "name": "claim_72_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=Meta-World oracle and benchmark-reward scorers beat random with CI.; evidence=reward-random CI={'n': 5, 'mean': 0.5208496009041265, 'std': 0.06185776418102653, 'stderr': 0.027663633128985385, 'ci95': 0.054220720932811356, 'lo': 0.4666288799713151, 'hi': 0.57"
+    },
+    {
+      "name": "claim_73_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=RoboSuite Panda manipulation benchmark suite verified.; evidence=envs=['Lift', 'Stack', 'Door'], pools=30, rows=1260"
+    },
+    {
+      "name": "claim_73_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboSuite Panda manipulation benchmark suite verified.; evidence=envs=['Lift', 'Stack', 'Door'], pools=30, rows=1260"
+    },
+    {
+      "name": "claim_73_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=RoboSuite Panda manipulation benchmark suite verified.; evidence=envs=['Lift', 'Stack', 'Door'], pools=30, rows=1260"
+    },
+    {
+      "name": "claim_74_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=RoboSuite exact law verified.; evidence=utility MAE=0.0023698818100493587, exact rows=180"
+    },
+    {
+      "name": "claim_74_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboSuite exact law verified.; evidence=utility MAE=0.0023698818100493587, exact rows=180"
+    },
+    {
+      "name": "claim_75_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboSuite learned WAM scorer beats random open-loop with CI.; evidence=learned-random CI={'n': 5, 'mean': 0.32020186708958887, 'std': 0.08614749302461966, 'stderr': 0.038526330098847705, 'ci95': 0.0755116069937415, 'lo': 0.24469026009584738, 'hi': 0.3"
+    },
+    {
+      "name": "claim_75_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=RoboSuite learned WAM scorer beats random open-loop with CI.; evidence=learned-random CI={'n': 5, 'mean': 0.32020186708958887, 'std': 0.08614749302461966, 'stderr': 0.038526330098847705, 'ci95': 0.0755116069937415, 'lo': 0.24469026009584738, 'hi': 0.3"
+    },
+    {
+      "name": "claim_76_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboSuite reward, progress, and oracle scorers beat random with CI.; evidence=reward-random CI={'n': 5, 'mean': 0.33580473945491357, 'std': 0.0845123155588677, 'stderr': 0.03779505650510826, 'ci95': 0.07407831075001219, 'lo': 0.26172642870490137, 'hi': 0.409"
+    },
+    {
+      "name": "claim_77_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboSuite closed-loop learned and reward scorers beat random.; evidence=learned-random CI={'n': 5, 'mean': 0.08618701545420379, 'std': 0.00732792326762759, 'stderr': 0.0032771469120635353, 'ci95': 0.006423207947644529, 'lo': 0.07976380750655926, 'hi': "
+    },
+    {
+      "name": "claim_78_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa kitchen benchmark smoke verified.; evidence=env=robocasa/PickPlaceCounterToCabinet, pools=5, rollouts=80, exact MAE=0.0002724664778796843, oracle-random CI={'n': 5, 'mean': 0.2737591862068588, 'std': 0.13"
+    },
+    {
+      "name": "claim_78_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa kitchen benchmark smoke verified.; evidence=env=robocasa/PickPlaceCounterToCabinet, pools=5, rollouts=80, exact MAE=0.0002724664778796843, oracle-random CI={'n': 5, 'mean': 0.2737591862068588, 'std': 0.13943158358342508, 'st"
+    },
+    {
+      "name": "claim_79_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa learned WAM-lite scorer beats random with CI.; evidence=train=80, val=32, eval=80, utility corr=0.7639608394479505, learned-random CI={'n': 5, 'mean': 0.14832993183038654, 'std': 0.11178217873717447, 'stderr': 0.04999051006587074, 'ci95"
+    },
+    {
+      "name": "claim_79_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa learned WAM-lite scorer beats random with CI.; evidence=train=80, val=32, eval=80, utility corr=0.7639608394479505, learned-random CI={'n': 5, 'mean': 0.14832993183038654, 'std': 0.11178217873717447, 'stderr': 0.04999051006587074, 'ci95"
+    },
+    {
+      "name": "claim_80_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa three-task learned WAM-lite scorer beats random with CI.; evidence=tasks=['robocasa/PickPlaceCounterToCabinet', 'robocasa/PickPlaceCounterToDrawer', 'robocasa/PickPlaceCounterToMicrowave'], train=144, val=96, eval=240, utility corr=0.6751791364461"
+    },
+    {
+      "name": "claim_80_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa three-task learned WAM-lite scorer beats random with CI.; evidence=tasks=['robocasa/PickPlaceCounterToCabinet', 'robocasa/PickPlaceCounterToDrawer', 'robocasa/PickPlaceCounterToMicrowave'], train=144, val=96, eval=240, utility corr=0.6751791364461"
+    },
+    {
+      "name": "claim_80_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa three-task learned WAM-lite scorer beats random with CI.; evidence=tasks=['robocasa/PickPlaceCounterToCabinet', 'robocasa/PickPlaceCounterToDrawer', 'robocasa/PickPlaceCounterToMicrowave'], train=144, val=96, eval=240, utility corr=0.6751791364461"
+    },
+    {
+      "name": "claim_83_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=LIBERO rollout-pool learned WAM-lite benchmark verified.; evidence=tasks=['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2'], train=192, val=96, eval=240, exact MAE=0.0001402348651464976, utility corr=0.352648354101492"
+    },
+    {
+      "name": "claim_83_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=LIBERO rollout-pool learned WAM-lite benchmark verified.; evidence=tasks=['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2'], train=192, val=96, eval=240, exact MAE=0.0001402348651464976, utility corr=0.3526483541014925, learned-random CI"
+    },
+    {
+      "name": "claim_83_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=LIBERO rollout-pool learned WAM-lite benchmark verified.; evidence=tasks=['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2'], train=192, val=96, eval=240, exact MAE=0.0001402348651464976, utility corr=0.3526483541014925, learned-random CI"
+    },
+    {
+      "name": "claim_84_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa broad task family learned WAM-lite scorer beats random with CI.; evidence=tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet'], train=64, val=32, eval=128, utility corr=0.8598503519742565, promoted="
+    },
+    {
+      "name": "claim_84_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa broad task family learned WAM-lite scorer beats random with CI.; evidence=tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet'], train=64, val=32, eval=128, utility corr=0.8598503519742565, promoted="
+    },
+    {
+      "name": "claim_84_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa broad task family learned WAM-lite scorer beats random with CI.; evidence=tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet'], train=64, val=32, eval=128, utility corr=0.8598503519742565, promoted="
+    },
+    {
+      "name": "claim_85_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa 12-task family learned WAM-lite scorer beats random with CI.; evidence=tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet', 'robocasa/CloseDrawer', 'robocasa/CloseCabinet', 'robocasa/CloseMicrowa"
+    },
+    {
+      "name": "claim_85_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa 12-task family learned WAM-lite scorer beats random with CI.; evidence=tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet', 'robocasa/CloseDrawer', 'robocasa/CloseCabinet', 'robocasa/CloseMicrowa"
+    },
+    {
+      "name": "claim_85_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa 12-task family learned WAM-lite scorer beats random with CI.; evidence=tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet', 'robocasa/CloseDrawer', 'robocasa/CloseCabinet', 'robocasa/CloseMicrowa"
+    },
+    {
+      "name": "claim_86_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=LIBERO sparse-success scripted policy smoke verified.; evidence=episodes=50, successes=50, rows=50, success CI={'n': 50, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}"
+    },
+    {
+      "name": "claim_86_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=LIBERO sparse-success scripted policy smoke verified.; evidence=episodes=50, successes=50, rows=50, success CI={'n': 50, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}"
+    },
+    {
+      "name": "claim_86_policy_success_wording_has_smoke_or_eval_scope",
+      "ok": true,
+      "detail": "claim=LIBERO sparse-success scripted policy smoke verified.; evidence=episodes=50, successes=50, rows=50, success CI={'n': 50, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}"
+    },
+    {
+      "name": "claim_87_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=LIBERO learned action-head sparse-success smoke verified.; evidence=tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', '"
+    },
+    {
+      "name": "claim_87_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=LIBERO learned action-head sparse-success smoke verified.; evidence=tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'l"
+    },
+    {
+      "name": "claim_87_policy_success_wording_has_smoke_or_eval_scope",
+      "ok": true,
+      "detail": "claim=LIBERO learned action-head sparse-success smoke verified.; evidence=tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'l"
+    },
+    {
+      "name": "claim_88_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=LIBERO time-conditioned autonomous low-dimensional BC sparse-success smoke verified.; evidence=tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', '"
+    },
+    {
+      "name": "claim_88_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=LIBERO time-conditioned autonomous low-dimensional BC sparse-success smoke verified.; evidence=tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'l"
+    },
+    {
+      "name": "claim_88_policy_success_wording_has_smoke_or_eval_scope",
+      "ok": true,
+      "detail": "claim=LIBERO time-conditioned autonomous low-dimensional BC sparse-success smoke verified.; evidence=tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'l"
+    },
+    {
+      "name": "claim_89_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=LIBERO RGB/proprio/language BC sparse-success smoke verified.; evidence=tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', '"
+    },
+    {
+      "name": "claim_89_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=LIBERO RGB/proprio/language BC sparse-success smoke verified.; evidence=tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'l"
+    },
+    {
+      "name": "claim_89_visual_wording_has_observation_scope",
+      "ok": true,
+      "detail": "claim=LIBERO RGB/proprio/language BC sparse-success smoke verified.; evidence=tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'l"
+    },
+    {
+      "name": "claim_89_policy_success_wording_has_smoke_or_eval_scope",
+      "ok": true,
+      "detail": "claim=LIBERO RGB/proprio/language BC sparse-success smoke verified.; evidence=tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'l"
+    },
+    {
+      "name": "claim_90_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa 24-task family learned WAM-lite scorer beats random with CI.; evidence=tasks=24, train=192, val=192, eval=384, utility corr=0.8523480255953249, promoted=learned_energy_regularized, learned-random CI={'n': 48, 'mean': 0.30556743688204, 'std': 0.2342383"
+    },
+    {
+      "name": "claim_90_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa 24-task family learned WAM-lite scorer beats random with CI.; evidence=tasks=24, train=192, val=192, eval=384, utility corr=0.8523480255953249, promoted=learned_energy_regularized, learned-random CI={'n': 48, 'mean': 0.30556743688204, 'std': 0.2342383"
+    },
+    {
+      "name": "claim_90_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa 24-task family learned WAM-lite scorer beats random with CI.; evidence=tasks=24, train=192, val=192, eval=384, utility corr=0.8523480255953249, promoted=learned_energy_regularized, learned-random CI={'n': 48, 'mean': 0.30556743688204, 'std': 0.2342383"
+    },
+    {
+      "name": "claim_91_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa registry coverage audit is artifacted.; evidence=registered=396, rollout_pool_covered=132, micro_covered=106, any_artifact=134"
+    },
+    {
+      "name": "claim_92_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa extra-task micro-rollout viability probe verified.; evidence=candidates=4, nondegenerate=4, envs=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'ro"
+    },
+    {
+      "name": "claim_92_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa extra-task micro-rollout viability probe verified.; evidence=candidates=4, nondegenerate=4, envs=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicr"
+    },
+    {
+      "name": "claim_92_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa extra-task micro-rollout viability probe verified.; evidence=candidates=4, nondegenerate=4, envs=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicr"
+    },
+    {
+      "name": "claim_93_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa extra four-task learned WAM-lite scorer beats random with CI.; evidence=tasks=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter'], train=64, va"
+    },
+    {
+      "name": "claim_93_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa extra four-task learned WAM-lite scorer beats random with CI.; evidence=tasks=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter'], train=64, va"
+    },
+    {
+      "name": "claim_93_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa extra four-task learned WAM-lite scorer beats random with CI.; evidence=tasks=['robocasa/PickPlaceCounterToStandMixer', 'robocasa/PickPlaceCounterToToasterOven', 'robocasa/PickPlaceDrawerToCounter', 'robocasa/PickPlaceMicrowaveToCounter'], train=64, va"
+    },
+    {
+      "name": "claim_94_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa combined 28-task family learned WAM-lite scorer beats random with CI.; evidence=tasks=28, train=448, val=224, eval=448, utility corr=0.8335286692076076, promoted=learned_wam, learned-random CI={'n': 56, 'mean': 0.30243909345319026, 'std': 0.2562827497116669, '"
+    },
+    {
+      "name": "claim_94_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa combined 28-task family learned WAM-lite scorer beats random with CI.; evidence=tasks=28, train=448, val=224, eval=448, utility corr=0.8335286692076076, promoted=learned_wam, learned-random CI={'n': 56, 'mean': 0.30243909345319026, 'std': 0.2562827497116669, '"
+    },
+    {
+      "name": "claim_94_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa combined 28-task family learned WAM-lite scorer beats random with CI.; evidence=tasks=28, train=448, val=224, eval=448, utility corr=0.8335286692076076, promoted=learned_wam, learned-random CI={'n': 56, 'mean': 0.30243909345319026, 'std': 0.2562827497116669, '"
+    },
+    {
+      "name": "claim_95_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa combined 32-task family learned WAM-lite scorer beats random with CI.; evidence=tasks=32, train=512, val=256, eval=512, utility corr=0.8384486971259033, promoted=learned_energy_regularized, learned-random CI={'n': 64, 'mean': 0.2881867956710381, 'std': 0.24737"
+    },
+    {
+      "name": "claim_95_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa combined 32-task family learned WAM-lite scorer beats random with CI.; evidence=tasks=32, train=512, val=256, eval=512, utility corr=0.8384486971259033, promoted=learned_energy_regularized, learned-random CI={'n': 64, 'mean': 0.2881867956710381, 'std': 0.24737"
+    },
+    {
+      "name": "claim_95_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa combined 32-task family learned WAM-lite scorer beats random with CI.; evidence=tasks=32, train=512, val=256, eval=512, utility corr=0.8384486971259033, promoted=learned_energy_regularized, learned-random CI={'n': 64, 'mean': 0.2881867956710381, 'std': 0.24737"
+    },
+    {
+      "name": "claim_96_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa stratified 55-task learned WAM-lite scorer beats random with CI.; evidence=tasks=55, train=880, val=440, eval=880, utility corr=0.832609714619887, promoted=learned_wam, learned-random CI={'n': 110, 'mean': 0.32174102442400815, 'std': 0.2539765598768874, '"
+    },
+    {
+      "name": "claim_96_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa stratified 55-task learned WAM-lite scorer beats random with CI.; evidence=tasks=55, train=880, val=440, eval=880, utility corr=0.832609714619887, promoted=learned_wam, learned-random CI={'n': 110, 'mean': 0.32174102442400815, 'std': 0.2539765598768874, '"
+    },
+    {
+      "name": "claim_96_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa stratified 55-task learned WAM-lite scorer beats random with CI.; evidence=tasks=55, train=880, val=440, eval=880, utility corr=0.832609714619887, promoted=learned_wam, learned-random CI={'n': 110, 'mean': 0.32174102442400815, 'std': 0.2539765598768874, '"
+    },
+    {
+      "name": "claim_97_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa stratified 97-task learned WAM-lite scorer beats random with CI.; evidence=tasks=97, train=1552, val=776, eval=1552, pools=194, utility corr=0.8380299394502633, promoted=learned_wam, learned-random CI={'n': 194, 'mean': 0.34790032435530055, 'std': 0.23474"
+    },
+    {
+      "name": "claim_97_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa stratified 97-task learned WAM-lite scorer beats random with CI.; evidence=tasks=97, train=1552, val=776, eval=1552, pools=194, utility corr=0.8380299394502633, promoted=learned_wam, learned-random CI={'n': 194, 'mean': 0.34790032435530055, 'std': 0.23474"
+    },
+    {
+      "name": "claim_97_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa stratified 97-task learned WAM-lite scorer beats random with CI.; evidence=tasks=97, train=1552, val=776, eval=1552, pools=194, utility corr=0.8380299394502633, promoted=learned_wam, learned-random CI={'n': 194, 'mean': 0.34790032435530055, 'std': 0.23474"
+    },
+    {
+      "name": "claim_98_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa residual 35-task clean/cook learned WAM-lite scorer beats random with CI.; evidence=tasks=35, train=140, val=140, eval=280, pools=35, horizon=1, Nmax=4, utility corr=0.8345242481462408, exact MAE=0.00024620294740340757, promoted=learned_wam, learned-random CI={'n'"
+    },
+    {
+      "name": "claim_98_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa residual 35-task clean/cook learned WAM-lite scorer beats random with CI.; evidence=tasks=35, train=140, val=140, eval=280, pools=35, horizon=1, Nmax=4, utility corr=0.8345242481462408, exact MAE=0.00024620294740340757, promoted=learned_wam, learned-random CI={'n'"
+    },
+    {
+      "name": "claim_98_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=RoboCasa residual 35-task clean/cook learned WAM-lite scorer beats random with CI.; evidence=tasks=35, train=140, val=140, eval=280, pools=35, horizon=1, Nmax=4, utility corr=0.8345242481462408, exact MAE=0.00024620294740340757, promoted=learned_wam, learned-random CI={'n'"
+    },
+    {
+      "name": "claim_105_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Verified claims have mapped source artifacts and quality-checked evidence.; evidence=claims=124, mapped=124, sources=169, issues=0"
+    },
+    {
+      "name": "claim_107_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Verified claim wording satisfies semantic threshold checks.; evidence=claims=124, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0"
+    },
+    {
+      "name": "claim_112_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Runtime and dependency environment metadata has a verified manifest.; evidence=python=3.10.11, core=4, absent=0, version_issues=0, optional_available=5/5, modules=13, commands=5, checks=15, issues=0"
+    },
+    {
+      "name": "claim_113_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Canonical experiment families have verified registry coverage.; evidence=entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero'"
+    },
+    {
+      "name": "claim_114_model_wording_has_training_or_eval_scope",
+      "ok": true,
+      "detail": "claim=Committed learned-model artifacts are loadable and numerically sane.; evidence=models=49, suffixes={'.npz': 36, '.joblib': 13}, bytes=119450103, npz_arrays=315, npz_elements=6077793, joblib_predictors=13, checks=10, issues=0"
+    },
+    {
+      "name": "claim_116_verified_wording_has_metric_or_scope",
+      "ok": true,
+      "detail": "claim=Pytest command-result counts come from a verified collected-test inventory.; evidence=tests=120, unique=120, trailer=120, checks=6, issues=0"
+    },
+    {
+      "name": "scope_mentions_present",
+      "ok": true,
+      "detail": "records=154"
+    },
+    {
+      "name": "benchmark_scope_coverage",
+      "ok": true,
+      "detail": "benchmark=57"
+    },
+    {
+      "name": "verification_scope_coverage",
+      "ok": true,
+      "detail": "verification=41"
+    },
+    {
+      "name": "visual_scope_coverage",
+      "ok": true,
+      "detail": "visual=13"
+    }
+  ],
+  "issues": []
+}

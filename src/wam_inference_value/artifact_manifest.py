@@ -15,6 +15,7 @@ EXCLUDED_RESULT_NAMES = {
     "claim_evidence_quality.json",
     "claim_generation_consistency.json",
     "claim_ledger_integrity.json",
+    "claim_scope_audit.json",
     "claim_semantics.json",
     "claims_status.json",
     "claims_status.md",

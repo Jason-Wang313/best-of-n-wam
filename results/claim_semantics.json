@@ -1,7 +1,7 @@
 {
   "experiment": "claim_semantics",
   "verified": true,
-  "n_claims": 123,
+  "n_claims": 124,
   "n_checks": 175,
   "n_issues": 0,
   "n_ci_claims": 53,
@@ -14,12 +14,12 @@
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=123"
+      "detail": "claims=124"
     },
     {
       "name": "all_claims_verified_except_semantic_self",
       "ok": true,
-      "detail": "claims=122"
+      "detail": "claims=123"
     },
     {
       "name": "claim_1_error_below_threshold",
@@ -234,17 +234,17 @@
     {
       "name": "claim_31_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=attempted=True, any_available=True"
+      "detail": "evidence=attempted=True, any_available=True, available=['maniskill', 'gym_manip', 'gym_robotics', 'metaworld', 'robosuite']"
     },
     {
       "name": "claim_32_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=pools=25"
+      "detail": "evidence=benchmark=Reacher-v5, pools=25, rollouts=64, rows=600"
     },
     {
       "name": "claim_33_error_below_threshold",
       "ok": true,
-      "detail": "evidence=utility MAE=0.018753143169510465"
+      "detail": "evidence=benchmark=Reacher-v5, utility MAE=0.018753143169510465, exact rows=150"
     },
     {
       "name": "claim_34_ci_sanity",
@@ -269,7 +269,7 @@
     {
       "name": "claim_37_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=model=C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz"
+      "detail": "evidence=benchmark=Reacher-v5, model=C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz, metrics=2"
     },
     {
       "name": "claim_38_positive_count_or_artifact",
@@ -849,17 +849,17 @@
     {
       "name": "claim_103_zero_issue_or_overclaim_count",
       "ok": true,
-      "detail": "evidence=claims=123, max_id=123, checks=21, issues=0"
+      "detail": "evidence=claims=124, max_id=124, checks=21, issues=0"
     },
     {
       "name": "claim_116_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=tests=117, unique=117, trailer=117, checks=6, issues=0"
+      "detail": "evidence=tests=120, unique=120, trailer=120, checks=6, issues=0"
     },
     {
       "name": "claim_117_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=claims=123, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json"
+      "detail": "evidence=claims=124, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json"
     },
     {
       "name": "claim_118_positive_count_or_artifact",
