@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 221,
-  "total_bytes": 1576293,
+  "total_bytes": 1582791,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 204,
@@ -117,8 +117,8 @@
     {
       "path": "experiments/benchmark_libero_visual_language_bc_policy.py",
       "suffix": ".py",
-      "bytes": 30877,
-      "sha256": "3f0b00b08be3dcf7256cfc4608e5e7f09ac1e2b40797dd2448e93e81b0a00a2d"
+      "bytes": 33065,
+      "sha256": "1b5c1810915fc2872a46f1021c89e30617ce3a979eff4db804ed159bf19e1df3"
     },
     {
       "path": "experiments/benchmark_libero_wam.py",
@@ -879,8 +879,8 @@
     {
       "path": "src/wam_inference_value/ideal_claim_boundary.py",
       "suffix": ".py",
-      "bytes": 27354,
-      "sha256": "83a8c95a3e832dc61ff1f8f26e5f3c6cda03566b41f65d8a041a1bd817325f92"
+      "bytes": 27485,
+      "sha256": "b5d89b686804df937b069080c3053f3362cca8cf6cb806dc2ac54f007df59687"
     },
     {
       "path": "src/wam_inference_value/ideal_completion_audit.py",
@@ -891,8 +891,8 @@
     {
       "path": "src/wam_inference_value/ideal_frontier_readiness.py",
       "suffix": ".py",
-      "bytes": 11643,
-      "sha256": "cb543da30abf225b14e0d8fe7757c62b63fb0f808ba0a5db235976973470c30a"
+      "bytes": 13344,
+      "sha256": "b4620b0397877aab38025dec8be29c83661332e0efe56aa054f018c26c95bf61"
     },
     {
       "path": "src/wam_inference_value/learned_wam.py",
@@ -1203,8 +1203,8 @@
     {
       "path": "tests/test_ideal_frontier_readiness.py",
       "suffix": ".py",
-      "bytes": 4435,
-      "sha256": "b97dec8887ce83c28ad53927fa943fb16d40c1f2b12ff32b15fe8eede5c1011b"
+      "bytes": 6913,
+      "sha256": "7eac5cb92a29bf5bc92072b736559a40d529c23e530c3dd247b54f49ceaf0253"
     },
     {
       "path": "tests/test_learned_wam.py",
@@ -1368,7 +1368,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1576293, scan=1576293"
+      "detail": "payload=1582791, scan=1582791"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1413,7 +1413,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1576293"
+      "detail": "bytes=1582791"
     },
     {
       "name": "source_manifest_dir_coverage",

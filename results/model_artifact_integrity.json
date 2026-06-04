@@ -2,15 +2,15 @@
   "experiment": "model_artifact_integrity",
   "verified": true,
   "models_dir": "C:\\Users\\wangz\\best-of-n-wam\\results\\models",
-  "n_models": 49,
+  "n_models": 50,
   "counts_by_suffix": {
-    ".npz": 36,
+    ".npz": 37,
     ".joblib": 13
   },
-  "total_bytes": 119450103,
-  "n_npz_arrays": 315,
-  "n_npz_numeric_arrays": 246,
-  "n_npz_elements": 6077793,
+  "total_bytes": 120200617,
+  "n_npz_arrays": 338,
+  "n_npz_numeric_arrays": 266,
+  "n_npz_elements": 6260371,
   "n_joblib_predictors": 13,
   "n_checks": 10,
   "n_issues": 0,
@@ -18,12 +18,12 @@
     {
       "name": "model_artifacts_present",
       "ok": true,
-      "detail": "models=49"
+      "detail": "models=50"
     },
     {
       "name": "model_artifact_npz_breadth",
       "ok": true,
-      "detail": "npz=36"
+      "detail": "npz=37"
     },
     {
       "name": "model_artifact_joblib_breadth",
@@ -33,7 +33,7 @@
     {
       "name": "model_artifact_total_bytes",
       "ok": true,
-      "detail": "bytes=119450103"
+      "detail": "bytes=120200617"
     },
     {
       "name": "model_artifacts_load",
@@ -552,6 +552,310 @@
           "dtype": "object",
           "size": 1,
           "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_libero_tiny_neural_vla_policy.npz",
+      "suffix": ".npz",
+      "bytes": 750514,
+      "sha256": "5fd258e864d4823eeceba9f59eb26c378a709ec9026b21e4102d17926fed4ad5",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 23,
+      "total_elements": 182578,
+      "numeric_arrays": 20,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "x_train",
+          "shape": [
+            253,
+            662
+          ],
+          "dtype": "float32",
+          "size": 167486,
+          "numeric": true,
+          "finite_count": 167486,
+          "all_finite": true,
+          "min": -2.4445974826812744,
+          "max": 3.1500000953674316
+        },
+        {
+          "name": "y_train",
+          "shape": [
+            253,
+            7
+          ],
+          "dtype": "float32",
+          "size": 1771,
+          "numeric": true,
+          "finite_count": 1771,
+          "all_finite": true,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "name": "mean",
+          "shape": [
+            662
+          ],
+          "dtype": "float32",
+          "size": 662,
+          "numeric": true,
+          "finite_count": 662,
+          "all_finite": true,
+          "min": -2.06491756439209,
+          "max": 2.2763590812683105
+        },
+        {
+          "name": "scale",
+          "shape": [
+            662
+          ],
+          "dtype": "float32",
+          "size": 662,
+          "numeric": true,
+          "finite_count": 662,
+          "all_finite": true,
+          "min": 7.704590643697884e-06,
+          "max": 1.0
+        },
+        {
+          "name": "feature_weights",
+          "shape": [
+            662
+          ],
+          "dtype": "float32",
+          "size": 662,
+          "numeric": true,
+          "finite_count": 662,
+          "all_finite": true,
+          "min": 0.44999998807907104,
+          "max": 2.5
+        },
+        {
+          "name": "train_languages",
+          "shape": [
+            253
+          ],
+          "dtype": "object",
+          "size": 253,
+          "numeric": false
+        },
+        {
+          "name": "task_ids",
+          "shape": [
+            1
+          ],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "train_seeds",
+          "shape": [
+            1
+          ],
+          "dtype": "int32",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 100.0,
+          "max": 100.0
+        },
+        {
+          "name": "eval_seeds",
+          "shape": [
+            1
+          ],
+          "dtype": "int32",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 200.0,
+          "max": 200.0
+        },
+        {
+          "name": "policy_backend",
+          "shape": [],
+          "dtype": "<U15",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "y_mean",
+          "shape": [
+            7
+          ],
+          "dtype": "float32",
+          "size": 7,
+          "numeric": true,
+          "finite_count": 7,
+          "all_finite": true,
+          "min": -0.06595589965581894,
+          "max": 0.4624505937099457
+        },
+        {
+          "name": "y_scale",
+          "shape": [
+            7
+          ],
+          "dtype": "float32",
+          "size": 7,
+          "numeric": true,
+          "finite_count": 7,
+          "all_finite": true,
+          "min": 0.14037667214870453,
+          "max": 1.0
+        },
+        {
+          "name": "neural_train_loss",
+          "shape": [
+            1
+          ],
+          "dtype": "float32",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.2837878465652466,
+          "max": 0.2837878465652466
+        },
+        {
+          "name": "torch_0_weight",
+          "shape": [
+            16,
+            662
+          ],
+          "dtype": "float32",
+          "size": 10592,
+          "numeric": true,
+          "finite_count": 10592,
+          "all_finite": true,
+          "min": -0.03944333270192146,
+          "max": 0.039402034133672714
+        },
+        {
+          "name": "torch_0_bias",
+          "shape": [
+            16
+          ],
+          "dtype": "float32",
+          "size": 16,
+          "numeric": true,
+          "finite_count": 16,
+          "all_finite": true,
+          "min": -0.03791899234056473,
+          "max": 0.027666572481393814
+        },
+        {
+          "name": "torch_1_weight",
+          "shape": [
+            16
+          ],
+          "dtype": "float32",
+          "size": 16,
+          "numeric": true,
+          "finite_count": 16,
+          "all_finite": true,
+          "min": 0.9994000196456909,
+          "max": 1.0006002187728882
+        },
+        {
+          "name": "torch_1_bias",
+          "shape": [
+            16
+          ],
+          "dtype": "float32",
+          "size": 16,
+          "numeric": true,
+          "finite_count": 16,
+          "all_finite": true,
+          "min": -0.0006003874586895108,
+          "max": 0.0006000048015266657
+        },
+        {
+          "name": "torch_3_weight",
+          "shape": [
+            16,
+            16
+          ],
+          "dtype": "float32",
+          "size": 256,
+          "numeric": true,
+          "finite_count": 256,
+          "all_finite": true,
+          "min": -0.24325834214687347,
+          "max": 0.25053125619888306
+        },
+        {
+          "name": "torch_3_bias",
+          "shape": [
+            16
+          ],
+          "dtype": "float32",
+          "size": 16,
+          "numeric": true,
+          "finite_count": 16,
+          "all_finite": true,
+          "min": -0.24660724401474,
+          "max": 0.21293529868125916
+        },
+        {
+          "name": "torch_4_weight",
+          "shape": [
+            16
+          ],
+          "dtype": "float32",
+          "size": 16,
+          "numeric": true,
+          "finite_count": 16,
+          "all_finite": true,
+          "min": 0.9993994832038879,
+          "max": 1.0006002187728882
+        },
+        {
+          "name": "torch_4_bias",
+          "shape": [
+            16
+          ],
+          "dtype": "float32",
+          "size": 16,
+          "numeric": true,
+          "finite_count": 16,
+          "all_finite": true,
+          "min": -0.000600406143348664,
+          "max": 0.0006003922317177057
+        },
+        {
+          "name": "torch_6_weight",
+          "shape": [
+            7,
+            16
+          ],
+          "dtype": "float32",
+          "size": 112,
+          "numeric": true,
+          "finite_count": 112,
+          "all_finite": true,
+          "min": -0.2452535480260849,
+          "max": 0.24732139706611633
+        },
+        {
+          "name": "torch_6_bias",
+          "shape": [
+            7
+          ],
+          "dtype": "float32",
+          "size": 7,
+          "numeric": true,
+          "finite_count": 7,
+          "all_finite": true,
+          "min": -0.19926871359348297,
+          "max": 0.02248474955558777
         }
       ]
     },

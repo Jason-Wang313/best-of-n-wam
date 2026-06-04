@@ -93,6 +93,66 @@ def test_ideal_frontier_readiness_accepts_neural_libero_policy_class(tmp_path: P
                 "is_neural": True,
                 "uses_rgb": True,
                 "uses_language": True,
+                "uses_robot_proprio": True,
+                "uses_simulator_object_state": False,
+                "uses_task_id": False,
+                "uses_phase_index": False,
+                "uses_target_point_command": False,
+            },
+        },
+    )
+    write_json(results / "external_benchmark_runtime_probe.json", {"verified": True, "libero_import_available": True})
+
+    payload = audit_ideal_frontier_readiness(tmp_path, results)
+
+    modern = {row["frontier_id"]: row for row in payload["rows"]}["modern_vla_libero"]
+    assert modern["ready_to_promote"] is False
+    assert "neural_visual_language_model_class" not in modern["missing_signals"]
+    assert modern["missing_signals"] == ["modern_vla_scale_or_pretrained_model"]
+
+
+def test_ideal_frontier_readiness_accepts_auxiliary_neural_smoke(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    results.mkdir()
+    canonical_model = tmp_path / "results" / "models" / "libero_knn.npz"
+    neural_model = tmp_path / "results" / "models" / "libero_neural_smoke.npz"
+    canonical_model.parent.mkdir()
+    canonical_model.write_bytes(b"knn")
+    neural_model.write_bytes(b"neural")
+    write_json(
+        results / "benchmark_libero_visual_language_bc_policy.json",
+        {
+            "verified": True,
+            "eval_episodes": 30,
+            "model_path": "results/models/libero_knn.npz",
+            "confidence_intervals": {"eval_success_rate": {"n": 30, "mean": 1.0, "lo": 1.0}},
+            "policy": {
+                "type": "rgb_proprio_language_knn_behavior_cloning",
+                "is_neural": False,
+                "uses_rgb": True,
+                "uses_language": True,
+                "uses_robot_proprio": True,
+                "uses_simulator_object_state": False,
+                "uses_task_id": False,
+                "uses_phase_index": False,
+                "uses_target_point_command": False,
+            },
+        },
+    )
+    write_json(
+        results / "benchmark_libero_tiny_neural_vla_policy.json",
+        {
+            "verified": True,
+            "eval_episodes": 1,
+            "model_path": "results/models/libero_neural_smoke.npz",
+            "policy": {
+                "type": "tiny_neural_vla_behavior_cloning",
+                "is_neural": True,
+                "pretrained_vla": False,
+                "vla_scale_parameters": 0,
+                "uses_rgb": True,
+                "uses_language": True,
+                "uses_robot_proprio": True,
                 "uses_simulator_object_state": False,
                 "uses_task_id": False,
                 "uses_phase_index": False,

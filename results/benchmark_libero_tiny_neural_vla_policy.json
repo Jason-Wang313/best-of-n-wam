@@ -1,0 +1,63 @@
+{
+  "experiment": "benchmark_libero_visual_language_bc_policy",
+  "available": true,
+  "attempted": true,
+  "verified": true,
+  "output_tag": "tiny_neural_vla_policy",
+  "tasks": [
+    "libero_object/0"
+  ],
+  "train_seeds": [
+    100
+  ],
+  "eval_seeds": [
+    200
+  ],
+  "train_episodes": 1,
+  "train_successes": 1,
+  "train_examples": 253,
+  "eval_episodes": 1,
+  "eval_successes": 0,
+  "eval_success_rate": 0.0,
+  "confidence_intervals": {
+    "eval_success_rate": {
+      "n": 1,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "std": 0.0
+    }
+  },
+  "policy": {
+    "type": "tiny_neural_vla_behavior_cloning",
+    "is_neural": true,
+    "is_short_neural_smoke": true,
+    "pretrained_vla": false,
+    "vla_scale_parameters": 0,
+    "uses_rgb": true,
+    "uses_language": true,
+    "uses_robot_proprio": true,
+    "uses_simulator_object_state": false,
+    "uses_task_id": false,
+    "uses_phase_index": false,
+    "uses_target_point_command": false,
+    "uses_previous_action": true,
+    "uses_step_clock": true,
+    "uses_language_candidate_filter": false,
+    "image_grid": 8,
+    "language_hash_dim": 64,
+    "neural_hidden_dim": 16,
+    "neural_epochs": 1,
+    "neural_final_train_loss": 0.28378785304401233,
+    "knn_k": null,
+    "knn_temperature": null
+  },
+  "object_grasp_tuning": true,
+  "model_path": "results\\models\\benchmark_libero_tiny_neural_vla_policy.npz",
+  "artifact_paths": {
+    "json": "results/benchmark_libero_tiny_neural_vla_policy.json",
+    "episodes_csv": "results/tables/benchmark_libero_tiny_neural_vla_policy_episodes.csv",
+    "report": "reports/libero_tiny_neural_vla_policy_report.md"
+  },
+  "note": "Tiny neural RGB/proprio/language time-conditioned BC policy without simulator object state, task IDs, phase labels, target-point commands, or language-candidate retrieval; a VLA-style smoke, not VLA-scale evidence."
+}

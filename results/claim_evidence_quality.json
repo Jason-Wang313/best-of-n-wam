@@ -1130,7 +1130,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
       "ok": true,
-      "bytes": 309422,
+      "bytes": 309856,
       "detail": "json"
     },
     {
@@ -1607,7 +1607,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "exists": true,
       "ok": true,
-      "bytes": 78290,
+      "bytes": 78891,
       "detail": "json"
     },
     {
@@ -1625,7 +1625,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
       "ok": true,
-      "bytes": 33046,
+      "bytes": 33341,
       "detail": "json"
     },
     {
@@ -1634,7 +1634,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
       "exists": true,
       "ok": true,
-      "bytes": 8804,
+      "bytes": 8911,
       "detail": "md"
     }
   ]

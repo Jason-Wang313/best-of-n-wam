@@ -1,0 +1,3 @@
+split,task_id,task_name,seed,success,total_reward,initial_distance,final_distance,progress,energy,steps,failure_reason
+train_scripted_visual_language,libero_object/0,pick_up_the_alphabet_soup_and_place_it_in_the_basket,100,True,1.0,0.6834025551774938,0.135255514849879,0.5481470403276149,345.4748937990388,253,
+eval_visual_language_bc,libero_object/0,pick_up_the_alphabet_soup_and_place_it_in_the_basket,200,False,0.0,0.6818261943490007,0.8718773531326487,-0.19005115878364798,88.57056750954601,80,

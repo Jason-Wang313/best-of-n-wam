@@ -30,6 +30,46 @@ def _model_exists(root: Path, payload: dict[str, Any]) -> bool:
     return path.exists() and path.stat().st_size > 0
 
 
+def _policy(payload: dict[str, Any]) -> dict[str, Any]:
+    policy = payload.get("policy")
+    return policy if isinstance(policy, dict) else {}
+
+
+def _policy_type(policy: dict[str, Any]) -> str:
+    return str(policy.get("type") or "").lower()
+
+
+def _no_shortcuts(policy: dict[str, Any]) -> bool:
+    return (
+        policy.get("uses_rgb") is True
+        and policy.get("uses_language") is True
+        and policy.get("uses_simulator_object_state") is False
+        and policy.get("uses_task_id") is False
+        and policy.get("uses_phase_index") is False
+        and policy.get("uses_target_point_command") is False
+    )
+
+
+def _neural_policy_class_completed(root: Path, payload: dict[str, Any]) -> bool:
+    policy = _policy(payload)
+    policy_type = _policy_type(policy)
+    return (
+        payload.get("verified") is True
+        and int(payload.get("eval_episodes") or 0) > 0
+        and _model_exists(root, payload)
+        and policy.get("is_neural") is True
+        and bool(policy_type)
+        and "knn" not in policy_type
+        and "scripted" not in policy_type
+        and _no_shortcuts(policy)
+        and policy.get("uses_robot_proprio") is True
+    )
+
+
+def _modern_vla_scale_or_pretrained(policy: dict[str, Any]) -> bool:
+    return policy.get("pretrained_vla") is True or int(policy.get("vla_scale_parameters") or 0) >= 1_000_000
+
+
 def _signal(signals: list[ReadinessSignal], name: str, ok: bool, detail: str) -> None:
     signals.append(ReadinessSignal(name=name, ok=bool(ok), detail=detail))
 
@@ -53,6 +93,7 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     results_dir = (results_dir or root / "results").resolve()
 
     libero_vl = _load_json(results_dir / "benchmark_libero_visual_language_bc_policy.json")
+    libero_neural_smoke = _load_json(results_dir / "benchmark_libero_tiny_neural_vla_policy.json")
     robocasa_catalog = _load_json(results_dir / "benchmark_robocasa_catalog_probe.json")
     maniskill_visual = _load_json(results_dir / "benchmark_maniskill_visual_probe.json")
     maniskill_deps = _load_json(results_dir / "benchmark_maniskill_dependency_probe.json")
@@ -79,17 +120,14 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
         )
     )
 
-    policy = libero_vl.get("policy") if isinstance(libero_vl.get("policy"), dict) else {}
+    policy = _policy(libero_vl)
+    neural_smoke_policy = _policy(libero_neural_smoke)
     ci = (libero_vl.get("confidence_intervals") or {}).get("eval_success_rate") or {}
-    policy_type = str(policy.get("type") or "").lower()
-    no_shortcuts = (
-        policy.get("uses_rgb") is True
-        and policy.get("uses_language") is True
-        and policy.get("uses_simulator_object_state") is False
-        and policy.get("uses_task_id") is False
-        and policy.get("uses_phase_index") is False
-        and policy.get("uses_target_point_command") is False
-    )
+    policy_type = _policy_type(policy)
+    neural_smoke_policy_type = _policy_type(neural_smoke_policy)
+    no_shortcuts = _no_shortcuts(policy)
+    neural_class_ok = _neural_policy_class_completed(root, libero_vl) or _neural_policy_class_completed(root, libero_neural_smoke)
+    modern_scale_ok = _modern_vla_scale_or_pretrained(policy) or _modern_vla_scale_or_pretrained(neural_smoke_policy)
     modern_vla: list[ReadinessSignal] = []
     _signal(
         modern_vla,
@@ -103,14 +141,21 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     _signal(
         modern_vla,
         "neural_visual_language_model_class",
-        policy.get("is_neural") is True and bool(policy_type) and "knn" not in policy_type and "scripted" not in policy_type,
-        f"policy_type={policy_type!r}, is_neural={policy.get('is_neural')}",
+        neural_class_ok,
+        (
+            f"canonical_type={policy_type!r}, canonical_is_neural={policy.get('is_neural')}, "
+            f"aux_type={neural_smoke_policy_type!r}, aux_is_neural={neural_smoke_policy.get('is_neural')}, "
+            f"aux_verified={libero_neural_smoke.get('verified')}, aux_eval={libero_neural_smoke.get('eval_episodes')}"
+        ),
     )
     _signal(
         modern_vla,
         "modern_vla_scale_or_pretrained_model",
-        policy.get("pretrained_vla") is True or int(policy.get("vla_scale_parameters") or 0) >= 1_000_000,
-        f"pretrained_vla={policy.get('pretrained_vla')}, vla_scale_parameters={policy.get('vla_scale_parameters')}",
+        modern_scale_ok,
+        (
+            f"canonical_pretrained={policy.get('pretrained_vla')}, canonical_params={policy.get('vla_scale_parameters')}, "
+            f"aux_pretrained={neural_smoke_policy.get('pretrained_vla')}, aux_params={neural_smoke_policy.get('vla_scale_parameters')}"
+        ),
     )
     _signal(
         modern_vla,

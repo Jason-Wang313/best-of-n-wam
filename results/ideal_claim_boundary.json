@@ -264,7 +264,7 @@
         {
           "path": "results/frontier_integrity.json",
           "exists": true,
-          "bytes": 78290
+          "bytes": 78891
         }
       ],
       "missing_files": [],
@@ -296,12 +296,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7345
+          "bytes": 7444
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4235
+          "bytes": 4343
         },
         {
           "path": "reports/final_decision_report.md",
@@ -332,7 +332,7 @@
         {
           "path": "results/frontier_integrity.json",
           "exists": true,
-          "bytes": 78290
+          "bytes": 78891
         }
       ],
       "missing_files": [],
@@ -364,12 +364,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7345
+          "bytes": 7444
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4235
+          "bytes": 4343
         },
         {
           "path": "results/external_benchmark_runtime_probe.json",
@@ -390,6 +390,16 @@
           "path": "reports/libero_tiny_neural_vla_attempt_report.md",
           "exists": true,
           "bytes": 642
+        },
+        {
+          "path": "results/benchmark_libero_tiny_neural_vla_policy.json",
+          "exists": true,
+          "bytes": 1933
+        },
+        {
+          "path": "reports/libero_tiny_neural_vla_policy_report.md",
+          "exists": true,
+          "bytes": 1190
         },
         {
           "path": "results/benchmark_libero_wam.json",
@@ -425,7 +435,7 @@
         {
           "path": "results/frontier_integrity.json",
           "exists": true,
-          "bytes": 78290
+          "bytes": 78891
         },
         {
           "path": "results/benchmark_robocasa_catalog_probe.json",
@@ -460,12 +470,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7345
+          "bytes": 7444
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4235
+          "bytes": 4343
         },
         {
           "path": "results/benchmark_robocasa_catalog_probe.json",
@@ -501,7 +511,7 @@
         {
           "path": "results/frontier_integrity.json",
           "exists": true,
-          "bytes": 78290
+          "bytes": 78891
         },
         {
           "path": "results/benchmark_maniskill_visual_probe.json",
@@ -545,12 +555,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7345
+          "bytes": 7444
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4235
+          "bytes": 4343
         },
         {
           "path": "results/benchmark_maniskill_visual_probe.json",
@@ -623,12 +633,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7345
+          "bytes": 7444
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4235
+          "bytes": 4343
         },
         {
           "path": "results/universal_wam_train_inference_optimizer.json",

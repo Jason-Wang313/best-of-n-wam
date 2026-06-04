@@ -16,8 +16,8 @@
   "n_failed_records": 0,
   "failed_records": [],
   "n_wrapper_links": 69,
-  "n_table_artifacts": 297,
-  "n_table_rows": 260529,
+  "n_table_artifacts": 298,
+  "n_table_rows": 260531,
   "n_figure_artifacts": 40,
   "n_checks": 10,
   "n_issues": 0,
@@ -45,12 +45,12 @@
     {
       "name": "experiment_registry_table_coverage",
       "ok": true,
-      "detail": "tables=297"
+      "detail": "tables=298"
     },
     {
       "name": "experiment_registry_table_row_coverage",
       "ok": true,
-      "detail": "rows=260529"
+      "detail": "rows=260531"
     },
     {
       "name": "experiment_registry_figure_coverage",
@@ -2520,6 +2520,10 @@
         {
           "path": "results/tables/benchmark_libero_seed_metrics.csv",
           "rows": 15
+        },
+        {
+          "path": "results/tables/benchmark_libero_tiny_neural_vla_policy_episodes.csv",
+          "rows": 2
         },
         {
           "path": "results/tables/benchmark_libero_train_validation.csv",

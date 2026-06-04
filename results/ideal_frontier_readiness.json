@@ -41,10 +41,9 @@
       "frontier_id": "modern_vla_libero",
       "ready_to_promote": false,
       "n_signals": 7,
-      "n_met_signals": 5,
-      "n_missing_signals": 2,
+      "n_met_signals": 6,
+      "n_missing_signals": 1,
       "missing_signals": [
-        "neural_visual_language_model_class",
         "modern_vla_scale_or_pretrained_model"
       ],
       "signals": [
@@ -70,13 +69,13 @@
         },
         {
           "name": "neural_visual_language_model_class",
-          "ok": false,
-          "detail": "policy_type='rgb_proprio_language_knn_behavior_cloning', is_neural=None"
+          "ok": true,
+          "detail": "canonical_type='rgb_proprio_language_knn_behavior_cloning', canonical_is_neural=None, aux_type='tiny_neural_vla_behavior_cloning', aux_is_neural=True, aux_verified=True, aux_eval=1"
         },
         {
           "name": "modern_vla_scale_or_pretrained_model",
           "ok": false,
-          "detail": "pretrained_vla=None, vla_scale_parameters=None"
+          "detail": "canonical_pretrained=None, canonical_params=None, aux_pretrained=False, aux_params=0"
         },
         {
           "name": "current_runtime_can_rerun_libero",

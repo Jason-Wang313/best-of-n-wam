@@ -1,9 +1,9 @@
 # Tracked Artifact Provenance Report
 
 - Verified: True
-- Git-tracked paths: 782
+- Git-tracked paths: 786
 - Claim source artifacts checked: 119
-- Published artifact references checked: 449
+- Published artifact references checked: 450
 - Untracked claim sources: 0
 - Untracked artifact references: 0
 - Checks: 8

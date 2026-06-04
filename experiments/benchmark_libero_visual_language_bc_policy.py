@@ -35,6 +35,33 @@ def ensure_dirs() -> None:
         path.mkdir(parents=True, exist_ok=True)
 
 
+def artifact_layout(output_tag: str | None) -> dict[str, Path | str]:
+    tag = str(output_tag or "").strip()
+    if not tag or tag == "canonical":
+        prefix = "benchmark_libero_visual_language_bc_policy"
+        report_name = "libero_visual_language_bc_policy_report.md"
+        tag = ""
+    else:
+        safe = re.sub(r"[^A-Za-z0-9_.-]+", "_", tag).strip("_").lower()
+        if not safe:
+            safe = "tagged"
+        prefix = f"benchmark_libero_{safe}"
+        report_name = f"libero_{safe}_report.md"
+        tag = safe
+    return {
+        "tag": tag,
+        "prefix": prefix,
+        "json": RESULTS / f"{prefix}.json",
+        "episodes_csv": RESULTS / "tables" / f"{prefix}_episodes.csv",
+        "model": RESULTS / "models" / f"{prefix}.npz",
+        "report": REPORTS / report_name,
+        "json_rel": f"results/{prefix}.json",
+        "episodes_csv_rel": f"results/tables/{prefix}_episodes.csv",
+        "model_rel": f"results/models/{prefix}.npz",
+        "report_rel": f"reports/{report_name}",
+    }
+
+
 def write_json(path: Path, payload: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(sanitize(payload), indent=2), encoding="utf-8")
@@ -388,7 +415,7 @@ def run_bc_episode(
     }
 
 
-def write_report(summary: dict[str, Any]) -> None:
+def write_report(summary: dict[str, Any], path: Path | None = None) -> None:
     ci = (summary.get("confidence_intervals") or {}).get("eval_success_rate") or {}
     policy = summary.get("policy") if isinstance(summary.get("policy"), dict) else {}
     policy_type = str(policy.get("type") or "unavailable")
@@ -407,6 +434,13 @@ def write_report(summary: dict[str, Any]) -> None:
         "- It encodes task language as hashed text features and does not restrict evaluation by task ID or simulator object state."
         if is_neural
         else "- It uses task language to restrict nearest-neighbor candidates to demonstrations with the same instruction."
+    )
+    task_count = len(summary.get("tasks") or [])
+    output_tag = str(summary.get("output_tag") or "")
+    scope_line = (
+        f"- This tagged smoke artifact evaluates `{task_count}` task(s); it is auxiliary model-class evidence and does not replace the canonical all-task LIBERO artifact."
+        if output_tag
+        else "- The default artifact evaluates all ten LIBERO Object tasks, not all LIBERO suites."
     )
     lines = [
         "# LIBERO Visual-Language BC Policy Report",
@@ -428,10 +462,10 @@ def write_report(summary: dict[str, Any]) -> None:
         boundary,
         "- It does not use simulator object state, scripted phase labels, task IDs, or commanded target points at evaluation time.",
         language_filter,
-        "- The default artifact evaluates all ten LIBERO Object tasks, not all LIBERO suites.",
+        scope_line,
         "- Demonstrations come from the hand-coded object-tuned scripted controller.",
     ]
-    (REPORTS / "libero_visual_language_bc_policy_report.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    (path or (REPORTS / "libero_visual_language_bc_policy_report.md")).write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def unavailable_summary(reason: str, args: argparse.Namespace) -> dict[str, Any]:
@@ -458,6 +492,11 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--offscreen-renderer", action="store_true")
     parser.add_argument("--eval-steps", type=int, default=280)
     parser.add_argument("--policy-backend", choices=["knn", "tiny_neural_vla"], default="knn")
+    parser.add_argument(
+        "--output-tag",
+        default="",
+        help="Optional artifact tag. Empty preserves the canonical benchmark_libero_visual_language_bc_policy outputs.",
+    )
     parser.add_argument("--knn-k", type=int, default=3)
     parser.add_argument("--knn-temperature", type=float, default=0.05)
     parser.add_argument("--neural-hidden-dim", type=int, default=128)
@@ -501,11 +540,18 @@ def build_arg_parser() -> argparse.ArgumentParser:
 def main() -> None:
     args = build_arg_parser().parse_args()
     ensure_dirs()
+    paths = artifact_layout(args.output_tag)
     ok, reason = is_libero_available()
     if not ok:
         summary = unavailable_summary(reason, args)
-        write_json(RESULTS / "benchmark_libero_visual_language_bc_policy.json", summary)
-        write_report(summary)
+        summary["output_tag"] = paths["tag"]
+        summary["artifact_paths"] = {
+            "json": paths["json_rel"],
+            "episodes_csv": paths["episodes_csv_rel"],
+            "report": paths["report_rel"],
+        }
+        write_json(paths["json"], summary)  # type: ignore[arg-type]
+        write_report(summary, paths["report"])  # type: ignore[arg-type]
         print(reason)
         return
 
@@ -558,7 +604,7 @@ def main() -> None:
             str(language): np.flatnonzero(train_languages == language)
             for language in sorted({str(v) for v in train_languages.tolist()})
         }
-        model_path = RESULTS / "models" / "benchmark_libero_visual_language_bc_policy.npz"
+        model_path = paths["model"]  # type: ignore[assignment]
         neural_arrays: dict[str, np.ndarray] = {}
         neural_losses: list[float] = []
         neural_model: Any | None = None
@@ -613,9 +659,15 @@ def main() -> None:
     except (LIBEROUnavailableError, RuntimeError, ValueError) as exc:
         summary = unavailable_summary(f"{type(exc).__name__}: {exc}", args)
         summary["rows"] = rows
-        write_json(RESULTS / "benchmark_libero_visual_language_bc_policy.json", summary)
-        write_csv(RESULTS / "tables" / "benchmark_libero_visual_language_bc_policy_episodes.csv", rows)
-        write_report(summary)
+        summary["output_tag"] = paths["tag"]
+        summary["artifact_paths"] = {
+            "json": paths["json_rel"],
+            "episodes_csv": paths["episodes_csv_rel"],
+            "report": paths["report_rel"],
+        }
+        write_json(paths["json"], summary)  # type: ignore[arg-type]
+        write_csv(paths["episodes_csv"], rows)  # type: ignore[arg-type]
+        write_report(summary, paths["report"])  # type: ignore[arg-type]
         if args.fail_on_low_success:
             raise
         return
@@ -637,6 +689,7 @@ def main() -> None:
         "available": True,
         "attempted": True,
         "verified": bool(verified),
+        "output_tag": paths["tag"],
         "tasks": task_ids,
         "train_seeds": [int(s) for s in args.train_seeds],
         "eval_seeds": [int(s) for s in args.eval_seeds],
@@ -650,6 +703,9 @@ def main() -> None:
         "policy": {
             "type": "tiny_neural_vla_behavior_cloning" if args.policy_backend == "tiny_neural_vla" else "rgb_proprio_language_knn_behavior_cloning",
             "is_neural": args.policy_backend == "tiny_neural_vla",
+            "is_short_neural_smoke": bool(paths["tag"]) and args.policy_backend == "tiny_neural_vla",
+            "pretrained_vla": False,
+            "vla_scale_parameters": 0,
             "uses_rgb": True,
             "uses_language": True,
             "uses_robot_proprio": True,
@@ -671,9 +727,9 @@ def main() -> None:
         "object_grasp_tuning": bool(getattr(args, "object_grasp_tuning", True)),
         "model_path": str(model_path.relative_to(ROOT)),
         "artifact_paths": {
-            "json": "results/benchmark_libero_visual_language_bc_policy.json",
-            "episodes_csv": "results/tables/benchmark_libero_visual_language_bc_policy_episodes.csv",
-            "report": "reports/libero_visual_language_bc_policy_report.md",
+            "json": paths["json_rel"],
+            "episodes_csv": paths["episodes_csv_rel"],
+            "report": paths["report_rel"],
         },
         "note": (
             "Tiny neural RGB/proprio/language time-conditioned BC policy without simulator object state, task IDs, phase labels, target-point commands, or language-candidate retrieval; a VLA-style smoke, not VLA-scale evidence."
@@ -681,9 +737,9 @@ def main() -> None:
             else "RGB/proprio/language time-conditioned BC policy without simulator object state, task IDs, phase labels, or target-point commands; not full LIBERO or modern VLA evidence."
         ),
     }
-    write_json(RESULTS / "benchmark_libero_visual_language_bc_policy.json", summary)
-    write_csv(RESULTS / "tables" / "benchmark_libero_visual_language_bc_policy_episodes.csv", rows)
-    write_report(summary)
+    write_json(paths["json"], summary)  # type: ignore[arg-type]
+    write_csv(paths["episodes_csv"], rows)  # type: ignore[arg-type]
+    write_report(summary, paths["report"])  # type: ignore[arg-type]
     print(json.dumps(sanitize(summary), indent=2))
     if args.fail_on_low_success and not verified:
         raise SystemExit(1)

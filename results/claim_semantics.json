@@ -845,7 +845,7 @@
     {
       "name": "claim_100_zero_issue_or_overclaim_count",
       "ok": true,
-      "detail": "evidence=refs=705, issues=0, status_counts={'ok': 705}"
+      "detail": "evidence=refs=706, issues=0, status_counts={'ok': 706}"
     },
     {
       "name": "claim_103_zero_issue_or_overclaim_count",

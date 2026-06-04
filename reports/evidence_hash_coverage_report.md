@@ -2,8 +2,8 @@
 
 - Verified: True
 - Non-self claim source artifacts hashed: 117
-- Non-self published artifact references hashed: 447
-- Total non-self records hashed: 564
+- Non-self published artifact references hashed: 448
+- Total non-self records hashed: 565
 - Self outputs excluded: 4
 - Checks: 10
 - Issues: 0
