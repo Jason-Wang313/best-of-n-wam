@@ -54,15 +54,26 @@ def audit_claim_generation_consistency(
     results_dir = (results_dir or root / "results").resolve()
     json_path = results_dir / "claims_status.json"
     md_path = results_dir / "claims_status.md"
-    before_json = read_bytes(json_path)
-    before_md = read_bytes(md_path)
-
     env = os.environ.copy()
     src = str(root / "src")
     env["PYTHONPATH"] = src + os.pathsep + env["PYTHONPATH"] if env.get("PYTHONPATH") else src
     env["WAM_RESULTS_DIR"] = str(results_dir)
     cmd = list(command) if command is not None else default_command(root)
-    proc = subprocess.run(
+
+    proc_first = subprocess.run(
+        cmd,
+        cwd=root,
+        env=env,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        timeout=timeout_s,
+        check=False,
+    )
+    after_first_json = read_bytes(json_path)
+    after_first_md = read_bytes(md_path)
+
+    proc_second = subprocess.run(
         cmd,
         cwd=root,
         env=env,
@@ -79,15 +90,31 @@ def audit_claim_generation_consistency(
     claims = payload.get("claims") if isinstance(payload.get("claims"), list) else []
     checks: list[ClaimGenerationCheck] = []
 
-    add(checks, "generator_exit_zero", proc.returncode == 0, f"returncode={proc.returncode}")
+    add(
+        checks,
+        "generator_exit_zero",
+        proc_first.returncode == 0 and proc_second.returncode == 0,
+        f"first={proc_first.returncode}, second={proc_second.returncode}",
+    )
     add(checks, "claims_json_exists", json_path.exists() and len(after_json) > 0, f"bytes={len(after_json)}")
     add(checks, "claims_md_exists", md_path.exists() and len(after_md) > 0, f"bytes={len(after_md)}")
-    add(checks, "claims_json_byte_stable", before_json == after_json, f"before={sha256_bytes(before_json)}, after={sha256_bytes(after_json)}")
-    add(checks, "claims_md_byte_stable", before_md == after_md, f"before={sha256_bytes(before_md)}, after={sha256_bytes(after_md)}")
+    add(
+        checks,
+        "claims_json_byte_stable",
+        after_first_json == after_json,
+        f"first={sha256_bytes(after_first_json)}, second={sha256_bytes(after_json)}",
+    )
+    add(
+        checks,
+        "claims_md_byte_stable",
+        after_first_md == after_md,
+        f"first={sha256_bytes(after_first_md)}, second={sha256_bytes(after_md)}",
+    )
     add(checks, "claims_json_parses", bool(payload), f"keys={sorted(payload)[:8]}")
     add(checks, "claims_present", len(claims) > 0, f"claims={len(claims)}")
     add(checks, "claims_no_overclaims", len(payload.get("overclaims") or []) == 0, f"overclaims={len(payload.get('overclaims') or [])}")
-    add(checks, "stdout_contains_claims_status", "# Claims Status" in proc.stdout, f"stdout_bytes={len(proc.stdout.encode('utf-8'))}")
+    stdout = proc_first.stdout + proc_second.stdout
+    add(checks, "stdout_contains_claims_status", "# Claims Status" in stdout, f"stdout_bytes={len(stdout.encode('utf-8'))}")
     markdown_claim_rows = sum(1 for line in after_md.decode("utf-8", errors="ignore").splitlines() if line.startswith("- Claim "))
     add(checks, "markdown_claim_count_matches_json", markdown_claim_rows == len(claims), f"md_claims={markdown_claim_rows}, json_claims={len(claims)}")
 
@@ -101,7 +128,9 @@ def audit_claim_generation_consistency(
         "n_issues": len(issues),
         "json_sha256": sha256_bytes(after_json),
         "md_sha256": sha256_bytes(after_md),
-        "generator_returncode": proc.returncode,
+        "generator_returncode": proc_second.returncode,
+        "first_generator_returncode": proc_first.returncode,
+        "second_generator_returncode": proc_second.returncode,
         "command": cmd,
         "checks": [check.__dict__ for check in checks],
         "issues": [check.__dict__ for check in issues],

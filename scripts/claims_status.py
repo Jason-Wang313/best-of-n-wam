@@ -47,6 +47,7 @@ NARRATIVE_SURFACES = [
     ("report_generation_consistency_report", REPORTS / "report_generation_consistency_report.md"),
     ("script_contracts_report", REPORTS / "script_contracts_report.md"),
     ("claim_evidence_quality_report", REPORTS / "claim_evidence_quality_report.md"),
+    ("tracked_artifact_provenance_report", REPORTS / "tracked_artifact_provenance_report.md"),
     ("final_decision_report", REPORTS / "final_decision_report.md"),
     ("paper_result_summary", REPORTS / "paper_result_summary.md"),
     ("reviewer_risk_assessment", REPORTS / "reviewer_risk_assessment.md"),
@@ -318,6 +319,7 @@ def main() -> None:
     script_contracts = load_json("script_contracts.json")
     claim_semantics = load_json("claim_semantics.json")
     claim_evidence_quality = load_json("claim_evidence_quality.json")
+    tracked_artifact_provenance = load_json("tracked_artifact_provenance.json")
     claim_generation_consistency = load_json("claim_generation_consistency.json")
     report_generation_consistency = load_json("report_generation_consistency.json")
 
@@ -1883,9 +1885,9 @@ def main() -> None:
         "status": status(
             bool(command_result_consistency)
             and command_result_consistency.get("verified", False)
-            and (command_result_consistency.get("n_expected_snippets") or 0) >= 19
-            and (command_result_consistency.get("n_python_command_lines") or 0) >= 18
-            and (command_result_consistency.get("n_checks") or 0) >= 21
+            and (command_result_consistency.get("n_expected_snippets") or 0) >= 20
+            and (command_result_consistency.get("n_python_command_lines") or 0) >= 19
+            and (command_result_consistency.get("n_checks") or 0) >= 23
             and command_result_consistency.get("n_issues") == 0
             and artifact_exists(RESULTS / "command_result_consistency.json")
             and artifact_exists(REPORTS / "command_result_consistency_report.md"),
@@ -1896,6 +1898,29 @@ def main() -> None:
             f"python_commands={command_result_consistency.get('n_python_command_lines')}, "
             f"pytest={command_result_consistency.get('expected_pytest_passed')}, "
             f"checks={command_result_consistency.get('n_checks')}, issues={command_result_consistency.get('n_issues')}"
+        ),
+    }
+    tracked_artifact_provenance_claim = {
+        "id": 119,
+        "claim": "Claim evidence artifacts and published artifact references are represented in the git index.",
+        "status": status(
+            bool(tracked_artifact_provenance)
+            and tracked_artifact_provenance.get("verified", False)
+            and (tracked_artifact_provenance.get("n_claim_sources") or 0) >= 100
+            and (tracked_artifact_provenance.get("n_artifact_references") or 0) >= 400
+            and tracked_artifact_provenance.get("n_untracked_claim_sources") == 0
+            and tracked_artifact_provenance.get("n_untracked_artifact_references") == 0
+            and tracked_artifact_provenance.get("n_issues") == 0
+            and artifact_exists(RESULTS / "tracked_artifact_provenance.json")
+            and artifact_exists(REPORTS / "tracked_artifact_provenance_report.md"),
+            bool(tracked_artifact_provenance),
+        ),
+        "evidence": (
+            f"claim_sources={tracked_artifact_provenance.get('n_claim_sources')}, "
+            f"artifact_refs={tracked_artifact_provenance.get('n_artifact_references')}, "
+            f"untracked_claim_sources={tracked_artifact_provenance.get('n_untracked_claim_sources')}, "
+            f"untracked_artifact_refs={tracked_artifact_provenance.get('n_untracked_artifact_references')}, "
+            f"issues={tracked_artifact_provenance.get('n_issues')}"
         ),
     }
     test_inventory_claim = {
@@ -1963,10 +1988,11 @@ def main() -> None:
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=118, max_id=118, checks=pending, issues=0",
+            "evidence": "claims=119, max_id=119, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
+        tracked_artifact_provenance_claim,
         raw_result_recompute_claim,
         claim_semantics_claim,
         artifact_manifest_claim,
@@ -1995,6 +2021,7 @@ def main() -> None:
     )
     claims.append(script_contract_claim)
     claims.append(claim_evidence_quality_claim)
+    claims.append(tracked_artifact_provenance_claim)
     claims.append(raw_result_recompute_claim)
     claims.append(claim_semantics_claim)
     claims.append(artifact_manifest_claim)

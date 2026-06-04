@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 102,
-  "n_unique_tests": 102,
-  "trailer_count": 102,
+  "n_tests": 104,
+  "n_unique_tests": 104,
+  "trailer_count": 104,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -108,7 +108,9 @@
     "tests/test_theorem_utility.py::test_binary_utility_recovers_binary_law",
     "tests/test_theorem_utility.py::test_constant_utility_returns_constant",
     "tests/test_theorem_utility.py::test_oracle_score_monotone_improvement",
-    "tests/test_theorem_utility.py::test_random_score_gives_little_selection_advantage_on_large_independent_pool"
+    "tests/test_theorem_utility.py::test_random_score_gives_little_selection_advantage_on_large_independent_pool",
+    "tests/test_tracked_artifact_provenance.py::test_tracked_artifact_provenance_accepts_tracked_sources",
+    "tests/test_tracked_artifact_provenance.py::test_tracked_artifact_provenance_flags_untracked_sources"
   ],
   "checks": [
     {
@@ -119,7 +121,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=102"
+      "detail": "nodeids=104"
     },
     {
       "name": "nodeids_unique",
@@ -129,12 +131,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=102"
+      "detail": "nodeids=104"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=102, nodeids=102"
+      "detail": "trailer=104, nodeids=104"
     },
     {
       "name": "required_test_families_present",

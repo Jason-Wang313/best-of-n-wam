@@ -1,0 +1,58 @@
+{
+  "experiment": "tracked_artifact_provenance",
+  "verified": true,
+  "n_tracked_paths": 720,
+  "n_claim_sources": 103,
+  "n_artifact_references": 433,
+  "n_untracked_claim_sources": 0,
+  "n_untracked_artifact_references": 0,
+  "n_checks": 8,
+  "n_issues": 0,
+  "git_returncode": 0,
+  "git_output_excerpt": ".gitignore\nAGENTS.md\nREADME.md\ndocs/.gitkeep\ndocs/CODEX_HANDOFF.md\ndocs/theory.md\nexperiments/__init__.py\nexperiments/adaptive_rollout_allocation.py\nexperiments/auc_vs_moment_hierarchy.py\nexperiments/benchmark_adaptive_allocation.py\nexperiments/benchmark_closed_loop_eval.py\nexperiments/benchmark_collect_rollouts.py\nexperiments/benchmark_exact_law_validation.py\nexperiments/benchmark_generate_dynamics_data.py\nexperiments/benchmark_gym_manip_suite.py\nexperiments/benchmark_gym_robotics_suite.py\nexpe",
+  "checks": [
+    {
+      "name": "git_ls_files_exit_zero",
+      "ok": true,
+      "detail": "returncode=0"
+    },
+    {
+      "name": "tracked_index_nonempty",
+      "ok": true,
+      "detail": "tracked=720"
+    },
+    {
+      "name": "claim_sources_present",
+      "ok": true,
+      "detail": "claim_sources=103"
+    },
+    {
+      "name": "artifact_references_present",
+      "ok": true,
+      "detail": "artifact_references=433"
+    },
+    {
+      "name": "claim_sources_exist",
+      "ok": true,
+      "detail": "missing=0"
+    },
+    {
+      "name": "artifact_references_exist",
+      "ok": true,
+      "detail": "missing=0"
+    },
+    {
+      "name": "claim_sources_tracked",
+      "ok": true,
+      "detail": "untracked=0"
+    },
+    {
+      "name": "artifact_references_tracked",
+      "ok": true,
+      "detail": "untracked=0"
+    }
+  ],
+  "issues": [],
+  "untracked_claim_sources": [],
+  "untracked_artifact_references": []
+}

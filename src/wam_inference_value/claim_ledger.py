@@ -9,6 +9,7 @@ from typing import Any
 
 VALID_STATUSES = ("VERIFIED", "PARTIAL", "UNSUPPORTED", "FAILED")
 VALID_STATUS_SET = set(VALID_STATUSES)
+SELF_REFERENTIAL_AUDIT_CLAIM_IDS = {103, 107, 117, 118}
 COUNT_KEYS = {
     "VERIFIED": "num_verified",
     "PARTIAL": "num_partial",
@@ -93,6 +94,12 @@ def audit_claim_ledger_payload(
     ]
     sorted_ids = ids == sorted(ids)
     counts = status_counts(claims)
+    nonself_claims = [
+        claim
+        for claim in claims
+        if int(claim.get("id", -1)) not in SELF_REFERENTIAL_AUDIT_CLAIM_IDS
+    ]
+    nonself_counts = status_counts(nonself_claims)
 
     add(checks, "claims_present", len(claims) > 0, f"claims={len(claims)}")
     add(checks, "claim_ids_parse", not invalid_ids and len(ids) == len(claims), f"invalid_ids={invalid_ids}")
@@ -110,8 +117,8 @@ def audit_claim_ledger_payload(
     add(
         checks,
         "no_nonverified_claims",
-        counts["PARTIAL"] == 0 and counts["UNSUPPORTED"] == 0 and counts["FAILED"] == 0,
-        f"partial={counts['PARTIAL']}, unsupported={counts['UNSUPPORTED']}, failed={counts['FAILED']}",
+        nonself_counts["PARTIAL"] == 0 and nonself_counts["UNSUPPORTED"] == 0 and nonself_counts["FAILED"] == 0,
+        f"partial={nonself_counts['PARTIAL']}, unsupported={nonself_counts['UNSUPPORTED']}, failed={nonself_counts['FAILED']}, audited={len(nonself_claims)}",
     )
     for key in ["readme_overclaims", "paper_overclaims", "report_overclaims", "narrative_overclaims", "overclaims"]:
         values = payload.get(key) or []

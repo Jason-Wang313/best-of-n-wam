@@ -2,12 +2,14 @@
   "experiment": "claim_generation_consistency",
   "verified": true,
   "n_files_checked": 2,
-  "n_claims": 118,
+  "n_claims": 119,
   "n_checks": 10,
   "n_issues": 0,
-  "json_sha256": "7c25665d276b817aeec57b5fcbc2e3470eaff2346192b1a793d7fdb765a46fb4",
-  "md_sha256": "1e8da56f8dde91f1ef2cc03e2e6dc4259255f957c8f02f0e88425cebd2779931",
+  "json_sha256": "8c5dc7b7f9e961879284df99bd2f922c7ae984974f45e1b1f86b5b2cca487742",
+  "md_sha256": "1ebfeeb3dce2ef04aa9575b5cc6df0b2a3a2fb840120755076ad7a973b42a6d8",
   "generator_returncode": 0,
+  "first_generator_returncode": 0,
+  "second_generator_returncode": 0,
   "command": [
     "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
     "C:\\Users\\wangz\\best-of-n-wam\\scripts\\claims_status.py"
@@ -16,27 +18,27 @@
     {
       "name": "generator_exit_zero",
       "ok": true,
-      "detail": "returncode=0"
+      "detail": "first=0, second=0"
     },
     {
       "name": "claims_json_exists",
       "ok": true,
-      "detail": "bytes=39304"
+      "detail": "bytes=39601"
     },
     {
       "name": "claims_md_exists",
       "ok": true,
-      "detail": "bytes=31633"
+      "detail": "bytes=31867"
     },
     {
       "name": "claims_json_byte_stable",
       "ok": true,
-      "detail": "before=7c25665d276b817aeec57b5fcbc2e3470eaff2346192b1a793d7fdb765a46fb4, after=7c25665d276b817aeec57b5fcbc2e3470eaff2346192b1a793d7fdb765a46fb4"
+      "detail": "first=8c5dc7b7f9e961879284df99bd2f922c7ae984974f45e1b1f86b5b2cca487742, second=8c5dc7b7f9e961879284df99bd2f922c7ae984974f45e1b1f86b5b2cca487742"
     },
     {
       "name": "claims_md_byte_stable",
       "ok": true,
-      "detail": "before=1e8da56f8dde91f1ef2cc03e2e6dc4259255f957c8f02f0e88425cebd2779931, after=1e8da56f8dde91f1ef2cc03e2e6dc4259255f957c8f02f0e88425cebd2779931"
+      "detail": "first=1ebfeeb3dce2ef04aa9575b5cc6df0b2a3a2fb840120755076ad7a973b42a6d8, second=1ebfeeb3dce2ef04aa9575b5cc6df0b2a3a2fb840120755076ad7a973b42a6d8"
     },
     {
       "name": "claims_json_parses",
@@ -46,7 +48,7 @@
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=118"
+      "detail": "claims=119"
     },
     {
       "name": "claims_no_overclaims",
@@ -56,12 +58,12 @@
     {
       "name": "stdout_contains_claims_status",
       "ok": true,
-      "detail": "stdout_bytes=31513"
+      "detail": "stdout_bytes=63492"
     },
     {
       "name": "markdown_claim_count_matches_json",
       "ok": true,
-      "detail": "md_claims=118, json_claims=118"
+      "detail": "md_claims=119, json_claims=119"
     }
   ],
   "issues": []

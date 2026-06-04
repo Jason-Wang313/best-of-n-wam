@@ -30,6 +30,7 @@ EXCLUDED_RESULT_NAMES = {
     "source_manifest.json",
     "table_schema.json",
     "test_inventory.json",
+    "tracked_artifact_provenance.json",
 }
 
 

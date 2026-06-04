@@ -27,6 +27,7 @@ SELF_OUTPUTS = {
     "result_consistency.json",
     "script_contracts.json",
     "test_inventory.json",
+    "tracked_artifact_provenance.json",
 }
 
 

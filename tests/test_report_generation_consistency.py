@@ -21,13 +21,22 @@ def write_reports(reports_dir: Path, *, suffix: str = "stable") -> None:
 
 def write_generator(path: Path, *, mutate: bool) -> None:
     suffix = "mutated" if mutate else "stable"
+    suffix_block = (
+        "counter = reports / 'counter.txt'\n"
+        "count = int(counter.read_text(encoding='utf-8')) + 1 if counter.exists() else 1\n"
+        "counter.write_text(str(count), encoding='utf-8')\n"
+        "suffix = 'mutated-' + str(count)\n"
+        if mutate
+        else f"suffix = '{suffix}'\n"
+    )
     path.write_text(
         "import os\n"
         "from pathlib import Path\n"
         "reports = Path(os.environ['WAM_REPORTS_DIR'])\n"
         "reports.mkdir(parents=True, exist_ok=True)\n"
-        f"(reports / 'claims_report.md').write_text('# Claims Report\\n\\n- verified: `1`\\n- marker: {suffix}\\n', encoding='utf-8')\n"
-        f"(reports / 'final_decision_report.md').write_text('# Final Decision Report\\n\\n## Command Results\\n\\n- marker: {suffix}\\n', encoding='utf-8')\n"
+        f"{suffix_block}"
+        "(reports / 'claims_report.md').write_text('# Claims Report\\n\\n- verified: `1`\\n- marker: ' + suffix + '\\n', encoding='utf-8')\n"
+        "(reports / 'final_decision_report.md').write_text('# Final Decision Report\\n\\n## Command Results\\n\\n- marker: ' + suffix + '\\n', encoding='utf-8')\n"
         "print('max-out reports written')\n",
         encoding="utf-8",
     )

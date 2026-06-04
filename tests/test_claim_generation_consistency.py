@@ -21,11 +21,20 @@ def write_claim_files(results: Path, *, evidence: str = "value=1") -> None:
 
 def write_generator(path: Path, *, mutate: bool) -> None:
     evidence = "value=2" if mutate else "value=1"
+    counter_block = (
+        "counter = results / 'counter.txt'\n"
+        "count = int(counter.read_text(encoding='utf-8')) + 1 if counter.exists() else 1\n"
+        "counter.write_text(str(count), encoding='utf-8')\n"
+        "evidence = 'value=' + str(count)\n"
+        if mutate
+        else f"evidence = '{evidence}'\n"
+    )
     path.write_text(
         "import json, os\n"
         "from pathlib import Path\n"
         "results = Path(os.environ['WAM_RESULTS_DIR'])\n"
-        f"payload = {{'claims': [{{'id': 1, 'claim': 'Stable.', 'status': 'VERIFIED', 'evidence': '{evidence}'}}], 'overclaims': [], 'num_verified': 1, 'num_partial': 0, 'num_unsupported': 0, 'num_failed': 0}}\n"
+        f"{counter_block}"
+        "payload = {'claims': [{'id': 1, 'claim': 'Stable.', 'status': 'VERIFIED', 'evidence': evidence}], 'overclaims': [], 'num_verified': 1, 'num_partial': 0, 'num_unsupported': 0, 'num_failed': 0}\n"
         "md = '# Claims Status\\n\\n- Claim 1: **VERIFIED** - Stable. Evidence: ' + payload['claims'][0]['evidence'] + '\\n'\n"
         "(results / 'claims_status.json').write_text(json.dumps(payload, indent=2), encoding='utf-8')\n"
         "(results / 'claims_status.md').write_text(md, encoding='utf-8')\n"

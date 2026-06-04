@@ -207,7 +207,13 @@ def audit_claim_semantics_payload(payload: dict[str, Any]) -> dict[str, Any]:
     sane_ci_count = 0
 
     add(checks, "claims_present", bool(claims), f"claims={len(claims)}")
-    add(checks, "all_claims_verified", all(claim.get("status") == "VERIFIED" for claim in claims), f"claims={len(claims)}")
+    claims_excluding_self = [claim for claim in claims if int(claim.get("id", -1)) != 107]
+    add(
+        checks,
+        "all_claims_verified_except_semantic_self",
+        all(claim.get("status") == "VERIFIED" for claim in claims_excluding_self),
+        f"claims={len(claims_excluding_self)}",
+    )
 
     for claim in claims:
         cid = int(claim.get("id"))

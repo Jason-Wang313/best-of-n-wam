@@ -54,6 +54,7 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
     script_contracts = load_json(results_dir, "script_contracts.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
+    tracked_artifact_provenance = load_json(results_dir, "tracked_artifact_provenance.json")
     claim_ledger_integrity = load_json(results_dir, "claim_ledger_integrity.json")
     claim_generation_consistency = load_json(results_dir, "claim_generation_consistency.json")
     report_generation_consistency = load_json(results_dir, "report_generation_consistency.json")
@@ -195,6 +196,15 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
                 f"`python scripts/claim_evidence_quality.py --fail-on-error`: passed with "
                 f"`{claim_evidence_quality.get('n_claims')}` claims, `{claim_evidence_quality.get('n_source_links')}` source links, "
                 f"`{claim_evidence_quality.get('n_checks')}` evidence checks, and `{claim_evidence_quality.get('n_issues')}` issues"
+            ),
+        ),
+        (
+            "tracked_artifact_provenance",
+            (
+                f"`python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with "
+                f"`{tracked_artifact_provenance.get('n_claim_sources')}` claim sources, "
+                f"`{tracked_artifact_provenance.get('n_artifact_references')}` artifact references, and "
+                f"`{tracked_artifact_provenance.get('n_issues')}` issues"
             ),
         ),
         (

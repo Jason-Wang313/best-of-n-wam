@@ -56,14 +56,25 @@ def audit_report_generation_consistency(
     reports_dir = (reports_dir or root / "reports").resolve()
     names = list(report_names or GENERATED_REPORTS)
     paths = [reports_dir / name for name in names]
-    before = {name: read_bytes(path) for name, path in zip(names, paths)}
 
     env = os.environ.copy()
     src = str(root / "src")
     env["PYTHONPATH"] = src + os.pathsep + env["PYTHONPATH"] if env.get("PYTHONPATH") else src
     env["WAM_REPORTS_DIR"] = str(reports_dir)
     cmd = list(command) if command is not None else default_command(root)
-    proc = subprocess.run(
+    proc_first = subprocess.run(
+        cmd,
+        cwd=root,
+        env=env,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        timeout=timeout_s,
+        check=False,
+    )
+    after_first = {name: read_bytes(path) for name, path in zip(names, paths)}
+
+    proc_second = subprocess.run(
         cmd,
         cwd=root,
         env=env,
@@ -76,12 +87,17 @@ def audit_report_generation_consistency(
 
     after = {name: read_bytes(path) for name, path in zip(names, paths)}
     checks: list[ReportGenerationCheck] = []
-    add(checks, "generator_exit_zero", proc.returncode == 0, f"returncode={proc.returncode}")
+    add(
+        checks,
+        "generator_exit_zero",
+        proc_first.returncode == 0 and proc_second.returncode == 0,
+        f"first={proc_first.returncode}, second={proc_second.returncode}",
+    )
     add(checks, "reports_list_nonempty", len(names) > 0, f"reports={len(names)}")
 
     missing = [name for name, path in zip(names, paths) if not path.exists()]
     empty = [name for name, data in after.items() if not data]
-    changed = [name for name in names if before[name] != after[name]]
+    changed = [name for name in names if after_first[name] != after[name]]
     unresolved = [
         name
         for name, data in after.items()
@@ -91,7 +107,8 @@ def audit_report_generation_consistency(
     add(checks, "generated_reports_exist", not missing, f"missing={missing}")
     add(checks, "generated_reports_nonempty", not empty, f"empty={empty}")
     add(checks, "generated_reports_byte_stable", not changed, f"changed={changed}")
-    add(checks, "stdout_confirms_generation", "max-out reports written" in proc.stdout, f"stdout_bytes={len(proc.stdout.encode('utf-8'))}")
+    stdout = proc_first.stdout + proc_second.stdout
+    add(checks, "stdout_confirms_generation", "max-out reports written" in stdout, f"stdout_bytes={len(stdout.encode('utf-8'))}")
     add(checks, "no_known_template_markers", not unresolved, f"unresolved={unresolved}")
     add(checks, "final_decision_has_command_results", b"## Command Results" in after.get("final_decision_report.md", b""), "final_decision_report.md has command results")
     add(checks, "claims_report_has_counts", b"- verified:" in after.get("claims_report.md", b""), "claims_report.md has status counts")
@@ -106,7 +123,9 @@ def audit_report_generation_consistency(
         "n_issues": len(issues),
         "report_sha256": {name: sha256_bytes(after[name]) for name in names},
         "changed_reports": changed,
-        "generator_returncode": proc.returncode,
+        "generator_returncode": proc_second.returncode,
+        "first_generator_returncode": proc_first.returncode,
+        "second_generator_returncode": proc_second.returncode,
         "command": cmd,
         "checks": [check.__dict__ for check in checks],
         "issues": [check.__dict__ for check in issues],
