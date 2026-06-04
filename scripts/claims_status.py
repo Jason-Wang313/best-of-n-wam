@@ -44,6 +44,7 @@ NARRATIVE_SURFACES = [
     ("claim_semantics_report", REPORTS / "claim_semantics_report.md"),
     ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
     ("claim_scope_audit_report", REPORTS / "claim_scope_audit_report.md"),
+    ("claim_reference_integrity_report", REPORTS / "claim_reference_integrity_report.md"),
     ("claim_generation_consistency_report", REPORTS / "claim_generation_consistency_report.md"),
     ("report_generation_consistency_report", REPORTS / "report_generation_consistency_report.md"),
     ("script_contracts_report", REPORTS / "script_contracts_report.md"),
@@ -324,6 +325,7 @@ def main() -> None:
     script_contracts = load_json("script_contracts.json")
     claim_semantics = load_json("claim_semantics.json")
     claim_scope_audit = load_json("claim_scope_audit.json")
+    claim_reference_integrity = load_json("claim_reference_integrity.json")
     claim_evidence_quality = load_json("claim_evidence_quality.json")
     tracked_artifact_provenance = load_json("tracked_artifact_provenance.json")
     evidence_hash_coverage = load_json("evidence_hash_coverage.json")
@@ -1931,9 +1933,9 @@ def main() -> None:
         "status": status(
             bool(command_result_consistency)
             and command_result_consistency.get("verified", False)
-            and (command_result_consistency.get("n_expected_snippets") or 0) >= 25
-            and (command_result_consistency.get("n_python_command_lines") or 0) >= 24
-            and (command_result_consistency.get("n_checks") or 0) >= 28
+            and (command_result_consistency.get("n_expected_snippets") or 0) >= 26
+            and (command_result_consistency.get("n_python_command_lines") or 0) >= 25
+            and (command_result_consistency.get("n_checks") or 0) >= 29
             and command_result_consistency.get("n_issues") == 0
             and artifact_exists(RESULTS / "command_result_consistency.json")
             and artifact_exists(REPORTS / "command_result_consistency_report.md"),
@@ -2085,6 +2087,27 @@ def main() -> None:
             f"issues={claim_scope_audit.get('n_issues')}"
         ),
     }
+    claim_reference_integrity_claim = {
+        "id": 125,
+        "claim": "Explicit narrative VERIFIED CLAIM references resolve to current verified claims.",
+        "status": status(
+            bool(claim_reference_integrity)
+            and claim_reference_integrity.get("verified", False)
+            and (claim_reference_integrity.get("n_claims_loaded") or 0) >= 124
+            and (claim_reference_integrity.get("n_references") or 0) >= 20
+            and (claim_reference_integrity.get("n_unique_referenced_claims") or 0) >= 10
+            and claim_reference_integrity.get("n_issues") == 0
+            and artifact_exists(RESULTS / "claim_reference_integrity.json")
+            and artifact_exists(REPORTS / "claim_reference_integrity_report.md"),
+            bool(claim_reference_integrity),
+        ),
+        "evidence": (
+            f"claims={claim_reference_integrity.get('n_claims_loaded')}, "
+            f"references={claim_reference_integrity.get('n_references')}, "
+            f"unique={claim_reference_integrity.get('n_unique_referenced_claims')}, "
+            f"issues={claim_reference_integrity.get('n_issues')}"
+        ),
+    }
     test_inventory_claim = {
         "id": 116,
         "claim": "Pytest command-result counts come from a verified collected-test inventory.",
@@ -2150,7 +2173,7 @@ def main() -> None:
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=124, max_id=124, checks=pending, issues=0",
+            "evidence": "claims=125, max_id=125, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
@@ -2160,6 +2183,7 @@ def main() -> None:
         abstract_claim_support_claim,
         publication_scope_claim,
         claim_scope_audit_claim,
+        claim_reference_integrity_claim,
         raw_result_recompute_claim,
         claim_semantics_claim,
         artifact_manifest_claim,
@@ -2194,6 +2218,7 @@ def main() -> None:
     claims.append(abstract_claim_support_claim)
     claims.append(publication_scope_claim)
     claims.append(claim_scope_audit_claim)
+    claims.append(claim_reference_integrity_claim)
     claims.append(raw_result_recompute_claim)
     claims.append(claim_semantics_claim)
     claims.append(artifact_manifest_claim)

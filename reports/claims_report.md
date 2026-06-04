@@ -2,7 +2,7 @@
 
 ## Counts
 
-- verified: `124`
+- verified: `125`
 - partial: `0`
 - unsupported: `0`
 - failed: `0`
@@ -113,29 +113,30 @@
 - 99. Narrative reports have no unsupported overclaims. Evidence: report overclaims=0
 - 100. Published result artifact references are internally consistent. Evidence: refs=685, issues=0, status_counts={'ok': 685}
 - 101. Published result summaries agree with canonical tables. Evidence: checks=157, issues=0
-- 102. Published narrative numbers match current artifacts. Evidence: checks=49, issues=0
-- 103. Claim ledger is structurally consistent. Evidence: claims=124, max_id=124, checks=21, issues=0
-- 104. Canonical execution scripts preserve required gate contracts. Evidence: scripts=7, checks=121, issues=0
-- 105. Verified claims have mapped source artifacts and quality-checked evidence. Evidence: claims=124, mapped=124, sources=169, issues=0
+- 102. Published narrative numbers match current artifacts. Evidence: checks=50, issues=0
+- 103. Claim ledger is structurally consistent. Evidence: claims=125, max_id=125, checks=21, issues=0
+- 104. Canonical execution scripts preserve required gate contracts. Evidence: scripts=7, checks=125, issues=0
+- 105. Verified claims have mapped source artifacts and quality-checked evidence. Evidence: claims=125, mapped=125, sources=171, issues=0
 - 106. Published summary metrics recompute from raw result tables. Evidence: aggregate metrics=10710, exact files=20, seed CI columns=125, issues=0
-- 107. Verified claim wording satisfies semantic threshold checks. Evidence: claims=124, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0
+- 107. Verified claim wording satisfies semantic threshold checks. Evidence: claims=125, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0
 - 108. Scientific result artifacts have a deterministic hash manifest. Evidence: files=397, bytes=56421681, suffixes={'.json': 105, '.npz': 41, '.png': 36, '.csv': 215}, issues=0
 - 109. Publication figure artifacts pass image-quality checks. Evidence: figures=36, expected=25, checks=8, issues=0
 - 110. Canonical CSV result tables pass schema and numeric-sanity checks. Evidence: tables=215, rows=212858, numeric_columns=1959, checks=17, issues=0
-- 111. Source and verification code have a deterministic hash manifest. Evidence: files=200, bytes=1412938, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 38, 'src': 55, 'tests': 46}, checks=14, issues=0
+- 111. Source and verification code have a deterministic hash manifest. Evidence: files=203, bytes=1427444, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 39, 'src': 56, 'tests': 47}, checks=14, issues=0
 - 112. Runtime and dependency environment metadata has a verified manifest. Evidence: python=3.10.11, core=4, absent=0, version_issues=0, optional_available=5/5, modules=13, commands=5, checks=15, issues=0
 - 113. Canonical experiment families have verified registry coverage. Evidence: entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=297, rows=260523, figures=40, failed=0, checks=10, issues=0
 - 114. Committed learned-model artifacts are loadable and numerically sane. Evidence: models=49, suffixes={'.npz': 36, '.joblib': 13}, bytes=119450103, npz_arrays=315, npz_elements=6077793, joblib_predictors=13, checks=10, issues=0
-- 115. Published final-report command results match current verification artifacts. Evidence: snippets=25, python_commands=28, pytest=120, checks=28, issues=0
-- 116. Pytest command-result counts come from a verified collected-test inventory. Evidence: tests=120, unique=120, trailer=120, checks=6, issues=0
-- 117. Generated claim-status artifacts are byte-stable under rerunning the claim generator. Evidence: claims=124, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json
+- 115. Published final-report command results match current verification artifacts. Evidence: snippets=26, python_commands=29, pytest=123, checks=29, issues=0
+- 116. Pytest command-result counts come from a verified collected-test inventory. Evidence: tests=123, unique=123, trailer=123, checks=6, issues=0
+- 117. Generated claim-status artifacts are byte-stable under rerunning the claim generator. Evidence: claims=125, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json
 - 118. Generated max-out narrative reports are byte-stable under rerunning the report generator. Evidence: reports=8, files=8, checks=9, issues=0, hashes_recorded_in=results/report_generation_consistency.json
-- 119. Claim evidence artifacts and published artifact references are represented in the git index. Evidence: claim_sources=113, artifact_refs=443, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0
+- 119. Claim evidence artifacts and published artifact references are represented in the git index. Evidence: claim_sources=115, artifact_refs=443, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0
 - 120. Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage. Evidence: claim_sources=111, artifact_refs=441, hashed=552, self_outputs_excluded=4, issues=0
-- 121. Claim evidence artifacts and published artifact references are repository-bound. Evidence: records=854, claim_sources=169, artifact_refs=685, outside=0, absent=0, traversal=0, issues=0
+- 121. Claim evidence artifacts and published artifact references are repository-bound. Evidence: records=856, claim_sources=171, artifact_refs=685, outside=0, absent=0, traversal=0, issues=0
 - 122. Final-report abstract-level claims are directly evidence-backed and scope-limited. Evidence: abstract_claims=4, approved=4, backing_links=23, headline_forbidden=0, issues=0
 - 123. Publication-surface risky robotics claims are guarded as limitations or future work. Evidence: surfaces=5, risk_mentions=72, guarded=72, unguarded=0, issues=0
-- 124. Broad claim wording is scoped by concrete evidence. Evidence: claims=124, scope_mentions=154, categories={'verification': 41, 'model': 24, 'benchmark': 57, 'visual': 13, 'suite_family': 15, 'policy_success': 4}, checks=159, issues=0
+- 124. Broad claim wording is scoped by concrete evidence. Evidence: claims=125, scope_mentions=155, categories={'verification': 42, 'model': 24, 'benchmark': 57, 'visual': 13, 'suite_family': 15, 'policy_success': 4}, checks=160, issues=0
+- 125. Explicit narrative VERIFIED CLAIM references resolve to current verified claims. Evidence: claims=125, references=24, unique=12, issues=0
 
 ## Partial
 

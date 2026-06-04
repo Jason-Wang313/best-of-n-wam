@@ -56,6 +56,7 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
     publication_scope = load_json(results_dir, "publication_scope.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_scope_audit = load_json(results_dir, "claim_scope_audit.json")
+    claim_reference_integrity = load_json(results_dir, "claim_reference_integrity.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
     tracked_artifact_provenance = load_json(results_dir, "tracked_artifact_provenance.json")
     evidence_hash_coverage = load_json(results_dir, "evidence_hash_coverage.json")
@@ -221,6 +222,15 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
                 f"`python scripts/claim_scope_audit.py --fail-on-error`: passed with "
                 f"`{claim_scope_audit.get('n_claims')}` claims, `{claim_scope_audit.get('n_scope_mentions')}` scoped broad-claim mentions, "
                 f"`{claim_scope_audit.get('n_checks')}` checks, and `{claim_scope_audit.get('n_issues')}` issues"
+            ),
+        ),
+        (
+            "claim_reference_integrity",
+            (
+                f"`python scripts/claim_reference_integrity.py --fail-on-error`: passed with "
+                f"`{claim_reference_integrity.get('n_references')}` explicit verified-claim references, "
+                f"`{claim_reference_integrity.get('n_unique_referenced_claims')}` unique referenced claims, "
+                f"and `{claim_reference_integrity.get('n_issues')}` issues"
             ),
         ),
         (

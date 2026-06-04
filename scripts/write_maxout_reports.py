@@ -117,6 +117,7 @@ def main() -> None:
     claim_evidence_quality = load_json("claim_evidence_quality.json")
     claim_semantics = load_json("claim_semantics.json")
     claim_scope_audit = load_json("claim_scope_audit.json")
+    claim_reference_integrity = load_json("claim_reference_integrity.json")
     claim_generation_consistency = load_json("claim_generation_consistency.json")
     report_generation_consistency = load_json("report_generation_consistency.json")
     tracked_artifact_provenance = load_json("tracked_artifact_provenance.json")
@@ -180,6 +181,7 @@ Audit date: 2026-05-30.
 - `publication_scope.py` verifies that risky publication-facing robotics phrases are explicitly guarded as limitations, blockers, future work, discussion-only claims, or non-claims.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.
 - `claim_scope_audit.py` verifies that broad claim wording is scoped by task/env names, sample counts, modes, smoke/probe qualifiers, or explicit limitation evidence.
+- `claim_reference_integrity.py` verifies that explicit `VERIFIED CLAIM N` narrative references resolve to current verified claim IDs.
 - `claim_evidence_quality.py` verifies that each current claim ID is mapped to source artifacts and has structured, non-placeholder evidence.
 - `tracked_artifact_provenance.py` verifies that each current claim source and published artifact reference is represented in the git index.
 - `repo_bound_artifact_audit.py` verifies that every current claim source and published artifact reference resolves inside the repository and spans the expected artifact classes.
@@ -638,6 +640,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/publication_scope.py --fail-on-error`: passed with `{publication_scope.get('n_publication_surfaces')}` publication surfaces, `{publication_scope.get('n_risk_mentions')}` risky mentions, `{publication_scope.get('n_unguarded_mentions')}` unguarded mentions, and `{publication_scope.get('n_issues')}` issues.
 - `python scripts/claim_semantics.py --fail-on-error`: passed with `{claim_semantics.get('n_claims')}` claims, `{claim_semantics.get('n_checks')}` semantic checks, `{claim_semantics.get('n_ci_claims')}` CI-backed claims, and `{claim_semantics.get('n_issues')}` issues.
 - `python scripts/claim_scope_audit.py --fail-on-error`: passed with `{claim_scope_audit.get('n_claims')}` claims, `{claim_scope_audit.get('n_scope_mentions')}` scoped broad-claim mentions, `{claim_scope_audit.get('n_checks')}` checks, and `{claim_scope_audit.get('n_issues')}` issues.
+- `python scripts/claim_reference_integrity.py --fail-on-error`: passed with `{claim_reference_integrity.get('n_references')}` explicit verified-claim references, `{claim_reference_integrity.get('n_unique_referenced_claims')}` unique referenced claims, and `{claim_reference_integrity.get('n_issues')}` issues.
 - `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `{claim_evidence_quality.get('n_claims')}` claims, `{claim_evidence_quality.get('n_source_links')}` source links, `{claim_evidence_quality.get('n_checks')}` evidence checks, and `{claim_evidence_quality.get('n_issues')}` issues.
 - `python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `{tracked_artifact_provenance.get('n_claim_sources')}` claim sources, `{tracked_artifact_provenance.get('n_artifact_references')}` artifact references, and `{tracked_artifact_provenance.get('n_issues')}` issues.
 - `python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `{repo_bound_artifact_audit.get('n_records')}` records, `{repo_bound_artifact_audit.get('n_claim_sources')}` claim sources, `{repo_bound_artifact_audit.get('n_artifact_references')}` artifact references, `{repo_bound_artifact_audit.get('n_outside_repo')}` outside-repo records, `{repo_bound_artifact_audit.get('n_missing')}` missing records, and `{repo_bound_artifact_audit.get('n_issues')}` issues.

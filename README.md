@@ -233,7 +233,7 @@ This runs tests, smoke, learned WAM toy, multi-env, benchmark/visual attempts, i
 python scripts/claims_status.py
 ```
 
-Claims are classified as `VERIFIED`, `PARTIAL`, `UNSUPPORTED`, or `FAILED` from artifacts. The claim gate is surrounded by twenty-five stricter consistency checks:
+Claims are classified as `VERIFIED`, `PARTIAL`, `UNSUPPORTED`, or `FAILED` from artifacts. The claim gate is surrounded by twenty-six stricter consistency checks:
 
 ```bash
 python scripts/test_inventory.py --fail-on-error
@@ -255,6 +255,7 @@ python scripts/publication_scope.py --fail-on-error
 python scripts/claims_status.py
 python scripts/claim_semantics.py --fail-on-error
 python scripts/claim_scope_audit.py --fail-on-error
+python scripts/claim_reference_integrity.py --fail-on-error
 python scripts/claims_status.py
 python scripts/claim_evidence_quality.py --fail-on-error
 python scripts/tracked_artifact_provenance.py --fail-on-error

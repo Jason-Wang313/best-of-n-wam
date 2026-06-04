@@ -1,8 +1,8 @@
 {
   "experiment": "tracked_artifact_provenance",
   "verified": true,
-  "n_tracked_paths": 745,
-  "n_claim_sources": 113,
+  "n_tracked_paths": 750,
+  "n_claim_sources": 115,
   "n_artifact_references": 443,
   "n_untracked_claim_sources": 0,
   "n_untracked_artifact_references": 0,
@@ -19,12 +19,12 @@
     {
       "name": "tracked_index_nonempty",
       "ok": true,
-      "detail": "tracked=745"
+      "detail": "tracked=750"
     },
     {
       "name": "claim_sources_present",
       "ok": true,
-      "detail": "claim_sources=113"
+      "detail": "claim_sources=115"
     },
     {
       "name": "artifact_references_present",

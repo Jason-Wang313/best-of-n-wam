@@ -610,25 +610,25 @@
       "id": 102,
       "claim": "Published narrative numbers match current artifacts.",
       "status": "VERIFIED",
-      "evidence": "checks=49, issues=0"
+      "evidence": "checks=50, issues=0"
     },
     {
       "id": 103,
       "claim": "Claim ledger is structurally consistent.",
       "status": "VERIFIED",
-      "evidence": "claims=124, max_id=124, checks=21, issues=0"
+      "evidence": "claims=125, max_id=125, checks=21, issues=0"
     },
     {
       "id": 104,
       "claim": "Canonical execution scripts preserve required gate contracts.",
       "status": "VERIFIED",
-      "evidence": "scripts=7, checks=121, issues=0"
+      "evidence": "scripts=7, checks=125, issues=0"
     },
     {
       "id": 105,
       "claim": "Verified claims have mapped source artifacts and quality-checked evidence.",
       "status": "VERIFIED",
-      "evidence": "claims=124, mapped=124, sources=169, issues=0"
+      "evidence": "claims=125, mapped=125, sources=171, issues=0"
     },
     {
       "id": 106,
@@ -640,7 +640,7 @@
       "id": 107,
       "claim": "Verified claim wording satisfies semantic threshold checks.",
       "status": "VERIFIED",
-      "evidence": "claims=124, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0"
+      "evidence": "claims=125, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0"
     },
     {
       "id": 108,
@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=200, bytes=1412938, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 38, 'src': 55, 'tests': 46}, checks=14, issues=0"
+      "evidence": "files=203, bytes=1427444, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 39, 'src': 56, 'tests': 47}, checks=14, issues=0"
     },
     {
       "id": 112,
@@ -688,19 +688,19 @@
       "id": 115,
       "claim": "Published final-report command results match current verification artifacts.",
       "status": "VERIFIED",
-      "evidence": "snippets=25, python_commands=28, pytest=120, checks=28, issues=0"
+      "evidence": "snippets=26, python_commands=29, pytest=123, checks=29, issues=0"
     },
     {
       "id": 116,
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
       "status": "VERIFIED",
-      "evidence": "tests=120, unique=120, trailer=120, checks=6, issues=0"
+      "evidence": "tests=123, unique=123, trailer=123, checks=6, issues=0"
     },
     {
       "id": 117,
       "claim": "Generated claim-status artifacts are byte-stable under rerunning the claim generator.",
       "status": "VERIFIED",
-      "evidence": "claims=124, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json"
+      "evidence": "claims=125, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json"
     },
     {
       "id": 118,
@@ -712,7 +712,7 @@
       "id": 119,
       "claim": "Claim evidence artifacts and published artifact references are represented in the git index.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=113, artifact_refs=443, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
+      "evidence": "claim_sources=115, artifact_refs=443, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
     },
     {
       "id": 120,
@@ -724,7 +724,7 @@
       "id": 121,
       "claim": "Claim evidence artifacts and published artifact references are repository-bound.",
       "status": "VERIFIED",
-      "evidence": "records=854, claim_sources=169, artifact_refs=685, outside=0, absent=0, traversal=0, issues=0"
+      "evidence": "records=856, claim_sources=171, artifact_refs=685, outside=0, absent=0, traversal=0, issues=0"
     },
     {
       "id": 122,
@@ -742,7 +742,13 @@
       "id": 124,
       "claim": "Broad claim wording is scoped by concrete evidence.",
       "status": "VERIFIED",
-      "evidence": "claims=124, scope_mentions=154, categories={'verification': 41, 'model': 24, 'benchmark': 57, 'visual': 13, 'suite_family': 15, 'policy_success': 4}, checks=159, issues=0"
+      "evidence": "claims=125, scope_mentions=155, categories={'verification': 42, 'model': 24, 'benchmark': 57, 'visual': 13, 'suite_family': 15, 'policy_success': 4}, checks=160, issues=0"
+    },
+    {
+      "id": 125,
+      "claim": "Explicit narrative VERIFIED CLAIM references resolve to current verified claims.",
+      "status": "VERIFIED",
+      "evidence": "claims=125, references=24, unique=12, issues=0"
     }
   ],
   "readme_overclaims": [],
@@ -750,7 +756,7 @@
   "report_overclaims": [],
   "narrative_overclaims": [],
   "overclaims": [],
-  "num_verified": 124,
+  "num_verified": 125,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0
