@@ -19,6 +19,7 @@ Audit date: 2026-05-30.
 - `runtime_environment.py` records and verifies Python/platform metadata, requirement-file hashes, core package versions, optional package availability, module probes, and command probes.
 - `experiment_registry.py` verifies canonical experiment-family scripts, JSON summaries, wrapper coverage, table artifacts, and figures where expected.
 - `model_artifact_integrity.py` loads committed `.npz` and `.joblib` model artifacts and verifies nonempty finite numeric arrays and predictor availability.
+- `test_inventory.py` records the collected pytest node IDs and verifies the final report's pytest count is not hard-coded stale text.
 - `narrative_consistency.py` verifies that high-impact README and final-report numbers match the current JSON artifacts.
 - `script_contracts.py` verifies that canonical shell scripts preserve required experiment steps, optional benchmark guards, and ordered verification gates.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.

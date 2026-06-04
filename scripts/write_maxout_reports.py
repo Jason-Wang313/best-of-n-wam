@@ -101,6 +101,7 @@ def main() -> None:
     repair = load_json("scorer_repair_experiment.json")
     scaling = load_json("imagination_scaling_law.json")
     artifact_integrity = load_json("artifact_integrity.json")
+    test_inventory = load_json("test_inventory.json")
     artifact_manifest = load_json("artifact_manifest.json")
     figure_quality = load_json("figure_quality.json")
     result_consistency = load_json("result_consistency.json")
@@ -164,6 +165,7 @@ Audit date: 2026-05-30.
 - `runtime_environment.py` records and verifies Python/platform metadata, requirement-file hashes, core package versions, optional package availability, module probes, and command probes.
 - `experiment_registry.py` verifies canonical experiment-family scripts, JSON summaries, wrapper coverage, table artifacts, and figures where expected.
 - `model_artifact_integrity.py` loads committed `.npz` and `.joblib` model artifacts and verifies nonempty finite numeric arrays and predictor availability.
+- `test_inventory.py` records the collected pytest node IDs and verifies the final report's pytest count is not hard-coded stale text.
 - `narrative_consistency.py` verifies that high-impact README and final-report numbers match the current JSON artifacts.
 - `script_contracts.py` verifies that canonical shell scripts preserve required experiment steps, optional benchmark guards, and ordered verification gates.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.
@@ -591,7 +593,8 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 
 ## Command Results
 
-- `python -m pytest -q`: passed with `95 passed`.
+- `python -m pytest -q`: passed with `{test_inventory.get('n_tests')} passed`.
+- `python scripts/test_inventory.py --fail-on-error`: passed with `{test_inventory.get('n_tests')}` collected tests, `{test_inventory.get('n_checks')}` inventory checks, and `{test_inventory.get('n_issues')}` issues.
 - `bash scripts/run_all.sh`: passed; full analytic EXP1-EXP8 sweep completed with EXP1 success MAE `{fmt(exp1.get('mean_success_mc_mae'), 5)}`, EXP3 relative MAE reduction `{fmt(exp3.get('relative_mae_reduction'), 3)}`, EXP6 moment-uniform delta `{fmt(exp6.get('moment_law_improvement_over_uniform'), 4)}`, EXP7 useful N64-N1 success delta `{fmt(exp7.get('useful_success_gain_N64_minus_N1'), 3)}`, and EXP8 conditional-law MAE `{fmt(exp8.get('mean_abs_error_N16'), 4)}`.
 - `bash scripts/run_smoke.sh`: passed; EXP1 success MAE `0.00696`, utility MAE `0.04511`; EXP8 smoke conditional-law MAE `0.0055`.
 - `bash scripts/run_learned_wam_toy.sh`: passed; learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`.

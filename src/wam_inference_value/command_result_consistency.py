@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 
-EXPECTED_PYTEST_PASSED = 95
+FALLBACK_PYTEST_PASSED = 95
 
 
 @dataclass(frozen=True)
@@ -39,6 +39,7 @@ def command_section(text: str) -> str:
 
 
 def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
+    test_inventory = load_json(results_dir, "test_inventory.json")
     artifact_integrity = load_json(results_dir, "artifact_integrity.json")
     artifact_manifest = load_json(results_dir, "artifact_manifest.json")
     figure_quality = load_json(results_dir, "figure_quality.json")
@@ -54,10 +55,19 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
     claim_ledger_integrity = load_json(results_dir, "claim_ledger_integrity.json")
+    expected_pytest_passed = test_inventory.get("n_tests") or FALLBACK_PYTEST_PASSED
 
     runtime_python = (runtime_environment.get("python") or {}).get("version")
     return [
-        ("pytest", f"`python -m pytest -q`: passed with `{EXPECTED_PYTEST_PASSED} passed`"),
+        ("pytest", f"`python -m pytest -q`: passed with `{expected_pytest_passed} passed`"),
+        (
+            "test_inventory",
+            (
+                f"`python scripts/test_inventory.py --fail-on-error`: passed with "
+                f"`{test_inventory.get('n_tests')}` collected tests, `{test_inventory.get('n_checks')}` inventory checks, "
+                f"and `{test_inventory.get('n_issues')}` issues"
+            ),
+        ),
         (
             "artifact_integrity",
             (
@@ -225,7 +235,7 @@ def audit_command_result_consistency(root: Path, results_dir: Path | None = None
         "n_python_command_lines": len(python_command_lines),
         "n_checks": len(checks),
         "n_issues": len(issues),
-        "expected_pytest_passed": EXPECTED_PYTEST_PASSED,
+        "expected_pytest_passed": (load_json(results_dir, "test_inventory.json").get("n_tests") or FALLBACK_PYTEST_PASSED),
         "checks": [check.__dict__ for check in checks],
         "issues": [check.__dict__ for check in issues],
     }

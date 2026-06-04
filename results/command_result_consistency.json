@@ -1,11 +1,11 @@
 {
   "experiment": "command_result_consistency",
   "verified": true,
-  "n_expected_snippets": 16,
-  "n_python_command_lines": 19,
-  "n_checks": 19,
+  "n_expected_snippets": 17,
+  "n_python_command_lines": 20,
+  "n_checks": 20,
   "n_issues": 0,
-  "expected_pytest_passed": 95,
+  "expected_pytest_passed": 98,
   "checks": [
     {
       "name": "command_section_present",
@@ -15,12 +15,17 @@
     {
       "name": "pytest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python -m pytest -q`: passed with `95 passed`"
+      "detail": "expected=`python -m pytest -q`: passed with `98 passed`"
+    },
+    {
+      "name": "test_inventory_snippet_matches_artifact",
+      "ok": true,
+      "detail": "expected=`python scripts/test_inventory.py --fail-on-error`: passed with `98` collected tests, `6` inventory checks, and `0` issues"
     },
     {
       "name": "artifact_integrity_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/artifact_integrity.py --fail-on-error`: passed with `645` artifact references checked and `0` issues"
+      "detail": "expected=`python scripts/artifact_integrity.py --fail-on-error`: passed with `649` artifact references checked and `0` issues"
     },
     {
       "name": "artifact_manifest_snippet_matches_artifact",
@@ -50,7 +55,7 @@
     {
       "name": "source_manifest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `173` source files, `1253108` bytes, `14` source-manifest checks, and `0` issues"
+      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `176` source files, `1264915` bytes, `14` source-manifest checks, and `0` issues"
     },
     {
       "name": "runtime_environment_snippet_matches_artifact",
@@ -70,32 +75,32 @@
     {
       "name": "narrative_consistency_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/narrative_consistency.py --fail-on-error`: passed with `40` narrative checks and `0` issues"
+      "detail": "expected=`python scripts/narrative_consistency.py --fail-on-error`: passed with `41` narrative checks and `0` issues"
     },
     {
       "name": "script_contracts_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `81` contract checks, and `0` issues"
+      "detail": "expected=`python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `85` contract checks, and `0` issues"
     },
     {
       "name": "claim_semantics_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/claim_semantics.py --fail-on-error`: passed with `115` claims, `168` semantic checks, `51` CI-backed claims, and `0` issues"
+      "detail": "expected=`python scripts/claim_semantics.py --fail-on-error`: passed with `116` claims, `169` semantic checks, `51` CI-backed claims, and `0` issues"
     },
     {
       "name": "claim_evidence_quality_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/claim_evidence_quality.py --fail-on-error`: passed with `115` claims, `151` source links, `7` evidence checks, and `0` issues"
+      "detail": "expected=`python scripts/claim_evidence_quality.py --fail-on-error`: passed with `116` claims, `153` source links, `7` evidence checks, and `0` issues"
     },
     {
       "name": "claim_ledger_integrity_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `115` claims, `31` ledger checks, and `0` issues"
+      "detail": "expected=`python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `116` claims, `31` ledger checks, and `0` issues"
     },
     {
       "name": "python_command_lines_present",
       "ok": true,
-      "detail": "lines=19"
+      "detail": "lines=20"
     },
     {
       "name": "no_known_stale_command_tokens",

@@ -27,6 +27,7 @@ EXCLUDED_RESULT_NAMES = {
     "script_contracts.json",
     "source_manifest.json",
     "table_schema.json",
+    "test_inventory.json",
 }
 
 

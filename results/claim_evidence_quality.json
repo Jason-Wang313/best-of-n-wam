@@ -1,17 +1,17 @@
 {
   "experiment": "claim_evidence_quality",
   "verified": true,
-  "n_claims": 115,
-  "max_claim_id": 115,
-  "n_source_mapped_claims": 115,
-  "n_source_links": 151,
+  "n_claims": 116,
+  "max_claim_id": 116,
+  "n_source_mapped_claims": 116,
+  "n_source_links": 153,
   "n_checks": 7,
   "n_issues": 0,
   "checks": [
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=115"
+      "detail": "claims=116"
     },
     {
       "name": "all_current_claims_have_sources",
@@ -41,7 +41,7 @@
     {
       "name": "mapped_sources_exist_and_parse",
       "ok": true,
-      "detail": "sources=151, invalid=0"
+      "detail": "sources=153, invalid=0"
     }
   ],
   "issues": [],
@@ -932,7 +932,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\README.md",
       "exists": true,
       "ok": true,
-      "bytes": 21321,
+      "bytes": 21516,
       "detail": "md"
     },
     {
@@ -941,7 +941,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 38485,
+      "bytes": 38715,
       "detail": "json"
     },
     {
@@ -959,7 +959,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 38485,
+      "bytes": 38715,
       "detail": "json"
     },
     {
@@ -1112,7 +1112,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 38485,
+      "bytes": 38715,
       "detail": "json"
     },
     {
@@ -1121,7 +1121,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claims_report.md",
       "exists": true,
       "ok": true,
-      "bytes": 28848,
+      "bytes": 28994,
       "detail": "md"
     },
     {
@@ -1130,7 +1130,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
       "ok": true,
-      "bytes": 284955,
+      "bytes": 286521,
       "detail": "json"
     },
     {
@@ -1166,7 +1166,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\narrative_consistency.json",
       "exists": true,
       "ok": true,
-      "bytes": 11404,
+      "bytes": 11692,
       "detail": "json"
     },
     {
@@ -1202,7 +1202,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 38485,
+      "bytes": 38715,
       "detail": "json"
     },
     {
@@ -1211,7 +1211,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\script_contracts.json",
       "exists": true,
       "ok": true,
-      "bytes": 13245,
+      "bytes": 13921,
       "detail": "json"
     },
     {
@@ -1220,7 +1220,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\script_contracts_report.md",
       "exists": true,
       "ok": true,
-      "bytes": 433,
+      "bytes": 448,
       "detail": "md"
     },
     {
@@ -1229,7 +1229,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_evidence_quality.json",
       "exists": true,
       "ok": true,
-      "bytes": 45074,
+      "bytes": 45614,
       "detail": "json"
     },
     {
@@ -1265,7 +1265,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_semantics.json",
       "exists": true,
       "ok": true,
-      "bytes": 21437,
+      "bytes": 21616,
       "detail": "json"
     },
     {
@@ -1337,7 +1337,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\source_manifest.json",
       "exists": true,
       "ok": true,
-      "bytes": 38066,
+      "bytes": 38652,
       "detail": "json"
     },
     {
@@ -1409,7 +1409,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\command_result_consistency.json",
       "exists": true,
       "ok": true,
-      "bytes": 4739,
+      "bytes": 4982,
       "detail": "json"
     },
     {
@@ -1419,6 +1419,24 @@
       "exists": true,
       "ok": true,
       "bytes": 295,
+      "detail": "md"
+    },
+    {
+      "claim_id": 116,
+      "raw_path": "results/test_inventory.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 11062,
+      "detail": "json"
+    },
+    {
+      "claim_id": 116,
+      "raw_path": "reports/test_inventory_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\test_inventory_report.md",
+      "exists": true,
+      "ok": true,
+      "bytes": 283,
       "detail": "md"
     }
   ]

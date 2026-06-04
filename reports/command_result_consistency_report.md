@@ -1,10 +1,10 @@
 # Command Result Consistency Report
 
 - Verified: True
-- Expected snippets: 16
-- Python command lines: 19
-- Checks: 19
+- Expected snippets: 17
+- Python command lines: 20
+- Checks: 20
 - Issues: 0
-- Expected pytest count: 95
+- Expected pytest count: 98
 
 The final decision command-results section matches current verification artifacts and contains no known stale command tokens.

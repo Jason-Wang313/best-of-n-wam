@@ -24,6 +24,7 @@ bash scripts/run_multi_env.sh
 bash scripts/run_benchmark_full.sh
 bash scripts/run_visual_optional.sh
 bash scripts/run_inference_audit.sh
+"${PY[@]}" scripts/test_inventory.py --fail-on-error
 "${PY[@]}" scripts/artifact_integrity.py --fail-on-error
 "${PY[@]}" scripts/result_consistency.py --fail-on-error
 "${PY[@]}" scripts/raw_result_recompute.py --fail-on-error
@@ -51,6 +52,7 @@ bash scripts/run_inference_audit.sh
 "${PY[@]}" scripts/claim_ledger_integrity.py --fail-on-error
 "${PY[@]}" scripts/command_result_consistency.py --fail-on-error
 "${PY[@]}" scripts/write_maxout_reports.py
+"${PY[@]}" scripts/test_inventory.py --fail-on-error
 "${PY[@]}" scripts/artifact_integrity.py --fail-on-error
 "${PY[@]}" scripts/result_consistency.py --fail-on-error
 "${PY[@]}" scripts/raw_result_recompute.py --fail-on-error

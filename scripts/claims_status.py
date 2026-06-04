@@ -39,6 +39,7 @@ NARRATIVE_SURFACES = [
     ("experiment_registry_report", REPORTS / "experiment_registry_report.md"),
     ("model_artifact_integrity_report", REPORTS / "model_artifact_integrity_report.md"),
     ("command_result_consistency_report", REPORTS / "command_result_consistency_report.md"),
+    ("test_inventory_report", REPORTS / "test_inventory_report.md"),
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
     ("claim_semantics_report", REPORTS / "claim_semantics_report.md"),
     ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
@@ -299,6 +300,7 @@ def main() -> None:
     audit_learned = load_json("inference_audit_framework_learned.json")
     repair = load_json("scorer_repair_experiment.json")
     scaling = load_json("imagination_scaling_law.json")
+    test_inventory = load_json("test_inventory.json")
     artifact_integrity = load_json("artifact_integrity.json")
     artifact_manifest = load_json("artifact_manifest.json")
     figure_quality = load_json("figure_quality.json")
@@ -1877,8 +1879,8 @@ def main() -> None:
         "status": status(
             bool(command_result_consistency)
             and command_result_consistency.get("verified", False)
-            and (command_result_consistency.get("n_expected_snippets") or 0) >= 16
-            and (command_result_consistency.get("n_python_command_lines") or 0) >= 15
+            and (command_result_consistency.get("n_expected_snippets") or 0) >= 17
+            and (command_result_consistency.get("n_python_command_lines") or 0) >= 16
             and (command_result_consistency.get("n_checks") or 0) >= 19
             and command_result_consistency.get("n_issues") == 0
             and artifact_exists(RESULTS / "command_result_consistency.json")
@@ -1892,12 +1894,32 @@ def main() -> None:
             f"checks={command_result_consistency.get('n_checks')}, issues={command_result_consistency.get('n_issues')}"
         ),
     }
+    test_inventory_claim = {
+        "id": 116,
+        "claim": "Pytest command-result counts come from a verified collected-test inventory.",
+        "status": status(
+            bool(test_inventory)
+            and test_inventory.get("verified", False)
+            and (test_inventory.get("n_tests") or 0) >= 90
+            and test_inventory.get("n_unique_tests") == test_inventory.get("n_tests")
+            and (test_inventory.get("n_checks") or 0) >= 6
+            and test_inventory.get("n_issues") == 0
+            and artifact_exists(RESULTS / "test_inventory.json")
+            and artifact_exists(REPORTS / "test_inventory_report.md"),
+            bool(test_inventory),
+        ),
+        "evidence": (
+            f"tests={test_inventory.get('n_tests')}, unique={test_inventory.get('n_unique_tests')}, "
+            f"trailer={test_inventory.get('trailer_count')}, checks={test_inventory.get('n_checks')}, "
+            f"issues={test_inventory.get('n_issues')}"
+        ),
+    }
     candidate_claims = claims + [
         {
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=115, max_id=115, checks=pending, issues=0",
+            "evidence": "claims=116, max_id=116, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
@@ -1911,6 +1933,7 @@ def main() -> None:
         experiment_registry_claim,
         model_artifact_integrity_claim,
         command_result_consistency_claim,
+        test_inventory_claim,
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
@@ -1936,6 +1959,7 @@ def main() -> None:
     claims.append(experiment_registry_claim)
     claims.append(model_artifact_integrity_claim)
     claims.append(command_result_consistency_claim)
+    claims.append(test_inventory_claim)
 
     payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)

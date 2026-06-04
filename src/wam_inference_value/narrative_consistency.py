@@ -98,6 +98,7 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{claim_evidence_quality.",
         "{claim_ledger_integrity.",
         "{figure_quality.",
+        "{test_inventory.",
         "{gym_",
         "{metaworld.",
         "{robosuite.",
@@ -265,6 +266,7 @@ def audit_readme(root: Path, results_dir: Path, checks: list[NarrativeCheck]) ->
 def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCheck]) -> None:
     text = read_text(root / "reports" / "final_decision_report.md")
     artifact_integrity = load_json(results_dir, "artifact_integrity.json")
+    test_inventory = load_json(results_dir, "test_inventory.json")
     artifact_manifest = load_json(results_dir, "artifact_manifest.json")
     figure_quality = load_json(results_dir, "figure_quality.json")
     result_consistency = load_json(results_dir, "result_consistency.json")
@@ -289,7 +291,17 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     benchmark_visual = load_json(results_dir, "benchmark_visual_wam_lite.json")
     gym_visual = load_json(results_dir, "benchmark_gym_robotics_visual_wam.json")
 
-    add_contains(checks, "final_decision_report", text, "pytest_count", "`python -m pytest -q`: passed with `95 passed`")
+    add_contains(checks, "final_decision_report", text, "pytest_count", f"`python -m pytest -q`: passed with `{test_inventory.get('n_tests')} passed`")
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "test_inventory_command",
+        (
+            f"`python scripts/test_inventory.py --fail-on-error`: passed with `{test_inventory.get('n_tests')}` collected tests, "
+            f"`{test_inventory.get('n_checks')}` inventory checks, and `{test_inventory.get('n_issues')}` issues"
+        ),
+    )
     add_contains(
         checks,
         "final_decision_report",

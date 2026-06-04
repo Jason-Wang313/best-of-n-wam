@@ -24,6 +24,7 @@ SELF_OUTPUTS = {
     "raw_result_recompute.json",
     "result_consistency.json",
     "script_contracts.json",
+    "test_inventory.json",
 }
 
 

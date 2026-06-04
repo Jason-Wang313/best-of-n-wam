@@ -11,6 +11,7 @@ def write_json(path: Path, payload: dict) -> None:
 
 
 def write_minimal_gate_artifacts(results: Path) -> None:
+    write_json(results / "test_inventory.json", {"n_tests": 95, "n_checks": 6, "n_issues": 0})
     write_json(results / "artifact_integrity.json", {"n_references": 641, "n_issues": 0})
     write_json(results / "artifact_manifest.json", {"n_files": 397, "total_bytes": 56, "n_checks": 15, "n_issues": 0})
     write_json(results / "figure_quality.json", {"n_figures": 36, "n_checks": 8, "n_issues": 0})

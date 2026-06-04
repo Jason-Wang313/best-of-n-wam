@@ -6,6 +6,7 @@ from typing import Any
 
 
 CORE_GATE_SEQUENCE = [
+    "scripts/test_inventory.py --fail-on-error",
     "scripts/artifact_integrity.py --fail-on-error",
     "scripts/result_consistency.py --fail-on-error",
     "scripts/raw_result_recompute.py --fail-on-error",
@@ -137,6 +138,7 @@ def audit_core_script(root: Path, script: str, required_snippets: list[str], che
     missing = [snippet for snippet in required_snippets if snippet not in text]
     add(checks, f"{label}_required_steps", not missing, f"missing={missing}")
     add(checks, f"{label}_gate_sequence", ordered_subsequence(text, CORE_GATE_SEQUENCE), "core gate sequence is ordered")
+    add(checks, f"{label}_test_inventory_gate", count_occurrences(text, "scripts/test_inventory.py --fail-on-error") >= 1, "test inventory gate runs before artifact integrity")
     add(checks, f"{label}_raw_recompute_gate", count_occurrences(text, "scripts/raw_result_recompute.py --fail-on-error") >= 1, "raw recompute gate runs after result consistency")
     add(checks, f"{label}_table_schema_gate", count_occurrences(text, "scripts/table_schema.py --fail-on-error") >= 1, "table schema gate runs after raw recompute")
     add(checks, f"{label}_source_manifest_gate", count_occurrences(text, "scripts/source_manifest.py --fail-on-error") >= 1, "source manifest gate runs after table schema")
@@ -214,6 +216,6 @@ def script_contracts_markdown(payload: dict[str, Any]) -> str:
         for issue in issues:
             lines.append(f"- `{issue.get('name')}`: {issue.get('detail')}")
     else:
-        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered artifact/result/raw-recompute/table-schema/source-manifest/runtime-environment/experiment-registry/result-manifest/model-artifact/figure-quality/narrative/script-contract/claim/semantic/evidence/ledger/command-result gates.")
+        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered test-inventory/artifact/result/raw-recompute/table-schema/source-manifest/runtime-environment/experiment-registry/result-manifest/model-artifact/figure-quality/narrative/script-contract/claim/semantic/evidence/ledger/command-result gates.")
     lines.append("")
     return "\n".join(lines)
