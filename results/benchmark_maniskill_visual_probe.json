@@ -30,7 +30,7 @@
       "stderr_tail": [
         "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
         "  warnings.warn(",
-        "\u001b[33;1m2026-05-31 05:32:16,907 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+        "\u001b[33;1m2026-06-04 20:08:40,121 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
       ]
     },
     {
@@ -68,8 +68,8 @@
       "stderr_tail": [
         "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
         "  warnings.warn(",
-        "\u001b[33;1m2026-05-31 05:32:37,364 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
-        "\u001b[33;1m2026-05-31 05:32:37,709 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+        "\u001b[33;1m2026-06-04 20:09:01,566 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
+        "\u001b[33;1m2026-06-04 20:09:01,958 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
       ]
     },
     {
@@ -107,8 +107,126 @@
       "stderr_tail": [
         "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
         "  warnings.warn(",
-        "\u001b[33;1m2026-05-31 05:32:57,892 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
-        "\u001b[33;1m2026-05-31 05:32:58,230 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+        "\u001b[33;1m2026-06-04 20:09:24,689 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
+        "\u001b[33;1m2026-06-04 20:09:25,124 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+      ]
+    },
+    {
+      "ok": false,
+      "error_type": "RuntimeError",
+      "error": "vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory",
+      "trace_tail": [
+        "    sensor_data=self._get_obs_sensor_data(apply_texture_transforms),",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 604, in _get_obs_sensor_data",
+        "    self.capture_sensor_data()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 565, in capture_sensor_data",
+        "    sensor.capture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\sensors\\camera.py\", line 188, in capture",
+        "    self.camera.take_picture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\utils\\structs\\render_camera.py\", line 273, in take_picture",
+        "    self._render_cameras[0].take_picture()",
+        "RuntimeError: vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory"
+      ],
+      "mani_skill_version": "3.0.1",
+      "name": "rgb_render_backend_cpu_32",
+      "category": "visual_obs",
+      "env_id": "PickCube-v1",
+      "kwargs": {
+        "obs_mode": "rgb",
+        "control_mode": "pd_joint_delta_pos",
+        "render_mode": null,
+        "shader_dir": "minimal",
+        "sensor_configs": {
+          "width": 32,
+          "height": 32,
+          "shader_pack": "minimal"
+        },
+        "render_backend": "cpu"
+      },
+      "returncode": 0,
+      "stderr_tail": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
+        "  warnings.warn(",
+        "\u001b[33;1m2026-06-04 20:09:51,077 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m"
+      ]
+    },
+    {
+      "ok": false,
+      "error_type": "RuntimeError",
+      "error": "vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory",
+      "trace_tail": [
+        "    sensor_data=self._get_obs_sensor_data(apply_texture_transforms),",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 604, in _get_obs_sensor_data",
+        "    self.capture_sensor_data()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 565, in capture_sensor_data",
+        "    sensor.capture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\sensors\\camera.py\", line 188, in capture",
+        "    self.camera.take_picture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\utils\\structs\\render_camera.py\", line 273, in take_picture",
+        "    self._render_cameras[0].take_picture()",
+        "RuntimeError: vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory"
+      ],
+      "mani_skill_version": "3.0.1",
+      "name": "rgb_render_backend_sapien_cpu_32",
+      "category": "visual_obs",
+      "env_id": "PickCube-v1",
+      "kwargs": {
+        "obs_mode": "rgb",
+        "control_mode": "pd_joint_delta_pos",
+        "render_mode": null,
+        "shader_dir": "minimal",
+        "sensor_configs": {
+          "width": 32,
+          "height": 32,
+          "shader_pack": "minimal"
+        },
+        "render_backend": "sapien_cpu"
+      },
+      "returncode": 0,
+      "stderr_tail": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
+        "  warnings.warn(",
+        "\u001b[33;1m2026-06-04 20:10:17,688 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m"
+      ]
+    },
+    {
+      "ok": false,
+      "error_type": "RuntimeError",
+      "error": "vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory",
+      "trace_tail": [
+        "    sensor_data=self._get_obs_sensor_data(apply_texture_transforms),",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 604, in _get_obs_sensor_data",
+        "    self.capture_sensor_data()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 565, in capture_sensor_data",
+        "    sensor.capture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\sensors\\camera.py\", line 188, in capture",
+        "    self.camera.take_picture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\utils\\structs\\render_camera.py\", line 273, in take_picture",
+        "    self._render_cameras[0].take_picture()",
+        "RuntimeError: vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory"
+      ],
+      "mani_skill_version": "3.0.1",
+      "name": "rgb_physx_cpu_render_cpu_32",
+      "category": "visual_obs",
+      "env_id": "PickCube-v1",
+      "kwargs": {
+        "obs_mode": "rgb",
+        "control_mode": "pd_joint_delta_pos",
+        "render_mode": null,
+        "shader_dir": "minimal",
+        "sensor_configs": {
+          "width": 32,
+          "height": 32,
+          "shader_pack": "minimal"
+        },
+        "sim_backend": "physx_cpu",
+        "render_backend": "cpu"
+      },
+      "returncode": 0,
+      "stderr_tail": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
+        "  warnings.warn(",
+        "\u001b[33;1m2026-06-04 20:10:52,997 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m"
       ]
     },
     {
@@ -146,8 +264,8 @@
       "stderr_tail": [
         "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
         "  warnings.warn(",
-        "\u001b[33;1m2026-05-31 05:33:18,548 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
-        "\u001b[33;1m2026-05-31 05:33:18,888 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+        "\u001b[33;1m2026-06-04 20:11:18,197 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
+        "\u001b[33;1m2026-06-04 20:11:18,579 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
       ]
     },
     {
@@ -185,8 +303,8 @@
       "stderr_tail": [
         "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
         "  warnings.warn(",
-        "\u001b[33;1m2026-05-31 05:33:37,244 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
-        "\u001b[33;1m2026-05-31 05:33:37,608 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+        "\u001b[33;1m2026-06-04 20:11:43,478 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
+        "\u001b[33;1m2026-06-04 20:11:43,901 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
       ]
     },
     {
@@ -224,8 +342,8 @@
       "stderr_tail": [
         "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
         "  warnings.warn(",
-        "\u001b[33;1m2026-05-31 05:33:58,153 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
-        "\u001b[33;1m2026-05-31 05:33:58,469 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+        "\u001b[33;1m2026-06-04 20:12:08,493 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
+        "\u001b[33;1m2026-06-04 20:12:08,848 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
       ]
     },
     {
@@ -263,8 +381,8 @@
       "stderr_tail": [
         "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
         "  warnings.warn(",
-        "\u001b[33;1m2026-05-31 05:34:17,119 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
-        "\u001b[33;1m2026-05-31 05:34:17,437 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+        "\u001b[33;1m2026-06-04 20:12:35,870 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
+        "\u001b[33;1m2026-06-04 20:12:36,642 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
       ]
     },
     {
@@ -302,8 +420,8 @@
       "stderr_tail": [
         "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
         "  warnings.warn(",
-        "\u001b[33;1m2026-05-31 05:34:36,705 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
-        "\u001b[33;1m2026-05-31 05:34:36,977 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+        "\u001b[33;1m2026-06-04 20:13:07,270 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
+        "\u001b[33;1m2026-06-04 20:13:07,667 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
       ]
     },
     {
@@ -335,7 +453,7 @@
       "stderr_tail": [
         "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
         "  warnings.warn(",
-        "\u001b[33;1m2026-05-31 05:34:56,060 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+        "\u001b[33;1m2026-06-04 20:13:32,040 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
       ]
     },
     {
@@ -367,14 +485,14 @@
       "stderr_tail": [
         "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
         "  warnings.warn(",
-        "\u001b[33;1m2026-05-31 05:35:13,780 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+        "\u001b[33;1m2026-06-04 20:14:03,978 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
       ]
     }
   ],
   "state_baseline_ok": true,
   "any_visual_success": false,
   "any_ee_control_success": false,
-  "visual_attempt_count": 7,
+  "visual_attempt_count": 10,
   "ee_control_attempt_count": 2,
   "artifacts": {
     "table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_maniskill_visual_probe.csv",

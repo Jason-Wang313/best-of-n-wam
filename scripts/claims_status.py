@@ -983,7 +983,12 @@ def main() -> None:
             and csv_row_count(maniskill_visual_probe_artifacts.get("table")) >= 5,
             bool(maniskill_visual_probe),
         ),
-        f"visual_success={maniskill_visual_probe.get('any_visual_success')}, blocker={maniskill_visual_probe.get('visual_blocker')}; pinocchio={maniskill_dependency_probe.get('pinocchio_import_available')}, pin_binary={maniskill_dependency_probe.get('pin_binary_wheel_available')}",
+        f"visual_success={maniskill_visual_probe.get('any_visual_success')}, "
+        f"visual_attempts={maniskill_visual_probe.get('visual_attempt_count')}, "
+        f"ee_attempts={maniskill_visual_probe.get('ee_control_attempt_count')}, "
+        f"blocker={maniskill_visual_probe.get('visual_blocker')}; "
+        f"pinocchio={maniskill_dependency_probe.get('pinocchio_import_available')}, "
+        f"pin_binary={maniskill_dependency_probe.get('pin_binary_wheel_available')}",
     )
     metaworld_ci = metaworld.get("confidence_intervals") or {}
     metaworld_artifacts = metaworld.get("artifacts") or {}

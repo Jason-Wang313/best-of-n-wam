@@ -3,7 +3,7 @@
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_files": 398,
-  "total_bytes": 56430436,
+  "total_bytes": 56437819,
   "counts_by_suffix": {
     ".json": 106,
     ".npz": 41,
@@ -86,8 +86,8 @@
     {
       "path": "results/benchmark_maniskill_visual_probe.json",
       "suffix": ".json",
-      "bytes": 22586,
-      "sha256": "2b2b4fc2b0f6987f288c523bfebe28ebf134089ab48186b7c8aaee816bde823e"
+      "bytes": 29348,
+      "sha256": "3b8e27b13abd696262a01af429ecc6fa3ffe74f3971ccf90c942fba40af7647b"
     },
     {
       "path": "results/benchmark_metaworld_suite.json",
@@ -1280,8 +1280,8 @@
     {
       "path": "results/tables/benchmark_maniskill_visual_probe.csv",
       "suffix": ".csv",
-      "bytes": 2039,
-      "sha256": "427f992c5cd9d399620befbcd020adc4e65a94ee1378659a09cab623181e636c"
+      "bytes": 2660,
+      "sha256": "773a71bea8d58ee66a849769f625c8077c92ecba91f37c53803e61349547a00c"
     },
     {
       "path": "results/tables/benchmark_metaworld_closed_loop.csv",
@@ -2417,7 +2417,7 @@
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=56430436, scan=56430436"
+      "detail": "payload=56437819, scan=56437819"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
@@ -2477,7 +2477,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=56430436"
+      "detail": "bytes=56437819"
     }
   ],
   "issues": [],

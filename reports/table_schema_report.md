@@ -2,7 +2,7 @@
 
 - Verified: True
 - Tables audited: 215
-- Total rows: 212858
+- Total rows: 212861
 - Numeric column instances: 1959
 - Checks: 17
 - Issues: 0

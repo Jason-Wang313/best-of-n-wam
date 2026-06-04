@@ -806,7 +806,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_visual_probe.json",
       "exists": true,
       "ok": true,
-      "bytes": 22586,
+      "bytes": 29348,
       "detail": "json"
     },
     {
@@ -941,7 +941,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 42888,
+      "bytes": 42923,
       "detail": "json"
     },
     {
@@ -959,7 +959,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 42888,
+      "bytes": 42923,
       "detail": "json"
     },
     {
@@ -1112,7 +1112,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 42888,
+      "bytes": 42923,
       "detail": "json"
     },
     {
@@ -1202,7 +1202,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 42888,
+      "bytes": 42923,
       "detail": "json"
     },
     {
@@ -1319,7 +1319,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\table_schema.json",
       "exists": true,
       "ok": true,
-      "bytes": 254041,
+      "bytes": 254143,
       "detail": "json"
     },
     {
@@ -1571,7 +1571,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_scope_audit.json",
       "exists": true,
       "ok": true,
-      "bytes": 123228,
+      "bytes": 123366,
       "detail": "json"
     },
     {

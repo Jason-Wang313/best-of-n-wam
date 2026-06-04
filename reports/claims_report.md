@@ -79,7 +79,7 @@
 - 65. Gymnasium Robotics RGB visual exact law verified. Evidence: utility MAE=0.010612997381058541, exact rows=270
 - 66. Gymnasium Robotics RGB visual scorer beats random with CI. Evidence: visual-random CI={'n': 5, 'mean': 0.4888505704773543, 'std': 0.16122603373528005, 'stderr': 0.0721024742349521, 'ci95': 0.1413208495005061, 'lo': 0.3475297209768482, 'hi': 0.6301714199778604}
 - 67. Gymnasium Robotics RGB visual oracle gap is reported without requiring significance. Evidence: oracle-visual CI={'n': 5, 'mean': 0.02680333126025487, 'std': 0.03203449057950047, 'stderr': 0.014326259712067935, 'ci95': 0.028079469035653153, 'lo': -0.0012761377753982839, 'hi': 0.05488280029590802}, rows=1350
-- 68. ManiSkill RGB/RGB-D and EE-control probe is artifact-documented. Evidence: visual_success=False, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pin_binary=False
+- 68. ManiSkill RGB/RGB-D and EE-control probe is artifact-documented. Evidence: visual_success=False, visual_attempts=10, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pin_binary=False
 - 69. Meta-World ML1 benchmark suite verified. Evidence: tasks=['reach-v3', 'push-v3', 'drawer-open-v3'], pools=45, rows=1620
 - 70. Meta-World exact law verified. Evidence: utility MAE=0.029769105761603815, exact rows=270
 - 71. Meta-World learned WAM scorer beats random open-loop with CI. Evidence: learned-random CI={'n': 5, 'mean': 0.11054551953348397, 'std': 0.014837925371412848, 'stderr': 0.0066357219551095884, 'ci95': 0.013006015032014793, 'lo': 0.09753950450146918, 'hi': 0.12355153456549876}
@@ -119,12 +119,12 @@
 - 105. Verified claims have mapped source artifacts and quality-checked evidence. Evidence: claims=127, mapped=127, sources=175, issues=0
 - 106. Published summary metrics recompute from raw result tables. Evidence: aggregate metrics=10710, exact files=20, seed CI columns=125, issues=0
 - 107. Verified claim wording satisfies semantic threshold checks. Evidence: claims=127, checks=177, CI claims=53, positive CI claims=33, error claims=11, issues=0
-- 108. Scientific result artifacts have a deterministic hash manifest. Evidence: files=398, bytes=56430436, suffixes={'.json': 106, '.npz': 41, '.png': 36, '.csv': 215}, issues=0
+- 108. Scientific result artifacts have a deterministic hash manifest. Evidence: files=398, bytes=56437819, suffixes={'.json': 106, '.npz': 41, '.png': 36, '.csv': 215}, issues=0
 - 109. Publication figure artifacts pass image-quality checks. Evidence: figures=36, expected=25, checks=8, issues=0
-- 110. Canonical CSV result tables pass schema and numeric-sanity checks. Evidence: tables=215, rows=212858, numeric_columns=1959, checks=17, issues=0
-- 111. Source and verification code have a deterministic hash manifest. Evidence: files=212, bytes=1508973, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 42, 'src': 59, 'tests': 50}, checks=14, issues=0
+- 110. Canonical CSV result tables pass schema and numeric-sanity checks. Evidence: tables=215, rows=212861, numeric_columns=1959, checks=17, issues=0
+- 111. Source and verification code have a deterministic hash manifest. Evidence: files=212, bytes=1510732, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 42, 'src': 59, 'tests': 50}, checks=14, issues=0
 - 112. Runtime and dependency environment metadata has a verified manifest. Evidence: python=3.10.11, core=4, absent=0, version_issues=0, optional_available=5/5, modules=13, commands=5, checks=15, issues=0
-- 113. Canonical experiment families have verified registry coverage. Evidence: entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=297, rows=260523, figures=40, failed=0, checks=10, issues=0
+- 113. Canonical experiment families have verified registry coverage. Evidence: entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=297, rows=260529, figures=40, failed=0, checks=10, issues=0
 - 114. Committed learned-model artifacts are loadable and numerically sane. Evidence: models=49, suffixes={'.npz': 36, '.joblib': 13}, bytes=119450103, npz_arrays=315, npz_elements=6077793, joblib_predictors=13, checks=10, issues=0
 - 115. Published final-report command results match current verification artifacts. Evidence: snippets=28, python_commands=31, pytest=140, checks=31, issues=0
 - 116. Pytest command-result counts come from a verified collected-test inventory. Evidence: tests=140, unique=140, trailer=140, checks=6, issues=0

@@ -3,10 +3,10 @@
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_tables": 215,
-  "total_rows": 212858,
-  "total_column_instances": 2562,
+  "total_rows": 212861,
+  "total_column_instances": 2564,
   "numeric_column_instances": 1959,
-  "optional_blank_instances": 90,
+  "optional_blank_instances": 92,
   "n_checks": 17,
   "n_issues": 0,
   "checks": [
@@ -18,12 +18,12 @@
     {
       "name": "table_rows_present",
       "ok": true,
-      "detail": "rows=212858"
+      "detail": "rows=212861"
     },
     {
       "name": "table_columns_present",
       "ok": true,
-      "detail": "column_instances=2562"
+      "detail": "column_instances=2564"
     },
     {
       "name": "table_headers_well_formed",
@@ -93,7 +93,7 @@
     {
       "name": "optional_blank_columns_are_explicit",
       "ok": true,
-      "detail": "optional_blank_instances=90"
+      "detail": "optional_blank_instances=92"
     }
   ],
   "issues": [],
@@ -1176,8 +1176,8 @@
     },
     {
       "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_maniskill_visual_probe.csv",
-      "rows": 10,
-      "columns": 15,
+      "rows": 13,
+      "columns": 17,
       "fieldnames": [
         "name",
         "category",
@@ -1186,6 +1186,8 @@
         "obs_mode",
         "control_mode",
         "render_mode",
+        "sim_backend",
+        "render_backend",
         "shader_dir",
         "sensor_width",
         "sensor_height",
@@ -1207,10 +1209,12 @@
         "error_type",
         "human_height",
         "human_width",
+        "render_backend",
         "render_mode",
         "sensor_height",
         "sensor_width",
-        "shader_dir"
+        "shader_dir",
+        "sim_backend"
       ],
       "malformed": false,
       "duplicate_columns": [],

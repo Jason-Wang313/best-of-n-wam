@@ -17,7 +17,7 @@
   "failed_records": [],
   "n_wrapper_links": 69,
   "n_table_artifacts": 297,
-  "n_table_rows": 260523,
+  "n_table_rows": 260529,
   "n_figure_artifacts": 40,
   "n_checks": 10,
   "n_issues": 0,
@@ -50,7 +50,7 @@
     {
       "name": "experiment_registry_table_row_coverage",
       "ok": true,
-      "detail": "rows=260523"
+      "detail": "rows=260529"
     },
     {
       "name": "experiment_registry_figure_coverage",
@@ -1089,7 +1089,7 @@
         },
         {
           "path": "results/tables/benchmark_maniskill_visual_probe.csv",
-          "rows": 10
+          "rows": 13
         }
       ],
       "figures": [
@@ -1248,7 +1248,7 @@
       "tables": [
         {
           "path": "results/tables/benchmark_maniskill_visual_probe.csv",
-          "rows": 10
+          "rows": 13
         }
       ],
       "figures": [],

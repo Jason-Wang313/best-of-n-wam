@@ -456,7 +456,7 @@
         {
           "path": "results/benchmark_maniskill_visual_probe.json",
           "exists": true,
-          "bytes": 22586
+          "bytes": 29348
         },
         {
           "path": "results/benchmark_maniskill_dependency_probe.json",
@@ -495,7 +495,7 @@
         {
           "path": "results/benchmark_maniskill_visual_probe.json",
           "exists": true,
-          "bytes": 22586
+          "bytes": 29348
         },
         {
           "path": "results/benchmark_maniskill_dependency_probe.json",
@@ -505,7 +505,7 @@
         {
           "path": "reports/maniskill_visual_blocker_report.md",
           "exists": true,
-          "bytes": 2557
+          "bytes": 3004
         },
         {
           "path": "reports/maniskill_dependency_blocker_report.md",

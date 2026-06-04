@@ -154,7 +154,7 @@
       "surface": "final_decision_report",
       "name": "artifact_manifest_command",
       "ok": true,
-      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `398` scientific artifacts, `56430436` bytes, `15` manifest checks, and `0` issues",
+      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `398` scientific artifacts, `56437819` bytes, `15` manifest checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -182,14 +182,14 @@
       "surface": "final_decision_report",
       "name": "table_schema_command",
       "ok": true,
-      "expected": "`python scripts/table_schema.py --fail-on-error`: passed with `215` tables, `212858` rows, `17` schema checks, and `0` issues",
+      "expected": "`python scripts/table_schema.py --fail-on-error`: passed with `215` tables, `212861` rows, `17` schema checks, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "source_manifest_command",
       "ok": true,
-      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `212` source files, `1508973` bytes, `14` source-manifest checks, and `0` issues",
+      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `212` source files, `1510732` bytes, `14` source-manifest checks, and `0` issues",
       "detail": "found"
     },
     {

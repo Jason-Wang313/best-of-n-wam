@@ -555,8 +555,8 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_maniskill_visual_probe.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_maniskill_visual_probe.csv",
       "exists": true,
-      "bytes": 2039,
-      "rows": 10,
+      "bytes": 2660,
+      "rows": 13,
       "status": "ok",
       "reason": ""
     },
@@ -566,7 +566,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\maniskill_visual_blocker_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\maniskill_visual_blocker_report.md",
       "exists": true,
-      "bytes": 2557,
+      "bytes": 3004,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -4702,7 +4702,7 @@
       "raw_path": "results/benchmark_maniskill_visual_probe.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_visual_probe.json",
       "exists": true,
-      "bytes": 22586,
+      "bytes": 29348,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -4713,7 +4713,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_visual_probe.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_visual_probe.json",
       "exists": true,
-      "bytes": 22586,
+      "bytes": 29348,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5868,7 +5868,7 @@
       "raw_path": "results/artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 91118,
+      "bytes": 91319,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5879,7 +5879,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 91118,
+      "bytes": 91319,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6000,7 +6000,7 @@
       "raw_path": "results/source_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\source_manifest.json",
       "exists": true,
-      "bytes": 45389,
+      "bytes": 45999,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6011,7 +6011,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\source_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\source_manifest.json",
       "exists": true,
-      "bytes": 45389,
+      "bytes": 45999,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -7342,7 +7342,7 @@
       "raw_path": "results/benchmark_maniskill_visual_probe.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_visual_probe.json",
       "exists": true,
-      "bytes": 22586,
+      "bytes": 29348,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -7364,7 +7364,7 @@
       "raw_path": "reports/maniskill_visual_blocker_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\maniskill_visual_blocker_report.md",
       "exists": true,
-      "bytes": 2557,
+      "bytes": 3004,
       "rows": null,
       "status": "ok",
       "reason": ""

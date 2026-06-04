@@ -406,7 +406,7 @@
       "id": 68,
       "claim": "ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.",
       "status": "VERIFIED",
-      "evidence": "visual_success=False, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pin_binary=False"
+      "evidence": "visual_success=False, visual_attempts=10, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pin_binary=False"
     },
     {
       "id": 69,
@@ -646,7 +646,7 @@
       "id": 108,
       "claim": "Scientific result artifacts have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=398, bytes=56430436, suffixes={'.json': 106, '.npz': 41, '.png': 36, '.csv': 215}, issues=0"
+      "evidence": "files=398, bytes=56437819, suffixes={'.json': 106, '.npz': 41, '.png': 36, '.csv': 215}, issues=0"
     },
     {
       "id": 109,
@@ -658,13 +658,13 @@
       "id": 110,
       "claim": "Canonical CSV result tables pass schema and numeric-sanity checks.",
       "status": "VERIFIED",
-      "evidence": "tables=215, rows=212858, numeric_columns=1959, checks=17, issues=0"
+      "evidence": "tables=215, rows=212861, numeric_columns=1959, checks=17, issues=0"
     },
     {
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=212, bytes=1508973, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 42, 'src': 59, 'tests': 50}, checks=14, issues=0"
+      "evidence": "files=212, bytes=1510732, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 42, 'src': 59, 'tests': 50}, checks=14, issues=0"
     },
     {
       "id": 112,
@@ -676,7 +676,7 @@
       "id": 113,
       "claim": "Canonical experiment families have verified registry coverage.",
       "status": "VERIFIED",
-      "evidence": "entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=297, rows=260523, figures=40, failed=0, checks=10, issues=0"
+      "evidence": "entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=297, rows=260529, figures=40, failed=0, checks=10, issues=0"
     },
     {
       "id": 114,
