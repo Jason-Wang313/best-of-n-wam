@@ -27,7 +27,7 @@ def write_claims(results: Path, missing: set[int] | None = None) -> None:
 
 def write_required_files(root: Path, *, omit: str | None = None) -> None:
     for row in IDEAL_CLAIM_ROWS:
-        for relative in row.get("required_files", []):
+        for relative in list(row.get("required_files", [])) + list(row.get("gap_evidence_files", [])):
             if relative == omit:
                 continue
             path = root / relative
@@ -169,3 +169,39 @@ def test_ideal_claim_boundary_rejects_missing_promotion_requirements(tmp_path: P
 
     assert payload["verified"] is False
     assert "real_robot_hil_promotion_requirements_present" in {issue["name"] for issue in payload["issues"]}
+
+
+def test_ideal_claim_boundary_rejects_missing_evidence_classes(tmp_path: Path, monkeypatch) -> None:
+    rows = []
+    for row in IDEAL_CLAIM_ROWS:
+        copied = dict(row)
+        if copied["id"] == "real_robot_hil":
+            copied["missing_evidence_classes"] = []
+        rows.append(copied)
+    monkeypatch.setattr(boundary, "IDEAL_CLAIM_ROWS", rows)
+
+    results = tmp_path / "results"
+    write_claims(results)
+    write_required_files(tmp_path)
+    write_frontier(results)
+    write_publication(results)
+    write_human_surfaces(tmp_path)
+
+    payload = audit_ideal_claim_boundary(tmp_path, results)
+
+    assert payload["verified"] is False
+    assert "real_robot_hil_missing_evidence_classes_present" in {issue["name"] for issue in payload["issues"]}
+
+
+def test_ideal_claim_boundary_rejects_missing_gap_evidence_file(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    write_claims(results)
+    write_required_files(tmp_path, omit="results/benchmark_libero_wam.json")
+    write_frontier(results)
+    write_publication(results)
+    write_human_surfaces(tmp_path)
+
+    payload = audit_ideal_claim_boundary(tmp_path, results)
+
+    assert payload["verified"] is False
+    assert "modern_vla_libero_gap_evidence_files_exist" in {issue["name"] for issue in payload["issues"]}

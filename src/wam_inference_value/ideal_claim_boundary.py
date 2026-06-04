@@ -80,6 +80,15 @@ IDEAL_CLAIM_ROWS = [
             "Committed real-robot or hardware-in-the-loop rollout/control artifacts with task definitions, seeds, and success or utility metrics.",
             "A claims_status entry whose evidence points to those artifacts rather than simulator-only benchmark results.",
         ],
+        "missing_evidence_classes": [
+            "Physical robot or hardware-in-the-loop execution logs.",
+            "Task-level real-world success/utility metrics with seeds or trial IDs.",
+            "A verified claim ledger entry sourced from real-world artifacts.",
+        ],
+        "gap_evidence_files": [
+            "reports/final_decision_report.md",
+            "reports/reviewer_risk_assessment.md",
+        ],
     },
     {
         "id": "modern_vla_libero",
@@ -94,6 +103,16 @@ IDEAL_CLAIM_ROWS = [
             "A modern VLA-style policy or policy-compatible controller evaluated on LIBERO sparse-success tasks.",
             "Heldout success metrics with confidence intervals that do not rely on scripted phase labels, target-point commands, or simulator object-state shortcuts unless explicitly scoped.",
         ],
+        "missing_evidence_classes": [
+            "Modern VLA-style policy artifact evaluated as a policy, not a rollout-pool scorer or scripted/BC smoke.",
+            "Sparse-success heldout LIBERO metrics with confidence intervals under the promoted observation/action interface.",
+            "Evidence that evaluation-time inputs do not use shortcuts beyond the stated policy scope.",
+        ],
+        "gap_evidence_files": [
+            "results/benchmark_libero_wam.json",
+            "results/benchmark_libero_visual_language_bc_policy.json",
+            "reports/final_decision_report.md",
+        ],
     },
     {
         "id": "full_robocasa_wide",
@@ -107,6 +126,16 @@ IDEAL_CLAIM_ROWS = [
         "promotion_requirements": [
             "Rollout-pool or policy artifacts covering the full declared RoboCasa task distribution, not only sampled or stratified subsets.",
             "Registry coverage evidence showing the promoted task set matches the full benchmark scope claimed in README and paper text.",
+        ],
+        "missing_evidence_classes": [
+            "Full declared RoboCasa task-distribution rollout-pool or policy artifacts.",
+            "Coverage proof that promoted task IDs match the full local benchmark registry scope.",
+            "Claim evidence that distinguishes full-suite validation from sampled or stratified-family validation.",
+        ],
+        "gap_evidence_files": [
+            "results/benchmark_robocasa_catalog_probe.json",
+            "reports/benchmark_blocker_report.md",
+            "reports/final_decision_report.md",
         ],
     },
     {
@@ -126,6 +155,17 @@ IDEAL_CLAIM_ROWS = [
             "Successful ManiSkill RGB/RGB-D rollout or WAM artifacts generated from rendered observations without the current renderer blocker.",
             "Successful ManiSkill end-effector-control artifacts or a scoped statement that no EE-control claim is being made.",
         ],
+        "missing_evidence_classes": [
+            "Successful ManiSkill RGB/RGB-D rendered-observation rollout or WAM artifact.",
+            "Successful ManiSkill end-effector-control artifact or an explicitly narrower promoted control scope.",
+            "Closed-loop or rollout-pool metrics generated after the renderer/control blockers are cleared.",
+        ],
+        "gap_evidence_files": [
+            "results/benchmark_maniskill_visual_probe.json",
+            "results/benchmark_maniskill_dependency_probe.json",
+            "reports/maniskill_visual_blocker_report.md",
+            "reports/maniskill_dependency_blocker_report.md",
+        ],
     },
     {
         "id": "universal_wam_training_recipe",
@@ -139,6 +179,16 @@ IDEAL_CLAIM_ROWS = [
         "promotion_requirements": [
             "A tested train/inference optimizer that chooses data scale, model capacity, rollout horizon, scorer quality, safety constraints, and sampling budget.",
             "Evidence that the optimizer generalizes beyond the current artifact-specific WAM-lite and benchmark recipes.",
+        ],
+        "missing_evidence_classes": [
+            "Executable universal train/inference optimizer artifact.",
+            "Cross-environment evidence that the optimizer chooses data, model, scorer, horizon, safety, and sampling budgets.",
+            "Claim evidence separating this future recipe from the current exact test-time inference law.",
+        ],
+        "gap_evidence_files": [
+            "results/publication_scope.json",
+            "reports/final_decision_report.md",
+            "reports/reviewer_risk_assessment.md",
         ],
     },
 ]
@@ -169,6 +219,12 @@ def file_record(root: Path, relative: str) -> dict[str, Any]:
         "exists": path.exists(),
         "bytes": path.stat().st_size if path.exists() and path.is_file() else 0,
     }
+
+
+def missing_file_records(root: Path, relatives: list[str]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    records = [file_record(root, relative) for relative in relatives]
+    missing = [record for record in records if not record["exists"] or record["bytes"] <= 0]
+    return records, missing
 
 
 def verified_claim_ids(claims_payload: dict[str, Any]) -> set[int]:
@@ -235,6 +291,10 @@ def audit_ideal_claim_boundary(root: Path, results_dir: Path | None = None) -> d
         missing_claim_ids = [cid for cid in required_claim_ids if cid not in verified_ids]
         files = [file_record(root, relative) for relative in row.get("required_files", [])]
         missing_files = [record for record in files if not record["exists"] or record["bytes"] <= 0]
+        gap_evidence_files, missing_gap_evidence_files = missing_file_records(
+            root,
+            [str(relative) for relative in row.get("gap_evidence_files", [])],
+        )
         required_frontier_ids = [str(fid) for fid in row.get("frontier_ids", [])]
         missing_frontier_guards = [
             fid for fid in required_frontier_ids if frontier_by_id.get(fid) != "guarded_not_promoted"
@@ -267,11 +327,24 @@ def audit_ideal_claim_boundary(root: Path, results_dir: Path | None = None) -> d
             add(checks, f"{row['id']}_not_promotable", row["paper_status"] == "future_only_not_promotable", str(row["paper_status"]))
             add(checks, f"{row['id']}_limitation_text_present", bool(str(row.get("limitation") or "").strip()), str(row.get("limitation") or ""))
             promotion_requirements = [str(item) for item in row.get("promotion_requirements", []) if str(item).strip()]
+            missing_evidence_classes = [str(item) for item in row.get("missing_evidence_classes", []) if str(item).strip()]
             add(
                 checks,
                 f"{row['id']}_promotion_requirements_present",
                 len(promotion_requirements) >= 2,
                 f"requirements={promotion_requirements}",
+            )
+            add(
+                checks,
+                f"{row['id']}_missing_evidence_classes_present",
+                len(missing_evidence_classes) >= 2,
+                f"missing_evidence={missing_evidence_classes}",
+            )
+            add(
+                checks,
+                f"{row['id']}_gap_evidence_files_exist",
+                bool(gap_evidence_files) and not missing_gap_evidence_files,
+                f"missing={missing_gap_evidence_files}",
             )
             add(
                 checks,
@@ -301,6 +374,9 @@ def audit_ideal_claim_boundary(root: Path, results_dir: Path | None = None) -> d
                 "surface_marker_hits": surface_marker_hits,
                 "limitation": row.get("limitation", ""),
                 "promotion_requirements": [str(item) for item in row.get("promotion_requirements", []) if str(item).strip()],
+                "missing_evidence_classes": [str(item) for item in row.get("missing_evidence_classes", []) if str(item).strip()],
+                "gap_evidence_files": gap_evidence_files,
+                "missing_gap_evidence_files": missing_gap_evidence_files,
             }
         )
 
@@ -365,6 +441,15 @@ def ideal_claim_boundary_markdown(payload: dict[str, Any]) -> str:
             lines.append("  Promotion requirements:")
             for requirement in promotion_requirements:
                 lines.append(f"  - Future-only promotion requirement, not current evidence: {requirement}")
+        missing_evidence_classes = row.get("missing_evidence_classes") or []
+        if missing_evidence_classes:
+            lines.append("  Missing evidence classes:")
+            for evidence_class in missing_evidence_classes:
+                lines.append(f"  - Missing future-only evidence class, not current evidence: {evidence_class}")
+        gap_evidence_files = row.get("gap_evidence_files") or []
+        if gap_evidence_files:
+            formatted = ", ".join(f"`{record.get('path')}`" for record in gap_evidence_files)
+            lines.append(f"  Gap evidence files: {formatted}")
     issues = payload.get("issues") or []
     if issues:
         lines.extend(["", "## Issues", ""])
