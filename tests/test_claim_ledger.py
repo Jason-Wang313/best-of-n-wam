@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from wam_inference_value.claim_ledger import audit_claim_ledger_payload
 
 
@@ -77,3 +79,28 @@ def test_claim_ledger_checks_markdown_statuses():
 
     failures = {check["name"] for check in payload["issues"]}
     assert "claims_status_md_statuses" in failures
+
+
+def test_claim_ledger_rejects_unstructured_evidence():
+    claims = [{"id": 1, "claim": "First.", "status": "VERIFIED", "evidence": "artifact exists"}]
+
+    payload = audit_claim_ledger_payload(payload_with_claims(claims))
+
+    failures = {check["name"] for check in payload["issues"]}
+    assert "claim_evidence_structured" in failures
+
+
+def test_claim_ledger_checks_evidence_paths(tmp_path: Path):
+    model_dir = tmp_path / "results" / "models"
+    model_dir.mkdir(parents=True)
+    (model_dir / "present.npz").write_bytes(b"model")
+    claims = [
+        {"id": 1, "claim": "First.", "status": "VERIFIED", "evidence": "model=results/models/present.npz"},
+        {"id": 2, "claim": "Second.", "status": "VERIFIED", "evidence": "model=results/models/missing.npz"},
+    ]
+
+    payload = audit_claim_ledger_payload(payload_with_claims(claims), root=tmp_path)
+
+    failures = {check["name"] for check in payload["issues"]}
+    assert "claim_evidence_paths_exist" in failures
+    assert payload["missing_evidence_path_references"][0]["claim_id"] == 2

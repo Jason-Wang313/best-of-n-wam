@@ -3,9 +3,9 @@
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_result_json": 109,
-  "n_references": 339,
+  "n_references": 343,
   "status_counts": {
-    "ok": 339
+    "ok": 343
   },
   "n_issues": 0,
   "issues": [],
@@ -2884,6 +2884,50 @@
     {
       "source_json": "benchmark_wam_training.json",
       "json_path": "model_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz",
+      "exists": true,
+      "bytes": 6148,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "claim_ledger_integrity.json",
+      "json_path": "evidence_path_references.0.raw_path",
+      "raw_path": "results\\models\\learned_wam_lite_toy.npz",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\learned_wam_lite_toy.npz",
+      "exists": true,
+      "bytes": 6251,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "claim_ledger_integrity.json",
+      "json_path": "evidence_path_references.0.resolved_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\learned_wam_lite_toy.npz",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\learned_wam_lite_toy.npz",
+      "exists": true,
+      "bytes": 6251,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "claim_ledger_integrity.json",
+      "json_path": "evidence_path_references.1.raw_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz",
+      "exists": true,
+      "bytes": 6148,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "claim_ledger_integrity.json",
+      "json_path": "evidence_path_references.1.resolved_path",
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz",
       "exists": true,

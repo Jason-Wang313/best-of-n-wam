@@ -37,11 +37,11 @@
 - 23. Learned WAM ID error reported. Evidence: validation={'split': 'validation', 'mismatch': 'mild', 'n_samples': 768, 'final_delta_mae': 0.07366012085339552, 'final_position_l2_mae': 0.11172250197070248, 'utility_mae': 0.8623689603284147, 'utility_rmse': 1.1687153364750862, 'utility_corr': 0.894453974332229}
 - 24. Learned WAM OOD error reported. Evidence: ood count=3
 - 25. Learned WAM reproduces key inference-value claims. Evidence: learned-analytic CI={'n': 5, 'mean': 1.169836264042242, 'std': 0.24964325385176853, 'stderr': 0.11164385714735812, 'ci95': 0.21882196000882193, 'lo': 0.95101430403342, 'hi': 1.3886582240510639}
-- 26. BlockPush verified. Evidence: multi-env or canonical artifacts
-- 27. DrawerPull verified. Evidence: multi-env artifact
-- 28. SlipperyGrasp verified. Evidence: multi-env artifact
-- 29. Nonstationary verified. Evidence: multi-env/canonical artifact
-- 30. Deformable optional. Evidence: multi-env deformable artifact
+- 26. BlockPush verified. Evidence: env=block_push, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
+- 27. DrawerPull verified. Evidence: env=drawer_pull, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
+- 28. SlipperyGrasp verified. Evidence: env=slippery_grasp, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
+- 29. Nonstationary verified. Evidence: env=nonstationary_shift, exp8_mae=0.006278872119413491, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
+- 30. Deformable optional. Evidence: env=deformable_toy, implemented=True, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
 - 31. Benchmark adapter available. Evidence: attempted=True, any_available=True
 - 32. Benchmark rollout pools collected. Evidence: pools=25
 - 33. Benchmark exact law verified. Evidence: utility MAE=0.018753143169510465
@@ -111,10 +111,10 @@
 - 97. RoboCasa stratified 97-task learned WAM-lite scorer beats random with CI. Evidence: tasks=97, train=1552, val=776, eval=1552, pools=194, utility corr=0.8380299394502633, promoted=learned_wam, learned-random CI={'n': 194, 'mean': 0.34790032435530055, 'std': 0.2347443208321136, 'stderr': 0.016853660033059582, 'ci95': 0.03303317366479678, 'lo': 0.31486715069050375, 'hi': 0.38093349802009735}, oracle-learned CI={'n': 194, 'mean': 0.04578491854497242, 'std': 0.0629307206718025, 'stderr': 0.0045181624334014545, 'ci95': 0.00885559836946685, 'lo': 0.03692932017550557, 'hi': 0.054640516914439274}
 - 98. RoboCasa residual 35-task clean/cook learned WAM-lite scorer beats random with CI. Evidence: tasks=35, train=140, val=140, eval=280, pools=35, horizon=1, Nmax=4, utility corr=0.8345242481462408, exact MAE=0.00024620294740340757, promoted=learned_wam, learned-random CI={'n': 35, 'mean': 0.2408146016473912, 'std': 0.13106289940391155, 'stderr': 0.02215367341365428, 'ci95': 0.04342119989076239, 'lo': 0.19739340175662884, 'hi': 0.2842358015381536}, oracle-learned CI={'n': 35, 'mean': 0.02177076474637765, 'std': 0.024328798100469916, 'stderr': 0.00411231744540864, 'ci95': 0.008060142193000936, 'lo': 0.013710622553376713, 'hi': 0.029830906939378586}
 - 99. Narrative reports have no unsupported overclaims. Evidence: report overclaims=0
-- 100. Published result artifact references are internally consistent. Evidence: refs=339, issues=0, status_counts={'ok': 339}
+- 100. Published result artifact references are internally consistent. Evidence: refs=343, issues=0, status_counts={'ok': 343}
 - 101. Published result summaries agree with canonical tables. Evidence: checks=157, issues=0
 - 102. Published narrative numbers match current artifacts. Evidence: checks=22, issues=0
-- 103. Claim ledger is structurally consistent. Evidence: claims=103, max_id=103, checks=19, issues=0
+- 103. Claim ledger is structurally consistent. Evidence: claims=103, max_id=103, checks=21, issues=0
 
 ## Partial
 

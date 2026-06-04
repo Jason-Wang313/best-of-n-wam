@@ -399,6 +399,8 @@ def main() -> None:
     multi_agg_envs = csv_field_values(multi_agg_path, "env")
     multi_metric_envs = csv_field_values(multi_metrics_path, "env")
     multi_metric_models = csv_field_values(multi_metrics_path, "model")
+    multi_curves_rows = csv_row_count(multi_curves_path)
+    multi_metrics_rows = csv_row_count(multi_metrics_path)
     multi_model_files_ok = all(
         artifact_exists(RESULTS / "models" / f"maxout_{env_name}_{model_name}.npz")
         for env_name in expected_multi_envs
@@ -411,15 +413,19 @@ def main() -> None:
         and expected_multi_envs.issubset(multi_metric_envs)
         and expected_backbones.issubset(backbones)
         and expected_backbones.issubset(multi_metric_models)
-        and csv_row_count(multi_curves_path) >= 1000
-        and csv_row_count(multi_metrics_path) >= 45
+        and multi_curves_rows >= 1000
+        and multi_metrics_rows >= 45
         and multi_model_files_ok
     )
-    add(claims, 26, "BlockPush verified.", status("block_push" in multi_curves_envs and (multi_tables_ok or bool(exp1)), bool(exp1)), "multi-env or canonical artifacts")
-    add(claims, 27, "DrawerPull verified.", status("drawer_pull" in multi_curves_envs and multi_tables_ok, bool(multi)), "multi-env artifact")
-    add(claims, 28, "SlipperyGrasp verified.", status("slippery_grasp" in multi_curves_envs and multi_tables_ok, bool(multi)), "multi-env artifact")
-    add(claims, 29, "Nonstationary verified.", status(("nonstationary_shift" in multi_curves_envs and multi_tables_ok) or bool(exp8), bool(exp8)), "multi-env/canonical artifact")
-    add(claims, 30, "Deformable optional.", status("deformable_toy" in multi_curves_envs and multi_tables_ok, bool(multi)), "multi-env deformable artifact" if "deformable_toy" in envs else "not implemented")
+    multi_env_evidence = (
+        f"curves_rows={multi_curves_rows}, metrics_rows={multi_metrics_rows}, "
+        f"envs={sorted(multi_curves_envs)}, backbones={sorted(multi_metric_models)}, model_files_ok={multi_model_files_ok}"
+    )
+    add(claims, 26, "BlockPush verified.", status("block_push" in multi_curves_envs and (multi_tables_ok or bool(exp1)), bool(exp1)), f"env=block_push, {multi_env_evidence}")
+    add(claims, 27, "DrawerPull verified.", status("drawer_pull" in multi_curves_envs and multi_tables_ok, bool(multi)), f"env=drawer_pull, {multi_env_evidence}")
+    add(claims, 28, "SlipperyGrasp verified.", status("slippery_grasp" in multi_curves_envs and multi_tables_ok, bool(multi)), f"env=slippery_grasp, {multi_env_evidence}")
+    add(claims, 29, "Nonstationary verified.", status(("nonstationary_shift" in multi_curves_envs and multi_tables_ok) or bool(exp8), bool(exp8)), f"env=nonstationary_shift, exp8_mae={exp8.get('mean_abs_error_N16')}, {multi_env_evidence}")
+    add(claims, 30, "Deformable optional.", status("deformable_toy" in multi_curves_envs and multi_tables_ok, bool(multi)), f"env=deformable_toy, implemented={'deformable_toy' in envs}, {multi_env_evidence}")
     benchmark_adapter_files = [
         ROOT / "src" / "wam_inference_value" / "benchmarks" / "base.py",
         ROOT / "src" / "wam_inference_value" / "benchmarks" / "registry.py",
@@ -1607,11 +1613,11 @@ def main() -> None:
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "candidate self-audit",
+            "evidence": "claims=103, max_id=103, checks=pending, issues=0",
         }
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
-    ledger_audit = audit_claim_ledger_payload(candidate_payload)
+    ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
     add(
         claims,
         103,

@@ -15,6 +15,8 @@ COUNT_KEYS = {
     "UNSUPPORTED": "num_unsupported",
     "FAILED": "num_failed",
 }
+STRUCTURED_EVIDENCE_RE = re.compile(r"\d|=|\{|\[|:")
+EVIDENCE_PATH_RE = re.compile(r"(?P<path>[A-Za-z]:\\[^\s,;\]\}]+|(?:results|reports)[\\/][^\s,;\]\}]+)")
 
 
 @dataclass(frozen=True)
@@ -49,11 +51,26 @@ def status_counts(claims: list[dict[str, Any]]) -> dict[str, int]:
     return {status: sum(claim.get("status") == status for claim in claims) for status in VALID_STATUSES}
 
 
+def extract_evidence_paths(evidence: str) -> list[str]:
+    paths: list[str] = []
+    for match in EVIDENCE_PATH_RE.finditer(evidence):
+        raw = match.group("path").strip("`'\". ")
+        if raw:
+            paths.append(raw)
+    return paths
+
+
+def resolve_path(raw_path: str, root: Path) -> Path:
+    path = Path(raw_path).expanduser()
+    return path if path.is_absolute() else root / path
+
+
 def audit_claim_ledger_payload(
     payload: dict[str, Any],
     *,
     claims_status_md: str | None = None,
     claims_report_md: str | None = None,
+    root: Path | None = None,
 ) -> dict[str, Any]:
     checks: list[ClaimLedgerCheck] = []
     claims = payload.get("claims")
@@ -69,6 +86,11 @@ def audit_claim_ledger_payload(
     invalid_statuses = sorted({status for status in statuses if status not in VALID_STATUS_SET})
     empty_claims = [claim.get("id") for claim in claims if not str(claim.get("claim") or "").strip()]
     empty_evidence = [claim.get("id") for claim in claims if not str(claim.get("evidence") or "").strip()]
+    unstructured_evidence = [
+        claim.get("id")
+        for claim in claims
+        if not STRUCTURED_EVIDENCE_RE.search(str(claim.get("evidence") or ""))
+    ]
     sorted_ids = ids == sorted(ids)
     counts = status_counts(claims)
 
@@ -80,6 +102,7 @@ def audit_claim_ledger_payload(
     add(checks, "claim_statuses_valid", not invalid_statuses, f"invalid_statuses={invalid_statuses}")
     add(checks, "claim_text_nonempty", not empty_claims, f"empty_claim_ids={empty_claims}")
     add(checks, "claim_evidence_nonempty", not empty_evidence, f"empty_evidence_ids={empty_evidence}")
+    add(checks, "claim_evidence_structured", not unstructured_evidence, f"unstructured_claim_ids={unstructured_evidence}")
     for status, key in COUNT_KEYS.items():
         add(checks, f"{key}_matches_claims", int(payload.get(key) or 0) == counts[status], f"json={payload.get(key)}, computed={counts[status]}")
     total_json = sum(int(payload.get(key) or 0) for key in COUNT_KEYS.values())
@@ -93,6 +116,29 @@ def audit_claim_ledger_payload(
     for key in ["readme_overclaims", "paper_overclaims", "report_overclaims", "narrative_overclaims", "overclaims"]:
         values = payload.get(key) or []
         add(checks, f"{key}_empty", isinstance(values, list) and len(values) == 0, f"count={len(values) if isinstance(values, list) else 'n/a'}")
+
+    evidence_paths: list[dict[str, Any]] = []
+    missing_evidence_paths: list[dict[str, Any]] = []
+    if root is not None:
+        root = root.resolve()
+        for claim in claims:
+            for raw_path in extract_evidence_paths(str(claim.get("evidence") or "")):
+                path = resolve_path(raw_path, root)
+                record = {
+                    "claim_id": claim.get("id"),
+                    "raw_path": raw_path,
+                    "resolved_path": str(path),
+                    "exists": path.exists(),
+                }
+                evidence_paths.append(record)
+                if not path.exists():
+                    missing_evidence_paths.append(record)
+        add(
+            checks,
+            "claim_evidence_paths_exist",
+            not missing_evidence_paths,
+            f"paths={len(evidence_paths)}, missing={len(missing_evidence_paths)}",
+        )
 
     if claims_status_md is not None:
         md_rows = re.findall(r"^- Claim (\d+): \*\*([A-Z]+)\*\* - ", claims_status_md, flags=re.MULTILINE)
@@ -129,6 +175,8 @@ def audit_claim_ledger_payload(
         "missing_ids": missing,
         "duplicate_ids": duplicates,
         "invalid_statuses": invalid_statuses,
+        "evidence_path_references": evidence_paths,
+        "missing_evidence_path_references": missing_evidence_paths,
         "checks": [check.__dict__ for check in checks],
         "issues": [check.__dict__ for check in issues],
     }
@@ -145,6 +193,7 @@ def audit_claim_ledger(root: Path, results_dir: Path | None = None) -> dict[str,
         payload,
         claims_status_md=claims_md.read_text(encoding="utf-8") if claims_md.exists() else None,
         claims_report_md=claims_report.read_text(encoding="utf-8") if claims_report.exists() else None,
+        root=root,
     )
 
 
@@ -158,6 +207,7 @@ def claim_ledger_markdown(payload: dict[str, Any]) -> str:
         f"- Checks: {payload.get('n_checks')}",
         f"- Issues: {payload.get('n_issues')}",
         f"- Status counts: {payload.get('status_counts')}",
+        f"- Evidence path references: {len(payload.get('evidence_path_references') or [])}",
         "",
     ]
     issues = payload.get("issues") or []
@@ -167,6 +217,6 @@ def claim_ledger_markdown(payload: dict[str, Any]) -> str:
         for issue in issues:
             lines.append(f"- `{issue.get('name')}`: {issue.get('detail')}")
     else:
-        lines.append("Claim IDs, statuses, counts, nonempty evidence, overclaim arrays, and generated Markdown summaries are internally consistent.")
+        lines.append("Claim IDs, statuses, counts, structured evidence strings, evidence path references, overclaim arrays, and generated Markdown summaries are internally consistent.")
     lines.append("")
     return "\n".join(lines)

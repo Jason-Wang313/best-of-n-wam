@@ -154,31 +154,31 @@
       "id": 26,
       "claim": "BlockPush verified.",
       "status": "VERIFIED",
-      "evidence": "multi-env or canonical artifacts"
+      "evidence": "env=block_push, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True"
     },
     {
       "id": 27,
       "claim": "DrawerPull verified.",
       "status": "VERIFIED",
-      "evidence": "multi-env artifact"
+      "evidence": "env=drawer_pull, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True"
     },
     {
       "id": 28,
       "claim": "SlipperyGrasp verified.",
       "status": "VERIFIED",
-      "evidence": "multi-env artifact"
+      "evidence": "env=slippery_grasp, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True"
     },
     {
       "id": 29,
       "claim": "Nonstationary verified.",
       "status": "VERIFIED",
-      "evidence": "multi-env/canonical artifact"
+      "evidence": "env=nonstationary_shift, exp8_mae=0.006278872119413491, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True"
     },
     {
       "id": 30,
       "claim": "Deformable optional.",
       "status": "VERIFIED",
-      "evidence": "multi-env deformable artifact"
+      "evidence": "env=deformable_toy, implemented=True, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True"
     },
     {
       "id": 31,
@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=339, issues=0, status_counts={'ok': 339}"
+      "evidence": "refs=343, issues=0, status_counts={'ok': 343}"
     },
     {
       "id": 101,
@@ -616,7 +616,7 @@
       "id": 103,
       "claim": "Claim ledger is structurally consistent.",
       "status": "VERIFIED",
-      "evidence": "claims=103, max_id=103, checks=19, issues=0"
+      "evidence": "claims=103, max_id=103, checks=21, issues=0"
     }
   ],
   "readme_overclaims": [],

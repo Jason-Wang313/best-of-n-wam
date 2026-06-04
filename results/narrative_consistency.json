@@ -84,7 +84,7 @@
       "surface": "final_decision_report",
       "name": "pytest_count",
       "ok": true,
-      "expected": "`python -m pytest -q`: passed with `50 passed`",
+      "expected": "`python -m pytest -q`: passed with `56 passed`",
       "detail": "found"
     },
     {
@@ -133,7 +133,7 @@
       "surface": "final_decision_report",
       "name": "artifact_integrity_command",
       "ok": true,
-      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `339` artifact references checked and `0` issues",
+      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `343` artifact references checked and `0` issues",
       "detail": "found"
     },
     {
@@ -147,7 +147,7 @@
       "surface": "final_decision_report",
       "name": "claim_ledger_command",
       "ok": true,
-      "expected": "`python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `103` claims, `29` ledger checks, and `0` issues",
+      "expected": "`python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `103` claims, `31` ledger checks, and `0` issues",
       "detail": "found"
     },
     {
