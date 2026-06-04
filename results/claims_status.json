@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=681, issues=0, status_counts={'ok': 681}"
+      "evidence": "refs=685, issues=0, status_counts={'ok': 685}"
     },
     {
       "id": 101,
@@ -610,7 +610,7 @@
       "id": 102,
       "claim": "Published narrative numbers match current artifacts.",
       "status": "VERIFIED",
-      "evidence": "checks=48, issues=0"
+      "evidence": "checks=49, issues=0"
     },
     {
       "id": 103,
@@ -622,7 +622,7 @@
       "id": 104,
       "claim": "Canonical execution scripts preserve required gate contracts.",
       "status": "VERIFIED",
-      "evidence": "scripts=7, checks=117, issues=0"
+      "evidence": "scripts=7, checks=121, issues=0"
     },
     {
       "id": 105,
@@ -712,19 +712,19 @@
       "id": 119,
       "claim": "Claim evidence artifacts and published artifact references are represented in the git index.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=113, artifact_refs=441, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
+      "evidence": "claim_sources=113, artifact_refs=443, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
     },
     {
       "id": 120,
       "claim": "Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=111, artifact_refs=439, hashed=550, self_outputs_excluded=4, issues=0"
+      "evidence": "claim_sources=111, artifact_refs=441, hashed=552, self_outputs_excluded=4, issues=0"
     },
     {
       "id": 121,
       "claim": "Claim evidence artifacts and published artifact references are repository-bound.",
       "status": "VERIFIED",
-      "evidence": "records=850, claim_sources=169, artifact_refs=681, outside=0, absent=0, traversal=0, issues=0"
+      "evidence": "records=854, claim_sources=169, artifact_refs=685, outside=0, absent=0, traversal=0, issues=0"
     },
     {
       "id": 122,

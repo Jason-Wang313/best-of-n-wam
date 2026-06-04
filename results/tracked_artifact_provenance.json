@@ -3,7 +3,7 @@
   "verified": true,
   "n_tracked_paths": 745,
   "n_claim_sources": 113,
-  "n_artifact_references": 441,
+  "n_artifact_references": 443,
   "n_untracked_claim_sources": 0,
   "n_untracked_artifact_references": 0,
   "n_checks": 8,
@@ -29,7 +29,7 @@
     {
       "name": "artifact_references_present",
       "ok": true,
-      "detail": "artifact_references=441"
+      "detail": "artifact_references=443"
     },
     {
       "name": "claim_sources_exist",

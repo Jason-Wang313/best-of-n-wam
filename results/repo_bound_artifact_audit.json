@@ -2,9 +2,9 @@
   "experiment": "repo_bound_artifact_audit",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_records": 850,
+  "n_records": 854,
   "n_claim_sources": 169,
-  "n_artifact_references": 681,
+  "n_artifact_references": 685,
   "n_outside_repo": 0,
   "n_missing": 0,
   "n_parent_traversal": 0,
@@ -12,22 +12,22 @@
     "documentation": 6,
     "figure": 36,
     "model": 37,
-    "report": 133,
-    "result_json": 390,
+    "report": 135,
+    "result_json": 392,
     "result_table": 242,
     "source_or_test": 6
   },
   "suffix_counts": {
     ".csv": 242,
     ".joblib": 13,
-    ".json": 390,
-    ".md": 139,
+    ".json": 392,
+    ".md": 141,
     ".npz": 24,
     ".png": 36,
     ".py": 6
   },
   "record_category_counts": {
-    "artifact_reference": 681,
+    "artifact_reference": 685,
     "claim_source": 169
   },
   "n_checks": 12,
@@ -36,7 +36,7 @@
     {
       "name": "records_present",
       "ok": true,
-      "detail": "records=850"
+      "detail": "records=854"
     },
     {
       "name": "claim_sources_present",
@@ -46,7 +46,7 @@
     {
       "name": "artifact_references_present",
       "ok": true,
-      "detail": "artifact_references=681"
+      "detail": "artifact_references=685"
     },
     {
       "name": "all_records_inside_repo",
@@ -66,7 +66,7 @@
     {
       "name": "result_json_coverage",
       "ok": true,
-      "detail": "count=390"
+      "detail": "count=392"
     },
     {
       "name": "result_table_coverage",
@@ -76,7 +76,7 @@
     {
       "name": "report_coverage",
       "ok": true,
-      "detail": "count=133"
+      "detail": "count=135"
     },
     {
       "name": "figure_coverage",
@@ -476,6 +476,38 @@
       "raw": "reports/claim_ledger_integrity_report.md",
       "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claim_ledger_integrity_report.md",
       "repo_relative": "reports/claim_ledger_integrity_report.md",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".md",
+      "artifact_category": "report",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.168.raw_path",
+      "claim_id": null,
+      "raw": "reports/claim_scope_audit_report.md",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claim_scope_audit_report.md",
+      "repo_relative": "reports/claim_scope_audit_report.md",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".md",
+      "artifact_category": "report",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.168.resolved_path",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claim_scope_audit_report.md",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claim_scope_audit_report.md",
+      "repo_relative": "reports/claim_scope_audit_report.md",
       "inside_repo": true,
       "exists": true,
       "kind": "file",
@@ -5420,6 +5452,38 @@
       "raw": "results/claim_ledger_integrity.json",
       "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_ledger_integrity.json",
       "repo_relative": "results/claim_ledger_integrity.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.167.raw_path",
+      "claim_id": null,
+      "raw": "results/claim_scope_audit.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_scope_audit.json",
+      "repo_relative": "results/claim_scope_audit.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.167.resolved_path",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_scope_audit.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_scope_audit.json",
+      "repo_relative": "results/claim_scope_audit.json",
       "inside_repo": true,
       "exists": true,
       "kind": "file",

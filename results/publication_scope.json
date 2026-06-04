@@ -6,7 +6,7 @@
   "n_risk_mentions": 72,
   "n_guarded_mentions": 72,
   "n_unguarded_mentions": 0,
-  "n_verified_claims": 122,
+  "n_verified_claims": 124,
   "mentions_by_surface": {
     "README.md": 13,
     "paper_outline.md": 10,
@@ -313,7 +313,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 26,
+      "line": 24,
       "heading": "3. Weakest Claims",
       "pattern": "real_robot",
       "guarded": true,
@@ -321,7 +321,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 27,
+      "line": 25,
       "heading": "3. Weakest Claims",
       "pattern": "modern_vla",
       "guarded": true,
@@ -329,7 +329,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 28,
+      "line": 26,
       "heading": "3. Weakest Claims",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -337,7 +337,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 29,
+      "line": 27,
       "heading": "3. Weakest Claims",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -345,7 +345,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 30,
+      "line": 28,
       "heading": "3. Weakest Claims",
       "pattern": "universal_wam",
       "guarded": true,
@@ -353,7 +353,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 41,
+      "line": 39,
       "heading": "5. Discussion-Only Claims",
       "pattern": "modern_vla",
       "guarded": true,
@@ -361,7 +361,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 41,
+      "line": 39,
       "heading": "5. Discussion-Only Claims",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -369,7 +369,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 42,
+      "line": 40,
       "heading": "5. Discussion-Only Claims",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -377,7 +377,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 43,
+      "line": 41,
       "heading": "5. Discussion-Only Claims",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -385,7 +385,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 44,
+      "line": 42,
       "heading": "5. Discussion-Only Claims",
       "pattern": "universal_wam",
       "guarded": true,
@@ -393,7 +393,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 48,
+      "line": 46,
       "heading": "6. Skeptical Reviewer Attack",
       "pattern": "real_robot",
       "guarded": true,
@@ -401,7 +401,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 48,
+      "line": 46,
       "heading": "6. Skeptical Reviewer Attack",
       "pattern": "modern_vla",
       "guarded": true,
@@ -409,7 +409,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 48,
+      "line": 46,
       "heading": "6. Skeptical Reviewer Attack",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -417,7 +417,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 48,
+      "line": 46,
       "heading": "6. Skeptical Reviewer Attack",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -425,7 +425,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 52,
+      "line": 50,
       "heading": "7. Current Answer",
       "pattern": "real_robot",
       "guarded": true,
@@ -433,7 +433,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 56,
+      "line": 54,
       "heading": "8. Unresolved",
       "pattern": "modern_vla",
       "guarded": true,
@@ -441,7 +441,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 57,
+      "line": 55,
       "heading": "8. Unresolved",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -449,7 +449,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 58,
+      "line": 56,
       "heading": "8. Unresolved",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -457,7 +457,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 59,
+      "line": 57,
       "heading": "8. Unresolved",
       "pattern": "real_robot",
       "guarded": true,
@@ -465,7 +465,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 60,
+      "line": 58,
       "heading": "8. Unresolved",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -473,7 +473,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 68,
+      "line": 66,
       "heading": "10. Main-Conference Readiness",
       "pattern": "real_robot",
       "guarded": true,
@@ -481,7 +481,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 68,
+      "line": 66,
       "heading": "10. Main-Conference Readiness",
       "pattern": "modern_vla",
       "guarded": true,
@@ -489,7 +489,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 68,
+      "line": 66,
       "heading": "10. Main-Conference Readiness",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -497,7 +497,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 68,
+      "line": 66,
       "heading": "10. Main-Conference Readiness",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -505,7 +505,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 72,
+      "line": 70,
       "heading": "11. Single Highest-Value Next Step",
       "pattern": "modern_vla",
       "guarded": true,
@@ -513,7 +513,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 72,
+      "line": 70,
       "heading": "11. Single Highest-Value Next Step",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -521,7 +521,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 72,
+      "line": 70,
       "heading": "11. Single Highest-Value Next Step",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -529,7 +529,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 83,
+      "line": 81,
       "heading": "Command Results",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -537,7 +537,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 86,
+      "line": 84,
       "heading": "Command Results",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -635,7 +635,7 @@
     {
       "name": "current_claim_ledger_loaded",
       "ok": true,
-      "detail": "verified_claims=122"
+      "detail": "verified_claims=124"
     }
   ],
   "issues": [],
