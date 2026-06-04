@@ -242,10 +242,10 @@ def _write_report(summary: dict[str, Any]) -> None:
     else:
         n_values = [int(n) for n in (summary.get("n_values") or [])]
         n_max = max(n_values) if n_values else 8
-        ci_key = f"best_learned_minus_random_N{n_max}"
+        ci_key = f"promoted_learned_minus_random_N{n_max}"
         ci = (summary.get("confidence_intervals") or {}).get(ci_key) or (
             summary.get("confidence_intervals") or {}
-        ).get("best_learned_minus_random_N8") or {}
+        ).get(f"best_learned_minus_random_N{n_max}") or {}
         metrics = summary.get("model_metrics") or {}
         lines = [
             "# RoboCasa Multi-Task WAM Report",
@@ -469,18 +469,17 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
                 f"learned_wam_minus_random_N{max_n}": learned_deltas["learned_wam"],
                 f"learned_physics_minus_random_N{max_n}": learned_deltas["learned_physics_score"],
                 f"learned_energy_regularized_minus_random_N{max_n}": learned_deltas["learned_energy_regularized"],
-                f"best_learned_minus_random_N{max_n}": learned_deltas[best_name],
-                "best_learned_scorer": best_name,
+                f"pool_oracle_best_learned_minus_random_N{max_n}": learned_deltas[best_name],
+                "pool_oracle_best_learned_scorer": best_name,
                 f"oracle_minus_random_N{max_n}": float(by_scorer.get("oracle_real_utility", np.nan) - by_scorer.get("random", np.nan)),
                 f"oracle_minus_best_learned_N{max_n}": float(by_scorer.get("oracle_real_utility", np.nan) - by_scorer.get(best_name, np.nan)),
             }
         )
     seed_df = pd.DataFrame(seed_metrics)
-    seed_df.to_csv(seed_metrics_path, index=False)
     confidence_intervals = {
         key: ci95(seed_df[key].to_numpy())
         for key in seed_df.columns
-        if key not in {"env_id", "seed", "state_id", "best_learned_scorer"}
+        if key not in {"env_id", "seed", "state_id", "pool_oracle_best_learned_scorer"}
     }
     learned_ci_keys = {
         "learned_wam": f"learned_wam_minus_random_N{max_n}",
@@ -493,7 +492,11 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         if (confidence_intervals.get(learned_ci_keys[scorer]) or {}).get("lo") is not None
         else -np.inf,
     )
-    confidence_intervals[f"best_learned_minus_random_N{max_n}"] = confidence_intervals[learned_ci_keys[promoted_scorer]]
+    promoted_key = f"promoted_learned_minus_random_N{max_n}"
+    seed_df[promoted_key] = seed_df[learned_ci_keys[promoted_scorer]]
+    confidence_intervals[promoted_key] = ci95(seed_df[promoted_key].to_numpy())
+    confidence_intervals[f"best_learned_minus_random_N{max_n}"] = confidence_intervals[promoted_key]
+    seed_df.to_csv(seed_metrics_path, index=False)
     exact_mae = float(exact["utility_abs_error"].mean()) if not exact.empty else None
     promoted_ci = confidence_intervals.get(f"best_learned_minus_random_N{max_n}") or {}
     verified = (

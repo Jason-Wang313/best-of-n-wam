@@ -71,7 +71,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 
 ## Command Results
 
-- `python -m pytest -q`: passed with `61 passed`.
+- `python -m pytest -q`: passed with `64 passed`.
 - `bash scripts/run_all.sh`: passed; full analytic EXP1-EXP8 sweep completed with EXP1 success MAE `0.00210`, EXP3 relative MAE reduction `0.728`, EXP6 moment-uniform delta `0.0767`, EXP7 useful N64-N1 success delta `0.217`, and EXP8 conditional-law MAE `0.0027`.
 - `bash scripts/run_smoke.sh`: passed; EXP1 success MAE `0.00696`, utility MAE `0.04511`; EXP8 smoke conditional-law MAE `0.0055`.
 - `bash scripts/run_learned_wam_toy.sh`: passed; learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`.
@@ -83,10 +83,11 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`; Reacher RGB WAM utility corr `0.2199`, utility MAE `0.5208`, visual-random N32 CI lower `0.1998`; Fetch RGB WAM mean corr `0.7325`, visual-random N32 CI lower `0.3475`; ManiSkill visual probe any visual success `False` with blocker `vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory`.
 - `python experiments/benchmark_maniskill_dependency_probe.py --attempt-source-install`: passed as a blocker probe; Pinocchio import `False`, binary `pin` wheel `False`, source install attempted `True`.
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `0.9864`, repair-predicted N64 CI mean `0.3489`, predicted N128-N1 scaling gain `0.0255`.
-- `python scripts/artifact_integrity.py --fail-on-error`: passed with `605` artifact references checked and `0` issues.
+- `python scripts/artifact_integrity.py --fail-on-error`: passed with `609` artifact references checked and `0` issues.
 - `python scripts/result_consistency.py --fail-on-error`: passed with `157` consistency checks and `0` issues.
-- `python scripts/narrative_consistency.py --fail-on-error`: passed with `31` narrative checks and `0` issues.
-- `python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `41` contract checks, and `0` issues.
-- `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `105` claims, `131` source links, `7` evidence checks, and `0` issues.
-- `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `105` claims, `31` ledger checks, and `0` issues.
-- `python scripts/claims_status.py`: passed with `105` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.
+- `python scripts/raw_result_recompute.py --fail-on-error`: passed with `10710` aggregate metrics, `20` exact-law files, `125` seed CI columns, and `0` issues.
+- `python scripts/narrative_consistency.py --fail-on-error`: passed with `32` narrative checks and `0` issues.
+- `python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `45` contract checks, and `0` issues.
+- `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `106` claims, `133` source links, `7` evidence checks, and `0` issues.
+- `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `106` claims, `31` ledger checks, and `0` issues.
+- `python scripts/claims_status.py`: passed with `106` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.

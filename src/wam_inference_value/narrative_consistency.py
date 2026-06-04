@@ -85,6 +85,7 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{claims_payload",
         "{artifact_integrity.",
         "{result_consistency.",
+        "{raw_result_recompute.",
         "{narrative_consistency.",
         "{script_contracts.",
         "{claim_evidence_quality.",
@@ -257,6 +258,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     text = read_text(root / "reports" / "final_decision_report.md")
     artifact_integrity = load_json(results_dir, "artifact_integrity.json")
     result_consistency = load_json(results_dir, "result_consistency.json")
+    raw_result_recompute = load_json(results_dir, "raw_result_recompute.json")
     script_contracts = load_json(results_dir, "script_contracts.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
     learned = load_json(results_dir, "learned_wam_lite_training.json")
@@ -271,7 +273,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     benchmark_visual = load_json(results_dir, "benchmark_visual_wam_lite.json")
     gym_visual = load_json(results_dir, "benchmark_gym_robotics_visual_wam.json")
 
-    add_contains(checks, "final_decision_report", text, "pytest_count", "`python -m pytest -q`: passed with `61 passed`")
+    add_contains(checks, "final_decision_report", text, "pytest_count", "`python -m pytest -q`: passed with `64 passed`")
     add_contains(
         checks,
         "final_decision_report",
@@ -342,6 +344,17 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
         (
             f"`python scripts/result_consistency.py --fail-on-error`: passed with `{result_consistency.get('n_checks')}` consistency checks "
             f"and `{result_consistency.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "raw_result_recompute_command",
+        (
+            f"`python scripts/raw_result_recompute.py --fail-on-error`: passed with `{raw_result_recompute.get('aggregate_metrics_compared')}` aggregate metrics, "
+            f"`{raw_result_recompute.get('exact_law_mae_files')}` exact-law files, `{raw_result_recompute.get('seed_metric_ci_columns')}` seed CI columns, "
+            f"and `{raw_result_recompute.get('n_issues')}` issues"
         ),
     )
     add_contains(

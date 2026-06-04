@@ -6,7 +6,7 @@
     {
       "name": "confidence_interval_sanity",
       "ok": true,
-      "detail": "ci_objects=266, issues=0"
+      "detail": "ci_objects=286, issues=0"
     },
     {
       "name": "multi_env_curves_present",

@@ -30,6 +30,7 @@ NARRATIVE_SURFACES = [
     ("paper_outline", PAPER),
     ("artifact_integrity_report", REPORTS / "artifact_integrity_report.md"),
     ("result_consistency_report", REPORTS / "result_consistency_report.md"),
+    ("raw_result_recompute_report", REPORTS / "raw_result_recompute_report.md"),
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
     ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
     ("script_contracts_report", REPORTS / "script_contracts_report.md"),
@@ -291,6 +292,7 @@ def main() -> None:
     scaling = load_json("imagination_scaling_law.json")
     artifact_integrity = load_json("artifact_integrity.json")
     result_consistency = load_json("result_consistency.json")
+    raw_result_recompute = load_json("raw_result_recompute.json")
     narrative_consistency = load_json("narrative_consistency.json")
     script_contracts = load_json("script_contracts.json")
     claim_evidence_quality = load_json("claim_evidence_quality.json")
@@ -1646,15 +1648,37 @@ def main() -> None:
             f"sources={claim_evidence_quality.get('n_source_links')}, issues={claim_evidence_quality.get('n_issues')}"
         ),
     }
+    raw_result_recompute_claim = {
+        "id": 106,
+        "claim": "Published summary metrics recompute from raw result tables.",
+        "status": status(
+            bool(raw_result_recompute)
+            and raw_result_recompute.get("verified", False)
+            and (raw_result_recompute.get("aggregate_metrics_compared") or 0) >= 10_000
+            and (raw_result_recompute.get("exact_law_mae_files") or 0) >= 20
+            and (raw_result_recompute.get("seed_metric_ci_columns") or 0) >= 120
+            and raw_result_recompute.get("n_issues") == 0
+            and artifact_exists(RESULTS / "raw_result_recompute.json")
+            and artifact_exists(REPORTS / "raw_result_recompute_report.md"),
+            bool(raw_result_recompute),
+        ),
+        "evidence": (
+            f"aggregate metrics={raw_result_recompute.get('aggregate_metrics_compared')}, "
+            f"exact files={raw_result_recompute.get('exact_law_mae_files')}, "
+            f"seed CI columns={raw_result_recompute.get('seed_metric_ci_columns')}, "
+            f"issues={raw_result_recompute.get('n_issues')}"
+        ),
+    }
     candidate_claims = claims + [
         {
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=105, max_id=105, checks=pending, issues=0",
+            "evidence": "claims=106, max_id=106, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
+        raw_result_recompute_claim,
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
@@ -1670,6 +1694,7 @@ def main() -> None:
     )
     claims.append(script_contract_claim)
     claims.append(claim_evidence_quality_claim)
+    claims.append(raw_result_recompute_claim)
 
     payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)

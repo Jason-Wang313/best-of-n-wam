@@ -1,17 +1,17 @@
 {
   "experiment": "claim_evidence_quality",
   "verified": true,
-  "n_claims": 105,
-  "max_claim_id": 105,
-  "n_source_mapped_claims": 105,
-  "n_source_links": 131,
+  "n_claims": 106,
+  "max_claim_id": 106,
+  "n_source_mapped_claims": 106,
+  "n_source_links": 133,
   "n_checks": 7,
   "n_issues": 0,
   "checks": [
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=105"
+      "detail": "claims=106"
     },
     {
       "name": "all_current_claims_have_sources",
@@ -41,7 +41,7 @@
     {
       "name": "mapped_sources_exist_and_parse",
       "ok": true,
-      "detail": "sources=131, invalid=0"
+      "detail": "sources=133, invalid=0"
     }
   ],
   "issues": [],
@@ -923,7 +923,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_multitask_wam.json",
       "exists": true,
       "ok": true,
-      "bytes": 5218,
+      "bytes": 5781,
       "detail": "json"
     },
     {
@@ -932,7 +932,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\README.md",
       "exists": true,
       "ok": true,
-      "bytes": 19161,
+      "bytes": 19360,
       "detail": "md"
     },
     {
@@ -941,7 +941,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 35629,
+      "bytes": 35862,
       "detail": "json"
     },
     {
@@ -959,7 +959,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 35629,
+      "bytes": 35862,
       "detail": "json"
     },
     {
@@ -977,7 +977,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_broad_wam.json",
       "exists": true,
       "ok": true,
-      "bytes": 5643,
+      "bytes": 6205,
       "detail": "json"
     },
     {
@@ -986,7 +986,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family12_wam.json",
       "exists": true,
       "ok": true,
-      "bytes": 9193,
+      "bytes": 9754,
       "detail": "json"
     },
     {
@@ -1031,7 +1031,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family24_wam.json",
       "exists": true,
       "ok": true,
-      "bytes": 14591,
+      "bytes": 15150,
       "detail": "json"
     },
     {
@@ -1058,7 +1058,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_extra4_wam.json",
       "exists": true,
       "ok": true,
-      "bytes": 5766,
+      "bytes": 6326,
       "detail": "json"
     },
     {
@@ -1067,7 +1067,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family28_wam.json",
       "exists": true,
       "ok": true,
-      "bytes": 16479,
+      "bytes": 17042,
       "detail": "json"
     },
     {
@@ -1076,7 +1076,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family32_wam.json",
       "exists": true,
       "ok": true,
-      "bytes": 18307,
+      "bytes": 18868,
       "detail": "json"
     },
     {
@@ -1085,7 +1085,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_stratified55_wam.json",
       "exists": true,
       "ok": true,
-      "bytes": 28559,
+      "bytes": 29121,
       "detail": "json"
     },
     {
@@ -1094,7 +1094,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_stratified97_wam.json",
       "exists": true,
       "ok": true,
-      "bytes": 47381,
+      "bytes": 47947,
       "detail": "json"
     },
     {
@@ -1103,7 +1103,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_residual35_h1_n4_wam.json",
       "exists": true,
       "ok": true,
-      "bytes": 19611,
+      "bytes": 20175,
       "detail": "json"
     },
     {
@@ -1112,7 +1112,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 35629,
+      "bytes": 35862,
       "detail": "json"
     },
     {
@@ -1121,7 +1121,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claims_report.md",
       "exists": true,
       "ok": true,
-      "bytes": 26832,
+      "bytes": 26981,
       "detail": "md"
     },
     {
@@ -1130,7 +1130,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
       "ok": true,
-      "bytes": 268963,
+      "bytes": 270577,
       "detail": "json"
     },
     {
@@ -1166,7 +1166,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\narrative_consistency.json",
       "exists": true,
       "ok": true,
-      "bytes": 8487,
+      "bytes": 8815,
       "detail": "json"
     },
     {
@@ -1184,7 +1184,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_ledger_integrity.json",
       "exists": true,
       "ok": true,
-      "bytes": 4662,
+      "bytes": 4663,
       "detail": "json"
     },
     {
@@ -1202,7 +1202,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 35629,
+      "bytes": 35862,
       "detail": "json"
     },
     {
@@ -1211,7 +1211,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\script_contracts.json",
       "exists": true,
       "ok": true,
-      "bytes": 6181,
+      "bytes": 6851,
       "detail": "json"
     },
     {
@@ -1220,7 +1220,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\script_contracts_report.md",
       "exists": true,
       "ok": true,
-      "bytes": 280,
+      "bytes": 294,
       "detail": "md"
     },
     {
@@ -1229,7 +1229,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_evidence_quality.json",
       "exists": true,
       "ok": true,
-      "bytes": 39508,
+      "bytes": 40072,
       "detail": "json"
     },
     {
@@ -1239,6 +1239,24 @@
       "exists": true,
       "ok": true,
       "bytes": 289,
+      "detail": "md"
+    },
+    {
+      "claim_id": 106,
+      "raw_path": "results/raw_result_recompute.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\raw_result_recompute.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 28684,
+      "detail": "json"
+    },
+    {
+      "claim_id": 106,
+      "raw_path": "reports/raw_result_recompute_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\raw_result_recompute_report.md",
+      "exists": true,
+      "ok": true,
+      "bytes": 347,
       "detail": "md"
     }
   ]

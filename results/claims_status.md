@@ -99,9 +99,10 @@
 - Claim 97: **VERIFIED** - RoboCasa stratified 97-task learned WAM-lite scorer beats random with CI. Evidence: tasks=97, train=1552, val=776, eval=1552, pools=194, utility corr=0.8380299394502633, promoted=learned_wam, learned-random CI={'n': 194, 'mean': 0.34790032435530055, 'std': 0.2347443208321136, 'stderr': 0.016853660033059582, 'ci95': 0.03303317366479678, 'lo': 0.31486715069050375, 'hi': 0.38093349802009735}, oracle-learned CI={'n': 194, 'mean': 0.04578491854497242, 'std': 0.0629307206718025, 'stderr': 0.0045181624334014545, 'ci95': 0.00885559836946685, 'lo': 0.03692932017550557, 'hi': 0.054640516914439274}
 - Claim 98: **VERIFIED** - RoboCasa residual 35-task clean/cook learned WAM-lite scorer beats random with CI. Evidence: tasks=35, train=140, val=140, eval=280, pools=35, horizon=1, Nmax=4, utility corr=0.8345242481462408, exact MAE=0.00024620294740340757, promoted=learned_wam, learned-random CI={'n': 35, 'mean': 0.2408146016473912, 'std': 0.13106289940391155, 'stderr': 0.02215367341365428, 'ci95': 0.04342119989076239, 'lo': 0.19739340175662884, 'hi': 0.2842358015381536}, oracle-learned CI={'n': 35, 'mean': 0.02177076474637765, 'std': 0.024328798100469916, 'stderr': 0.00411231744540864, 'ci95': 0.008060142193000936, 'lo': 0.013710622553376713, 'hi': 0.029830906939378586}
 - Claim 99: **VERIFIED** - Narrative reports have no unsupported overclaims. Evidence: report overclaims=0
-- Claim 100: **VERIFIED** - Published result artifact references are internally consistent. Evidence: refs=605, issues=0, status_counts={'ok': 605}
+- Claim 100: **VERIFIED** - Published result artifact references are internally consistent. Evidence: refs=609, issues=0, status_counts={'ok': 609}
 - Claim 101: **VERIFIED** - Published result summaries agree with canonical tables. Evidence: checks=157, issues=0
-- Claim 102: **VERIFIED** - Published narrative numbers match current artifacts. Evidence: checks=31, issues=0
-- Claim 103: **VERIFIED** - Claim ledger is structurally consistent. Evidence: claims=105, max_id=105, checks=21, issues=0
-- Claim 104: **VERIFIED** - Canonical execution scripts preserve required gate contracts. Evidence: scripts=7, checks=41, issues=0
-- Claim 105: **VERIFIED** - Verified claims have mapped source artifacts and quality-checked evidence. Evidence: claims=105, mapped=105, sources=131, issues=0
+- Claim 102: **VERIFIED** - Published narrative numbers match current artifacts. Evidence: checks=32, issues=0
+- Claim 103: **VERIFIED** - Claim ledger is structurally consistent. Evidence: claims=106, max_id=106, checks=21, issues=0
+- Claim 104: **VERIFIED** - Canonical execution scripts preserve required gate contracts. Evidence: scripts=7, checks=45, issues=0
+- Claim 105: **VERIFIED** - Verified claims have mapped source artifacts and quality-checked evidence. Evidence: claims=106, mapped=106, sources=133, issues=0
+- Claim 106: **VERIFIED** - Published summary metrics recompute from raw result tables. Evidence: aggregate metrics=10710, exact files=20, seed CI columns=125, issues=0

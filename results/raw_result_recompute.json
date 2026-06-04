@@ -1,0 +1,1070 @@
+{
+  "experiment": "raw_result_recompute",
+  "verified": true,
+  "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
+  "n_checks": 12,
+  "n_issues": 0,
+  "checks": [
+    {
+      "name": "learned_wam_vs_analytic_aggregate_rows_present",
+      "ok": true,
+      "detail": "rows=21"
+    },
+    {
+      "name": "learned_wam_vs_analytic_aggregate_groups_match",
+      "ok": true,
+      "detail": "missing=0, extra=0"
+    },
+    {
+      "name": "learned_wam_vs_analytic_aggregate_means_match_raw_rows",
+      "ok": true,
+      "detail": "metrics=210, max_abs_diff=3.552713678800501e-15"
+    },
+    {
+      "name": "multi_env_aggregate_rows_present",
+      "ok": true,
+      "detail": "rows=2100"
+    },
+    {
+      "name": "multi_env_aggregate_groups_match",
+      "ok": true,
+      "detail": "missing=0, extra=0"
+    },
+    {
+      "name": "multi_env_aggregate_means_match_raw_rows",
+      "ok": true,
+      "detail": "metrics=10500, max_abs_diff=2.842170943040401e-14"
+    },
+    {
+      "name": "exact_law_mae_file_count",
+      "ok": true,
+      "detail": "files=20"
+    },
+    {
+      "name": "exact_law_mae_matches_raw_tables",
+      "ok": true,
+      "detail": "files=20, mismatches=0"
+    },
+    {
+      "name": "seed_metric_ci_column_count",
+      "ok": true,
+      "detail": "columns=125"
+    },
+    {
+      "name": "seed_metric_cis_match_raw_columns",
+      "ok": true,
+      "detail": "columns=125, mismatches=0"
+    },
+    {
+      "name": "promoted_learned_alias_count",
+      "ok": true,
+      "detail": "aliases=10"
+    },
+    {
+      "name": "promoted_learned_aliases_match",
+      "ok": true,
+      "detail": "aliases=10, mismatches=0"
+    }
+  ],
+  "issues": [],
+  "aggregate_recomputes": [
+    {
+      "label": "learned_wam_vs_analytic_aggregate",
+      "summary_rows": 21,
+      "groups": 21,
+      "metrics_compared": 210,
+      "max_abs_diff": 3.552713678800501e-15,
+      "mismatches": []
+    },
+    {
+      "label": "multi_env_aggregate",
+      "summary_rows": 2100,
+      "groups": 2100,
+      "metrics_compared": 10500,
+      "max_abs_diff": 2.842170943040401e-14,
+      "mismatches": []
+    }
+  ],
+  "aggregate_metrics_compared": 10710,
+  "exact_law_mae_files": 20,
+  "exact_law_mae_mismatches": [],
+  "exact_law_mae_records": [
+    {
+      "json": "benchmark_gym_manip_suite.json",
+      "rows": 150,
+      "recomputed_exact_law_utility_mae": 0.018753143169510465,
+      "summary_exact_law_utility_mae": 0.018753143169510465,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_gym_robotics_suite.json",
+      "rows": 360,
+      "recomputed_exact_law_utility_mae": 0.012637772476737578,
+      "summary_exact_law_utility_mae": 0.012637772476737578,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_gym_robotics_visual_wam.json",
+      "rows": 270,
+      "recomputed_exact_law_utility_mae": 0.010612997381058541,
+      "summary_exact_law_utility_mae": 0.010612997381058541,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_libero_wam.json",
+      "rows": 240,
+      "recomputed_exact_law_utility_mae": 0.0001402348651464976,
+      "summary_exact_law_utility_mae": 0.0001402348651464976,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_maniskill_suite.json",
+      "rows": 180,
+      "recomputed_exact_law_utility_mae": 0.0034490668019852445,
+      "summary_exact_law_utility_mae": 0.0034490668019852445,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_metaworld_suite.json",
+      "rows": 270,
+      "recomputed_exact_law_utility_mae": 0.029769105761603815,
+      "summary_exact_law_utility_mae": 0.029769105761603815,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_broad_wam.json",
+      "rows": 256,
+      "recomputed_exact_law_utility_mae": 0.00035677762415927425,
+      "summary_exact_law_utility_mae": 0.00035677762415927425,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_extra4_wam.json",
+      "rows": 256,
+      "recomputed_exact_law_utility_mae": 0.0003025652032180008,
+      "summary_exact_law_utility_mae": 0.0003025652032180008,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family12_wam.json",
+      "rows": 384,
+      "recomputed_exact_law_utility_mae": 0.0002923520485543551,
+      "summary_exact_law_utility_mae": 0.0002923520485543551,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family24_wam.json",
+      "rows": 768,
+      "recomputed_exact_law_utility_mae": 0.0002730373845004557,
+      "summary_exact_law_utility_mae": 0.0002730373845004557,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family28_wam.json",
+      "rows": 896,
+      "recomputed_exact_law_utility_mae": 0.0002738621850195251,
+      "summary_exact_law_utility_mae": 0.0002738621850195251,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family32_wam.json",
+      "rows": 1024,
+      "recomputed_exact_law_utility_mae": 0.0002689211543089739,
+      "summary_exact_law_utility_mae": 0.0002689211543089739,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_learned_wam.json",
+      "rows": 40,
+      "recomputed_exact_law_utility_mae": 0.0002343183527097224,
+      "summary_exact_law_utility_mae": 0.0002343183527097224,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_multitask_wam.json",
+      "rows": 240,
+      "recomputed_exact_law_utility_mae": 0.000347041413626855,
+      "summary_exact_law_utility_mae": 0.000347041413626855,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_residual35_h1_n4_wam.json",
+      "rows": 420,
+      "recomputed_exact_law_utility_mae": 0.00024620294740340757,
+      "summary_exact_law_utility_mae": 0.00024620294740340757,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_smoke.json",
+      "rows": 40,
+      "recomputed_exact_law_utility_mae": 0.0002724664778796843,
+      "summary_exact_law_utility_mae": 0.0002724664778796843,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified55_wam.json",
+      "rows": 1760,
+      "recomputed_exact_law_utility_mae": 0.0002758583967078402,
+      "summary_exact_law_utility_mae": 0.0002758583967078402,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified97_wam.json",
+      "rows": 3104,
+      "recomputed_exact_law_utility_mae": 0.00027048203971570024,
+      "summary_exact_law_utility_mae": 0.00027048203971570024,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robosuite_suite.json",
+      "rows": 180,
+      "recomputed_exact_law_utility_mae": 0.0023698818100493587,
+      "summary_exact_law_utility_mae": 0.0023698818100493587,
+      "abs_diff": 0.0,
+      "ok": true
+    },
+    {
+      "json": "benchmark_visual_wam_lite.json",
+      "rows": 150,
+      "recomputed_exact_law_utility_mae": 0.01571480996432407,
+      "summary_exact_law_utility_mae": 0.01571480996432407,
+      "abs_diff": 0.0,
+      "ok": true
+    }
+  ],
+  "seed_metric_ci_columns": 125,
+  "seed_metric_ci_mismatches": [],
+  "seed_metric_ci_records": [
+    {
+      "json": "benchmark_gym_robotics_suite.json",
+      "column": "oracle_minus_random_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_gym_robotics_suite.json",
+      "column": "learned_minus_random_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_gym_robotics_suite.json",
+      "column": "oracle_minus_learned_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_gym_robotics_visual_wam.json",
+      "column": "visual_minus_random_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_gym_robotics_visual_wam.json",
+      "column": "oracle_minus_visual_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_gym_robotics_visual_wam.json",
+      "column": "visual_minus_low_energy_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_libero_wam.json",
+      "column": "learned_wam_minus_random_N8",
+      "n": 15,
+      "ok": true
+    },
+    {
+      "json": "benchmark_libero_wam.json",
+      "column": "learned_physics_minus_random_N8",
+      "n": 15,
+      "ok": true
+    },
+    {
+      "json": "benchmark_libero_wam.json",
+      "column": "learned_energy_regularized_minus_random_N8",
+      "n": 15,
+      "ok": true
+    },
+    {
+      "json": "benchmark_libero_wam.json",
+      "column": "best_learned_minus_random_N8",
+      "n": 15,
+      "ok": true
+    },
+    {
+      "json": "benchmark_libero_wam.json",
+      "column": "oracle_minus_random_N8",
+      "n": 15,
+      "ok": true
+    },
+    {
+      "json": "benchmark_libero_wam.json",
+      "column": "oracle_minus_best_learned_N8",
+      "n": 15,
+      "ok": true
+    },
+    {
+      "json": "benchmark_libero_wam.json",
+      "column": "benchmark_reward_minus_random_N8",
+      "n": 15,
+      "ok": true
+    },
+    {
+      "json": "benchmark_metaworld_suite.json",
+      "column": "learned_minus_random_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_metaworld_suite.json",
+      "column": "reward_minus_random_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_metaworld_suite.json",
+      "column": "oracle_minus_random_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_metaworld_suite.json",
+      "column": "oracle_minus_learned_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_broad_wam.json",
+      "column": "learned_wam_minus_random_N8",
+      "n": 16,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_broad_wam.json",
+      "column": "learned_physics_minus_random_N8",
+      "n": 16,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_broad_wam.json",
+      "column": "learned_energy_regularized_minus_random_N8",
+      "n": 16,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_broad_wam.json",
+      "column": "oracle_minus_random_N8",
+      "n": 16,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_broad_wam.json",
+      "column": "oracle_minus_best_learned_N8",
+      "n": 16,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_broad_wam.json",
+      "column": "promoted_learned_minus_random_N8",
+      "n": 16,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_broad_wam.json",
+      "column": "pool_oracle_best_learned_minus_random_N8",
+      "n": 16,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_extra4_wam.json",
+      "column": "learned_wam_minus_random_N8",
+      "n": 16,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_extra4_wam.json",
+      "column": "learned_physics_minus_random_N8",
+      "n": 16,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_extra4_wam.json",
+      "column": "learned_energy_regularized_minus_random_N8",
+      "n": 16,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_extra4_wam.json",
+      "column": "oracle_minus_random_N8",
+      "n": 16,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_extra4_wam.json",
+      "column": "oracle_minus_best_learned_N8",
+      "n": 16,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_extra4_wam.json",
+      "column": "promoted_learned_minus_random_N8",
+      "n": 16,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_extra4_wam.json",
+      "column": "pool_oracle_best_learned_minus_random_N8",
+      "n": 16,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family12_wam.json",
+      "column": "learned_wam_minus_random_N8",
+      "n": 24,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family12_wam.json",
+      "column": "learned_physics_minus_random_N8",
+      "n": 24,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family12_wam.json",
+      "column": "learned_energy_regularized_minus_random_N8",
+      "n": 24,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family12_wam.json",
+      "column": "oracle_minus_random_N8",
+      "n": 24,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family12_wam.json",
+      "column": "oracle_minus_best_learned_N8",
+      "n": 24,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family12_wam.json",
+      "column": "promoted_learned_minus_random_N8",
+      "n": 24,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family12_wam.json",
+      "column": "pool_oracle_best_learned_minus_random_N8",
+      "n": 24,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family24_wam.json",
+      "column": "learned_wam_minus_random_N8",
+      "n": 48,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family24_wam.json",
+      "column": "learned_physics_minus_random_N8",
+      "n": 48,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family24_wam.json",
+      "column": "learned_energy_regularized_minus_random_N8",
+      "n": 48,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family24_wam.json",
+      "column": "oracle_minus_random_N8",
+      "n": 48,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family24_wam.json",
+      "column": "oracle_minus_best_learned_N8",
+      "n": 48,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family24_wam.json",
+      "column": "promoted_learned_minus_random_N8",
+      "n": 48,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family24_wam.json",
+      "column": "pool_oracle_best_learned_minus_random_N8",
+      "n": 48,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family28_wam.json",
+      "column": "learned_wam_minus_random_N8",
+      "n": 56,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family28_wam.json",
+      "column": "learned_physics_minus_random_N8",
+      "n": 56,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family28_wam.json",
+      "column": "learned_energy_regularized_minus_random_N8",
+      "n": 56,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family28_wam.json",
+      "column": "oracle_minus_random_N8",
+      "n": 56,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family28_wam.json",
+      "column": "oracle_minus_best_learned_N8",
+      "n": 56,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family28_wam.json",
+      "column": "promoted_learned_minus_random_N8",
+      "n": 56,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family28_wam.json",
+      "column": "pool_oracle_best_learned_minus_random_N8",
+      "n": 56,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family32_wam.json",
+      "column": "learned_wam_minus_random_N8",
+      "n": 64,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family32_wam.json",
+      "column": "learned_physics_minus_random_N8",
+      "n": 64,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family32_wam.json",
+      "column": "learned_energy_regularized_minus_random_N8",
+      "n": 64,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family32_wam.json",
+      "column": "oracle_minus_random_N8",
+      "n": 64,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family32_wam.json",
+      "column": "oracle_minus_best_learned_N8",
+      "n": 64,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family32_wam.json",
+      "column": "promoted_learned_minus_random_N8",
+      "n": 64,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family32_wam.json",
+      "column": "pool_oracle_best_learned_minus_random_N8",
+      "n": 64,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_learned_wam.json",
+      "column": "learned_minus_random_N8",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_learned_wam.json",
+      "column": "oracle_minus_random_N8",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_learned_wam.json",
+      "column": "oracle_minus_learned_N8",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_learned_wam.json",
+      "column": "low_energy_minus_random_N8",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_multitask_wam.json",
+      "column": "learned_wam_minus_random_N8",
+      "n": 15,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_multitask_wam.json",
+      "column": "learned_physics_minus_random_N8",
+      "n": 15,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_multitask_wam.json",
+      "column": "learned_energy_regularized_minus_random_N8",
+      "n": 15,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_multitask_wam.json",
+      "column": "oracle_minus_random_N8",
+      "n": 15,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_multitask_wam.json",
+      "column": "oracle_minus_best_learned_N8",
+      "n": 15,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_multitask_wam.json",
+      "column": "promoted_learned_minus_random_N8",
+      "n": 15,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_multitask_wam.json",
+      "column": "pool_oracle_best_learned_minus_random_N8",
+      "n": 15,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_residual35_h1_n4_wam.json",
+      "column": "learned_wam_minus_random_N4",
+      "n": 35,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_residual35_h1_n4_wam.json",
+      "column": "learned_physics_minus_random_N4",
+      "n": 35,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_residual35_h1_n4_wam.json",
+      "column": "learned_energy_regularized_minus_random_N4",
+      "n": 35,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_residual35_h1_n4_wam.json",
+      "column": "oracle_minus_random_N4",
+      "n": 35,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_residual35_h1_n4_wam.json",
+      "column": "oracle_minus_best_learned_N4",
+      "n": 35,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_residual35_h1_n4_wam.json",
+      "column": "promoted_learned_minus_random_N4",
+      "n": 35,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_residual35_h1_n4_wam.json",
+      "column": "pool_oracle_best_learned_minus_random_N4",
+      "n": 35,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified55_wam.json",
+      "column": "learned_wam_minus_random_N8",
+      "n": 110,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified55_wam.json",
+      "column": "learned_physics_minus_random_N8",
+      "n": 110,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified55_wam.json",
+      "column": "learned_energy_regularized_minus_random_N8",
+      "n": 110,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified55_wam.json",
+      "column": "oracle_minus_random_N8",
+      "n": 110,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified55_wam.json",
+      "column": "oracle_minus_best_learned_N8",
+      "n": 110,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified55_wam.json",
+      "column": "promoted_learned_minus_random_N8",
+      "n": 110,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified55_wam.json",
+      "column": "pool_oracle_best_learned_minus_random_N8",
+      "n": 110,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified97_wam.json",
+      "column": "learned_wam_minus_random_N8",
+      "n": 194,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified97_wam.json",
+      "column": "learned_physics_minus_random_N8",
+      "n": 194,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified97_wam.json",
+      "column": "learned_energy_regularized_minus_random_N8",
+      "n": 194,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified97_wam.json",
+      "column": "oracle_minus_random_N8",
+      "n": 194,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified97_wam.json",
+      "column": "oracle_minus_best_learned_N8",
+      "n": 194,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified97_wam.json",
+      "column": "promoted_learned_minus_random_N8",
+      "n": 194,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified97_wam.json",
+      "column": "pool_oracle_best_learned_minus_random_N8",
+      "n": 194,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robosuite_suite.json",
+      "column": "learned_minus_random_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robosuite_suite.json",
+      "column": "reward_minus_random_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robosuite_suite.json",
+      "column": "progress_minus_random_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robosuite_suite.json",
+      "column": "oracle_minus_random_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_robosuite_suite.json",
+      "column": "oracle_minus_learned_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_visual_wam_lite.json",
+      "column": "visual_minus_random_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_visual_wam_lite.json",
+      "column": "oracle_minus_visual_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "benchmark_visual_wam_lite.json",
+      "column": "visual_minus_low_energy_N32",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "imagination_scaling_law.json",
+      "column": "predicted_gain_N128_minus_N1",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "imagination_scaling_law.json",
+      "column": "random_gain_N128_minus_N1",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "imagination_scaling_law.json",
+      "column": "oracle_gain_N128_minus_N1",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "imagination_scaling_law.json",
+      "column": "oracle_minus_predicted_gain",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "imagination_scaling_law.json",
+      "column": "median_stop_n_predicted",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "imagination_scaling_law.json",
+      "column": "helpful_profile_rate_predicted",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework.json",
+      "column": "tail_alignment_gain_corr",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework.json",
+      "column": "anti_block_high_n_rate",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework.json",
+      "column": "anti_harm_magnitude",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework.json",
+      "column": "harmful_profile_block_rate",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework.json",
+      "column": "aligned_profile_gain",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework.json",
+      "column": "stop_rule_saved_rollout_fraction",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework.json",
+      "column": "oracle_gain",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework.json",
+      "column": "predicted_utility_gain",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework_learned.json",
+      "column": "tail_alignment_gain_corr",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework_learned.json",
+      "column": "anti_block_high_n_rate",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework_learned.json",
+      "column": "anti_harm_magnitude",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework_learned.json",
+      "column": "harmful_profile_block_rate",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework_learned.json",
+      "column": "aligned_profile_gain",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework_learned.json",
+      "column": "stop_rule_saved_rollout_fraction",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework_learned.json",
+      "column": "oracle_gain",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "inference_audit_framework_learned.json",
+      "column": "predicted_utility_gain",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "scorer_repair_experiment.json",
+      "column": "repair_minus_predicted_N64",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "scorer_repair_experiment.json",
+      "column": "repair_minus_random_N64",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "scorer_repair_experiment.json",
+      "column": "oracle_minus_repair_N64",
+      "n": 5,
+      "ok": true
+    },
+    {
+      "json": "scorer_repair_experiment.json",
+      "column": "repair_minus_anti_N64",
+      "n": 5,
+      "ok": true
+    }
+  ],
+  "promoted_alias_records": [
+    {
+      "json": "benchmark_robocasa_broad_wam.json",
+      "promoted_key": "promoted_learned_minus_random_N8",
+      "legacy_key": "best_learned_minus_random_N8",
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_extra4_wam.json",
+      "promoted_key": "promoted_learned_minus_random_N8",
+      "legacy_key": "best_learned_minus_random_N8",
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family12_wam.json",
+      "promoted_key": "promoted_learned_minus_random_N8",
+      "legacy_key": "best_learned_minus_random_N8",
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family24_wam.json",
+      "promoted_key": "promoted_learned_minus_random_N8",
+      "legacy_key": "best_learned_minus_random_N8",
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family28_wam.json",
+      "promoted_key": "promoted_learned_minus_random_N8",
+      "legacy_key": "best_learned_minus_random_N8",
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_family32_wam.json",
+      "promoted_key": "promoted_learned_minus_random_N8",
+      "legacy_key": "best_learned_minus_random_N8",
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_multitask_wam.json",
+      "promoted_key": "promoted_learned_minus_random_N8",
+      "legacy_key": "best_learned_minus_random_N8",
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_residual35_h1_n4_wam.json",
+      "promoted_key": "promoted_learned_minus_random_N4",
+      "legacy_key": "best_learned_minus_random_N4",
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified55_wam.json",
+      "promoted_key": "promoted_learned_minus_random_N8",
+      "legacy_key": "best_learned_minus_random_N8",
+      "ok": true
+    },
+    {
+      "json": "benchmark_robocasa_stratified97_wam.json",
+      "promoted_key": "promoted_learned_minus_random_N8",
+      "legacy_key": "best_learned_minus_random_N8",
+      "ok": true
+    }
+  ],
+  "promoted_alias_mismatches": []
+}

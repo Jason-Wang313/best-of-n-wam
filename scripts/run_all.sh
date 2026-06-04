@@ -27,6 +27,7 @@ fi
 "${PY[@]}" experiments/nonstationary_dynamics_extension.py --episodes 48 --rollouts 160 --mc-trials 5000 --seed 41
 "${PY[@]}" scripts/artifact_integrity.py --fail-on-error
 "${PY[@]}" scripts/result_consistency.py --fail-on-error
+"${PY[@]}" scripts/raw_result_recompute.py --fail-on-error
 "${PY[@]}" scripts/narrative_consistency.py --fail-on-error
 "${PY[@]}" scripts/script_contracts.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py

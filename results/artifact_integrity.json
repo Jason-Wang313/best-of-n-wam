@@ -2,10 +2,10 @@
   "experiment": "artifact_integrity",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_result_json": 111,
-  "n_references": 605,
+  "n_result_json": 112,
+  "n_references": 609,
   "status_counts": {
-    "ok": 605
+    "ok": 609
   },
   "n_issues": 0,
   "issues": [],
@@ -753,7 +753,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_broad_seed_metrics.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_broad_seed_metrics.csv",
       "exists": true,
-      "bytes": 2932,
+      "bytes": 3300,
       "rows": 16,
       "status": "ok",
       "reason": ""
@@ -863,7 +863,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_extra4_seed_metrics.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_extra4_seed_metrics.csv",
       "exists": true,
-      "bytes": 3131,
+      "bytes": 3495,
       "rows": 16,
       "status": "ok",
       "reason": ""
@@ -951,7 +951,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family12_seed_metrics.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family12_seed_metrics.csv",
       "exists": true,
-      "bytes": 4351,
+      "bytes": 4883,
       "rows": 24,
       "status": "ok",
       "reason": ""
@@ -1039,7 +1039,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family24_seed_metrics.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family24_seed_metrics.csv",
       "exists": true,
-      "bytes": 8647,
+      "bytes": 9648,
       "rows": 48,
       "status": "ok",
       "reason": ""
@@ -1127,7 +1127,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family28_seed_metrics.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family28_seed_metrics.csv",
       "exists": true,
-      "bytes": 10038,
+      "bytes": 11198,
       "rows": 56,
       "status": "ok",
       "reason": ""
@@ -1215,7 +1215,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family32_seed_metrics.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family32_seed_metrics.csv",
       "exists": true,
-      "bytes": 11515,
+      "bytes": 12840,
       "rows": 64,
       "status": "ok",
       "reason": ""
@@ -2359,7 +2359,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_multitask_seed_metrics.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_multitask_seed_metrics.csv",
       "exists": true,
-      "bytes": 2991,
+      "bytes": 3343,
       "rows": 15,
       "status": "ok",
       "reason": ""
@@ -2436,7 +2436,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual35_h1_n4_seed_metrics.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual35_h1_n4_seed_metrics.csv",
       "exists": true,
-      "bytes": 6231,
+      "bytes": 6971,
       "rows": 35,
       "status": "ok",
       "reason": ""
@@ -2590,7 +2590,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_stratified55_seed_metrics.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_stratified55_seed_metrics.csv",
       "exists": true,
-      "bytes": 19256,
+      "bytes": 21466,
       "rows": 110,
       "status": "ok",
       "reason": ""
@@ -2678,7 +2678,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_stratified97_seed_metrics.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_stratified97_seed_metrics.csv",
       "exists": true,
-      "bytes": 33634,
+      "bytes": 37474,
       "rows": 194,
       "status": "ok",
       "reason": ""
@@ -4988,7 +4988,7 @@
       "raw_path": "results/benchmark_robocasa_multitask_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_multitask_wam.json",
       "exists": true,
-      "bytes": 5218,
+      "bytes": 5781,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -4999,7 +4999,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_multitask_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_multitask_wam.json",
       "exists": true,
-      "bytes": 5218,
+      "bytes": 5781,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5010,7 +5010,7 @@
       "raw_path": "README.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\README.md",
       "exists": true,
-      "bytes": 19161,
+      "bytes": 19360,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5021,7 +5021,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\README.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\README.md",
       "exists": true,
-      "bytes": 19161,
+      "bytes": 19360,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5032,7 +5032,7 @@
       "raw_path": "results/claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 35629,
+      "bytes": 35862,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5043,7 +5043,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 35629,
+      "bytes": 35862,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5076,7 +5076,7 @@
       "raw_path": "results/claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 35629,
+      "bytes": 35862,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5087,7 +5087,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 35629,
+      "bytes": 35862,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5120,7 +5120,7 @@
       "raw_path": "results/benchmark_robocasa_broad_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_broad_wam.json",
       "exists": true,
-      "bytes": 5643,
+      "bytes": 6205,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5131,7 +5131,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_broad_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_broad_wam.json",
       "exists": true,
-      "bytes": 5643,
+      "bytes": 6205,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5142,7 +5142,7 @@
       "raw_path": "results/benchmark_robocasa_family12_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family12_wam.json",
       "exists": true,
-      "bytes": 9193,
+      "bytes": 9754,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5153,7 +5153,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family12_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family12_wam.json",
       "exists": true,
-      "bytes": 9193,
+      "bytes": 9754,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5252,7 +5252,7 @@
       "raw_path": "results/benchmark_robocasa_family24_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family24_wam.json",
       "exists": true,
-      "bytes": 14591,
+      "bytes": 15150,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5263,7 +5263,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family24_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family24_wam.json",
       "exists": true,
-      "bytes": 14591,
+      "bytes": 15150,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5318,7 +5318,7 @@
       "raw_path": "results/benchmark_robocasa_extra4_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_extra4_wam.json",
       "exists": true,
-      "bytes": 5766,
+      "bytes": 6326,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5329,7 +5329,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_extra4_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_extra4_wam.json",
       "exists": true,
-      "bytes": 5766,
+      "bytes": 6326,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5340,7 +5340,7 @@
       "raw_path": "results/benchmark_robocasa_family28_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family28_wam.json",
       "exists": true,
-      "bytes": 16479,
+      "bytes": 17042,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5351,7 +5351,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family28_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family28_wam.json",
       "exists": true,
-      "bytes": 16479,
+      "bytes": 17042,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5362,7 +5362,7 @@
       "raw_path": "results/benchmark_robocasa_family32_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family32_wam.json",
       "exists": true,
-      "bytes": 18307,
+      "bytes": 18868,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5373,7 +5373,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family32_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family32_wam.json",
       "exists": true,
-      "bytes": 18307,
+      "bytes": 18868,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5384,7 +5384,7 @@
       "raw_path": "results/benchmark_robocasa_stratified55_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_stratified55_wam.json",
       "exists": true,
-      "bytes": 28559,
+      "bytes": 29121,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5395,7 +5395,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_stratified55_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_stratified55_wam.json",
       "exists": true,
-      "bytes": 28559,
+      "bytes": 29121,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5406,7 +5406,7 @@
       "raw_path": "results/benchmark_robocasa_stratified97_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_stratified97_wam.json",
       "exists": true,
-      "bytes": 47381,
+      "bytes": 47947,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5417,7 +5417,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_stratified97_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_stratified97_wam.json",
       "exists": true,
-      "bytes": 47381,
+      "bytes": 47947,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5428,7 +5428,7 @@
       "raw_path": "results/benchmark_robocasa_residual35_h1_n4_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_residual35_h1_n4_wam.json",
       "exists": true,
-      "bytes": 19611,
+      "bytes": 20175,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5439,7 +5439,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_residual35_h1_n4_wam.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_residual35_h1_n4_wam.json",
       "exists": true,
-      "bytes": 19611,
+      "bytes": 20175,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5450,7 +5450,7 @@
       "raw_path": "results/claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 35629,
+      "bytes": 35862,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5461,7 +5461,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 35629,
+      "bytes": 35862,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5472,7 +5472,7 @@
       "raw_path": "reports/claims_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claims_report.md",
       "exists": true,
-      "bytes": 26832,
+      "bytes": 26981,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5483,7 +5483,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claims_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claims_report.md",
       "exists": true,
-      "bytes": 26832,
+      "bytes": 26981,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5494,7 +5494,7 @@
       "raw_path": "results/artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 268963,
+      "bytes": 270577,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5505,7 +5505,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 268963,
+      "bytes": 270577,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5582,7 +5582,7 @@
       "raw_path": "results/narrative_consistency.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\narrative_consistency.json",
       "exists": true,
-      "bytes": 8487,
+      "bytes": 8815,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5593,7 +5593,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\narrative_consistency.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\narrative_consistency.json",
       "exists": true,
-      "bytes": 8487,
+      "bytes": 8815,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5626,7 +5626,7 @@
       "raw_path": "results/claim_ledger_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_ledger_integrity.json",
       "exists": true,
-      "bytes": 4662,
+      "bytes": 4663,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5637,7 +5637,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_ledger_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_ledger_integrity.json",
       "exists": true,
-      "bytes": 4662,
+      "bytes": 4663,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5670,7 +5670,7 @@
       "raw_path": "results/claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 35629,
+      "bytes": 35862,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5681,7 +5681,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 35629,
+      "bytes": 35862,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5692,7 +5692,7 @@
       "raw_path": "results/script_contracts.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\script_contracts.json",
       "exists": true,
-      "bytes": 6181,
+      "bytes": 6851,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5703,7 +5703,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\script_contracts.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\script_contracts.json",
       "exists": true,
-      "bytes": 6181,
+      "bytes": 6851,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5714,7 +5714,7 @@
       "raw_path": "reports/script_contracts_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\script_contracts_report.md",
       "exists": true,
-      "bytes": 280,
+      "bytes": 294,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5725,7 +5725,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\script_contracts_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\script_contracts_report.md",
       "exists": true,
-      "bytes": 280,
+      "bytes": 294,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5736,7 +5736,7 @@
       "raw_path": "results/claim_evidence_quality.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_evidence_quality.json",
       "exists": true,
-      "bytes": 39508,
+      "bytes": 40072,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5747,7 +5747,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_evidence_quality.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_evidence_quality.json",
       "exists": true,
-      "bytes": 39508,
+      "bytes": 40072,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5770,6 +5770,50 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claim_evidence_quality_report.md",
       "exists": true,
       "bytes": 289,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "claim_evidence_quality.json",
+      "json_path": "source_records.131.raw_path",
+      "raw_path": "results/raw_result_recompute.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\raw_result_recompute.json",
+      "exists": true,
+      "bytes": 28684,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "claim_evidence_quality.json",
+      "json_path": "source_records.131.resolved_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\raw_result_recompute.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\raw_result_recompute.json",
+      "exists": true,
+      "bytes": 28684,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "claim_evidence_quality.json",
+      "json_path": "source_records.132.raw_path",
+      "raw_path": "reports/raw_result_recompute_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\raw_result_recompute_report.md",
+      "exists": true,
+      "bytes": 347,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "claim_evidence_quality.json",
+      "json_path": "source_records.132.resolved_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\raw_result_recompute_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\raw_result_recompute_report.md",
+      "exists": true,
+      "bytes": 347,
       "rows": null,
       "status": "ok",
       "reason": ""

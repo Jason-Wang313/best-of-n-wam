@@ -102,6 +102,7 @@ def main() -> None:
     scaling = load_json("imagination_scaling_law.json")
     artifact_integrity = load_json("artifact_integrity.json")
     result_consistency = load_json("result_consistency.json")
+    raw_result_recompute = load_json("raw_result_recompute.json")
     narrative_consistency = load_json("narrative_consistency.json")
     claim_ledger_integrity = load_json("claim_ledger_integrity.json")
     script_contracts = load_json("script_contracts.json")
@@ -147,6 +148,7 @@ Audit date: 2026-05-30.
 - `claims_status.py` gates README and paper-outline overclaims.
 - `artifact_integrity.py` verifies that referenced result artifacts exist, parse, and are nonempty.
 - `result_consistency.py` verifies that summary JSONs agree with canonical tables for row counts, coverage, CI sanity, and success counts.
+- `raw_result_recompute.py` independently recomputes aggregate means, exact-law MAEs, and seed-metric CIs from raw CSV artifacts.
 - `narrative_consistency.py` verifies that high-impact README and final-report numbers match the current JSON artifacts.
 - `script_contracts.py` verifies that canonical shell scripts preserve required experiment steps, optional benchmark guards, and ordered verification gates.
 - `claim_evidence_quality.py` verifies that each current claim ID is mapped to source artifacts and has structured, non-placeholder evidence.
@@ -572,7 +574,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 
 ## Command Results
 
-- `python -m pytest -q`: passed with `61 passed`.
+- `python -m pytest -q`: passed with `64 passed`.
 - `bash scripts/run_all.sh`: passed; full analytic EXP1-EXP8 sweep completed with EXP1 success MAE `{fmt(exp1.get('mean_success_mc_mae'), 5)}`, EXP3 relative MAE reduction `{fmt(exp3.get('relative_mae_reduction'), 3)}`, EXP6 moment-uniform delta `{fmt(exp6.get('moment_law_improvement_over_uniform'), 4)}`, EXP7 useful N64-N1 success delta `{fmt(exp7.get('useful_success_gain_N64_minus_N1'), 3)}`, and EXP8 conditional-law MAE `{fmt(exp8.get('mean_abs_error_N16'), 4)}`.
 - `bash scripts/run_smoke.sh`: passed; EXP1 success MAE `0.00696`, utility MAE `0.04511`; EXP8 smoke conditional-law MAE `0.0055`.
 - `bash scripts/run_learned_wam_toy.sh`: passed; learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`.
@@ -586,6 +588,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `{fmt(audit.get('tail_alignment_gain_corr'))}`, repair-predicted N64 CI mean `{fmt(((repair.get('confidence_intervals') or {}).get('repair_minus_predicted_N64') or {}).get('mean'))}`, predicted N128-N1 scaling gain `{fmt(((scaling.get('confidence_intervals') or {}).get('predicted_gain_N128_minus_N1') or {}).get('mean'))}`.
 - `python scripts/artifact_integrity.py --fail-on-error`: passed with `{artifact_integrity.get('n_references')}` artifact references checked and `{artifact_integrity.get('n_issues')}` issues.
 - `python scripts/result_consistency.py --fail-on-error`: passed with `{result_consistency.get('n_checks')}` consistency checks and `{result_consistency.get('n_issues')}` issues.
+- `python scripts/raw_result_recompute.py --fail-on-error`: passed with `{raw_result_recompute.get('aggregate_metrics_compared')}` aggregate metrics, `{raw_result_recompute.get('exact_law_mae_files')}` exact-law files, `{raw_result_recompute.get('seed_metric_ci_columns')}` seed CI columns, and `{raw_result_recompute.get('n_issues')}` issues.
 - `python scripts/narrative_consistency.py --fail-on-error`: passed with `{narrative_consistency.get('n_checks')}` narrative checks and `{narrative_consistency.get('n_issues')}` issues.
 - `python scripts/script_contracts.py --fail-on-error`: passed with `{script_contracts.get('n_scripts')}` scripts, `{script_contracts.get('n_checks')}` contract checks, and `{script_contracts.get('n_issues')}` issues.
 - `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `{claim_evidence_quality.get('n_claims')}` claims, `{claim_evidence_quality.get('n_source_links')}` source links, `{claim_evidence_quality.get('n_checks')}` evidence checks, and `{claim_evidence_quality.get('n_issues')}` issues.

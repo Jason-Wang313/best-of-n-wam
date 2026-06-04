@@ -93,6 +93,7 @@ def default_claim_source_map() -> dict[int, list[str]]:
     set_sources(mapping, [103], ["results/claim_ledger_integrity.json", "reports/claim_ledger_integrity_report.md", "results/claims_status.json"])
     set_sources(mapping, [104], ["results/script_contracts.json", "reports/script_contracts_report.md"])
     set_sources(mapping, [105], ["results/claim_evidence_quality.json", "reports/claim_evidence_quality_report.md"])
+    set_sources(mapping, [106], ["results/raw_result_recompute.json", "reports/raw_result_recompute_report.md"])
     return mapping
 
 

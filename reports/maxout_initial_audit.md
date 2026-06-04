@@ -11,6 +11,7 @@ Audit date: 2026-05-30.
 - `claims_status.py` gates README and paper-outline overclaims.
 - `artifact_integrity.py` verifies that referenced result artifacts exist, parse, and are nonempty.
 - `result_consistency.py` verifies that summary JSONs agree with canonical tables for row counts, coverage, CI sanity, and success counts.
+- `raw_result_recompute.py` independently recomputes aggregate means, exact-law MAEs, and seed-metric CIs from raw CSV artifacts.
 - `narrative_consistency.py` verifies that high-impact README and final-report numbers match the current JSON artifacts.
 - `script_contracts.py` verifies that canonical shell scripts preserve required experiment steps, optional benchmark guards, and ordered verification gates.
 - `claim_evidence_quality.py` verifies that each current claim ID is mapped to source artifacts and has structured, non-placeholder evidence.
