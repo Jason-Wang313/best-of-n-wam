@@ -20,6 +20,7 @@ SELF_OUTPUTS = {
     "claims_status.json",
     "command_result_consistency.json",
     "evidence_hash_coverage.json",
+    "repo_bound_artifact_audit.json",
     "experiment_registry.json",
     "model_artifact_integrity.json",
     "narrative_consistency.json",

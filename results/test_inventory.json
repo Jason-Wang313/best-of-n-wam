@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 107,
-  "n_unique_tests": 107,
-  "trailer_count": 107,
+  "n_tests": 110,
+  "n_unique_tests": 110,
+  "trailer_count": 110,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -75,6 +75,9 @@
     "tests/test_raw_result_recompute.py::test_raw_result_recompute_accepts_matching_raw_tables",
     "tests/test_raw_result_recompute.py::test_raw_result_recompute_flags_aggregate_mismatch",
     "tests/test_raw_result_recompute.py::test_raw_result_recompute_flags_seed_ci_mismatch",
+    "tests/test_repo_bound_artifact_audit.py::test_repo_bound_artifact_audit_classifies_inside_repo_records",
+    "tests/test_repo_bound_artifact_audit.py::test_repo_bound_artifact_audit_flags_outside_repo_record",
+    "tests/test_repo_bound_artifact_audit.py::test_repo_bound_artifact_audit_flags_parent_traversal",
     "tests/test_report_generation_consistency.py::test_report_generation_consistency_accepts_byte_stable_generator",
     "tests/test_report_generation_consistency.py::test_report_generation_consistency_rejects_mutating_generator",
     "tests/test_result_consistency.py::test_ci_objects_find_nested_confidence_intervals",
@@ -124,7 +127,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=107"
+      "detail": "nodeids=110"
     },
     {
       "name": "nodeids_unique",
@@ -134,12 +137,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=107"
+      "detail": "nodeids=110"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=107, nodeids=107"
+      "detail": "trailer=110, nodeids=110"
     },
     {
       "name": "required_test_families_present",

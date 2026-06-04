@@ -19,6 +19,7 @@ EXCLUDED_RESULT_NAMES = {
     "claims_status.md",
     "command_result_consistency.json",
     "evidence_hash_coverage.json",
+    "repo_bound_artifact_audit.json",
     "experiment_registry.json",
     "figure_quality.json",
     "model_artifact_integrity.json",

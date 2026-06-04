@@ -56,6 +56,7 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
     tracked_artifact_provenance = load_json(results_dir, "tracked_artifact_provenance.json")
     evidence_hash_coverage = load_json(results_dir, "evidence_hash_coverage.json")
+    repo_bound_artifact_audit = load_json(results_dir, "repo_bound_artifact_audit.json")
     claim_ledger_integrity = load_json(results_dir, "claim_ledger_integrity.json")
     claim_generation_consistency = load_json(results_dir, "claim_generation_consistency.json")
     report_generation_consistency = load_json(results_dir, "report_generation_consistency.json")
@@ -206,6 +207,18 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
                 f"`{tracked_artifact_provenance.get('n_claim_sources')}` claim sources, "
                 f"`{tracked_artifact_provenance.get('n_artifact_references')}` artifact references, and "
                 f"`{tracked_artifact_provenance.get('n_issues')}` issues"
+            ),
+        ),
+        (
+            "repo_bound_artifact_audit",
+            (
+                f"`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with "
+                f"`{repo_bound_artifact_audit.get('n_records')}` records, "
+                f"`{repo_bound_artifact_audit.get('n_claim_sources')}` claim sources, "
+                f"`{repo_bound_artifact_audit.get('n_artifact_references')}` artifact references, "
+                f"`{repo_bound_artifact_audit.get('n_outside_repo')}` outside-repo records, "
+                f"`{repo_bound_artifact_audit.get('n_missing')}` missing records, and "
+                f"`{repo_bound_artifact_audit.get('n_issues')}` issues"
             ),
         ),
         (

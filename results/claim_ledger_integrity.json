@@ -1,12 +1,12 @@
 {
   "experiment": "claim_ledger_integrity",
   "verified": true,
-  "n_claims": 120,
-  "max_claim_id": 120,
+  "n_claims": 121,
+  "max_claim_id": 121,
   "n_checks": 31,
   "n_issues": 0,
   "status_counts": {
-    "VERIFIED": 120,
+    "VERIFIED": 121,
     "PARTIAL": 0,
     "UNSUPPORTED": 0,
     "FAILED": 0
@@ -45,7 +45,7 @@
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=120"
+      "detail": "claims=121"
     },
     {
       "name": "claim_ids_parse",
@@ -60,12 +60,12 @@
     {
       "name": "claim_ids_contiguous",
       "ok": true,
-      "detail": "missing=[], max_id=120"
+      "detail": "missing=[], max_id=121"
     },
     {
       "name": "claim_ids_sorted",
       "ok": true,
-      "detail": "first_ids=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], last_ids=[111, 112, 113, 114, 115, 116, 117, 118, 119, 120]"
+      "detail": "first_ids=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], last_ids=[112, 113, 114, 115, 116, 117, 118, 119, 120, 121]"
     },
     {
       "name": "claim_statuses_valid",
@@ -90,7 +90,7 @@
     {
       "name": "num_verified_matches_claims",
       "ok": true,
-      "detail": "json=120, computed=120"
+      "detail": "json=121, computed=121"
     },
     {
       "name": "num_partial_matches_claims",
@@ -110,12 +110,12 @@
     {
       "name": "status_counts_sum_to_claim_count",
       "ok": true,
-      "detail": "status_total=120, claims=120"
+      "detail": "status_total=121, claims=121"
     },
     {
       "name": "no_nonverified_claims",
       "ok": true,
-      "detail": "partial=0, unsupported=0, failed=0, audited=116"
+      "detail": "partial=0, unsupported=0, failed=0, audited=117"
     },
     {
       "name": "readme_overclaims_empty",
@@ -150,7 +150,7 @@
     {
       "name": "claims_status_md_claim_count",
       "ok": true,
-      "detail": "md=120, json=120"
+      "detail": "md=121, json=121"
     },
     {
       "name": "claims_status_md_id_set",
@@ -165,7 +165,7 @@
     {
       "name": "claims_report_verified_count",
       "ok": true,
-      "detail": "expected=- verified: `120`"
+      "detail": "expected=- verified: `121`"
     },
     {
       "name": "claims_report_partial_count",

@@ -1,9 +1,9 @@
 # Evidence Hash Coverage Report
 
 - Verified: True
-- Non-self claim source artifacts hashed: 103
-- Non-self published artifact references hashed: 433
-- Total non-self records hashed: 536
+- Non-self claim source artifacts hashed: 105
+- Non-self published artifact references hashed: 435
+- Total non-self records hashed: 540
 - Self outputs excluded: 4
 - Checks: 10
 - Issues: 0

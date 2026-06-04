@@ -1,7 +1,7 @@
 # Claim Semantics Report
 
 - Verified: True
-- Claims audited: 120
+- Claims audited: 121
 - Checks: 171
 - Issues: 0
 - CI-backed claims: 51

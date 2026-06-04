@@ -44,6 +44,7 @@ fi
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_evidence_quality.py --fail-on-error
 "${PY[@]}" scripts/tracked_artifact_provenance.py --fail-on-error
+"${PY[@]}" scripts/repo_bound_artifact_audit.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_ledger_integrity.py --fail-on-error
 "${PY[@]}" scripts/claim_generation_consistency.py --fail-on-error
@@ -55,6 +56,7 @@ fi
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_evidence_quality.py --fail-on-error
 "${PY[@]}" scripts/tracked_artifact_provenance.py --fail-on-error
+"${PY[@]}" scripts/repo_bound_artifact_audit.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_ledger_integrity.py --fail-on-error
 "${PY[@]}" scripts/claim_generation_consistency.py --fail-on-error
