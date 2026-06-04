@@ -66,6 +66,8 @@ The canonical CPU toy pipeline validates the exact law, AUC identity, moment hie
 bash scripts/run_smoke.sh
 ```
 
+Smoke writes temporary-scale artifacts under `results/smoke/` by default and then checks the canonical claim gate, so a smoke run does not downgrade the committed full-result evidence.
+
 For the larger analytic-only run:
 
 ```bash

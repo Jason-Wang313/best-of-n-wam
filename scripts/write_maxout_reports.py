@@ -1,13 +1,20 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-RESULTS = ROOT / "results"
-REPORTS = ROOT / "reports"
+_results_override = os.environ.get("WAM_RESULTS_DIR")
+RESULTS = Path(_results_override).expanduser() if _results_override else ROOT / "results"
+if not RESULTS.is_absolute():
+    RESULTS = ROOT / RESULTS
+_reports_override = os.environ.get("WAM_REPORTS_DIR")
+REPORTS = Path(_reports_override).expanduser() if _reports_override else ROOT / "reports"
+if not REPORTS.is_absolute():
+    REPORTS = ROOT / REPORTS
 
 
 def load_json(name: str) -> dict[str, Any]:

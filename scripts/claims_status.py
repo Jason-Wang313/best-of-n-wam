@@ -1,12 +1,16 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-RESULTS = ROOT / "results"
+_results_override = os.environ.get("WAM_RESULTS_DIR")
+RESULTS = Path(_results_override).expanduser() if _results_override else ROOT / "results"
+if not RESULTS.is_absolute():
+    RESULTS = ROOT / RESULTS
 STATUS_JSON = RESULTS / "claims_status.json"
 STATUS_MD = RESULTS / "claims_status.md"
 README = ROOT / "README.md"

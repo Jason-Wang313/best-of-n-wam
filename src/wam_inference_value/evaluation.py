@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from typing import Any
 
@@ -26,6 +27,10 @@ def project_root() -> Path:
 
 
 def results_dir() -> Path:
+    override = os.environ.get("WAM_RESULTS_DIR")
+    if override:
+        path = Path(override).expanduser()
+        return path if path.is_absolute() else project_root() / path
     return project_root() / "results"
 
 

@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from argparse import Namespace
-from pathlib import Path
 
 from experiments import adaptive_rollout_allocation
 from experiments import auc_vs_moment_hierarchy
@@ -13,10 +12,10 @@ from experiments import real_vs_imagined_utility_gap
 from experiments import score_function_comparison
 
 
-ROOT = Path(__file__).resolve().parents[1]
+def test_experiments_write_expected_artifacts(tmp_path, monkeypatch):
+    results_root = tmp_path / "results"
+    monkeypatch.setenv("WAM_RESULTS_DIR", str(results_root))
 
-
-def test_experiments_write_expected_artifacts():
     exact_rollout_law_validation.run(
         Namespace(states=3, rollouts=32, mc_trials=300, seed=201, mismatch="mild", scorer="predicted_utility")
     )
@@ -52,4 +51,4 @@ def test_experiments_write_expected_artifacts():
         "exp8_nonstationary_dynamics_extension.json",
     ]
     for name in expected:
-        assert (ROOT / "results" / name).exists()
+        assert (results_root / name).exists()
