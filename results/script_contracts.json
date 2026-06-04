@@ -2,7 +2,7 @@
   "experiment": "script_contracts",
   "verified": true,
   "n_scripts": 7,
-  "n_checks": 65,
+  "n_checks": 69,
   "n_issues": 0,
   "core_gate_sequence": [
     "scripts/artifact_integrity.py --fail-on-error",
@@ -10,6 +10,7 @@
     "scripts/raw_result_recompute.py --fail-on-error",
     "scripts/table_schema.py --fail-on-error",
     "scripts/source_manifest.py --fail-on-error",
+    "scripts/runtime_environment.py --fail-on-error",
     "scripts/artifact_manifest.py --fail-on-error",
     "scripts/figure_quality.py --fail-on-error",
     "scripts/narrative_consistency.py --fail-on-error",
@@ -69,9 +70,14 @@
       "detail": "source manifest gate runs after table schema"
     },
     {
+      "name": "run_smoke_runtime_environment_gate",
+      "ok": true,
+      "detail": "runtime environment gate runs after source manifest"
+    },
+    {
       "name": "run_smoke_artifact_manifest_gate",
       "ok": true,
-      "detail": "artifact manifest gate runs after source manifest"
+      "detail": "artifact manifest gate runs after runtime environment"
     },
     {
       "name": "run_smoke_figure_quality_gate",
@@ -134,9 +140,14 @@
       "detail": "source manifest gate runs after table schema"
     },
     {
+      "name": "run_learned_wam_toy_runtime_environment_gate",
+      "ok": true,
+      "detail": "runtime environment gate runs after source manifest"
+    },
+    {
       "name": "run_learned_wam_toy_artifact_manifest_gate",
       "ok": true,
-      "detail": "artifact manifest gate runs after source manifest"
+      "detail": "artifact manifest gate runs after runtime environment"
     },
     {
       "name": "run_learned_wam_toy_figure_quality_gate",
@@ -199,9 +210,14 @@
       "detail": "source manifest gate runs after table schema"
     },
     {
+      "name": "run_all_runtime_environment_gate",
+      "ok": true,
+      "detail": "runtime environment gate runs after source manifest"
+    },
+    {
       "name": "run_all_artifact_manifest_gate",
       "ok": true,
-      "detail": "artifact manifest gate runs after source manifest"
+      "detail": "artifact manifest gate runs after runtime environment"
     },
     {
       "name": "run_all_figure_quality_gate",
@@ -264,9 +280,14 @@
       "detail": "source manifest gate runs after table schema"
     },
     {
+      "name": "run_inference_audit_runtime_environment_gate",
+      "ok": true,
+      "detail": "runtime environment gate runs after source manifest"
+    },
+    {
       "name": "run_inference_audit_artifact_manifest_gate",
       "ok": true,
-      "detail": "artifact manifest gate runs after source manifest"
+      "detail": "artifact manifest gate runs after runtime environment"
     },
     {
       "name": "run_inference_audit_figure_quality_gate",

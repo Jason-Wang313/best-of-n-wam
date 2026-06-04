@@ -99,6 +99,7 @@ def default_claim_source_map() -> dict[int, list[str]]:
     set_sources(mapping, [109], ["results/figure_quality.json", "reports/figure_quality_report.md"])
     set_sources(mapping, [110], ["results/table_schema.json", "reports/table_schema_report.md"])
     set_sources(mapping, [111], ["results/source_manifest.json", "reports/source_manifest_report.md"])
+    set_sources(mapping, [112], ["results/runtime_environment.json", "reports/runtime_environment_report.md"])
     return mapping
 
 

@@ -83,16 +83,17 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`; Reacher RGB WAM utility corr `0.2199`, utility MAE `0.5208`, visual-random N32 CI lower `0.1998`; Fetch RGB WAM mean corr `0.7325`, visual-random N32 CI lower `0.3475`; ManiSkill visual probe any visual success `False` with blocker `vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory`.
 - `python experiments/benchmark_maniskill_dependency_probe.py --attempt-source-install`: passed as a blocker probe; Pinocchio import `False`, binary `pin` wheel `False`, source install attempted `True`.
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `0.9864`, repair-predicted N64 CI mean `0.3489`, predicted N128-N1 scaling gain `0.0255`.
-- `python scripts/artifact_integrity.py --fail-on-error`: passed with `629` artifact references checked and `0` issues.
+- `python scripts/artifact_integrity.py --fail-on-error`: passed with `633` artifact references checked and `0` issues.
 - `python scripts/artifact_manifest.py --fail-on-error`: passed with `397` scientific artifacts, `56421681` bytes, `15` manifest checks, and `0` issues.
 - `python scripts/figure_quality.py --fail-on-error`: passed with `36` figures, `8` image-quality checks, and `0` issues.
 - `python scripts/result_consistency.py --fail-on-error`: passed with `157` consistency checks and `0` issues.
 - `python scripts/raw_result_recompute.py --fail-on-error`: passed with `10710` aggregate metrics, `20` exact-law files, `125` seed CI columns, and `0` issues.
 - `python scripts/table_schema.py --fail-on-error`: passed with `215` tables, `212858` rows, `17` schema checks, and `0` issues.
-- `python scripts/source_manifest.py --fail-on-error`: passed with `161` source files, `1158445` bytes, `14` source-manifest checks, and `0` issues.
-- `python scripts/narrative_consistency.py --fail-on-error`: passed with `37` narrative checks and `1` issues.
-- `python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `65` contract checks, and `0` issues.
-- `python scripts/claim_semantics.py --fail-on-error`: passed with `111` claims, `168` semantic checks, `51` CI-backed claims, and `0` issues.
-- `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `111` claims, `143` source links, `7` evidence checks, and `0` issues.
-- `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `111` claims, `31` ledger checks, and `0` issues.
-- `python scripts/claims_status.py`: passed with `111` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.
+- `python scripts/source_manifest.py --fail-on-error`: passed with `164` source files, `1181429` bytes, `14` source-manifest checks, and `0` issues.
+- `python scripts/runtime_environment.py --fail-on-error`: passed with Python `3.10.11`, `4` core requirements, `5` / `5` optional requirements available, `15` runtime checks, and `0` issues.
+- `python scripts/narrative_consistency.py --fail-on-error`: passed with `38` narrative checks and `0` issues.
+- `python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `69` contract checks, and `0` issues.
+- `python scripts/claim_semantics.py --fail-on-error`: passed with `112` claims, `168` semantic checks, `51` CI-backed claims, and `0` issues.
+- `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `112` claims, `145` source links, `7` evidence checks, and `0` issues.
+- `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `112` claims, `31` ledger checks, and `0` issues.
+- `python scripts/claims_status.py`: passed with `112` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.

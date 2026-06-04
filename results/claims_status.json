@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=629, issues=0, status_counts={'ok': 629}"
+      "evidence": "refs=633, issues=0, status_counts={'ok': 633}"
     },
     {
       "id": 101,
@@ -610,25 +610,25 @@
       "id": 102,
       "claim": "Published narrative numbers match current artifacts.",
       "status": "VERIFIED",
-      "evidence": "checks=37, issues=0"
+      "evidence": "checks=38, issues=0"
     },
     {
       "id": 103,
       "claim": "Claim ledger is structurally consistent.",
       "status": "VERIFIED",
-      "evidence": "claims=111, max_id=111, checks=21, issues=0"
+      "evidence": "claims=112, max_id=112, checks=21, issues=0"
     },
     {
       "id": 104,
       "claim": "Canonical execution scripts preserve required gate contracts.",
       "status": "VERIFIED",
-      "evidence": "scripts=7, checks=65, issues=0"
+      "evidence": "scripts=7, checks=69, issues=0"
     },
     {
       "id": 105,
       "claim": "Verified claims have mapped source artifacts and quality-checked evidence.",
       "status": "VERIFIED",
-      "evidence": "claims=111, mapped=111, sources=143, issues=0"
+      "evidence": "claims=112, mapped=112, sources=145, issues=0"
     },
     {
       "id": 106,
@@ -640,7 +640,7 @@
       "id": 107,
       "claim": "Verified claim wording satisfies semantic threshold checks.",
       "status": "VERIFIED",
-      "evidence": "claims=111, checks=168, CI claims=51, positive CI claims=33, error claims=11, issues=0"
+      "evidence": "claims=112, checks=168, CI claims=51, positive CI claims=33, error claims=11, issues=0"
     },
     {
       "id": 108,
@@ -664,7 +664,13 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=161, bytes=1158445, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 25, 'src': 42, 'tests': 33}, checks=14, issues=0"
+      "evidence": "files=164, bytes=1181429, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 26, 'src': 43, 'tests': 34}, checks=14, issues=0"
+    },
+    {
+      "id": 112,
+      "claim": "Runtime and dependency environment metadata has a verified manifest.",
+      "status": "VERIFIED",
+      "evidence": "python=3.10.11, core=4, absent=0, version_issues=0, optional_available=5/5, modules=13, commands=5, checks=15, issues=0"
     }
   ],
   "readme_overclaims": [],
@@ -672,7 +678,7 @@
   "report_overclaims": [],
   "narrative_overclaims": [],
   "overclaims": [],
-  "num_verified": 111,
+  "num_verified": 112,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

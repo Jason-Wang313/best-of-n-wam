@@ -89,6 +89,7 @@ SEEDS=(701 702 703 704 705)
 "${PY[@]}" scripts/raw_result_recompute.py --fail-on-error
 "${PY[@]}" scripts/table_schema.py --fail-on-error
 "${PY[@]}" scripts/source_manifest.py --fail-on-error
+"${PY[@]}" scripts/runtime_environment.py --fail-on-error
 "${PY[@]}" scripts/artifact_manifest.py --fail-on-error
 "${PY[@]}" scripts/figure_quality.py --fail-on-error
 "${PY[@]}" scripts/narrative_consistency.py --fail-on-error

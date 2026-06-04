@@ -1,0 +1,334 @@
+{
+  "experiment": "runtime_environment",
+  "schema_version": 1,
+  "root": "C:\\Users\\wangz\\best-of-n-wam",
+  "python": {
+    "executable": "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+    "version": "3.10.11",
+    "version_info": [
+      3,
+      10,
+      11
+    ],
+    "implementation": "CPython",
+    "prefix": "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310",
+    "base_prefix": "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310"
+  },
+  "platform": {
+    "system": "Windows",
+    "release": "10",
+    "version": "10.0.26200",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel"
+  },
+  "requirement_files": [
+    {
+      "path": "requirements.txt",
+      "exists": true,
+      "bytes": 50,
+      "sha256": "f65a8fe7f4a779361f43f5b2e9ecba3c46bc63c24d57365b4cb7d34909cf2cec",
+      "requirements": [
+        {
+          "raw": "numpy>=1.23",
+          "name": "numpy",
+          "minimum": "1.23"
+        },
+        {
+          "raw": "pandas>=1.5",
+          "name": "pandas",
+          "minimum": "1.5"
+        },
+        {
+          "raw": "matplotlib>=3.7",
+          "name": "matplotlib",
+          "minimum": "3.7"
+        },
+        {
+          "raw": "pytest>=8",
+          "name": "pytest",
+          "minimum": "8"
+        }
+      ]
+    },
+    {
+      "path": "pyproject.toml",
+      "exists": true,
+      "bytes": 704,
+      "sha256": "ba387c861bfb1b13394c1e929d3a0f9f27783a87bb5bc8547177c08621e5f091",
+      "requirements": []
+    },
+    {
+      "path": "requirements-benchmark.txt",
+      "exists": true,
+      "bytes": 97,
+      "sha256": "8116c55d0fe7b74bfe98189f495ab0bf8e97f84904df7a4e280c2af9b6f7703a",
+      "requirements": [
+        {
+          "raw": "gymnasium[mujoco]>=1.2",
+          "name": "gymnasium",
+          "minimum": "1.2"
+        },
+        {
+          "raw": "gymnasium-robotics>=1.4",
+          "name": "gymnasium-robotics",
+          "minimum": "1.4"
+        },
+        {
+          "raw": "mani-skill>=3.0.1",
+          "name": "mani-skill",
+          "minimum": "3.0.1"
+        },
+        {
+          "raw": "imageio>=2.14",
+          "name": "imageio",
+          "minimum": "2.14"
+        },
+        {
+          "raw": "scikit-learn>=1.4",
+          "name": "scikit-learn",
+          "minimum": "1.4"
+        }
+      ]
+    }
+  ],
+  "core_packages": [
+    {
+      "name": "matplotlib",
+      "raw": "matplotlib>=3.7",
+      "minimum": "3.7",
+      "optional": false,
+      "installed": true,
+      "version": "3.10.8",
+      "satisfies_minimum": true
+    },
+    {
+      "name": "numpy",
+      "raw": "numpy>=1.23",
+      "minimum": "1.23",
+      "optional": false,
+      "installed": true,
+      "version": "1.26.4",
+      "satisfies_minimum": true
+    },
+    {
+      "name": "pandas",
+      "raw": "pandas>=1.5",
+      "minimum": "1.5",
+      "optional": false,
+      "installed": true,
+      "version": "2.3.3",
+      "satisfies_minimum": true
+    },
+    {
+      "name": "pytest",
+      "raw": "pytest>=8",
+      "minimum": "8",
+      "optional": false,
+      "installed": true,
+      "version": "9.0.2",
+      "satisfies_minimum": true
+    }
+  ],
+  "optional_packages": [
+    {
+      "name": "gymnasium",
+      "raw": "gymnasium[mujoco]>=1.2",
+      "minimum": "1.2",
+      "optional": true,
+      "installed": true,
+      "version": "1.2.3",
+      "satisfies_minimum": true
+    },
+    {
+      "name": "gymnasium-robotics",
+      "raw": "gymnasium-robotics>=1.4",
+      "minimum": "1.4",
+      "optional": true,
+      "installed": true,
+      "version": "1.4.2",
+      "satisfies_minimum": true
+    },
+    {
+      "name": "imageio",
+      "raw": "imageio>=2.14",
+      "minimum": "2.14",
+      "optional": true,
+      "installed": true,
+      "version": "2.37.3",
+      "satisfies_minimum": true
+    },
+    {
+      "name": "mani-skill",
+      "raw": "mani-skill>=3.0.1",
+      "minimum": "3.0.1",
+      "optional": true,
+      "installed": true,
+      "version": "3.0.1",
+      "satisfies_minimum": true
+    },
+    {
+      "name": "scikit-learn",
+      "raw": "scikit-learn>=1.4",
+      "minimum": "1.4",
+      "optional": true,
+      "installed": true,
+      "version": "1.7.2",
+      "satisfies_minimum": true
+    }
+  ],
+  "module_probes": {
+    "gymnasium": {
+      "module": "gymnasium",
+      "available": true
+    },
+    "gymnasium_robotics": {
+      "module": "gymnasium_robotics",
+      "available": true
+    },
+    "imageio": {
+      "module": "imageio",
+      "available": true
+    },
+    "mani_skill": {
+      "module": "mani_skill",
+      "available": true
+    },
+    "matplotlib": {
+      "module": "matplotlib",
+      "available": true
+    },
+    "metaworld": {
+      "module": "metaworld",
+      "available": true
+    },
+    "numpy": {
+      "module": "numpy",
+      "available": true
+    },
+    "pandas": {
+      "module": "pandas",
+      "available": true
+    },
+    "pytest": {
+      "module": "pytest",
+      "available": true
+    },
+    "robosuite": {
+      "module": "robosuite",
+      "available": true
+    },
+    "scipy": {
+      "module": "scipy",
+      "available": true
+    },
+    "sklearn": {
+      "module": "sklearn",
+      "available": true
+    },
+    "torch": {
+      "module": "torch",
+      "available": true
+    }
+  },
+  "command_probes": {
+    "python": "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\python.EXE",
+    "python3": "C:\\Users\\wangz\\AppData\\Local\\Microsoft\\WindowsApps\\python3.EXE",
+    "py": "C:\\WINDOWS\\py.EXE",
+    "bash": "C:\\WINDOWS\\system32\\bash.EXE",
+    "git": "C:\\Program Files\\Git\\cmd\\git.EXE"
+  },
+  "n_requirement_files": 3,
+  "n_core_requirements": 4,
+  "n_optional_requirements": 5,
+  "n_optional_available": 5,
+  "n_module_probes": 13,
+  "n_command_probes": 5,
+  "verified": true,
+  "n_core_missing": 0,
+  "n_core_version_issues": 0,
+  "n_checks": 15,
+  "n_issues": 0,
+  "checks": [
+    {
+      "name": "runtime_manifest_present_fields",
+      "ok": true,
+      "detail": "python=True, platform=True"
+    },
+    {
+      "name": "runtime_python_version_supported",
+      "ok": true,
+      "detail": "version_info=[3, 10, 11]"
+    },
+    {
+      "name": "runtime_python_matches_current",
+      "ok": true,
+      "detail": "payload={'executable': 'C:\\\\Users\\\\wangz\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310\\\\python.exe', 'version': '3.10.11', 'version_info': [3, 10, 11], 'implementation': 'CPython', 'prefix': 'C:\\\\Users\\\\wangz\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310', 'base_prefix': 'C:\\\\Users\\\\wangz\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310'}, current={'executable': 'C:\\\\Users\\\\wangz\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310\\\\python.exe', 'version': '3.10.11', 'version_info': [3, 10, 11], 'implementation': 'CPython', 'prefix': 'C:\\\\Users\\\\wangz\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310', 'base_prefix': 'C:\\\\Users\\\\wangz\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310'}"
+    },
+    {
+      "name": "runtime_platform_recorded",
+      "ok": true,
+      "detail": "platform={'system': 'Windows', 'release': '10', 'version': '10.0.26200', 'machine': 'AMD64', 'processor': 'Intel64 Family 6 Model 140 Stepping 1, GenuineIntel'}"
+    },
+    {
+      "name": "runtime_requirement_files_present",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "runtime_requirement_hashes_match",
+      "ok": true,
+      "detail": "mismatches=[]"
+    },
+    {
+      "name": "runtime_core_requirements_recorded",
+      "ok": true,
+      "detail": "core=4"
+    },
+    {
+      "name": "runtime_core_packages_installed",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "runtime_core_versions_satisfy_minimums",
+      "ok": true,
+      "detail": "issues=[]"
+    },
+    {
+      "name": "runtime_core_package_versions_match_current",
+      "ok": true,
+      "detail": "mismatches=[]"
+    },
+    {
+      "name": "runtime_optional_requirements_status_recorded",
+      "ok": true,
+      "detail": "optional=5"
+    },
+    {
+      "name": "runtime_module_probes_recorded",
+      "ok": true,
+      "detail": "modules=13"
+    },
+    {
+      "name": "runtime_command_probes_recorded",
+      "ok": true,
+      "detail": "commands=5"
+    },
+    {
+      "name": "runtime_current_python_executable_exists",
+      "ok": true,
+      "detail": "executable=C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+    },
+    {
+      "name": "runtime_required_commands_available",
+      "ok": true,
+      "detail": "commands={'python': 'C:\\\\Users\\\\wangz\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python310\\\\python.EXE', 'python3': 'C:\\\\Users\\\\wangz\\\\AppData\\\\Local\\\\Microsoft\\\\WindowsApps\\\\python3.EXE', 'py': 'C:\\\\WINDOWS\\\\py.EXE', 'bash': 'C:\\\\WINDOWS\\\\system32\\\\bash.EXE', 'git': 'C:\\\\Program Files\\\\Git\\\\cmd\\\\git.EXE'}"
+    }
+  ],
+  "issues": [],
+  "core_missing": [],
+  "core_version_issues": [],
+  "requirement_hash_mismatches": [],
+  "missing_requirement_files": [],
+  "package_version_mismatches": []
+}

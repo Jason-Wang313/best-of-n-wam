@@ -89,6 +89,7 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{raw_result_recompute.",
         "{table_schema.",
         "{source_manifest.",
+        "{runtime_environment.",
         "{narrative_consistency.",
         "{script_contracts.",
         "{claim_semantics.",
@@ -268,6 +269,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     raw_result_recompute = load_json(results_dir, "raw_result_recompute.json")
     table_schema = load_json(results_dir, "table_schema.json")
     source_manifest = load_json(results_dir, "source_manifest.json")
+    runtime_environment = load_json(results_dir, "runtime_environment.json")
     script_contracts = load_json(results_dir, "script_contracts.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
@@ -408,6 +410,18 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
             f"`python scripts/source_manifest.py --fail-on-error`: passed with `{source_manifest.get('n_files')}` source files, "
             f"`{source_manifest.get('total_bytes')}` bytes, `{source_manifest.get('n_checks')}` source-manifest checks, "
             f"and `{source_manifest.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "runtime_environment_command",
+        (
+            f"`python scripts/runtime_environment.py --fail-on-error`: passed with Python `{(runtime_environment.get('python') or {}).get('version')}`, "
+            f"`{runtime_environment.get('n_core_requirements')}` core requirements, "
+            f"`{runtime_environment.get('n_optional_available')}` / `{runtime_environment.get('n_optional_requirements')}` optional requirements available, "
+            f"`{runtime_environment.get('n_checks')}` runtime checks, and `{runtime_environment.get('n_issues')}` issues"
         ),
     )
     add_contains(

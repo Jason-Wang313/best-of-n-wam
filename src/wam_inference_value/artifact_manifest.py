@@ -20,6 +20,7 @@ EXCLUDED_RESULT_NAMES = {
     "narrative_consistency.json",
     "raw_result_recompute.json",
     "result_consistency.json",
+    "runtime_environment.json",
     "script_contracts.json",
     "source_manifest.json",
     "table_schema.json",

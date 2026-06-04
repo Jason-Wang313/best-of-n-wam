@@ -1,12 +1,12 @@
 {
   "experiment": "claim_ledger_integrity",
   "verified": true,
-  "n_claims": 111,
-  "max_claim_id": 111,
+  "n_claims": 112,
+  "max_claim_id": 112,
   "n_checks": 31,
   "n_issues": 0,
   "status_counts": {
-    "VERIFIED": 111,
+    "VERIFIED": 112,
     "PARTIAL": 0,
     "UNSUPPORTED": 0,
     "FAILED": 0
@@ -33,7 +33,7 @@
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=111"
+      "detail": "claims=112"
     },
     {
       "name": "claim_ids_parse",
@@ -48,12 +48,12 @@
     {
       "name": "claim_ids_contiguous",
       "ok": true,
-      "detail": "missing=[], max_id=111"
+      "detail": "missing=[], max_id=112"
     },
     {
       "name": "claim_ids_sorted",
       "ok": true,
-      "detail": "first_ids=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], last_ids=[102, 103, 104, 105, 106, 107, 108, 109, 110, 111]"
+      "detail": "first_ids=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], last_ids=[103, 104, 105, 106, 107, 108, 109, 110, 111, 112]"
     },
     {
       "name": "claim_statuses_valid",
@@ -78,7 +78,7 @@
     {
       "name": "num_verified_matches_claims",
       "ok": true,
-      "detail": "json=111, computed=111"
+      "detail": "json=112, computed=112"
     },
     {
       "name": "num_partial_matches_claims",
@@ -98,7 +98,7 @@
     {
       "name": "status_counts_sum_to_claim_count",
       "ok": true,
-      "detail": "status_total=111, claims=111"
+      "detail": "status_total=112, claims=112"
     },
     {
       "name": "no_nonverified_claims",
@@ -138,7 +138,7 @@
     {
       "name": "claims_status_md_claim_count",
       "ok": true,
-      "detail": "md=111, json=111"
+      "detail": "md=112, json=112"
     },
     {
       "name": "claims_status_md_id_set",
@@ -153,7 +153,7 @@
     {
       "name": "claims_report_verified_count",
       "ok": true,
-      "detail": "expected=- verified: `111`"
+      "detail": "expected=- verified: `112`"
     },
     {
       "name": "claims_report_partial_count",

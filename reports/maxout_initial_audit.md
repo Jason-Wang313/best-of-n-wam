@@ -16,6 +16,7 @@ Audit date: 2026-05-30.
 - `raw_result_recompute.py` independently recomputes aggregate means, exact-law MAEs, and seed-metric CIs from raw CSV artifacts.
 - `table_schema.py` verifies canonical CSV table headers, required family columns, finite numeric values, key-cell completeness, success-rate ranges, and explicit optional blanks.
 - `source_manifest.py` verifies deterministic hashes for source, experiment, script, test, README/paper, requirements, and theory files.
+- `runtime_environment.py` records and verifies Python/platform metadata, requirement-file hashes, core package versions, optional package availability, module probes, and command probes.
 - `narrative_consistency.py` verifies that high-impact README and final-report numbers match the current JSON artifacts.
 - `script_contracts.py` verifies that canonical shell scripts preserve required experiment steps, optional benchmark guards, and ordered verification gates.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.

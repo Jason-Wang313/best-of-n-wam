@@ -35,6 +35,7 @@ NARRATIVE_SURFACES = [
     ("raw_result_recompute_report", REPORTS / "raw_result_recompute_report.md"),
     ("table_schema_report", REPORTS / "table_schema_report.md"),
     ("source_manifest_report", REPORTS / "source_manifest_report.md"),
+    ("runtime_environment_report", REPORTS / "runtime_environment_report.md"),
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
     ("claim_semantics_report", REPORTS / "claim_semantics_report.md"),
     ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
@@ -302,6 +303,7 @@ def main() -> None:
     raw_result_recompute = load_json("raw_result_recompute.json")
     table_schema = load_json("table_schema.json")
     source_manifest = load_json("source_manifest.json")
+    runtime_environment = load_json("runtime_environment.json")
     narrative_consistency = load_json("narrative_consistency.json")
     script_contracts = load_json("script_contracts.json")
     claim_semantics = load_json("claim_semantics.json")
@@ -1784,12 +1786,40 @@ def main() -> None:
             f"issues={source_manifest.get('n_issues')}"
         ),
     }
+    runtime_environment_claim = {
+        "id": 112,
+        "claim": "Runtime and dependency environment metadata has a verified manifest.",
+        "status": status(
+            bool(runtime_environment)
+            and runtime_environment.get("verified", False)
+            and ((runtime_environment.get("python") or {}).get("version_info") or [0, 0])[:2] >= [3, 10]
+            and (runtime_environment.get("n_core_requirements") or 0) >= 4
+            and (runtime_environment.get("n_core_missing") or 0) == 0
+            and (runtime_environment.get("n_core_version_issues") or 0) == 0
+            and (runtime_environment.get("n_requirement_files") or 0) >= 3
+            and (runtime_environment.get("n_module_probes") or 0) >= 10
+            and (runtime_environment.get("n_command_probes") or 0) >= 5
+            and (runtime_environment.get("n_checks") or 0) >= 15
+            and runtime_environment.get("n_issues") == 0
+            and artifact_exists(RESULTS / "runtime_environment.json")
+            and artifact_exists(REPORTS / "runtime_environment_report.md"),
+            bool(runtime_environment),
+        ),
+        "evidence": (
+            f"python={(runtime_environment.get('python') or {}).get('version')}, "
+            f"core={runtime_environment.get('n_core_requirements')}, absent={runtime_environment.get('n_core_missing')}, "
+            f"version_issues={runtime_environment.get('n_core_version_issues')}, "
+            f"optional_available={runtime_environment.get('n_optional_available')}/{runtime_environment.get('n_optional_requirements')}, "
+            f"modules={runtime_environment.get('n_module_probes')}, commands={runtime_environment.get('n_command_probes')}, "
+            f"checks={runtime_environment.get('n_checks')}, issues={runtime_environment.get('n_issues')}"
+        ),
+    }
     candidate_claims = claims + [
         {
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=111, max_id=111, checks=pending, issues=0",
+            "evidence": "claims=112, max_id=112, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
@@ -1799,6 +1829,7 @@ def main() -> None:
         figure_quality_claim,
         table_schema_claim,
         source_manifest_claim,
+        runtime_environment_claim,
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
@@ -1820,6 +1851,7 @@ def main() -> None:
     claims.append(figure_quality_claim)
     claims.append(table_schema_claim)
     claims.append(source_manifest_claim)
+    claims.append(runtime_environment_claim)
 
     payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)

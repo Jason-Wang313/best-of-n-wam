@@ -107,6 +107,7 @@ def main() -> None:
     raw_result_recompute = load_json("raw_result_recompute.json")
     table_schema = load_json("table_schema.json")
     source_manifest = load_json("source_manifest.json")
+    runtime_environment = load_json("runtime_environment.json")
     narrative_consistency = load_json("narrative_consistency.json")
     claim_ledger_integrity = load_json("claim_ledger_integrity.json")
     script_contracts = load_json("script_contracts.json")
@@ -158,6 +159,7 @@ Audit date: 2026-05-30.
 - `raw_result_recompute.py` independently recomputes aggregate means, exact-law MAEs, and seed-metric CIs from raw CSV artifacts.
 - `table_schema.py` verifies canonical CSV table headers, required family columns, finite numeric values, key-cell completeness, success-rate ranges, and explicit optional blanks.
 - `source_manifest.py` verifies deterministic hashes for source, experiment, script, test, README/paper, requirements, and theory files.
+- `runtime_environment.py` records and verifies Python/platform metadata, requirement-file hashes, core package versions, optional package availability, module probes, and command probes.
 - `narrative_consistency.py` verifies that high-impact README and final-report numbers match the current JSON artifacts.
 - `script_contracts.py` verifies that canonical shell scripts preserve required experiment steps, optional benchmark guards, and ordered verification gates.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.
@@ -603,6 +605,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/raw_result_recompute.py --fail-on-error`: passed with `{raw_result_recompute.get('aggregate_metrics_compared')}` aggregate metrics, `{raw_result_recompute.get('exact_law_mae_files')}` exact-law files, `{raw_result_recompute.get('seed_metric_ci_columns')}` seed CI columns, and `{raw_result_recompute.get('n_issues')}` issues.
 - `python scripts/table_schema.py --fail-on-error`: passed with `{table_schema.get('n_tables')}` tables, `{table_schema.get('total_rows')}` rows, `{table_schema.get('n_checks')}` schema checks, and `{table_schema.get('n_issues')}` issues.
 - `python scripts/source_manifest.py --fail-on-error`: passed with `{source_manifest.get('n_files')}` source files, `{source_manifest.get('total_bytes')}` bytes, `{source_manifest.get('n_checks')}` source-manifest checks, and `{source_manifest.get('n_issues')}` issues.
+- `python scripts/runtime_environment.py --fail-on-error`: passed with Python `{(runtime_environment.get('python') or {}).get('version')}`, `{runtime_environment.get('n_core_requirements')}` core requirements, `{runtime_environment.get('n_optional_available')}` / `{runtime_environment.get('n_optional_requirements')}` optional requirements available, `{runtime_environment.get('n_checks')}` runtime checks, and `{runtime_environment.get('n_issues')}` issues.
 - `python scripts/narrative_consistency.py --fail-on-error`: passed with `{narrative_consistency.get('n_checks')}` narrative checks and `{narrative_consistency.get('n_issues')}` issues.
 - `python scripts/script_contracts.py --fail-on-error`: passed with `{script_contracts.get('n_scripts')}` scripts, `{script_contracts.get('n_checks')}` contract checks, and `{script_contracts.get('n_issues')}` issues.
 - `python scripts/claim_semantics.py --fail-on-error`: passed with `{claim_semantics.get('n_claims')}` claims, `{claim_semantics.get('n_checks')}` semantic checks, `{claim_semantics.get('n_ci_claims')}` CI-backed claims, and `{claim_semantics.get('n_issues')}` issues.
