@@ -6,6 +6,14 @@ from pathlib import Path
 from typing import Any
 
 
+HUMAN_BOUNDARY_SURFACES = [
+    "README.md",
+    "paper_outline.md",
+    "reports/final_decision_report.md",
+    "reports/reviewer_risk_assessment.md",
+]
+
+
 IDEAL_CLAIM_ROWS = [
     {
         "id": "exact_math_core",
@@ -66,6 +74,7 @@ IDEAL_CLAIM_ROWS = [
         "required_claim_ids": [126],
         "required_files": ["results/frontier_integrity.json"],
         "frontier_ids": ["real_robot_hil"],
+        "surface_markers": ["real-robot", "hardware-in-the-loop"],
         "limitation": "No real-robot or hardware-in-the-loop artifact exists in this repository.",
     },
     {
@@ -75,6 +84,7 @@ IDEAL_CLAIM_ROWS = [
         "required_claim_ids": [126],
         "required_files": ["results/frontier_integrity.json"],
         "frontier_ids": ["modern_vla_libero"],
+        "surface_markers": ["modern vla", "vla-style"],
         "limitation": "LIBERO artifacts are scripted/BC smokes and dense rollout-pool WAM evidence, not modern VLA performance.",
     },
     {
@@ -84,6 +94,7 @@ IDEAL_CLAIM_ROWS = [
         "required_claim_ids": [126],
         "required_files": ["results/frontier_integrity.json", "results/benchmark_robocasa_catalog_probe.json"],
         "frontier_ids": ["full_robocasa_wide"],
+        "surface_markers": ["full robocasa-wide"],
         "limitation": "RoboCasa has broad committed coverage, but not full RoboCasa-wide validation.",
     },
     {
@@ -97,6 +108,7 @@ IDEAL_CLAIM_ROWS = [
             "results/benchmark_maniskill_dependency_probe.json",
         ],
         "frontier_ids": ["maniskill_visual_ee"],
+        "surface_markers": ["maniskill rgb/rgb-d", "end-effector", "ee-control"],
         "limitation": "ManiSkill evidence is state-mode; visual and EE-control blockers are artifact-documented.",
     },
     {
@@ -106,6 +118,7 @@ IDEAL_CLAIM_ROWS = [
         "required_claim_ids": [123],
         "required_files": ["results/publication_scope.json"],
         "publication_scope_patterns": ["universal_wam"],
+        "surface_markers": ["universal wam", "robot chinchilla"],
         "limitation": "Universal WAM training optimization is framed as future work, not a current result.",
     },
 ]
@@ -163,6 +176,22 @@ def publication_pattern_counts(publication_payload: dict[str, Any]) -> dict[str,
     return {str(key): int(value or 0) for key, value in counts.items()} if isinstance(counts, dict) else {}
 
 
+def load_human_surface_text(root: Path) -> tuple[str, list[str]]:
+    texts: list[str] = []
+    missing: list[str] = []
+    for relative in HUMAN_BOUNDARY_SURFACES:
+        path = root / relative
+        if not path.exists():
+            missing.append(relative)
+            continue
+        texts.append(path.read_text(encoding="utf-8", errors="ignore"))
+    return "\n".join(texts).lower(), missing
+
+
+def marker_hits(surface_text: str, markers: list[str]) -> list[str]:
+    return [marker for marker in markers if marker.lower() in surface_text]
+
+
 def audit_ideal_claim_boundary(root: Path, results_dir: Path | None = None) -> dict[str, Any]:
     root = root.resolve()
     results_dir = (results_dir or root / "results").resolve()
@@ -172,11 +201,13 @@ def audit_ideal_claim_boundary(root: Path, results_dir: Path | None = None) -> d
     verified_ids = verified_claim_ids(claims_payload)
     frontier_by_id = frontier_statuses(frontier_payload)
     publication_counts = publication_pattern_counts(publication_payload)
+    human_surface_text, missing_human_surfaces = load_human_surface_text(root)
 
     checks: list[IdealBoundaryCheck] = []
     add(checks, "claims_loaded", len(verified_ids) >= 120, f"verified_claims={len(verified_ids)}")
     add(checks, "frontier_integrity_loaded", frontier_payload.get("verified") is True, f"verified={frontier_payload.get('verified')}")
     add(checks, "publication_scope_loaded", publication_payload.get("verified") is True, f"verified={publication_payload.get('verified')}")
+    add(checks, "human_boundary_surfaces_exist", not missing_human_surfaces, f"missing={missing_human_surfaces}")
 
     rows: list[dict[str, Any]] = []
     for row in IDEAL_CLAIM_ROWS:
@@ -190,6 +221,8 @@ def audit_ideal_claim_boundary(root: Path, results_dir: Path | None = None) -> d
         ]
         required_patterns = [str(pattern) for pattern in row.get("publication_scope_patterns", [])]
         missing_publication_patterns = [pattern for pattern in required_patterns if publication_counts.get(pattern, 0) <= 0]
+        surface_markers = [str(marker) for marker in row.get("surface_markers", [])]
+        surface_marker_hits = marker_hits(human_surface_text, surface_markers)
         promotable = str(row["paper_status"]).startswith("promotable")
         future_only = str(row["paper_status"]) == "future_only_not_promotable"
         ok = not missing_claim_ids and not missing_files and not missing_frontier_guards and not missing_publication_patterns
@@ -212,6 +245,13 @@ def audit_ideal_claim_boundary(root: Path, results_dir: Path | None = None) -> d
             )
         if future_only:
             add(checks, f"{row['id']}_not_promotable", row["paper_status"] == "future_only_not_promotable", str(row["paper_status"]))
+            add(checks, f"{row['id']}_limitation_text_present", bool(str(row.get("limitation") or "").strip()), str(row.get("limitation") or ""))
+            add(
+                checks,
+                f"{row['id']}_human_surface_marker_present",
+                bool(surface_marker_hits),
+                f"markers={surface_markers}, hits={surface_marker_hits}",
+            )
 
         rows.append(
             {
@@ -230,6 +270,8 @@ def audit_ideal_claim_boundary(root: Path, results_dir: Path | None = None) -> d
                 "missing_frontier_guards": missing_frontier_guards,
                 "publication_scope_patterns": required_patterns,
                 "missing_publication_scope_patterns": missing_publication_patterns,
+                "surface_markers": surface_markers,
+                "surface_marker_hits": surface_marker_hits,
                 "limitation": row.get("limitation", ""),
             }
         )
@@ -252,7 +294,10 @@ def audit_ideal_claim_boundary(root: Path, results_dir: Path | None = None) -> d
         "n_ideal_claims": len(rows),
         "n_promotable_claims": len(promotable_rows),
         "n_future_only_claims": len(future_rows),
+        "n_human_boundary_surfaces": len(HUMAN_BOUNDARY_SURFACES),
+        "n_missing_human_boundary_surfaces": len(missing_human_surfaces),
         "all_ideal_claims_promotable": all(row["promotable"] for row in rows),
+        "missing_human_boundary_surfaces": missing_human_surfaces,
         "rows": rows,
         "n_checks": len(checks),
         "n_issues": len(issues),

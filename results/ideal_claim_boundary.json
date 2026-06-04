@@ -4,7 +4,10 @@
   "n_ideal_claims": 9,
   "n_promotable_claims": 4,
   "n_future_only_claims": 5,
+  "n_human_boundary_surfaces": 4,
+  "n_missing_human_boundary_surfaces": 0,
   "all_ideal_claims_promotable": false,
+  "missing_human_boundary_surfaces": [],
   "rows": [
     {
       "id": "exact_math_core",
@@ -43,6 +46,8 @@
       "missing_frontier_guards": [],
       "publication_scope_patterns": [],
       "missing_publication_scope_patterns": [],
+      "surface_markers": [],
+      "surface_marker_hits": [],
       "limitation": ""
     },
     {
@@ -93,6 +98,8 @@
       "missing_frontier_guards": [],
       "publication_scope_patterns": [],
       "missing_publication_scope_patterns": [],
+      "surface_markers": [],
+      "surface_marker_hits": [],
       "limitation": "Toy CPU environments, not real-robot evidence."
     },
     {
@@ -157,6 +164,8 @@
       "missing_frontier_guards": [],
       "publication_scope_patterns": [],
       "missing_publication_scope_patterns": [],
+      "surface_markers": [],
+      "surface_marker_hits": [],
       "limitation": "State-mode and rollout-pool/short-horizon benchmark artifacts; not full benchmark-wide validation."
     },
     {
@@ -203,6 +212,8 @@
       "missing_frontier_guards": [],
       "publication_scope_patterns": [],
       "missing_publication_scope_patterns": [],
+      "surface_markers": [],
+      "surface_marker_hits": [],
       "limitation": "Toy/Gymnasium/Fetch RGB artifacts only; ManiSkill RGB/RGB-D is blocker-documented, not claimed."
     },
     {
@@ -231,6 +242,14 @@
       "missing_frontier_guards": [],
       "publication_scope_patterns": [],
       "missing_publication_scope_patterns": [],
+      "surface_markers": [
+        "real-robot",
+        "hardware-in-the-loop"
+      ],
+      "surface_marker_hits": [
+        "real-robot",
+        "hardware-in-the-loop"
+      ],
       "limitation": "No real-robot or hardware-in-the-loop artifact exists in this repository."
     },
     {
@@ -259,6 +278,14 @@
       "missing_frontier_guards": [],
       "publication_scope_patterns": [],
       "missing_publication_scope_patterns": [],
+      "surface_markers": [
+        "modern vla",
+        "vla-style"
+      ],
+      "surface_marker_hits": [
+        "modern vla",
+        "vla-style"
+      ],
       "limitation": "LIBERO artifacts are scripted/BC smokes and dense rollout-pool WAM evidence, not modern VLA performance."
     },
     {
@@ -292,6 +319,12 @@
       "missing_frontier_guards": [],
       "publication_scope_patterns": [],
       "missing_publication_scope_patterns": [],
+      "surface_markers": [
+        "full robocasa-wide"
+      ],
+      "surface_marker_hits": [
+        "full robocasa-wide"
+      ],
       "limitation": "RoboCasa has broad committed coverage, but not full RoboCasa-wide validation."
     },
     {
@@ -330,6 +363,16 @@
       "missing_frontier_guards": [],
       "publication_scope_patterns": [],
       "missing_publication_scope_patterns": [],
+      "surface_markers": [
+        "maniskill rgb/rgb-d",
+        "end-effector",
+        "ee-control"
+      ],
+      "surface_marker_hits": [
+        "maniskill rgb/rgb-d",
+        "end-effector",
+        "ee-control"
+      ],
       "limitation": "ManiSkill evidence is state-mode; visual and EE-control blockers are artifact-documented."
     },
     {
@@ -358,10 +401,18 @@
         "universal_wam"
       ],
       "missing_publication_scope_patterns": [],
+      "surface_markers": [
+        "universal wam",
+        "robot chinchilla"
+      ],
+      "surface_marker_hits": [
+        "universal wam",
+        "robot chinchilla"
+      ],
       "limitation": "Universal WAM training optimization is framed as future work, not a current result."
     }
   ],
-  "n_checks": 34,
+  "n_checks": 45,
   "n_issues": 0,
   "checks": [
     {
@@ -378,6 +429,11 @@
       "name": "publication_scope_loaded",
       "ok": true,
       "detail": "verified=True"
+    },
+    {
+      "name": "human_boundary_surfaces_exist",
+      "ok": true,
+      "detail": "missing=[]"
     },
     {
       "name": "exact_math_core_required_claims_verified",
@@ -440,6 +496,16 @@
       "detail": "future_only_not_promotable"
     },
     {
+      "name": "real_robot_hil_limitation_text_present",
+      "ok": true,
+      "detail": "No real-robot or hardware-in-the-loop artifact exists in this repository."
+    },
+    {
+      "name": "real_robot_hil_human_surface_marker_present",
+      "ok": true,
+      "detail": "markers=['real-robot', 'hardware-in-the-loop'], hits=['real-robot', 'hardware-in-the-loop']"
+    },
+    {
       "name": "modern_vla_libero_required_claims_verified",
       "ok": true,
       "detail": "missing=[]"
@@ -458,6 +524,16 @@
       "name": "modern_vla_libero_not_promotable",
       "ok": true,
       "detail": "future_only_not_promotable"
+    },
+    {
+      "name": "modern_vla_libero_limitation_text_present",
+      "ok": true,
+      "detail": "LIBERO artifacts are scripted/BC smokes and dense rollout-pool WAM evidence, not modern VLA performance."
+    },
+    {
+      "name": "modern_vla_libero_human_surface_marker_present",
+      "ok": true,
+      "detail": "markers=['modern vla', 'vla-style'], hits=['modern vla', 'vla-style']"
     },
     {
       "name": "full_robocasa_wide_required_claims_verified",
@@ -480,6 +556,16 @@
       "detail": "future_only_not_promotable"
     },
     {
+      "name": "full_robocasa_wide_limitation_text_present",
+      "ok": true,
+      "detail": "RoboCasa has broad committed coverage, but not full RoboCasa-wide validation."
+    },
+    {
+      "name": "full_robocasa_wide_human_surface_marker_present",
+      "ok": true,
+      "detail": "markers=['full robocasa-wide'], hits=['full robocasa-wide']"
+    },
+    {
       "name": "maniskill_visual_ee_required_claims_verified",
       "ok": true,
       "detail": "missing=[]"
@@ -500,6 +586,16 @@
       "detail": "future_only_not_promotable"
     },
     {
+      "name": "maniskill_visual_ee_limitation_text_present",
+      "ok": true,
+      "detail": "ManiSkill evidence is state-mode; visual and EE-control blockers are artifact-documented."
+    },
+    {
+      "name": "maniskill_visual_ee_human_surface_marker_present",
+      "ok": true,
+      "detail": "markers=['maniskill rgb/rgb-d', 'end-effector', 'ee-control'], hits=['maniskill rgb/rgb-d', 'end-effector', 'ee-control']"
+    },
+    {
       "name": "universal_wam_training_recipe_required_claims_verified",
       "ok": true,
       "detail": "missing=[]"
@@ -518,6 +614,16 @@
       "name": "universal_wam_training_recipe_not_promotable",
       "ok": true,
       "detail": "future_only_not_promotable"
+    },
+    {
+      "name": "universal_wam_training_recipe_limitation_text_present",
+      "ok": true,
+      "detail": "Universal WAM training optimization is framed as future work, not a current result."
+    },
+    {
+      "name": "universal_wam_training_recipe_human_surface_marker_present",
+      "ok": true,
+      "detail": "markers=['universal wam', 'robot chinchilla'], hits=['universal wam', 'robot chinchilla']"
     },
     {
       "name": "promotable_rows_present",

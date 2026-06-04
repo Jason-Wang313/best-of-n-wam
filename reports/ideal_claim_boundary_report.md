@@ -5,7 +5,7 @@
 - Promotable artifact-backed claims: 4
 - Future-only non-promotable claims: 5
 - All ideal claims promotable: False
-- Checks: 34
+- Checks: 45
 - Issues: 0
 
 ## Boundary Matrix

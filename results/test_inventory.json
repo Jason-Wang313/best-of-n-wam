@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 133,
-  "n_unique_tests": 133,
-  "trailer_count": 133,
+  "n_tests": 134,
+  "n_unique_tests": 134,
+  "trailer_count": 134,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -78,6 +78,7 @@
     "tests/test_ideal_claim_boundary.py::test_ideal_claim_boundary_rejects_missing_required_claim",
     "tests/test_ideal_claim_boundary.py::test_ideal_claim_boundary_rejects_missing_required_file",
     "tests/test_ideal_claim_boundary.py::test_ideal_claim_boundary_rejects_missing_future_guard",
+    "tests/test_ideal_claim_boundary.py::test_ideal_claim_boundary_rejects_missing_human_surface_marker",
     "tests/test_learned_wam.py::test_learned_wam_trains_and_predicts_finite_metrics",
     "tests/test_learned_wam.py::test_rollout_pool_uses_learned_backend",
     "tests/test_learned_wam.py::test_normalized_utility_degenerate_pool_is_finite",
@@ -150,7 +151,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=133"
+      "detail": "nodeids=134"
     },
     {
       "name": "nodeids_unique",
@@ -160,12 +161,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=133"
+      "detail": "nodeids=134"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=133, nodeids=133"
+      "detail": "trailer=134, nodeids=134"
     },
     {
       "name": "required_test_families_present",

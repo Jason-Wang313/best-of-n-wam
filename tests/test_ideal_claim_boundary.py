@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from wam_inference_value.ideal_claim_boundary import IDEAL_CLAIM_ROWS, audit_ideal_claim_boundary
+from wam_inference_value.ideal_claim_boundary import HUMAN_BOUNDARY_SURFACES, IDEAL_CLAIM_ROWS, audit_ideal_claim_boundary
 
 
 def all_required_claim_ids() -> set[int]:
@@ -58,12 +58,30 @@ def write_publication(results: Path, *, universal_mentions: int = 1) -> None:
     )
 
 
+def write_human_surfaces(root: Path, *, omit_markers: bool = False) -> None:
+    text = (
+        "# Boundary\n\n"
+        "No real-robot or hardware-in-the-loop artifact exists.\n"
+        "Modern VLA-style LIBERO performance is future work.\n"
+        "Full RoboCasa-wide validation is not claimed.\n"
+        "ManiSkill RGB/RGB-D and end-effector validation remain blocker-documented.\n"
+        "Universal WAM and Robot Chinchilla training recipes are future work.\n"
+    )
+    if omit_markers:
+        text = "# Boundary\n\nFuture-only limitations are discussed without naming the endpoint.\n"
+    for relative in HUMAN_BOUNDARY_SURFACES:
+        path = root / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(text, encoding="utf-8")
+
+
 def test_ideal_claim_boundary_accepts_clean_boundary(tmp_path: Path) -> None:
     results = tmp_path / "results"
     write_claims(results)
     write_required_files(tmp_path)
     write_frontier(results)
     write_publication(results)
+    write_human_surfaces(tmp_path)
 
     payload = audit_ideal_claim_boundary(tmp_path, results)
 
@@ -79,6 +97,7 @@ def test_ideal_claim_boundary_rejects_missing_required_claim(tmp_path: Path) -> 
     write_required_files(tmp_path)
     write_frontier(results)
     write_publication(results)
+    write_human_surfaces(tmp_path)
 
     payload = audit_ideal_claim_boundary(tmp_path, results)
 
@@ -93,6 +112,7 @@ def test_ideal_claim_boundary_rejects_missing_required_file(tmp_path: Path) -> N
     write_required_files(tmp_path, omit=missing_file)
     write_frontier(results)
     write_publication(results)
+    write_human_surfaces(tmp_path)
 
     payload = audit_ideal_claim_boundary(tmp_path, results)
 
@@ -106,8 +126,23 @@ def test_ideal_claim_boundary_rejects_missing_future_guard(tmp_path: Path) -> No
     write_required_files(tmp_path)
     write_frontier(results, verified=False)
     write_publication(results)
+    write_human_surfaces(tmp_path)
 
     payload = audit_ideal_claim_boundary(tmp_path, results)
 
     assert payload["verified"] is False
     assert "real_robot_hil_frontier_guards_present" in {issue["name"] for issue in payload["issues"]}
+
+
+def test_ideal_claim_boundary_rejects_missing_human_surface_marker(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    write_claims(results)
+    write_required_files(tmp_path)
+    write_frontier(results)
+    write_publication(results)
+    write_human_surfaces(tmp_path, omit_markers=True)
+
+    payload = audit_ideal_claim_boundary(tmp_path, results)
+
+    assert payload["verified"] is False
+    assert "real_robot_hil_human_surface_marker_present" in {issue["name"] for issue in payload["issues"]}
