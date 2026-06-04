@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 146,
-  "n_unique_tests": 146,
-  "trailer_count": 146,
+  "n_tests": 147,
+  "n_unique_tests": 147,
+  "trailer_count": 147,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -121,6 +121,7 @@
     "tests/test_robocasa_adapter.py::test_robocasa_adapter_skips_when_dependency_missing",
     "tests/test_robocasa_adapter.py::test_robocasa_object_distance_prefers_broad_task_targets",
     "tests/test_robocasa_adapter.py::test_robocasa_object_distance_falls_back_to_named_targets",
+    "tests/test_robocasa_residual_sweep_paths.py::test_residual_sweep_summary_tag_preserves_canonical_default",
     "tests/test_robosuite_adapter.py::test_robosuite_adapter_smoke_if_available",
     "tests/test_runtime_environment.py::test_runtime_environment_records_core_and_optional_requirements",
     "tests/test_runtime_environment.py::test_runtime_environment_detects_requirement_hash_drift",
@@ -163,7 +164,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=146"
+      "detail": "nodeids=147"
     },
     {
       "name": "nodeids_unique",
@@ -173,12 +174,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=146"
+      "detail": "nodeids=147"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=146, nodeids=146"
+      "detail": "trailer=147, nodeids=147"
     },
     {
       "name": "required_test_families_present",

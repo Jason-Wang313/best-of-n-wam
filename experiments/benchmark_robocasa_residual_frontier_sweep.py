@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+import re
 import subprocess
 import sys
 import time
@@ -76,6 +77,29 @@ def _chunks(items: list[str], size: int) -> list[list[str]]:
 
 def _probe_path(tag: str) -> Path:
     return results_dir() / f"benchmark_robocasa_micro_rollout_{tag}.json"
+
+
+def _safe_tag(raw: str) -> str:
+    return re.sub(r"[^A-Za-z0-9_.-]+", "_", str(raw).strip()).strip("_").lower()
+
+
+def _summary_paths(summary_tag: str | None) -> dict[str, Path | str]:
+    tag = _safe_tag(summary_tag or "")
+    if tag:
+        prefix = f"benchmark_robocasa_residual_frontier_sweep_{tag}"
+        report_name = f"robocasa_residual_frontier_sweep_{tag}_report.md"
+        experiment = prefix
+    else:
+        prefix = "benchmark_robocasa_residual_frontier_sweep"
+        report_name = "robocasa_residual_frontier_sweep_report.md"
+        experiment = prefix
+    return {
+        "tag": tag,
+        "experiment": experiment,
+        "summary": results_dir() / f"{prefix}.json",
+        "table": results_dir() / "tables" / f"{prefix}_chunks.csv",
+        "report": ROOT / "reports" / report_name,
+    }
 
 
 def _timeout_summary(tag: str, env_ids: list[str], timeout_seconds: float, seconds: float) -> dict[str, Any]:
@@ -169,7 +193,7 @@ def _run_chunk(tag: str, env_ids: list[str], args: argparse.Namespace) -> dict[s
 
 
 def _write_report(summary: dict[str, Any]) -> None:
-    report_path = ROOT / "reports" / "robocasa_residual_frontier_sweep_report.md"
+    report_path = Path(str(summary.get("report_path") or ROOT / "reports" / "robocasa_residual_frontier_sweep_report.md"))
     report_path.parent.mkdir(parents=True, exist_ok=True)
     lines = [
         "# RoboCasa Residual Frontier Sweep",
@@ -198,6 +222,7 @@ def _write_report(summary: dict[str, Any]) -> None:
 
 def run(args: argparse.Namespace) -> dict[str, Any]:
     ensure_result_dirs()
+    paths = _summary_paths(getattr(args, "summary_tag", ""))
     candidates = _candidate_ids(args)
     chunk_rows: list[dict[str, Any]] = []
     runnable: set[str] = set()
@@ -225,13 +250,14 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         )
 
     chunk_df = pd.DataFrame(chunk_rows)
-    table_path = results_dir() / "tables" / "benchmark_robocasa_residual_frontier_sweep_chunks.csv"
+    table_path = paths["table"]
     chunk_df.to_csv(table_path, index=False)
     summary = {
-        "experiment": "benchmark_robocasa_residual_frontier_sweep",
+        "experiment": paths["experiment"],
         "attempted": True,
         "available": True,
         "verified": bool(len(nondegenerate) > 0),
+        "summary_tag": paths["tag"],
         "candidate_task_count": int(len(candidates)),
         "chunk_count": int(len(chunks)),
         "completed_chunk_count": int(sum(not row["timed_out"] for row in chunk_rows)),
@@ -247,10 +273,10 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         "timeout_seconds": float(args.timeout_seconds),
         "wall_clock_seconds": float(time.time() - started),
         "table_path": str(table_path),
-        "report_path": str(ROOT / "reports" / "robocasa_residual_frontier_sweep_report.md"),
+        "report_path": str(paths["report"]),
         "note": "Resumable RoboCasa residual catalog micro-rollout search; not promoted to learned-WAM benchmark evidence.",
     }
-    write_json(results_dir() / "benchmark_robocasa_residual_frontier_sweep.json", summary)
+    write_json(paths["summary"], summary)
     _write_report(summary)
     return summary
 
@@ -265,6 +291,11 @@ def main() -> None:
     parser.add_argument("--rollouts", type=int, default=2)
     parser.add_argument("--horizon", type=int, default=1)
     parser.add_argument("--output-tag-prefix", default="residual_sweep")
+    parser.add_argument(
+        "--summary-tag",
+        default="",
+        help="Optional tag for exploratory sweep summary/table/report outputs. Empty preserves canonical output paths.",
+    )
     parser.add_argument("--skip-existing", action="store_true")
     args = parser.parse_args()
     print(run(args))

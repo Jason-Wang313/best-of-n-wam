@@ -2,11 +2,11 @@
   "experiment": "source_manifest",
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
-  "n_files": 221,
-  "total_bytes": 1582791,
+  "n_files": 222,
+  "total_bytes": 1585076,
   "counts_by_suffix": {
     ".md": 3,
-    ".py": 204,
+    ".py": 205,
     ".toml": 1,
     ".txt": 2,
     ".sh": 11
@@ -21,7 +21,7 @@
     "requirements.txt": 1,
     "scripts": 44,
     "src": 62,
-    "tests": 53
+    "tests": 54
   },
   "records": [
     {
@@ -189,8 +189,8 @@
     {
       "path": "experiments/benchmark_robocasa_residual_frontier_sweep.py",
       "suffix": ".py",
-      "bytes": 10652,
-      "sha256": "1b1c933188c39afd458455e9e3601cd6c661fc366d3f481ffff3b44619d48613"
+      "bytes": 11628,
+      "sha256": "7963fa56ab891d2d9f76b2f3ec21d27d8b5659d8398b30108ddb4b698b7d0e27"
     },
     {
       "path": "experiments/benchmark_robocasa_smoke.py",
@@ -1279,6 +1279,12 @@
       "sha256": "2412c01ad78379c711b8c0fcc621dd48f49911bab339d8efe786d78974abfe59"
     },
     {
+      "path": "tests/test_robocasa_residual_sweep_paths.py",
+      "suffix": ".py",
+      "bytes": 1309,
+      "sha256": "69c39581395742e463787b1595fd4cb05775ac3400efcab3f48fefa2740bf11d"
+    },
+    {
       "path": "tests/test_robosuite_adapter.py",
       "suffix": ".py",
       "bytes": 1087,
@@ -1358,27 +1364,27 @@
     {
       "name": "source_manifest_records_present",
       "ok": true,
-      "detail": "records=221"
+      "detail": "records=222"
     },
     {
       "name": "source_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=221, scan=221"
+      "detail": "payload=222, scan=222"
     },
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1582791, scan=1582791"
+      "detail": "payload=1585076, scan=1585076"
     },
     {
       "name": "source_suffix_counts_match_scan",
       "ok": true,
-      "detail": "payload={'.md': 3, '.py': 204, '.toml': 1, '.txt': 2, '.sh': 11}, scan={'.md': 3, '.py': 204, '.toml': 1, '.txt': 2, '.sh': 11}"
+      "detail": "payload={'.md': 3, '.py': 205, '.toml': 1, '.txt': 2, '.sh': 11}, scan={'.md': 3, '.py': 205, '.toml': 1, '.txt': 2, '.sh': 11}"
     },
     {
       "name": "source_dir_counts_match_scan",
       "ok": true,
-      "detail": "payload={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 53}, scan={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 53}"
+      "detail": "payload={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 54}, scan={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 54}"
     },
     {
       "name": "source_manifest_has_no_missing_current_files",
@@ -1408,17 +1414,17 @@
     {
       "name": "source_manifest_file_count",
       "ok": true,
-      "detail": "files=221"
+      "detail": "files=222"
     },
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1582791"
+      "detail": "bytes=1585076"
     },
     {
       "name": "source_manifest_dir_coverage",
       "ok": true,
-      "detail": "dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 53}"
+      "detail": "dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 54}"
     },
     {
       "name": "source_manifest_root_file_coverage",
