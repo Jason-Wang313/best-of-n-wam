@@ -1,0 +1,539 @@
+{
+  "experiment": "ideal_claim_boundary",
+  "verified": true,
+  "n_ideal_claims": 9,
+  "n_promotable_claims": 4,
+  "n_future_only_claims": 5,
+  "all_ideal_claims_promotable": false,
+  "rows": [
+    {
+      "id": "exact_math_core",
+      "ideal_claim": "Exact best-of-N binary and utility laws are proved and empirically verified.",
+      "paper_status": "promotable_result",
+      "boundary_evidence_present": true,
+      "endpoint_supported": true,
+      "promotable": true,
+      "future_only": false,
+      "required_claim_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "missing_claim_ids": [],
+      "required_files": [
+        {
+          "path": "results/exp1_exact_rollout_law_validation.json",
+          "exists": true,
+          "bytes": 3211
+        },
+        {
+          "path": "results/exp2_auc_vs_moment_hierarchy.json",
+          "exists": true,
+          "bytes": 1609
+        },
+        {
+          "path": "docs/theory.md",
+          "exists": true,
+          "bytes": 4549
+        }
+      ],
+      "missing_files": [],
+      "frontier_ids": [],
+      "missing_frontier_guards": [],
+      "publication_scope_patterns": [],
+      "missing_publication_scope_patterns": [],
+      "limitation": ""
+    },
+    {
+      "id": "learned_multi_env_core",
+      "ideal_claim": "Learned WAM-lite reproduces the inference-value results across several CPU toy robotics environments.",
+      "paper_status": "promotable_result",
+      "boundary_evidence_present": true,
+      "endpoint_supported": true,
+      "promotable": true,
+      "future_only": false,
+      "required_claim_ids": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        45
+      ],
+      "missing_claim_ids": [],
+      "required_files": [
+        {
+          "path": "results/learned_wam_lite_training.json",
+          "exists": true,
+          "bytes": 4851
+        },
+        {
+          "path": "results/learned_wam_vs_analytic_wam.json",
+          "exists": true,
+          "bytes": 16159
+        },
+        {
+          "path": "results/multi_env_suite.json",
+          "exists": true,
+          "bytes": 33208
+        },
+        {
+          "path": "results/exp10_falsification_bad_scorer.json",
+          "exists": true,
+          "bytes": 491
+        }
+      ],
+      "missing_files": [],
+      "frontier_ids": [],
+      "missing_frontier_guards": [],
+      "publication_scope_patterns": [],
+      "missing_publication_scope_patterns": [],
+      "limitation": "Toy CPU environments, not real-robot evidence."
+    },
+    {
+      "id": "contact_benchmark_state_mode",
+      "ideal_claim": "External manipulation benchmarks support the claims beyond toy BlockPush-style simulations.",
+      "paper_status": "promotable_limited_scope",
+      "boundary_evidence_present": true,
+      "endpoint_supported": true,
+      "promotable": true,
+      "future_only": false,
+      "required_claim_ids": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        48,
+        59,
+        69,
+        73,
+        83,
+        89,
+        98
+      ],
+      "missing_claim_ids": [],
+      "required_files": [
+        {
+          "path": "results/benchmark_maniskill_suite.json",
+          "exists": true,
+          "bytes": 4862
+        },
+        {
+          "path": "results/benchmark_gym_robotics_suite.json",
+          "exists": true,
+          "bytes": 4003
+        },
+        {
+          "path": "results/benchmark_metaworld_suite.json",
+          "exists": true,
+          "bytes": 4741
+        },
+        {
+          "path": "results/benchmark_robosuite_suite.json",
+          "exists": true,
+          "bytes": 5200
+        },
+        {
+          "path": "results/benchmark_libero_wam.json",
+          "exists": true,
+          "bytes": 4143
+        },
+        {
+          "path": "results/benchmark_robocasa_residual35_h1_n4_wam.json",
+          "exists": true,
+          "bytes": 20175
+        }
+      ],
+      "missing_files": [],
+      "frontier_ids": [],
+      "missing_frontier_guards": [],
+      "publication_scope_patterns": [],
+      "missing_publication_scope_patterns": [],
+      "limitation": "State-mode and rollout-pool/short-horizon benchmark artifacts; not full benchmark-wide validation."
+    },
+    {
+      "id": "visual_observation_limited",
+      "ideal_claim": "Visual observations are covered by learned WAM-lite artifacts.",
+      "paper_status": "promotable_limited_scope",
+      "boundary_evidence_present": true,
+      "endpoint_supported": true,
+      "promotable": true,
+      "future_only": false,
+      "required_claim_ids": [
+        38,
+        39,
+        40,
+        55,
+        56,
+        57,
+        58,
+        64,
+        65,
+        66,
+        67
+      ],
+      "missing_claim_ids": [],
+      "required_files": [
+        {
+          "path": "results/visual_optional.json",
+          "exists": true,
+          "bytes": 257
+        },
+        {
+          "path": "results/benchmark_visual_wam_lite.json",
+          "exists": true,
+          "bytes": 2090
+        },
+        {
+          "path": "results/benchmark_gym_robotics_visual_wam.json",
+          "exists": true,
+          "bytes": 3948
+        }
+      ],
+      "missing_files": [],
+      "frontier_ids": [],
+      "missing_frontier_guards": [],
+      "publication_scope_patterns": [],
+      "missing_publication_scope_patterns": [],
+      "limitation": "Toy/Gymnasium/Fetch RGB artifacts only; ManiSkill RGB/RGB-D is blocker-documented, not claimed."
+    },
+    {
+      "id": "real_robot_hil",
+      "ideal_claim": "The method is validated on a real robot or hardware-in-the-loop setup.",
+      "paper_status": "future_only_not_promotable",
+      "boundary_evidence_present": true,
+      "endpoint_supported": false,
+      "promotable": false,
+      "future_only": true,
+      "required_claim_ids": [
+        126
+      ],
+      "missing_claim_ids": [],
+      "required_files": [
+        {
+          "path": "results/frontier_integrity.json",
+          "exists": true,
+          "bytes": 77466
+        }
+      ],
+      "missing_files": [],
+      "frontier_ids": [
+        "real_robot_hil"
+      ],
+      "missing_frontier_guards": [],
+      "publication_scope_patterns": [],
+      "missing_publication_scope_patterns": [],
+      "limitation": "No real-robot or hardware-in-the-loop artifact exists in this repository."
+    },
+    {
+      "id": "modern_vla_libero",
+      "ideal_claim": "The method is validated as modern VLA-style LIBERO policy performance.",
+      "paper_status": "future_only_not_promotable",
+      "boundary_evidence_present": true,
+      "endpoint_supported": false,
+      "promotable": false,
+      "future_only": true,
+      "required_claim_ids": [
+        126
+      ],
+      "missing_claim_ids": [],
+      "required_files": [
+        {
+          "path": "results/frontier_integrity.json",
+          "exists": true,
+          "bytes": 77466
+        }
+      ],
+      "missing_files": [],
+      "frontier_ids": [
+        "modern_vla_libero"
+      ],
+      "missing_frontier_guards": [],
+      "publication_scope_patterns": [],
+      "missing_publication_scope_patterns": [],
+      "limitation": "LIBERO artifacts are scripted/BC smokes and dense rollout-pool WAM evidence, not modern VLA performance."
+    },
+    {
+      "id": "full_robocasa_wide",
+      "ideal_claim": "The method is validated across the full RoboCasa-wide task distribution.",
+      "paper_status": "future_only_not_promotable",
+      "boundary_evidence_present": true,
+      "endpoint_supported": false,
+      "promotable": false,
+      "future_only": true,
+      "required_claim_ids": [
+        126
+      ],
+      "missing_claim_ids": [],
+      "required_files": [
+        {
+          "path": "results/frontier_integrity.json",
+          "exists": true,
+          "bytes": 77466
+        },
+        {
+          "path": "results/benchmark_robocasa_catalog_probe.json",
+          "exists": true,
+          "bytes": 15242
+        }
+      ],
+      "missing_files": [],
+      "frontier_ids": [
+        "full_robocasa_wide"
+      ],
+      "missing_frontier_guards": [],
+      "publication_scope_patterns": [],
+      "missing_publication_scope_patterns": [],
+      "limitation": "RoboCasa has broad committed coverage, but not full RoboCasa-wide validation."
+    },
+    {
+      "id": "maniskill_visual_ee",
+      "ideal_claim": "ManiSkill visual/RGB-D or end-effector-control validation is complete.",
+      "paper_status": "future_only_not_promotable",
+      "boundary_evidence_present": true,
+      "endpoint_supported": false,
+      "promotable": false,
+      "future_only": true,
+      "required_claim_ids": [
+        126
+      ],
+      "missing_claim_ids": [],
+      "required_files": [
+        {
+          "path": "results/frontier_integrity.json",
+          "exists": true,
+          "bytes": 77466
+        },
+        {
+          "path": "results/benchmark_maniskill_visual_probe.json",
+          "exists": true,
+          "bytes": 22586
+        },
+        {
+          "path": "results/benchmark_maniskill_dependency_probe.json",
+          "exists": true,
+          "bytes": 13510
+        }
+      ],
+      "missing_files": [],
+      "frontier_ids": [
+        "maniskill_visual_ee"
+      ],
+      "missing_frontier_guards": [],
+      "publication_scope_patterns": [],
+      "missing_publication_scope_patterns": [],
+      "limitation": "ManiSkill evidence is state-mode; visual and EE-control blockers are artifact-documented."
+    },
+    {
+      "id": "universal_wam_training_recipe",
+      "ideal_claim": "The project provides a universal WAM training or Robot Chinchilla-style train-inference recipe.",
+      "paper_status": "future_only_not_promotable",
+      "boundary_evidence_present": true,
+      "endpoint_supported": false,
+      "promotable": false,
+      "future_only": true,
+      "required_claim_ids": [
+        123
+      ],
+      "missing_claim_ids": [],
+      "required_files": [
+        {
+          "path": "results/publication_scope.json",
+          "exists": true,
+          "bytes": 69646
+        }
+      ],
+      "missing_files": [],
+      "frontier_ids": [],
+      "missing_frontier_guards": [],
+      "publication_scope_patterns": [
+        "universal_wam"
+      ],
+      "missing_publication_scope_patterns": [],
+      "limitation": "Universal WAM training optimization is framed as future work, not a current result."
+    }
+  ],
+  "n_checks": 34,
+  "n_issues": 0,
+  "checks": [
+    {
+      "name": "claims_loaded",
+      "ok": true,
+      "detail": "verified_claims=126"
+    },
+    {
+      "name": "frontier_integrity_loaded",
+      "ok": true,
+      "detail": "verified=True"
+    },
+    {
+      "name": "publication_scope_loaded",
+      "ok": true,
+      "detail": "verified=True"
+    },
+    {
+      "name": "exact_math_core_required_claims_verified",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "exact_math_core_required_files_exist",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "learned_multi_env_core_required_claims_verified",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "learned_multi_env_core_required_files_exist",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "contact_benchmark_state_mode_required_claims_verified",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "contact_benchmark_state_mode_required_files_exist",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "visual_observation_limited_required_claims_verified",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "visual_observation_limited_required_files_exist",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "real_robot_hil_required_claims_verified",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "real_robot_hil_required_files_exist",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "real_robot_hil_frontier_guards_present",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "real_robot_hil_not_promotable",
+      "ok": true,
+      "detail": "future_only_not_promotable"
+    },
+    {
+      "name": "modern_vla_libero_required_claims_verified",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "modern_vla_libero_required_files_exist",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "modern_vla_libero_frontier_guards_present",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "modern_vla_libero_not_promotable",
+      "ok": true,
+      "detail": "future_only_not_promotable"
+    },
+    {
+      "name": "full_robocasa_wide_required_claims_verified",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "full_robocasa_wide_required_files_exist",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "full_robocasa_wide_frontier_guards_present",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "full_robocasa_wide_not_promotable",
+      "ok": true,
+      "detail": "future_only_not_promotable"
+    },
+    {
+      "name": "maniskill_visual_ee_required_claims_verified",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "maniskill_visual_ee_required_files_exist",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "maniskill_visual_ee_frontier_guards_present",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "maniskill_visual_ee_not_promotable",
+      "ok": true,
+      "detail": "future_only_not_promotable"
+    },
+    {
+      "name": "universal_wam_training_recipe_required_claims_verified",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "universal_wam_training_recipe_required_files_exist",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "universal_wam_training_recipe_publication_scope_mentions_present",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "universal_wam_training_recipe_not_promotable",
+      "ok": true,
+      "detail": "future_only_not_promotable"
+    },
+    {
+      "name": "promotable_rows_present",
+      "ok": true,
+      "detail": "promotable=4"
+    },
+    {
+      "name": "future_only_rows_present",
+      "ok": true,
+      "detail": "future_only=5"
+    },
+    {
+      "name": "future_rows_not_promoted",
+      "ok": true,
+      "detail": "promoted_future=[]"
+    }
+  ],
+  "issues": []
+}

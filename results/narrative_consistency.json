@@ -91,14 +91,14 @@
       "surface": "final_decision_report",
       "name": "pytest_count",
       "ok": true,
-      "expected": "`python -m pytest -q`: passed with `127 passed`",
+      "expected": "`python -m pytest -q`: passed with `131 passed`",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "test_inventory_command",
       "ok": true,
-      "expected": "`python scripts/test_inventory.py --fail-on-error`: passed with `127` collected tests, `6` inventory checks, and `0` issues",
+      "expected": "`python scripts/test_inventory.py --fail-on-error`: passed with `131` collected tests, `6` inventory checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -147,14 +147,14 @@
       "surface": "final_decision_report",
       "name": "artifact_integrity_command",
       "ok": true,
-      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `689` artifact references checked and `0` issues",
+      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `699` artifact references checked and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "artifact_manifest_command",
       "ok": true,
-      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `397` scientific artifacts, `56421681` bytes, `15` manifest checks, and `0` issues",
+      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `399` scientific artifacts, `56514265` bytes, `15` manifest checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -189,7 +189,7 @@
       "surface": "final_decision_report",
       "name": "source_manifest_command",
       "ok": true,
-      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `206` source files, `1448281` bytes, `14` source-manifest checks, and `0` issues",
+      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `209` source files, `1468083` bytes, `14` source-manifest checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -238,7 +238,7 @@
       "surface": "final_decision_report",
       "name": "claim_semantics_command",
       "ok": true,
-      "expected": "`python scripts/claim_semantics.py --fail-on-error`: passed with `126` claims, `175` semantic checks, `53` CI-backed claims, and `2` issues",
+      "expected": "`python scripts/claim_semantics.py --fail-on-error`: passed with `126` claims, `175` semantic checks, `53` CI-backed claims, and `0` issues",
       "detail": "found"
     },
     {
@@ -266,21 +266,21 @@
       "surface": "final_decision_report",
       "name": "tracked_artifact_provenance_command",
       "ok": true,
-      "expected": "`python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `117` claim sources, `445` artifact references, and `1` issues",
+      "expected": "`python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `117` claim sources, `447` artifact references, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "repo_bound_artifact_audit_command",
       "ok": true,
-      "expected": "`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `862` records, `173` claim sources, `689` artifact references, `0` outside-repo records, `0` missing records, and `0` issues",
+      "expected": "`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `872` records, `173` claim sources, `699` artifact references, `0` outside-repo records, `0` missing records, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "evidence_hash_coverage_command",
       "ok": true,
-      "expected": "`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `113` claim sources, `443` artifact references, `556` hashed records, and `0` issues",
+      "expected": "`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `115` claim sources, `445` artifact references, `560` hashed records, and `0` issues",
       "detail": "found"
     },
     {

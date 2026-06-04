@@ -1210,7 +1210,7 @@
       "claim_id": 107,
       "category": "verification",
       "claim": "Verified claim wording satisfies semantic threshold checks.",
-      "evidence": "claims=126, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=2",
+      "evidence": "claims=126, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": false
     },
@@ -1242,7 +1242,7 @@
       "claim_id": 116,
       "category": "verification",
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
-      "evidence": "tests=127, unique=127, trailer=127, checks=6, issues=0",
+      "evidence": "tests=131, unique=131, trailer=131, checks=6, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": false
     },
@@ -2009,7 +2009,7 @@
     {
       "name": "claim_107_verified_wording_has_metric_or_scope",
       "ok": true,
-      "detail": "claim=Verified claim wording satisfies semantic threshold checks.; evidence=claims=126, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=2"
+      "detail": "claim=Verified claim wording satisfies semantic threshold checks.; evidence=claims=126, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0"
     },
     {
       "name": "claim_112_verified_wording_has_metric_or_scope",
@@ -2029,7 +2029,7 @@
     {
       "name": "claim_116_verified_wording_has_metric_or_scope",
       "ok": true,
-      "detail": "claim=Pytest command-result counts come from a verified collected-test inventory.; evidence=tests=127, unique=127, trailer=127, checks=6, issues=0"
+      "detail": "claim=Pytest command-result counts come from a verified collected-test inventory.; evidence=tests=131, unique=131, trailer=131, checks=6, issues=0"
     },
     {
       "name": "claim_125_verified_wording_has_metric_or_scope",

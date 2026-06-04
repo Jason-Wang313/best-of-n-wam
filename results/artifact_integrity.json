@@ -2,7 +2,7 @@
   "experiment": "artifact_integrity",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_result_json": 132,
+  "n_result_json": 133,
   "n_references": 699,
   "status_counts": {
     "ok": 699
@@ -5494,7 +5494,7 @@
       "raw_path": "results/artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 302995,
+      "bytes": 306991,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5505,7 +5505,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 302995,
+      "bytes": 306991,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5868,7 +5868,7 @@
       "raw_path": "results/artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 91316,
+      "bytes": 91516,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5879,7 +5879,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 91316,
+      "bytes": 91516,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6000,7 +6000,7 @@
       "raw_path": "results/source_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\source_manifest.json",
       "exists": true,
-      "bytes": 44784,
+      "bytes": 45389,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6011,7 +6011,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\source_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\source_manifest.json",
       "exists": true,
-      "bytes": 44784,
+      "bytes": 45389,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6220,7 +6220,7 @@
       "raw_path": "results/test_inventory.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
-      "bytes": 12700,
+      "bytes": 13093,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6231,7 +6231,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
-      "bytes": 12700,
+      "bytes": 13093,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6396,7 +6396,7 @@
       "raw_path": "results/evidence_hash_coverage.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
-      "bytes": 227403,
+      "bytes": 228943,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6407,7 +6407,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
-      "bytes": 227403,
+      "bytes": 228943,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6440,7 +6440,7 @@
       "raw_path": "results/repo_bound_artifact_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
-      "bytes": 578129,
+      "bytes": 584510,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6451,7 +6451,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
-      "bytes": 578129,
+      "bytes": 584510,
       "rows": null,
       "status": "ok",
       "reason": ""

@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 127,
-  "n_unique_tests": 127,
-  "trailer_count": 127,
+  "n_tests": 131,
+  "n_unique_tests": 131,
+  "trailer_count": 131,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -72,6 +72,10 @@
     "tests/test_frontier_integrity.py::test_frontier_integrity_requires_maniskill_blocker_artifacts",
     "tests/test_gym_manip_adapter.py::test_gym_manip_adapter_smoke_if_available",
     "tests/test_gym_robotics_adapter.py::test_gym_robotics_adapter_smoke_if_available",
+    "tests/test_ideal_claim_boundary.py::test_ideal_claim_boundary_accepts_clean_boundary",
+    "tests/test_ideal_claim_boundary.py::test_ideal_claim_boundary_rejects_missing_required_claim",
+    "tests/test_ideal_claim_boundary.py::test_ideal_claim_boundary_rejects_missing_required_file",
+    "tests/test_ideal_claim_boundary.py::test_ideal_claim_boundary_rejects_missing_future_guard",
     "tests/test_learned_wam.py::test_learned_wam_trains_and_predicts_finite_metrics",
     "tests/test_learned_wam.py::test_rollout_pool_uses_learned_backend",
     "tests/test_learned_wam.py::test_normalized_utility_degenerate_pool_is_finite",
@@ -144,7 +148,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=127"
+      "detail": "nodeids=131"
     },
     {
       "name": "nodeids_unique",
@@ -154,12 +158,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=127"
+      "detail": "nodeids=131"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=127, nodeids=127"
+      "detail": "trailer=131, nodeids=131"
     },
     {
       "name": "required_test_families_present",

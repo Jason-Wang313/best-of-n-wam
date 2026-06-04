@@ -2,10 +2,10 @@
   "experiment": "artifact_manifest",
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_files": 398,
-  "total_bytes": 56499147,
+  "n_files": 399,
+  "total_bytes": 56514265,
   "counts_by_suffix": {
-    ".json": 106,
+    ".json": 107,
     ".npz": 41,
     ".png": 36,
     ".csv": 215
@@ -843,7 +843,13 @@
       "path": "results/frontier_integrity.json",
       "suffix": ".json",
       "bytes": 77466,
-      "sha256": "e5cb4e3e7bda60a0a0958634fbbfdb132898fd9fd313deff6779ede730407cab"
+      "sha256": "311d19e2c6c54e6dfc18db17108903e3ab5be8f3420acbe973a407032d74230c"
+    },
+    {
+      "path": "results/ideal_claim_boundary.json",
+      "suffix": ".json",
+      "bytes": 15118,
+      "sha256": "c1bd445d98df58872e9aa5375030219d94ffed8bb9bfa456d1b229284fb0883c"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -2407,22 +2413,22 @@
     {
       "name": "manifest_records_present",
       "ok": true,
-      "detail": "records=398"
+      "detail": "records=399"
     },
     {
       "name": "manifest_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=398, scan=398"
+      "detail": "payload=399, scan=399"
     },
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=56499147, scan=56499147"
+      "detail": "payload=56514265, scan=56514265"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
       "ok": true,
-      "detail": "payload={'.json': 106, '.npz': 41, '.png': 36, '.csv': 215}, scan={'.json': 106, '.npz': 41, '.png': 36, '.csv': 215}"
+      "detail": "payload={'.json': 107, '.npz': 41, '.png': 36, '.csv': 215}, scan={'.json': 107, '.npz': 41, '.png': 36, '.csv': 215}"
     },
     {
       "name": "manifest_has_no_missing_current_artifacts",
@@ -2452,7 +2458,7 @@
     {
       "name": "manifest_scientific_artifact_file_count",
       "ok": true,
-      "detail": "files=398"
+      "detail": "files=399"
     },
     {
       "name": "manifest_table_count",
@@ -2462,7 +2468,7 @@
     {
       "name": "manifest_json_count",
       "ok": true,
-      "detail": "json=106"
+      "detail": "json=107"
     },
     {
       "name": "manifest_model_count",
@@ -2477,7 +2483,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=56499147"
+      "detail": "bytes=56514265"
     }
   ],
   "issues": [],

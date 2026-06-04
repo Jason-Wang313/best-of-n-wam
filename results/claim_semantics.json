@@ -844,7 +844,7 @@
     {
       "name": "claim_100_zero_issue_or_overclaim_count",
       "ok": true,
-      "detail": "evidence=refs=689, issues=0, status_counts={'ok': 689}"
+      "detail": "evidence=refs=699, issues=0, status_counts={'ok': 699}"
     },
     {
       "name": "claim_103_zero_issue_or_overclaim_count",
@@ -854,7 +854,7 @@
     {
       "name": "claim_116_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=tests=127, unique=127, trailer=127, checks=6, issues=0"
+      "detail": "evidence=tests=131, unique=131, trailer=131, checks=6, issues=0"
     },
     {
       "name": "claim_117_positive_count_or_artifact",

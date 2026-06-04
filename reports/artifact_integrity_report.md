@@ -1,7 +1,7 @@
 # Artifact Integrity Report
 
 - Verified: True
-- Result JSON files: 132
+- Result JSON files: 133
 - Artifact references checked: 699
 - Issues: 0
 - Status counts: {'ok': 699}

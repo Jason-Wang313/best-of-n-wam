@@ -941,7 +941,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 42458,
+      "bytes": 42461,
       "detail": "json"
     },
     {
@@ -959,7 +959,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 42458,
+      "bytes": 42461,
       "detail": "json"
     },
     {
@@ -1112,7 +1112,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 42458,
+      "bytes": 42461,
       "detail": "json"
     },
     {
@@ -1121,7 +1121,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claims_report.md",
       "exists": true,
       "ok": true,
-      "bytes": 31892,
+      "bytes": 31900,
       "detail": "md"
     },
     {
@@ -1130,7 +1130,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
       "ok": true,
-      "bytes": 302995,
+      "bytes": 306991,
       "detail": "json"
     },
     {
@@ -1184,7 +1184,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_ledger_integrity.json",
       "exists": true,
       "ok": true,
-      "bytes": 5492,
+      "bytes": 5345,
       "detail": "json"
     },
     {
@@ -1193,7 +1193,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claim_ledger_integrity_report.md",
       "exists": true,
       "ok": true,
-      "bytes": 320,
+      "bytes": 393,
       "detail": "md"
     },
     {
@@ -1202,7 +1202,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 42458,
+      "bytes": 42461,
       "detail": "json"
     },
     {
@@ -1265,7 +1265,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_semantics.json",
       "exists": true,
       "ok": true,
-      "bytes": 22981,
+      "bytes": 22686,
       "detail": "json"
     },
     {
@@ -1274,7 +1274,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claim_semantics_report.md",
       "exists": true,
       "ok": true,
-      "bytes": 382,
+      "bytes": 446,
       "detail": "md"
     },
     {
@@ -1283,7 +1283,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
       "ok": true,
-      "bytes": 91118,
+      "bytes": 91516,
       "detail": "json"
     },
     {
@@ -1337,7 +1337,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\source_manifest.json",
       "exists": true,
       "ok": true,
-      "bytes": 44784,
+      "bytes": 45389,
       "detail": "json"
     },
     {
@@ -1409,7 +1409,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\command_result_consistency.json",
       "exists": true,
       "ok": true,
-      "bytes": 7533,
+      "bytes": 7813,
       "detail": "json"
     },
     {
@@ -1427,7 +1427,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
       "ok": true,
-      "bytes": 12700,
+      "bytes": 13093,
       "detail": "json"
     },
     {
@@ -1481,7 +1481,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tracked_artifact_provenance.json",
       "exists": true,
       "ok": true,
-      "bytes": 2363,
+      "bytes": 1822,
       "detail": "json"
     },
     {
@@ -1490,7 +1490,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\tracked_artifact_provenance_report.md",
       "exists": true,
       "ok": true,
-      "bytes": 317,
+      "bytes": 386,
       "detail": "md"
     },
     {
@@ -1499,7 +1499,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
       "ok": true,
-      "bytes": 227403,
+      "bytes": 228943,
       "detail": "json"
     },
     {
@@ -1517,7 +1517,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
       "ok": true,
-      "bytes": 578129,
+      "bytes": 584510,
       "detail": "json"
     },
     {

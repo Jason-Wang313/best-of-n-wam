@@ -6,7 +6,7 @@
 - Risk mentions: 80
 - Guarded mentions: 80
 - Unguarded mentions: 0
-- Verified claims loaded: 123
+- Verified claims loaded: 126
 - Checks: 7
 - Issues: 0
 
