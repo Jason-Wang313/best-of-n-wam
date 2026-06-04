@@ -1,9 +1,9 @@
 # Artifact Manifest Report
 
 - Verified: True
-- Files hashed: 397
-- Total bytes: 56421681
-- Counts by suffix: {'.json': 105, '.npz': 41, '.png': 36, '.csv': 215}
+- Files hashed: 398
+- Total bytes: 56430436
+- Counts by suffix: {'.json': 106, '.npz': 41, '.png': 36, '.csv': 215}
 - Checks: 15
 - Issues: 0
 

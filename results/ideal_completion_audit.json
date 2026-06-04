@@ -1,0 +1,229 @@
+{
+  "experiment": "ideal_completion_audit",
+  "verified": true,
+  "completion_verdict": "not_complete",
+  "all_ideal_endpoints_supported": false,
+  "n_ideal_claims": 9,
+  "n_supported_endpoints": 4,
+  "n_unsupported_endpoints": 5,
+  "n_future_blockers": 5,
+  "supported_endpoint_ids": [
+    "exact_math_core",
+    "learned_multi_env_core",
+    "contact_benchmark_state_mode",
+    "visual_observation_limited"
+  ],
+  "unsupported_endpoint_ids": [
+    "real_robot_hil",
+    "modern_vla_libero",
+    "full_robocasa_wide",
+    "maniskill_visual_ee",
+    "universal_wam_training_recipe"
+  ],
+  "future_blocker_ids": [
+    "real_robot_hil",
+    "modern_vla_libero",
+    "full_robocasa_wide",
+    "maniskill_visual_ee",
+    "universal_wam_training_recipe"
+  ],
+  "future_blockers": [
+    {
+      "id": "real_robot_hil",
+      "ideal_claim": "The method is validated on a real robot or hardware-in-the-loop setup.",
+      "limitation": "No real-robot or hardware-in-the-loop artifact exists in this repository.",
+      "promotion_requirements": [
+        "Committed real-robot or hardware-in-the-loop rollout/control artifacts with task definitions, seeds, and success or utility metrics.",
+        "A claims_status entry whose evidence points to those artifacts rather than simulator-only benchmark results."
+      ],
+      "missing_evidence_classes": [
+        "Physical robot or hardware-in-the-loop execution logs.",
+        "Task-level real-world success/utility metrics with seeds or trial IDs.",
+        "A verified claim ledger entry sourced from real-world artifacts."
+      ],
+      "gap_evidence_files": [
+        {
+          "path": "reports/final_decision_report.md",
+          "exists": true,
+          "bytes": 17385
+        },
+        {
+          "path": "reports/reviewer_risk_assessment.md",
+          "exists": true,
+          "bytes": 2791
+        }
+      ]
+    },
+    {
+      "id": "modern_vla_libero",
+      "ideal_claim": "The method is validated as modern VLA-style LIBERO policy performance.",
+      "limitation": "LIBERO artifacts are scripted/BC smokes and dense rollout-pool WAM evidence, not modern VLA performance.",
+      "promotion_requirements": [
+        "A modern VLA-style policy or policy-compatible controller evaluated on LIBERO sparse-success tasks.",
+        "Heldout success metrics with confidence intervals that do not rely on scripted phase labels, target-point commands, or simulator object-state shortcuts unless explicitly scoped."
+      ],
+      "missing_evidence_classes": [
+        "Modern VLA-style policy artifact evaluated as a policy, not a rollout-pool scorer or scripted/BC smoke.",
+        "Sparse-success heldout LIBERO metrics with confidence intervals under the promoted observation/action interface.",
+        "Evidence that evaluation-time inputs do not use shortcuts beyond the stated policy scope."
+      ],
+      "gap_evidence_files": [
+        {
+          "path": "results/benchmark_libero_wam.json",
+          "exists": true,
+          "bytes": 4143
+        },
+        {
+          "path": "results/benchmark_libero_visual_language_bc_policy.json",
+          "exists": true,
+          "bytes": 1894
+        },
+        {
+          "path": "reports/final_decision_report.md",
+          "exists": true,
+          "bytes": 17385
+        }
+      ]
+    },
+    {
+      "id": "full_robocasa_wide",
+      "ideal_claim": "The method is validated across the full RoboCasa-wide task distribution.",
+      "limitation": "RoboCasa has broad committed coverage, but not full RoboCasa-wide validation.",
+      "promotion_requirements": [
+        "Rollout-pool or policy artifacts covering the full declared RoboCasa task distribution, not only sampled or stratified subsets.",
+        "Registry coverage evidence showing the promoted task set matches the full benchmark scope claimed in README and paper text."
+      ],
+      "missing_evidence_classes": [
+        "Full declared RoboCasa task-distribution rollout-pool or policy artifacts.",
+        "Coverage proof that promoted task IDs match the full local benchmark registry scope.",
+        "Claim evidence that distinguishes full-suite validation from sampled or stratified-family validation."
+      ],
+      "gap_evidence_files": [
+        {
+          "path": "results/benchmark_robocasa_catalog_probe.json",
+          "exists": true,
+          "bytes": 15242
+        },
+        {
+          "path": "reports/benchmark_blocker_report.md",
+          "exists": true,
+          "bytes": 11368
+        },
+        {
+          "path": "reports/final_decision_report.md",
+          "exists": true,
+          "bytes": 17385
+        }
+      ]
+    },
+    {
+      "id": "maniskill_visual_ee",
+      "ideal_claim": "ManiSkill visual/RGB-D or end-effector-control validation is complete.",
+      "limitation": "ManiSkill evidence is state-mode; visual and EE-control blockers are artifact-documented.",
+      "promotion_requirements": [
+        "Successful ManiSkill RGB/RGB-D rollout or WAM artifacts generated from rendered observations without the current renderer blocker.",
+        "Successful ManiSkill end-effector-control artifacts or a scoped statement that no EE-control claim is being made."
+      ],
+      "missing_evidence_classes": [
+        "Successful ManiSkill RGB/RGB-D rendered-observation rollout or WAM artifact.",
+        "Successful ManiSkill end-effector-control artifact or an explicitly narrower promoted control scope.",
+        "Closed-loop or rollout-pool metrics generated after the renderer/control blockers are cleared."
+      ],
+      "gap_evidence_files": [
+        {
+          "path": "results/benchmark_maniskill_visual_probe.json",
+          "exists": true,
+          "bytes": 22586
+        },
+        {
+          "path": "results/benchmark_maniskill_dependency_probe.json",
+          "exists": true,
+          "bytes": 13510
+        },
+        {
+          "path": "reports/maniskill_visual_blocker_report.md",
+          "exists": true,
+          "bytes": 2557
+        },
+        {
+          "path": "reports/maniskill_dependency_blocker_report.md",
+          "exists": true,
+          "bytes": 12424
+        }
+      ]
+    },
+    {
+      "id": "universal_wam_training_recipe",
+      "ideal_claim": "The project provides a universal WAM training or Robot Chinchilla-style train-inference recipe.",
+      "limitation": "Universal WAM training optimization is framed as future work, not a current result.",
+      "promotion_requirements": [
+        "A tested train/inference optimizer that chooses data scale, model capacity, rollout horizon, scorer quality, safety constraints, and sampling budget.",
+        "Evidence that the optimizer generalizes beyond the current artifact-specific WAM-lite and benchmark recipes."
+      ],
+      "missing_evidence_classes": [
+        "Executable universal train/inference optimizer artifact.",
+        "Cross-environment evidence that the optimizer chooses data, model, scorer, horizon, safety, and sampling budgets.",
+        "Claim evidence separating this future recipe from the current exact test-time inference law."
+      ],
+      "gap_evidence_files": [
+        {
+          "path": "results/publication_scope.json",
+          "exists": true,
+          "bytes": 70470
+        },
+        {
+          "path": "reports/final_decision_report.md",
+          "exists": true,
+          "bytes": 17385
+        },
+        {
+          "path": "reports/reviewer_risk_assessment.md",
+          "exists": true,
+          "bytes": 2791
+        }
+      ]
+    }
+  ],
+  "boundary_goal_completion_status": "incomplete_future_only_gaps_remain",
+  "boundary_all_ideal_claims_promotable": false,
+  "n_checks": 7,
+  "n_issues": 0,
+  "checks": [
+    {
+      "name": "ideal_boundary_verified",
+      "ok": true,
+      "detail": "verified=True"
+    },
+    {
+      "name": "ideal_rows_present",
+      "ok": true,
+      "detail": "rows=9"
+    },
+    {
+      "name": "future_only_rows_not_counted_as_supported",
+      "ok": true,
+      "detail": "false_supported=[]"
+    },
+    {
+      "name": "future_blockers_have_promotion_requirements",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "future_blockers_have_missing_evidence_classes",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "future_blockers_have_gap_evidence_files",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "completion_verdict_matches_rows",
+      "ok": true,
+      "detail": "verdict=not_complete, unsupported=5"
+    }
+  ],
+  "issues": []
+}
