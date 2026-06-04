@@ -122,11 +122,11 @@
 - 108. Scientific result artifacts have a deterministic hash manifest. Evidence: files=397, bytes=56421681, suffixes={'.json': 105, '.npz': 41, '.png': 36, '.csv': 215}, issues=0
 - 109. Publication figure artifacts pass image-quality checks. Evidence: figures=36, expected=25, checks=8, issues=0
 - 110. Canonical CSV result tables pass schema and numeric-sanity checks. Evidence: tables=215, rows=212858, numeric_columns=1959, checks=17, issues=0
-- 111. Source and verification code have a deterministic hash manifest. Evidence: files=209, bytes=1490169, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 41, 'src': 58, 'tests': 49}, checks=14, issues=0
+- 111. Source and verification code have a deterministic hash manifest. Evidence: files=209, bytes=1495659, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 41, 'src': 58, 'tests': 49}, checks=14, issues=0
 - 112. Runtime and dependency environment metadata has a verified manifest. Evidence: python=3.10.11, core=4, absent=0, version_issues=0, optional_available=5/5, modules=13, commands=5, checks=15, issues=0
 - 113. Canonical experiment families have verified registry coverage. Evidence: entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=297, rows=260523, figures=40, failed=0, checks=10, issues=0
 - 114. Committed learned-model artifacts are loadable and numerically sane. Evidence: models=49, suffixes={'.npz': 36, '.joblib': 13}, bytes=119450103, npz_arrays=315, npz_elements=6077793, joblib_predictors=13, checks=10, issues=0
-- 115. Published final-report command results match current verification artifacts. Evidence: snippets=28, python_commands=31, pytest=135, checks=31, issues=0
+- 115. Published final-report command results match current verification artifacts. Evidence: snippets=28, python_commands=31, pytest=137, checks=31, issues=0
 - 116. Pytest command-result counts come from a verified collected-test inventory. Evidence: tests=137, unique=137, trailer=137, checks=6, issues=0
 - 117. Generated claim-status artifacts are byte-stable under rerunning the claim generator. Evidence: claims=127, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json
 - 118. Generated max-out narrative reports are byte-stable under rerunning the report generator. Evidence: reports=8, files=8, checks=9, issues=0, hashes_recorded_in=results/report_generation_consistency.json
@@ -138,7 +138,7 @@
 - 124. Broad claim wording is scoped by concrete evidence. Evidence: claims=127, scope_mentions=155, categories={'verification': 42, 'model': 24, 'benchmark': 57, 'visual': 13, 'suite_family': 15, 'policy_success': 4}, checks=160, issues=0
 - 125. Explicit narrative VERIFIED CLAIM references resolve to current verified claims. Evidence: claims=127, references=24, unique=12, issues=0
 - 126. Ideal frontier robotics endpoints remain explicitly guarded and unpromoted. Evidence: frontiers=4, guarded=84, unguarded=0, promoted=0, issues=0, results/frontier_integrity.json
-- 127. Ideal claim boundary separates promotable artifact-backed results from future-only non-claims. Evidence: ideal=9, promotable=4, future_only=5, all_promotable=False, issues=0, results/ideal_claim_boundary.json
+- 127. Ideal claim boundary separates promotable artifact-backed results from future-only non-claims. Evidence: ideal=9, promotable=4, future_only=5, endpoint_supported=4, unsupported_future=5, gap_ready=5, missing_evidence_ready=5, all_promotable=False, status=incomplete_future_only_gaps_remain, issues=0, results/ideal_claim_boundary.json
 
 ## Partial
 

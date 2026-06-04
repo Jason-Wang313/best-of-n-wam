@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=209, bytes=1490169, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 41, 'src': 58, 'tests': 49}, checks=14, issues=0"
+      "evidence": "files=209, bytes=1495659, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 41, 'src': 58, 'tests': 49}, checks=14, issues=0"
     },
     {
       "id": 112,
@@ -760,7 +760,7 @@
       "id": 127,
       "claim": "Ideal claim boundary separates promotable artifact-backed results from future-only non-claims.",
       "status": "VERIFIED",
-      "evidence": "ideal=9, promotable=4, future_only=5, all_promotable=False, issues=0, results/ideal_claim_boundary.json"
+      "evidence": "ideal=9, promotable=4, future_only=5, endpoint_supported=4, unsupported_future=5, gap_ready=5, missing_evidence_ready=5, all_promotable=False, status=incomplete_future_only_gaps_remain, issues=0, results/ideal_claim_boundary.json"
     }
   ],
   "readme_overclaims": [],

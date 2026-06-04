@@ -870,7 +870,7 @@
     {
       "name": "claim_127_ideal_boundary_semantics",
       "ok": true,
-      "detail": "evidence=ideal=9, promotable=4, future_only=5, all_promotable=False, issues=0, results/ideal_claim_boundary.json"
+      "detail": "evidence=ideal=9, promotable=4, future_only=5, endpoint_supported=4, unsupported_future=5, gap_ready=5, missing_evidence_ready=5, all_promotable=False, status=incomplete"
     },
     {
       "name": "ci_claim_coverage",

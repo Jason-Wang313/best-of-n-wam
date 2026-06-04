@@ -90,6 +90,13 @@ def test_ideal_claim_boundary_accepts_clean_boundary(tmp_path: Path) -> None:
     assert payload["all_ideal_claims_promotable"] is False
     assert payload["n_promotable_claims"] >= 4
     assert payload["n_future_only_claims"] >= 4
+    assert payload["n_endpoint_supported_claims"] == payload["n_promotable_claims"]
+    assert payload["n_unsupported_future_only_claims"] == payload["n_future_only_claims"]
+    assert payload["all_future_only_have_promotion_requirements"] is True
+    assert payload["all_future_only_have_missing_evidence_classes"] is True
+    assert payload["all_future_only_have_gap_evidence_files"] is True
+    assert payload["goal_completion_status"] == "incomplete_future_only_gaps_remain"
+    assert len(payload["completion_blockers"]) == payload["n_future_only_claims"]
 
 
 def test_ideal_claim_boundary_rejects_missing_required_claim(tmp_path: Path) -> None:

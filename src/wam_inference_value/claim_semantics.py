@@ -204,12 +204,17 @@ def claim_requires_ideal_boundary_semantics(claim: str) -> bool:
 def evidence_has_ideal_boundary_semantics(evidence: str) -> bool:
     lower = evidence.lower()
     values = labeled_numbers(evidence)
+    future_only = values.get("future_only", 0.0)
     return (
         values.get("ideal", 0.0) >= 1.0
         and values.get("promotable", 0.0) >= 1.0
-        and values.get("future_only", 0.0) >= 1.0
+        and future_only >= 1.0
+        and values.get("unsupported_future", future_only) >= future_only
+        and values.get("gap_ready", future_only) >= future_only
+        and values.get("missing_evidence_ready", future_only) >= future_only
         and values.get("issues", 1.0) == 0.0
         and "all_promotable=false" in lower
+        and "status=incomplete_future_only_gaps_remain" in lower
     )
 
 

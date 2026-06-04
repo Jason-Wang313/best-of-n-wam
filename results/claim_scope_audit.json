@@ -1202,7 +1202,7 @@
       "claim_id": 105,
       "category": "verification",
       "claim": "Verified claims have mapped source artifacts and quality-checked evidence.",
-      "evidence": "claims=126, mapped=126, sources=173, issues=0",
+      "evidence": "claims=127, mapped=127, sources=175, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": false
     },
@@ -1210,7 +1210,7 @@
       "claim_id": 107,
       "category": "verification",
       "claim": "Verified claim wording satisfies semantic threshold checks.",
-      "evidence": "claims=126, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0",
+      "evidence": "claims=127, checks=177, CI claims=53, positive CI claims=33, error claims=11, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": false
     },
@@ -1242,7 +1242,7 @@
       "claim_id": 116,
       "category": "verification",
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
-      "evidence": "tests=131, unique=131, trailer=131, checks=6, issues=0",
+      "evidence": "tests=137, unique=137, trailer=137, checks=6, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": false
     },
@@ -1250,7 +1250,7 @@
       "claim_id": 125,
       "category": "verification",
       "claim": "Explicit narrative VERIFIED CLAIM references resolve to current verified claims.",
-      "evidence": "claims=126, references=24, unique=12, issues=0",
+      "evidence": "claims=127, references=24, unique=12, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": false
     }
@@ -2004,12 +2004,12 @@
     {
       "name": "claim_105_verified_wording_has_metric_or_scope",
       "ok": true,
-      "detail": "claim=Verified claims have mapped source artifacts and quality-checked evidence.; evidence=claims=126, mapped=126, sources=173, issues=0"
+      "detail": "claim=Verified claims have mapped source artifacts and quality-checked evidence.; evidence=claims=127, mapped=127, sources=175, issues=0"
     },
     {
       "name": "claim_107_verified_wording_has_metric_or_scope",
       "ok": true,
-      "detail": "claim=Verified claim wording satisfies semantic threshold checks.; evidence=claims=126, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0"
+      "detail": "claim=Verified claim wording satisfies semantic threshold checks.; evidence=claims=127, checks=177, CI claims=53, positive CI claims=33, error claims=11, issues=0"
     },
     {
       "name": "claim_112_verified_wording_has_metric_or_scope",
@@ -2029,12 +2029,12 @@
     {
       "name": "claim_116_verified_wording_has_metric_or_scope",
       "ok": true,
-      "detail": "claim=Pytest command-result counts come from a verified collected-test inventory.; evidence=tests=131, unique=131, trailer=131, checks=6, issues=0"
+      "detail": "claim=Pytest command-result counts come from a verified collected-test inventory.; evidence=tests=137, unique=137, trailer=137, checks=6, issues=0"
     },
     {
       "name": "claim_125_verified_wording_has_metric_or_scope",
       "ok": true,
-      "detail": "claim=Explicit narrative VERIFIED CLAIM references resolve to current verified claims.; evidence=claims=126, references=24, unique=12, issues=0"
+      "detail": "claim=Explicit narrative VERIFIED CLAIM references resolve to current verified claims.; evidence=claims=127, references=24, unique=12, issues=0"
     },
     {
       "name": "scope_mentions_present",

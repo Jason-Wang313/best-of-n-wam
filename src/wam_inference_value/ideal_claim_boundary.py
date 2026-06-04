@@ -382,6 +382,25 @@ def audit_ideal_claim_boundary(root: Path, results_dir: Path | None = None) -> d
 
     promotable_rows = [row for row in rows if row["promotable"]]
     future_rows = [row for row in rows if row["future_only"]]
+    endpoint_supported_rows = [row for row in rows if row["endpoint_supported"]]
+    unsupported_future_rows = [row for row in future_rows if not row["endpoint_supported"]]
+    future_with_promotion_requirements = [
+        row for row in future_rows if len(row["promotion_requirements"]) >= 2
+    ]
+    future_with_missing_evidence_classes = [
+        row for row in future_rows if len(row["missing_evidence_classes"]) >= 2
+    ]
+    future_with_gap_evidence_files = [
+        row for row in future_rows if row["gap_evidence_files"] and not row["missing_gap_evidence_files"]
+    ]
+    all_future_only_have_promotion_requirements = bool(future_rows) and len(future_with_promotion_requirements) == len(future_rows)
+    all_future_only_have_missing_evidence_classes = bool(future_rows) and len(future_with_missing_evidence_classes) == len(future_rows)
+    all_future_only_have_gap_evidence_files = bool(future_rows) and len(future_with_gap_evidence_files) == len(future_rows)
+    goal_completion_status = (
+        "complete_all_ideal_endpoints_supported"
+        if len(endpoint_supported_rows) == len(rows)
+        else "incomplete_future_only_gaps_remain"
+    )
     add(checks, "promotable_rows_present", len(promotable_rows) >= 4, f"promotable={len(promotable_rows)}")
     add(checks, "future_only_rows_present", len(future_rows) >= 4, f"future_only={len(future_rows)}")
     add(
@@ -389,6 +408,30 @@ def audit_ideal_claim_boundary(root: Path, results_dir: Path | None = None) -> d
         "future_rows_not_promoted",
         all(not row["promotable"] for row in future_rows),
         f"promoted_future={[row['id'] for row in future_rows if row['promotable']]}",
+    )
+    add(
+        checks,
+        "future_rows_have_promotion_requirements",
+        all_future_only_have_promotion_requirements,
+        f"ready={len(future_with_promotion_requirements)}/{len(future_rows)}",
+    )
+    add(
+        checks,
+        "future_rows_have_missing_evidence_classes",
+        all_future_only_have_missing_evidence_classes,
+        f"ready={len(future_with_missing_evidence_classes)}/{len(future_rows)}",
+    )
+    add(
+        checks,
+        "future_rows_have_gap_evidence_files",
+        all_future_only_have_gap_evidence_files,
+        f"ready={len(future_with_gap_evidence_files)}/{len(future_rows)}",
+    )
+    add(
+        checks,
+        "goal_completion_not_claimed",
+        goal_completion_status == "incomplete_future_only_gaps_remain",
+        f"status={goal_completion_status}",
     )
 
     issues = [check for check in checks if not check.ok]
@@ -398,9 +441,19 @@ def audit_ideal_claim_boundary(root: Path, results_dir: Path | None = None) -> d
         "n_ideal_claims": len(rows),
         "n_promotable_claims": len(promotable_rows),
         "n_future_only_claims": len(future_rows),
+        "n_endpoint_supported_claims": len(endpoint_supported_rows),
+        "n_unsupported_future_only_claims": len(unsupported_future_rows),
+        "n_future_only_with_promotion_requirements": len(future_with_promotion_requirements),
+        "n_future_only_with_missing_evidence_classes": len(future_with_missing_evidence_classes),
+        "n_future_only_with_gap_evidence_files": len(future_with_gap_evidence_files),
         "n_human_boundary_surfaces": len(HUMAN_BOUNDARY_SURFACES),
         "n_missing_human_boundary_surfaces": len(missing_human_surfaces),
         "all_ideal_claims_promotable": all(row["promotable"] for row in rows),
+        "all_future_only_have_promotion_requirements": all_future_only_have_promotion_requirements,
+        "all_future_only_have_missing_evidence_classes": all_future_only_have_missing_evidence_classes,
+        "all_future_only_have_gap_evidence_files": all_future_only_have_gap_evidence_files,
+        "goal_completion_status": goal_completion_status,
+        "completion_blockers": [row["id"] for row in unsupported_future_rows],
         "missing_human_boundary_surfaces": missing_human_surfaces,
         "rows": rows,
         "n_checks": len(checks),
@@ -418,7 +471,13 @@ def ideal_claim_boundary_markdown(payload: dict[str, Any]) -> str:
         f"- Ideal claims audited: {payload.get('n_ideal_claims')}",
         f"- Promotable artifact-backed claims: {payload.get('n_promotable_claims')}",
         f"- Future-only non-promotable claims: {payload.get('n_future_only_claims')}",
+        f"- Endpoint-supported claims: {payload.get('n_endpoint_supported_claims')}",
+        f"- Unsupported future-only endpoints: {payload.get('n_unsupported_future_only_claims')}",
         f"- All ideal claims promotable: {payload.get('all_ideal_claims_promotable')}",
+        f"- Goal completion status: {payload.get('goal_completion_status')}",
+        f"- Future-only rows with promotion requirements: {payload.get('n_future_only_with_promotion_requirements')}",
+        f"- Future-only rows with missing-evidence classes: {payload.get('n_future_only_with_missing_evidence_classes')}",
+        f"- Future-only rows with gap evidence files: {payload.get('n_future_only_with_gap_evidence_files')}",
         f"- Checks: {payload.get('n_checks')}",
         f"- Issues: {payload.get('n_issues')}",
         "",

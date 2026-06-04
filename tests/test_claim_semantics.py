@@ -104,7 +104,7 @@ def test_claim_semantics_accepts_ideal_boundary_nonpromotability() -> None:
                     "id": 127,
                     "claim": "Ideal claim boundary separates promotable artifact-backed results from future-only non-claims.",
                     "status": "VERIFIED",
-                    "evidence": "ideal=9, promotable=4, future_only=5, all_promotable=False, issues=0, results/ideal_claim_boundary.json",
+                    "evidence": "ideal=9, promotable=4, future_only=5, unsupported_future=5, gap_ready=5, missing_evidence_ready=5, all_promotable=False, status=incomplete_future_only_gaps_remain, issues=0, results/ideal_claim_boundary.json",
                 }
             ]
         )
@@ -122,7 +122,7 @@ def test_claim_semantics_rejects_ideal_boundary_all_promotable() -> None:
                     "id": 127,
                     "claim": "Ideal claim boundary separates promotable artifact-backed results from future-only non-claims.",
                     "status": "VERIFIED",
-                    "evidence": "ideal=9, promotable=9, future_only=0, all_promotable=True, issues=0, results/ideal_claim_boundary.json",
+                    "evidence": "ideal=9, promotable=9, future_only=0, unsupported_future=0, gap_ready=0, missing_evidence_ready=0, all_promotable=True, status=complete_all_ideal_endpoints_supported, issues=0, results/ideal_claim_boundary.json",
                 }
             ]
         )

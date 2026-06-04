@@ -2144,7 +2144,12 @@ def main() -> None:
             and (ideal_claim_boundary.get("n_ideal_claims") or 0) >= 9
             and (ideal_claim_boundary.get("n_promotable_claims") or 0) >= 4
             and (ideal_claim_boundary.get("n_future_only_claims") or 0) >= 5
+            and (ideal_claim_boundary.get("n_endpoint_supported_claims") or 0) >= 4
+            and (ideal_claim_boundary.get("n_unsupported_future_only_claims") or 0) >= 5
+            and (ideal_claim_boundary.get("n_future_only_with_gap_evidence_files") or 0) >= 5
+            and (ideal_claim_boundary.get("n_future_only_with_missing_evidence_classes") or 0) >= 5
             and ideal_claim_boundary.get("all_ideal_claims_promotable") is False
+            and ideal_claim_boundary.get("goal_completion_status") == "incomplete_future_only_gaps_remain"
             and ideal_claim_boundary.get("n_issues") == 0
             and artifact_exists(RESULTS / "ideal_claim_boundary.json")
             and artifact_exists(REPORTS / "ideal_claim_boundary_report.md"),
@@ -2154,7 +2159,12 @@ def main() -> None:
             f"ideal={ideal_claim_boundary.get('n_ideal_claims')}, "
             f"promotable={ideal_claim_boundary.get('n_promotable_claims')}, "
             f"future_only={ideal_claim_boundary.get('n_future_only_claims')}, "
+            f"endpoint_supported={ideal_claim_boundary.get('n_endpoint_supported_claims')}, "
+            f"unsupported_future={ideal_claim_boundary.get('n_unsupported_future_only_claims')}, "
+            f"gap_ready={ideal_claim_boundary.get('n_future_only_with_gap_evidence_files')}, "
+            f"missing_evidence_ready={ideal_claim_boundary.get('n_future_only_with_missing_evidence_classes')}, "
             f"all_promotable={ideal_claim_boundary.get('all_ideal_claims_promotable')}, "
+            f"status={ideal_claim_boundary.get('goal_completion_status')}, "
             f"issues={ideal_claim_boundary.get('n_issues')}, results/ideal_claim_boundary.json"
         ),
     }

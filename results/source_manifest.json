@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 209,
-  "total_bytes": 1490169,
+  "total_bytes": 1495659,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 192,
@@ -447,8 +447,8 @@
     {
       "path": "scripts/claims_status.py",
       "suffix": ".py",
-      "bytes": 127405,
-      "sha256": "882e2f2e44f9349fc4b4a98ac79fbfbc7a3ed58452308a7746d6de857c2045f6"
+      "bytes": 128358,
+      "sha256": "c28aa05721da7a5d09b28e4d8e0efb7a57bf1298f1ebf37c70d5abe0d0d53a06"
     },
     {
       "path": "scripts/command_result_consistency.py",
@@ -789,8 +789,8 @@
     {
       "path": "src/wam_inference_value/claim_semantics.py",
       "suffix": ".py",
-      "bytes": 12686,
-      "sha256": "60daba396c01ac3993310fdbfd9dc1c408857f5cf38a7d61a742fc4272996e7a"
+      "bytes": 12995,
+      "sha256": "d6731b492ccd0157a700ba935e9384c72a392207953bc1a09000f66330fcdab6"
     },
     {
       "path": "src/wam_inference_value/command_result_consistency.py",
@@ -849,8 +849,8 @@
     {
       "path": "src/wam_inference_value/ideal_claim_boundary.py",
       "suffix": ".py",
-      "bytes": 22943,
-      "sha256": "afe678b1b83e928cc25f64406ed929cfc71009fe029c6573feed7a1bac709602"
+      "bytes": 26398,
+      "sha256": "891ce3b4d110acfe373e4bbd631b553d5bbeebc1bc1194eafc040e2d65c04c20"
     },
     {
       "path": "src/wam_inference_value/learned_wam.py",
@@ -1047,8 +1047,8 @@
     {
       "path": "tests/test_claim_semantics.py",
       "suffix": ".py",
-      "bytes": 4355,
-      "sha256": "92278cf7701f4a6b75a6fb93c17f6805e30f28ec4c1beb56a1d3ba177c091843"
+      "bytes": 4567,
+      "sha256": "bbb3a48ce973ac5b648c16a03568cd1821a7ceec980037292d59f652ee7b1f1c"
     },
     {
       "path": "tests/test_command_result_consistency.py",
@@ -1137,8 +1137,8 @@
     {
       "path": "tests/test_ideal_claim_boundary.py",
       "suffix": ".py",
-      "bytes": 7676,
-      "sha256": "cf65d96ff0e542d8747f74c7df63323c2435eaac3c5159c78e48f3d4173c2487"
+      "bytes": 8237,
+      "sha256": "4e93f007cb6e9b7dbb1de9232ad148f216ab8885a39e48ce53c8564fee810344"
     },
     {
       "path": "tests/test_learned_wam.py",
@@ -1296,7 +1296,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1490169, scan=1490169"
+      "detail": "payload=1495659, scan=1495659"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1341,7 +1341,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1490169"
+      "detail": "bytes=1495659"
     },
     {
       "name": "source_manifest_dir_coverage",

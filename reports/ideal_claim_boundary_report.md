@@ -4,8 +4,14 @@
 - Ideal claims audited: 9
 - Promotable artifact-backed claims: 4
 - Future-only non-promotable claims: 5
+- Endpoint-supported claims: 4
+- Unsupported future-only endpoints: 5
 - All ideal claims promotable: False
-- Checks: 60
+- Goal completion status: incomplete_future_only_gaps_remain
+- Future-only rows with promotion requirements: 5
+- Future-only rows with missing-evidence classes: 5
+- Future-only rows with gap evidence files: 5
+- Checks: 64
 - Issues: 0
 
 ## Boundary Matrix

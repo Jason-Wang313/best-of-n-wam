@@ -4,9 +4,25 @@
   "n_ideal_claims": 9,
   "n_promotable_claims": 4,
   "n_future_only_claims": 5,
+  "n_endpoint_supported_claims": 4,
+  "n_unsupported_future_only_claims": 5,
+  "n_future_only_with_promotion_requirements": 5,
+  "n_future_only_with_missing_evidence_classes": 5,
+  "n_future_only_with_gap_evidence_files": 5,
   "n_human_boundary_surfaces": 4,
   "n_missing_human_boundary_surfaces": 0,
   "all_ideal_claims_promotable": false,
+  "all_future_only_have_promotion_requirements": true,
+  "all_future_only_have_missing_evidence_classes": true,
+  "all_future_only_have_gap_evidence_files": true,
+  "goal_completion_status": "incomplete_future_only_gaps_remain",
+  "completion_blockers": [
+    "real_robot_hil",
+    "modern_vla_libero",
+    "full_robocasa_wide",
+    "maniskill_visual_ee",
+    "universal_wam_training_recipe"
+  ],
   "missing_human_boundary_surfaces": [],
   "rows": [
     {
@@ -563,7 +579,7 @@
       "missing_gap_evidence_files": []
     }
   ],
-  "n_checks": 60,
+  "n_checks": 64,
   "n_issues": 0,
   "checks": [
     {
@@ -865,6 +881,26 @@
       "name": "future_rows_not_promoted",
       "ok": true,
       "detail": "promoted_future=[]"
+    },
+    {
+      "name": "future_rows_have_promotion_requirements",
+      "ok": true,
+      "detail": "ready=5/5"
+    },
+    {
+      "name": "future_rows_have_missing_evidence_classes",
+      "ok": true,
+      "detail": "ready=5/5"
+    },
+    {
+      "name": "future_rows_have_gap_evidence_files",
+      "ok": true,
+      "detail": "ready=5/5"
+    },
+    {
+      "name": "goal_completion_not_claimed",
+      "ok": true,
+      "detail": "status=incomplete_future_only_gaps_remain"
     }
   ],
   "issues": []
