@@ -1,0 +1,4479 @@
+{
+  "experiment": "model_artifact_integrity",
+  "verified": true,
+  "models_dir": "C:\\Users\\wangz\\best-of-n-wam\\results\\models",
+  "n_models": 49,
+  "counts_by_suffix": {
+    ".npz": 36,
+    ".joblib": 13
+  },
+  "total_bytes": 119450103,
+  "n_npz_arrays": 315,
+  "n_npz_numeric_arrays": 246,
+  "n_npz_elements": 6077793,
+  "n_joblib_predictors": 13,
+  "n_checks": 10,
+  "n_issues": 0,
+  "checks": [
+    {
+      "name": "model_artifacts_present",
+      "ok": true,
+      "detail": "models=49"
+    },
+    {
+      "name": "model_artifact_npz_breadth",
+      "ok": true,
+      "detail": "npz=36"
+    },
+    {
+      "name": "model_artifact_joblib_breadth",
+      "ok": true,
+      "detail": "joblib=13"
+    },
+    {
+      "name": "model_artifact_total_bytes",
+      "ok": true,
+      "detail": "bytes=119450103"
+    },
+    {
+      "name": "model_artifacts_load",
+      "ok": true,
+      "detail": "unreadable=[], count=0"
+    },
+    {
+      "name": "model_artifacts_nonempty_files",
+      "ok": true,
+      "detail": "empty=[]"
+    },
+    {
+      "name": "npz_model_arrays_present",
+      "ok": true,
+      "detail": "empty_arrays=[], count=0"
+    },
+    {
+      "name": "npz_model_arrays_finite",
+      "ok": true,
+      "detail": "nonfinite=[], count=0"
+    },
+    {
+      "name": "npz_model_arrays_nonempty",
+      "ok": true,
+      "detail": "tiny=[], count=0"
+    },
+    {
+      "name": "joblib_models_predictable",
+      "ok": true,
+      "detail": "without_predict=[], count=0"
+    }
+  ],
+  "issues": [],
+  "unreadable_models": [],
+  "empty_models": [],
+  "npz_empty_arrays": [],
+  "npz_nonfinite": [],
+  "joblib_without_predict": [],
+  "records": [
+    {
+      "path": "results/models/benchmark_gym_manip_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 6148,
+      "sha256": "f67d5ccd3b521105505f8b93ef950c5807cdc88873b65c9797a58a61fcfb8942",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 6,
+      "total_elements": 540,
+      "numeric_arrays": 4,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            48
+          ],
+          "dtype": "float64",
+          "size": 48,
+          "numeric": true,
+          "finite_count": 48,
+          "all_finite": true,
+          "min": -0.024765800625047935,
+          "max": 8.022394842776501
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            48
+          ],
+          "dtype": "float64",
+          "size": 48,
+          "numeric": true,
+          "finite_count": 48,
+          "all_finite": true,
+          "min": 0.0014548805799656883,
+          "max": 2.95666868888315
+        },
+        {
+          "name": "coef",
+          "shape": [
+            49,
+            9
+          ],
+          "dtype": "float64",
+          "size": 441,
+          "numeric": true,
+          "finite_count": 441,
+          "all_finite": true,
+          "min": -22.33264374847527,
+          "max": 11.243786895253534
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_gym_robotics_FetchPickAndPlace-v4_wam.joblib",
+      "suffix": ".joblib",
+      "bytes": 7060006,
+      "sha256": "8d6a34bbddd48c933b064f4f80358b569bf3ffd1f83492c38121fbaf29d6024a",
+      "load_ok": true,
+      "loader": "joblib.load",
+      "model_type": "builtins.dict",
+      "attributes": [],
+      "predictor_paths": [
+        "model.model"
+      ],
+      "has_predict": true
+    },
+    {
+      "path": "results/models/benchmark_gym_robotics_FetchPush-v4_wam.joblib",
+      "suffix": ".joblib",
+      "bytes": 7048734,
+      "sha256": "016eecbcb41e9de84473c6ab8cea5076a90359b796f4a55cbb81370acf52ad6a",
+      "load_ok": true,
+      "loader": "joblib.load",
+      "model_type": "builtins.dict",
+      "attributes": [],
+      "predictor_paths": [
+        "model.model"
+      ],
+      "has_predict": true
+    },
+    {
+      "path": "results/models/benchmark_gym_robotics_FetchReach-v4_wam.joblib",
+      "suffix": ".joblib",
+      "bytes": 7053839,
+      "sha256": "31962f7751041290574e08de07c90895e15d8a6a0deba1ad13a4a01dabb98a2a",
+      "load_ok": true,
+      "loader": "joblib.load",
+      "model_type": "builtins.dict",
+      "attributes": [],
+      "predictor_paths": [
+        "model.model"
+      ],
+      "has_predict": true
+    },
+    {
+      "path": "results/models/benchmark_gym_robotics_visual_FetchPickAndPlace-v4_wam.joblib",
+      "suffix": ".joblib",
+      "bytes": 4290362,
+      "sha256": "541ee126ed7083e8c7c6bb6029a68966fbbb7838172082b2137dd11cd09f419a",
+      "load_ok": true,
+      "loader": "joblib.load",
+      "model_type": "builtins.dict",
+      "attributes": [],
+      "predictor_paths": [
+        "model.model"
+      ],
+      "has_predict": true
+    },
+    {
+      "path": "results/models/benchmark_gym_robotics_visual_FetchPush-v4_wam.joblib",
+      "suffix": ".joblib",
+      "bytes": 4290002,
+      "sha256": "15b7bd7757f54fea28b94a5aaa31f500bcba513c82e14c26351eda3fb3122e72",
+      "load_ok": true,
+      "loader": "joblib.load",
+      "model_type": "builtins.dict",
+      "attributes": [],
+      "predictor_paths": [
+        "model.model"
+      ],
+      "has_predict": true
+    },
+    {
+      "path": "results/models/benchmark_gym_robotics_visual_FetchReach-v4_wam.joblib",
+      "suffix": ".joblib",
+      "bytes": 4307603,
+      "sha256": "e0b202ef92fcfd6af8dd423cc33fb696225a2658f54ed558f490a4bba554cd1b",
+      "load_ok": true,
+      "loader": "joblib.load",
+      "model_type": "builtins.dict",
+      "attributes": [],
+      "predictor_paths": [
+        "model.model"
+      ],
+      "has_predict": true
+    },
+    {
+      "path": "results/models/benchmark_libero_autonomous_bc_policy.npz",
+      "suffix": ".npz",
+      "bytes": 2911100,
+      "sha256": "362785ae55798f237c364b1cc6e9f7bdccb27df703bd2e4cc0ffe1e82d10262b",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 7,
+      "total_elements": 727152,
+      "numeric_arrays": 6,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "x_train",
+          "shape": [
+            12535,
+            51
+          ],
+          "dtype": "float32",
+          "size": 639285,
+          "numeric": true,
+          "finite_count": 639285,
+          "all_finite": true,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "name": "y_train",
+          "shape": [
+            12535,
+            7
+          ],
+          "dtype": "float32",
+          "size": 87745,
+          "numeric": true,
+          "finite_count": 87745,
+          "all_finite": true,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "name": "mean",
+          "shape": [
+            51
+          ],
+          "dtype": "float64",
+          "size": 51,
+          "numeric": true,
+          "finite_count": 51,
+          "all_finite": true,
+          "min": -0.32815354673390884,
+          "max": 0.9995875721212099
+        },
+        {
+          "name": "scale",
+          "shape": [
+            51
+          ],
+          "dtype": "float64",
+          "size": 51,
+          "numeric": true,
+          "finite_count": 51,
+          "all_finite": true,
+          "min": 0.00012253506246361466,
+          "max": 1.0
+        },
+        {
+          "name": "task_ids",
+          "shape": [
+            10
+          ],
+          "dtype": "object",
+          "size": 10,
+          "numeric": false
+        },
+        {
+          "name": "train_seeds",
+          "shape": [
+            5
+          ],
+          "dtype": "int32",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": 100.0,
+          "max": 104.0
+        },
+        {
+          "name": "eval_seeds",
+          "shape": [
+            5
+          ],
+          "dtype": "int32",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": 200.0,
+          "max": 204.0
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_libero_learned_action_head.npz",
+      "suffix": ".npz",
+      "bytes": 2049747,
+      "sha256": "d3a987e806d6aa96d0f04f9c647977aa01ecae2ef7a2dd8b9036495f51f3ea1d",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 11,
+      "total_elements": 255820,
+      "numeric_arrays": 9,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "mean",
+          "shape": [
+            44
+          ],
+          "dtype": "float64",
+          "size": 44,
+          "numeric": true,
+          "finite_count": 44,
+          "all_finite": true,
+          "min": -0.32408346219322814,
+          "max": 0.5053849222177902
+        },
+        {
+          "name": "scale",
+          "shape": [
+            44
+          ],
+          "dtype": "float64",
+          "size": 44,
+          "numeric": true,
+          "finite_count": 44,
+          "all_finite": true,
+          "min": 0.003096020455051223,
+          "max": 1.0
+        },
+        {
+          "name": "weights",
+          "shape": [
+            0,
+            0
+          ],
+          "dtype": "float64",
+          "size": 0,
+          "numeric": true,
+          "finite_count": 0,
+          "all_finite": true
+        },
+        {
+          "name": "x_train",
+          "shape": [
+            5014,
+            44
+          ],
+          "dtype": "float64",
+          "size": 220616,
+          "numeric": true,
+          "finite_count": 220616,
+          "all_finite": true,
+          "min": -7.624923902635785,
+          "max": 12.693627253854684
+        },
+        {
+          "name": "y_train",
+          "shape": [
+            5014,
+            7
+          ],
+          "dtype": "float64",
+          "size": 35098,
+          "numeric": true,
+          "finite_count": 35098,
+          "all_finite": true,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "name": "action_head_model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "knn_k",
+          "shape": [],
+          "dtype": "int32",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 3.0,
+          "max": 3.0
+        },
+        {
+          "name": "knn_temperature",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.05,
+          "max": 0.05
+        },
+        {
+          "name": "task_ids",
+          "shape": [
+            10
+          ],
+          "dtype": "object",
+          "size": 10,
+          "numeric": false
+        },
+        {
+          "name": "train_seeds",
+          "shape": [
+            2
+          ],
+          "dtype": "int32",
+          "size": 2,
+          "numeric": true,
+          "finite_count": 2,
+          "all_finite": true,
+          "min": 100.0,
+          "max": 101.0
+        },
+        {
+          "name": "eval_seeds",
+          "shape": [
+            3
+          ],
+          "dtype": "int32",
+          "size": 3,
+          "numeric": true,
+          "finite_count": 3,
+          "all_finite": true,
+          "min": 200.0,
+          "max": 202.0
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_libero_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 6212,
+      "sha256": "c27739934cdca2680fa16e94ddf8720f3e55388ecda253636a6ea39a6291af71",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 5,
+      "total_elements": 550,
+      "numeric_arrays": 3,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "mean",
+          "shape": [
+            77
+          ],
+          "dtype": "float64",
+          "size": 77,
+          "numeric": true,
+          "finite_count": 77,
+          "all_finite": true,
+          "min": -2.444597470000007,
+          "max": 9.949401709292816
+        },
+        {
+          "name": "scale",
+          "shape": [
+            77
+          ],
+          "dtype": "float64",
+          "size": 77,
+          "numeric": true,
+          "finite_count": 77,
+          "all_finite": true,
+          "min": 0.00033044060926456256,
+          "max": 1.0
+        },
+        {
+          "name": "weights",
+          "shape": [
+            78,
+            5
+          ],
+          "dtype": "float64",
+          "size": 390,
+          "numeric": true,
+          "finite_count": 390,
+          "all_finite": true,
+          "min": -0.087134043537142,
+          "max": 4.836865382261841
+        },
+        {
+          "name": "target_names",
+          "shape": [
+            5
+          ],
+          "dtype": "object",
+          "size": 5,
+          "numeric": false
+        },
+        {
+          "name": "metadata",
+          "shape": [
+            1
+          ],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_libero_visual_language_bc_policy.npz",
+      "suffix": ".npz",
+      "bytes": 20584662,
+      "sha256": "ba28067fae1a8b9044bf5b46a00b3e9c6cae9e902faeb06904045f64657f9803",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 9,
+      "total_elements": 5041072,
+      "numeric_arrays": 7,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "x_train",
+          "shape": [
+            7521,
+            662
+          ],
+          "dtype": "float32",
+          "size": 4978902,
+          "numeric": true,
+          "finite_count": 4978902,
+          "all_finite": true,
+          "min": -2.4445974826812744,
+          "max": 2.724576711654663
+        },
+        {
+          "name": "y_train",
+          "shape": [
+            7521,
+            7
+          ],
+          "dtype": "float32",
+          "size": 52647,
+          "numeric": true,
+          "finite_count": 52647,
+          "all_finite": true,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "name": "mean",
+          "shape": [
+            662
+          ],
+          "dtype": "float32",
+          "size": 662,
+          "numeric": true,
+          "finite_count": 662,
+          "all_finite": true,
+          "min": -1.897905707359314,
+          "max": 2.205256700515747
+        },
+        {
+          "name": "scale",
+          "shape": [
+            662
+          ],
+          "dtype": "float32",
+          "size": 662,
+          "numeric": true,
+          "finite_count": 662,
+          "all_finite": true,
+          "min": 0.0001230690977536142,
+          "max": 1.0
+        },
+        {
+          "name": "feature_weights",
+          "shape": [
+            662
+          ],
+          "dtype": "float32",
+          "size": 662,
+          "numeric": true,
+          "finite_count": 662,
+          "all_finite": true,
+          "min": 0.44999998807907104,
+          "max": 2.5
+        },
+        {
+          "name": "train_languages",
+          "shape": [
+            7521
+          ],
+          "dtype": "object",
+          "size": 7521,
+          "numeric": false
+        },
+        {
+          "name": "task_ids",
+          "shape": [
+            10
+          ],
+          "dtype": "object",
+          "size": 10,
+          "numeric": false
+        },
+        {
+          "name": "train_seeds",
+          "shape": [
+            3
+          ],
+          "dtype": "int32",
+          "size": 3,
+          "numeric": true,
+          "finite_count": 3,
+          "all_finite": true,
+          "min": 100.0,
+          "max": 102.0
+        },
+        {
+          "name": "eval_seeds",
+          "shape": [
+            3
+          ],
+          "dtype": "int32",
+          "size": 3,
+          "numeric": true,
+          "finite_count": 3,
+          "all_finite": true,
+          "min": 200.0,
+          "max": 202.0
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_maniskill_PegInsertionSide-v1_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 78350,
+      "sha256": "3961723ee688c519406715ef1a848964224824dfa250ac5fe28db9e9821b5c45",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 6,
+      "total_elements": 9564,
+      "numeric_arrays": 4,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            130
+          ],
+          "dtype": "float64",
+          "size": 130,
+          "numeric": true,
+          "finite_count": 130,
+          "all_finite": true,
+          "min": -1.9633699655532837,
+          "max": 9.145002399429329
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            130
+          ],
+          "dtype": "float64",
+          "size": 130,
+          "numeric": true,
+          "finite_count": 130,
+          "all_finite": true,
+          "min": 0.00272823671676909,
+          "max": 5.588551793517685
+        },
+        {
+          "name": "coef",
+          "shape": [
+            131,
+            71
+          ],
+          "dtype": "float64",
+          "size": 9301,
+          "numeric": true,
+          "finite_count": 9301,
+          "all_finite": true,
+          "min": -0.24999616537522756,
+          "max": 0.26739445418357766
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_maniskill_PickCube-v1_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 78342,
+      "sha256": "274f08942fea58e43d89b6931d8106c2e478e1bafc9bc4af9d07d84465ad17ee",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 6,
+      "total_elements": 9564,
+      "numeric_arrays": 4,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            130
+          ],
+          "dtype": "float64",
+          "size": 130,
+          "numeric": true,
+          "finite_count": 130,
+          "all_finite": true,
+          "min": -1.9629996716976166,
+          "max": 9.179218815319256
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            130
+          ],
+          "dtype": "float64",
+          "size": 130,
+          "numeric": true,
+          "finite_count": 130,
+          "all_finite": true,
+          "min": 0.007620580224627078,
+          "max": 5.811954919793045
+        },
+        {
+          "name": "coef",
+          "shape": [
+            131,
+            71
+          ],
+          "dtype": "float64",
+          "size": 9301,
+          "numeric": true,
+          "finite_count": 9301,
+          "all_finite": true,
+          "min": -0.2976304303922489,
+          "max": 0.22346738926466642
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_maniskill_PushCube-v1_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 78342,
+      "sha256": "73bcc8ee7e18f920858db7dce4e0664e258f38649d7003f2e23e54eabbd536a3",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 6,
+      "total_elements": 9564,
+      "numeric_arrays": 4,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            130
+          ],
+          "dtype": "float64",
+          "size": 130,
+          "numeric": true,
+          "finite_count": 130,
+          "all_finite": true,
+          "min": -1.9521100223064423,
+          "max": 8.389533644843894
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            130
+          ],
+          "dtype": "float64",
+          "size": 130,
+          "numeric": true,
+          "finite_count": 130,
+          "all_finite": true,
+          "min": 0.009787341584265447,
+          "max": 4.724272323485768
+        },
+        {
+          "name": "coef",
+          "shape": [
+            131,
+            71
+          ],
+          "dtype": "float64",
+          "size": 9301,
+          "numeric": true,
+          "finite_count": 9301,
+          "all_finite": true,
+          "min": -0.3138917924607774,
+          "max": 0.31137416903178605
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_metaworld_drawer_open_v3_wam.joblib",
+      "suffix": ".joblib",
+      "bytes": 8562123,
+      "sha256": "1a602702ea91cb17f4a38d07a0637c93aef16c00a5507548ae8a194fb6127729",
+      "load_ok": true,
+      "loader": "joblib.load",
+      "model_type": "builtins.dict",
+      "attributes": [],
+      "predictor_paths": [
+        "model.model"
+      ],
+      "has_predict": true
+    },
+    {
+      "path": "results/models/benchmark_metaworld_push_v3_wam.joblib",
+      "suffix": ".joblib",
+      "bytes": 8575172,
+      "sha256": "e5106d00b635cd733d64d281bfa1564a756292e0faf63cf07c0331c9be8a2442",
+      "load_ok": true,
+      "loader": "joblib.load",
+      "model_type": "builtins.dict",
+      "attributes": [],
+      "predictor_paths": [
+        "model.model"
+      ],
+      "has_predict": true
+    },
+    {
+      "path": "results/models/benchmark_metaworld_reach_v3_wam.joblib",
+      "suffix": ".joblib",
+      "bytes": 8550405,
+      "sha256": "e8bb133a5916886c1384d6746c4ec49447d44031c946777352e63a51f9a173e0",
+      "load_ok": true,
+      "loader": "joblib.load",
+      "model_type": "builtins.dict",
+      "attributes": [],
+      "predictor_paths": [
+        "model.model"
+      ],
+      "has_predict": true
+    },
+    {
+      "path": "results/models/benchmark_robocasa_broad_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 7429,
+      "sha256": "fe80b8969b22555086b68df90279ad12e4261d3aaa6a0674b03ed90da23df5a1",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 5,
+      "total_elements": 704,
+      "numeric_arrays": 3,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "mean",
+          "shape": [
+            99
+          ],
+          "dtype": "float64",
+          "size": 99,
+          "numeric": true,
+          "finite_count": 99,
+          "all_finite": true,
+          "min": -11.721694540552187,
+          "max": 12.691389138775842
+        },
+        {
+          "name": "scale",
+          "shape": [
+            99
+          ],
+          "dtype": "float64",
+          "size": 99,
+          "numeric": true,
+          "finite_count": 99,
+          "all_finite": true,
+          "min": 0.09503627868693913,
+          "max": 4.165942840680875
+        },
+        {
+          "name": "weights",
+          "shape": [
+            100,
+            5
+          ],
+          "dtype": "float64",
+          "size": 500,
+          "numeric": true,
+          "finite_count": 500,
+          "all_finite": true,
+          "min": -0.058075207665478606,
+          "max": 5.493561638519168
+        },
+        {
+          "name": "target_names",
+          "shape": [
+            5
+          ],
+          "dtype": "object",
+          "size": 5,
+          "numeric": false
+        },
+        {
+          "name": "metadata",
+          "shape": [
+            1
+          ],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_robocasa_extra4_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 7487,
+      "sha256": "a7983cc0af2f6c9b3638bbca4f79e6440e7c88aa23c6f39555462473e1ba117b",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 5,
+      "total_elements": 704,
+      "numeric_arrays": 3,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "mean",
+          "shape": [
+            99
+          ],
+          "dtype": "float64",
+          "size": 99,
+          "numeric": true,
+          "finite_count": 99,
+          "all_finite": true,
+          "min": -11.164681656013734,
+          "max": 12.059254368445695
+        },
+        {
+          "name": "scale",
+          "shape": [
+            99
+          ],
+          "dtype": "float64",
+          "size": 99,
+          "numeric": true,
+          "finite_count": 99,
+          "all_finite": true,
+          "min": 2.3426061972583695e-08,
+          "max": 4.240689016865312
+        },
+        {
+          "name": "weights",
+          "shape": [
+            100,
+            5
+          ],
+          "dtype": "float64",
+          "size": 500,
+          "numeric": true,
+          "finite_count": 500,
+          "all_finite": true,
+          "min": -0.05729988507725825,
+          "max": 5.493561638519168
+        },
+        {
+          "name": "target_names",
+          "shape": [
+            5
+          ],
+          "dtype": "object",
+          "size": 5,
+          "numeric": false
+        },
+        {
+          "name": "metadata",
+          "shape": [
+            1
+          ],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_robocasa_family12_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 8067,
+      "sha256": "6b24246a7ce1711a1e1c83aa6857d8b043cade1c2002b15a4dbf7594c7b204f4",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 5,
+      "total_elements": 760,
+      "numeric_arrays": 3,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "mean",
+          "shape": [
+            107
+          ],
+          "dtype": "float64",
+          "size": 107,
+          "numeric": true,
+          "finite_count": 107,
+          "all_finite": true,
+          "min": -11.699485334482512,
+          "max": 10.084273952665056
+        },
+        {
+          "name": "scale",
+          "shape": [
+            107
+          ],
+          "dtype": "float64",
+          "size": 107,
+          "numeric": true,
+          "finite_count": 107,
+          "all_finite": true,
+          "min": 0.08027378093397053,
+          "max": 3.8704407002696373
+        },
+        {
+          "name": "weights",
+          "shape": [
+            108,
+            5
+          ],
+          "dtype": "float64",
+          "size": 540,
+          "numeric": true,
+          "finite_count": 540,
+          "all_finite": true,
+          "min": -0.052926024207427494,
+          "max": 5.142209465925893
+        },
+        {
+          "name": "target_names",
+          "shape": [
+            5
+          ],
+          "dtype": "object",
+          "size": 5,
+          "numeric": false
+        },
+        {
+          "name": "metadata",
+          "shape": [
+            1
+          ],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_robocasa_family24_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 9117,
+      "sha256": "0e9da847419c74aee69c30de27990a1639058ec065cb2af6f811301dadfd554a",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 5,
+      "total_elements": 844,
+      "numeric_arrays": 3,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "mean",
+          "shape": [
+            119
+          ],
+          "dtype": "float64",
+          "size": 119,
+          "numeric": true,
+          "finite_count": 119,
+          "all_finite": true,
+          "min": -12.133505991598234,
+          "max": 10.220010135454103
+        },
+        {
+          "name": "scale",
+          "shape": [
+            119
+          ],
+          "dtype": "float64",
+          "size": 119,
+          "numeric": true,
+          "finite_count": 119,
+          "all_finite": true,
+          "min": 0.08868999805391908,
+          "max": 4.183015570573098
+        },
+        {
+          "name": "weights",
+          "shape": [
+            120,
+            5
+          ],
+          "dtype": "float64",
+          "size": 600,
+          "numeric": true,
+          "finite_count": 600,
+          "all_finite": true,
+          "min": -0.06546330518623825,
+          "max": 5.219837804324926
+        },
+        {
+          "name": "target_names",
+          "shape": [
+            5
+          ],
+          "dtype": "object",
+          "size": 5,
+          "numeric": false
+        },
+        {
+          "name": "metadata",
+          "shape": [
+            1
+          ],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_robocasa_family28_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 9497,
+      "sha256": "7e37f2a3cfb8827b801dfc8a5bc21437131f84dfde68e4347ed637e72d469727",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 5,
+      "total_elements": 872,
+      "numeric_arrays": 3,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "mean",
+          "shape": [
+            123
+          ],
+          "dtype": "float64",
+          "size": 123,
+          "numeric": true,
+          "finite_count": 123,
+          "all_finite": true,
+          "min": -11.863933702371735,
+          "max": 10.67632952013874
+        },
+        {
+          "name": "scale",
+          "shape": [
+            123
+          ],
+          "dtype": "float64",
+          "size": 123,
+          "numeric": true,
+          "finite_count": 123,
+          "all_finite": true,
+          "min": 0.08953478732196926,
+          "max": 3.6434182790773204
+        },
+        {
+          "name": "weights",
+          "shape": [
+            124,
+            5
+          ],
+          "dtype": "float64",
+          "size": 620,
+          "numeric": true,
+          "finite_count": 620,
+          "all_finite": true,
+          "min": -0.05348123083989115,
+          "max": 5.265750502834897
+        },
+        {
+          "name": "target_names",
+          "shape": [
+            5
+          ],
+          "dtype": "object",
+          "size": 5,
+          "numeric": false
+        },
+        {
+          "name": "metadata",
+          "shape": [
+            1
+          ],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_robocasa_family32_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 9846,
+      "sha256": "1973686f7c9df09b4ccd1f973940856e0a616cd2c1e5282174ffe76288ceeb6e",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 5,
+      "total_elements": 900,
+      "numeric_arrays": 3,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "mean",
+          "shape": [
+            127
+          ],
+          "dtype": "float64",
+          "size": 127,
+          "numeric": true,
+          "finite_count": 127,
+          "all_finite": true,
+          "min": -11.86725597142465,
+          "max": 11.103884535567747
+        },
+        {
+          "name": "scale",
+          "shape": [
+            127
+          ],
+          "dtype": "float64",
+          "size": 127,
+          "numeric": true,
+          "finite_count": 127,
+          "all_finite": true,
+          "min": 0.08890165740146935,
+          "max": 3.7077406812134797
+        },
+        {
+          "name": "weights",
+          "shape": [
+            128,
+            5
+          ],
+          "dtype": "float64",
+          "size": 640,
+          "numeric": true,
+          "finite_count": 640,
+          "all_finite": true,
+          "min": -0.053941557121383515,
+          "max": 5.292378621350509
+        },
+        {
+          "name": "target_names",
+          "shape": [
+            5
+          ],
+          "dtype": "object",
+          "size": 5,
+          "numeric": false
+        },
+        {
+          "name": "metadata",
+          "shape": [
+            1
+          ],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_robocasa_multitask_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 8059,
+      "sha256": "278c9443a9b135451ffe135a96a758b4980908b5f6e462b5ca77335fc6ea9a67",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 5,
+      "total_elements": 781,
+      "numeric_arrays": 3,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "mean",
+          "shape": [
+            110
+          ],
+          "dtype": "float64",
+          "size": 110,
+          "numeric": true,
+          "finite_count": 110,
+          "all_finite": true,
+          "min": -12.133175658477521,
+          "max": 11.992083944709949
+        },
+        {
+          "name": "scale",
+          "shape": [
+            110
+          ],
+          "dtype": "float64",
+          "size": 110,
+          "numeric": true,
+          "finite_count": 110,
+          "all_finite": true,
+          "min": 0.07759999041023098,
+          "max": 5.655568019454352
+        },
+        {
+          "name": "weights",
+          "shape": [
+            111,
+            5
+          ],
+          "dtype": "float64",
+          "size": 555,
+          "numeric": true,
+          "finite_count": 555,
+          "all_finite": true,
+          "min": -0.11858112847409509,
+          "max": 8.03210771208008
+        },
+        {
+          "name": "target_names",
+          "shape": [
+            5
+          ],
+          "dtype": "object",
+          "size": 5,
+          "numeric": false
+        },
+        {
+          "name": "metadata",
+          "shape": [
+            1
+          ],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_robocasa_residual35_h1_n4_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 9371,
+      "sha256": "87377878f7990569c5be2b18646a5f698a426a1fc272d9120fd16e944bdee8db",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 5,
+      "total_elements": 837,
+      "numeric_arrays": 3,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "mean",
+          "shape": [
+            118
+          ],
+          "dtype": "float64",
+          "size": 118,
+          "numeric": true,
+          "finite_count": 118,
+          "all_finite": true,
+          "min": -13.607372195841593,
+          "max": 11.69963005342587
+        },
+        {
+          "name": "scale",
+          "shape": [
+            118
+          ],
+          "dtype": "float64",
+          "size": 118,
+          "numeric": true,
+          "finite_count": 118,
+          "all_finite": true,
+          "min": 0.08722040048016427,
+          "max": 4.274601332202839
+        },
+        {
+          "name": "weights",
+          "shape": [
+            119,
+            5
+          ],
+          "dtype": "float64",
+          "size": 595,
+          "numeric": true,
+          "finite_count": 595,
+          "all_finite": true,
+          "min": -0.026821972394609504,
+          "max": 2.752878508397511
+        },
+        {
+          "name": "target_names",
+          "shape": [
+            5
+          ],
+          "dtype": "object",
+          "size": 5,
+          "numeric": false
+        },
+        {
+          "name": "metadata",
+          "shape": [
+            1
+          ],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_robocasa_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 7785,
+      "sha256": "a0dc85da8a7ffb78f238568fed63866f75c13f6b85eb6b29a230323e1d22b55b",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 5,
+      "total_elements": 760,
+      "numeric_arrays": 3,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "mean",
+          "shape": [
+            107
+          ],
+          "dtype": "float64",
+          "size": 107,
+          "numeric": true,
+          "finite_count": 107,
+          "all_finite": true,
+          "min": -11.957476722003674,
+          "max": 11.968636025057064
+        },
+        {
+          "name": "scale",
+          "shape": [
+            107
+          ],
+          "dtype": "float64",
+          "size": 107,
+          "numeric": true,
+          "finite_count": 107,
+          "all_finite": true,
+          "min": 0.020015887118627427,
+          "max": 1.5257772461301027
+        },
+        {
+          "name": "weights",
+          "shape": [
+            108,
+            5
+          ],
+          "dtype": "float64",
+          "size": 540,
+          "numeric": true,
+          "finite_count": 540,
+          "all_finite": true,
+          "min": -0.08077299104324735,
+          "max": 8.000709281861782
+        },
+        {
+          "name": "target_names",
+          "shape": [
+            5
+          ],
+          "dtype": "object",
+          "size": 5,
+          "numeric": false
+        },
+        {
+          "name": "metadata",
+          "shape": [
+            1
+          ],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_robocasa_stratified55_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 11742,
+      "sha256": "9c12ca5ebfbbdf366d0321223a4c5d29de650484d023f45081a41146de6ef96a",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 5,
+      "total_elements": 1061,
+      "numeric_arrays": 3,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "mean",
+          "shape": [
+            150
+          ],
+          "dtype": "float64",
+          "size": 150,
+          "numeric": true,
+          "finite_count": 150,
+          "all_finite": true,
+          "min": -12.130772526228268,
+          "max": 11.048474780807771
+        },
+        {
+          "name": "scale",
+          "shape": [
+            150
+          ],
+          "dtype": "float64",
+          "size": 150,
+          "numeric": true,
+          "finite_count": 150,
+          "all_finite": true,
+          "min": 2.6329221284679023e-08,
+          "max": 3.6622239460147896
+        },
+        {
+          "name": "weights",
+          "shape": [
+            151,
+            5
+          ],
+          "dtype": "float64",
+          "size": 755,
+          "numeric": true,
+          "finite_count": 755,
+          "all_finite": true,
+          "min": -0.053512108835739126,
+          "max": 5.300498925251039
+        },
+        {
+          "name": "target_names",
+          "shape": [
+            5
+          ],
+          "dtype": "object",
+          "size": 5,
+          "numeric": false
+        },
+        {
+          "name": "metadata",
+          "shape": [
+            1
+          ],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_robocasa_stratified97_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 15275,
+      "sha256": "7650158530f1d105ede2a4ac8912a1c3b6cbd69694b3340006e2b941034daf58",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 5,
+      "total_elements": 1355,
+      "numeric_arrays": 3,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "mean",
+          "shape": [
+            192
+          ],
+          "dtype": "float64",
+          "size": 192,
+          "numeric": true,
+          "finite_count": 192,
+          "all_finite": true,
+          "min": -12.180008485581313,
+          "max": 11.623244734476692
+        },
+        {
+          "name": "scale",
+          "shape": [
+            192
+          ],
+          "dtype": "float64",
+          "size": 192,
+          "numeric": true,
+          "finite_count": 192,
+          "all_finite": true,
+          "min": 3.1973066052985e-08,
+          "max": 4.287115528374164
+        },
+        {
+          "name": "weights",
+          "shape": [
+            193,
+            5
+          ],
+          "dtype": "float64",
+          "size": 965,
+          "numeric": true,
+          "finite_count": 965,
+          "all_finite": true,
+          "min": -0.05403419004079006,
+          "max": 5.309805643139872
+        },
+        {
+          "name": "target_names",
+          "shape": [
+            5
+          ],
+          "dtype": "object",
+          "size": 5,
+          "numeric": false
+        },
+        {
+          "name": "metadata",
+          "shape": [
+            1
+          ],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_robosuite_Door_wam.joblib",
+      "suffix": ".joblib",
+      "bytes": 6284600,
+      "sha256": "f8dc8e79008329ec4f6054339f5aae6dcdfbf0f1a74babd816b81609f7c46eb2",
+      "load_ok": true,
+      "loader": "joblib.load",
+      "model_type": "builtins.dict",
+      "attributes": [],
+      "predictor_paths": [
+        "model.model"
+      ],
+      "has_predict": true
+    },
+    {
+      "path": "results/models/benchmark_robosuite_Lift_wam.joblib",
+      "suffix": ".joblib",
+      "bytes": 6263800,
+      "sha256": "b63af930671e2989010ec9609655b6ad2986301590d565f6070a88dfda30f07f",
+      "load_ok": true,
+      "loader": "joblib.load",
+      "model_type": "builtins.dict",
+      "attributes": [],
+      "predictor_paths": [
+        "model.model"
+      ],
+      "has_predict": true
+    },
+    {
+      "path": "results/models/benchmark_robosuite_Stack_wam.joblib",
+      "suffix": ".joblib",
+      "bytes": 6241129,
+      "sha256": "9d2e6adef5ce534adf53e7d55e5038a5bd09cc3f499f7fd5349d0356ac5ec81c",
+      "load_ok": true,
+      "loader": "joblib.load",
+      "model_type": "builtins.dict",
+      "attributes": [],
+      "predictor_paths": [
+        "model.model"
+      ],
+      "has_predict": true
+    },
+    {
+      "path": "results/models/benchmark_visual_reacher_wam_lite.joblib",
+      "suffix": ".joblib",
+      "bytes": 14853896,
+      "sha256": "89fd1d57e4d0d0927a9950360d632c8bd8b7af1596970607b3c1358561f91d5a",
+      "load_ok": true,
+      "loader": "joblib.load",
+      "model_type": "builtins.dict",
+      "attributes": [],
+      "predictor_paths": [
+        "model.model"
+      ],
+      "has_predict": true
+    },
+    {
+      "path": "results/models/learned_wam_lite_smoke.npz",
+      "suffix": ".npz",
+      "bytes": 6249,
+      "sha256": "5d30988dabb333a8a65df7d8625054f6eb54e63577a5bd2f53e1dcc21ebbc9c3",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 7,
+      "total_elements": 492,
+      "numeric_arrays": 6,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "max_horizon",
+          "shape": [],
+          "dtype": "int32",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 12.0,
+          "max": 12.0
+        },
+        {
+          "name": "episode_horizon",
+          "shape": [],
+          "dtype": "int32",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 18.0,
+          "max": 18.0
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            97
+          ],
+          "dtype": "float64",
+          "size": 97,
+          "numeric": true,
+          "finite_count": 97,
+          "all_finite": true,
+          "min": -0.03691578161012925,
+          "max": 14.155344871253183
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            97
+          ],
+          "dtype": "float64",
+          "size": 97,
+          "numeric": true,
+          "finite_count": 97,
+          "all_finite": true,
+          "min": 0.0010929771570603632,
+          "max": 16.489143429150424
+        },
+        {
+          "name": "coef",
+          "shape": [
+            98,
+            3
+          ],
+          "dtype": "float64",
+          "size": 294,
+          "numeric": true,
+          "finite_count": 294,
+          "all_finite": true,
+          "min": -3.1741887192207683,
+          "max": 3.334059814099585
+        },
+        {
+          "name": "ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/learned_wam_lite_toy.npz",
+      "suffix": ".npz",
+      "bytes": 6251,
+      "sha256": "2f5e573755391e28e541021c3fa6b35804dd9e604e84cb30fa6c4233ca695a1c",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 7,
+      "total_elements": 492,
+      "numeric_arrays": 6,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "max_horizon",
+          "shape": [],
+          "dtype": "int32",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 12.0,
+          "max": 12.0
+        },
+        {
+          "name": "episode_horizon",
+          "shape": [],
+          "dtype": "int32",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 18.0,
+          "max": 18.0
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            97
+          ],
+          "dtype": "float64",
+          "size": 97,
+          "numeric": true,
+          "finite_count": 97,
+          "all_finite": true,
+          "min": -0.395616350204749,
+          "max": 13.316164393149997
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            97
+          ],
+          "dtype": "float64",
+          "size": 97,
+          "numeric": true,
+          "finite_count": 97,
+          "all_finite": true,
+          "min": 0.002486622853258153,
+          "max": 16.713096200084692
+        },
+        {
+          "name": "coef",
+          "shape": [
+            98,
+            3
+          ],
+          "dtype": "float64",
+          "size": 294,
+          "numeric": true,
+          "finite_count": 294,
+          "all_finite": true,
+          "min": -5.075503124387627,
+          "max": 2.992181319987681
+        },
+        {
+          "name": "ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/maxout_block_push_ensemble_wam.npz",
+      "suffix": ".npz",
+      "bytes": 15031,
+      "sha256": "453dfc35d234ea9299233bfae12caadcabd0de108c212a225863355a63ffa2aa",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 22,
+      "total_elements": 1152,
+      "numeric_arrays": 20,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "m0_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m0_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.19496889861083652,
+          "max": 2.517185655736663
+        },
+        {
+          "name": "m0_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.030774302659387815,
+          "max": 3.6803797503805233
+        },
+        {
+          "name": "m0_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -4.860269021654404,
+          "max": 1.6770158066317842
+        },
+        {
+          "name": "m1_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m1_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.29229926868939476,
+          "max": 2.639877576643012
+        },
+        {
+          "name": "m1_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.02899548416832286,
+          "max": 3.78962819451496
+        },
+        {
+          "name": "m1_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -4.9152614254372935,
+          "max": 1.9143513768940565
+        },
+        {
+          "name": "m2_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m2_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.20994606845322217,
+          "max": 2.6130974724761598
+        },
+        {
+          "name": "m2_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.02851483791338593,
+          "max": 3.838709663225797
+        },
+        {
+          "name": "m2_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -5.330369325014643,
+          "max": 2.207180861219936
+        },
+        {
+          "name": "m3_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m3_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.10889623626624707,
+          "max": 2.541405953106894
+        },
+        {
+          "name": "m3_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.029234979951705625,
+          "max": 3.674566662508474
+        },
+        {
+          "name": "m3_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -4.444869886783431,
+          "max": 1.3585103129983682
+        },
+        {
+          "name": "m4_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m4_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.38130208507060415,
+          "max": 2.6678798220208377
+        },
+        {
+          "name": "m4_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.02994783920948116,
+          "max": 3.687747810105206
+        },
+        {
+          "name": "m4_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -5.5238565889361535,
+          "max": 2.994581412160372
+        }
+      ]
+    },
+    {
+      "path": "results/models/maxout_block_push_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 3678,
+      "sha256": "f717a244f4a0e1ef26ef06d4edf129a12c51eef9f961748e49327f719b78bdbc",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 6,
+      "total_elements": 232,
+      "numeric_arrays": 4,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.25788907251881144,
+          "max": 2.6426809540043408
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.030152495577627537,
+          "max": 3.7666703237853816
+        },
+        {
+          "name": "coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -4.851069753297257,
+          "max": 1.9890373411854878
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/maxout_block_push_mlp_dynamics_wam.npz",
+      "suffix": ".npz",
+      "bytes": 13151,
+      "sha256": "5cd2dff6b9c0cbf551c41f666d3ca567ce99f7a8770820f99348ed3bd95877e2",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 10,
+      "total_elements": 1297,
+      "numeric_arrays": 8,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "w1",
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "float64",
+          "size": 1024,
+          "numeric": true,
+          "finite_count": 1024,
+          "all_finite": true,
+          "min": -0.4711816581741291,
+          "max": 0.5789722454521905
+        },
+        {
+          "name": "b1",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.08532300511022052,
+          "max": 0.15789773856438738
+        },
+        {
+          "name": "w2",
+          "shape": [
+            32,
+            5
+          ],
+          "dtype": "float64",
+          "size": 160,
+          "numeric": true,
+          "finite_count": 160,
+          "all_finite": true,
+          "min": -0.5574892275264095,
+          "max": 0.5565065450209423
+        },
+        {
+          "name": "b2",
+          "shape": [
+            5
+          ],
+          "dtype": "float64",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": -0.06382897745353704,
+          "max": 0.03744696582719544
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.25788907251881144,
+          "max": 2.6426809540043408
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.030152495577627537,
+          "max": 3.7666703237853816
+        },
+        {
+          "name": "y_mean",
+          "shape": [
+            5
+          ],
+          "dtype": "float64",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": -2.0150629221977,
+          "max": 0.7703768828524843
+        },
+        {
+          "name": "y_std",
+          "shape": [
+            5
+          ],
+          "dtype": "float64",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": 1.0,
+          "max": 2.9761554185894523
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/maxout_deformable_toy_ensemble_wam.npz",
+      "suffix": ".npz",
+      "bytes": 15035,
+      "sha256": "204a4b3a8d34c2becd71fbb7bc936564329854d9f608e0f07ec566669547a5f8",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 22,
+      "total_elements": 1152,
+      "numeric_arrays": 20,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "m0_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m0_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.006897774001012633,
+          "max": 3.5148176128823754
+        },
+        {
+          "name": "m0_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.017315411124323606,
+          "max": 1.8333254734823772
+        },
+        {
+          "name": "m0_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -0.846654228465797,
+          "max": 1.1827501020593096
+        },
+        {
+          "name": "m1_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m1_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.01781498540825776,
+          "max": 3.6811936927123505
+        },
+        {
+          "name": "m1_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.01566496128537265,
+          "max": 1.736040143071294
+        },
+        {
+          "name": "m1_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -0.6870297754541362,
+          "max": 1.1931032088753684
+        },
+        {
+          "name": "m2_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m2_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.0037220968298365804,
+          "max": 3.558199354811338
+        },
+        {
+          "name": "m2_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.01775570667338562,
+          "max": 1.8137381110992485
+        },
+        {
+          "name": "m2_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -0.6329019784495976,
+          "max": 1.1909283302208267
+        },
+        {
+          "name": "m3_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m3_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.00983779752267049,
+          "max": 3.4833027919578177
+        },
+        {
+          "name": "m3_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.016881461273913382,
+          "max": 1.9217832597546332
+        },
+        {
+          "name": "m3_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -1.4690912483952085,
+          "max": 1.6932128328134075
+        },
+        {
+          "name": "m4_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m4_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.007510329212174777,
+          "max": 3.62845655503939
+        },
+        {
+          "name": "m4_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.0170806791184694,
+          "max": 1.8594180250986057
+        },
+        {
+          "name": "m4_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -0.49457004338193966,
+          "max": 1.1880091848265393
+        }
+      ]
+    },
+    {
+      "path": "results/models/maxout_deformable_toy_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 3682,
+      "sha256": "ef8073fdd7ef922ee4eddf773b3729c300d690f378352fc5a706eccf1b7f5a99",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 6,
+      "total_elements": 232,
+      "numeric_arrays": 4,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.0,
+          "max": 3.672604424894597
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.01677772804211644,
+          "max": 1.748372985424658
+        },
+        {
+          "name": "coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -0.8864910953501415,
+          "max": 1.1941844158969
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/maxout_deformable_toy_mlp_dynamics_wam.npz",
+      "suffix": ".npz",
+      "bytes": 13155,
+      "sha256": "236563aa1df01f361ac84b5cc321015075ad6ffdd7aec86e0bc2cc321cbda509",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 10,
+      "total_elements": 1297,
+      "numeric_arrays": 8,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "w1",
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "float64",
+          "size": 1024,
+          "numeric": true,
+          "finite_count": 1024,
+          "all_finite": true,
+          "min": -0.5952294289819756,
+          "max": 0.6116323984418371
+        },
+        {
+          "name": "b1",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.049033003004875404,
+          "max": 0.06722834502539393
+        },
+        {
+          "name": "w2",
+          "shape": [
+            32,
+            5
+          ],
+          "dtype": "float64",
+          "size": 160,
+          "numeric": true,
+          "finite_count": 160,
+          "all_finite": true,
+          "min": -0.5019117142353533,
+          "max": 0.5011802968225864
+        },
+        {
+          "name": "b2",
+          "shape": [
+            5
+          ],
+          "dtype": "float64",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": -0.18203936815857374,
+          "max": 0.06132228114250503
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.0,
+          "max": 3.672604424894597
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.01677772804211644,
+          "max": 1.748372985424658
+        },
+        {
+          "name": "y_mean",
+          "shape": [
+            5
+          ],
+          "dtype": "float64",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": 3.680316583082239e-13,
+          "max": 1.1941844158968997
+        },
+        {
+          "name": "y_std",
+          "shape": [
+            5
+          ],
+          "dtype": "float64",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": 0.07555738359764255,
+          "max": 1.0
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/maxout_drawer_pull_ensemble_wam.npz",
+      "suffix": ".npz",
+      "bytes": 15032,
+      "sha256": "8bee7a9cc1f5fa5dcb705d8f5bfdd0f97e08f8d9aa006b27828cc5d7a05eeefd",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 22,
+      "total_elements": 1152,
+      "numeric_arrays": 20,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "m0_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m0_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.004801842481493972,
+          "max": 3.5790019790096324
+        },
+        {
+          "name": "m0_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.016044221829784537,
+          "max": 1.6480366563075892
+        },
+        {
+          "name": "m0_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -0.36180421571337684,
+          "max": 0.9810047261859864
+        },
+        {
+          "name": "m1_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m1_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.02476978554249543,
+          "max": 3.3904689132106944
+        },
+        {
+          "name": "m1_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.01632789042036787,
+          "max": 1.8478617102605346
+        },
+        {
+          "name": "m1_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -1.1620255493237486,
+          "max": 1.3423238351606273
+        },
+        {
+          "name": "m2_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m2_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.0,
+          "max": 3.3878267596644203
+        },
+        {
+          "name": "m2_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.016409386162103353,
+          "max": 1.7638663145869122
+        },
+        {
+          "name": "m2_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -0.47061472170756036,
+          "max": 0.9598932051397369
+        },
+        {
+          "name": "m3_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m3_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -3.562076114303368e-05,
+          "max": 3.6075815919242253
+        },
+        {
+          "name": "m3_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.016403048519095523,
+          "max": 1.6386134357589297
+        },
+        {
+          "name": "m3_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -0.9830664359677886,
+          "max": 1.081584658601652
+        },
+        {
+          "name": "m4_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m4_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.014576388515722885,
+          "max": 3.6228162104027115
+        },
+        {
+          "name": "m4_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.01635442362044837,
+          "max": 1.6748262382191754
+        },
+        {
+          "name": "m4_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -2.071017460431318,
+          "max": 2.1145965257903465
+        }
+      ]
+    },
+    {
+      "path": "results/models/maxout_drawer_pull_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 3679,
+      "sha256": "e98dedaeaf3bc0d3e1ae08ed4d0668a80cb03351919b2836b53c58329bdbc275",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 6,
+      "total_elements": 232,
+      "numeric_arrays": 4,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.0,
+          "max": 3.496548625161379
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.01642208151433435,
+          "max": 1.7715563670048575
+        },
+        {
+          "name": "coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -0.7660798366160501,
+          "max": 0.967888126678571
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/maxout_drawer_pull_mlp_dynamics_wam.npz",
+      "suffix": ".npz",
+      "bytes": 13152,
+      "sha256": "24851f61ee459f1088ee67566e26e5a46f5365ba3fb9a6c42600c0155b4da4e3",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 10,
+      "total_elements": 1297,
+      "numeric_arrays": 8,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "w1",
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "float64",
+          "size": 1024,
+          "numeric": true,
+          "finite_count": 1024,
+          "all_finite": true,
+          "min": -0.569976140147156,
+          "max": 0.581698634833673
+        },
+        {
+          "name": "b1",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.0790955108772944,
+          "max": 0.12516521139040446
+        },
+        {
+          "name": "w2",
+          "shape": [
+            32,
+            5
+          ],
+          "dtype": "float64",
+          "size": 160,
+          "numeric": true,
+          "finite_count": 160,
+          "all_finite": true,
+          "min": -0.4833391770124251,
+          "max": 0.47849718327320073
+        },
+        {
+          "name": "b2",
+          "shape": [
+            5
+          ],
+          "dtype": "float64",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": -0.1353626494849189,
+          "max": 0.21504735335248296
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.0,
+          "max": 3.496548625161379
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.01642208151433435,
+          "max": 1.7715563670048575
+        },
+        {
+          "name": "y_mean",
+          "shape": [
+            5
+          ],
+          "dtype": "float64",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": 0.005346059701379562,
+          "max": 0.9678881266785706
+        },
+        {
+          "name": "y_std",
+          "shape": [
+            5
+          ],
+          "dtype": "float64",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": 0.019835016611368522,
+          "max": 0.7479618910287935
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/maxout_nonstationary_shift_ensemble_wam.npz",
+      "suffix": ".npz",
+      "bytes": 15040,
+      "sha256": "31409fbea03239cc18bb066ebb17bdf5a4fecaac213c81376f519235ab0d0ba8",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 22,
+      "total_elements": 1152,
+      "numeric_arrays": 20,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "m0_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m0_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.0,
+          "max": 3.6878176790977637
+        },
+        {
+          "name": "m0_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.02331850846594196,
+          "max": 1.8703979875820087
+        },
+        {
+          "name": "m0_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -0.49762760457250776,
+          "max": 1.058063132975885
+        },
+        {
+          "name": "m1_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m1_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.0,
+          "max": 3.727381954171152
+        },
+        {
+          "name": "m1_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.023734534368175117,
+          "max": 1.7482451056595574
+        },
+        {
+          "name": "m1_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -0.33876283406650176,
+          "max": 1.0669514842122176
+        },
+        {
+          "name": "m2_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m2_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.0,
+          "max": 3.7923577923770506
+        },
+        {
+          "name": "m2_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.023488251944634497,
+          "max": 1.6994154962798216
+        },
+        {
+          "name": "m2_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -0.3714366022729584,
+          "max": 1.05623454206124
+        },
+        {
+          "name": "m3_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m3_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.0,
+          "max": 3.7254053001845184
+        },
+        {
+          "name": "m3_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.025200617312469347,
+          "max": 1.741919778644575
+        },
+        {
+          "name": "m3_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -0.5175068506365076,
+          "max": 1.0476276045727801
+        },
+        {
+          "name": "m4_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m4_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.0,
+          "max": 3.6568430679615958
+        },
+        {
+          "name": "m4_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.023030356288224547,
+          "max": 1.7630614007358312
+        },
+        {
+          "name": "m4_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -0.41453139637939507,
+          "max": 1.0529622835575898
+        }
+      ]
+    },
+    {
+      "path": "results/models/maxout_nonstationary_shift_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 3687,
+      "sha256": "42472ee6a7d4e0b4abdd4dd729836ab956c75078c17e34b9b2ebd312ca98bad8",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 6,
+      "total_elements": 232,
+      "numeric_arrays": 4,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.0,
+          "max": 3.7353553723977404
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.023652619093229778,
+          "max": 1.7051611974649066
+        },
+        {
+          "name": "coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -0.43469320833013314,
+          "max": 1.0519500964997197
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/maxout_nonstationary_shift_mlp_dynamics_wam.npz",
+      "suffix": ".npz",
+      "bytes": 13160,
+      "sha256": "f132b24116029e456b1a77dc8c0dab6941b3f69985ef7242528eea75309fcbd7",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 10,
+      "total_elements": 1297,
+      "numeric_arrays": 8,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "w1",
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "float64",
+          "size": 1024,
+          "numeric": true,
+          "finite_count": 1024,
+          "all_finite": true,
+          "min": -0.5928246536865761,
+          "max": 0.6011059336671888
+        },
+        {
+          "name": "b1",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.06765127184637441,
+          "max": 0.05948673142430962
+        },
+        {
+          "name": "w2",
+          "shape": [
+            32,
+            5
+          ],
+          "dtype": "float64",
+          "size": 160,
+          "numeric": true,
+          "finite_count": 160,
+          "all_finite": true,
+          "min": -0.4752356501860654,
+          "max": 0.5702057054025499
+        },
+        {
+          "name": "b2",
+          "shape": [
+            5
+          ],
+          "dtype": "float64",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": -0.1605411989924112,
+          "max": 0.13258946463283655
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.0,
+          "max": 3.7353553723977404
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.023652619093229778,
+          "max": 1.7051611974649066
+        },
+        {
+          "name": "y_mean",
+          "shape": [
+            5
+          ],
+          "dtype": "float64",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": 0.011662611155464351,
+          "max": 1.0519500964997177
+        },
+        {
+          "name": "y_std",
+          "shape": [
+            5
+          ],
+          "dtype": "float64",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": 0.033206705667328425,
+          "max": 0.7888549062280724
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/maxout_slippery_grasp_ensemble_wam.npz",
+      "suffix": ".npz",
+      "bytes": 15035,
+      "sha256": "41033923060f8aa5b67678d9103d0674c5822c46e64cc3ffd598445ce735a14d",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 22,
+      "total_elements": 1152,
+      "numeric_arrays": 20,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "m0_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m0_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.01920555093234012,
+          "max": 3.610256762731256
+        },
+        {
+          "name": "m0_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.06462344118697205,
+          "max": 1.8820312013369598
+        },
+        {
+          "name": "m0_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -53.12650805679162,
+          "max": 50.207495562395
+        },
+        {
+          "name": "m1_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m1_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.026136911960269717,
+          "max": 3.6320176991336246
+        },
+        {
+          "name": "m1_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.06805641042771039,
+          "max": 1.8285071096908092
+        },
+        {
+          "name": "m1_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -60.735733465302225,
+          "max": 53.75646609654326
+        },
+        {
+          "name": "m2_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m2_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.009979475753175917,
+          "max": 3.551540139373041
+        },
+        {
+          "name": "m2_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.061557443539169684,
+          "max": 1.9206789604203112
+        },
+        {
+          "name": "m2_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -58.80424110772274,
+          "max": 55.780959357379416
+        },
+        {
+          "name": "m3_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m3_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.0,
+          "max": 3.8608434714604862
+        },
+        {
+          "name": "m3_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.06470730910677591,
+          "max": 1.707026805754582
+        },
+        {
+          "name": "m3_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -57.90979453833984,
+          "max": 57.434515295627214
+        },
+        {
+          "name": "m4_ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "m4_x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.020721443517604618,
+          "max": 3.762493244292423
+        },
+        {
+          "name": "m4_x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.06497996548527722,
+          "max": 1.7345376538351018
+        },
+        {
+          "name": "m4_coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -55.21961521964931,
+          "max": 43.57784523802337
+        }
+      ]
+    },
+    {
+      "path": "results/models/maxout_slippery_grasp_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 3682,
+      "sha256": "b5c5691268d91d16b20ab4344dec208da68e8fce113285bb32d17cc034b6ec91",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 6,
+      "total_elements": 232,
+      "numeric_arrays": 4,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "ridge",
+          "shape": [],
+          "dtype": "float64",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 0.0001,
+          "max": 0.0001
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.008116691977768927,
+          "max": 3.6256291841661445
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.06341032181547686,
+          "max": 1.8644936971009862
+        },
+        {
+          "name": "coef",
+          "shape": [
+            33,
+            5
+          ],
+          "dtype": "float64",
+          "size": 165,
+          "numeric": true,
+          "finite_count": 165,
+          "all_finite": true,
+          "min": -53.94370481932153,
+          "max": 51.69436745050756
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    },
+    {
+      "path": "results/models/maxout_slippery_grasp_mlp_dynamics_wam.npz",
+      "suffix": ".npz",
+      "bytes": 13155,
+      "sha256": "dca6d20e3a308fa36eb5064f67aa8fafb83b4375950cc5b51453651a7f1d88b3",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 10,
+      "total_elements": 1297,
+      "numeric_arrays": 8,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "w1",
+          "shape": [
+            32,
+            32
+          ],
+          "dtype": "float64",
+          "size": 1024,
+          "numeric": true,
+          "finite_count": 1024,
+          "all_finite": true,
+          "min": -0.6025663476995206,
+          "max": 0.5335253895087539
+        },
+        {
+          "name": "b1",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.07302017566471977,
+          "max": 0.12938834986728978
+        },
+        {
+          "name": "w2",
+          "shape": [
+            32,
+            5
+          ],
+          "dtype": "float64",
+          "size": 160,
+          "numeric": true,
+          "finite_count": 160,
+          "all_finite": true,
+          "min": -0.512406105459648,
+          "max": 0.6391284897277723
+        },
+        {
+          "name": "b2",
+          "shape": [
+            5
+          ],
+          "dtype": "float64",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": -0.17012097443535637,
+          "max": 0.13460738626734875
+        },
+        {
+          "name": "x_mean",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": -0.008116691977768927,
+          "max": 3.6256291841661445
+        },
+        {
+          "name": "x_std",
+          "shape": [
+            32
+          ],
+          "dtype": "float64",
+          "size": 32,
+          "numeric": true,
+          "finite_count": 32,
+          "all_finite": true,
+          "min": 0.06341032181547686,
+          "max": 1.8644936971009862
+        },
+        {
+          "name": "y_mean",
+          "shape": [
+            5
+          ],
+          "dtype": "float64",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": -53.943704819321354,
+          "max": 4.219092038062738
+        },
+        {
+          "name": "y_std",
+          "shape": [
+            5
+          ],
+          "dtype": "float64",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": 0.008202747335870656,
+          "max": 30.665898662321226
+        },
+        {
+          "name": "metadata",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "model",
+          "shape": [],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        }
+      ]
+    }
+  ]
+}

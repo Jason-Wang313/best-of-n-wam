@@ -109,6 +109,7 @@ def main() -> None:
     source_manifest = load_json("source_manifest.json")
     runtime_environment = load_json("runtime_environment.json")
     experiment_registry = load_json("experiment_registry.json")
+    model_artifact_integrity = load_json("model_artifact_integrity.json")
     narrative_consistency = load_json("narrative_consistency.json")
     claim_ledger_integrity = load_json("claim_ledger_integrity.json")
     script_contracts = load_json("script_contracts.json")
@@ -162,6 +163,7 @@ Audit date: 2026-05-30.
 - `source_manifest.py` verifies deterministic hashes for source, experiment, script, test, README/paper, requirements, and theory files.
 - `runtime_environment.py` records and verifies Python/platform metadata, requirement-file hashes, core package versions, optional package availability, module probes, and command probes.
 - `experiment_registry.py` verifies canonical experiment-family scripts, JSON summaries, wrapper coverage, table artifacts, and figures where expected.
+- `model_artifact_integrity.py` loads committed `.npz` and `.joblib` model artifacts and verifies nonempty finite numeric arrays and predictor availability.
 - `narrative_consistency.py` verifies that high-impact README and final-report numbers match the current JSON artifacts.
 - `script_contracts.py` verifies that canonical shell scripts preserve required experiment steps, optional benchmark guards, and ordered verification gates.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.
@@ -609,6 +611,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/source_manifest.py --fail-on-error`: passed with `{source_manifest.get('n_files')}` source files, `{source_manifest.get('total_bytes')}` bytes, `{source_manifest.get('n_checks')}` source-manifest checks, and `{source_manifest.get('n_issues')}` issues.
 - `python scripts/runtime_environment.py --fail-on-error`: passed with Python `{(runtime_environment.get('python') or {}).get('version')}`, `{runtime_environment.get('n_core_requirements')}` core requirements, `{runtime_environment.get('n_optional_available')}` / `{runtime_environment.get('n_optional_requirements')}` optional requirements available, `{runtime_environment.get('n_checks')}` runtime checks, and `{runtime_environment.get('n_issues')}` issues.
 - `python scripts/experiment_registry.py --fail-on-error`: passed with `{experiment_registry.get('n_entries')}` experiment-family entries, `{experiment_registry.get('n_wrapper_links')}` wrapper links, `{experiment_registry.get('n_table_artifacts')}` table artifacts, `{experiment_registry.get('n_figure_artifacts')}` figures, `{experiment_registry.get('n_checks')}` registry checks, and `{experiment_registry.get('n_issues')}` issues.
+- `python scripts/model_artifact_integrity.py --fail-on-error`: passed with `{model_artifact_integrity.get('n_models')}` model artifacts, `{model_artifact_integrity.get('n_npz_arrays')}` NPZ arrays, `{model_artifact_integrity.get('n_joblib_predictors')}` joblib predictors, `{model_artifact_integrity.get('n_checks')}` model-artifact checks, and `{model_artifact_integrity.get('n_issues')}` issues.
 - `python scripts/narrative_consistency.py --fail-on-error`: passed with `{narrative_consistency.get('n_checks')}` narrative checks and `{narrative_consistency.get('n_issues')}` issues.
 - `python scripts/script_contracts.py --fail-on-error`: passed with `{script_contracts.get('n_scripts')}` scripts, `{script_contracts.get('n_checks')}` contract checks, and `{script_contracts.get('n_issues')}` issues.
 - `python scripts/claim_semantics.py --fail-on-error`: passed with `{claim_semantics.get('n_claims')}` claims, `{claim_semantics.get('n_checks')}` semantic checks, `{claim_semantics.get('n_ci_claims')}` CI-backed claims, and `{claim_semantics.get('n_issues')}` issues.

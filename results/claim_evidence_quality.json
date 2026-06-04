@@ -1,17 +1,17 @@
 {
   "experiment": "claim_evidence_quality",
   "verified": true,
-  "n_claims": 113,
-  "max_claim_id": 113,
-  "n_source_mapped_claims": 113,
-  "n_source_links": 147,
+  "n_claims": 114,
+  "max_claim_id": 114,
+  "n_source_mapped_claims": 114,
+  "n_source_links": 149,
   "n_checks": 7,
   "n_issues": 0,
   "checks": [
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=113"
+      "detail": "claims=114"
     },
     {
       "name": "all_current_claims_have_sources",
@@ -41,7 +41,7 @@
     {
       "name": "mapped_sources_exist_and_parse",
       "ok": true,
-      "detail": "sources=147, invalid=0"
+      "detail": "sources=149, invalid=0"
     }
   ],
   "issues": [],
@@ -932,7 +932,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\README.md",
       "exists": true,
       "ok": true,
-      "bytes": 20902,
+      "bytes": 21118,
       "detail": "md"
     },
     {
@@ -941,7 +941,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 37925,
+      "bytes": 38242,
       "detail": "json"
     },
     {
@@ -959,7 +959,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 37925,
+      "bytes": 38242,
       "detail": "json"
     },
     {
@@ -1112,7 +1112,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 37925,
+      "bytes": 38242,
       "detail": "json"
     },
     {
@@ -1121,7 +1121,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claims_report.md",
       "exists": true,
       "ok": true,
-      "bytes": 28456,
+      "bytes": 28689,
       "detail": "md"
     },
     {
@@ -1130,7 +1130,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
       "ok": true,
-      "bytes": 281647,
+      "bytes": 283295,
       "detail": "json"
     },
     {
@@ -1166,7 +1166,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\narrative_consistency.json",
       "exists": true,
       "ok": true,
-      "bytes": 11048,
+      "bytes": 11404,
       "detail": "json"
     },
     {
@@ -1202,7 +1202,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
       "ok": true,
-      "bytes": 37925,
+      "bytes": 38242,
       "detail": "json"
     },
     {
@@ -1211,7 +1211,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\script_contracts.json",
       "exists": true,
       "ok": true,
-      "bytes": 11741,
+      "bytes": 12447,
       "detail": "json"
     },
     {
@@ -1220,7 +1220,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\script_contracts_report.md",
       "exists": true,
       "ok": true,
-      "bytes": 403,
+      "bytes": 418,
       "detail": "md"
     },
     {
@@ -1229,7 +1229,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_evidence_quality.json",
       "exists": true,
       "ok": true,
-      "bytes": 43906,
+      "bytes": 44487,
       "detail": "json"
     },
     {
@@ -1337,7 +1337,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\source_manifest.json",
       "exists": true,
       "ok": true,
-      "bytes": 36827,
+      "bytes": 37443,
       "detail": "json"
     },
     {
@@ -1383,6 +1383,24 @@
       "exists": true,
       "ok": true,
       "bytes": 482,
+      "detail": "md"
+    },
+    {
+      "claim_id": 114,
+      "raw_path": "results/model_artifact_integrity.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\model_artifact_integrity.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 112016,
+      "detail": "json"
+    },
+    {
+      "claim_id": 114,
+      "raw_path": "reports/model_artifact_integrity_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\model_artifact_integrity_report.md",
+      "exists": true,
+      "ok": true,
+      "bytes": 375,
       "detail": "md"
     }
   ]

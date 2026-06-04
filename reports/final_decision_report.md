@@ -83,18 +83,19 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`; Reacher RGB WAM utility corr `0.2199`, utility MAE `0.5208`, visual-random N32 CI lower `0.1998`; Fetch RGB WAM mean corr `0.7325`, visual-random N32 CI lower `0.3475`; ManiSkill visual probe any visual success `False` with blocker `vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory`.
 - `python experiments/benchmark_maniskill_dependency_probe.py --attempt-source-install`: passed as a blocker probe; Pinocchio import `False`, binary `pin` wheel `False`, source install attempted `True`.
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `0.9864`, repair-predicted N64 CI mean `0.3489`, predicted N128-N1 scaling gain `0.0255`.
-- `python scripts/artifact_integrity.py --fail-on-error`: passed with `637` artifact references checked and `0` issues.
+- `python scripts/artifact_integrity.py --fail-on-error`: passed with `641` artifact references checked and `0` issues.
 - `python scripts/artifact_manifest.py --fail-on-error`: passed with `397` scientific artifacts, `56421681` bytes, `15` manifest checks, and `0` issues.
 - `python scripts/figure_quality.py --fail-on-error`: passed with `36` figures, `8` image-quality checks, and `0` issues.
 - `python scripts/result_consistency.py --fail-on-error`: passed with `157` consistency checks and `0` issues.
 - `python scripts/raw_result_recompute.py --fail-on-error`: passed with `10710` aggregate metrics, `20` exact-law files, `125` seed CI columns, and `0` issues.
 - `python scripts/table_schema.py --fail-on-error`: passed with `215` tables, `212858` rows, `17` schema checks, and `0` issues.
-- `python scripts/source_manifest.py --fail-on-error`: passed with `167` source files, `1215504` bytes, `14` source-manifest checks, and `0` issues.
+- `python scripts/source_manifest.py --fail-on-error`: passed with `170` source files, `1232195` bytes, `14` source-manifest checks, and `0` issues.
 - `python scripts/runtime_environment.py --fail-on-error`: passed with Python `3.10.11`, `4` core requirements, `5` / `5` optional requirements available, `15` runtime checks, and `0` issues.
 - `python scripts/experiment_registry.py --fail-on-error`: passed with `57` experiment-family entries, `69` wrapper links, `297` table artifacts, `40` figures, `10` registry checks, and `0` issues.
-- `python scripts/narrative_consistency.py --fail-on-error`: passed with `39` narrative checks and `0` issues.
-- `python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `73` contract checks, and `0` issues.
-- `python scripts/claim_semantics.py --fail-on-error`: passed with `113` claims, `168` semantic checks, `51` CI-backed claims, and `0` issues.
-- `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `113` claims, `147` source links, `7` evidence checks, and `0` issues.
-- `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `113` claims, `31` ledger checks, and `3` issues.
-- `python scripts/claims_status.py`: passed with `113` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.
+- `python scripts/model_artifact_integrity.py --fail-on-error`: passed with `49` model artifacts, `315` NPZ arrays, `13` joblib predictors, `10` model-artifact checks, and `0` issues.
+- `python scripts/narrative_consistency.py --fail-on-error`: passed with `40` narrative checks and `0` issues.
+- `python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `77` contract checks, and `0` issues.
+- `python scripts/claim_semantics.py --fail-on-error`: passed with `114` claims, `168` semantic checks, `51` CI-backed claims, and `0` issues.
+- `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `114` claims, `149` source links, `7` evidence checks, and `0` issues.
+- `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `114` claims, `31` ledger checks, and `1` issues.
+- `python scripts/claims_status.py`: passed with `114` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.

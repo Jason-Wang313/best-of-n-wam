@@ -37,6 +37,7 @@ NARRATIVE_SURFACES = [
     ("source_manifest_report", REPORTS / "source_manifest_report.md"),
     ("runtime_environment_report", REPORTS / "runtime_environment_report.md"),
     ("experiment_registry_report", REPORTS / "experiment_registry_report.md"),
+    ("model_artifact_integrity_report", REPORTS / "model_artifact_integrity_report.md"),
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
     ("claim_semantics_report", REPORTS / "claim_semantics_report.md"),
     ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
@@ -306,6 +307,7 @@ def main() -> None:
     source_manifest = load_json("source_manifest.json")
     runtime_environment = load_json("runtime_environment.json")
     experiment_registry = load_json("experiment_registry.json")
+    model_artifact_integrity = load_json("model_artifact_integrity.json")
     narrative_consistency = load_json("narrative_consistency.json")
     script_contracts = load_json("script_contracts.json")
     claim_semantics = load_json("claim_semantics.json")
@@ -1842,12 +1844,37 @@ def main() -> None:
             f"issues={experiment_registry.get('n_issues')}"
         ),
     }
+    model_artifact_integrity_claim = {
+        "id": 114,
+        "claim": "Committed learned-model artifacts are loadable and numerically sane.",
+        "status": status(
+            bool(model_artifact_integrity)
+            and model_artifact_integrity.get("verified", False)
+            and (model_artifact_integrity.get("n_models") or 0) >= 45
+            and ((model_artifact_integrity.get("counts_by_suffix") or {}).get(".npz") or 0) >= 30
+            and ((model_artifact_integrity.get("counts_by_suffix") or {}).get(".joblib") or 0) >= 10
+            and (model_artifact_integrity.get("total_bytes") or 0) >= 50_000_000
+            and (model_artifact_integrity.get("n_npz_arrays") or 0) >= 250
+            and (model_artifact_integrity.get("n_joblib_predictors") or 0) >= 10
+            and (model_artifact_integrity.get("n_checks") or 0) >= 10
+            and model_artifact_integrity.get("n_issues") == 0
+            and artifact_exists(RESULTS / "model_artifact_integrity.json")
+            and artifact_exists(REPORTS / "model_artifact_integrity_report.md"),
+            bool(model_artifact_integrity),
+        ),
+        "evidence": (
+            f"models={model_artifact_integrity.get('n_models')}, suffixes={model_artifact_integrity.get('counts_by_suffix')}, "
+            f"bytes={model_artifact_integrity.get('total_bytes')}, npz_arrays={model_artifact_integrity.get('n_npz_arrays')}, "
+            f"npz_elements={model_artifact_integrity.get('n_npz_elements')}, joblib_predictors={model_artifact_integrity.get('n_joblib_predictors')}, "
+            f"checks={model_artifact_integrity.get('n_checks')}, issues={model_artifact_integrity.get('n_issues')}"
+        ),
+    }
     candidate_claims = claims + [
         {
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=113, max_id=113, checks=pending, issues=0",
+            "evidence": "claims=114, max_id=114, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
@@ -1859,6 +1886,7 @@ def main() -> None:
         source_manifest_claim,
         runtime_environment_claim,
         experiment_registry_claim,
+        model_artifact_integrity_claim,
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
@@ -1882,6 +1910,7 @@ def main() -> None:
     claims.append(source_manifest_claim)
     claims.append(runtime_environment_claim)
     claims.append(experiment_registry_claim)
+    claims.append(model_artifact_integrity_claim)
 
     payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)

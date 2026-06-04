@@ -14,6 +14,7 @@ CORE_GATE_SEQUENCE = [
     "scripts/runtime_environment.py --fail-on-error",
     "scripts/experiment_registry.py --fail-on-error",
     "scripts/artifact_manifest.py --fail-on-error",
+    "scripts/model_artifact_integrity.py --fail-on-error",
     "scripts/figure_quality.py --fail-on-error",
     "scripts/narrative_consistency.py --fail-on-error",
     "scripts/script_contracts.py --fail-on-error",
@@ -140,7 +141,8 @@ def audit_core_script(root: Path, script: str, required_snippets: list[str], che
     add(checks, f"{label}_runtime_environment_gate", count_occurrences(text, "scripts/runtime_environment.py --fail-on-error") >= 1, "runtime environment gate runs after source manifest")
     add(checks, f"{label}_experiment_registry_gate", count_occurrences(text, "scripts/experiment_registry.py --fail-on-error") >= 1, "experiment registry gate runs after runtime environment")
     add(checks, f"{label}_artifact_manifest_gate", count_occurrences(text, "scripts/artifact_manifest.py --fail-on-error") >= 1, "artifact manifest gate runs after experiment registry")
-    add(checks, f"{label}_figure_quality_gate", count_occurrences(text, "scripts/figure_quality.py --fail-on-error") >= 1, "figure quality gate runs after artifact manifest")
+    add(checks, f"{label}_model_artifact_gate", count_occurrences(text, "scripts/model_artifact_integrity.py --fail-on-error") >= 1, "model artifact gate runs after artifact manifest")
+    add(checks, f"{label}_figure_quality_gate", count_occurrences(text, "scripts/figure_quality.py --fail-on-error") >= 1, "figure quality gate runs after model artifact integrity")
     add(checks, f"{label}_double_claim_semantics", count_occurrences(text, "scripts/claim_semantics.py --fail-on-error") >= 2, "claim semantic gate runs before both ledger gates")
     add(checks, f"{label}_double_claim_evidence_quality", count_occurrences(text, "scripts/claim_evidence_quality.py --fail-on-error") >= 2, "claim evidence gate runs before both ledger gates")
     add(checks, f"{label}_double_claim_ledger", count_occurrences(text, "scripts/claim_ledger_integrity.py --fail-on-error") >= 2, "ledger gate runs after both claim-status writes")
@@ -209,6 +211,6 @@ def script_contracts_markdown(payload: dict[str, Any]) -> str:
         for issue in issues:
             lines.append(f"- `{issue.get('name')}`: {issue.get('detail')}")
     else:
-        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered artifact/result/raw-recompute/table-schema/source-manifest/runtime-environment/experiment-registry/result-manifest/figure-quality/narrative/script-contract/claim/semantic/evidence/ledger gates.")
+        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered artifact/result/raw-recompute/table-schema/source-manifest/runtime-environment/experiment-registry/result-manifest/model-artifact/figure-quality/narrative/script-contract/claim/semantic/evidence/ledger gates.")
     lines.append("")
     return "\n".join(lines)

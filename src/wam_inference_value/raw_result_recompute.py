@@ -18,6 +18,7 @@ SELF_OUTPUTS = {
     "claim_ledger_integrity.json",
     "claims_status.json",
     "experiment_registry.json",
+    "model_artifact_integrity.json",
     "narrative_consistency.json",
     "raw_result_recompute.json",
     "result_consistency.json",

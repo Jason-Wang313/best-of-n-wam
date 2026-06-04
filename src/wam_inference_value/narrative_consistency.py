@@ -91,6 +91,7 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{source_manifest.",
         "{runtime_environment.",
         "{experiment_registry.",
+        "{model_artifact_integrity.",
         "{narrative_consistency.",
         "{script_contracts.",
         "{claim_semantics.",
@@ -272,6 +273,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     source_manifest = load_json(results_dir, "source_manifest.json")
     runtime_environment = load_json(results_dir, "runtime_environment.json")
     experiment_registry = load_json(results_dir, "experiment_registry.json")
+    model_artifact_integrity = load_json(results_dir, "model_artifact_integrity.json")
     script_contracts = load_json(results_dir, "script_contracts.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
@@ -436,6 +438,17 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
             f"`{experiment_registry.get('n_wrapper_links')}` wrapper links, `{experiment_registry.get('n_table_artifacts')}` table artifacts, "
             f"`{experiment_registry.get('n_figure_artifacts')}` figures, `{experiment_registry.get('n_checks')}` registry checks, "
             f"and `{experiment_registry.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "model_artifact_integrity_command",
+        (
+            f"`python scripts/model_artifact_integrity.py --fail-on-error`: passed with `{model_artifact_integrity.get('n_models')}` model artifacts, "
+            f"`{model_artifact_integrity.get('n_npz_arrays')}` NPZ arrays, `{model_artifact_integrity.get('n_joblib_predictors')}` joblib predictors, "
+            f"`{model_artifact_integrity.get('n_checks')}` model-artifact checks, and `{model_artifact_integrity.get('n_issues')}` issues"
         ),
     )
     add_contains(

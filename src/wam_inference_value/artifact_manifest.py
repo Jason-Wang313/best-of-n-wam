@@ -18,6 +18,7 @@ EXCLUDED_RESULT_NAMES = {
     "claims_status.md",
     "experiment_registry.json",
     "figure_quality.json",
+    "model_artifact_integrity.json",
     "narrative_consistency.json",
     "raw_result_recompute.json",
     "result_consistency.json",
