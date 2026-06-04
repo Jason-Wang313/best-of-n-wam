@@ -88,6 +88,7 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{raw_result_recompute.",
         "{narrative_consistency.",
         "{script_contracts.",
+        "{claim_semantics.",
         "{claim_evidence_quality.",
         "{claim_ledger_integrity.",
         "{gym_",
@@ -260,6 +261,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     result_consistency = load_json(results_dir, "result_consistency.json")
     raw_result_recompute = load_json(results_dir, "raw_result_recompute.json")
     script_contracts = load_json(results_dir, "script_contracts.json")
+    claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
     learned = load_json(results_dir, "learned_wam_lite_training.json")
     val = (learned.get("metrics") or {}).get("validation") or {}
@@ -273,7 +275,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     benchmark_visual = load_json(results_dir, "benchmark_visual_wam_lite.json")
     gym_visual = load_json(results_dir, "benchmark_gym_robotics_visual_wam.json")
 
-    add_contains(checks, "final_decision_report", text, "pytest_count", "`python -m pytest -q`: passed with `64 passed`")
+    add_contains(checks, "final_decision_report", text, "pytest_count", "`python -m pytest -q`: passed with `68 passed`")
     add_contains(
         checks,
         "final_decision_report",
@@ -365,6 +367,17 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
         (
             f"`python scripts/script_contracts.py --fail-on-error`: passed with `{script_contracts.get('n_scripts')}` scripts, "
             f"`{script_contracts.get('n_checks')}` contract checks, and `{script_contracts.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "claim_semantics_command",
+        (
+            f"`python scripts/claim_semantics.py --fail-on-error`: passed with `{claim_semantics.get('n_claims')}` claims, "
+            f"`{claim_semantics.get('n_checks')}` semantic checks, `{claim_semantics.get('n_ci_claims')}` CI-backed claims, "
+            f"and `{claim_semantics.get('n_issues')}` issues"
         ),
     )
     add_contains(

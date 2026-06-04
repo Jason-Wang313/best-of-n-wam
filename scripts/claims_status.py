@@ -32,6 +32,7 @@ NARRATIVE_SURFACES = [
     ("result_consistency_report", REPORTS / "result_consistency_report.md"),
     ("raw_result_recompute_report", REPORTS / "raw_result_recompute_report.md"),
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
+    ("claim_semantics_report", REPORTS / "claim_semantics_report.md"),
     ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
     ("script_contracts_report", REPORTS / "script_contracts_report.md"),
     ("claim_evidence_quality_report", REPORTS / "claim_evidence_quality_report.md"),
@@ -295,6 +296,7 @@ def main() -> None:
     raw_result_recompute = load_json("raw_result_recompute.json")
     narrative_consistency = load_json("narrative_consistency.json")
     script_contracts = load_json("script_contracts.json")
+    claim_semantics = load_json("claim_semantics.json")
     claim_evidence_quality = load_json("claim_evidence_quality.json")
 
     claims: list[dict[str, Any]] = []
@@ -1669,16 +1671,40 @@ def main() -> None:
             f"issues={raw_result_recompute.get('n_issues')}"
         ),
     }
+    claim_semantics_claim = {
+        "id": 107,
+        "claim": "Verified claim wording satisfies semantic threshold checks.",
+        "status": status(
+            bool(claim_semantics)
+            and claim_semantics.get("verified", False)
+            and (claim_semantics.get("n_claims") or 0) >= 106
+            and (claim_semantics.get("n_checks") or 0) >= 160
+            and (claim_semantics.get("n_ci_claims") or 0) >= 50
+            and (claim_semantics.get("n_positive_ci_claims") or 0) >= 30
+            and (claim_semantics.get("n_error_threshold_claims") or 0) >= 10
+            and (claim_semantics.get("n_sane_ci_objects") or 0) >= 60
+            and claim_semantics.get("n_issues") == 0
+            and artifact_exists(RESULTS / "claim_semantics.json")
+            and artifact_exists(REPORTS / "claim_semantics_report.md"),
+            bool(claim_semantics),
+        ),
+        "evidence": (
+            f"claims={claim_semantics.get('n_claims')}, checks={claim_semantics.get('n_checks')}, "
+            f"CI claims={claim_semantics.get('n_ci_claims')}, positive CI claims={claim_semantics.get('n_positive_ci_claims')}, "
+            f"error claims={claim_semantics.get('n_error_threshold_claims')}, issues={claim_semantics.get('n_issues')}"
+        ),
+    }
     candidate_claims = claims + [
         {
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=106, max_id=106, checks=pending, issues=0",
+            "evidence": "claims=107, max_id=107, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
         raw_result_recompute_claim,
+        claim_semantics_claim,
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
@@ -1695,6 +1721,7 @@ def main() -> None:
     claims.append(script_contract_claim)
     claims.append(claim_evidence_quality_claim)
     claims.append(raw_result_recompute_claim)
+    claims.append(claim_semantics_claim)
 
     payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)

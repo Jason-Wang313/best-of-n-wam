@@ -2,7 +2,7 @@
   "experiment": "script_contracts",
   "verified": true,
   "n_scripts": 7,
-  "n_checks": 45,
+  "n_checks": 49,
   "n_issues": 0,
   "core_gate_sequence": [
     "scripts/artifact_integrity.py --fail-on-error",
@@ -11,9 +11,13 @@
     "scripts/narrative_consistency.py --fail-on-error",
     "scripts/script_contracts.py --fail-on-error",
     "scripts/claims_status.py",
+    "scripts/claim_semantics.py --fail-on-error",
+    "scripts/claims_status.py",
     "scripts/claim_evidence_quality.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_ledger_integrity.py --fail-on-error",
+    "scripts/claims_status.py",
+    "scripts/claim_semantics.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_evidence_quality.py --fail-on-error",
     "scripts/claims_status.py",
@@ -49,6 +53,11 @@
       "name": "run_smoke_raw_recompute_gate",
       "ok": true,
       "detail": "raw recompute gate runs after result consistency"
+    },
+    {
+      "name": "run_smoke_double_claim_semantics",
+      "ok": true,
+      "detail": "claim semantic gate runs before both ledger gates"
     },
     {
       "name": "run_smoke_double_claim_evidence_quality",
@@ -91,6 +100,11 @@
       "detail": "raw recompute gate runs after result consistency"
     },
     {
+      "name": "run_learned_wam_toy_double_claim_semantics",
+      "ok": true,
+      "detail": "claim semantic gate runs before both ledger gates"
+    },
+    {
       "name": "run_learned_wam_toy_double_claim_evidence_quality",
       "ok": true,
       "detail": "claim evidence gate runs before both ledger gates"
@@ -131,6 +145,11 @@
       "detail": "raw recompute gate runs after result consistency"
     },
     {
+      "name": "run_all_double_claim_semantics",
+      "ok": true,
+      "detail": "claim semantic gate runs before both ledger gates"
+    },
+    {
       "name": "run_all_double_claim_evidence_quality",
       "ok": true,
       "detail": "claim evidence gate runs before both ledger gates"
@@ -169,6 +188,11 @@
       "name": "run_inference_audit_raw_recompute_gate",
       "ok": true,
       "detail": "raw recompute gate runs after result consistency"
+    },
+    {
+      "name": "run_inference_audit_double_claim_semantics",
+      "ok": true,
+      "detail": "claim semantic gate runs before both ledger gates"
     },
     {
       "name": "run_inference_audit_double_claim_evidence_quality",

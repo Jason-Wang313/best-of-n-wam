@@ -1,6 +1,6 @@
 {
   "verified": true,
-  "n_checks": 32,
+  "n_checks": 33,
   "n_issues": 0,
   "checks": [
     {
@@ -91,7 +91,7 @@
       "surface": "final_decision_report",
       "name": "pytest_count",
       "ok": true,
-      "expected": "`python -m pytest -q`: passed with `64 passed`",
+      "expected": "`python -m pytest -q`: passed with `68 passed`",
       "detail": "found"
     },
     {
@@ -140,7 +140,7 @@
       "surface": "final_decision_report",
       "name": "artifact_integrity_command",
       "ok": true,
-      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `609` artifact references checked and `0` issues",
+      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `613` artifact references checked and `0` issues",
       "detail": "found"
     },
     {
@@ -161,14 +161,21 @@
       "surface": "final_decision_report",
       "name": "script_contracts_command",
       "ok": true,
-      "expected": "`python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `45` contract checks, and `0` issues",
+      "expected": "`python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `49` contract checks, and `0` issues",
+      "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
+      "name": "claim_semantics_command",
+      "ok": true,
+      "expected": "`python scripts/claim_semantics.py --fail-on-error`: passed with `107` claims, `168` semantic checks, `51` CI-backed claims, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "claim_evidence_quality_command",
       "ok": true,
-      "expected": "`python scripts/claim_evidence_quality.py --fail-on-error`: passed with `106` claims, `133` source links, `7` evidence checks, and `0` issues",
+      "expected": "`python scripts/claim_evidence_quality.py --fail-on-error`: passed with `107` claims, `135` source links, `7` evidence checks, and `0` issues",
       "detail": "found"
     },
     {

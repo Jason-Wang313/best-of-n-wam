@@ -1,0 +1,977 @@
+{
+  "experiment": "claim_semantics",
+  "verified": true,
+  "n_claims": 107,
+  "n_checks": 168,
+  "n_issues": 0,
+  "n_ci_claims": 51,
+  "n_positive_ci_claims": 33,
+  "n_error_threshold_claims": 11,
+  "n_zero_count_claims": 5,
+  "n_positive_count_claims": 11,
+  "n_sane_ci_objects": 66,
+  "checks": [
+    {
+      "name": "claims_present",
+      "ok": true,
+      "detail": "claims=107"
+    },
+    {
+      "name": "all_claims_verified",
+      "ok": true,
+      "detail": "claims=107"
+    },
+    {
+      "name": "claim_1_error_below_threshold",
+      "ok": true,
+      "detail": "evidence=success MAE=0.002104612037108505"
+    },
+    {
+      "name": "claim_2_error_below_threshold",
+      "ok": true,
+      "detail": "evidence=utility MAE=0.013762680427723635"
+    },
+    {
+      "name": "claim_3_error_below_threshold",
+      "ok": true,
+      "detail": "evidence=max identity error=0.0"
+    },
+    {
+      "name": "claim_5_positive_scalar_effect",
+      "ok": true,
+      "detail": "evidence=relative MAE reduction=0.7280063038060411"
+    },
+    {
+      "name": "claim_6_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_6_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_8_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_8_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_8_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_9_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_9_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_9_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_11_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_11_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_11_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_14_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_14_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_14_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_15_positive_scalar_effect",
+      "ok": true,
+      "detail": "evidence=oracle-uniform=0.3055113080821638"
+    },
+    {
+      "name": "claim_16_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_16_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_16_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_17_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_17_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_17_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_18_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_18_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_18_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_19_error_below_threshold",
+      "ok": true,
+      "detail": "evidence=MAE=0.002711190528210008"
+    },
+    {
+      "name": "claim_20_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_20_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_21_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_21_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_21_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_22_positive_count_or_artifact",
+      "ok": true,
+      "detail": "evidence=model=results\\models\\learned_wam_lite_toy.npz"
+    },
+    {
+      "name": "claim_25_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_25_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_25_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_31_positive_count_or_artifact",
+      "ok": true,
+      "detail": "evidence=attempted=True, any_available=True"
+    },
+    {
+      "name": "claim_32_positive_count_or_artifact",
+      "ok": true,
+      "detail": "evidence=pools=25"
+    },
+    {
+      "name": "claim_33_error_below_threshold",
+      "ok": true,
+      "detail": "evidence=utility MAE=0.018753143169510465"
+    },
+    {
+      "name": "claim_34_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_34_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_36_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_36_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_37_positive_count_or_artifact",
+      "ok": true,
+      "detail": "evidence=model=C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_gym_manip_horizon_wam.npz"
+    },
+    {
+      "name": "claim_38_positive_count_or_artifact",
+      "ok": true,
+      "detail": "evidence=visual=True"
+    },
+    {
+      "name": "claim_41_positive_count_or_artifact",
+      "ok": true,
+      "detail": "evidence=profiles=15, decisions=13"
+    },
+    {
+      "name": "claim_42_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_42_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_42_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_43_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_43_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_43_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=2"
+    },
+    {
+      "name": "claim_44_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_44_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_44_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_45_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_45_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_46_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_46_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_46_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_47_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_47_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_49_positive_count_or_artifact",
+      "ok": true,
+      "detail": "evidence=pools=30, rollouts=32, rows=900"
+    },
+    {
+      "name": "claim_50_error_below_threshold",
+      "ok": true,
+      "detail": "evidence=utility MAE=0.0034490668019852445, exact rows=180"
+    },
+    {
+      "name": "claim_51_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_51_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_52_positive_count_or_artifact",
+      "ok": true,
+      "detail": "evidence=model metric rows=6, table rows=6"
+    },
+    {
+      "name": "claim_53_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_53_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_53_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_54_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_54_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_55_positive_count_or_artifact",
+      "ok": true,
+      "detail": "evidence=model=extra_trees_visual_wam, validation={'utility_mae': 0.5207678201477979, 'utility_corr': 0.2199328908664021, 'succes"
+    },
+    {
+      "name": "claim_56_error_below_threshold",
+      "ok": true,
+      "detail": "evidence=utility MAE=0.01571480996432407, exact rows=150"
+    },
+    {
+      "name": "claim_57_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_57_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_57_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_58_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_58_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_60_error_below_threshold",
+      "ok": true,
+      "detail": "evidence=utility MAE=0.012637772476737578, exact rows=360"
+    },
+    {
+      "name": "claim_61_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_61_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_61_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_62_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_62_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_62_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_63_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_63_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_64_positive_count_or_artifact",
+      "ok": true,
+      "detail": "evidence=envs=['FetchReach-v4', 'FetchPush-v4', 'FetchPickAndPlace-v4'], mean corr=0.7325062733110719, rows=1350"
+    },
+    {
+      "name": "claim_65_error_below_threshold",
+      "ok": true,
+      "detail": "evidence=utility MAE=0.010612997381058541, exact rows=270"
+    },
+    {
+      "name": "claim_66_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_66_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_66_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_67_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_67_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_70_error_below_threshold",
+      "ok": true,
+      "detail": "evidence=utility MAE=0.029769105761603815, exact rows=270"
+    },
+    {
+      "name": "claim_71_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_71_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_71_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_72_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_72_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_74_error_below_threshold",
+      "ok": true,
+      "detail": "evidence=utility MAE=0.0023698818100493587, exact rows=180"
+    },
+    {
+      "name": "claim_75_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_75_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_75_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_76_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=3"
+    },
+    {
+      "name": "claim_76_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=3"
+    },
+    {
+      "name": "claim_77_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_77_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_78_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_78_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_79_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_79_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_79_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_80_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_80_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_80_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=2"
+    },
+    {
+      "name": "claim_81_zero_issue_or_overclaim_count",
+      "ok": true,
+      "detail": "evidence=README overclaims=0"
+    },
+    {
+      "name": "claim_82_zero_issue_or_overclaim_count",
+      "ok": true,
+      "detail": "evidence=paper overclaims=0"
+    },
+    {
+      "name": "claim_83_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_83_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_84_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_84_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_84_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_85_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_85_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_85_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_86_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_86_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_87_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_87_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_88_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_88_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_89_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_89_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_90_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_90_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_90_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
+    },
+    {
+      "name": "claim_91_positive_count_or_artifact",
+      "ok": true,
+      "detail": "evidence=registered=396, rollout_pool_covered=132, micro_covered=106, any_artifact=134"
+    },
+    {
+      "name": "claim_93_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_93_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_93_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=2"
+    },
+    {
+      "name": "claim_94_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_94_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_94_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=2"
+    },
+    {
+      "name": "claim_95_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_95_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_95_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=2"
+    },
+    {
+      "name": "claim_96_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_96_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_96_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=2"
+    },
+    {
+      "name": "claim_97_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_97_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_97_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=2"
+    },
+    {
+      "name": "claim_98_ci_sanity",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_98_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_98_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=2"
+    },
+    {
+      "name": "claim_99_zero_issue_or_overclaim_count",
+      "ok": true,
+      "detail": "evidence=report overclaims=0"
+    },
+    {
+      "name": "claim_100_zero_issue_or_overclaim_count",
+      "ok": true,
+      "detail": "evidence=refs=613, issues=0, status_counts={'ok': 613}"
+    },
+    {
+      "name": "claim_103_zero_issue_or_overclaim_count",
+      "ok": true,
+      "detail": "evidence=claims=107, max_id=107, checks=21, issues=0"
+    },
+    {
+      "name": "ci_claim_coverage",
+      "ok": true,
+      "detail": "ci_claims=51"
+    },
+    {
+      "name": "positive_ci_claim_coverage",
+      "ok": true,
+      "detail": "positive_ci_claims=33"
+    },
+    {
+      "name": "error_threshold_claim_coverage",
+      "ok": true,
+      "detail": "error_claims=11"
+    },
+    {
+      "name": "semantic_ci_objects_present",
+      "ok": true,
+      "detail": "sane_ci_objects=66"
+    }
+  ],
+  "issues": [],
+  "ci_claim_ids": [
+    6,
+    8,
+    9,
+    11,
+    14,
+    16,
+    17,
+    18,
+    20,
+    21,
+    25,
+    34,
+    36,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    51,
+    53,
+    54,
+    57,
+    58,
+    61,
+    62,
+    63,
+    66,
+    67,
+    71,
+    72,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98
+  ],
+  "positive_ci_claim_ids": [
+    5,
+    8,
+    9,
+    11,
+    14,
+    15,
+    16,
+    17,
+    18,
+    21,
+    25,
+    42,
+    43,
+    44,
+    46,
+    53,
+    57,
+    61,
+    62,
+    66,
+    71,
+    75,
+    79,
+    80,
+    84,
+    85,
+    90,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98
+  ],
+  "error_threshold_claim_ids": [
+    1,
+    2,
+    3,
+    19,
+    33,
+    50,
+    56,
+    60,
+    65,
+    70,
+    74
+  ],
+  "zero_count_claim_ids": [
+    81,
+    82,
+    99,
+    100,
+    103
+  ],
+  "positive_count_claim_ids": [
+    22,
+    31,
+    32,
+    37,
+    38,
+    41,
+    49,
+    52,
+    55,
+    64,
+    91
+  ]
+}
