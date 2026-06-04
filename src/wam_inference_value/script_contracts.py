@@ -24,6 +24,7 @@ CORE_GATE_SEQUENCE = [
     "scripts/abstract_claim_support.py --fail-on-error",
     "scripts/publication_scope.py --fail-on-error",
     "scripts/frontier_integrity.py --fail-on-error",
+    "scripts/ideal_claim_boundary.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_semantics.py --fail-on-error",
     "scripts/claim_scope_audit.py --fail-on-error",
@@ -42,6 +43,7 @@ CORE_GATE_SEQUENCE = [
     "scripts/abstract_claim_support.py --fail-on-error",
     "scripts/publication_scope.py --fail-on-error",
     "scripts/frontier_integrity.py --fail-on-error",
+    "scripts/ideal_claim_boundary.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_semantics.py --fail-on-error",
     "scripts/claim_scope_audit.py --fail-on-error",
@@ -174,6 +176,7 @@ def audit_core_script(root: Path, script: str, required_snippets: list[str], che
     add(checks, f"{label}_double_abstract_claim_support", count_occurrences(text, "scripts/abstract_claim_support.py --fail-on-error") >= 2, "abstract-claim support gate runs after both claim-status writes")
     add(checks, f"{label}_double_publication_scope", count_occurrences(text, "scripts/publication_scope.py --fail-on-error") >= 2, "publication-scope gate runs after both abstract-claim gates")
     add(checks, f"{label}_double_frontier_integrity", count_occurrences(text, "scripts/frontier_integrity.py --fail-on-error") >= 2, "frontier-integrity gate runs after both publication-scope gates")
+    add(checks, f"{label}_double_ideal_claim_boundary", count_occurrences(text, "scripts/ideal_claim_boundary.py --fail-on-error") >= 2, "ideal-claim boundary gate runs after both frontier-integrity gates")
     add(checks, f"{label}_double_claim_semantics", count_occurrences(text, "scripts/claim_semantics.py --fail-on-error") >= 2, "claim semantic gate runs before both ledger gates")
     add(checks, f"{label}_double_claim_scope_audit", count_occurrences(text, "scripts/claim_scope_audit.py --fail-on-error") >= 2, "claim-scope audit runs after both semantic gates")
     add(checks, f"{label}_double_claim_reference_integrity", count_occurrences(text, "scripts/claim_reference_integrity.py --fail-on-error") >= 2, "claim-reference audit runs after both claim-scope gates")
@@ -250,6 +253,6 @@ def script_contracts_markdown(payload: dict[str, Any]) -> str:
         for issue in issues:
             lines.append(f"- `{issue.get('name')}`: {issue.get('detail')}")
     else:
-        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered test-inventory/artifact/result/raw-recompute/table-schema/source-manifest/runtime-environment/experiment-registry/result-manifest/model-artifact/figure-quality/report-writer/narrative/script-contract/claim/abstract-claim/publication-scope/frontier-integrity/semantic/claim-scope/claim-reference/evidence/tracked-artifact/repo-bound-artifact/ledger/claim-generation/report-generation/command-result/evidence-hash gates.")
+        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered test-inventory/artifact/result/raw-recompute/table-schema/source-manifest/runtime-environment/experiment-registry/result-manifest/model-artifact/figure-quality/report-writer/narrative/script-contract/claim/abstract-claim/publication-scope/frontier-integrity/ideal-claim-boundary/semantic/claim-scope/claim-reference/evidence/tracked-artifact/repo-bound-artifact/ledger/claim-generation/report-generation/command-result/evidence-hash gates.")
     lines.append("")
     return "\n".join(lines)

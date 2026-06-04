@@ -55,6 +55,7 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
     abstract_claim_support = load_json(results_dir, "abstract_claim_support.json")
     publication_scope = load_json(results_dir, "publication_scope.json")
     frontier_integrity = load_json(results_dir, "frontier_integrity.json")
+    ideal_claim_boundary = load_json(results_dir, "ideal_claim_boundary.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_scope_audit = load_json(results_dir, "claim_scope_audit.json")
     claim_reference_integrity = load_json(results_dir, "claim_reference_integrity.json")
@@ -217,6 +218,17 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
                 f"`{frontier_integrity.get('n_guarded_frontier_mentions')}` guarded mentions, "
                 f"`{frontier_integrity.get('n_promoted_frontier_claims')}` promoted frontier claims, and "
                 f"`{frontier_integrity.get('n_issues')}` issues"
+            ),
+        ),
+        (
+            "ideal_claim_boundary",
+            (
+                f"`python scripts/ideal_claim_boundary.py --fail-on-error`: passed with "
+                f"`{ideal_claim_boundary.get('n_ideal_claims')}` ideal claims, "
+                f"`{ideal_claim_boundary.get('n_promotable_claims')}` promotable claims, "
+                f"`{ideal_claim_boundary.get('n_future_only_claims')}` future-only claims, "
+                f"`{ideal_claim_boundary.get('all_ideal_claims_promotable')}` all-promotable flag, and "
+                f"`{ideal_claim_boundary.get('n_issues')}` issues"
             ),
         ),
         (

@@ -84,6 +84,7 @@ Report only artifact-backed claims:
 14. pilot-calibrated scorer repair
 15. rollout compute-quality frontier
 16. frontier-integrity audit that keeps real-robot, modern VLA LIBERO, full RoboCasa-wide, and ManiSkill visual/EE endpoints in limitations/future work unless artifacts exist
+17. ideal-claim-boundary matrix separating promotable artifact-backed results from future-only non-claims
 
 ## 11. Benchmark Status
 

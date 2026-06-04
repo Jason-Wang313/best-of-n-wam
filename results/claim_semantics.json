@@ -1,7 +1,7 @@
 {
   "experiment": "claim_semantics",
   "verified": true,
-  "n_claims": 126,
+  "n_claims": 127,
   "n_checks": 175,
   "n_issues": 0,
   "n_ci_claims": 53,
@@ -14,12 +14,12 @@
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=126"
+      "detail": "claims=127"
     },
     {
       "name": "all_claims_verified_except_semantic_self",
       "ok": true,
-      "detail": "claims=125"
+      "detail": "claims=126"
     },
     {
       "name": "claim_1_error_below_threshold",
@@ -849,7 +849,7 @@
     {
       "name": "claim_103_zero_issue_or_overclaim_count",
       "ok": true,
-      "detail": "evidence=claims=126, max_id=126, checks=21, issues=0"
+      "detail": "evidence=claims=127, max_id=127, checks=21, issues=0"
     },
     {
       "name": "claim_116_positive_count_or_artifact",

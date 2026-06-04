@@ -114,6 +114,7 @@ def default_claim_source_map() -> dict[int, list[str]]:
     set_sources(mapping, [124], ["results/claim_scope_audit.json", "reports/claim_scope_audit_report.md"])
     set_sources(mapping, [125], ["results/claim_reference_integrity.json", "reports/claim_reference_integrity_report.md"])
     set_sources(mapping, [126], ["results/frontier_integrity.json", "reports/frontier_integrity_report.md"])
+    set_sources(mapping, [127], ["results/ideal_claim_boundary.json", "reports/ideal_claim_boundary_report.md"])
     return mapping
 
 

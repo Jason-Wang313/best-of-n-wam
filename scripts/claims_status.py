@@ -46,6 +46,7 @@ NARRATIVE_SURFACES = [
     ("claim_scope_audit_report", REPORTS / "claim_scope_audit_report.md"),
     ("claim_reference_integrity_report", REPORTS / "claim_reference_integrity_report.md"),
     ("frontier_integrity_report", REPORTS / "frontier_integrity_report.md"),
+    ("ideal_claim_boundary_report", REPORTS / "ideal_claim_boundary_report.md"),
     ("claim_generation_consistency_report", REPORTS / "claim_generation_consistency_report.md"),
     ("report_generation_consistency_report", REPORTS / "report_generation_consistency_report.md"),
     ("script_contracts_report", REPORTS / "script_contracts_report.md"),
@@ -328,6 +329,7 @@ def main() -> None:
     claim_scope_audit = load_json("claim_scope_audit.json")
     claim_reference_integrity = load_json("claim_reference_integrity.json")
     frontier_integrity = load_json("frontier_integrity.json")
+    ideal_claim_boundary = load_json("ideal_claim_boundary.json")
     claim_evidence_quality = load_json("claim_evidence_quality.json")
     tracked_artifact_provenance = load_json("tracked_artifact_provenance.json")
     evidence_hash_coverage = load_json("evidence_hash_coverage.json")
@@ -2133,6 +2135,29 @@ def main() -> None:
             f"issues={frontier_integrity.get('n_issues')}, results/frontier_integrity.json"
         ),
     }
+    ideal_claim_boundary_claim = {
+        "id": 127,
+        "claim": "Ideal claim boundary separates promotable artifact-backed results from future-only non-claims.",
+        "status": status(
+            bool(ideal_claim_boundary)
+            and ideal_claim_boundary.get("verified", False)
+            and (ideal_claim_boundary.get("n_ideal_claims") or 0) >= 9
+            and (ideal_claim_boundary.get("n_promotable_claims") or 0) >= 4
+            and (ideal_claim_boundary.get("n_future_only_claims") or 0) >= 5
+            and ideal_claim_boundary.get("all_ideal_claims_promotable") is False
+            and ideal_claim_boundary.get("n_issues") == 0
+            and artifact_exists(RESULTS / "ideal_claim_boundary.json")
+            and artifact_exists(REPORTS / "ideal_claim_boundary_report.md"),
+            bool(ideal_claim_boundary),
+        ),
+        "evidence": (
+            f"ideal={ideal_claim_boundary.get('n_ideal_claims')}, "
+            f"promotable={ideal_claim_boundary.get('n_promotable_claims')}, "
+            f"future_only={ideal_claim_boundary.get('n_future_only_claims')}, "
+            f"all_promotable={ideal_claim_boundary.get('all_ideal_claims_promotable')}, "
+            f"issues={ideal_claim_boundary.get('n_issues')}, results/ideal_claim_boundary.json"
+        ),
+    }
     test_inventory_claim = {
         "id": 116,
         "claim": "Pytest command-result counts come from a verified collected-test inventory.",
@@ -2198,7 +2223,7 @@ def main() -> None:
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=126, max_id=126, checks=preview, issues=0",
+            "evidence": "claims=127, max_id=127, checks=preview, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
@@ -2210,6 +2235,7 @@ def main() -> None:
         claim_scope_audit_claim,
         claim_reference_integrity_claim,
         frontier_integrity_claim,
+        ideal_claim_boundary_claim,
         raw_result_recompute_claim,
         claim_semantics_claim,
         artifact_manifest_claim,
@@ -2246,6 +2272,7 @@ def main() -> None:
     claims.append(claim_scope_audit_claim)
     claims.append(claim_reference_integrity_claim)
     claims.append(frontier_integrity_claim)
+    claims.append(ideal_claim_boundary_claim)
     claims.append(raw_result_recompute_claim)
     claims.append(claim_semantics_claim)
     claims.append(artifact_manifest_claim)

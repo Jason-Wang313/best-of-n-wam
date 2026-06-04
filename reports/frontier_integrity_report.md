@@ -2,7 +2,7 @@
 
 - Verified: True
 - Frontier items: 4
-- Claims loaded: 126
+- Claims loaded: 127
 - Publication surfaces: 7
 - Frontier mentions: 84
 - Guarded frontier mentions: 84

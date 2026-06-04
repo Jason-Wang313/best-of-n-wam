@@ -221,7 +221,7 @@
         {
           "path": "results/frontier_integrity.json",
           "exists": true,
-          "bytes": 77466
+          "bytes": 78290
         }
       ],
       "missing_files": [],
@@ -249,7 +249,7 @@
         {
           "path": "results/frontier_integrity.json",
           "exists": true,
-          "bytes": 77466
+          "bytes": 78290
         }
       ],
       "missing_files": [],
@@ -277,7 +277,7 @@
         {
           "path": "results/frontier_integrity.json",
           "exists": true,
-          "bytes": 77466
+          "bytes": 78290
         },
         {
           "path": "results/benchmark_robocasa_catalog_probe.json",
@@ -310,7 +310,7 @@
         {
           "path": "results/frontier_integrity.json",
           "exists": true,
-          "bytes": 77466
+          "bytes": 78290
         },
         {
           "path": "results/benchmark_maniskill_visual_probe.json",
@@ -348,7 +348,7 @@
         {
           "path": "results/publication_scope.json",
           "exists": true,
-          "bytes": 69646
+          "bytes": 70470
         }
       ],
       "missing_files": [],
@@ -367,7 +367,7 @@
     {
       "name": "claims_loaded",
       "ok": true,
-      "detail": "verified_claims=126"
+      "detail": "verified_claims=127"
     },
     {
       "name": "frontier_integrity_loaded",

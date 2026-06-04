@@ -96,6 +96,8 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{script_contracts.",
         "{abstract_claim_support.",
         "{publication_scope.",
+        "{frontier_integrity.",
+        "{ideal_claim_boundary.",
         "{claim_semantics.",
         "{claim_scope_audit.",
         "{claim_reference_integrity.",
@@ -288,6 +290,8 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     script_contracts = load_json(results_dir, "script_contracts.json")
     abstract_claim_support = load_json(results_dir, "abstract_claim_support.json")
     publication_scope = load_json(results_dir, "publication_scope.json")
+    frontier_integrity = load_json(results_dir, "frontier_integrity.json")
+    ideal_claim_boundary = load_json(results_dir, "ideal_claim_boundary.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_scope_audit = load_json(results_dir, "claim_scope_audit.json")
     claim_reference_integrity = load_json(results_dir, "claim_reference_integrity.json")
@@ -515,6 +519,33 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
             f"`{publication_scope.get('n_risk_mentions')}` risky mentions, "
             f"`{publication_scope.get('n_unguarded_mentions')}` unguarded mentions, "
             f"and `{publication_scope.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "frontier_integrity_command",
+        (
+            f"`python scripts/frontier_integrity.py --fail-on-error`: passed with "
+            f"`{frontier_integrity.get('n_frontier_items')}` frontier items, "
+            f"`{frontier_integrity.get('n_guarded_frontier_mentions')}` guarded mentions, "
+            f"`{frontier_integrity.get('n_promoted_frontier_claims')}` promoted frontier claims, and "
+            f"`{frontier_integrity.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "ideal_claim_boundary_command",
+        (
+            f"`python scripts/ideal_claim_boundary.py --fail-on-error`: passed with "
+            f"`{ideal_claim_boundary.get('n_ideal_claims')}` ideal claims, "
+            f"`{ideal_claim_boundary.get('n_promotable_claims')}` promotable claims, "
+            f"`{ideal_claim_boundary.get('n_future_only_claims')}` future-only claims, "
+            f"`{ideal_claim_boundary.get('all_ideal_claims_promotable')}` all-promotable flag, and "
+            f"`{ideal_claim_boundary.get('n_issues')}` issues"
         ),
     )
     add_contains(

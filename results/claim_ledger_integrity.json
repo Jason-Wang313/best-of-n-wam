@@ -1,12 +1,12 @@
 {
   "experiment": "claim_ledger_integrity",
   "verified": true,
-  "n_claims": 126,
-  "max_claim_id": 126,
+  "n_claims": 127,
+  "max_claim_id": 127,
   "n_checks": 31,
   "n_issues": 0,
   "status_counts": {
-    "VERIFIED": 126,
+    "VERIFIED": 127,
     "PARTIAL": 0,
     "UNSUPPORTED": 0,
     "FAILED": 0
@@ -44,6 +44,12 @@
       "raw_path": "results/frontier_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "exists": true
+    },
+    {
+      "claim_id": 127,
+      "raw_path": "results/ideal_claim_boundary.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
+      "exists": true
     }
   ],
   "missing_evidence_path_references": [],
@@ -51,7 +57,7 @@
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=126"
+      "detail": "claims=127"
     },
     {
       "name": "claim_ids_parse",
@@ -66,12 +72,12 @@
     {
       "name": "claim_ids_contiguous",
       "ok": true,
-      "detail": "missing=[], max_id=126"
+      "detail": "missing=[], max_id=127"
     },
     {
       "name": "claim_ids_sorted",
       "ok": true,
-      "detail": "first_ids=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], last_ids=[117, 118, 119, 120, 121, 122, 123, 124, 125, 126]"
+      "detail": "first_ids=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], last_ids=[118, 119, 120, 121, 122, 123, 124, 125, 126, 127]"
     },
     {
       "name": "claim_statuses_valid",
@@ -96,7 +102,7 @@
     {
       "name": "num_verified_matches_claims",
       "ok": true,
-      "detail": "json=126, computed=126"
+      "detail": "json=127, computed=127"
     },
     {
       "name": "num_partial_matches_claims",
@@ -116,12 +122,12 @@
     {
       "name": "status_counts_sum_to_claim_count",
       "ok": true,
-      "detail": "status_total=126, claims=126"
+      "detail": "status_total=127, claims=127"
     },
     {
       "name": "no_nonverified_claims",
       "ok": true,
-      "detail": "partial=0, unsupported=0, failed=0, audited=122"
+      "detail": "partial=0, unsupported=0, failed=0, audited=123"
     },
     {
       "name": "readme_overclaims_empty",
@@ -151,12 +157,12 @@
     {
       "name": "claim_evidence_paths_exist",
       "ok": true,
-      "detail": "paths=5, missing=0"
+      "detail": "paths=6, missing=0"
     },
     {
       "name": "claims_status_md_claim_count",
       "ok": true,
-      "detail": "md=126, json=126"
+      "detail": "md=127, json=127"
     },
     {
       "name": "claims_status_md_id_set",
@@ -171,7 +177,7 @@
     {
       "name": "claims_report_verified_count",
       "ok": true,
-      "detail": "expected=- verified: `126`"
+      "detail": "expected=- verified: `127`"
     },
     {
       "name": "claims_report_partial_count",

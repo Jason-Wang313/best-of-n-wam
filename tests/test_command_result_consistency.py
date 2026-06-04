@@ -38,6 +38,8 @@ def write_minimal_gate_artifacts(results: Path) -> None:
     write_json(results / "script_contracts.json", {"n_scripts": 7, "n_checks": 77, "n_issues": 0})
     write_json(results / "abstract_claim_support.json", {"n_abstract_claims": 4, "n_backing_claim_links": 23, "n_forbidden_headline_hits": 0, "n_issues": 0})
     write_json(results / "publication_scope.json", {"n_publication_surfaces": 5, "n_risk_mentions": 72, "n_unguarded_mentions": 0, "n_issues": 0})
+    write_json(results / "frontier_integrity.json", {"n_frontier_items": 4, "n_guarded_frontier_mentions": 84, "n_promoted_frontier_claims": 0, "n_issues": 0})
+    write_json(results / "ideal_claim_boundary.json", {"n_ideal_claims": 9, "n_promotable_claims": 4, "n_future_only_claims": 5, "all_ideal_claims_promotable": False, "n_issues": 0})
     write_json(results / "claim_semantics.json", {"n_claims": 114, "n_checks": 168, "n_ci_claims": 51, "n_issues": 0})
     write_json(results / "claim_scope_audit.json", {"n_claims": 114, "n_scope_mentions": 154, "n_checks": 159, "n_issues": 0})
     write_json(results / "claim_reference_integrity.json", {"n_references": 24, "n_unique_referenced_claims": 12, "n_issues": 0})

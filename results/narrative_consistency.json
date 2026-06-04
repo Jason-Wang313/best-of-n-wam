@@ -1,6 +1,6 @@
 {
   "verified": true,
-  "n_checks": 50,
+  "n_checks": 52,
   "n_issues": 0,
   "checks": [
     {
@@ -147,14 +147,14 @@
       "surface": "final_decision_report",
       "name": "artifact_integrity_command",
       "ok": true,
-      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `699` artifact references checked and `0` issues",
+      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `705` artifact references checked and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "artifact_manifest_command",
       "ok": true,
-      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `399` scientific artifacts, `56514265` bytes, `15` manifest checks, and `0` issues",
+      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `397` scientific artifacts, `56421681` bytes, `15` manifest checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -189,7 +189,7 @@
       "surface": "final_decision_report",
       "name": "source_manifest_command",
       "ok": true,
-      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `209` source files, `1468083` bytes, `14` source-manifest checks, and `0` issues",
+      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `209` source files, `1474601` bytes, `14` source-manifest checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -217,7 +217,7 @@
       "surface": "final_decision_report",
       "name": "script_contracts_command",
       "ok": true,
-      "expected": "`python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `129` contract checks, and `0` issues",
+      "expected": "`python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `133` contract checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -236,16 +236,30 @@
     },
     {
       "surface": "final_decision_report",
+      "name": "frontier_integrity_command",
+      "ok": true,
+      "expected": "`python scripts/frontier_integrity.py --fail-on-error`: passed with `4` frontier items, `84` guarded mentions, `0` promoted frontier claims, and `0` issues",
+      "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
+      "name": "ideal_claim_boundary_command",
+      "ok": true,
+      "expected": "`python scripts/ideal_claim_boundary.py --fail-on-error`: passed with `9` ideal claims, `4` promotable claims, `5` future-only claims, `False` all-promotable flag, and `0` issues",
+      "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
       "name": "claim_semantics_command",
       "ok": true,
-      "expected": "`python scripts/claim_semantics.py --fail-on-error`: passed with `126` claims, `175` semantic checks, `53` CI-backed claims, and `0` issues",
+      "expected": "`python scripts/claim_semantics.py --fail-on-error`: passed with `127` claims, `175` semantic checks, `53` CI-backed claims, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "claim_scope_audit_command",
       "ok": true,
-      "expected": "`python scripts/claim_scope_audit.py --fail-on-error`: passed with `126` claims, `155` scoped broad-claim mentions, `160` checks, and `0` issues",
+      "expected": "`python scripts/claim_scope_audit.py --fail-on-error`: passed with `127` claims, `155` scoped broad-claim mentions, `160` checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -259,7 +273,7 @@
       "surface": "final_decision_report",
       "name": "claim_evidence_quality_command",
       "ok": true,
-      "expected": "`python scripts/claim_evidence_quality.py --fail-on-error`: passed with `126` claims, `173` source links, `7` evidence checks, and `0` issues",
+      "expected": "`python scripts/claim_evidence_quality.py --fail-on-error`: passed with `127` claims, `175` source links, `7` evidence checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -273,21 +287,21 @@
       "surface": "final_decision_report",
       "name": "repo_bound_artifact_audit_command",
       "ok": true,
-      "expected": "`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `872` records, `173` claim sources, `699` artifact references, `0` outside-repo records, `0` missing records, and `0` issues",
+      "expected": "`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `880` records, `175` claim sources, `705` artifact references, `0` outside-repo records, `0` missing records, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "evidence_hash_coverage_command",
       "ok": true,
-      "expected": "`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `115` claim sources, `445` artifact references, `560` hashed records, and `0` issues",
+      "expected": "`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `117` claim sources, `445` artifact references, `562` hashed records, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "claim_generation_consistency_command",
       "ok": true,
-      "expected": "`python scripts/claim_generation_consistency.py --fail-on-error`: passed with `126` claims, `10` generation checks, and `0` issues",
+      "expected": "`python scripts/claim_generation_consistency.py --fail-on-error`: passed with `127` claims, `10` generation checks, and `0` issues",
       "detail": "found"
     },
     {

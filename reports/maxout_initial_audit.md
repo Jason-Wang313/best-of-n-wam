@@ -25,6 +25,7 @@ Audit date: 2026-05-30.
 - `abstract_claim_support.py` verifies that final-report abstract claims are exactly the approved headline set, directly backed by verified claim IDs, and free of future-only robotics evidence.
 - `publication_scope.py` verifies that risky publication-facing robotics phrases are explicitly guarded as limitations, blockers, future work, discussion-only claims, or non-claims.
 - `frontier_integrity.py` verifies that the remaining ideal robotics endpoints are guarded as non-claims and not promoted as verified results.
+- `ideal_claim_boundary.py` verifies that ideal endpoints are explicitly separated into promotable artifact-backed results versus future-only non-claims.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.
 - `claim_scope_audit.py` verifies that broad claim wording is scoped by task/env names, sample counts, modes, smoke/probe qualifiers, or explicit limitation evidence.
 - `claim_reference_integrity.py` verifies that explicit `VERIFIED CLAIM N` narrative references resolve to current verified claim IDs.

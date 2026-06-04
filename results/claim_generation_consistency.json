@@ -2,11 +2,11 @@
   "experiment": "claim_generation_consistency",
   "verified": true,
   "n_files_checked": 2,
-  "n_claims": 126,
+  "n_claims": 127,
   "n_checks": 10,
   "n_issues": 0,
-  "json_sha256": "8ba702d3aa40cc05f08de69bc68ae956e4843eae9a43c3cf991d26b7df74011b",
-  "md_sha256": "7c9240717296d307f2e082b910341e85a73a3515c0f3665b1974a3e53213d55a",
+  "json_sha256": "ffbde80cfd12b57f7aa98ed797a3ada77c14e226f7e2ffd9c201c8a9d078be84",
+  "md_sha256": "e5fbab4c309edc4c41ad92fb19f391b24e4741bad4fb137b9600ef6976fae527",
   "generator_returncode": 0,
   "first_generator_returncode": 0,
   "second_generator_returncode": 0,
@@ -23,22 +23,22 @@
     {
       "name": "claims_json_exists",
       "ok": true,
-      "detail": "bytes=42461"
+      "detail": "bytes=42762"
     },
     {
       "name": "claims_md_exists",
       "ok": true,
-      "detail": "bytes=34286"
+      "detail": "bytes=34524"
     },
     {
       "name": "claims_json_byte_stable",
       "ok": true,
-      "detail": "first=8ba702d3aa40cc05f08de69bc68ae956e4843eae9a43c3cf991d26b7df74011b, second=8ba702d3aa40cc05f08de69bc68ae956e4843eae9a43c3cf991d26b7df74011b"
+      "detail": "first=ffbde80cfd12b57f7aa98ed797a3ada77c14e226f7e2ffd9c201c8a9d078be84, second=ffbde80cfd12b57f7aa98ed797a3ada77c14e226f7e2ffd9c201c8a9d078be84"
     },
     {
       "name": "claims_md_byte_stable",
       "ok": true,
-      "detail": "first=7c9240717296d307f2e082b910341e85a73a3515c0f3665b1974a3e53213d55a, second=7c9240717296d307f2e082b910341e85a73a3515c0f3665b1974a3e53213d55a"
+      "detail": "first=e5fbab4c309edc4c41ad92fb19f391b24e4741bad4fb137b9600ef6976fae527, second=e5fbab4c309edc4c41ad92fb19f391b24e4741bad4fb137b9600ef6976fae527"
     },
     {
       "name": "claims_json_parses",
@@ -48,7 +48,7 @@
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=126"
+      "detail": "claims=127"
     },
     {
       "name": "claims_no_overclaims",
@@ -58,12 +58,12 @@
     {
       "name": "stdout_contains_claims_status",
       "ok": true,
-      "detail": "stdout_bytes=68316"
+      "detail": "stdout_bytes=68790"
     },
     {
       "name": "markdown_claim_count_matches_json",
       "ok": true,
-      "detail": "md_claims=126, json_claims=126"
+      "detail": "md_claims=127, json_claims=127"
     }
   ],
   "issues": []

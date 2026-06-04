@@ -119,6 +119,7 @@ def main() -> None:
     claim_scope_audit = load_json("claim_scope_audit.json")
     claim_reference_integrity = load_json("claim_reference_integrity.json")
     frontier_integrity = load_json("frontier_integrity.json")
+    ideal_claim_boundary = load_json("ideal_claim_boundary.json")
     claim_generation_consistency = load_json("claim_generation_consistency.json")
     report_generation_consistency = load_json("report_generation_consistency.json")
     tracked_artifact_provenance = load_json("tracked_artifact_provenance.json")
@@ -181,6 +182,7 @@ Audit date: 2026-05-30.
 - `abstract_claim_support.py` verifies that final-report abstract claims are exactly the approved headline set, directly backed by verified claim IDs, and free of future-only robotics evidence.
 - `publication_scope.py` verifies that risky publication-facing robotics phrases are explicitly guarded as limitations, blockers, future work, discussion-only claims, or non-claims.
 - `frontier_integrity.py` verifies that the remaining ideal robotics endpoints are guarded as non-claims and not promoted as verified results.
+- `ideal_claim_boundary.py` verifies that ideal endpoints are explicitly separated into promotable artifact-backed results versus future-only non-claims.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.
 - `claim_scope_audit.py` verifies that broad claim wording is scoped by task/env names, sample counts, modes, smoke/probe qualifiers, or explicit limitation evidence.
 - `claim_reference_integrity.py` verifies that explicit `VERIFIED CLAIM N` narrative references resolve to current verified claim IDs.
@@ -641,6 +643,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/abstract_claim_support.py --fail-on-error`: passed with `{abstract_claim_support.get('n_abstract_claims')}` abstract claims, `{abstract_claim_support.get('n_backing_claim_links')}` backing claim links, `{abstract_claim_support.get('n_forbidden_headline_hits')}` forbidden headline hits, and `{abstract_claim_support.get('n_issues')}` issues.
 - `python scripts/publication_scope.py --fail-on-error`: passed with `{publication_scope.get('n_publication_surfaces')}` publication surfaces, `{publication_scope.get('n_risk_mentions')}` risky mentions, `{publication_scope.get('n_unguarded_mentions')}` unguarded mentions, and `{publication_scope.get('n_issues')}` issues.
 - `python scripts/frontier_integrity.py --fail-on-error`: passed with `{frontier_integrity.get('n_frontier_items')}` frontier items, `{frontier_integrity.get('n_guarded_frontier_mentions')}` guarded mentions, `{frontier_integrity.get('n_promoted_frontier_claims')}` promoted frontier claims, and `{frontier_integrity.get('n_issues')}` issues.
+- `python scripts/ideal_claim_boundary.py --fail-on-error`: passed with `{ideal_claim_boundary.get('n_ideal_claims')}` ideal claims, `{ideal_claim_boundary.get('n_promotable_claims')}` promotable claims, `{ideal_claim_boundary.get('n_future_only_claims')}` future-only claims, `{ideal_claim_boundary.get('all_ideal_claims_promotable')}` all-promotable flag, and `{ideal_claim_boundary.get('n_issues')}` issues.
 - `python scripts/claim_semantics.py --fail-on-error`: passed with `{claim_semantics.get('n_claims')}` claims, `{claim_semantics.get('n_checks')}` semantic checks, `{claim_semantics.get('n_ci_claims')}` CI-backed claims, and `{claim_semantics.get('n_issues')}` issues.
 - `python scripts/claim_scope_audit.py --fail-on-error`: passed with `{claim_scope_audit.get('n_claims')}` claims, `{claim_scope_audit.get('n_scope_mentions')}` scoped broad-claim mentions, `{claim_scope_audit.get('n_checks')}` checks, and `{claim_scope_audit.get('n_issues')}` issues.
 - `python scripts/claim_reference_integrity.py --fail-on-error`: passed with `{claim_reference_integrity.get('n_references')}` explicit verified-claim references, `{claim_reference_integrity.get('n_unique_referenced_claims')}` unique referenced claims, and `{claim_reference_integrity.get('n_issues')}` issues.

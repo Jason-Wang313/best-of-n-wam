@@ -7,6 +7,7 @@ def sample_stdout(count: int = 94) -> str:
         "tests/test_claim_reference_integrity.py::test_claim_reference_integrity_accepts_verified_references",
         "tests/test_claim_scope_audit.py::test_claim_scope_audit_accepts_scoped_benchmark_and_smoke_claims",
         "tests/test_command_result_consistency.py::test_command_result_consistency_accepts_current_report",
+        "tests/test_ideal_claim_boundary.py::test_ideal_claim_boundary_accepts_clean_boundary",
         "tests/test_model_artifact_integrity.py::test_model_artifact_integrity_accepts_loadable_npz",
         "tests/test_publication_scope.py::test_publication_scope_accepts_guarded_risk_mentions",
         "tests/test_script_contracts.py::test_ordered_subsequence_requires_order",

@@ -2,9 +2,9 @@
   "experiment": "repo_bound_artifact_audit",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_records": 872,
-  "n_claim_sources": 173,
-  "n_artifact_references": 699,
+  "n_records": 880,
+  "n_claim_sources": 175,
+  "n_artifact_references": 705,
   "n_outside_repo": 0,
   "n_missing": 0,
   "n_parent_traversal": 0,
@@ -12,23 +12,23 @@
     "documentation": 6,
     "figure": 36,
     "model": 37,
-    "report": 143,
-    "result_json": 402,
+    "report": 146,
+    "result_json": 407,
     "result_table": 242,
     "source_or_test": 6
   },
   "suffix_counts": {
     ".csv": 242,
     ".joblib": 13,
-    ".json": 402,
-    ".md": 149,
+    ".json": 407,
+    ".md": 152,
     ".npz": 24,
     ".png": 36,
     ".py": 6
   },
   "record_category_counts": {
-    "artifact_reference": 699,
-    "claim_source": 173
+    "artifact_reference": 705,
+    "claim_source": 175
   },
   "n_checks": 12,
   "n_issues": 0,
@@ -36,17 +36,17 @@
     {
       "name": "records_present",
       "ok": true,
-      "detail": "records=872"
+      "detail": "records=880"
     },
     {
       "name": "claim_sources_present",
       "ok": true,
-      "detail": "claim_sources=173"
+      "detail": "claim_sources=175"
     },
     {
       "name": "artifact_references_present",
       "ok": true,
-      "detail": "artifact_references=699"
+      "detail": "artifact_references=705"
     },
     {
       "name": "all_records_inside_repo",
@@ -66,7 +66,7 @@
     {
       "name": "result_json_coverage",
       "ok": true,
-      "detail": "count=402"
+      "detail": "count=407"
     },
     {
       "name": "result_table_coverage",
@@ -76,7 +76,7 @@
     {
       "name": "report_coverage",
       "ok": true,
-      "detail": "count=143"
+      "detail": "count=146"
     },
     {
       "name": "figure_coverage",
@@ -908,6 +908,54 @@
       "raw": "reports/frontier_integrity_report.md",
       "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\frontier_integrity_report.md",
       "repo_relative": "reports/frontier_integrity_report.md",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".md",
+      "artifact_category": "report",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.174.raw_path",
+      "claim_id": null,
+      "raw": "reports/ideal_claim_boundary_report.md",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
+      "repo_relative": "reports/ideal_claim_boundary_report.md",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".md",
+      "artifact_category": "report",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.174.resolved_path",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
+      "repo_relative": "reports/ideal_claim_boundary_report.md",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".md",
+      "artifact_category": "report",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "claim_source",
+      "source": "claim_evidence_quality",
+      "source_json": null,
+      "json_ref": null,
+      "claim_id": 127,
+      "raw": "reports/ideal_claim_boundary_report.md",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
+      "repo_relative": "reports/ideal_claim_boundary_report.md",
       "inside_repo": true,
       "exists": true,
       "kind": "file",
@@ -7804,6 +7852,86 @@
       "raw": "results/frontier_integrity.json",
       "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "repo_relative": "results/frontier_integrity.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.173.raw_path",
+      "claim_id": null,
+      "raw": "results/ideal_claim_boundary.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
+      "repo_relative": "results/ideal_claim_boundary.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.173.resolved_path",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
+      "repo_relative": "results/ideal_claim_boundary.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_ledger_integrity.json",
+      "json_ref": "evidence_path_references.5.raw_path",
+      "claim_id": null,
+      "raw": "results/ideal_claim_boundary.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
+      "repo_relative": "results/ideal_claim_boundary.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_ledger_integrity.json",
+      "json_ref": "evidence_path_references.5.resolved_path",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
+      "repo_relative": "results/ideal_claim_boundary.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "claim_source",
+      "source": "claim_evidence_quality",
+      "source_json": null,
+      "json_ref": null,
+      "claim_id": 127,
+      "raw": "results/ideal_claim_boundary.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
+      "repo_relative": "results/ideal_claim_boundary.json",
       "inside_repo": true,
       "exists": true,
       "kind": "file",

@@ -1,7 +1,7 @@
 {
   "experiment": "claim_scope_audit",
   "verified": true,
-  "n_claims": 126,
+  "n_claims": 127,
   "n_scope_mentions": 155,
   "category_counts": {
     "verification": 42,
@@ -1259,7 +1259,7 @@
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=126"
+      "detail": "claims=127"
     },
     {
       "name": "claim_1_verified_wording_has_metric_or_scope",
