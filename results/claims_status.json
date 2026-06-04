@@ -112,7 +112,7 @@
       "id": 19,
       "claim": "Conditional law verified under distribution shift.",
       "status": "VERIFIED",
-      "evidence": "MAE=0.006278872119413491"
+      "evidence": "MAE=0.002711190528210008"
     },
     {
       "id": 20,
@@ -172,7 +172,7 @@
       "id": 29,
       "claim": "Nonstationary verified.",
       "status": "VERIFIED",
-      "evidence": "env=nonstationary_shift, exp8_mae=0.006278872119413491, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True"
+      "evidence": "env=nonstationary_shift, exp8_mae=0.002711190528210008, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True"
     },
     {
       "id": 30,
@@ -610,13 +610,19 @@
       "id": 102,
       "claim": "Published narrative numbers match current artifacts.",
       "status": "VERIFIED",
-      "evidence": "checks=22, issues=0"
+      "evidence": "checks=32, issues=0"
     },
     {
       "id": 103,
       "claim": "Claim ledger is structurally consistent.",
       "status": "VERIFIED",
-      "evidence": "claims=103, max_id=103, checks=21, issues=0"
+      "evidence": "claims=104, max_id=104, checks=21, issues=0"
+    },
+    {
+      "id": 104,
+      "claim": "Canonical execution scripts preserve required gate contracts.",
+      "status": "VERIFIED",
+      "evidence": "scripts=7, checks=37, issues=0"
     }
   ],
   "readme_overclaims": [],
@@ -624,7 +630,7 @@
   "report_overclaims": [],
   "narrative_overclaims": [],
   "overclaims": [],
-  "num_verified": 103,
+  "num_verified": 104,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

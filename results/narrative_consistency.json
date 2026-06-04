@@ -1,6 +1,6 @@
 {
   "verified": true,
-  "n_checks": 22,
+  "n_checks": 32,
   "n_issues": 0,
   "checks": [
     {
@@ -81,10 +81,17 @@
       "detail": "episodes=50, successes=50"
     },
     {
+      "surface": "README",
+      "name": "no_unresolved_template_markers",
+      "ok": true,
+      "expected": "no unresolved template markers",
+      "detail": "found=[]"
+    },
+    {
       "surface": "final_decision_report",
       "name": "pytest_count",
       "ok": true,
-      "expected": "`python -m pytest -q`: passed with `56 passed`",
+      "expected": "`python -m pytest -q`: passed with `58 passed`",
       "detail": "found"
     },
     {
@@ -145,17 +152,80 @@
     },
     {
       "surface": "final_decision_report",
+      "name": "script_contracts_command",
+      "ok": true,
+      "expected": "`python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `37` contract checks, and `0` issues",
+      "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
       "name": "claim_ledger_command",
       "ok": true,
-      "expected": "`python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `103` claims, `31` ledger checks, and `0` issues",
+      "expected": "`python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `104` claims, `31` ledger checks, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "claims_command",
       "ok": true,
-      "expected": "`python scripts/claims_status.py`: passed with `103` verified, `0` partial, `0` unsupported, `0` failed",
+      "expected": "`python scripts/claims_status.py`: passed with `104` verified, `0` partial, `0` unsupported, `0` failed",
       "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
+      "name": "no_unresolved_template_markers",
+      "ok": true,
+      "expected": "no unresolved template markers",
+      "detail": "found=[]"
+    },
+    {
+      "surface": "maxout_initial_audit.md",
+      "name": "no_unresolved_template_markers",
+      "ok": true,
+      "expected": "no unresolved template markers",
+      "detail": "found=[]"
+    },
+    {
+      "surface": "maxout_completion_audit.md",
+      "name": "no_unresolved_template_markers",
+      "ok": true,
+      "expected": "no unresolved template markers",
+      "detail": "found=[]"
+    },
+    {
+      "surface": "reviewer_risk_assessment.md",
+      "name": "no_unresolved_template_markers",
+      "ok": true,
+      "expected": "no unresolved template markers",
+      "detail": "found=[]"
+    },
+    {
+      "surface": "ablation_report.md",
+      "name": "no_unresolved_template_markers",
+      "ok": true,
+      "expected": "no unresolved template markers",
+      "detail": "found=[]"
+    },
+    {
+      "surface": "falsification_report.md",
+      "name": "no_unresolved_template_markers",
+      "ok": true,
+      "expected": "no unresolved template markers",
+      "detail": "found=[]"
+    },
+    {
+      "surface": "claims_report.md",
+      "name": "no_unresolved_template_markers",
+      "ok": true,
+      "expected": "no unresolved template markers",
+      "detail": "found=[]"
+    },
+    {
+      "surface": "paper_result_summary.md",
+      "name": "no_unresolved_template_markers",
+      "ok": true,
+      "expected": "no unresolved template markers",
+      "detail": "found=[]"
     }
   ],
   "issues": []

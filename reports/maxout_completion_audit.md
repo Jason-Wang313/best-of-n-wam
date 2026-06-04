@@ -102,7 +102,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - EXP5 severe mismatch gap growth: `16.7257`.
 - EXP6 moment-law improvement over uniform: `0.0767`.
 - EXP7 learned useful N64-N1 success gain: `0.2167`.
-- EXP8 conditional-law MAE: `0.0063`.
+- EXP8 conditional-law MAE: `0.0027`.
 - Gymnasium Robotics Fetch exact-law MAE: `0.0126`.
 - Meta-World exact-law MAE: `0.0298`.
 - RoboSuite exact-law MAE: `0.0024`.

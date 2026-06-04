@@ -18,7 +18,7 @@
 - Claim 16: **VERIFIED** - Closed-loop high-N gain verified. Evidence: analytic useful N64-N1=0.20833333333333337; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}
 - Claim 17: **VERIFIED** - Useful scorer beats random in closed loop. Evidence: learned useful-random CI={'n': 5, 'mean': 0.3166666666666667, 'std': 0.06972166887783962, 'stderr': 0.031180478223116172, 'ci95': 0.061113737317307695, 'lo': 0.255552929349359, 'hi': 0.3777804039839744}
 - Claim 18: **VERIFIED** - Oracle first-action remains upper bound. Evidence: oracle-useful CI={'n': 5, 'mean': 0.16666666666666666, 'std': 0.11785113019775793, 'stderr': 0.052704627669472995, 'ci95': 0.10330107023216707, 'lo': 0.06336559643449959, 'hi': 0.26996773689883374}
-- Claim 19: **VERIFIED** - Conditional law verified under distribution shift. Evidence: MAE=0.006278872119413491
+- Claim 19: **VERIFIED** - Conditional law verified under distribution shift. Evidence: MAE=0.002711190528210008
 - Claim 20: **VERIFIED** - Stale estimates fail/degrade under shift. Evidence: stale post-pre CI={'n': 48, 'mean': 0.06053148468706062, 'std': 0.1237430819653073, 'stderr': 0.017860775420756023, 'ci95': 0.035007119824681805, 'lo': 0.025524364862378815, 'hi': 0.09553860451174243}
 - Claim 21: **VERIFIED** - Adaptive re-estimation helps under shift. Evidence: stale-adaptive post CI={'n': 48, 'mean': 0.10238434930665018, 'std': 0.14521811815578564, 'stderr': 0.020960429902113432, 'ci95': 0.041082442608142325, 'lo': 0.06130190669850785, 'hi': 0.1434667919147925}
 - Claim 22: **VERIFIED** - Learned WAM trained. Evidence: model=results\models\learned_wam_lite_toy.npz
@@ -28,7 +28,7 @@
 - Claim 26: **VERIFIED** - BlockPush verified. Evidence: env=block_push, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
 - Claim 27: **VERIFIED** - DrawerPull verified. Evidence: env=drawer_pull, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
 - Claim 28: **VERIFIED** - SlipperyGrasp verified. Evidence: env=slippery_grasp, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
-- Claim 29: **VERIFIED** - Nonstationary verified. Evidence: env=nonstationary_shift, exp8_mae=0.006278872119413491, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
+- Claim 29: **VERIFIED** - Nonstationary verified. Evidence: env=nonstationary_shift, exp8_mae=0.002711190528210008, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
 - Claim 30: **VERIFIED** - Deformable optional. Evidence: env=deformable_toy, implemented=True, curves_rows=10500, metrics_rows=45, envs=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], backbones=['ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam'], model_files_ok=True
 - Claim 31: **VERIFIED** - Benchmark adapter available. Evidence: attempted=True, any_available=True
 - Claim 32: **VERIFIED** - Benchmark rollout pools collected. Evidence: pools=25
@@ -101,5 +101,6 @@
 - Claim 99: **VERIFIED** - Narrative reports have no unsupported overclaims. Evidence: report overclaims=0
 - Claim 100: **VERIFIED** - Published result artifact references are internally consistent. Evidence: refs=343, issues=0, status_counts={'ok': 343}
 - Claim 101: **VERIFIED** - Published result summaries agree with canonical tables. Evidence: checks=157, issues=0
-- Claim 102: **VERIFIED** - Published narrative numbers match current artifacts. Evidence: checks=22, issues=0
-- Claim 103: **VERIFIED** - Claim ledger is structurally consistent. Evidence: claims=103, max_id=103, checks=21, issues=0
+- Claim 102: **VERIFIED** - Published narrative numbers match current artifacts. Evidence: checks=32, issues=0
+- Claim 103: **VERIFIED** - Claim ledger is structurally consistent. Evidence: claims=104, max_id=104, checks=21, issues=0
+- Claim 104: **VERIFIED** - Canonical execution scripts preserve required gate contracts. Evidence: scripts=7, checks=37, issues=0

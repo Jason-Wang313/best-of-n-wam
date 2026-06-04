@@ -66,6 +66,7 @@ fi
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/artifact_integrity.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/result_consistency.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/narrative_consistency.py --fail-on-error
+WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/script_contracts.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/claims_status.py
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/claim_ledger_integrity.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/claims_status.py

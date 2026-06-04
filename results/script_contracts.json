@@ -1,0 +1,205 @@
+{
+  "experiment": "script_contracts",
+  "verified": true,
+  "n_scripts": 7,
+  "n_checks": 37,
+  "n_issues": 0,
+  "core_gate_sequence": [
+    "scripts/artifact_integrity.py --fail-on-error",
+    "scripts/result_consistency.py --fail-on-error",
+    "scripts/narrative_consistency.py --fail-on-error",
+    "scripts/script_contracts.py --fail-on-error",
+    "scripts/claims_status.py",
+    "scripts/claim_ledger_integrity.py --fail-on-error",
+    "scripts/claims_status.py",
+    "scripts/claim_ledger_integrity.py --fail-on-error"
+  ],
+  "checks": [
+    {
+      "name": "run_smoke_exists",
+      "ok": true,
+      "detail": "path=scripts/run_smoke.sh"
+    },
+    {
+      "name": "run_smoke_strict_bash",
+      "ok": true,
+      "detail": "requires set -euo pipefail"
+    },
+    {
+      "name": "run_smoke_python_fallback",
+      "ok": true,
+      "detail": "python fallback ladder present"
+    },
+    {
+      "name": "run_smoke_required_steps",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "run_smoke_gate_sequence",
+      "ok": true,
+      "detail": "core gate sequence is ordered"
+    },
+    {
+      "name": "run_smoke_double_claim_ledger",
+      "ok": true,
+      "detail": "ledger gate runs after both claim-status writes"
+    },
+    {
+      "name": "run_learned_wam_toy_exists",
+      "ok": true,
+      "detail": "path=scripts/run_learned_wam_toy.sh"
+    },
+    {
+      "name": "run_learned_wam_toy_strict_bash",
+      "ok": true,
+      "detail": "requires set -euo pipefail"
+    },
+    {
+      "name": "run_learned_wam_toy_python_fallback",
+      "ok": true,
+      "detail": "python fallback ladder present"
+    },
+    {
+      "name": "run_learned_wam_toy_required_steps",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "run_learned_wam_toy_gate_sequence",
+      "ok": true,
+      "detail": "core gate sequence is ordered"
+    },
+    {
+      "name": "run_learned_wam_toy_double_claim_ledger",
+      "ok": true,
+      "detail": "ledger gate runs after both claim-status writes"
+    },
+    {
+      "name": "run_all_exists",
+      "ok": true,
+      "detail": "path=scripts/run_all.sh"
+    },
+    {
+      "name": "run_all_strict_bash",
+      "ok": true,
+      "detail": "requires set -euo pipefail"
+    },
+    {
+      "name": "run_all_python_fallback",
+      "ok": true,
+      "detail": "python fallback ladder present"
+    },
+    {
+      "name": "run_all_required_steps",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "run_all_gate_sequence",
+      "ok": true,
+      "detail": "core gate sequence is ordered"
+    },
+    {
+      "name": "run_all_double_claim_ledger",
+      "ok": true,
+      "detail": "ledger gate runs after both claim-status writes"
+    },
+    {
+      "name": "run_inference_audit_exists",
+      "ok": true,
+      "detail": "path=scripts/run_inference_audit.sh"
+    },
+    {
+      "name": "run_inference_audit_strict_bash",
+      "ok": true,
+      "detail": "requires set -euo pipefail"
+    },
+    {
+      "name": "run_inference_audit_python_fallback",
+      "ok": true,
+      "detail": "python fallback ladder present"
+    },
+    {
+      "name": "run_inference_audit_required_steps",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "run_inference_audit_gate_sequence",
+      "ok": true,
+      "detail": "core gate sequence is ordered"
+    },
+    {
+      "name": "run_inference_audit_double_claim_ledger",
+      "ok": true,
+      "detail": "ledger gate runs after both claim-status writes"
+    },
+    {
+      "name": "run_maxout_all_exists",
+      "ok": true,
+      "detail": "path=scripts/run_maxout_all.sh"
+    },
+    {
+      "name": "run_maxout_all_strict_bash",
+      "ok": true,
+      "detail": "requires set -euo pipefail"
+    },
+    {
+      "name": "run_maxout_all_required_steps",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "run_maxout_all_pre_report_gates",
+      "ok": true,
+      "detail": "artifact gate before and after reports"
+    },
+    {
+      "name": "run_maxout_all_post_report_sequence",
+      "ok": true,
+      "detail": "post-report gate sequence is ordered"
+    },
+    {
+      "name": "run_benchmark_full_exists",
+      "ok": true,
+      "detail": "path=scripts/run_benchmark_full.sh"
+    },
+    {
+      "name": "run_benchmark_full_strict_bash",
+      "ok": true,
+      "detail": "requires set -euo pipefail"
+    },
+    {
+      "name": "run_benchmark_full_required_steps",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "run_benchmark_full_optional_guards",
+      "ok": true,
+      "detail": "missing_guards=[]"
+    },
+    {
+      "name": "run_visual_optional_exists",
+      "ok": true,
+      "detail": "path=scripts/run_visual_optional.sh"
+    },
+    {
+      "name": "run_visual_optional_strict_bash",
+      "ok": true,
+      "detail": "requires set -euo pipefail"
+    },
+    {
+      "name": "run_visual_optional_required_steps",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "run_visual_optional_optional_guards",
+      "ok": true,
+      "detail": "missing_guards=[]"
+    }
+  ],
+  "issues": []
+}

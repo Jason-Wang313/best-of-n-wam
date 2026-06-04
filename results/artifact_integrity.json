@@ -2,7 +2,7 @@
   "experiment": "artifact_integrity",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_result_json": 109,
+  "n_result_json": 110,
   "n_references": 343,
   "status_counts": {
     "ok": 343
@@ -3349,7 +3349,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp8_nonstationary_conditional_law.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp8_nonstationary_conditional_law.csv",
       "exists": true,
-      "bytes": 61474,
+      "bytes": 62558,
       "rows": 864,
       "status": "ok",
       "reason": ""
@@ -3360,7 +3360,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp8_nonstationary_phase_summary.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\exp8_nonstationary_phase_summary.csv",
       "exists": true,
-      "bytes": 242,
+      "bytes": 243,
       "rows": 2,
       "status": "ok",
       "reason": ""
@@ -3404,7 +3404,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\imagination_scaling_law.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\imagination_scaling_law.csv",
       "exists": true,
-      "bytes": 2794857,
+      "bytes": 2793481,
       "rows": 23040,
       "status": "ok",
       "reason": ""
@@ -3415,7 +3415,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\imagination_scaling_profiles.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\imagination_scaling_profiles.csv",
       "exists": true,
-      "bytes": 368658,
+      "bytes": 368050,
       "rows": 2880,
       "status": "ok",
       "reason": ""
@@ -3426,7 +3426,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\imagination_scaling_law_aggregate.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\imagination_scaling_law_aggregate.csv",
       "exists": true,
-      "bytes": 68010,
+      "bytes": 67782,
       "rows": 576,
       "status": "ok",
       "reason": ""
@@ -3525,7 +3525,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\inference_audit_framework_learned.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\inference_audit_framework_learned.csv",
       "exists": true,
-      "bytes": 551502,
+      "bytes": 551483,
       "rows": 1920,
       "status": "ok",
       "reason": ""

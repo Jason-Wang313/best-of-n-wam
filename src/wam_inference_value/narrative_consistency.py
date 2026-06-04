@@ -78,6 +78,38 @@ def add_contains(checks: list[NarrativeCheck], surface: str, text: str, name: st
     )
 
 
+def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: str) -> None:
+    markers = [
+        "{fmt(",
+        "{bullet_lines(",
+        "{claims_payload",
+        "{artifact_integrity.",
+        "{result_consistency.",
+        "{narrative_consistency.",
+        "{script_contracts.",
+        "{claim_ledger_integrity.",
+        "{gym_",
+        "{metaworld.",
+        "{robosuite.",
+        "{maniskill",
+        "{robocasa",
+        "{libero",
+        "{bench_visual_wam",
+        "{residual35_",
+        "`missing`",
+    ]
+    found = [marker for marker in markers if marker in text]
+    checks.append(
+        NarrativeCheck(
+            surface=surface,
+            name="no_unresolved_template_markers",
+            ok=not found,
+            expected="no unresolved template markers",
+            detail=f"found={found}",
+        )
+    )
+
+
 def audit_readme(root: Path, results_dir: Path, checks: list[NarrativeCheck]) -> None:
     text = read_text(root / "README.md")
     learned = load_json(results_dir, "learned_wam_lite_training.json")
@@ -217,6 +249,7 @@ def audit_readme(root: Path, results_dir: Path, checks: list[NarrativeCheck]) ->
             detail=f"episodes={libero_scripted.get('n_episodes')}, successes={libero_scripted.get('n_successes')}",
         )
     )
+    add_no_template_markers(checks, "README", text)
 
 
 def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCheck]) -> None:
@@ -225,6 +258,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     artifact_integrity = load_json(results_dir, "artifact_integrity.json")
     result_consistency = load_json(results_dir, "result_consistency.json")
     claim_ledger_integrity = load_json(results_dir, "claim_ledger_integrity.json")
+    script_contracts = load_json(results_dir, "script_contracts.json")
     learned = load_json(results_dir, "learned_wam_lite_training.json")
     val = (learned.get("metrics") or {}).get("validation") or {}
     learned_cmp = load_json(results_dir, "learned_wam_vs_analytic_wam.json")
@@ -237,7 +271,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     benchmark_visual = load_json(results_dir, "benchmark_visual_wam_lite.json")
     gym_visual = load_json(results_dir, "benchmark_gym_robotics_visual_wam.json")
 
-    add_contains(checks, "final_decision_report", text, "pytest_count", "`python -m pytest -q`: passed with `56 passed`")
+    add_contains(checks, "final_decision_report", text, "pytest_count", "`python -m pytest -q`: passed with `58 passed`")
     add_contains(
         checks,
         "final_decision_report",
@@ -314,6 +348,16 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
         checks,
         "final_decision_report",
         text,
+        "script_contracts_command",
+        (
+            f"`python scripts/script_contracts.py --fail-on-error`: passed with `{script_contracts.get('n_scripts')}` scripts, "
+            f"`{script_contracts.get('n_checks')}` contract checks, and `{script_contracts.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
         "claim_ledger_command",
         (
             f"`python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `{claim_ledger_integrity.get('n_claims')}` claims, "
@@ -330,6 +374,20 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
             f"`{claims.get('num_unsupported')}` unsupported, `{claims.get('num_failed')}` failed"
         ),
     )
+    add_no_template_markers(checks, "final_decision_report", text)
+
+
+def audit_report_templates(root: Path, checks: list[NarrativeCheck]) -> None:
+    for name in [
+        "maxout_initial_audit.md",
+        "maxout_completion_audit.md",
+        "reviewer_risk_assessment.md",
+        "ablation_report.md",
+        "falsification_report.md",
+        "claims_report.md",
+        "paper_result_summary.md",
+    ]:
+        add_no_template_markers(checks, name, read_text(root / "reports" / name))
 
 
 def audit_narrative_consistency(root: Path, results_dir: Path | None = None) -> dict[str, Any]:
@@ -338,6 +396,7 @@ def audit_narrative_consistency(root: Path, results_dir: Path | None = None) -> 
     checks: list[NarrativeCheck] = []
     audit_readme(root, results_dir, checks)
     audit_final_decision(root, results_dir, checks)
+    audit_report_templates(root, checks)
     issues = [check for check in checks if not check.ok]
     return {
         "verified": len(issues) == 0,

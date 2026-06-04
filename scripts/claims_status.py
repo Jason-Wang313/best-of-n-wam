@@ -32,6 +32,7 @@ NARRATIVE_SURFACES = [
     ("result_consistency_report", REPORTS / "result_consistency_report.md"),
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
     ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
+    ("script_contracts_report", REPORTS / "script_contracts_report.md"),
     ("final_decision_report", REPORTS / "final_decision_report.md"),
     ("paper_result_summary", REPORTS / "paper_result_summary.md"),
     ("reviewer_risk_assessment", REPORTS / "reviewer_risk_assessment.md"),
@@ -290,6 +291,7 @@ def main() -> None:
     artifact_integrity = load_json("artifact_integrity.json")
     result_consistency = load_json("result_consistency.json")
     narrative_consistency = load_json("narrative_consistency.json")
+    script_contracts = load_json("script_contracts.json")
 
     claims: list[dict[str, Any]] = []
     add(claims, 1, "Exact finite binary law verified.", status(bool(exp1) and exp1.get("mean_success_mc_mae", 1.0) < 0.018, bool(exp1)), f"success MAE={exp1.get('mean_success_mc_mae')}")
@@ -1608,13 +1610,29 @@ def main() -> None:
         f"checks={narrative_consistency.get('n_checks')}, issues={narrative_consistency.get('n_issues')}",
     )
 
+    script_contract_claim = {
+        "id": 104,
+        "claim": "Canonical execution scripts preserve required gate contracts.",
+        "status": status(
+            bool(script_contracts)
+            and script_contracts.get("verified", False)
+            and (script_contracts.get("n_scripts") or 0) >= 7
+            and (script_contracts.get("n_checks") or 0) >= 35
+            and script_contracts.get("n_issues") == 0
+            and artifact_exists(RESULTS / "script_contracts.json")
+            and artifact_exists(REPORTS / "script_contracts_report.md"),
+            bool(script_contracts),
+        ),
+        "evidence": f"scripts={script_contracts.get('n_scripts')}, checks={script_contracts.get('n_checks')}, issues={script_contracts.get('n_issues')}",
+    }
     candidate_claims = claims + [
         {
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=103, max_id=103, checks=pending, issues=0",
-        }
+            "evidence": "claims=104, max_id=104, checks=pending, issues=0",
+        },
+        script_contract_claim,
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
@@ -1628,6 +1646,7 @@ def main() -> None:
             f"checks={ledger_audit.get('n_checks')}, issues={ledger_audit.get('n_issues')}"
         ),
     )
+    claims.append(script_contract_claim)
 
     payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)
