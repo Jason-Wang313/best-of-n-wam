@@ -76,6 +76,10 @@ IDEAL_CLAIM_ROWS = [
         "frontier_ids": ["real_robot_hil"],
         "surface_markers": ["real-robot", "hardware-in-the-loop"],
         "limitation": "No real-robot or hardware-in-the-loop artifact exists in this repository.",
+        "promotion_requirements": [
+            "Committed real-robot or hardware-in-the-loop rollout/control artifacts with task definitions, seeds, and success or utility metrics.",
+            "A claims_status entry whose evidence points to those artifacts rather than simulator-only benchmark results.",
+        ],
     },
     {
         "id": "modern_vla_libero",
@@ -86,6 +90,10 @@ IDEAL_CLAIM_ROWS = [
         "frontier_ids": ["modern_vla_libero"],
         "surface_markers": ["modern vla", "vla-style"],
         "limitation": "LIBERO artifacts are scripted/BC smokes and dense rollout-pool WAM evidence, not modern VLA performance.",
+        "promotion_requirements": [
+            "A modern VLA-style policy or policy-compatible controller evaluated on LIBERO sparse-success tasks.",
+            "Heldout success metrics with confidence intervals that do not rely on scripted phase labels, target-point commands, or simulator object-state shortcuts unless explicitly scoped.",
+        ],
     },
     {
         "id": "full_robocasa_wide",
@@ -96,6 +104,10 @@ IDEAL_CLAIM_ROWS = [
         "frontier_ids": ["full_robocasa_wide"],
         "surface_markers": ["full robocasa-wide"],
         "limitation": "RoboCasa has broad committed coverage, but not full RoboCasa-wide validation.",
+        "promotion_requirements": [
+            "Rollout-pool or policy artifacts covering the full declared RoboCasa task distribution, not only sampled or stratified subsets.",
+            "Registry coverage evidence showing the promoted task set matches the full benchmark scope claimed in README and paper text.",
+        ],
     },
     {
         "id": "maniskill_visual_ee",
@@ -110,6 +122,10 @@ IDEAL_CLAIM_ROWS = [
         "frontier_ids": ["maniskill_visual_ee"],
         "surface_markers": ["maniskill rgb/rgb-d", "end-effector", "ee-control"],
         "limitation": "ManiSkill evidence is state-mode; visual and EE-control blockers are artifact-documented.",
+        "promotion_requirements": [
+            "Successful ManiSkill RGB/RGB-D rollout or WAM artifacts generated from rendered observations without the current renderer blocker.",
+            "Successful ManiSkill end-effector-control artifacts or a scoped statement that no EE-control claim is being made.",
+        ],
     },
     {
         "id": "universal_wam_training_recipe",
@@ -120,6 +136,10 @@ IDEAL_CLAIM_ROWS = [
         "publication_scope_patterns": ["universal_wam"],
         "surface_markers": ["universal wam", "robot chinchilla"],
         "limitation": "Universal WAM training optimization is framed as future work, not a current result.",
+        "promotion_requirements": [
+            "A tested train/inference optimizer that chooses data scale, model capacity, rollout horizon, scorer quality, safety constraints, and sampling budget.",
+            "Evidence that the optimizer generalizes beyond the current artifact-specific WAM-lite and benchmark recipes.",
+        ],
     },
 ]
 
@@ -246,6 +266,13 @@ def audit_ideal_claim_boundary(root: Path, results_dir: Path | None = None) -> d
         if future_only:
             add(checks, f"{row['id']}_not_promotable", row["paper_status"] == "future_only_not_promotable", str(row["paper_status"]))
             add(checks, f"{row['id']}_limitation_text_present", bool(str(row.get("limitation") or "").strip()), str(row.get("limitation") or ""))
+            promotion_requirements = [str(item) for item in row.get("promotion_requirements", []) if str(item).strip()]
+            add(
+                checks,
+                f"{row['id']}_promotion_requirements_present",
+                len(promotion_requirements) >= 2,
+                f"requirements={promotion_requirements}",
+            )
             add(
                 checks,
                 f"{row['id']}_human_surface_marker_present",
@@ -273,6 +300,7 @@ def audit_ideal_claim_boundary(root: Path, results_dir: Path | None = None) -> d
                 "surface_markers": surface_markers,
                 "surface_marker_hits": surface_marker_hits,
                 "limitation": row.get("limitation", ""),
+                "promotion_requirements": [str(item) for item in row.get("promotion_requirements", []) if str(item).strip()],
             }
         )
 
@@ -332,6 +360,11 @@ def ideal_claim_boundary_markdown(payload: dict[str, Any]) -> str:
         limitation = row.get("limitation")
         if limitation:
             lines.append(f"  Limitation: {limitation}")
+        promotion_requirements = row.get("promotion_requirements") or []
+        if promotion_requirements:
+            lines.append("  Promotion requirements:")
+            for requirement in promotion_requirements:
+                lines.append(f"  - Future-only promotion requirement, not current evidence: {requirement}")
     issues = payload.get("issues") or []
     if issues:
         lines.extend(["", "## Issues", ""])

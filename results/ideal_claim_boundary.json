@@ -48,7 +48,8 @@
       "missing_publication_scope_patterns": [],
       "surface_markers": [],
       "surface_marker_hits": [],
-      "limitation": ""
+      "limitation": "",
+      "promotion_requirements": []
     },
     {
       "id": "learned_multi_env_core",
@@ -100,7 +101,8 @@
       "missing_publication_scope_patterns": [],
       "surface_markers": [],
       "surface_marker_hits": [],
-      "limitation": "Toy CPU environments, not real-robot evidence."
+      "limitation": "Toy CPU environments, not real-robot evidence.",
+      "promotion_requirements": []
     },
     {
       "id": "contact_benchmark_state_mode",
@@ -166,7 +168,8 @@
       "missing_publication_scope_patterns": [],
       "surface_markers": [],
       "surface_marker_hits": [],
-      "limitation": "State-mode and rollout-pool/short-horizon benchmark artifacts; not full benchmark-wide validation."
+      "limitation": "State-mode and rollout-pool/short-horizon benchmark artifacts; not full benchmark-wide validation.",
+      "promotion_requirements": []
     },
     {
       "id": "visual_observation_limited",
@@ -214,7 +217,8 @@
       "missing_publication_scope_patterns": [],
       "surface_markers": [],
       "surface_marker_hits": [],
-      "limitation": "Toy/Gymnasium/Fetch RGB artifacts only; ManiSkill RGB/RGB-D is blocker-documented, not claimed."
+      "limitation": "Toy/Gymnasium/Fetch RGB artifacts only; ManiSkill RGB/RGB-D is blocker-documented, not claimed.",
+      "promotion_requirements": []
     },
     {
       "id": "real_robot_hil",
@@ -250,7 +254,11 @@
         "real-robot",
         "hardware-in-the-loop"
       ],
-      "limitation": "No real-robot or hardware-in-the-loop artifact exists in this repository."
+      "limitation": "No real-robot or hardware-in-the-loop artifact exists in this repository.",
+      "promotion_requirements": [
+        "Committed real-robot or hardware-in-the-loop rollout/control artifacts with task definitions, seeds, and success or utility metrics.",
+        "A claims_status entry whose evidence points to those artifacts rather than simulator-only benchmark results."
+      ]
     },
     {
       "id": "modern_vla_libero",
@@ -286,7 +294,11 @@
         "modern vla",
         "vla-style"
       ],
-      "limitation": "LIBERO artifacts are scripted/BC smokes and dense rollout-pool WAM evidence, not modern VLA performance."
+      "limitation": "LIBERO artifacts are scripted/BC smokes and dense rollout-pool WAM evidence, not modern VLA performance.",
+      "promotion_requirements": [
+        "A modern VLA-style policy or policy-compatible controller evaluated on LIBERO sparse-success tasks.",
+        "Heldout success metrics with confidence intervals that do not rely on scripted phase labels, target-point commands, or simulator object-state shortcuts unless explicitly scoped."
+      ]
     },
     {
       "id": "full_robocasa_wide",
@@ -325,7 +337,11 @@
       "surface_marker_hits": [
         "full robocasa-wide"
       ],
-      "limitation": "RoboCasa has broad committed coverage, but not full RoboCasa-wide validation."
+      "limitation": "RoboCasa has broad committed coverage, but not full RoboCasa-wide validation.",
+      "promotion_requirements": [
+        "Rollout-pool or policy artifacts covering the full declared RoboCasa task distribution, not only sampled or stratified subsets.",
+        "Registry coverage evidence showing the promoted task set matches the full benchmark scope claimed in README and paper text."
+      ]
     },
     {
       "id": "maniskill_visual_ee",
@@ -373,7 +389,11 @@
         "end-effector",
         "ee-control"
       ],
-      "limitation": "ManiSkill evidence is state-mode; visual and EE-control blockers are artifact-documented."
+      "limitation": "ManiSkill evidence is state-mode; visual and EE-control blockers are artifact-documented.",
+      "promotion_requirements": [
+        "Successful ManiSkill RGB/RGB-D rollout or WAM artifacts generated from rendered observations without the current renderer blocker.",
+        "Successful ManiSkill end-effector-control artifacts or a scoped statement that no EE-control claim is being made."
+      ]
     },
     {
       "id": "universal_wam_training_recipe",
@@ -409,10 +429,14 @@
         "universal wam",
         "robot chinchilla"
       ],
-      "limitation": "Universal WAM training optimization is framed as future work, not a current result."
+      "limitation": "Universal WAM training optimization is framed as future work, not a current result.",
+      "promotion_requirements": [
+        "A tested train/inference optimizer that chooses data scale, model capacity, rollout horizon, scorer quality, safety constraints, and sampling budget.",
+        "Evidence that the optimizer generalizes beyond the current artifact-specific WAM-lite and benchmark recipes."
+      ]
     }
   ],
-  "n_checks": 45,
+  "n_checks": 50,
   "n_issues": 0,
   "checks": [
     {
@@ -501,6 +525,11 @@
       "detail": "No real-robot or hardware-in-the-loop artifact exists in this repository."
     },
     {
+      "name": "real_robot_hil_promotion_requirements_present",
+      "ok": true,
+      "detail": "requirements=['Committed real-robot or hardware-in-the-loop rollout/control artifacts with task definitions, seeds, and success or utility metrics.', 'A claims_status entry whose evidence points to those artifacts rather than simulator-only benchmark results.']"
+    },
+    {
       "name": "real_robot_hil_human_surface_marker_present",
       "ok": true,
       "detail": "markers=['real-robot', 'hardware-in-the-loop'], hits=['real-robot', 'hardware-in-the-loop']"
@@ -529,6 +558,11 @@
       "name": "modern_vla_libero_limitation_text_present",
       "ok": true,
       "detail": "LIBERO artifacts are scripted/BC smokes and dense rollout-pool WAM evidence, not modern VLA performance."
+    },
+    {
+      "name": "modern_vla_libero_promotion_requirements_present",
+      "ok": true,
+      "detail": "requirements=['A modern VLA-style policy or policy-compatible controller evaluated on LIBERO sparse-success tasks.', 'Heldout success metrics with confidence intervals that do not rely on scripted phase labels, target-point commands, or simulator object-state shortcuts unless explicitly scoped.']"
     },
     {
       "name": "modern_vla_libero_human_surface_marker_present",
@@ -561,6 +595,11 @@
       "detail": "RoboCasa has broad committed coverage, but not full RoboCasa-wide validation."
     },
     {
+      "name": "full_robocasa_wide_promotion_requirements_present",
+      "ok": true,
+      "detail": "requirements=['Rollout-pool or policy artifacts covering the full declared RoboCasa task distribution, not only sampled or stratified subsets.', 'Registry coverage evidence showing the promoted task set matches the full benchmark scope claimed in README and paper text.']"
+    },
+    {
       "name": "full_robocasa_wide_human_surface_marker_present",
       "ok": true,
       "detail": "markers=['full robocasa-wide'], hits=['full robocasa-wide']"
@@ -591,6 +630,11 @@
       "detail": "ManiSkill evidence is state-mode; visual and EE-control blockers are artifact-documented."
     },
     {
+      "name": "maniskill_visual_ee_promotion_requirements_present",
+      "ok": true,
+      "detail": "requirements=['Successful ManiSkill RGB/RGB-D rollout or WAM artifacts generated from rendered observations without the current renderer blocker.', 'Successful ManiSkill end-effector-control artifacts or a scoped statement that no EE-control claim is being made.']"
+    },
+    {
       "name": "maniskill_visual_ee_human_surface_marker_present",
       "ok": true,
       "detail": "markers=['maniskill rgb/rgb-d', 'end-effector', 'ee-control'], hits=['maniskill rgb/rgb-d', 'end-effector', 'ee-control']"
@@ -619,6 +663,11 @@
       "name": "universal_wam_training_recipe_limitation_text_present",
       "ok": true,
       "detail": "Universal WAM training optimization is framed as future work, not a current result."
+    },
+    {
+      "name": "universal_wam_training_recipe_promotion_requirements_present",
+      "ok": true,
+      "detail": "requirements=['A tested train/inference optimizer that chooses data scale, model capacity, rollout horizon, scorer quality, safety constraints, and sampling budget.', 'Evidence that the optimizer generalizes beyond the current artifact-specific WAM-lite and benchmark recipes.']"
     },
     {
       "name": "universal_wam_training_recipe_human_surface_marker_present",

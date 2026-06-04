@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import wam_inference_value.ideal_claim_boundary as boundary
 from wam_inference_value.ideal_claim_boundary import HUMAN_BOUNDARY_SURFACES, IDEAL_CLAIM_ROWS, audit_ideal_claim_boundary
 
 
@@ -146,3 +147,25 @@ def test_ideal_claim_boundary_rejects_missing_human_surface_marker(tmp_path: Pat
 
     assert payload["verified"] is False
     assert "real_robot_hil_human_surface_marker_present" in {issue["name"] for issue in payload["issues"]}
+
+
+def test_ideal_claim_boundary_rejects_missing_promotion_requirements(tmp_path: Path, monkeypatch) -> None:
+    rows = []
+    for row in IDEAL_CLAIM_ROWS:
+        copied = dict(row)
+        if copied["id"] == "real_robot_hil":
+            copied["promotion_requirements"] = []
+        rows.append(copied)
+    monkeypatch.setattr(boundary, "IDEAL_CLAIM_ROWS", rows)
+
+    results = tmp_path / "results"
+    write_claims(results)
+    write_required_files(tmp_path)
+    write_frontier(results)
+    write_publication(results)
+    write_human_surfaces(tmp_path)
+
+    payload = audit_ideal_claim_boundary(tmp_path, results)
+
+    assert payload["verified"] is False
+    assert "real_robot_hil_promotion_requirements_present" in {issue["name"] for issue in payload["issues"]}

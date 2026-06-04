@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 209,
-  "total_bytes": 1480783,
+  "total_bytes": 1484069,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 192,
@@ -849,8 +849,8 @@
     {
       "path": "src/wam_inference_value/ideal_claim_boundary.py",
       "suffix": ".py",
-      "bytes": 15730,
-      "sha256": "fb8e6a261c76a55bdbe9d002588472cff3f640efc2b5d911ef0af451b38c6fc3"
+      "bytes": 18188,
+      "sha256": "6f14cb90c9cb55957a36a17fec3697a3a839d9645fa49f6bb941908210676927"
     },
     {
       "path": "src/wam_inference_value/learned_wam.py",
@@ -1137,8 +1137,8 @@
     {
       "path": "tests/test_ideal_claim_boundary.py",
       "suffix": ".py",
-      "bytes": 5503,
-      "sha256": "e4d19fadc9fddee6c139f76f9c0f4a1357c6a7d9c4442218f704fb7a9d9bb6ec"
+      "bytes": 6331,
+      "sha256": "87013e5ba0eabe162c67697760f072513afad57b9ea6e51c4a6d7e2cd836d13e"
     },
     {
       "path": "tests/test_learned_wam.py",
@@ -1296,7 +1296,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1480783, scan=1480783"
+      "detail": "payload=1484069, scan=1484069"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1341,7 +1341,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1480783"
+      "detail": "bytes=1484069"
     },
     {
       "name": "source_manifest_dir_coverage",
