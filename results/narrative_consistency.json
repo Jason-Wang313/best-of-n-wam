@@ -1,6 +1,6 @@
 {
   "verified": true,
-  "n_checks": 21,
+  "n_checks": 22,
   "n_issues": 0,
   "checks": [
     {
@@ -145,9 +145,16 @@
     },
     {
       "surface": "final_decision_report",
+      "name": "claim_ledger_command",
+      "ok": true,
+      "expected": "`python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `103` claims, `29` ledger checks, and `0` issues",
+      "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
       "name": "claims_command",
       "ok": true,
-      "expected": "`python scripts/claims_status.py`: passed with `102` verified, `0` partial, `0` unsupported, `0` failed",
+      "expected": "`python scripts/claims_status.py`: passed with `103` verified, `0` partial, `0` unsupported, `0` failed",
       "detail": "found"
     }
   ],

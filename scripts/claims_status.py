@@ -4,11 +4,18 @@ import csv
 import json
 import os
 import re
+import sys
 from pathlib import Path
 from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
+SRC = ROOT / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from wam_inference_value.claim_ledger import audit_claim_ledger_payload
+
 _results_override = os.environ.get("WAM_RESULTS_DIR")
 RESULTS = Path(_results_override).expanduser() if _results_override else ROOT / "results"
 if not RESULTS.is_absolute():
@@ -24,6 +31,7 @@ NARRATIVE_SURFACES = [
     ("artifact_integrity_report", REPORTS / "artifact_integrity_report.md"),
     ("result_consistency_report", REPORTS / "result_consistency_report.md"),
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
+    ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
     ("final_decision_report", REPORTS / "final_decision_report.md"),
     ("paper_result_summary", REPORTS / "paper_result_summary.md"),
     ("reviewer_risk_assessment", REPORTS / "reviewer_risk_assessment.md"),
@@ -98,6 +106,29 @@ def nested_ci_positive(payload: dict, section: str, key: str, threshold: float =
 
 def add(claims: list[dict[str, Any]], cid: int, claim: str, stat: str, evidence: str) -> None:
     claims.append({"id": cid, "claim": claim, "status": stat, "evidence": evidence})
+
+
+def build_payload(
+    claims: list[dict[str, Any]],
+    readme_overclaims: list[dict[str, Any]],
+    paper_overclaims: list[dict[str, Any]],
+    report_overclaims: list[dict[str, Any]],
+    narrative: list[dict[str, Any]],
+    all_overclaims: list[dict[str, Any]],
+) -> dict[str, Any]:
+    claims = sorted(claims, key=lambda c: int(c["id"]))
+    return {
+        "claims": claims,
+        "readme_overclaims": readme_overclaims,
+        "paper_overclaims": paper_overclaims,
+        "report_overclaims": report_overclaims,
+        "narrative_overclaims": narrative,
+        "overclaims": all_overclaims,
+        "num_verified": sum(c["status"] == "VERIFIED" for c in claims),
+        "num_partial": sum(c["status"] == "PARTIAL" for c in claims),
+        "num_unsupported": sum(c["status"] == "UNSUPPORTED" for c in claims),
+        "num_failed": sum(c["status"] == "FAILED" for c in claims),
+    }
 
 
 def artifact_path(value: Any) -> Path | None:
@@ -1571,22 +1602,32 @@ def main() -> None:
         f"checks={narrative_consistency.get('n_checks')}, issues={narrative_consistency.get('n_issues')}",
     )
 
-    payload = {
-        "claims": claims,
-        "readme_overclaims": readme_overclaims,
-        "paper_overclaims": paper_overclaims,
-        "report_overclaims": report_overclaims,
-        "narrative_overclaims": narrative,
-        "overclaims": all_overclaims,
-        "num_verified": sum(c["status"] == "VERIFIED" for c in claims),
-        "num_partial": sum(c["status"] == "PARTIAL" for c in claims),
-        "num_unsupported": sum(c["status"] == "UNSUPPORTED" for c in claims),
-        "num_failed": sum(c["status"] == "FAILED" for c in claims),
-    }
+    candidate_claims = claims + [
+        {
+            "id": 103,
+            "claim": "Claim ledger is structurally consistent.",
+            "status": "VERIFIED",
+            "evidence": "candidate self-audit",
+        }
+    ]
+    candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
+    ledger_audit = audit_claim_ledger_payload(candidate_payload)
+    add(
+        claims,
+        103,
+        "Claim ledger is structurally consistent.",
+        status(ledger_audit.get("verified", False), partial=True),
+        (
+            f"claims={ledger_audit.get('n_claims')}, max_id={ledger_audit.get('max_claim_id')}, "
+            f"checks={ledger_audit.get('n_checks')}, issues={ledger_audit.get('n_issues')}"
+        ),
+    )
+
+    payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)
     STATUS_JSON.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     lines = ["# Claims Status", ""]
-    for c in claims:
+    for c in payload["claims"]:
         lines.append(f"- Claim {c['id']}: **{c['status']}** - {c['claim']} Evidence: {c['evidence']}")
     if all_overclaims:
         lines.append("")

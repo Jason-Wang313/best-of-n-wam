@@ -85,5 +85,6 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `0.9864`, repair-predicted N64 CI mean `0.3489`, predicted N128-N1 scaling gain `0.0255`.
 - `python scripts/artifact_integrity.py --fail-on-error`: passed with `339` artifact references checked and `0` issues.
 - `python scripts/result_consistency.py --fail-on-error`: passed with `157` consistency checks and `0` issues.
-- `python scripts/narrative_consistency.py --fail-on-error`: passed with `21` narrative checks and `0` issues.
-- `python scripts/claims_status.py`: passed with `102` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.
+- `python scripts/narrative_consistency.py --fail-on-error`: passed with `22` narrative checks and `0` issues.
+- `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `103` claims, `29` ledger checks, and `0` issues.
+- `python scripts/claims_status.py`: passed with `103` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.

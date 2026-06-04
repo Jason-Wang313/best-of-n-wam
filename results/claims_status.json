@@ -481,6 +481,18 @@
       "evidence": "tasks=['robocasa/PickPlaceCounterToCabinet', 'robocasa/PickPlaceCounterToDrawer', 'robocasa/PickPlaceCounterToMicrowave'], train=144, val=96, eval=240, utility corr=0.6751791364461345, promoted=learned_energy_regularized, learned-random CI={'n': 15, 'mean': 0.23492695125782703, 'std': 0.13017328673923353, 'stderr': 0.03361059811080895, 'ci95': 0.06587677229718554, 'lo': 0.1690501789606415, 'hi': 0.30080372355501256}, oracle-learned CI={'n': 15, 'mean': 0.05812674657491653, 'std': 0.04447418542048683, 'stderr': 0.01148318529797908, 'ci95': 0.022507043184038997, 'lo': 0.035619703390877534, 'hi': 0.08063378975895552}"
     },
     {
+      "id": 81,
+      "claim": "README has no unsupported claims.",
+      "status": "VERIFIED",
+      "evidence": "README overclaims=0"
+    },
+    {
+      "id": 82,
+      "claim": "paper_outline has no unsupported claims.",
+      "status": "VERIFIED",
+      "evidence": "paper overclaims=0"
+    },
+    {
       "id": 83,
       "claim": "LIBERO rollout-pool learned WAM-lite benchmark verified.",
       "status": "VERIFIED",
@@ -497,6 +509,30 @@
       "claim": "RoboCasa 12-task family learned WAM-lite scorer beats random with CI.",
       "status": "VERIFIED",
       "evidence": "tasks=['robocasa/OpenDrawer', 'robocasa/OpenCabinet', 'robocasa/OpenMicrowave', 'robocasa/TurnOnSinkFaucet', 'robocasa/CloseDrawer', 'robocasa/CloseCabinet', 'robocasa/CloseMicrowave', 'robocasa/TurnOffSinkFaucet', 'robocasa/TurnOnStove', 'robocasa/TurnOffStove', 'robocasa/OpenOven', 'robocasa/CloseOven'], train=96, val=96, eval=192, utility corr=0.8330260116378324, promoted=learned_energy_regularized, learned-random CI={'n': 24, 'mean': 0.2736319931949471, 'std': 0.2264236150811513, 'stderr': 0.04621852688876389, 'ci95': 0.09058831270197723, 'lo': 0.18304368049296985, 'hi': 0.36422030589692433}"
+    },
+    {
+      "id": 86,
+      "claim": "LIBERO sparse-success scripted policy smoke verified.",
+      "status": "VERIFIED",
+      "evidence": "episodes=50, successes=50, rows=50, success CI={'n': 50, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}"
+    },
+    {
+      "id": 87,
+      "claim": "LIBERO learned action-head sparse-success smoke verified.",
+      "status": "VERIFIED",
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], eval=30/30, rows=50, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}"
+    },
+    {
+      "id": 88,
+      "claim": "LIBERO time-conditioned autonomous low-dimensional BC sparse-success smoke verified.",
+      "status": "VERIFIED",
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], train=12535, eval=50/50, rows=100, success CI={'n': 50, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'low_dim_knn_behavior_cloning', 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_task_id': True, 'uses_previous_action': True, 'uses_step_clock': True, 'knn_k': 3, 'knn_temperature': 0.05}"
+    },
+    {
+      "id": 89,
+      "claim": "LIBERO RGB/proprio/language BC sparse-success smoke verified.",
+      "status": "VERIFIED",
+      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], train=7521, eval=30/30, rows=60, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'rgb_proprio_language_knn_behavior_cloning', 'uses_rgb': True, 'uses_language': True, 'uses_robot_proprio': True, 'uses_simulator_object_state': False, 'uses_task_id': False, 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_previous_action': True, 'uses_step_clock': True, 'uses_language_candidate_filter': True, 'knn_k': 3, 'knn_temperature': 0.05, 'image_grid': 8, 'language_hash_dim': 64}"
     },
     {
       "id": 90,
@@ -553,42 +589,6 @@
       "evidence": "tasks=35, train=140, val=140, eval=280, pools=35, horizon=1, Nmax=4, utility corr=0.8345242481462408, exact MAE=0.00024620294740340757, promoted=learned_wam, learned-random CI={'n': 35, 'mean': 0.2408146016473912, 'std': 0.13106289940391155, 'stderr': 0.02215367341365428, 'ci95': 0.04342119989076239, 'lo': 0.19739340175662884, 'hi': 0.2842358015381536}, oracle-learned CI={'n': 35, 'mean': 0.02177076474637765, 'std': 0.024328798100469916, 'stderr': 0.00411231744540864, 'ci95': 0.008060142193000936, 'lo': 0.013710622553376713, 'hi': 0.029830906939378586}"
     },
     {
-      "id": 86,
-      "claim": "LIBERO sparse-success scripted policy smoke verified.",
-      "status": "VERIFIED",
-      "evidence": "episodes=50, successes=50, rows=50, success CI={'n': 50, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}"
-    },
-    {
-      "id": 87,
-      "claim": "LIBERO learned action-head sparse-success smoke verified.",
-      "status": "VERIFIED",
-      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], eval=30/30, rows=50, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}"
-    },
-    {
-      "id": 88,
-      "claim": "LIBERO time-conditioned autonomous low-dimensional BC sparse-success smoke verified.",
-      "status": "VERIFIED",
-      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], train=12535, eval=50/50, rows=100, success CI={'n': 50, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'low_dim_knn_behavior_cloning', 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_task_id': True, 'uses_previous_action': True, 'uses_step_clock': True, 'knn_k': 3, 'knn_temperature': 0.05}"
-    },
-    {
-      "id": 89,
-      "claim": "LIBERO RGB/proprio/language BC sparse-success smoke verified.",
-      "status": "VERIFIED",
-      "evidence": "tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], train=7521, eval=30/30, rows=60, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'rgb_proprio_language_knn_behavior_cloning', 'uses_rgb': True, 'uses_language': True, 'uses_robot_proprio': True, 'uses_simulator_object_state': False, 'uses_task_id': False, 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_previous_action': True, 'uses_step_clock': True, 'uses_language_candidate_filter': True, 'knn_k': 3, 'knn_temperature': 0.05, 'image_grid': 8, 'language_hash_dim': 64}"
-    },
-    {
-      "id": 81,
-      "claim": "README has no unsupported claims.",
-      "status": "VERIFIED",
-      "evidence": "README overclaims=0"
-    },
-    {
-      "id": 82,
-      "claim": "paper_outline has no unsupported claims.",
-      "status": "VERIFIED",
-      "evidence": "paper overclaims=0"
-    },
-    {
       "id": 99,
       "claim": "Narrative reports have no unsupported overclaims.",
       "status": "VERIFIED",
@@ -610,7 +610,13 @@
       "id": 102,
       "claim": "Published narrative numbers match current artifacts.",
       "status": "VERIFIED",
-      "evidence": "checks=21, issues=0"
+      "evidence": "checks=22, issues=0"
+    },
+    {
+      "id": 103,
+      "claim": "Claim ledger is structurally consistent.",
+      "status": "VERIFIED",
+      "evidence": "claims=103, max_id=103, checks=19, issues=0"
     }
   ],
   "readme_overclaims": [],
@@ -618,7 +624,7 @@
   "report_overclaims": [],
   "narrative_overclaims": [],
   "overclaims": [],
-  "num_verified": 102,
+  "num_verified": 103,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

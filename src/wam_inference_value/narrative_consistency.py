@@ -224,6 +224,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     claims = load_json(results_dir, "claims_status.json")
     artifact_integrity = load_json(results_dir, "artifact_integrity.json")
     result_consistency = load_json(results_dir, "result_consistency.json")
+    claim_ledger_integrity = load_json(results_dir, "claim_ledger_integrity.json")
     learned = load_json(results_dir, "learned_wam_lite_training.json")
     val = (learned.get("metrics") or {}).get("validation") or {}
     learned_cmp = load_json(results_dir, "learned_wam_vs_analytic_wam.json")
@@ -307,6 +308,16 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
         (
             f"`python scripts/result_consistency.py --fail-on-error`: passed with `{result_consistency.get('n_checks')}` consistency checks "
             f"and `{result_consistency.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "claim_ledger_command",
+        (
+            f"`python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `{claim_ledger_integrity.get('n_claims')}` claims, "
+            f"`{claim_ledger_integrity.get('n_checks')}` ledger checks, and `{claim_ledger_integrity.get('n_issues')}` issues"
         ),
     )
     add_contains(

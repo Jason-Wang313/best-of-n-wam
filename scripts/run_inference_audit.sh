@@ -49,3 +49,6 @@ fi
 "${PY[@]}" scripts/result_consistency.py --fail-on-error
 "${PY[@]}" scripts/narrative_consistency.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
+"${PY[@]}" scripts/claim_ledger_integrity.py --fail-on-error
+"${PY[@]}" scripts/claims_status.py
+"${PY[@]}" scripts/claim_ledger_integrity.py --fail-on-error

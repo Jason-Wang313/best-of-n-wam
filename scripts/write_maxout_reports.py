@@ -103,6 +103,7 @@ def main() -> None:
     artifact_integrity = load_json("artifact_integrity.json")
     result_consistency = load_json("result_consistency.json")
     narrative_consistency = load_json("narrative_consistency.json")
+    claim_ledger_integrity = load_json("claim_ledger_integrity.json")
 
     val = (learned.get("metrics") or {}).get("validation") or {}
     ood = (learned.get("metrics") or {}).get("ood") or []
@@ -145,6 +146,7 @@ Audit date: 2026-05-30.
 - `artifact_integrity.py` verifies that referenced result artifacts exist, parse, and are nonempty.
 - `result_consistency.py` verifies that summary JSONs agree with canonical tables for row counts, coverage, CI sanity, and success counts.
 - `narrative_consistency.py` verifies that high-impact README and final-report numbers match the current JSON artifacts.
+- `claim_ledger_integrity.py` verifies sorted contiguous claim IDs, JSON/Markdown count agreement, nonempty claim evidence, empty overclaim arrays, and no non-verified final claims.
 
 ## 2. Toy-Only
 
@@ -581,6 +583,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/artifact_integrity.py --fail-on-error`: passed with `{artifact_integrity.get('n_references')}` artifact references checked and `{artifact_integrity.get('n_issues')}` issues.
 - `python scripts/result_consistency.py --fail-on-error`: passed with `{result_consistency.get('n_checks')}` consistency checks and `{result_consistency.get('n_issues')}` issues.
 - `python scripts/narrative_consistency.py --fail-on-error`: passed with `{narrative_consistency.get('n_checks')}` narrative checks and `{narrative_consistency.get('n_issues')}` issues.
+- `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `{claim_ledger_integrity.get('n_claims')}` claims, `{claim_ledger_integrity.get('n_checks')}` ledger checks, and `{claim_ledger_integrity.get('n_issues')}` issues.
 - `python scripts/claims_status.py`: passed with `{claims_payload.get('num_verified')}` verified, `{claims_payload.get('num_partial')}` partial, `{claims_payload.get('num_unsupported')}` unsupported, `{claims_payload.get('num_failed')}` failed, and `0` README/paper overclaims.
 """
 

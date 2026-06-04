@@ -1,0 +1,165 @@
+{
+  "experiment": "claim_ledger_integrity",
+  "verified": true,
+  "n_claims": 103,
+  "max_claim_id": 103,
+  "n_checks": 29,
+  "n_issues": 0,
+  "status_counts": {
+    "VERIFIED": 103,
+    "PARTIAL": 0,
+    "UNSUPPORTED": 0,
+    "FAILED": 0
+  },
+  "missing_ids": [],
+  "duplicate_ids": [],
+  "invalid_statuses": [],
+  "checks": [
+    {
+      "name": "claims_present",
+      "ok": true,
+      "detail": "claims=103"
+    },
+    {
+      "name": "claim_ids_parse",
+      "ok": true,
+      "detail": "invalid_ids=[]"
+    },
+    {
+      "name": "claim_ids_unique",
+      "ok": true,
+      "detail": "duplicates=[]"
+    },
+    {
+      "name": "claim_ids_contiguous",
+      "ok": true,
+      "detail": "missing=[], max_id=103"
+    },
+    {
+      "name": "claim_ids_sorted",
+      "ok": true,
+      "detail": "first_ids=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], last_ids=[94, 95, 96, 97, 98, 99, 100, 101, 102, 103]"
+    },
+    {
+      "name": "claim_statuses_valid",
+      "ok": true,
+      "detail": "invalid_statuses=[]"
+    },
+    {
+      "name": "claim_text_nonempty",
+      "ok": true,
+      "detail": "empty_claim_ids=[]"
+    },
+    {
+      "name": "claim_evidence_nonempty",
+      "ok": true,
+      "detail": "empty_evidence_ids=[]"
+    },
+    {
+      "name": "num_verified_matches_claims",
+      "ok": true,
+      "detail": "json=103, computed=103"
+    },
+    {
+      "name": "num_partial_matches_claims",
+      "ok": true,
+      "detail": "json=0, computed=0"
+    },
+    {
+      "name": "num_unsupported_matches_claims",
+      "ok": true,
+      "detail": "json=0, computed=0"
+    },
+    {
+      "name": "num_failed_matches_claims",
+      "ok": true,
+      "detail": "json=0, computed=0"
+    },
+    {
+      "name": "status_counts_sum_to_claim_count",
+      "ok": true,
+      "detail": "status_total=103, claims=103"
+    },
+    {
+      "name": "no_nonverified_claims",
+      "ok": true,
+      "detail": "partial=0, unsupported=0, failed=0"
+    },
+    {
+      "name": "readme_overclaims_empty",
+      "ok": true,
+      "detail": "count=0"
+    },
+    {
+      "name": "paper_overclaims_empty",
+      "ok": true,
+      "detail": "count=0"
+    },
+    {
+      "name": "report_overclaims_empty",
+      "ok": true,
+      "detail": "count=0"
+    },
+    {
+      "name": "narrative_overclaims_empty",
+      "ok": true,
+      "detail": "count=0"
+    },
+    {
+      "name": "overclaims_empty",
+      "ok": true,
+      "detail": "count=0"
+    },
+    {
+      "name": "claims_status_md_claim_count",
+      "ok": true,
+      "detail": "md=103, json=103"
+    },
+    {
+      "name": "claims_status_md_id_set",
+      "ok": true,
+      "detail": "md_missing=[]"
+    },
+    {
+      "name": "claims_status_md_statuses",
+      "ok": true,
+      "detail": "mismatched_ids=[]"
+    },
+    {
+      "name": "claims_report_verified_count",
+      "ok": true,
+      "detail": "expected=- verified: `103`"
+    },
+    {
+      "name": "claims_report_partial_count",
+      "ok": true,
+      "detail": "expected=- partial: `0`"
+    },
+    {
+      "name": "claims_report_unsupported_count",
+      "ok": true,
+      "detail": "expected=- unsupported: `0`"
+    },
+    {
+      "name": "claims_report_failed_count",
+      "ok": true,
+      "detail": "expected=- failed: `0`"
+    },
+    {
+      "name": "claims_report_readme_overclaims_count",
+      "ok": true,
+      "detail": "expected=- README overclaims: `0`"
+    },
+    {
+      "name": "claims_report_paper_overclaims_count",
+      "ok": true,
+      "detail": "expected=- paper_outline overclaims: `0`"
+    },
+    {
+      "name": "claims_report_report_overclaims_count",
+      "ok": true,
+      "detail": "expected=- report overclaims: `0`"
+    }
+  ],
+  "issues": []
+}
