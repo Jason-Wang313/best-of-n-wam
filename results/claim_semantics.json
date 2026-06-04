@@ -2,14 +2,14 @@
   "experiment": "claim_semantics",
   "verified": true,
   "n_claims": 123,
-  "n_checks": 171,
+  "n_checks": 175,
   "n_issues": 0,
-  "n_ci_claims": 51,
+  "n_ci_claims": 53,
   "n_positive_ci_claims": 33,
   "n_error_threshold_claims": 11,
   "n_zero_count_claims": 5,
   "n_positive_count_claims": 14,
-  "n_sane_ci_objects": 66,
+  "n_sane_ci_objects": 69,
   "checks": [
     {
       "name": "claims_present",
@@ -37,9 +37,19 @@
       "detail": "evidence=max identity error=0.0"
     },
     {
-      "name": "claim_5_positive_scalar_effect",
+      "name": "claim_5_ci_sanity",
       "ok": true,
-      "detail": "evidence=relative MAE reduction=0.7280063038060411"
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_5_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=1"
+    },
+    {
+      "name": "claim_5_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=1"
     },
     {
       "name": "claim_6_ci_sanity",
@@ -112,9 +122,19 @@
       "detail": "positive_ci_objects=1"
     },
     {
-      "name": "claim_15_positive_scalar_effect",
+      "name": "claim_15_ci_sanity",
       "ok": true,
-      "detail": "evidence=oracle-uniform=0.3055113080821638"
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_15_has_required_ci",
+      "ok": true,
+      "detail": "ci_objects=2"
+    },
+    {
+      "name": "claim_15_positive_ci_lower_bound",
+      "ok": true,
+      "detail": "positive_ci_objects=2"
     },
     {
       "name": "claim_16_ci_sanity",
@@ -834,7 +854,7 @@
     {
       "name": "claim_116_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=tests=116, unique=116, trailer=116, checks=6, issues=0"
+      "detail": "evidence=tests=117, unique=117, trailer=117, checks=6, issues=0"
     },
     {
       "name": "claim_117_positive_count_or_artifact",
@@ -849,7 +869,7 @@
     {
       "name": "ci_claim_coverage",
       "ok": true,
-      "detail": "ci_claims=51"
+      "detail": "ci_claims=53"
     },
     {
       "name": "positive_ci_claim_coverage",
@@ -864,16 +884,18 @@
     {
       "name": "semantic_ci_objects_present",
       "ok": true,
-      "detail": "sane_ci_objects=66"
+      "detail": "sane_ci_objects=69"
     }
   ],
   "issues": [],
   "ci_claim_ids": [
+    5,
     6,
     8,
     9,
     11,
     14,
+    15,
     16,
     17,
     18,

@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 197,
-  "total_bytes": 1391960,
+  "total_bytes": 1393229,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 180,
@@ -435,8 +435,8 @@
     {
       "path": "scripts/claims_status.py",
       "suffix": ".py",
-      "bytes": 119895,
-      "sha256": "bc3f9cd9ea735354dc693593f514cf63c20dab11c71b8d8dbcb60a321fbab584"
+      "bytes": 120658,
+      "sha256": "a04420930f1967f275e4f48a29c31878e4d59d260aa56d4c86bcca6a380445dc"
     },
     {
       "path": "scripts/command_result_consistency.py",
@@ -753,8 +753,8 @@
     {
       "path": "src/wam_inference_value/claim_semantics.py",
       "suffix": ".py",
-      "bytes": 11449,
-      "sha256": "05fce3d203fb4f2e0042b9e079bd7da238797ab1b5e4b9c8b0f02c5162bb5e3f"
+      "bytes": 11414,
+      "sha256": "437dc0199e1ee43a85347cc88f4a230ca4d30b51ffb46c89f66232ee325991b6"
     },
     {
       "path": "src/wam_inference_value/command_result_consistency.py",
@@ -987,8 +987,8 @@
     {
       "path": "tests/test_claim_semantics.py",
       "suffix": ".py",
-      "bytes": 2445,
-      "sha256": "e04c97ba4f7366d458cd7dd9b1ca8e9d8bda49709f67079069fd4d55c08e7578"
+      "bytes": 2986,
+      "sha256": "dfaf9ec162800b6e73443bed8105f717a3c5b777f1bd17a425616979b1b53917"
     },
     {
       "path": "tests/test_command_result_consistency.py",
@@ -1224,7 +1224,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1391960, scan=1391960"
+      "detail": "payload=1393229, scan=1393229"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1269,7 +1269,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1391960"
+      "detail": "bytes=1393229"
     },
     {
       "name": "source_manifest_dir_coverage",

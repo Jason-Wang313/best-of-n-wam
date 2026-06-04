@@ -28,7 +28,7 @@
       "id": 5,
       "claim": "Pilot-to-heldout improves with K.",
       "status": "VERIFIED",
-      "evidence": "relative MAE reduction=0.7280063038060411"
+      "evidence": "relative MAE reduction=0.7280063038060411; reduction CI={'n': 1200, 'mean': 0.8233589071075791, 'std': 0.7110080730202641, 'stderr': 0.020525035117712326, 'ci95': 0.04022906883071616, 'lo': 0.7831298382768629, 'hi': 0.8635879759382953}"
     },
     {
       "id": 6,
@@ -88,7 +88,7 @@
       "id": 15,
       "claim": "Adaptive allocation reduces oracle regret.",
       "status": "VERIFIED",
-      "evidence": "oracle-uniform=0.3055113080821638"
+      "evidence": "moment-uniform CI={'n': 5, 'mean': 0.30066408929367955, 'std': 0.028847241897066837, 'stderr': 0.012900878769044288, 'ci95': 0.025285722387326803, 'lo': 0.27537836690635276, 'hi': 0.32594981168100634}; oracle-uniform CI={'n': 5, 'mean': 0.30551130808216387, 'std': 0.033303340743805754, 'stderr': 0.014893706756197615, 'ci95': 0.029191665242147325, 'lo': 0.27631964284001653, 'hi': 0.3347029733243112}"
     },
     {
       "id": 16,
@@ -640,7 +640,7 @@
       "id": 107,
       "claim": "Verified claim wording satisfies semantic threshold checks.",
       "status": "VERIFIED",
-      "evidence": "claims=123, checks=171, CI claims=51, positive CI claims=33, error claims=11, issues=0"
+      "evidence": "claims=123, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0"
     },
     {
       "id": 108,
@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=197, bytes=1391960, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 37, 'src': 54, 'tests': 45}, checks=14, issues=0"
+      "evidence": "files=197, bytes=1393229, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 37, 'src': 54, 'tests': 45}, checks=14, issues=0"
     },
     {
       "id": 112,
@@ -688,13 +688,13 @@
       "id": 115,
       "claim": "Published final-report command results match current verification artifacts.",
       "status": "VERIFIED",
-      "evidence": "snippets=24, python_commands=27, pytest=116, checks=27, issues=0"
+      "evidence": "snippets=24, python_commands=27, pytest=117, checks=27, issues=0"
     },
     {
       "id": 116,
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
       "status": "VERIFIED",
-      "evidence": "tests=116, unique=116, trailer=116, checks=6, issues=0"
+      "evidence": "tests=117, unique=117, trailer=117, checks=6, issues=0"
     },
     {
       "id": 117,

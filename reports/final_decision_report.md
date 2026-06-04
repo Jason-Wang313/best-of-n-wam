@@ -10,7 +10,7 @@ Benchmark-full plus Fetch, Meta-World, RoboSuite, ManiSkill state-mode, RoboCasa
 - 2. Utility-valued finite law verified. Evidence: utility MAE=0.013762680427723635
 - 3. N=2 AUC identity verified. Evidence: max identity error=0.0
 - 4. High-N moment hierarchy verified. Evidence: same-p/kappa gap=0.9988209815422198
-- 5. Pilot-to-heldout improves with K. Evidence: relative MAE reduction=0.7280063038060411
+- 5. Pilot-to-heldout improves with K. Evidence: relative MAE reduction=0.7280063038060411; reduction CI={'n': 1200, 'mean': 0.8233589071075791, 'std': 0.7110080730202641, 'stderr': 0.020525035117712326, 'ci95': 0.04022906883071616, 'lo': 0.7831298382768629, 'hi': 0.8635879759382953}
 - 6. Pilot uncertainty is reported. Evidence: pilot improvement CI={'n': 1200, 'mean': 0.8233589071075791, 'std': 0.7110080730202641, 'stderr': 0.020525035117712326, 'ci95': 0.04022906883071616, 'lo': 0.7831298382768629, 'hi': 0.8635879759382953}
 - 7. Score function controls inference value. Evidence: oracle-random N64=7.084333950224235
 - 8. Best non-oracle beats random with CI. Evidence: learned CI={'n': 5, 'mean': 5.97838149808149, 'std': 1.2959235541324863, 'stderr': 0.5795546321366736, 'ci95': 1.1359270789878801, 'lo': 4.8424544190936105, 'hi': 7.11430857706937}
@@ -71,8 +71,8 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 
 ## Command Results
 
-- `python -m pytest -q`: passed with `116 passed`.
-- `python scripts/test_inventory.py --fail-on-error`: passed with `116` collected tests, `6` inventory checks, and `0` issues.
+- `python -m pytest -q`: passed with `117 passed`.
+- `python scripts/test_inventory.py --fail-on-error`: passed with `117` collected tests, `6` inventory checks, and `0` issues.
 - `bash scripts/run_all.sh`: passed; full analytic EXP1-EXP8 sweep completed with EXP1 success MAE `0.00210`, EXP3 relative MAE reduction `0.728`, EXP6 moment-uniform delta `0.0767`, EXP7 useful N64-N1 success delta `0.217`, and EXP8 conditional-law MAE `0.0027`.
 - `bash scripts/run_smoke.sh`: passed; EXP1 success MAE `0.00696`, utility MAE `0.04511`; EXP8 smoke conditional-law MAE `0.0055`.
 - `bash scripts/run_learned_wam_toy.sh`: passed; learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`.
@@ -90,7 +90,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/result_consistency.py --fail-on-error`: passed with `157` consistency checks and `0` issues.
 - `python scripts/raw_result_recompute.py --fail-on-error`: passed with `10710` aggregate metrics, `20` exact-law files, `125` seed CI columns, and `0` issues.
 - `python scripts/table_schema.py --fail-on-error`: passed with `215` tables, `212858` rows, `17` schema checks, and `0` issues.
-- `python scripts/source_manifest.py --fail-on-error`: passed with `197` source files, `1391960` bytes, `14` source-manifest checks, and `0` issues.
+- `python scripts/source_manifest.py --fail-on-error`: passed with `197` source files, `1393229` bytes, `14` source-manifest checks, and `0` issues.
 - `python scripts/runtime_environment.py --fail-on-error`: passed with Python `3.10.11`, `4` core requirements, `5` / `5` optional requirements available, `15` runtime checks, and `0` issues.
 - `python scripts/experiment_registry.py --fail-on-error`: passed with `57` experiment-family entries, `69` wrapper links, `297` table artifacts, `40` figures, `10` registry checks, and `0` issues.
 - `python scripts/model_artifact_integrity.py --fail-on-error`: passed with `49` model artifacts, `315` NPZ arrays, `13` joblib predictors, `10` model-artifact checks, and `0` issues.
@@ -98,7 +98,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `117` contract checks, and `0` issues.
 - `python scripts/abstract_claim_support.py --fail-on-error`: passed with `4` abstract claims, `23` backing claim links, `0` forbidden headline hits, and `0` issues.
 - `python scripts/publication_scope.py --fail-on-error`: passed with `5` publication surfaces, `72` risky mentions, `0` unguarded mentions, and `0` issues.
-- `python scripts/claim_semantics.py --fail-on-error`: passed with `123` claims, `171` semantic checks, `51` CI-backed claims, and `0` issues.
+- `python scripts/claim_semantics.py --fail-on-error`: passed with `123` claims, `175` semantic checks, `53` CI-backed claims, and `0` issues.
 - `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `123` claims, `167` source links, `7` evidence checks, and `0` issues.
 - `python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `111` claim sources, `441` artifact references, and `0` issues.
 - `python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `848` records, `167` claim sources, `681` artifact references, `0` outside-repo records, `0` missing records, and `0` issues.

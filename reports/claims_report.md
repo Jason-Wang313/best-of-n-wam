@@ -16,7 +16,7 @@
 - 2. Utility-valued finite law verified. Evidence: utility MAE=0.013762680427723635
 - 3. N=2 AUC identity verified. Evidence: max identity error=0.0
 - 4. High-N moment hierarchy verified. Evidence: same-p/kappa gap=0.9988209815422198
-- 5. Pilot-to-heldout improves with K. Evidence: relative MAE reduction=0.7280063038060411
+- 5. Pilot-to-heldout improves with K. Evidence: relative MAE reduction=0.7280063038060411; reduction CI={'n': 1200, 'mean': 0.8233589071075791, 'std': 0.7110080730202641, 'stderr': 0.020525035117712326, 'ci95': 0.04022906883071616, 'lo': 0.7831298382768629, 'hi': 0.8635879759382953}
 - 6. Pilot uncertainty is reported. Evidence: pilot improvement CI={'n': 1200, 'mean': 0.8233589071075791, 'std': 0.7110080730202641, 'stderr': 0.020525035117712326, 'ci95': 0.04022906883071616, 'lo': 0.7831298382768629, 'hi': 0.8635879759382953}
 - 7. Score function controls inference value. Evidence: oracle-random N64=7.084333950224235
 - 8. Best non-oracle beats random with CI. Evidence: learned CI={'n': 5, 'mean': 5.97838149808149, 'std': 1.2959235541324863, 'stderr': 0.5795546321366736, 'ci95': 1.1359270789878801, 'lo': 4.8424544190936105, 'hi': 7.11430857706937}
@@ -26,7 +26,7 @@
 - 12. Bad scorer falsification verified. Evidence: anti N64=-26.565706083129044, N1=-14.101561337022474
 - 13. Randomized dynamics falsification verified. Evidence: randomized-oracle N64 gap=13.393867700179667
 - 14. Moment/adaptive allocation beats uniform with CI. Evidence: moment-uniform CI={'n': 5, 'mean': 0.30066408929367955, 'std': 0.028847241897066837, 'stderr': 0.012900878769044288, 'ci95': 0.025285722387326803, 'lo': 0.27537836690635276, 'hi': 0.32594981168100634}
-- 15. Adaptive allocation reduces oracle regret. Evidence: oracle-uniform=0.3055113080821638
+- 15. Adaptive allocation reduces oracle regret. Evidence: moment-uniform CI={'n': 5, 'mean': 0.30066408929367955, 'std': 0.028847241897066837, 'stderr': 0.012900878769044288, 'ci95': 0.025285722387326803, 'lo': 0.27537836690635276, 'hi': 0.32594981168100634}; oracle-uniform CI={'n': 5, 'mean': 0.30551130808216387, 'std': 0.033303340743805754, 'stderr': 0.014893706756197615, 'ci95': 0.029191665242147325, 'lo': 0.27631964284001653, 'hi': 0.3347029733243112}
 - 16. Closed-loop high-N gain verified. Evidence: analytic useful N64-N1=0.20833333333333337; learned CI={'n': 5, 'mean': 0.2166666666666667, 'std': 0.11180339887498948, 'stderr': 0.049999999999999996, 'ci95': 0.09799999999999999, 'lo': 0.11866666666666671, 'hi': 0.3146666666666667}
 - 17. Useful scorer beats random in closed loop. Evidence: learned useful-random CI={'n': 5, 'mean': 0.3166666666666667, 'std': 0.06972166887783962, 'stderr': 0.031180478223116172, 'ci95': 0.061113737317307695, 'lo': 0.255552929349359, 'hi': 0.3777804039839744}
 - 18. Oracle first-action remains upper bound. Evidence: oracle-useful CI={'n': 5, 'mean': 0.16666666666666666, 'std': 0.11785113019775793, 'stderr': 0.052704627669472995, 'ci95': 0.10330107023216707, 'lo': 0.06336559643449959, 'hi': 0.26996773689883374}
@@ -118,16 +118,16 @@
 - 104. Canonical execution scripts preserve required gate contracts. Evidence: scripts=7, checks=117, issues=0
 - 105. Verified claims have mapped source artifacts and quality-checked evidence. Evidence: claims=123, mapped=123, sources=167, issues=0
 - 106. Published summary metrics recompute from raw result tables. Evidence: aggregate metrics=10710, exact files=20, seed CI columns=125, issues=0
-- 107. Verified claim wording satisfies semantic threshold checks. Evidence: claims=123, checks=171, CI claims=51, positive CI claims=33, error claims=11, issues=0
+- 107. Verified claim wording satisfies semantic threshold checks. Evidence: claims=123, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0
 - 108. Scientific result artifacts have a deterministic hash manifest. Evidence: files=397, bytes=56421681, suffixes={'.json': 105, '.npz': 41, '.png': 36, '.csv': 215}, issues=0
 - 109. Publication figure artifacts pass image-quality checks. Evidence: figures=36, expected=25, checks=8, issues=0
 - 110. Canonical CSV result tables pass schema and numeric-sanity checks. Evidence: tables=215, rows=212858, numeric_columns=1959, checks=17, issues=0
-- 111. Source and verification code have a deterministic hash manifest. Evidence: files=197, bytes=1391960, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 37, 'src': 54, 'tests': 45}, checks=14, issues=0
+- 111. Source and verification code have a deterministic hash manifest. Evidence: files=197, bytes=1393229, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 37, 'src': 54, 'tests': 45}, checks=14, issues=0
 - 112. Runtime and dependency environment metadata has a verified manifest. Evidence: python=3.10.11, core=4, absent=0, version_issues=0, optional_available=5/5, modules=13, commands=5, checks=15, issues=0
 - 113. Canonical experiment families have verified registry coverage. Evidence: entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=297, rows=260523, figures=40, failed=0, checks=10, issues=0
 - 114. Committed learned-model artifacts are loadable and numerically sane. Evidence: models=49, suffixes={'.npz': 36, '.joblib': 13}, bytes=119450103, npz_arrays=315, npz_elements=6077793, joblib_predictors=13, checks=10, issues=0
-- 115. Published final-report command results match current verification artifacts. Evidence: snippets=24, python_commands=27, pytest=116, checks=27, issues=0
-- 116. Pytest command-result counts come from a verified collected-test inventory. Evidence: tests=116, unique=116, trailer=116, checks=6, issues=0
+- 115. Published final-report command results match current verification artifacts. Evidence: snippets=24, python_commands=27, pytest=117, checks=27, issues=0
+- 116. Pytest command-result counts come from a verified collected-test inventory. Evidence: tests=117, unique=117, trailer=117, checks=6, issues=0
 - 117. Generated claim-status artifacts are byte-stable under rerunning the claim generator. Evidence: claims=123, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json
 - 118. Generated max-out narrative reports are byte-stable under rerunning the report generator. Evidence: reports=8, files=8, checks=9, issues=0, hashes_recorded_in=results/report_generation_consistency.json
 - 119. Claim evidence artifacts and published artifact references are represented in the git index. Evidence: claim_sources=111, artifact_refs=441, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0

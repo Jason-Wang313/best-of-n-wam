@@ -336,7 +336,20 @@ def main() -> None:
     add(claims, 2, "Utility-valued finite law verified.", status(bool(exp1) and exp1.get("mean_utility_mc_mae", 1.0) < 0.08, bool(exp1)), f"utility MAE={exp1.get('mean_utility_mc_mae')}")
     add(claims, 3, "N=2 AUC identity verified.", status(bool(exp2) and exp2.get("max_n2_identity_error", 1.0) < 1e-12, bool(exp2)), f"max identity error={exp2.get('max_n2_identity_error')}")
     add(claims, 4, "High-N moment hierarchy verified.", status(bool(exp2) and exp2.get("same_p_kappa_counterexample_gap_N64", 0.0) > 0.45, bool(exp2)), f"same-p/kappa gap={exp2.get('same_p_kappa_counterexample_gap_N64')}")
-    add(claims, 5, "Pilot-to-heldout improves with K.", status(bool(exp3) and exp3.get("relative_mae_reduction", 0.0) > 0.25, bool(exp3)), f"relative MAE reduction={exp3.get('relative_mae_reduction')}")
+    exp3_reduction_ci = (exp3.get("confidence_intervals") or {}).get("mae_reduction_first_to_last") or {}
+    add(
+        claims,
+        5,
+        "Pilot-to-heldout improves with K.",
+        status(
+            bool(exp3)
+            and exp3.get("relative_mae_reduction", 0.0) > 0.25
+            and exp3_reduction_ci.get("lo") is not None
+            and exp3_reduction_ci.get("lo") > 0.0,
+            bool(exp3),
+        ),
+        f"relative MAE reduction={exp3.get('relative_mae_reduction')}; reduction CI={exp3_reduction_ci}",
+    )
     exp3_ci = (exp3.get("confidence_intervals") or {}).get("mae_reduction_first_to_last") or {}
     add(claims, 6, "Pilot uncertainty is reported.", status(exp3_ci.get("n", 0) > 0, bool(exp3)), f"pilot improvement CI={exp3_ci}")
     add(claims, 7, "Score function controls inference value.", status(bool(exp4) and exp4.get("oracle_minus_random_N64", 0.0) > 0.6, bool(exp4)), f"oracle-random N64={exp4.get('oracle_minus_random_N64')}")
@@ -354,7 +367,23 @@ def main() -> None:
         f"randomized-oracle N64 gap={rnd_gap}",
     )
     add(claims, 14, "Moment/adaptive allocation beats uniform with CI.", status(ci_positive(learned_exp6, "moment_law_improvement_over_uniform"), bool(learned_exp6)), f"moment-uniform CI={((learned_exp6.get('confidence_intervals') or {}).get('moment_law_improvement_over_uniform'))}")
-    add(claims, 15, "Adaptive allocation reduces oracle regret.", status(bool(learned_exp6) and learned_exp6.get("oracle_improvement_over_uniform", 0.0) > learned_exp6.get("moment_law_improvement_over_uniform", -1.0), bool(learned_exp6)), f"oracle-uniform={learned_exp6.get('oracle_improvement_over_uniform')}")
+    learned_exp6_cis = learned_exp6.get("confidence_intervals") or {}
+    moment_uniform_ci = learned_exp6_cis.get("moment_law_improvement_over_uniform") or {}
+    oracle_uniform_ci = learned_exp6_cis.get("oracle_improvement_over_uniform") or {}
+    add(
+        claims,
+        15,
+        "Adaptive allocation reduces oracle regret.",
+        status(
+            bool(learned_exp6)
+            and moment_uniform_ci.get("lo") is not None
+            and moment_uniform_ci.get("lo") > 0.0
+            and oracle_uniform_ci.get("lo") is not None
+            and oracle_uniform_ci.get("lo") > 0.0,
+            bool(learned_exp6),
+        ),
+        f"moment-uniform CI={moment_uniform_ci}; oracle-uniform CI={oracle_uniform_ci}",
+    )
     learned_high_n_ci = (learned_exp7.get("confidence_intervals") or {}).get("useful_success_gain_N64_minus_N1") or {}
     analytic_high_n_ok = bool(exp7) and exp7.get("useful_success_gain_N64_minus_N1", 0.0) > 0.12
     learned_high_n_ok = learned_high_n_ci.get("lo") is not None and learned_high_n_ci.get("lo") > 0.0

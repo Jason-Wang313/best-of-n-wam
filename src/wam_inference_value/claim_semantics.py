@@ -233,7 +233,7 @@ def audit_claim_semantics_payload(payload: dict[str, Any]) -> dict[str, Any]:
                 positive = [ci for ci in cis if finite_float(ci.get("lo")) is not None and float(ci["lo"]) > 0.0]
                 add(checks, f"claim_{cid}_positive_ci_lower_bound", bool(positive), f"positive_ci_objects={len(positive)}")
             else:
-                add(checks, f"claim_{cid}_positive_scalar_effect", evidence_has_positive_scalar(evidence), f"evidence={evidence[:120]}")
+                add(checks, f"claim_{cid}_positive_ci_required", False, f"evidence={evidence[:120]}")
         if claim_requires_error_threshold(text):
             error_threshold_claim_ids.append(cid)
             add(checks, f"claim_{cid}_error_below_threshold", evidence_has_small_error(evidence), f"evidence={evidence[:120]}")

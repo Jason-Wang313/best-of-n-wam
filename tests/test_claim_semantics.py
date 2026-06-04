@@ -42,6 +42,24 @@ def test_claim_semantics_flags_nonpositive_beats_ci() -> None:
     assert "claim_1_positive_ci_lower_bound" in issue_names
 
 
+def test_claim_semantics_requires_ci_for_positive_empirical_claims() -> None:
+    audit = audit_claim_semantics_payload(
+        payload(
+            [
+                {
+                    "id": 1,
+                    "claim": "Pilot-to-heldout improves with K.",
+                    "status": "VERIFIED",
+                    "evidence": "relative MAE reduction=0.72",
+                }
+            ]
+        )
+    )
+
+    issue_names = {issue["name"] for issue in audit["issues"]}
+    assert "claim_1_positive_ci_required" in issue_names
+
+
 def test_claim_semantics_flags_exact_law_without_small_error() -> None:
     audit = audit_claim_semantics_payload(
         payload(
