@@ -2,7 +2,7 @@
 
 ## Counts
 
-- verified: `119`
+- verified: `120`
 - partial: `0`
 - unsupported: `0`
 - failed: `0`
@@ -111,26 +111,27 @@
 - 97. RoboCasa stratified 97-task learned WAM-lite scorer beats random with CI. Evidence: tasks=97, train=1552, val=776, eval=1552, pools=194, utility corr=0.8380299394502633, promoted=learned_wam, learned-random CI={'n': 194, 'mean': 0.34790032435530055, 'std': 0.2347443208321136, 'stderr': 0.016853660033059582, 'ci95': 0.03303317366479678, 'lo': 0.31486715069050375, 'hi': 0.38093349802009735}, oracle-learned CI={'n': 194, 'mean': 0.04578491854497242, 'std': 0.0629307206718025, 'stderr': 0.0045181624334014545, 'ci95': 0.00885559836946685, 'lo': 0.03692932017550557, 'hi': 0.054640516914439274}
 - 98. RoboCasa residual 35-task clean/cook learned WAM-lite scorer beats random with CI. Evidence: tasks=35, train=140, val=140, eval=280, pools=35, horizon=1, Nmax=4, utility corr=0.8345242481462408, exact MAE=0.00024620294740340757, promoted=learned_wam, learned-random CI={'n': 35, 'mean': 0.2408146016473912, 'std': 0.13106289940391155, 'stderr': 0.02215367341365428, 'ci95': 0.04342119989076239, 'lo': 0.19739340175662884, 'hi': 0.2842358015381536}, oracle-learned CI={'n': 35, 'mean': 0.02177076474637765, 'std': 0.024328798100469916, 'stderr': 0.00411231744540864, 'ci95': 0.008060142193000936, 'lo': 0.013710622553376713, 'hi': 0.029830906939378586}
 - 99. Narrative reports have no unsupported overclaims. Evidence: report overclaims=0
-- 100. Published result artifact references are internally consistent. Evidence: refs=665, issues=0, status_counts={'ok': 665}
+- 100. Published result artifact references are internally consistent. Evidence: refs=669, issues=0, status_counts={'ok': 669}
 - 101. Published result summaries agree with canonical tables. Evidence: checks=157, issues=0
-- 102. Published narrative numbers match current artifacts. Evidence: checks=44, issues=0
-- 103. Claim ledger is structurally consistent. Evidence: claims=119, max_id=119, checks=21, issues=0
-- 104. Canonical execution scripts preserve required gate contracts. Evidence: scripts=7, checks=101, issues=0
-- 105. Verified claims have mapped source artifacts and quality-checked evidence. Evidence: claims=119, mapped=119, sources=159, issues=0
+- 102. Published narrative numbers match current artifacts. Evidence: checks=45, issues=0
+- 103. Claim ledger is structurally consistent. Evidence: claims=120, max_id=120, checks=21, issues=0
+- 104. Canonical execution scripts preserve required gate contracts. Evidence: scripts=7, checks=105, issues=0
+- 105. Verified claims have mapped source artifacts and quality-checked evidence. Evidence: claims=120, mapped=120, sources=161, issues=0
 - 106. Published summary metrics recompute from raw result tables. Evidence: aggregate metrics=10710, exact files=20, seed CI columns=125, issues=0
-- 107. Verified claim wording satisfies semantic threshold checks. Evidence: claims=119, checks=171, CI claims=51, positive CI claims=33, error claims=11, issues=0
+- 107. Verified claim wording satisfies semantic threshold checks. Evidence: claims=120, checks=171, CI claims=51, positive CI claims=33, error claims=11, issues=0
 - 108. Scientific result artifacts have a deterministic hash manifest. Evidence: files=397, bytes=56421681, suffixes={'.json': 105, '.npz': 41, '.png': 36, '.csv': 215}, issues=0
 - 109. Publication figure artifacts pass image-quality checks. Evidence: figures=36, expected=25, checks=8, issues=0
 - 110. Canonical CSV result tables pass schema and numeric-sanity checks. Evidence: tables=215, rows=212858, numeric_columns=1959, checks=17, issues=0
-- 111. Source and verification code have a deterministic hash manifest. Evidence: files=185, bytes=1314286, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 33, 'src': 50, 'tests': 41}, checks=14, issues=0
+- 111. Source and verification code have a deterministic hash manifest. Evidence: files=188, bytes=1333356, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 34, 'src': 51, 'tests': 42}, checks=14, issues=0
 - 112. Runtime and dependency environment metadata has a verified manifest. Evidence: python=3.10.11, core=4, absent=0, version_issues=0, optional_available=5/5, modules=13, commands=5, checks=15, issues=0
 - 113. Canonical experiment families have verified registry coverage. Evidence: entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=297, rows=260523, figures=40, failed=0, checks=10, issues=0
 - 114. Committed learned-model artifacts are loadable and numerically sane. Evidence: models=49, suffixes={'.npz': 36, '.joblib': 13}, bytes=119450103, npz_arrays=315, npz_elements=6077793, joblib_predictors=13, checks=10, issues=0
-- 115. Published final-report command results match current verification artifacts. Evidence: snippets=20, python_commands=23, pytest=104, checks=23, issues=0
-- 116. Pytest command-result counts come from a verified collected-test inventory. Evidence: tests=104, unique=104, trailer=104, checks=6, issues=0
-- 117. Generated claim-status artifacts are byte-stable under rerunning the claim generator. Evidence: claims=119, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json
+- 115. Published final-report command results match current verification artifacts. Evidence: snippets=21, python_commands=24, pytest=107, checks=24, issues=0
+- 116. Pytest command-result counts come from a verified collected-test inventory. Evidence: tests=107, unique=107, trailer=107, checks=6, issues=0
+- 117. Generated claim-status artifacts are byte-stable under rerunning the claim generator. Evidence: claims=120, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json
 - 118. Generated max-out narrative reports are byte-stable under rerunning the report generator. Evidence: reports=8, files=8, checks=9, issues=0, hashes_recorded_in=results/report_generation_consistency.json
-- 119. Claim evidence artifacts and published artifact references are represented in the git index. Evidence: claim_sources=103, artifact_refs=433, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0
+- 119. Claim evidence artifacts and published artifact references are represented in the git index. Evidence: claim_sources=105, artifact_refs=435, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0
+- 120. Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage. Evidence: claim_sources=103, artifact_refs=433, hashed=536, self_outputs_excluded=4, issues=0
 
 ## Partial
 

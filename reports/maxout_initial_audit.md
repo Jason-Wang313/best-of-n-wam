@@ -25,6 +25,7 @@ Audit date: 2026-05-30.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.
 - `claim_evidence_quality.py` verifies that each current claim ID is mapped to source artifacts and has structured, non-placeholder evidence.
 - `tracked_artifact_provenance.py` verifies that each current claim source and published artifact reference is represented in the git index.
+- `evidence_hash_coverage.py` verifies that non-self current claim sources and non-self published artifact references have deterministic SHA-256 hash coverage.
 - `claim_ledger_integrity.py` verifies sorted contiguous claim IDs, JSON/Markdown count agreement, structured claim evidence, evidence-path references, empty overclaim arrays, and no non-verified final claims.
 - `claim_generation_consistency.py` reruns the claim generator and verifies the JSON and Markdown claim ledgers are byte-stable and overclaim-free.
 - `report_generation_consistency.py` reruns the report generator and verifies the generated narrative reports are byte-stable.

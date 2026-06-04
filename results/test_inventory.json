@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 104,
-  "n_unique_tests": 104,
-  "trailer_count": 104,
+  "n_tests": 107,
+  "n_unique_tests": 107,
+  "trailer_count": 107,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -45,6 +45,9 @@
     "tests/test_envs_drawer.py::test_drawer_deterministic_and_rollout_finite",
     "tests/test_envs_grasp.py::test_grasp_deterministic_and_safety_metric",
     "tests/test_envs_nonstationary.py::test_nonstationary_shift_changes_params",
+    "tests/test_evidence_hash_coverage.py::test_evidence_hash_coverage_hashes_claim_sources_and_artifact_refs",
+    "tests/test_evidence_hash_coverage.py::test_evidence_hash_coverage_flags_missing_nonself_source",
+    "tests/test_evidence_hash_coverage.py::test_evidence_hash_coverage_excludes_self_outputs",
     "tests/test_experiment_registry.py::test_experiment_registry_accepts_complete_entry",
     "tests/test_experiment_registry.py::test_experiment_registry_detects_missing_result",
     "tests/test_experiment_registry.py::test_experiment_registry_detects_wrapper_drift",
@@ -121,7 +124,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=104"
+      "detail": "nodeids=107"
     },
     {
       "name": "nodeids_unique",
@@ -131,12 +134,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=104"
+      "detail": "nodeids=107"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=104, nodeids=104"
+      "detail": "trailer=107, nodeids=107"
     },
     {
       "name": "required_test_families_present",

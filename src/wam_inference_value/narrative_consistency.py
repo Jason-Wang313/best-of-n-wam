@@ -97,6 +97,7 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{claim_semantics.",
         "{claim_evidence_quality.",
         "{tracked_artifact_provenance.",
+        "{evidence_hash_coverage.",
         "{claim_ledger_integrity.",
         "{claim_generation_consistency.",
         "{report_generation_consistency.",
@@ -283,6 +284,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
     tracked_artifact_provenance = load_json(results_dir, "tracked_artifact_provenance.json")
+    evidence_hash_coverage = load_json(results_dir, "evidence_hash_coverage.json")
     claim_generation_consistency = load_json(results_dir, "claim_generation_consistency.json")
     report_generation_consistency = load_json(results_dir, "report_generation_consistency.json")
     learned = load_json(results_dir, "learned_wam_lite_training.json")
@@ -511,6 +513,19 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
             f"`{tracked_artifact_provenance.get('n_claim_sources')}` claim sources, "
             f"`{tracked_artifact_provenance.get('n_artifact_references')}` artifact references, "
             f"and `{tracked_artifact_provenance.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "evidence_hash_coverage_command",
+        (
+            f"`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with "
+            f"`{evidence_hash_coverage.get('n_claim_sources')}` claim sources, "
+            f"`{evidence_hash_coverage.get('n_artifact_references')}` artifact references, "
+            f"`{evidence_hash_coverage.get('n_hashed_records')}` hashed records, "
+            f"and `{evidence_hash_coverage.get('n_issues')}` issues"
         ),
     )
     add_contains(

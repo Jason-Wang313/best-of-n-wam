@@ -103,6 +103,7 @@ SEEDS=(701 702 703 704 705)
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_evidence_quality.py --fail-on-error
 "${PY[@]}" scripts/tracked_artifact_provenance.py --fail-on-error
+"${PY[@]}" scripts/evidence_hash_coverage.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_ledger_integrity.py --fail-on-error
 "${PY[@]}" scripts/claim_generation_consistency.py --fail-on-error
@@ -113,6 +114,7 @@ SEEDS=(701 702 703 704 705)
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_evidence_quality.py --fail-on-error
 "${PY[@]}" scripts/tracked_artifact_provenance.py --fail-on-error
+"${PY[@]}" scripts/evidence_hash_coverage.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_ledger_integrity.py --fail-on-error
 "${PY[@]}" scripts/claim_generation_consistency.py --fail-on-error

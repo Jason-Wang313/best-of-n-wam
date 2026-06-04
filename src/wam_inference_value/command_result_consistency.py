@@ -55,6 +55,7 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
     tracked_artifact_provenance = load_json(results_dir, "tracked_artifact_provenance.json")
+    evidence_hash_coverage = load_json(results_dir, "evidence_hash_coverage.json")
     claim_ledger_integrity = load_json(results_dir, "claim_ledger_integrity.json")
     claim_generation_consistency = load_json(results_dir, "claim_generation_consistency.json")
     report_generation_consistency = load_json(results_dir, "report_generation_consistency.json")
@@ -205,6 +206,16 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
                 f"`{tracked_artifact_provenance.get('n_claim_sources')}` claim sources, "
                 f"`{tracked_artifact_provenance.get('n_artifact_references')}` artifact references, and "
                 f"`{tracked_artifact_provenance.get('n_issues')}` issues"
+            ),
+        ),
+        (
+            "evidence_hash_coverage",
+            (
+                f"`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with "
+                f"`{evidence_hash_coverage.get('n_claim_sources')}` claim sources, "
+                f"`{evidence_hash_coverage.get('n_artifact_references')}` artifact references, "
+                f"`{evidence_hash_coverage.get('n_hashed_records')}` hashed records, and "
+                f"`{evidence_hash_coverage.get('n_issues')}` issues"
             ),
         ),
         (

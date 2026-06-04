@@ -119,6 +119,7 @@ def main() -> None:
     claim_generation_consistency = load_json("claim_generation_consistency.json")
     report_generation_consistency = load_json("report_generation_consistency.json")
     tracked_artifact_provenance = load_json("tracked_artifact_provenance.json")
+    evidence_hash_coverage = load_json("evidence_hash_coverage.json")
 
     val = (learned.get("metrics") or {}).get("validation") or {}
     ood = (learned.get("metrics") or {}).get("ood") or []
@@ -174,6 +175,7 @@ Audit date: 2026-05-30.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.
 - `claim_evidence_quality.py` verifies that each current claim ID is mapped to source artifacts and has structured, non-placeholder evidence.
 - `tracked_artifact_provenance.py` verifies that each current claim source and published artifact reference is represented in the git index.
+- `evidence_hash_coverage.py` verifies that non-self current claim sources and non-self published artifact references have deterministic SHA-256 hash coverage.
 - `claim_ledger_integrity.py` verifies sorted contiguous claim IDs, JSON/Markdown count agreement, structured claim evidence, evidence-path references, empty overclaim arrays, and no non-verified final claims.
 - `claim_generation_consistency.py` reruns the claim generator and verifies the JSON and Markdown claim ledgers are byte-stable and overclaim-free.
 - `report_generation_consistency.py` reruns the report generator and verifies the generated narrative reports are byte-stable.
@@ -627,6 +629,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/claim_semantics.py --fail-on-error`: passed with `{claim_semantics.get('n_claims')}` claims, `{claim_semantics.get('n_checks')}` semantic checks, `{claim_semantics.get('n_ci_claims')}` CI-backed claims, and `{claim_semantics.get('n_issues')}` issues.
 - `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `{claim_evidence_quality.get('n_claims')}` claims, `{claim_evidence_quality.get('n_source_links')}` source links, `{claim_evidence_quality.get('n_checks')}` evidence checks, and `{claim_evidence_quality.get('n_issues')}` issues.
 - `python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `{tracked_artifact_provenance.get('n_claim_sources')}` claim sources, `{tracked_artifact_provenance.get('n_artifact_references')}` artifact references, and `{tracked_artifact_provenance.get('n_issues')}` issues.
+- `python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `{evidence_hash_coverage.get('n_claim_sources')}` claim sources, `{evidence_hash_coverage.get('n_artifact_references')}` artifact references, `{evidence_hash_coverage.get('n_hashed_records')}` hashed records, and `{evidence_hash_coverage.get('n_issues')}` issues.
 - `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `{claim_ledger_integrity.get('n_claims')}` claims, `{claim_ledger_integrity.get('n_checks')}` ledger checks, and `{claim_ledger_integrity.get('n_issues')}` issues.
 - `python scripts/claim_generation_consistency.py --fail-on-error`: passed with `{claim_generation_consistency.get('n_claims')}` claims, `{claim_generation_consistency.get('n_checks')}` generation checks, and `{claim_generation_consistency.get('n_issues')}` issues.
 - `python scripts/report_generation_consistency.py --fail-on-error`: passed with `{report_generation_consistency.get('n_reports')}` reports, `{report_generation_consistency.get('n_checks')}` generation checks, and `{report_generation_consistency.get('n_issues')}` issues.
