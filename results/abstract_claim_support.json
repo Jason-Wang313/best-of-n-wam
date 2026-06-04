@@ -1,0 +1,123 @@
+{
+  "experiment": "abstract_claim_support",
+  "verified": true,
+  "n_abstract_claims": 4,
+  "n_approved_abstract_claims": 4,
+  "n_discussion_only_claims": 4,
+  "n_backing_claim_links": 23,
+  "n_forbidden_headline_hits": 0,
+  "n_checks": 9,
+  "n_issues": 0,
+  "abstract_claims": [
+    "Exact best-of-N inference laws for rollout selection.",
+    "The score/utility distribution determines the value of additional rollouts.",
+    "Model/scorer mismatch can make best-of-N amplify imagined futures rather than real utility.",
+    "Learned and multi-env toy artifacts validate the theory and failure modes."
+  ],
+  "discussion_only_claims": [
+    "Modern VLA-style sparse-success LIBERO policy performance and full RoboCasa-wide learned-WAM validation.",
+    "ManiSkill RGB/RGB-D or EE-control validation.",
+    "ManiSkill RGB/RGB-D benchmark WAM validation.",
+    "Universal WAM training and train-inference scaling."
+  ],
+  "backing_records": [
+    {
+      "claim": "Exact best-of-N inference laws for rollout selection.",
+      "required_claim_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "missing_verified_claim_ids": []
+    },
+    {
+      "claim": "The score/utility distribution determines the value of additional rollouts.",
+      "required_claim_ids": [
+        1,
+        2,
+        7,
+        42
+      ],
+      "missing_verified_claim_ids": []
+    },
+    {
+      "claim": "Model/scorer mismatch can make best-of-N amplify imagined futures rather than real utility.",
+      "required_claim_ids": [
+        10,
+        11,
+        12,
+        13,
+        43
+      ],
+      "missing_verified_claim_ids": []
+    },
+    {
+      "claim": "Learned and multi-env toy artifacts validate the theory and failure modes.",
+      "required_claim_ids": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        45
+      ],
+      "missing_verified_claim_ids": []
+    }
+  ],
+  "forbidden_headline_hits": [],
+  "missing_discussion_markers": [],
+  "missing_unresolved_markers": [],
+  "checks": [
+    {
+      "name": "final_decision_report_exists",
+      "ok": true,
+      "detail": "path=C:\\Users\\wangz\\best-of-n-wam\\reports\\final_decision_report.md"
+    },
+    {
+      "name": "abstract_claims_present",
+      "ok": true,
+      "detail": "claims=4"
+    },
+    {
+      "name": "abstract_claims_exact_approved_set",
+      "ok": true,
+      "detail": "unexpected=[], missing=[]"
+    },
+    {
+      "name": "abstract_claims_have_verified_backing",
+      "ok": true,
+      "detail": "missing_backing=[]"
+    },
+    {
+      "name": "headline_has_no_future_only_phrases",
+      "ok": true,
+      "detail": "hits=[]"
+    },
+    {
+      "name": "discussion_only_claims_present",
+      "ok": true,
+      "detail": "claims=4"
+    },
+    {
+      "name": "future_only_claims_are_discussion_scoped",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "unresolved_limitations_are_explicit",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "all_backing_claim_ids_verified",
+      "ok": true,
+      "detail": "verified_claim_ids=122"
+    }
+  ],
+  "issues": []
+}

@@ -9,6 +9,7 @@ from typing import Any
 
 INCLUDE_SUFFIXES = {".csv", ".json", ".npz", ".pdf", ".png"}
 EXCLUDED_RESULT_NAMES = {
+    "abstract_claim_support.json",
     "artifact_integrity.json",
     "artifact_manifest.json",
     "claim_evidence_quality.json",

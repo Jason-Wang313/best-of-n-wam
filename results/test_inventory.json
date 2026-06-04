@@ -1,12 +1,15 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 110,
-  "n_unique_tests": 110,
-  "trailer_count": 110,
+  "n_tests": 113,
+  "n_unique_tests": 113,
+  "trailer_count": 113,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
+    "tests/test_abstract_claim_support.py::test_abstract_claim_support_accepts_exact_supported_headlines",
+    "tests/test_abstract_claim_support.py::test_abstract_claim_support_rejects_unapproved_headline",
+    "tests/test_abstract_claim_support.py::test_abstract_claim_support_requires_verified_backing_claim_ids",
     "tests/test_adaptive_allocation_math.py::test_marginal_allocation_prefers_high_marginal_curve",
     "tests/test_artifact_integrity.py::test_collect_artifact_references_ignores_free_text_evidence",
     "tests/test_artifact_integrity.py::test_audit_result_artifacts_validates_csv_rows",
@@ -127,7 +130,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=110"
+      "detail": "nodeids=113"
     },
     {
       "name": "nodeids_unique",
@@ -137,12 +140,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=110"
+      "detail": "nodeids=113"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=110, nodeids=110"
+      "detail": "trailer=113, nodeids=113"
     },
     {
       "name": "required_test_families_present",

@@ -3,6 +3,7 @@ from wam_inference_value.test_inventory import audit_pytest_collection, parse_py
 
 def sample_stdout(count: int = 94) -> str:
     nodeids = [
+        "tests/test_abstract_claim_support.py::test_abstract_claim_support_accepts_exact_supported_headlines",
         "tests/test_command_result_consistency.py::test_command_result_consistency_accepts_current_report",
         "tests/test_model_artifact_integrity.py::test_model_artifact_integrity_accepts_loadable_npz",
         "tests/test_script_contracts.py::test_ordered_subsequence_requires_order",

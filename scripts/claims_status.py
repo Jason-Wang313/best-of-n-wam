@@ -50,6 +50,7 @@ NARRATIVE_SURFACES = [
     ("tracked_artifact_provenance_report", REPORTS / "tracked_artifact_provenance_report.md"),
     ("evidence_hash_coverage_report", REPORTS / "evidence_hash_coverage_report.md"),
     ("repo_bound_artifact_audit_report", REPORTS / "repo_bound_artifact_audit_report.md"),
+    ("abstract_claim_support_report", REPORTS / "abstract_claim_support_report.md"),
     ("final_decision_report", REPORTS / "final_decision_report.md"),
     ("paper_result_summary", REPORTS / "paper_result_summary.md"),
     ("reviewer_risk_assessment", REPORTS / "reviewer_risk_assessment.md"),
@@ -324,6 +325,7 @@ def main() -> None:
     tracked_artifact_provenance = load_json("tracked_artifact_provenance.json")
     evidence_hash_coverage = load_json("evidence_hash_coverage.json")
     repo_bound_artifact_audit = load_json("repo_bound_artifact_audit.json")
+    abstract_claim_support = load_json("abstract_claim_support.json")
     claim_generation_consistency = load_json("claim_generation_consistency.json")
     report_generation_consistency = load_json("report_generation_consistency.json")
 
@@ -1889,9 +1891,9 @@ def main() -> None:
         "status": status(
             bool(command_result_consistency)
             and command_result_consistency.get("verified", False)
-            and (command_result_consistency.get("n_expected_snippets") or 0) >= 22
-            and (command_result_consistency.get("n_python_command_lines") or 0) >= 21
-            and (command_result_consistency.get("n_checks") or 0) >= 25
+            and (command_result_consistency.get("n_expected_snippets") or 0) >= 23
+            and (command_result_consistency.get("n_python_command_lines") or 0) >= 22
+            and (command_result_consistency.get("n_checks") or 0) >= 26
             and command_result_consistency.get("n_issues") == 0
             and artifact_exists(RESULTS / "command_result_consistency.json")
             and artifact_exists(REPORTS / "command_result_consistency_report.md"),
@@ -1976,6 +1978,29 @@ def main() -> None:
             f"issues={repo_bound_artifact_audit.get('n_issues')}"
         ),
     }
+    abstract_claim_support_claim = {
+        "id": 122,
+        "claim": "Final-report abstract-level claims are directly evidence-backed and scope-limited.",
+        "status": status(
+            bool(abstract_claim_support)
+            and abstract_claim_support.get("verified", False)
+            and abstract_claim_support.get("n_abstract_claims") == 4
+            and abstract_claim_support.get("n_approved_abstract_claims") == 4
+            and (abstract_claim_support.get("n_backing_claim_links") or 0) >= 20
+            and abstract_claim_support.get("n_forbidden_headline_hits") == 0
+            and abstract_claim_support.get("n_issues") == 0
+            and artifact_exists(RESULTS / "abstract_claim_support.json")
+            and artifact_exists(REPORTS / "abstract_claim_support_report.md"),
+            bool(abstract_claim_support),
+        ),
+        "evidence": (
+            f"abstract_claims={abstract_claim_support.get('n_abstract_claims')}, "
+            f"approved={abstract_claim_support.get('n_approved_abstract_claims')}, "
+            f"backing_links={abstract_claim_support.get('n_backing_claim_links')}, "
+            f"headline_forbidden={abstract_claim_support.get('n_forbidden_headline_hits')}, "
+            f"issues={abstract_claim_support.get('n_issues')}"
+        ),
+    }
     test_inventory_claim = {
         "id": 116,
         "claim": "Pytest command-result counts come from a verified collected-test inventory.",
@@ -2041,13 +2066,14 @@ def main() -> None:
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=121, max_id=121, checks=pending, issues=0",
+            "evidence": "claims=122, max_id=122, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
         tracked_artifact_provenance_claim,
         evidence_hash_coverage_claim,
         repo_bound_artifact_audit_claim,
+        abstract_claim_support_claim,
         raw_result_recompute_claim,
         claim_semantics_claim,
         artifact_manifest_claim,
@@ -2079,6 +2105,7 @@ def main() -> None:
     claims.append(tracked_artifact_provenance_claim)
     claims.append(evidence_hash_coverage_claim)
     claims.append(repo_bound_artifact_audit_claim)
+    claims.append(abstract_claim_support_claim)
     claims.append(raw_result_recompute_claim)
     claims.append(claim_semantics_claim)
     claims.append(artifact_manifest_claim)

@@ -71,8 +71,8 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 
 ## Command Results
 
-- `python -m pytest -q`: passed with `110 passed`.
-- `python scripts/test_inventory.py --fail-on-error`: passed with `110` collected tests, `6` inventory checks, and `0` issues.
+- `python -m pytest -q`: passed with `113 passed`.
+- `python scripts/test_inventory.py --fail-on-error`: passed with `113` collected tests, `6` inventory checks, and `0` issues.
 - `bash scripts/run_all.sh`: passed; full analytic EXP1-EXP8 sweep completed with EXP1 success MAE `0.00210`, EXP3 relative MAE reduction `0.728`, EXP6 moment-uniform delta `0.0767`, EXP7 useful N64-N1 success delta `0.217`, and EXP8 conditional-law MAE `0.0027`.
 - `bash scripts/run_smoke.sh`: passed; EXP1 success MAE `0.00696`, utility MAE `0.04511`; EXP8 smoke conditional-law MAE `0.0055`.
 - `bash scripts/run_learned_wam_toy.sh`: passed; learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`.
@@ -84,24 +84,25 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`; Reacher RGB WAM utility corr `0.2199`, utility MAE `0.5208`, visual-random N32 CI lower `0.1998`; Fetch RGB WAM mean corr `0.7325`, visual-random N32 CI lower `0.3475`; ManiSkill visual probe any visual success `False` with blocker `vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory`.
 - `python experiments/benchmark_maniskill_dependency_probe.py --attempt-source-install`: passed as a blocker probe; Pinocchio import `False`, binary `pin` wheel `False`, source install attempted `True`.
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `0.9864`, repair-predicted N64 CI mean `0.3489`, predicted N128-N1 scaling gain `0.0255`.
-- `python scripts/artifact_integrity.py --fail-on-error`: passed with `673` artifact references checked and `0` issues.
+- `python scripts/artifact_integrity.py --fail-on-error`: passed with `677` artifact references checked and `0` issues.
 - `python scripts/artifact_manifest.py --fail-on-error`: passed with `397` scientific artifacts, `56421681` bytes, `15` manifest checks, and `0` issues.
 - `python scripts/figure_quality.py --fail-on-error`: passed with `36` figures, `8` image-quality checks, and `0` issues.
 - `python scripts/result_consistency.py --fail-on-error`: passed with `157` consistency checks and `0` issues.
 - `python scripts/raw_result_recompute.py --fail-on-error`: passed with `10710` aggregate metrics, `20` exact-law files, `125` seed CI columns, and `0` issues.
 - `python scripts/table_schema.py --fail-on-error`: passed with `215` tables, `212858` rows, `17` schema checks, and `0` issues.
-- `python scripts/source_manifest.py --fail-on-error`: passed with `191` source files, `1353883` bytes, `14` source-manifest checks, and `0` issues.
+- `python scripts/source_manifest.py --fail-on-error`: passed with `194` source files, `1374219` bytes, `14` source-manifest checks, and `0` issues.
 - `python scripts/runtime_environment.py --fail-on-error`: passed with Python `3.10.11`, `4` core requirements, `5` / `5` optional requirements available, `15` runtime checks, and `0` issues.
 - `python scripts/experiment_registry.py --fail-on-error`: passed with `57` experiment-family entries, `69` wrapper links, `297` table artifacts, `40` figures, `10` registry checks, and `0` issues.
 - `python scripts/model_artifact_integrity.py --fail-on-error`: passed with `49` model artifacts, `315` NPZ arrays, `13` joblib predictors, `10` model-artifact checks, and `0` issues.
-- `python scripts/narrative_consistency.py --fail-on-error`: passed with `46` narrative checks and `0` issues.
-- `python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `109` contract checks, and `0` issues.
-- `python scripts/claim_semantics.py --fail-on-error`: passed with `121` claims, `171` semantic checks, `51` CI-backed claims, and `0` issues.
-- `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `121` claims, `163` source links, `7` evidence checks, and `0` issues.
-- `python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `107` claim sources, `437` artifact references, and `0` issues.
-- `python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `836` records, `163` claim sources, `673` artifact references, `0` outside-repo records, `0` missing records, and `0` issues.
-- `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `121` claims, `31` ledger checks, and `0` issues.
-- `python scripts/claim_generation_consistency.py --fail-on-error`: passed with `121` claims, `10` generation checks, and `0` issues.
+- `python scripts/narrative_consistency.py --fail-on-error`: passed with `47` narrative checks and `0` issues.
+- `python scripts/script_contracts.py --fail-on-error`: passed with `7` scripts, `113` contract checks, and `0` issues.
+- `python scripts/abstract_claim_support.py --fail-on-error`: passed with `4` abstract claims, `23` backing claim links, `0` forbidden headline hits, and `0` issues.
+- `python scripts/claim_semantics.py --fail-on-error`: passed with `122` claims, `171` semantic checks, `51` CI-backed claims, and `0` issues.
+- `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `122` claims, `165` source links, `7` evidence checks, and `0` issues.
+- `python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `109` claim sources, `439` artifact references, and `0` issues.
+- `python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `842` records, `165` claim sources, `677` artifact references, `0` outside-repo records, `0` missing records, and `0` issues.
+- `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `122` claims, `31` ledger checks, and `0` issues.
+- `python scripts/claim_generation_consistency.py --fail-on-error`: passed with `122` claims, `10` generation checks, and `0` issues.
 - `python scripts/report_generation_consistency.py --fail-on-error`: passed with `8` reports, `9` generation checks, and `0` issues.
-- `python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `105` claim sources, `435` artifact references, `540` hashed records, and `0` issues.
-- `python scripts/claims_status.py`: passed with `121` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.
+- `python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `107` claim sources, `437` artifact references, `544` hashed records, and `0` issues.
+- `python scripts/claims_status.py`: passed with `122` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.

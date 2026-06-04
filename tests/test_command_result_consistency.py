@@ -36,6 +36,7 @@ def write_minimal_gate_artifacts(results: Path) -> None:
     )
     write_json(results / "narrative_consistency.json", {"n_checks": 40, "n_issues": 0})
     write_json(results / "script_contracts.json", {"n_scripts": 7, "n_checks": 77, "n_issues": 0})
+    write_json(results / "abstract_claim_support.json", {"n_abstract_claims": 4, "n_backing_claim_links": 23, "n_forbidden_headline_hits": 0, "n_issues": 0})
     write_json(results / "claim_semantics.json", {"n_claims": 114, "n_checks": 168, "n_ci_claims": 51, "n_issues": 0})
     write_json(results / "claim_evidence_quality.json", {"n_claims": 114, "n_source_links": 149, "n_checks": 7, "n_issues": 0})
     write_json(results / "tracked_artifact_provenance.json", {"n_claim_sources": 149, "n_artifact_references": 641, "n_issues": 0})

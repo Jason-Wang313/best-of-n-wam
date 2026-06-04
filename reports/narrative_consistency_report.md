@@ -1,7 +1,7 @@
 # Narrative Consistency Report
 
 - Verified: True
-- Checks: 46
+- Checks: 47
 - Issues: 0
 
 README and final decision report numerical snippets match the current JSON artifacts for audited high-impact claims.

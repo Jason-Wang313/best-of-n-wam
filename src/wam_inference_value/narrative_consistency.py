@@ -94,6 +94,7 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{model_artifact_integrity.",
         "{narrative_consistency.",
         "{script_contracts.",
+        "{abstract_claim_support.",
         "{claim_semantics.",
         "{claim_evidence_quality.",
         "{tracked_artifact_provenance.",
@@ -282,6 +283,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     experiment_registry = load_json(results_dir, "experiment_registry.json")
     model_artifact_integrity = load_json(results_dir, "model_artifact_integrity.json")
     script_contracts = load_json(results_dir, "script_contracts.json")
+    abstract_claim_support = load_json(results_dir, "abstract_claim_support.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
     tracked_artifact_provenance = load_json(results_dir, "tracked_artifact_provenance.json")
@@ -481,6 +483,19 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
         (
             f"`python scripts/script_contracts.py --fail-on-error`: passed with `{script_contracts.get('n_scripts')}` scripts, "
             f"`{script_contracts.get('n_checks')}` contract checks, and `{script_contracts.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "abstract_claim_support_command",
+        (
+            f"`python scripts/abstract_claim_support.py --fail-on-error`: passed with "
+            f"`{abstract_claim_support.get('n_abstract_claims')}` abstract claims, "
+            f"`{abstract_claim_support.get('n_backing_claim_links')}` backing claim links, "
+            f"`{abstract_claim_support.get('n_forbidden_headline_hits')}` forbidden headline hits, "
+            f"and `{abstract_claim_support.get('n_issues')}` issues"
         ),
     )
     add_contains(

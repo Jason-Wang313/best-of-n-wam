@@ -22,6 +22,7 @@ Audit date: 2026-05-30.
 - `test_inventory.py` records the collected pytest node IDs and verifies the final report's pytest count is not hard-coded stale text.
 - `narrative_consistency.py` verifies that high-impact README and final-report numbers match the current JSON artifacts.
 - `script_contracts.py` verifies that canonical shell scripts preserve required experiment steps, optional benchmark guards, and ordered verification gates.
+- `abstract_claim_support.py` verifies that final-report abstract claims are exactly the approved headline set, directly backed by verified claim IDs, and free of future-only robotics evidence.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.
 - `claim_evidence_quality.py` verifies that each current claim ID is mapped to source artifacts and has structured, non-placeholder evidence.
 - `tracked_artifact_provenance.py` verifies that each current claim source and published artifact reference is represented in the git index.

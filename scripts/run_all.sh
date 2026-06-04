@@ -40,6 +40,8 @@ fi
 "${PY[@]}" scripts/narrative_consistency.py --fail-on-error
 "${PY[@]}" scripts/script_contracts.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
+"${PY[@]}" scripts/abstract_claim_support.py --fail-on-error
+"${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_semantics.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_evidence_quality.py --fail-on-error
@@ -51,6 +53,8 @@ fi
 "${PY[@]}" scripts/report_generation_consistency.py --fail-on-error
 "${PY[@]}" scripts/command_result_consistency.py --fail-on-error
 "${PY[@]}" scripts/evidence_hash_coverage.py --fail-on-error
+"${PY[@]}" scripts/claims_status.py
+"${PY[@]}" scripts/abstract_claim_support.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_semantics.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py

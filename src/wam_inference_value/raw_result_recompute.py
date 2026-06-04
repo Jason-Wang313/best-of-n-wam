@@ -13,6 +13,7 @@ from wam_inference_value.evaluation import ci95
 
 
 SELF_OUTPUTS = {
+    "abstract_claim_support.json",
     "artifact_integrity.json",
     "claim_evidence_quality.json",
     "claim_generation_consistency.json",

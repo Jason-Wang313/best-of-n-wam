@@ -52,6 +52,7 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
     model_artifact_integrity = load_json(results_dir, "model_artifact_integrity.json")
     narrative_consistency = load_json(results_dir, "narrative_consistency.json")
     script_contracts = load_json(results_dir, "script_contracts.json")
+    abstract_claim_support = load_json(results_dir, "abstract_claim_support.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
     tracked_artifact_provenance = load_json(results_dir, "tracked_artifact_provenance.json")
@@ -182,6 +183,16 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
                 f"`python scripts/script_contracts.py --fail-on-error`: passed with "
                 f"`{script_contracts.get('n_scripts')}` scripts, `{script_contracts.get('n_checks')}` contract checks, "
                 f"and `{script_contracts.get('n_issues')}` issues"
+            ),
+        ),
+        (
+            "abstract_claim_support",
+            (
+                f"`python scripts/abstract_claim_support.py --fail-on-error`: passed with "
+                f"`{abstract_claim_support.get('n_abstract_claims')}` abstract claims, "
+                f"`{abstract_claim_support.get('n_backing_claim_links')}` backing claim links, "
+                f"`{abstract_claim_support.get('n_forbidden_headline_hits')}` forbidden headline hits, and "
+                f"`{abstract_claim_support.get('n_issues')}` issues"
             ),
         ),
         (

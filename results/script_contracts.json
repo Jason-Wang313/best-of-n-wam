@@ -2,7 +2,7 @@
   "experiment": "script_contracts",
   "verified": true,
   "n_scripts": 7,
-  "n_checks": 109,
+  "n_checks": 113,
   "n_issues": 0,
   "core_gate_sequence": [
     "scripts/test_inventory.py --fail-on-error",
@@ -20,6 +20,8 @@
     "scripts/narrative_consistency.py --fail-on-error",
     "scripts/script_contracts.py --fail-on-error",
     "scripts/claims_status.py",
+    "scripts/abstract_claim_support.py --fail-on-error",
+    "scripts/claims_status.py",
     "scripts/claim_semantics.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_evidence_quality.py --fail-on-error",
@@ -31,6 +33,8 @@
     "scripts/report_generation_consistency.py --fail-on-error",
     "scripts/command_result_consistency.py --fail-on-error",
     "scripts/evidence_hash_coverage.py --fail-on-error",
+    "scripts/claims_status.py",
+    "scripts/abstract_claim_support.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_semantics.py --fail-on-error",
     "scripts/claims_status.py",
@@ -119,6 +123,11 @@
       "name": "run_smoke_report_writer_gate",
       "ok": true,
       "detail": "report writer runs before narrative consistency"
+    },
+    {
+      "name": "run_smoke_double_abstract_claim_support",
+      "ok": true,
+      "detail": "abstract-claim support gate runs after both claim-status writes"
     },
     {
       "name": "run_smoke_double_claim_semantics",
@@ -241,6 +250,11 @@
       "detail": "report writer runs before narrative consistency"
     },
     {
+      "name": "run_learned_wam_toy_double_abstract_claim_support",
+      "ok": true,
+      "detail": "abstract-claim support gate runs after both claim-status writes"
+    },
+    {
       "name": "run_learned_wam_toy_double_claim_semantics",
       "ok": true,
       "detail": "claim semantic gate runs before both ledger gates"
@@ -361,6 +375,11 @@
       "detail": "report writer runs before narrative consistency"
     },
     {
+      "name": "run_all_double_abstract_claim_support",
+      "ok": true,
+      "detail": "abstract-claim support gate runs after both claim-status writes"
+    },
+    {
       "name": "run_all_double_claim_semantics",
       "ok": true,
       "detail": "claim semantic gate runs before both ledger gates"
@@ -479,6 +498,11 @@
       "name": "run_inference_audit_report_writer_gate",
       "ok": true,
       "detail": "report writer runs before narrative consistency"
+    },
+    {
+      "name": "run_inference_audit_double_abstract_claim_support",
+      "ok": true,
+      "detail": "abstract-claim support gate runs after both claim-status writes"
     },
     {
       "name": "run_inference_audit_double_claim_semantics",
