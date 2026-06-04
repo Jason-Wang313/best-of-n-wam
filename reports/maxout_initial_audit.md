@@ -11,6 +11,7 @@ Audit date: 2026-05-30.
 - `claims_status.py` gates README and paper-outline overclaims.
 - `artifact_integrity.py` verifies that referenced result artifacts exist, parse, and are nonempty.
 - `artifact_manifest.py` writes deterministic SHA-256 hashes for canonical scientific result artifacts.
+- `figure_quality.py` verifies that canonical PNG figures are present, readable, nonblank, nonflat, and large enough for publication-style inspection.
 - `result_consistency.py` verifies that summary JSONs agree with canonical tables for row counts, coverage, CI sanity, and success counts.
 - `raw_result_recompute.py` independently recomputes aggregate means, exact-law MAEs, and seed-metric CIs from raw CSV artifacts.
 - `narrative_consistency.py` verifies that high-impact README and final-report numbers match the current JSON artifacts.

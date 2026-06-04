@@ -102,6 +102,7 @@ def main() -> None:
     scaling = load_json("imagination_scaling_law.json")
     artifact_integrity = load_json("artifact_integrity.json")
     artifact_manifest = load_json("artifact_manifest.json")
+    figure_quality = load_json("figure_quality.json")
     result_consistency = load_json("result_consistency.json")
     raw_result_recompute = load_json("raw_result_recompute.json")
     narrative_consistency = load_json("narrative_consistency.json")
@@ -150,6 +151,7 @@ Audit date: 2026-05-30.
 - `claims_status.py` gates README and paper-outline overclaims.
 - `artifact_integrity.py` verifies that referenced result artifacts exist, parse, and are nonempty.
 - `artifact_manifest.py` writes deterministic SHA-256 hashes for canonical scientific result artifacts.
+- `figure_quality.py` verifies that canonical PNG figures are present, readable, nonblank, nonflat, and large enough for publication-style inspection.
 - `result_consistency.py` verifies that summary JSONs agree with canonical tables for row counts, coverage, CI sanity, and success counts.
 - `raw_result_recompute.py` independently recomputes aggregate means, exact-law MAEs, and seed-metric CIs from raw CSV artifacts.
 - `narrative_consistency.py` verifies that high-impact README and final-report numbers match the current JSON artifacts.
@@ -592,6 +594,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `{fmt(audit.get('tail_alignment_gain_corr'))}`, repair-predicted N64 CI mean `{fmt(((repair.get('confidence_intervals') or {}).get('repair_minus_predicted_N64') or {}).get('mean'))}`, predicted N128-N1 scaling gain `{fmt(((scaling.get('confidence_intervals') or {}).get('predicted_gain_N128_minus_N1') or {}).get('mean'))}`.
 - `python scripts/artifact_integrity.py --fail-on-error`: passed with `{artifact_integrity.get('n_references')}` artifact references checked and `{artifact_integrity.get('n_issues')}` issues.
 - `python scripts/artifact_manifest.py --fail-on-error`: passed with `{artifact_manifest.get('n_files')}` scientific artifacts, `{artifact_manifest.get('total_bytes')}` bytes, `{artifact_manifest.get('n_checks')}` manifest checks, and `{artifact_manifest.get('n_issues')}` issues.
+- `python scripts/figure_quality.py --fail-on-error`: passed with `{figure_quality.get('n_figures')}` figures, `{figure_quality.get('n_checks')}` image-quality checks, and `{figure_quality.get('n_issues')}` issues.
 - `python scripts/result_consistency.py --fail-on-error`: passed with `{result_consistency.get('n_checks')}` consistency checks and `{result_consistency.get('n_issues')}` issues.
 - `python scripts/raw_result_recompute.py --fail-on-error`: passed with `{raw_result_recompute.get('aggregate_metrics_compared')}` aggregate metrics, `{raw_result_recompute.get('exact_law_mae_files')}` exact-law files, `{raw_result_recompute.get('seed_metric_ci_columns')}` seed CI columns, and `{raw_result_recompute.get('n_issues')}` issues.
 - `python scripts/narrative_consistency.py --fail-on-error`: passed with `{narrative_consistency.get('n_checks')}` narrative checks and `{narrative_consistency.get('n_issues')}` issues.

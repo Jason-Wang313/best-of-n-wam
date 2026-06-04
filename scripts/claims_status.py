@@ -30,6 +30,7 @@ NARRATIVE_SURFACES = [
     ("paper_outline", PAPER),
     ("artifact_integrity_report", REPORTS / "artifact_integrity_report.md"),
     ("artifact_manifest_report", REPORTS / "artifact_manifest_report.md"),
+    ("figure_quality_report", REPORTS / "figure_quality_report.md"),
     ("result_consistency_report", REPORTS / "result_consistency_report.md"),
     ("raw_result_recompute_report", REPORTS / "raw_result_recompute_report.md"),
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
@@ -294,6 +295,7 @@ def main() -> None:
     scaling = load_json("imagination_scaling_law.json")
     artifact_integrity = load_json("artifact_integrity.json")
     artifact_manifest = load_json("artifact_manifest.json")
+    figure_quality = load_json("figure_quality.json")
     result_consistency = load_json("result_consistency.json")
     raw_result_recompute = load_json("raw_result_recompute.json")
     narrative_consistency = load_json("narrative_consistency.json")
@@ -1718,18 +1720,38 @@ def main() -> None:
             f"suffixes={artifact_manifest.get('counts_by_suffix')}, issues={artifact_manifest.get('n_issues')}"
         ),
     }
+    figure_quality_claim = {
+        "id": 109,
+        "claim": "Publication figure artifacts pass image-quality checks.",
+        "status": status(
+            bool(figure_quality)
+            and figure_quality.get("verified", False)
+            and (figure_quality.get("n_figures") or 0) >= 30
+            and (figure_quality.get("n_expected_figures") or 0) >= 20
+            and figure_quality.get("n_issues") == 0
+            and not figure_quality.get("missing_expected_figures")
+            and artifact_exists(RESULTS / "figure_quality.json")
+            and artifact_exists(REPORTS / "figure_quality_report.md"),
+            bool(figure_quality),
+        ),
+        "evidence": (
+            f"figures={figure_quality.get('n_figures')}, expected={figure_quality.get('n_expected_figures')}, "
+            f"checks={figure_quality.get('n_checks')}, issues={figure_quality.get('n_issues')}"
+        ),
+    }
     candidate_claims = claims + [
         {
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=108, max_id=108, checks=pending, issues=0",
+            "evidence": "claims=109, max_id=109, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
         raw_result_recompute_claim,
         claim_semantics_claim,
         artifact_manifest_claim,
+        figure_quality_claim,
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
@@ -1748,6 +1770,7 @@ def main() -> None:
     claims.append(raw_result_recompute_claim)
     claims.append(claim_semantics_claim)
     claims.append(artifact_manifest_claim)
+    claims.append(figure_quality_claim)
 
     payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)

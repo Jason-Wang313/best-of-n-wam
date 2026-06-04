@@ -1,0 +1,466 @@
+{
+  "experiment": "figure_quality",
+  "verified": true,
+  "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
+  "n_figures": 36,
+  "n_expected_figures": 25,
+  "n_checks": 8,
+  "n_issues": 0,
+  "thresholds": {
+    "min_figures": 30,
+    "min_width": 300,
+    "min_height": 300,
+    "min_bytes": 1000,
+    "min_pixel_std": 0.02,
+    "min_pixel_span": 0.1,
+    "min_nonwhite_fraction": 0.02
+  },
+  "figure_records": [
+    {
+      "path": "results/figures/benchmark_gym_manip_curves.png",
+      "bytes": 59027,
+      "readable": true,
+      "ok": false,
+      "width": 1120,
+      "height": 720,
+      "pixel_std": 0.14549563258846843,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.046395089285714286
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_curves.png",
+      "bytes": 73831,
+      "readable": true,
+      "ok": false,
+      "width": 1200,
+      "height": 768,
+      "pixel_std": 0.13929240199996795,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.04376193576388889
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_FetchPickAndPlace-v4_frame.png",
+      "bytes": 27661,
+      "readable": true,
+      "ok": false,
+      "width": 480,
+      "height": 480,
+      "pixel_std": 0.2056240245431183,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.9732074652777778
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_FetchPush-v4_frame.png",
+      "bytes": 28452,
+      "readable": true,
+      "ok": false,
+      "width": 480,
+      "height": 480,
+      "pixel_std": 0.20505226432953091,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.9754123263888889
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_FetchReach-v4_frame.png",
+      "bytes": 27640,
+      "readable": true,
+      "ok": false,
+      "width": 480,
+      "height": 480,
+      "pixel_std": 0.20563830210043868,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.9720789930555556
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_visual_FetchPickAndPlace-v4_frame.png",
+      "bytes": 27749,
+      "readable": true,
+      "ok": false,
+      "width": 480,
+      "height": 480,
+      "pixel_std": 0.20554291292652477,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.973515625
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_visual_FetchPush-v4_frame.png",
+      "bytes": 28512,
+      "readable": true,
+      "ok": false,
+      "width": 480,
+      "height": 480,
+      "pixel_std": 0.20501916453221267,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.9755208333333333
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_visual_FetchReach-v4_frame.png",
+      "bytes": 27650,
+      "readable": true,
+      "ok": false,
+      "width": 480,
+      "height": 480,
+      "pixel_std": 0.2056607606021757,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.9720789930555556
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_visual_wam_curves.png",
+      "bytes": 76492,
+      "readable": true,
+      "ok": false,
+      "width": 1200,
+      "height": 768,
+      "pixel_std": 0.13943831877002813,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.04450412326388889
+    },
+    {
+      "path": "results/figures/benchmark_maniskill_curves.png",
+      "bytes": 59989,
+      "readable": true,
+      "ok": false,
+      "width": 1216,
+      "height": 768,
+      "pixel_std": 0.13557597629277576,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.0399084258497807
+    },
+    {
+      "path": "results/figures/benchmark_metaworld_curves.png",
+      "bytes": 72535,
+      "readable": true,
+      "ok": false,
+      "width": 1200,
+      "height": 768,
+      "pixel_std": 0.14008733373372095,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.044905598958333334
+    },
+    {
+      "path": "results/figures/benchmark_robosuite_curves.png",
+      "bytes": 88667,
+      "readable": true,
+      "ok": false,
+      "width": 1200,
+      "height": 768,
+      "pixel_std": 0.1457596229825317,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.05228732638888889
+    },
+    {
+      "path": "results/figures/benchmark_visual_reacher_frame.png",
+      "bytes": 14970,
+      "readable": true,
+      "ok": false,
+      "width": 480,
+      "height": 480,
+      "pixel_std": 0.09548833620482254,
+      "pixel_span": 0.6901960968971252,
+      "nonwhite_fraction": 1.0
+    },
+    {
+      "path": "results/figures/benchmark_visual_wam_lite_curves.png",
+      "bytes": 60907,
+      "readable": true,
+      "ok": false,
+      "width": 1152,
+      "height": 736,
+      "pixel_std": 0.14366836794374857,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.04674408401268116
+    },
+    {
+      "path": "results/figures/benchmark_visual_wam_lite_frame.png",
+      "bytes": 15448,
+      "readable": true,
+      "ok": false,
+      "width": 480,
+      "height": 480,
+      "pixel_std": 0.09589621698384183,
+      "pixel_span": 0.6823529601097107,
+      "nonwhite_fraction": 1.0
+    },
+    {
+      "path": "results/figures/exp10_falsification_bad_scorer.png",
+      "bytes": 56718,
+      "readable": true,
+      "ok": false,
+      "width": 1120,
+      "height": 720,
+      "pixel_std": 0.14061801879595434,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.044161706349206346
+    },
+    {
+      "path": "results/figures/exp1_exact_vs_mc_success.png",
+      "bytes": 65875,
+      "readable": true,
+      "ok": false,
+      "width": 1152,
+      "height": 736,
+      "pixel_std": 0.13231093838651636,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.034764681461352656
+    },
+    {
+      "path": "results/figures/exp1_exact_vs_mc_success_learned.png",
+      "bytes": 61505,
+      "readable": true,
+      "ok": false,
+      "width": 1152,
+      "height": 736,
+      "pixel_std": 0.1325621422011804,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.03442854581823671
+    },
+    {
+      "path": "results/figures/exp2_auc_vs_moment_error.png",
+      "bytes": 41138,
+      "readable": true,
+      "ok": false,
+      "width": 1152,
+      "height": 736,
+      "pixel_std": 0.1323891548446274,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.03734879793176329
+    },
+    {
+      "path": "results/figures/exp3_pilot_to_heldout_mae.png",
+      "bytes": 88743,
+      "readable": true,
+      "ok": false,
+      "width": 1152,
+      "height": 736,
+      "pixel_std": 0.14697493220836325,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.048776230374396136
+    },
+    {
+      "path": "results/figures/exp4_score_function_curves.png",
+      "bytes": 80453,
+      "readable": true,
+      "ok": false,
+      "width": 1216,
+      "height": 768,
+      "pixel_std": 0.13470390339562896,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.04558576617324561
+    },
+    {
+      "path": "results/figures/exp4_score_function_curves_learned.png",
+      "bytes": 88389,
+      "readable": true,
+      "ok": false,
+      "width": 1216,
+      "height": 768,
+      "pixel_std": 0.14067182335720388,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.05021801329495614
+    },
+    {
+      "path": "results/figures/exp5_imagined_vs_real_gap.png",
+      "bytes": 87582,
+      "readable": true,
+      "ok": false,
+      "width": 1248,
+      "height": 784,
+      "pixel_std": 0.144239040296002,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.055084052851909995
+    },
+    {
+      "path": "results/figures/exp5_imagined_vs_real_gap_learned.png",
+      "bytes": 90114,
+      "readable": true,
+      "ok": false,
+      "width": 1248,
+      "height": 784,
+      "pixel_std": 0.14752985314631764,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.059276475013082155
+    },
+    {
+      "path": "results/figures/exp6_adaptive_allocation.png",
+      "bytes": 114530,
+      "readable": true,
+      "ok": false,
+      "width": 1184,
+      "height": 752,
+      "pixel_std": 0.16141139588127226,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.0652572868746406
+    },
+    {
+      "path": "results/figures/exp6_adaptive_allocation_learned.png",
+      "bytes": 78779,
+      "readable": true,
+      "ok": false,
+      "width": 1184,
+      "height": 752,
+      "pixel_std": 0.1495668315327086,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.051940321305347904
+    },
+    {
+      "path": "results/figures/exp7_closed_loop_success.png",
+      "bytes": 83299,
+      "readable": true,
+      "ok": false,
+      "width": 1184,
+      "height": 752,
+      "pixel_std": 0.14861379259762114,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.0476656843013226
+    },
+    {
+      "path": "results/figures/exp7_closed_loop_success_learned.png",
+      "bytes": 78307,
+      "readable": true,
+      "ok": false,
+      "width": 1184,
+      "height": 752,
+      "pixel_std": 0.14787749021257382,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.0481216755319149
+    },
+    {
+      "path": "results/figures/exp8_nonstationary_shift.png",
+      "bytes": 70706,
+      "readable": true,
+      "ok": false,
+      "width": 1088,
+      "height": 704,
+      "pixel_std": 0.15498988448554604,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.05221476019385027
+    },
+    {
+      "path": "results/figures/imagination_scaling_frontier.png",
+      "bytes": 75483,
+      "readable": true,
+      "ok": false,
+      "width": 1216,
+      "height": 768,
+      "pixel_std": 0.14802011270127688,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.04669082373903509
+    },
+    {
+      "path": "results/figures/inference_audit_tail_alignment.png",
+      "bytes": 135277,
+      "readable": true,
+      "ok": false,
+      "width": 1200,
+      "height": 800,
+      "pixel_std": 0.1886957682502561,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.09043854166666666
+    },
+    {
+      "path": "results/figures/inference_audit_tail_alignment_learned.png",
+      "bytes": 139985,
+      "readable": true,
+      "ok": false,
+      "width": 1200,
+      "height": 800,
+      "pixel_std": 0.18431706766614825,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.08830104166666666
+    },
+    {
+      "path": "results/figures/learned_wam_vs_analytic_wam.png",
+      "bytes": 66443,
+      "readable": true,
+      "ok": false,
+      "width": 1216,
+      "height": 768,
+      "pixel_std": 0.13344284261826897,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.03851211280153509
+    },
+    {
+      "path": "results/figures/multi_env_inference_curves.png",
+      "bytes": 107028,
+      "readable": true,
+      "ok": false,
+      "width": 1280,
+      "height": 800,
+      "pixel_std": 0.16041734012367306,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.0699345703125
+    },
+    {
+      "path": "results/figures/scorer_repair_experiment.png",
+      "bytes": 85647,
+      "readable": true,
+      "ok": false,
+      "width": 1184,
+      "height": 768,
+      "pixel_std": 0.14625719366376222,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.05290483354448198
+    },
+    {
+      "path": "results/figures/visual_toy_render_example.png",
+      "bytes": 1638,
+      "readable": true,
+      "ok": false,
+      "width": 384,
+      "height": 384,
+      "pixel_std": 0.4317304783996248,
+      "pixel_span": 1.0,
+      "nonwhite_fraction": 0.7503255208333334
+    }
+  ],
+  "checks": [
+    {
+      "name": "figure_files_present",
+      "ok": true,
+      "detail": "figures=36, required=30"
+    },
+    {
+      "name": "expected_publication_figures_present",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "figure_files_readable",
+      "ok": true,
+      "detail": "unreadable=[], count=0"
+    },
+    {
+      "name": "figure_dimensions_publication_usable",
+      "ok": true,
+      "detail": "too_small=[], count=0"
+    },
+    {
+      "name": "figure_files_nontrivial_size",
+      "ok": true,
+      "detail": "tiny=[], count=0"
+    },
+    {
+      "name": "figure_pixel_variance_nonblank",
+      "ok": true,
+      "detail": "low_variance=[], count=0"
+    },
+    {
+      "name": "figure_pixel_span_nonflat",
+      "ok": true,
+      "detail": "low_span=[], count=0"
+    },
+    {
+      "name": "figure_nonwhite_content_present",
+      "ok": true,
+      "detail": "blankish=[], count=0"
+    }
+  ],
+  "issues": [],
+  "missing_expected_figures": [],
+  "unreadable_figures": [],
+  "too_small_figures": [],
+  "tiny_figure_files": [],
+  "low_variance_figures": [],
+  "low_span_figures": [],
+  "blankish_figures": []
+}

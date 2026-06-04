@@ -92,6 +92,7 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{claim_semantics.",
         "{claim_evidence_quality.",
         "{claim_ledger_integrity.",
+        "{figure_quality.",
         "{gym_",
         "{metaworld.",
         "{robosuite.",
@@ -260,6 +261,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     text = read_text(root / "reports" / "final_decision_report.md")
     artifact_integrity = load_json(results_dir, "artifact_integrity.json")
     artifact_manifest = load_json(results_dir, "artifact_manifest.json")
+    figure_quality = load_json(results_dir, "figure_quality.json")
     result_consistency = load_json(results_dir, "result_consistency.json")
     raw_result_recompute = load_json(results_dir, "raw_result_recompute.json")
     script_contracts = load_json(results_dir, "script_contracts.json")
@@ -349,6 +351,16 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
             f"`python scripts/artifact_manifest.py --fail-on-error`: passed with `{artifact_manifest.get('n_files')}` scientific artifacts, "
             f"`{artifact_manifest.get('total_bytes')}` bytes, `{artifact_manifest.get('n_checks')}` manifest checks, "
             f"and `{artifact_manifest.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "figure_quality_command",
+        (
+            f"`python scripts/figure_quality.py --fail-on-error`: passed with `{figure_quality.get('n_figures')}` figures, "
+            f"`{figure_quality.get('n_checks')}` image-quality checks, and `{figure_quality.get('n_issues')}` issues"
         ),
     )
     add_contains(

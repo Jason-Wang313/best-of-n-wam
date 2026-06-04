@@ -2,13 +2,14 @@
   "experiment": "script_contracts",
   "verified": true,
   "n_scripts": 7,
-  "n_checks": 53,
+  "n_checks": 57,
   "n_issues": 0,
   "core_gate_sequence": [
     "scripts/artifact_integrity.py --fail-on-error",
     "scripts/result_consistency.py --fail-on-error",
     "scripts/raw_result_recompute.py --fail-on-error",
     "scripts/artifact_manifest.py --fail-on-error",
+    "scripts/figure_quality.py --fail-on-error",
     "scripts/narrative_consistency.py --fail-on-error",
     "scripts/script_contracts.py --fail-on-error",
     "scripts/claims_status.py",
@@ -61,6 +62,11 @@
       "detail": "artifact manifest gate runs after raw recompute"
     },
     {
+      "name": "run_smoke_figure_quality_gate",
+      "ok": true,
+      "detail": "figure quality gate runs after artifact manifest"
+    },
+    {
       "name": "run_smoke_double_claim_semantics",
       "ok": true,
       "detail": "claim semantic gate runs before both ledger gates"
@@ -109,6 +115,11 @@
       "name": "run_learned_wam_toy_artifact_manifest_gate",
       "ok": true,
       "detail": "artifact manifest gate runs after raw recompute"
+    },
+    {
+      "name": "run_learned_wam_toy_figure_quality_gate",
+      "ok": true,
+      "detail": "figure quality gate runs after artifact manifest"
     },
     {
       "name": "run_learned_wam_toy_double_claim_semantics",
@@ -161,6 +172,11 @@
       "detail": "artifact manifest gate runs after raw recompute"
     },
     {
+      "name": "run_all_figure_quality_gate",
+      "ok": true,
+      "detail": "figure quality gate runs after artifact manifest"
+    },
+    {
       "name": "run_all_double_claim_semantics",
       "ok": true,
       "detail": "claim semantic gate runs before both ledger gates"
@@ -209,6 +225,11 @@
       "name": "run_inference_audit_artifact_manifest_gate",
       "ok": true,
       "detail": "artifact manifest gate runs after raw recompute"
+    },
+    {
+      "name": "run_inference_audit_figure_quality_gate",
+      "ok": true,
+      "detail": "figure quality gate runs after artifact manifest"
     },
     {
       "name": "run_inference_audit_double_claim_semantics",
