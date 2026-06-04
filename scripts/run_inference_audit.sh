@@ -65,6 +65,7 @@ fi
 "${PY[@]}" scripts/abstract_claim_support.py --fail-on-error
 "${PY[@]}" scripts/publication_scope.py --fail-on-error
 "${PY[@]}" scripts/frontier_integrity.py --fail-on-error
+"${PY[@]}" scripts/external_benchmark_runtime_probe.py
 "${PY[@]}" scripts/ideal_frontier_readiness.py --fail-on-error
 "${PY[@]}" scripts/ideal_claim_boundary.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
@@ -85,6 +86,7 @@ fi
 "${PY[@]}" scripts/abstract_claim_support.py --fail-on-error
 "${PY[@]}" scripts/publication_scope.py --fail-on-error
 "${PY[@]}" scripts/frontier_integrity.py --fail-on-error
+"${PY[@]}" scripts/external_benchmark_runtime_probe.py
 "${PY[@]}" scripts/ideal_frontier_readiness.py --fail-on-error
 "${PY[@]}" scripts/ideal_claim_boundary.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py

@@ -41,11 +41,10 @@
       "frontier_id": "modern_vla_libero",
       "ready_to_promote": false,
       "n_signals": 6,
-      "n_met_signals": 4,
-      "n_missing_signals": 2,
+      "n_met_signals": 5,
+      "n_missing_signals": 1,
       "missing_signals": [
-        "modern_vla_model_class",
-        "current_runtime_can_rerun_libero"
+        "modern_vla_model_class"
       ],
       "signals": [
         {
@@ -75,8 +74,8 @@
         },
         {
           "name": "current_runtime_can_rerun_libero",
-          "ok": false,
-          "detail": "current interpreter cannot import LIBERO unless LIBERO_PYTHON/LIBERO_SOURCE_PATH are supplied"
+          "ok": true,
+          "detail": "runtime_probe_verified=True, libero=True"
         }
       ],
       "next_action": "Run a neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs."

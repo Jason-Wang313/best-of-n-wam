@@ -855,7 +855,7 @@
     {
       "name": "claim_116_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=tests=142, unique=142, trailer=142, checks=6, issues=0"
+      "detail": "evidence=tests=144, unique=144, trailer=144, checks=6, issues=0"
     },
     {
       "name": "claim_117_positive_count_or_artifact",

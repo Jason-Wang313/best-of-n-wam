@@ -58,6 +58,7 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     maniskill_deps = _load_json(results_dir / "benchmark_maniskill_dependency_probe.json")
     publication_scope = _load_json(results_dir / "publication_scope.json")
     optimizer = _load_json(results_dir / "universal_wam_train_inference_optimizer.json")
+    runtime_probe = _load_json(results_dir / "external_benchmark_runtime_probe.json")
 
     rows: list[dict[str, Any]] = []
 
@@ -108,8 +109,8 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     _signal(
         modern_vla,
         "current_runtime_can_rerun_libero",
-        False,
-        "current interpreter cannot import LIBERO unless LIBERO_PYTHON/LIBERO_SOURCE_PATH are supplied",
+        runtime_probe.get("libero_import_available") is True,
+        f"runtime_probe_verified={runtime_probe.get('verified')}, libero={runtime_probe.get('libero_import_available')}",
     )
     rows.append(
         _row(

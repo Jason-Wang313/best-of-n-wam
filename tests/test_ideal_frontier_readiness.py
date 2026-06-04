@@ -59,6 +59,7 @@ def test_ideal_frontier_readiness_keeps_future_frontiers_unpromoted(tmp_path: Pa
     )
     write_json(results / "benchmark_maniskill_dependency_probe.json", {"pinocchio_import_available": False})
     write_json(results / "publication_scope.json", {"verified": True})
+    write_json(results / "external_benchmark_runtime_probe.json", {"verified": True, "libero_import_available": True})
 
     payload = audit_ideal_frontier_readiness(tmp_path, results)
 
@@ -68,6 +69,6 @@ def test_ideal_frontier_readiness_keeps_future_frontiers_unpromoted(tmp_path: Pa
     by_id = {row["frontier_id"]: row for row in payload["rows"]}
     modern = by_id["modern_vla_libero"]
     assert "modern_vla_model_class" in modern["missing_signals"]
-    assert "current_runtime_can_rerun_libero" in modern["missing_signals"]
-    assert modern["n_met_signals"] >= 4
+    assert "current_runtime_can_rerun_libero" not in modern["missing_signals"]
+    assert modern["n_met_signals"] >= 5
     assert "full_registry_rollout_pool_coverage" in by_id["full_robocasa_wide"]["missing_signals"]

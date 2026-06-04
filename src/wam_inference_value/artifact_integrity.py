@@ -22,6 +22,9 @@ PATH_KEY_EXACT = {
     "table_path",
 }
 PATH_KEY_SUFFIXES = ("_path",)
+DIAGNOSTIC_JSONS_WITH_EXTERNAL_PATHS = {
+    "external_benchmark_runtime_probe.json",
+}
 
 
 @dataclass(frozen=True)
@@ -58,6 +61,9 @@ def _iter_string_leaves(value: Any, trail: tuple[str, ...]) -> list[tuple[tuple[
 
 
 def collect_artifact_references(json_path: Path, payload: Any) -> list[ArtifactReference]:
+    if json_path.name in DIAGNOSTIC_JSONS_WITH_EXTERNAL_PATHS:
+        return []
+
     refs: list[ArtifactReference] = []
 
     def walk(value: Any, trail: tuple[str, ...] = ()) -> None:

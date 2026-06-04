@@ -1,0 +1,121 @@
+{
+  "experiment": "external_benchmark_runtime_probe",
+  "verified": true,
+  "libero_import_available": true,
+  "robocasa_import_available": true,
+  "libero_success": {
+    "name": "external_libero310",
+    "ok": true,
+    "returncode": 0,
+    "python_path": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\libero310\\Scripts\\python.exe",
+    "source_path": "C:\\Users\\wangz\\external_benchmarks\\LIBERO",
+    "config_path": "C:\\Users\\wangz\\external_benchmarks\\.libero",
+    "stdout_tail": [
+      "{\"ok\": true, \"python_version\": \"3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]\", \"libero_file\": \"C:\\\\Users\\\\wangz\\\\external_benchmarks\\\\LIBERO\\\\libero\\\\libero\\\\__init__.py\", \"benchmark_file\": \"C:\\\\Users\\\\wangz\\\\external_benchmarks\\\\LIBERO\\\\libero\\\\libero\\\\benchmark\\\\__init__.py\"}"
+    ],
+    "stderr_tail": "",
+    "payload": {
+      "ok": true,
+      "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+      "libero_file": "C:\\Users\\wangz\\external_benchmarks\\LIBERO\\libero\\libero\\__init__.py",
+      "benchmark_file": "C:\\Users\\wangz\\external_benchmarks\\LIBERO\\libero\\libero\\benchmark\\__init__.py"
+    }
+  },
+  "robocasa_success": {
+    "name": "external_robocasa",
+    "ok": true,
+    "returncode": 0,
+    "python_path": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\robocasa\\Scripts\\python.exe",
+    "source_path": "C:\\Users\\wangz\\external_benchmarks\\robocasa",
+    "config_path": null,
+    "stdout_tail": [
+      "WARNING: mimicgen environments not imported since mimicgen is not installed!",
+      "{\"ok\": true, \"python_version\": \"3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]\", \"robocasa_file\": \"C:\\\\Users\\\\wangz\\\\external_benchmarks\\\\robocasa\\\\robocasa\\\\__init__.py\"}"
+    ],
+    "stderr_tail": "[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)\n[robosuite WARNING] Could not load the mink-based whole-body IK. Make sure you install related import properly (e.g. pip install mink==0.0.5), otherwise you will not be able to use the default IK controller setting for GR1 robot. (__init__.py:40)",
+    "payload": {
+      "ok": true,
+      "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+      "robocasa_file": "C:\\Users\\wangz\\external_benchmarks\\robocasa\\robocasa\\__init__.py"
+    }
+  },
+  "libero_attempts": [
+    {
+      "name": "external_libero310",
+      "ok": true,
+      "returncode": 0,
+      "python_path": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\libero310\\Scripts\\python.exe",
+      "source_path": "C:\\Users\\wangz\\external_benchmarks\\LIBERO",
+      "config_path": "C:\\Users\\wangz\\external_benchmarks\\.libero",
+      "stdout_tail": [
+        "{\"ok\": true, \"python_version\": \"3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]\", \"libero_file\": \"C:\\\\Users\\\\wangz\\\\external_benchmarks\\\\LIBERO\\\\libero\\\\libero\\\\__init__.py\", \"benchmark_file\": \"C:\\\\Users\\\\wangz\\\\external_benchmarks\\\\LIBERO\\\\libero\\\\libero\\\\benchmark\\\\__init__.py\"}"
+      ],
+      "stderr_tail": "",
+      "payload": {
+        "ok": true,
+        "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+        "libero_file": "C:\\Users\\wangz\\external_benchmarks\\LIBERO\\libero\\libero\\__init__.py",
+        "benchmark_file": "C:\\Users\\wangz\\external_benchmarks\\LIBERO\\libero\\libero\\benchmark\\__init__.py"
+      }
+    },
+    {
+      "name": "external_libero38",
+      "ok": true,
+      "returncode": 0,
+      "python_path": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\libero\\Scripts\\python.exe",
+      "source_path": "C:\\Users\\wangz\\external_benchmarks\\LIBERO",
+      "config_path": "C:\\Users\\wangz\\external_benchmarks\\.libero",
+      "stdout_tail": [
+        "{\"ok\": true, \"python_version\": \"3.8.20 (default, Oct  2 2024, 15:21:04) [MSC v.1929 64 bit (AMD64)]\", \"libero_file\": \"C:\\\\Users\\\\wangz\\\\external_benchmarks\\\\LIBERO\\\\libero\\\\libero\\\\__init__.py\", \"benchmark_file\": \"C:\\\\Users\\\\wangz\\\\external_benchmarks\\\\LIBERO\\\\libero\\\\libero\\\\benchmark\\\\__init__.py\"}"
+      ],
+      "stderr_tail": "",
+      "payload": {
+        "ok": true,
+        "python_version": "3.8.20 (default, Oct  2 2024, 15:21:04) [MSC v.1929 64 bit (AMD64)]",
+        "libero_file": "C:\\Users\\wangz\\external_benchmarks\\LIBERO\\libero\\libero\\__init__.py",
+        "benchmark_file": "C:\\Users\\wangz\\external_benchmarks\\LIBERO\\libero\\libero\\benchmark\\__init__.py"
+      }
+    }
+  ],
+  "robocasa_attempts": [
+    {
+      "name": "external_robocasa",
+      "ok": true,
+      "returncode": 0,
+      "python_path": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\robocasa\\Scripts\\python.exe",
+      "source_path": "C:\\Users\\wangz\\external_benchmarks\\robocasa",
+      "config_path": null,
+      "stdout_tail": [
+        "WARNING: mimicgen environments not imported since mimicgen is not installed!",
+        "{\"ok\": true, \"python_version\": \"3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]\", \"robocasa_file\": \"C:\\\\Users\\\\wangz\\\\external_benchmarks\\\\robocasa\\\\robocasa\\\\__init__.py\"}"
+      ],
+      "stderr_tail": "[robosuite WARNING] Could not import robosuite_models. Some robots may not be available. If you want to use these robots, please install robosuite_models from source (https://github.com/ARISE-Initiative/robosuite_models) or through pip install. (__init__.py:30)\n[robosuite WARNING] Could not load the mink-based whole-body IK. Make sure you install related import properly (e.g. pip install mink==0.0.5), otherwise you will not be able to use the default IK controller setting for GR1 robot. (__init__.py:40)",
+      "payload": {
+        "ok": true,
+        "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+        "robocasa_file": "C:\\Users\\wangz\\external_benchmarks\\robocasa\\robocasa\\__init__.py"
+      }
+    }
+  ],
+  "n_checks": 3,
+  "n_issues": 0,
+  "checks": [
+    {
+      "name": "libero_probe_attempted",
+      "ok": true,
+      "detail": "attempts=2"
+    },
+    {
+      "name": "robocasa_probe_attempted",
+      "ok": true,
+      "detail": "attempts=1"
+    },
+    {
+      "name": "at_least_one_external_runtime_available",
+      "ok": true,
+      "detail": "libero=True, robocasa=True"
+    }
+  ],
+  "issues": [],
+  "note": "Runtime import probe only. This does not validate modern VLA policy quality, full RoboCasa coverage, or real-robot evidence."
+}

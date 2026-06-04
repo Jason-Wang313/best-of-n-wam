@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 142,
-  "n_unique_tests": 142,
-  "trailer_count": 142,
+  "n_tests": 144,
+  "n_unique_tests": 144,
+  "trailer_count": 144,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -12,6 +12,7 @@
     "tests/test_abstract_claim_support.py::test_abstract_claim_support_requires_verified_backing_claim_ids",
     "tests/test_adaptive_allocation_math.py::test_marginal_allocation_prefers_high_marginal_curve",
     "tests/test_artifact_integrity.py::test_collect_artifact_references_ignores_free_text_evidence",
+    "tests/test_artifact_integrity.py::test_collect_artifact_references_skips_external_runtime_probe_paths",
     "tests/test_artifact_integrity.py::test_audit_result_artifacts_validates_csv_rows",
     "tests/test_artifact_integrity.py::test_audit_result_artifacts_flags_missing_and_zero_row_csv",
     "tests/test_artifact_integrity.py::test_audit_result_artifacts_skips_own_output",
@@ -65,6 +66,7 @@
     "tests/test_experiment_registry.py::test_experiment_registry_detects_wrapper_drift",
     "tests/test_experiment_registry.py::test_experiment_registry_detects_unverified_result",
     "tests/test_experiments_smoke.py::test_experiments_write_expected_artifacts",
+    "tests/test_external_runtime_probe.py::test_external_runtime_probe_uses_env_paths",
     "tests/test_figure_quality.py::test_figure_quality_accepts_nonblank_png",
     "tests/test_figure_quality.py::test_figure_quality_detects_blank_png",
     "tests/test_figure_quality.py::test_figure_quality_detects_tiny_png",
@@ -159,7 +161,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=142"
+      "detail": "nodeids=144"
     },
     {
       "name": "nodeids_unique",
@@ -169,12 +171,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=142"
+      "detail": "nodeids=144"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=142, nodeids=142"
+      "detail": "trailer=144, nodeids=144"
     },
     {
       "name": "required_test_families_present",

@@ -19,6 +19,20 @@ def test_collect_artifact_references_ignores_free_text_evidence(tmp_path: Path) 
     assert all("evidence" not in ref.json_path for ref in refs)
 
 
+def test_collect_artifact_references_skips_external_runtime_probe_paths(tmp_path: Path) -> None:
+    payload = {
+        "libero_success": {
+            "python_path": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\libero310\\Scripts\\python.exe",
+            "source_path": "C:\\Users\\wangz\\external_benchmarks\\LIBERO",
+            "config_path": "C:\\Users\\wangz\\external_benchmarks\\.libero",
+        }
+    }
+
+    refs = collect_artifact_references(tmp_path / "external_benchmark_runtime_probe.json", payload)
+
+    assert refs == []
+
+
 def test_audit_result_artifacts_validates_csv_rows(tmp_path: Path) -> None:
     results = tmp_path / "results"
     table_dir = results / "tables"
