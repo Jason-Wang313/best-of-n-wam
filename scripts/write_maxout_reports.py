@@ -117,6 +117,7 @@ def main() -> None:
     claim_evidence_quality = load_json("claim_evidence_quality.json")
     claim_semantics = load_json("claim_semantics.json")
     claim_generation_consistency = load_json("claim_generation_consistency.json")
+    report_generation_consistency = load_json("report_generation_consistency.json")
 
     val = (learned.get("metrics") or {}).get("validation") or {}
     ood = (learned.get("metrics") or {}).get("ood") or []
@@ -172,7 +173,8 @@ Audit date: 2026-05-30.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.
 - `claim_evidence_quality.py` verifies that each current claim ID is mapped to source artifacts and has structured, non-placeholder evidence.
 - `claim_ledger_integrity.py` verifies sorted contiguous claim IDs, JSON/Markdown count agreement, structured claim evidence, evidence-path references, empty overclaim arrays, and no non-verified final claims.
-- `claim_generation_consistency.py` reruns the claim generator and verifies the JSON and Markdown claim ledgers are byte-stable, all-verified, and overclaim-free.
+- `claim_generation_consistency.py` reruns the claim generator and verifies the JSON and Markdown claim ledgers are byte-stable and overclaim-free.
+- `report_generation_consistency.py` reruns the report generator and verifies the generated narrative reports are byte-stable.
 - `command_result_consistency.py` verifies that the final decision report's command-result lines match current verification artifacts.
 
 ## 2. Toy-Only
@@ -624,6 +626,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `{claim_evidence_quality.get('n_claims')}` claims, `{claim_evidence_quality.get('n_source_links')}` source links, `{claim_evidence_quality.get('n_checks')}` evidence checks, and `{claim_evidence_quality.get('n_issues')}` issues.
 - `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `{claim_ledger_integrity.get('n_claims')}` claims, `{claim_ledger_integrity.get('n_checks')}` ledger checks, and `{claim_ledger_integrity.get('n_issues')}` issues.
 - `python scripts/claim_generation_consistency.py --fail-on-error`: passed with `{claim_generation_consistency.get('n_claims')}` claims, `{claim_generation_consistency.get('n_checks')}` generation checks, and `{claim_generation_consistency.get('n_issues')}` issues.
+- `python scripts/report_generation_consistency.py --fail-on-error`: passed with `{report_generation_consistency.get('n_reports')}` reports, `{report_generation_consistency.get('n_checks')}` generation checks, and `{report_generation_consistency.get('n_issues')}` issues.
 - `python scripts/claims_status.py`: passed with `{claims_payload.get('num_verified')}` verified, `{claims_payload.get('num_partial')}` partial, `{claims_payload.get('num_unsupported')}` unsupported, `{claims_payload.get('num_failed')}` failed, and `0` README/paper overclaims.
 """
 

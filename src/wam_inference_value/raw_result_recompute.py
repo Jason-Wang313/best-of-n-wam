@@ -23,6 +23,7 @@ SELF_OUTPUTS = {
     "model_artifact_integrity.json",
     "narrative_consistency.json",
     "raw_result_recompute.json",
+    "report_generation_consistency.json",
     "result_consistency.json",
     "script_contracts.json",
     "test_inventory.json",

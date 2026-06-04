@@ -1,25 +1,25 @@
 {
   "experiment": "claim_semantics",
   "verified": true,
-  "n_claims": 117,
-  "n_checks": 170,
+  "n_claims": 118,
+  "n_checks": 171,
   "n_issues": 0,
   "n_ci_claims": 51,
   "n_positive_ci_claims": 33,
   "n_error_threshold_claims": 11,
   "n_zero_count_claims": 5,
-  "n_positive_count_claims": 13,
+  "n_positive_count_claims": 14,
   "n_sane_ci_objects": 66,
   "checks": [
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=117"
+      "detail": "claims=118"
     },
     {
       "name": "all_claims_verified",
       "ok": true,
-      "detail": "claims=117"
+      "detail": "claims=118"
     },
     {
       "name": "claim_1_error_below_threshold",
@@ -824,22 +824,27 @@
     {
       "name": "claim_100_zero_issue_or_overclaim_count",
       "ok": true,
-      "detail": "evidence=refs=655, issues=0, status_counts={'ok': 655}"
+      "detail": "evidence=refs=661, issues=0, status_counts={'ok': 661}"
     },
     {
       "name": "claim_103_zero_issue_or_overclaim_count",
       "ok": true,
-      "detail": "evidence=claims=117, max_id=117, checks=21, issues=0"
+      "detail": "evidence=claims=118, max_id=118, checks=21, issues=0"
     },
     {
       "name": "claim_116_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=tests=100, unique=100, trailer=100, checks=6, issues=0"
+      "detail": "evidence=tests=102, unique=102, trailer=102, checks=6, issues=0"
     },
     {
       "name": "claim_117_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=claims=117, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json"
+      "detail": "evidence=claims=118, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json"
+    },
+    {
+      "name": "claim_118_positive_count_or_artifact",
+      "ok": true,
+      "detail": "evidence=reports=8, files=8, checks=9, issues=0, hashes_recorded_in=results/report_generation_consistency.json"
     },
     {
       "name": "ci_claim_coverage",
@@ -984,6 +989,7 @@
     64,
     91,
     116,
-    117
+    117,
+    118
   ]
 }

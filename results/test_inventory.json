@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 100,
-  "n_unique_tests": 100,
-  "trailer_count": 100,
+  "n_tests": 102,
+  "n_unique_tests": 102,
+  "trailer_count": 102,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -72,6 +72,8 @@
     "tests/test_raw_result_recompute.py::test_raw_result_recompute_accepts_matching_raw_tables",
     "tests/test_raw_result_recompute.py::test_raw_result_recompute_flags_aggregate_mismatch",
     "tests/test_raw_result_recompute.py::test_raw_result_recompute_flags_seed_ci_mismatch",
+    "tests/test_report_generation_consistency.py::test_report_generation_consistency_accepts_byte_stable_generator",
+    "tests/test_report_generation_consistency.py::test_report_generation_consistency_rejects_mutating_generator",
     "tests/test_result_consistency.py::test_ci_objects_find_nested_confidence_intervals",
     "tests/test_result_consistency.py::test_pool_count_uses_task_seed_state_keys",
     "tests/test_result_consistency.py::test_rollout_pool_wam_flags_summary_table_mismatch",
@@ -117,7 +119,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=100"
+      "detail": "nodeids=102"
     },
     {
       "name": "nodeids_unique",
@@ -127,12 +129,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=100"
+      "detail": "nodeids=102"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=100, nodeids=100"
+      "detail": "trailer=102, nodeids=102"
     },
     {
       "name": "required_test_families_present",

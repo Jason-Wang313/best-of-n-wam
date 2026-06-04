@@ -2,7 +2,7 @@
   "experiment": "script_contracts",
   "verified": true,
   "n_scripts": 7,
-  "n_checks": 89,
+  "n_checks": 93,
   "n_issues": 0,
   "core_gate_sequence": [
     "scripts/test_inventory.py --fail-on-error",
@@ -25,6 +25,7 @@
     "scripts/claims_status.py",
     "scripts/claim_ledger_integrity.py --fail-on-error",
     "scripts/claim_generation_consistency.py --fail-on-error",
+    "scripts/report_generation_consistency.py --fail-on-error",
     "scripts/command_result_consistency.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_semantics.py --fail-on-error",
@@ -33,6 +34,7 @@
     "scripts/claims_status.py",
     "scripts/claim_ledger_integrity.py --fail-on-error",
     "scripts/claim_generation_consistency.py --fail-on-error",
+    "scripts/report_generation_consistency.py --fail-on-error",
     "scripts/command_result_consistency.py --fail-on-error"
   ],
   "checks": [
@@ -125,6 +127,11 @@
       "name": "run_smoke_double_claim_generation_consistency",
       "ok": true,
       "detail": "claim-generation gate runs after both ledger gates"
+    },
+    {
+      "name": "run_smoke_double_report_generation_consistency",
+      "ok": true,
+      "detail": "report-generation gate runs after both claim-generation gates"
     },
     {
       "name": "run_smoke_double_command_result_consistency",
@@ -222,6 +229,11 @@
       "detail": "claim-generation gate runs after both ledger gates"
     },
     {
+      "name": "run_learned_wam_toy_double_report_generation_consistency",
+      "ok": true,
+      "detail": "report-generation gate runs after both claim-generation gates"
+    },
+    {
       "name": "run_learned_wam_toy_double_command_result_consistency",
       "ok": true,
       "detail": "command-result gate runs after both ledger gates"
@@ -317,6 +329,11 @@
       "detail": "claim-generation gate runs after both ledger gates"
     },
     {
+      "name": "run_all_double_report_generation_consistency",
+      "ok": true,
+      "detail": "report-generation gate runs after both claim-generation gates"
+    },
+    {
       "name": "run_all_double_command_result_consistency",
       "ok": true,
       "detail": "command-result gate runs after both ledger gates"
@@ -410,6 +427,11 @@
       "name": "run_inference_audit_double_claim_generation_consistency",
       "ok": true,
       "detail": "claim-generation gate runs after both ledger gates"
+    },
+    {
+      "name": "run_inference_audit_double_report_generation_consistency",
+      "ok": true,
+      "detail": "report-generation gate runs after both claim-generation gates"
     },
     {
       "name": "run_inference_audit_double_command_result_consistency",

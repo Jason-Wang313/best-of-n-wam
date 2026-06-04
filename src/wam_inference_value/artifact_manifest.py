@@ -23,6 +23,7 @@ EXCLUDED_RESULT_NAMES = {
     "model_artifact_integrity.json",
     "narrative_consistency.json",
     "raw_result_recompute.json",
+    "report_generation_consistency.json",
     "result_consistency.json",
     "runtime_environment.json",
     "script_contracts.json",

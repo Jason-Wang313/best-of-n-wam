@@ -85,7 +85,7 @@ def audit_claim_generation_consistency(
     add(checks, "claims_json_byte_stable", before_json == after_json, f"before={sha256_bytes(before_json)}, after={sha256_bytes(after_json)}")
     add(checks, "claims_md_byte_stable", before_md == after_md, f"before={sha256_bytes(before_md)}, after={sha256_bytes(after_md)}")
     add(checks, "claims_json_parses", bool(payload), f"keys={sorted(payload)[:8]}")
-    add(checks, "claims_all_verified", int(payload.get("num_verified") or 0) == len(claims) and len(claims) > 0, f"verified={payload.get('num_verified')}, claims={len(claims)}")
+    add(checks, "claims_present", len(claims) > 0, f"claims={len(claims)}")
     add(checks, "claims_no_overclaims", len(payload.get("overclaims") or []) == 0, f"overclaims={len(payload.get('overclaims') or [])}")
     add(checks, "stdout_contains_claims_status", "# Claims Status" in proc.stdout, f"stdout_bytes={len(proc.stdout.encode('utf-8'))}")
     markdown_claim_rows = sum(1 for line in after_md.decode("utf-8", errors="ignore").splitlines() if line.startswith("- Claim "))
@@ -128,6 +128,6 @@ def claim_generation_consistency_markdown(payload: dict[str, Any]) -> str:
         for issue in issues:
             lines.append(f"- `{issue.get('name')}`: {issue.get('detail')}")
     else:
-        lines.append("Rerunning `scripts/claims_status.py` leaves `results/claims_status.json` and `results/claims_status.md` byte-stable, with all claims verified and no overclaims.")
+        lines.append("Rerunning `scripts/claims_status.py` leaves `results/claims_status.json` and `results/claims_status.md` byte-stable and overclaim-free.")
     lines.append("")
     return "\n".join(lines)

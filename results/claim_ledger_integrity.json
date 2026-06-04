@@ -1,12 +1,12 @@
 {
   "experiment": "claim_ledger_integrity",
   "verified": true,
-  "n_claims": 117,
-  "max_claim_id": 117,
+  "n_claims": 118,
+  "max_claim_id": 118,
   "n_checks": 31,
   "n_issues": 0,
   "status_counts": {
-    "VERIFIED": 117,
+    "VERIFIED": 118,
     "PARTIAL": 0,
     "UNSUPPORTED": 0,
     "FAILED": 0
@@ -32,6 +32,12 @@
       "raw_path": "results/claim_generation_consistency.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_generation_consistency.json",
       "exists": true
+    },
+    {
+      "claim_id": 118,
+      "raw_path": "results/report_generation_consistency.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\report_generation_consistency.json",
+      "exists": true
     }
   ],
   "missing_evidence_path_references": [],
@@ -39,7 +45,7 @@
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=117"
+      "detail": "claims=118"
     },
     {
       "name": "claim_ids_parse",
@@ -54,12 +60,12 @@
     {
       "name": "claim_ids_contiguous",
       "ok": true,
-      "detail": "missing=[], max_id=117"
+      "detail": "missing=[], max_id=118"
     },
     {
       "name": "claim_ids_sorted",
       "ok": true,
-      "detail": "first_ids=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], last_ids=[108, 109, 110, 111, 112, 113, 114, 115, 116, 117]"
+      "detail": "first_ids=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], last_ids=[109, 110, 111, 112, 113, 114, 115, 116, 117, 118]"
     },
     {
       "name": "claim_statuses_valid",
@@ -84,7 +90,7 @@
     {
       "name": "num_verified_matches_claims",
       "ok": true,
-      "detail": "json=117, computed=117"
+      "detail": "json=118, computed=118"
     },
     {
       "name": "num_partial_matches_claims",
@@ -104,7 +110,7 @@
     {
       "name": "status_counts_sum_to_claim_count",
       "ok": true,
-      "detail": "status_total=117, claims=117"
+      "detail": "status_total=118, claims=118"
     },
     {
       "name": "no_nonverified_claims",
@@ -139,12 +145,12 @@
     {
       "name": "claim_evidence_paths_exist",
       "ok": true,
-      "detail": "paths=3, missing=0"
+      "detail": "paths=4, missing=0"
     },
     {
       "name": "claims_status_md_claim_count",
       "ok": true,
-      "detail": "md=117, json=117"
+      "detail": "md=118, json=118"
     },
     {
       "name": "claims_status_md_id_set",
@@ -159,7 +165,7 @@
     {
       "name": "claims_report_verified_count",
       "ok": true,
-      "detail": "expected=- verified: `117`"
+      "detail": "expected=- verified: `118`"
     },
     {
       "name": "claims_report_partial_count",

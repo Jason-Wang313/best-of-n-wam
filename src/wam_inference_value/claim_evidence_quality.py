@@ -105,6 +105,7 @@ def default_claim_source_map() -> dict[int, list[str]]:
     set_sources(mapping, [115], ["results/command_result_consistency.json", "reports/command_result_consistency_report.md"])
     set_sources(mapping, [116], ["results/test_inventory.json", "reports/test_inventory_report.md"])
     set_sources(mapping, [117], ["results/claim_generation_consistency.json", "reports/claim_generation_consistency_report.md"])
+    set_sources(mapping, [118], ["results/report_generation_consistency.json", "reports/report_generation_consistency_report.md"])
     return mapping
 
 

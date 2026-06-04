@@ -40,6 +40,7 @@ def write_minimal_gate_artifacts(results: Path) -> None:
     write_json(results / "claim_evidence_quality.json", {"n_claims": 114, "n_source_links": 149, "n_checks": 7, "n_issues": 0})
     write_json(results / "claim_ledger_integrity.json", {"n_claims": 114, "n_checks": 31, "n_issues": 0})
     write_json(results / "claim_generation_consistency.json", {"n_claims": 114, "n_checks": 10, "n_issues": 0})
+    write_json(results / "report_generation_consistency.json", {"n_reports": 8, "n_checks": 9, "n_issues": 0})
 
 
 def write_final_report(root: Path, results: Path, *, stale_pytest: bool = False, stale_ledger: bool = False) -> None:
