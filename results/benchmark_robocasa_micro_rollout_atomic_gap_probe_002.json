@@ -1,0 +1,19 @@
+{
+  "experiment": "benchmark_robocasa_micro_rollout_atomic_gap_probe_002",
+  "attempted": true,
+  "available": true,
+  "verified": false,
+  "output_tag": "atomic_gap_probe_002",
+  "candidate_task_count": 1,
+  "runnable_task_count": 0,
+  "nondegenerate_task_count": 0,
+  "runnable_env_ids": [],
+  "nondegenerate_env_ids": [],
+  "rollouts_per_task": 2,
+  "horizon": 1,
+  "split": "pretrain",
+  "wall_clock_seconds": 0.09673690795898438,
+  "table_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_micro_rollout_atomic_gap_probe_002.csv",
+  "report_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_micro_rollout_atomic_gap_probe_002_report.md",
+  "note": "RoboCasa micro-rollout viability only; not learned-WAM, exact-law, closed-loop, solved-policy, or full-suite validation."
+}

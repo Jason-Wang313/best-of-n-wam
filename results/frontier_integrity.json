@@ -379,7 +379,7 @@
     {
       "frontier_id": "modern_vla_libero",
       "surface": "reports/maxout_completion_audit.md",
-      "line": 86,
+      "line": 87,
       "heading": "Acceptance Status",
       "guarded": true,
       "text": "- LIBERO RGB/proprio/language BC smoke: `feature-kNN RGB/proprio/language behavior cloning` trained on `7521` scripted action examples and evaluated on `30` heldout sparse-success episodes over all 10 Object tasks without object state, task IDs, phase labels, or target-point commands at evaluation time; this is `a lightweight feature-kNN smoke, not full LIBERO or modern VLA evidence`."
@@ -518,7 +518,7 @@
       "line": 168,
       "heading": "Benchmark Validation",
       "guarded": true,
-      "text": "The Gymnasium Robotics artifacts add contact-rich Fetch manipulation tasks with state/action-sequence WAM-lite training, exact-law validation, scorer comparison, closed-loop evaluation, RGB-frame/action-sequence visual WAM-lite validation, and RGB frame artifacts. Meta-World artifacts add a separate multi-task Sawyer manipulation suite with learned state/action-sequence WAM-lite, exact-law validation, scorer comparison, and small closed-loop traces. RoboSuite artifacts add Panda Lift/Stack/Door clone-restored MuJoCo rollout pools with learned state/action-sequence WAM-lite training, exact-law validation, open-loop scorer comparison, and small closed-loop learned/reward-versus-random evaluation. The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the optional Pinocchio dependency was unavailable; the repo also includes a generated ManiSkill visual/EE-control probe so that this limitation is artifact-backed rather than anecdotal."
+      "text": "The Gymnasium Robotics artifacts add contact-rich Fetch manipulation tasks with state/action-sequence WAM-lite training, exact-law validation, scorer comparison, closed-loop evaluation, RGB-frame/action-sequence visual WAM-lite validation, and RGB frame artifacts. Meta-World artifacts add a separate multi-task Sawyer manipulation suite with learned state/action-sequence WAM-lite, exact-law validation, scorer comparison, and small closed-loop traces. RoboSuite artifacts add Panda Lift/Stack/Door clone-restored MuJoCo rollout pools with learned state/action-sequence WAM-lite training, exact-law validation, open-loop scorer comparison, and small closed-loop learned/reward-versus-random evaluation. The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the robotics Pinocchio API was unavailable; the repo also includes a generated ManiSkill visual/EE-control probe so that this limitation is artifact-backed rather than anecdotal."
     },
     {
       "frontier_id": "maniskill_visual_ee",
@@ -699,7 +699,7 @@
     {
       "frontier_id": "maniskill_visual_ee",
       "surface": "reports/final_decision_report.md",
-      "line": 84,
+      "line": 85,
       "heading": "Command Results",
       "guarded": true,
       "text": "- `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`; Reacher RGB WAM utility corr `0.2199`, utility MAE `0.5208`, visual-random N32 CI lower `0.1998`; Fetch RGB WAM mean corr `0.7325`, visual-random N32 CI lower `0.3475`; ManiSkill visual probe any visual success `False` with blocker `vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory`."
@@ -747,7 +747,7 @@
     {
       "frontier_id": "maniskill_visual_ee",
       "surface": "reports/maxout_completion_audit.md",
-      "line": 45,
+      "line": 46,
       "heading": "Artifact Coverage",
       "guarded": true,
       "text": "- ManiSkill visual/EE probe: attempted `True`; state baseline ok `True`; any visual success `False`; blocker `vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory`."
@@ -755,7 +755,7 @@
     {
       "frontier_id": "maniskill_visual_ee",
       "surface": "reports/maxout_completion_audit.md",
-      "line": 90,
+      "line": 91,
       "heading": "Acceptance Status",
       "guarded": true,
       "text": "- ManiSkill visual/EE-control probe: generated artifact-backed blocker report when local RGB/RGB-D and EE-control attempts failed."

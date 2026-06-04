@@ -2,10 +2,10 @@
   "experiment": "artifact_integrity",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_result_json": 139,
-  "n_references": 706,
+  "n_result_json": 144,
+  "n_references": 710,
   "status_counts": {
-    "ok": 706
+    "ok": 710
   },
   "n_issues": 0,
   "issues": [],
@@ -797,8 +797,8 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_catalog_artifact_coverage.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_catalog_artifact_coverage.csv",
       "exists": true,
-      "bytes": 12239,
-      "rows": 18,
+      "bytes": 12343,
+      "rows": 19,
       "status": "ok",
       "reason": ""
     },
@@ -1305,6 +1305,28 @@
       "exists": true,
       "bytes": 536,
       "rows": 5,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_robocasa_micro_rollout_atomic_gap_probe_002.json",
+      "json_path": "table_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_micro_rollout_atomic_gap_probe_002.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_micro_rollout_atomic_gap_probe_002.csv",
+      "exists": true,
+      "bytes": 550,
+      "rows": 1,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_robocasa_micro_rollout_atomic_gap_probe_002.json",
+      "json_path": "report_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_micro_rollout_atomic_gap_probe_002_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_micro_rollout_atomic_gap_probe_002_report.md",
+      "exists": true,
+      "bytes": 488,
+      "rows": null,
       "status": "ok",
       "reason": ""
     },
@@ -2481,6 +2503,28 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_report.md",
       "exists": true,
       "bytes": 1490,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_robocasa_residual_frontier_sweep_atomic_gap_probe.json",
+      "json_path": "table_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_atomic_gap_probe_chunks.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_atomic_gap_probe_chunks.csv",
+      "exists": true,
+      "bytes": 779,
+      "rows": 4,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_robocasa_residual_frontier_sweep_atomic_gap_probe.json",
+      "json_path": "report_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_atomic_gap_probe_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_atomic_gap_probe_report.md",
+      "exists": true,
+      "bytes": 419,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5021,7 +5065,7 @@
       "raw_path": "README.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\README.md",
       "exists": true,
-      "bytes": 24024,
+      "bytes": 24017,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5032,7 +5076,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\README.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\README.md",
       "exists": true,
-      "bytes": 24024,
+      "bytes": 24017,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5505,7 +5549,7 @@
       "raw_path": "results/artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 309856,
+      "bytes": 309851,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5516,7 +5560,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 309856,
+      "bytes": 309851,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5879,7 +5923,7 @@
       "raw_path": "results/artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 92846,
+      "bytes": 92845,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5890,7 +5934,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 92846,
+      "bytes": 92845,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6407,7 +6451,7 @@
       "raw_path": "results/evidence_hash_coverage.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
-      "bytes": 230906,
+      "bytes": 230903,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6418,7 +6462,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
-      "bytes": 230906,
+      "bytes": 230903,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6539,7 +6583,7 @@
       "raw_path": "results/publication_scope.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\publication_scope.json",
       "exists": true,
-      "bytes": 70470,
+      "bytes": 70701,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6550,7 +6594,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\publication_scope.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\publication_scope.json",
       "exists": true,
-      "bytes": 70470,
+      "bytes": 70701,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6583,7 +6627,7 @@
       "raw_path": "results/claim_scope_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_scope_audit.json",
       "exists": true,
-      "bytes": 123366,
+      "bytes": 123500,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6594,7 +6638,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_scope_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_scope_audit.json",
       "exists": true,
-      "bytes": 123366,
+      "bytes": 123500,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6671,7 +6715,7 @@
       "raw_path": "results/frontier_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "exists": true,
-      "bytes": 78891,
+      "bytes": 79118,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6682,7 +6726,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "exists": true,
-      "bytes": 78891,
+      "bytes": 79118,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6715,7 +6759,7 @@
       "raw_path": "results/ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 33341,
+      "bytes": 33338,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6726,7 +6770,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 33341,
+      "bytes": 33338,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6847,7 +6891,7 @@
       "raw_path": "results/frontier_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "exists": true,
-      "bytes": 78891,
+      "bytes": 79118,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6858,7 +6902,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "exists": true,
-      "bytes": 78891,
+      "bytes": 79118,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6869,7 +6913,7 @@
       "raw_path": "results/ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 33341,
+      "bytes": 33338,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6880,7 +6924,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 33341,
+      "bytes": 33338,
       "rows": null,
       "status": "ok",
       "reason": ""

@@ -2,13 +2,13 @@
   "experiment": "artifact_manifest",
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_files": 405,
-  "total_bytes": 57224139,
+  "n_files": 412,
+  "total_bytes": 57229170,
   "counts_by_suffix": {
-    ".json": 111,
+    ".json": 116,
     ".npz": 42,
     ".png": 36,
-    ".csv": 216
+    ".csv": 218
   },
   "records": [
     {
@@ -160,6 +160,30 @@
       "suffix": ".json",
       "bytes": 2797,
       "sha256": "742cfa94b8da8b2349b2e610f2d53427cfc250cbacd401bc6f702aaef050d9ee"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_atomic_gap_probe_000.json",
+      "suffix": ".json",
+      "bytes": 592,
+      "sha256": "7f16419be40b5e8fdb6addfc6875d1814ebd98bae6ad0ae2680bf4192c62566e"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_atomic_gap_probe_001.json",
+      "suffix": ".json",
+      "bytes": 590,
+      "sha256": "94cb282bbeeffa0975b8a9b0a3edcc4c08ce242d6f2ccee343d15ced73bc8d0d"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_atomic_gap_probe_002.json",
+      "suffix": ".json",
+      "bytes": 830,
+      "sha256": "79e7d3e6dd2ada50d5e68a17ae1ac39fc662d07a06fd3e3b8c4e735a6d7d602b"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_atomic_gap_probe_003.json",
+      "suffix": ".json",
+      "bytes": 589,
+      "sha256": "f1041e037c4e0faa666263d754a44e6a2d2d19f43a4954d3bf42fca51aafc423"
     },
     {
       "path": "results/benchmark_robocasa_micro_rollout_extra.json",
@@ -460,6 +484,12 @@
       "suffix": ".json",
       "bytes": 3438,
       "sha256": "eb0f4799b762c8305d812e4ad5493a3a653786ce857d7622e4bc27410eb805ce"
+    },
+    {
+      "path": "results/benchmark_robocasa_residual_frontier_sweep_atomic_gap_probe.json",
+      "suffix": ".json",
+      "bytes": 999,
+      "sha256": "d3fa21fb75a9e029ef2e6b519e2fe9a91c2f71f41fee76879ea391c37ac922c8"
     },
     {
       "path": "results/benchmark_robocasa_smoke.json",
@@ -860,8 +890,8 @@
     {
       "path": "results/ideal_completion_audit.json",
       "suffix": ".json",
-      "bytes": 11317,
-      "sha256": "6983843508b848e56b535fe910451937dbf05203a1994c1f04e085c781bce1a8"
+      "bytes": 11315,
+      "sha256": "4b368932b90405855df5b649cad70781798df9d58398c59f2d7af8740a892b44"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
@@ -1388,8 +1418,8 @@
     {
       "path": "results/tables/benchmark_robocasa_catalog_artifact_coverage.csv",
       "suffix": ".csv",
-      "bytes": 12239,
-      "sha256": "518247e32523883dabec5dc799a6bca24db0a41aefe501c95a8fa525af5403cb"
+      "bytes": 12343,
+      "sha256": "69d9ede8e866bb08a85badc792050fcfc1e41de92fdedc9ff33ee4f4fba88213"
     },
     {
       "path": "results/tables/benchmark_robocasa_catalog_registry.csv",
@@ -1624,6 +1654,12 @@
       "suffix": ".csv",
       "bytes": 17753,
       "sha256": "94f73ba5b81b524a7953a3e8068bf7622bcb242eca63338f82ed8c0d6a0c4fe3"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_atomic_gap_probe_002.csv",
+      "suffix": ".csv",
+      "bytes": 550,
+      "sha256": "2ca0d494c6a1ddec84c21e70954d4de95629eea4d024edbfb38a913ab17ffa36"
     },
     {
       "path": "results/tables/benchmark_robocasa_micro_rollout_extra.csv",
@@ -1966,6 +2002,12 @@
       "suffix": ".csv",
       "bytes": 46682,
       "sha256": "b214b5ea87e75249a5e8da1c532e7f5ff85f7a2f7573dfd257dfe4e63c2edd02"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_atomic_gap_probe_chunks.csv",
+      "suffix": ".csv",
+      "bytes": 779,
+      "sha256": "344445e2586ff425fa10829bca5ad4ee16da2991afb25e8f523eb5ab3c8effb0"
     },
     {
       "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_chunks.csv",
@@ -2449,22 +2491,22 @@
     {
       "name": "manifest_records_present",
       "ok": true,
-      "detail": "records=405"
+      "detail": "records=412"
     },
     {
       "name": "manifest_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=405, scan=405"
+      "detail": "payload=412, scan=412"
     },
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=57224139, scan=57224139"
+      "detail": "payload=57229170, scan=57229170"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
       "ok": true,
-      "detail": "payload={'.json': 111, '.npz': 42, '.png': 36, '.csv': 216}, scan={'.json': 111, '.npz': 42, '.png': 36, '.csv': 216}"
+      "detail": "payload={'.json': 116, '.npz': 42, '.png': 36, '.csv': 218}, scan={'.json': 116, '.npz': 42, '.png': 36, '.csv': 218}"
     },
     {
       "name": "manifest_has_no_missing_current_artifacts",
@@ -2494,17 +2536,17 @@
     {
       "name": "manifest_scientific_artifact_file_count",
       "ok": true,
-      "detail": "files=405"
+      "detail": "files=412"
     },
     {
       "name": "manifest_table_count",
       "ok": true,
-      "detail": "csv=216"
+      "detail": "csv=218"
     },
     {
       "name": "manifest_json_count",
       "ok": true,
-      "detail": "json=111"
+      "detail": "json=116"
     },
     {
       "name": "manifest_model_count",
@@ -2519,7 +2561,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=57224139"
+      "detail": "bytes=57229170"
     }
   ],
   "issues": [],

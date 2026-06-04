@@ -33,6 +33,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboCasa frontier micro-rollout probe: verified `True`; candidates `64`; runnable `52`; nondegenerate task IDs `42`; rollouts per task `2`; horizon `1`.
 - RoboCasa residual clean/cook micro-rollout sweep: verified `True`; candidates `43`; completed chunks `41`; timed-out chunks `2`; runnable `39`; nondegenerate task IDs `35`; rollouts per task `2`; horizon `1`.
 - RoboCasa registry coverage audit: registered task IDs `396`; rollout-pool task IDs `132`; micro-rollout task IDs `106`; any-artifact task IDs `134`.
+- RoboCasa atomic gap probe: attempted `4` uncovered task IDs; timed-out chunks `3`; nondegenerate task IDs `0`; promoted `False`.
 - LIBERO WAM-lite: verified `True`; tasks `['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2']`; train/eval samples `192`/`240`; utility corr `0.3526`; exact-law MAE `0.0001`; learned-random N8 CI lower `0.2653`.
 - LIBERO scripted sparse-success smoke: verified `True`; episodes `50`; successes `50`; success-rate CI lower `1.0000`.
 - LIBERO learned action-head smoke: verified `True`; train examples `5014`; eval successes `30`/`30`; success-rate CI lower `1.0000`.

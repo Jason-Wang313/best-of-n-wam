@@ -1,0 +1,27 @@
+{
+  "experiment": "benchmark_robocasa_residual_frontier_sweep_atomic_gap_probe",
+  "attempted": true,
+  "available": true,
+  "verified": false,
+  "summary_tag": "atomic_gap_probe",
+  "candidate_task_count": 4,
+  "chunk_count": 4,
+  "completed_chunk_count": 1,
+  "timed_out_chunk_count": 3,
+  "runnable_task_count": 0,
+  "nondegenerate_task_count": 0,
+  "runnable_env_ids": [],
+  "nondegenerate_env_ids": [],
+  "categories": [
+    "manipulate",
+    "turn"
+  ],
+  "rollouts_per_task": 2,
+  "horizon": 1,
+  "chunk_size": 1,
+  "timeout_seconds": 120.0,
+  "wall_clock_seconds": 392.3434867858887,
+  "table_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_atomic_gap_probe_chunks.csv",
+  "report_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_atomic_gap_probe_report.md",
+  "note": "Resumable RoboCasa residual catalog micro-rollout search; not promoted to learned-WAM benchmark evidence."
+}

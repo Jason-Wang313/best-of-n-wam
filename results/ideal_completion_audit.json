@@ -45,22 +45,22 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7444
+          "bytes": 7538
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4343
+          "bytes": 4437
         },
         {
           "path": "reports/final_decision_report.md",
           "exists": true,
-          "bytes": 17385
+          "bytes": 17442
         },
         {
           "path": "reports/reviewer_risk_assessment.md",
           "exists": true,
-          "bytes": 2791
+          "bytes": 2842
         }
       ]
     },
@@ -81,12 +81,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7444
+          "bytes": 7538
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4343
+          "bytes": 4437
         },
         {
           "path": "results/external_benchmark_runtime_probe.json",
@@ -131,7 +131,7 @@
         {
           "path": "reports/final_decision_report.md",
           "exists": true,
-          "bytes": 17385
+          "bytes": 17442
         }
       ]
     },
@@ -152,12 +152,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7444
+          "bytes": 7538
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4343
+          "bytes": 4437
         },
         {
           "path": "results/benchmark_robocasa_catalog_probe.json",
@@ -172,7 +172,7 @@
         {
           "path": "reports/final_decision_report.md",
           "exists": true,
-          "bytes": 17385
+          "bytes": 17442
         }
       ]
     },
@@ -193,12 +193,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7444
+          "bytes": 7538
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4343
+          "bytes": 4437
         },
         {
           "path": "results/benchmark_maniskill_visual_probe.json",
@@ -208,7 +208,7 @@
         {
           "path": "results/benchmark_maniskill_dependency_probe.json",
           "exists": true,
-          "bytes": 13510
+          "bytes": 3535
         },
         {
           "path": "reports/maniskill_visual_blocker_report.md",
@@ -218,7 +218,7 @@
         {
           "path": "reports/maniskill_dependency_blocker_report.md",
           "exists": true,
-          "bytes": 12424
+          "bytes": 3327
         }
       ]
     },
@@ -239,12 +239,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7444
+          "bytes": 7538
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4343
+          "bytes": 4437
         },
         {
           "path": "results/universal_wam_train_inference_optimizer.json",
@@ -259,17 +259,17 @@
         {
           "path": "results/publication_scope.json",
           "exists": true,
-          "bytes": 70470
+          "bytes": 70701
         },
         {
           "path": "reports/final_decision_report.md",
           "exists": true,
-          "bytes": 17385
+          "bytes": 17442
         },
         {
           "path": "reports/reviewer_risk_assessment.md",
           "exists": true,
-          "bytes": 2791
+          "bytes": 2842
         }
       ]
     }

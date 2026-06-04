@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 223,
-  "total_bytes": 1591222,
+  "total_bytes": 1592285,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 206,
@@ -165,8 +165,8 @@
     {
       "path": "experiments/benchmark_robocasa_catalog_probe.py",
       "suffix": ".py",
-      "bytes": 9091,
-      "sha256": "6ddac98a605cd9ba989fc058343cbdaa3a28a83bf617d05e213fb3016b83a355"
+      "bytes": 9163,
+      "sha256": "bf17d18524b0f157d7e0d20ccc5091e8a21b8cb21f4cb3fa8197a189aa49509f"
     },
     {
       "path": "experiments/benchmark_robocasa_learned_wam.py",
@@ -657,8 +657,8 @@
     {
       "path": "scripts/write_maxout_reports.py",
       "suffix": ".py",
-      "bytes": 85065,
-      "sha256": "c8ae9435077bc128bb58df85f542381ba64b2b6b41276107945f9cf547f01636"
+      "bytes": 86056,
+      "sha256": "77ee69ce1ce30399df0b04a0ae064cf5e2092577ec8ec7ca7fd8b92fd120303c"
     },
     {
       "path": "src/wam_inference_value/__init__.py",
@@ -1380,7 +1380,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1591222, scan=1591222"
+      "detail": "payload=1592285, scan=1592285"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1425,7 +1425,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1591222"
+      "detail": "bytes=1592285"
     },
     {
       "name": "source_manifest_dir_coverage",

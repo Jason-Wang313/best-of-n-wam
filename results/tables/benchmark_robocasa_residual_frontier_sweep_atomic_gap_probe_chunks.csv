@@ -1,0 +1,5 @@
+chunk_index,tag,env_ids,candidate_task_count,verified,timed_out,runnable_task_count,nondegenerate_task_count,summary_path
+0,atomic_gap_probe_000,robocasa/TurnOnElectricKettle,1,False,True,0,0,C:\Users\wangz\best-of-n-wam\results\benchmark_robocasa_micro_rollout_atomic_gap_probe_000.json
+1,atomic_gap_probe_001,robocasa/TurnOnToasterOven,1,False,True,0,0,C:\Users\wangz\best-of-n-wam\results\benchmark_robocasa_micro_rollout_atomic_gap_probe_001.json
+2,atomic_gap_probe_002,robocasa/ManipulateDoor,1,False,False,0,0,C:\Users\wangz\best-of-n-wam\results\benchmark_robocasa_micro_rollout_atomic_gap_probe_002.json
+3,atomic_gap_probe_003,robocasa/ManipulateDrawer,1,False,True,0,0,C:\Users\wangz\best-of-n-wam\results\benchmark_robocasa_micro_rollout_atomic_gap_probe_003.json
