@@ -36,6 +36,7 @@ NARRATIVE_SURFACES = [
     ("table_schema_report", REPORTS / "table_schema_report.md"),
     ("source_manifest_report", REPORTS / "source_manifest_report.md"),
     ("runtime_environment_report", REPORTS / "runtime_environment_report.md"),
+    ("experiment_registry_report", REPORTS / "experiment_registry_report.md"),
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
     ("claim_semantics_report", REPORTS / "claim_semantics_report.md"),
     ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
@@ -304,6 +305,7 @@ def main() -> None:
     table_schema = load_json("table_schema.json")
     source_manifest = load_json("source_manifest.json")
     runtime_environment = load_json("runtime_environment.json")
+    experiment_registry = load_json("experiment_registry.json")
     narrative_consistency = load_json("narrative_consistency.json")
     script_contracts = load_json("script_contracts.json")
     claim_semantics = load_json("claim_semantics.json")
@@ -1814,12 +1816,38 @@ def main() -> None:
             f"checks={runtime_environment.get('n_checks')}, issues={runtime_environment.get('n_issues')}"
         ),
     }
+    experiment_registry_claim = {
+        "id": 113,
+        "claim": "Canonical experiment families have verified registry coverage.",
+        "status": status(
+            bool(experiment_registry)
+            and experiment_registry.get("verified", False)
+            and (experiment_registry.get("n_entries") or 0) >= 55
+            and (experiment_registry.get("n_wrapper_links") or 0) >= 60
+            and (experiment_registry.get("n_table_artifacts") or 0) >= 250
+            and (experiment_registry.get("n_table_rows") or 0) >= 200_000
+            and (experiment_registry.get("n_figure_artifacts") or 0) >= 30
+            and (experiment_registry.get("n_failed_records") or 0) == 0
+            and (experiment_registry.get("n_checks") or 0) >= 10
+            and experiment_registry.get("n_issues") == 0
+            and artifact_exists(RESULTS / "experiment_registry.json")
+            and artifact_exists(REPORTS / "experiment_registry_report.md"),
+            bool(experiment_registry),
+        ),
+        "evidence": (
+            f"entries={experiment_registry.get('n_entries')}, categories={experiment_registry.get('categories')}, "
+            f"wrapper_links={experiment_registry.get('n_wrapper_links')}, tables={experiment_registry.get('n_table_artifacts')}, "
+            f"rows={experiment_registry.get('n_table_rows')}, figures={experiment_registry.get('n_figure_artifacts')}, "
+            f"failed={experiment_registry.get('n_failed_records')}, checks={experiment_registry.get('n_checks')}, "
+            f"issues={experiment_registry.get('n_issues')}"
+        ),
+    }
     candidate_claims = claims + [
         {
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=112, max_id=112, checks=pending, issues=0",
+            "evidence": "claims=113, max_id=113, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
@@ -1830,6 +1858,7 @@ def main() -> None:
         table_schema_claim,
         source_manifest_claim,
         runtime_environment_claim,
+        experiment_registry_claim,
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
@@ -1852,6 +1881,7 @@ def main() -> None:
     claims.append(table_schema_claim)
     claims.append(source_manifest_claim)
     claims.append(runtime_environment_claim)
+    claims.append(experiment_registry_claim)
 
     payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)

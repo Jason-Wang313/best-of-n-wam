@@ -2,7 +2,7 @@
   "experiment": "script_contracts",
   "verified": true,
   "n_scripts": 7,
-  "n_checks": 69,
+  "n_checks": 73,
   "n_issues": 0,
   "core_gate_sequence": [
     "scripts/artifact_integrity.py --fail-on-error",
@@ -11,6 +11,7 @@
     "scripts/table_schema.py --fail-on-error",
     "scripts/source_manifest.py --fail-on-error",
     "scripts/runtime_environment.py --fail-on-error",
+    "scripts/experiment_registry.py --fail-on-error",
     "scripts/artifact_manifest.py --fail-on-error",
     "scripts/figure_quality.py --fail-on-error",
     "scripts/narrative_consistency.py --fail-on-error",
@@ -75,9 +76,14 @@
       "detail": "runtime environment gate runs after source manifest"
     },
     {
+      "name": "run_smoke_experiment_registry_gate",
+      "ok": true,
+      "detail": "experiment registry gate runs after runtime environment"
+    },
+    {
       "name": "run_smoke_artifact_manifest_gate",
       "ok": true,
-      "detail": "artifact manifest gate runs after runtime environment"
+      "detail": "artifact manifest gate runs after experiment registry"
     },
     {
       "name": "run_smoke_figure_quality_gate",
@@ -145,9 +151,14 @@
       "detail": "runtime environment gate runs after source manifest"
     },
     {
+      "name": "run_learned_wam_toy_experiment_registry_gate",
+      "ok": true,
+      "detail": "experiment registry gate runs after runtime environment"
+    },
+    {
       "name": "run_learned_wam_toy_artifact_manifest_gate",
       "ok": true,
-      "detail": "artifact manifest gate runs after runtime environment"
+      "detail": "artifact manifest gate runs after experiment registry"
     },
     {
       "name": "run_learned_wam_toy_figure_quality_gate",
@@ -215,9 +226,14 @@
       "detail": "runtime environment gate runs after source manifest"
     },
     {
+      "name": "run_all_experiment_registry_gate",
+      "ok": true,
+      "detail": "experiment registry gate runs after runtime environment"
+    },
+    {
       "name": "run_all_artifact_manifest_gate",
       "ok": true,
-      "detail": "artifact manifest gate runs after runtime environment"
+      "detail": "artifact manifest gate runs after experiment registry"
     },
     {
       "name": "run_all_figure_quality_gate",
@@ -285,9 +301,14 @@
       "detail": "runtime environment gate runs after source manifest"
     },
     {
+      "name": "run_inference_audit_experiment_registry_gate",
+      "ok": true,
+      "detail": "experiment registry gate runs after runtime environment"
+    },
+    {
       "name": "run_inference_audit_artifact_manifest_gate",
       "ok": true,
-      "detail": "artifact manifest gate runs after runtime environment"
+      "detail": "artifact manifest gate runs after experiment registry"
     },
     {
       "name": "run_inference_audit_figure_quality_gate",

@@ -69,6 +69,7 @@ WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/raw_result_recompute
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/table_schema.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/source_manifest.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/runtime_environment.py --fail-on-error
+WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/experiment_registry.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/artifact_manifest.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/figure_quality.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/narrative_consistency.py --fail-on-error

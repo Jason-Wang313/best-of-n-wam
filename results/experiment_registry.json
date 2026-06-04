@@ -1,0 +1,2641 @@
+{
+  "experiment": "experiment_registry",
+  "verified": true,
+  "n_entries": 57,
+  "categories": {
+    "core_analytic": 8,
+    "learned": 7,
+    "multi_env": 1,
+    "falsification": 1,
+    "benchmark": 12,
+    "visual": 5,
+    "audit": 4,
+    "robocasa": 14,
+    "libero": 5
+  },
+  "n_failed_records": 0,
+  "failed_records": [],
+  "n_wrapper_links": 69,
+  "n_table_artifacts": 297,
+  "n_table_rows": 260523,
+  "n_figure_artifacts": 40,
+  "n_checks": 10,
+  "n_issues": 0,
+  "checks": [
+    {
+      "name": "experiment_registry_entries_present",
+      "ok": true,
+      "detail": "entries=57"
+    },
+    {
+      "name": "experiment_registry_categories_present",
+      "ok": true,
+      "detail": "categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}"
+    },
+    {
+      "name": "experiment_registry_all_records_ok",
+      "ok": true,
+      "detail": "failed=[]"
+    },
+    {
+      "name": "experiment_registry_wrapper_coverage",
+      "ok": true,
+      "detail": "wrapper_links=69"
+    },
+    {
+      "name": "experiment_registry_table_coverage",
+      "ok": true,
+      "detail": "tables=297"
+    },
+    {
+      "name": "experiment_registry_table_row_coverage",
+      "ok": true,
+      "detail": "rows=260523"
+    },
+    {
+      "name": "experiment_registry_figure_coverage",
+      "ok": true,
+      "detail": "figures=40"
+    },
+    {
+      "name": "experiment_registry_benchmark_breadth",
+      "ok": true,
+      "detail": "benchmark=12"
+    },
+    {
+      "name": "experiment_registry_robocasa_breadth",
+      "ok": true,
+      "detail": "robocasa=14"
+    },
+    {
+      "name": "experiment_registry_libero_breadth",
+      "ok": true,
+      "detail": "libero=5"
+    }
+  ],
+  "issues": [],
+  "records": [
+    {
+      "name": "exp1_exact_law",
+      "category": "core_analytic",
+      "script": "experiments/exact_rollout_law_validation.py",
+      "result": "results/exp1_exact_rollout_law_validation.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "exact_rollout_law_validation",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_all.sh",
+          "exists": true,
+          "missing_snippets": []
+        },
+        {
+          "path": "scripts/run_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/exp1_exact_rollout_law_validation.csv",
+          "rows": 672
+        }
+      ],
+      "figures": [
+        "results/figures/exp1_exact_vs_mc_success.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "exp1_exact_law_learned",
+      "category": "learned",
+      "script": "experiments/exact_rollout_law_validation.py",
+      "result": "results/exp1_exact_rollout_law_validation_learned.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "exact_rollout_law_validation",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_learned_wam_toy.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/exp1_exact_rollout_law_validation_learned.csv",
+          "rows": 175
+        }
+      ],
+      "figures": [
+        "results/figures/exp1_exact_vs_mc_success_learned.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "exp2_auc_moment",
+      "category": "core_analytic",
+      "script": "experiments/auc_vs_moment_hierarchy.py",
+      "result": "results/exp2_auc_vs_moment_hierarchy.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "auc_vs_moment_hierarchy",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_all.sh",
+          "exists": true,
+          "missing_snippets": []
+        },
+        {
+          "path": "scripts/run_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/exp2_auc_vs_moment_hierarchy.csv",
+          "rows": 672
+        },
+        {
+          "path": "results/tables/exp2_same_auc_counterexample.csv",
+          "rows": 14
+        }
+      ],
+      "figures": [
+        "results/figures/exp2_auc_vs_moment_error.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "exp3_pilot",
+      "category": "core_analytic",
+      "script": "experiments/pilot_to_heldout_prediction.py",
+      "result": "results/exp3_pilot_to_heldout_prediction.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "pilot_to_heldout_prediction",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_all.sh",
+          "exists": true,
+          "missing_snippets": []
+        },
+        {
+          "path": "scripts/run_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/exp3_pilot_to_heldout_prediction.csv",
+          "rows": 42000
+        }
+      ],
+      "figures": [
+        "results/figures/exp3_pilot_to_heldout_mae.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "exp4_scorer",
+      "category": "core_analytic",
+      "script": "experiments/score_function_comparison.py",
+      "result": "results/exp4_score_function_comparison.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "score_function_comparison",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_all.sh",
+          "exists": true,
+          "missing_snippets": []
+        },
+        {
+          "path": "scripts/run_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/exp4_score_function_comparison.csv",
+          "rows": 5880
+        },
+        {
+          "path": "results/tables/exp4_score_function_comparison_aggregate.csv",
+          "rows": 49
+        },
+        {
+          "path": "results/tables/exp4_score_function_comparison_aggregate_learned.csv",
+          "rows": 49
+        },
+        {
+          "path": "results/tables/exp4_score_function_comparison_learned.csv",
+          "rows": 1225
+        }
+      ],
+      "figures": [
+        "results/figures/exp4_score_function_curves.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "exp4_scorer_learned",
+      "category": "learned",
+      "script": "experiments/score_function_comparison.py",
+      "result": "results/exp4_score_function_comparison_learned.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "score_function_comparison",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_learned_wam_toy.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/exp4_score_function_comparison_aggregate_learned.csv",
+          "rows": 49
+        },
+        {
+          "path": "results/tables/exp4_score_function_comparison_learned.csv",
+          "rows": 1225
+        },
+        {
+          "path": "results/tables/exp4_scorer_ranking_learned.csv",
+          "rows": 7
+        }
+      ],
+      "figures": [
+        "results/figures/exp4_score_function_curves_learned.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "exp5_gap",
+      "category": "core_analytic",
+      "script": "experiments/real_vs_imagined_utility_gap.py",
+      "result": "results/exp5_real_vs_imagined_utility_gap.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "real_vs_imagined_utility_gap",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_all.sh",
+          "exists": true,
+          "missing_snippets": []
+        },
+        {
+          "path": "scripts/run_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/exp5_gap_summary.csv",
+          "rows": 4
+        },
+        {
+          "path": "results/tables/exp5_gap_summary_learned.csv",
+          "rows": 4
+        },
+        {
+          "path": "results/tables/exp5_real_vs_imagined_utility_gap.csv",
+          "rows": 3360
+        },
+        {
+          "path": "results/tables/exp5_real_vs_imagined_utility_gap_aggregate.csv",
+          "rows": 28
+        },
+        {
+          "path": "results/tables/exp5_real_vs_imagined_utility_gap_aggregate_learned.csv",
+          "rows": 28
+        },
+        {
+          "path": "results/tables/exp5_real_vs_imagined_utility_gap_learned.csv",
+          "rows": 700
+        }
+      ],
+      "figures": [
+        "results/figures/exp5_imagined_vs_real_gap.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "exp5_gap_learned",
+      "category": "learned",
+      "script": "experiments/real_vs_imagined_utility_gap.py",
+      "result": "results/exp5_real_vs_imagined_utility_gap_learned.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "real_vs_imagined_utility_gap",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_learned_wam_toy.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/exp5_gap_summary_learned.csv",
+          "rows": 4
+        },
+        {
+          "path": "results/tables/exp5_real_vs_imagined_utility_gap_aggregate_learned.csv",
+          "rows": 28
+        },
+        {
+          "path": "results/tables/exp5_real_vs_imagined_utility_gap_learned.csv",
+          "rows": 700
+        }
+      ],
+      "figures": [
+        "results/figures/exp5_imagined_vs_real_gap_learned.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "exp6_allocation",
+      "category": "core_analytic",
+      "script": "experiments/adaptive_rollout_allocation.py",
+      "result": "results/exp6_adaptive_rollout_allocation.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "adaptive_rollout_allocation",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_all.sh",
+          "exists": true,
+          "missing_snippets": []
+        },
+        {
+          "path": "scripts/run_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/exp6_adaptive_rollout_allocation.csv",
+          "rows": 42
+        }
+      ],
+      "figures": [
+        "results/figures/exp6_adaptive_allocation.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "exp6_allocation_learned",
+      "category": "learned",
+      "script": "experiments/adaptive_rollout_allocation.py",
+      "result": "results/exp6_adaptive_rollout_allocation_learned.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "adaptive_rollout_allocation",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_learned_wam_toy.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/exp6_adaptive_rollout_allocation_learned.csv",
+          "rows": 180
+        }
+      ],
+      "figures": [
+        "results/figures/exp6_adaptive_allocation_learned.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "exp7_closed_loop",
+      "category": "core_analytic",
+      "script": "experiments/closed_loop_receding_horizon_eval.py",
+      "result": "results/exp7_closed_loop_receding_horizon_eval.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "closed_loop_receding_horizon_eval",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_all.sh",
+          "exists": true,
+          "missing_snippets": []
+        },
+        {
+          "path": "scripts/run_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/exp7_closed_loop_receding_horizon_aggregate.csv",
+          "rows": 21
+        },
+        {
+          "path": "results/tables/exp7_closed_loop_receding_horizon_aggregate_learned.csv",
+          "rows": 21
+        },
+        {
+          "path": "results/tables/exp7_closed_loop_receding_horizon_eval.csv",
+          "rows": 1512
+        },
+        {
+          "path": "results/tables/exp7_closed_loop_receding_horizon_eval_learned.csv",
+          "rows": 1260
+        }
+      ],
+      "figures": [
+        "results/figures/exp7_closed_loop_success.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "exp7_closed_loop_learned",
+      "category": "learned",
+      "script": "experiments/closed_loop_receding_horizon_eval.py",
+      "result": "results/exp7_closed_loop_receding_horizon_eval_learned.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "closed_loop_receding_horizon_eval",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_learned_wam_toy.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/exp7_closed_loop_receding_horizon_aggregate_learned.csv",
+          "rows": 21
+        },
+        {
+          "path": "results/tables/exp7_closed_loop_receding_horizon_eval_learned.csv",
+          "rows": 1260
+        }
+      ],
+      "figures": [
+        "results/figures/exp7_closed_loop_success_learned.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "exp8_nonstationary",
+      "category": "core_analytic",
+      "script": "experiments/nonstationary_dynamics_extension.py",
+      "result": "results/exp8_nonstationary_dynamics_extension.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "nonstationary_dynamics_extension",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_all.sh",
+          "exists": true,
+          "missing_snippets": []
+        },
+        {
+          "path": "scripts/run_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        },
+        {
+          "path": "scripts/run_maxout_all.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/exp8_nonstationary_conditional_law.csv",
+          "rows": 864
+        },
+        {
+          "path": "results/tables/exp8_nonstationary_phase_summary.csv",
+          "rows": 2
+        },
+        {
+          "path": "results/tables/exp8_nonstationary_stale_vs_adaptive.csv",
+          "rows": 864
+        },
+        {
+          "path": "results/tables/exp8_nonstationary_stale_vs_adaptive_phase_summary.csv",
+          "rows": 2
+        }
+      ],
+      "figures": [
+        "results/figures/exp8_nonstationary_shift.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "learned_wam_training",
+      "category": "learned",
+      "script": "experiments/train_learned_wam_lite.py",
+      "result": "results/learned_wam_lite_training.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": null,
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_learned_wam_toy.sh",
+          "exists": true,
+          "missing_snippets": []
+        },
+        {
+          "path": "scripts/run_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/learned_wam_lite_dataset_summary.csv",
+          "rows": 5
+        },
+        {
+          "path": "results/tables/learned_wam_lite_metrics.csv",
+          "rows": 5
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "learned_vs_analytic",
+      "category": "learned",
+      "script": "experiments/learned_wam_vs_analytic_wam.py",
+      "result": "results/learned_wam_vs_analytic_wam.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "learned_wam_vs_analytic_wam",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_learned_wam_toy.sh",
+          "exists": true,
+          "missing_snippets": []
+        },
+        {
+          "path": "scripts/run_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/learned_wam_vs_analytic_wam.csv",
+          "rows": 1260
+        },
+        {
+          "path": "results/tables/learned_wam_vs_analytic_wam_aggregate.csv",
+          "rows": 21
+        }
+      ],
+      "figures": [
+        "results/figures/learned_wam_vs_analytic_wam.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "multi_env_suite",
+      "category": "multi_env",
+      "script": "experiments/multi_env_suite.py",
+      "result": "results/multi_env_suite.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "multi_env_suite",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_multi_env.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/multi_env_curves.csv",
+          "rows": 10500
+        },
+        {
+          "path": "results/tables/multi_env_curves_aggregate.csv",
+          "rows": 2100
+        },
+        {
+          "path": "results/tables/maxout_model_metrics.csv",
+          "rows": 45
+        }
+      ],
+      "figures": [
+        "results/figures/multi_env_inference_curves.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "exp10_falsification",
+      "category": "falsification",
+      "script": "experiments/multi_env_suite.py",
+      "result": "results/exp10_falsification_bad_scorer.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": null,
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_multi_env.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/exp10_falsification_bad_scorer.csv",
+          "rows": 900
+        }
+      ],
+      "figures": [
+        "results/figures/exp10_falsification_bad_scorer.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "benchmark_smoke",
+      "category": "benchmark",
+      "script": "experiments/benchmark_smoke.py",
+      "result": "results/benchmark_smoke.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_smoke",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "benchmark_rollout_pools",
+      "category": "benchmark",
+      "script": "experiments/benchmark_smoke.py",
+      "result": "results/benchmark_rollout_pools.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": null,
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "benchmark_exact_law",
+      "category": "benchmark",
+      "script": "experiments/benchmark_smoke.py",
+      "result": "results/benchmark_exact_law_validation.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": null,
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "benchmark_score_comparison",
+      "category": "benchmark",
+      "script": "experiments/benchmark_smoke.py",
+      "result": "results/benchmark_score_comparison.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": null,
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "benchmark_gap",
+      "category": "benchmark",
+      "script": "experiments/benchmark_smoke.py",
+      "result": "results/benchmark_real_vs_imagined_gap.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": null,
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "benchmark_closed_loop",
+      "category": "benchmark",
+      "script": "experiments/benchmark_smoke.py",
+      "result": "results/benchmark_closed_loop_eval.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": null,
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "benchmark_wam_training",
+      "category": "benchmark",
+      "script": "experiments/benchmark_smoke.py",
+      "result": "results/benchmark_wam_training.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": null,
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_smoke.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "gym_manip_suite",
+      "category": "benchmark",
+      "script": "experiments/benchmark_gym_manip_suite.py",
+      "result": "results/benchmark_gym_manip_suite.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_gym_manip_suite",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_gym_manip_closed_loop.csv",
+          "rows": 60
+        },
+        {
+          "path": "results/tables/benchmark_gym_manip_curves.csv",
+          "rows": 600
+        },
+        {
+          "path": "results/tables/benchmark_gym_manip_curves_aggregate.csv",
+          "rows": 24
+        },
+        {
+          "path": "results/tables/benchmark_gym_manip_exact_law.csv",
+          "rows": 150
+        },
+        {
+          "path": "results/tables/benchmark_gym_manip_real_vs_predicted_gap.csv",
+          "rows": 75
+        }
+      ],
+      "figures": [
+        "results/figures/benchmark_gym_manip_curves.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "gym_robotics_suite",
+      "category": "benchmark",
+      "script": "experiments/benchmark_gym_robotics_suite.py",
+      "result": "results/benchmark_gym_robotics_suite.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_gym_robotics_suite",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_gym_robotics_closed_loop.csv",
+          "rows": 135
+        },
+        {
+          "path": "results/tables/benchmark_gym_robotics_curves.csv",
+          "rows": 1800
+        },
+        {
+          "path": "results/tables/benchmark_gym_robotics_curves_aggregate.csv",
+          "rows": 90
+        },
+        {
+          "path": "results/tables/benchmark_gym_robotics_exact_law.csv",
+          "rows": 360
+        },
+        {
+          "path": "results/tables/benchmark_gym_robotics_seed_metrics.csv",
+          "rows": 5
+        },
+        {
+          "path": "results/tables/benchmark_gym_robotics_visual_wam_curves.csv",
+          "rows": 1350
+        },
+        {
+          "path": "results/tables/benchmark_gym_robotics_visual_wam_curves_aggregate.csv",
+          "rows": 90
+        },
+        {
+          "path": "results/tables/benchmark_gym_robotics_visual_wam_exact_law.csv",
+          "rows": 270
+        },
+        {
+          "path": "results/tables/benchmark_gym_robotics_visual_wam_seed_metrics.csv",
+          "rows": 5
+        }
+      ],
+      "figures": [
+        "results/figures/benchmark_gym_robotics_curves.png",
+        "results/figures/benchmark_gym_robotics_FetchPickAndPlace-v4_frame.png",
+        "results/figures/benchmark_gym_robotics_FetchPush-v4_frame.png",
+        "results/figures/benchmark_gym_robotics_FetchReach-v4_frame.png",
+        "results/figures/benchmark_gym_robotics_visual_FetchPickAndPlace-v4_frame.png",
+        "results/figures/benchmark_gym_robotics_visual_FetchPush-v4_frame.png",
+        "results/figures/benchmark_gym_robotics_visual_FetchReach-v4_frame.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "metaworld_suite",
+      "category": "benchmark",
+      "script": "experiments/benchmark_metaworld_suite.py",
+      "result": "results/benchmark_metaworld_suite.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_metaworld_suite",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_metaworld_closed_loop.csv",
+          "rows": 180
+        },
+        {
+          "path": "results/tables/benchmark_metaworld_curves.csv",
+          "rows": 1620
+        },
+        {
+          "path": "results/tables/benchmark_metaworld_curves_aggregate.csv",
+          "rows": 108
+        },
+        {
+          "path": "results/tables/benchmark_metaworld_exact_law.csv",
+          "rows": 270
+        },
+        {
+          "path": "results/tables/benchmark_metaworld_seed_metrics.csv",
+          "rows": 5
+        }
+      ],
+      "figures": [
+        "results/figures/benchmark_metaworld_curves.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "robosuite_suite",
+      "category": "benchmark",
+      "script": "experiments/benchmark_robosuite_suite.py",
+      "result": "results/benchmark_robosuite_suite.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_robosuite_suite",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_robosuite_closed_loop.csv",
+          "rows": 120
+        },
+        {
+          "path": "results/tables/benchmark_robosuite_curves.csv",
+          "rows": 1260
+        },
+        {
+          "path": "results/tables/benchmark_robosuite_curves_aggregate.csv",
+          "rows": 126
+        },
+        {
+          "path": "results/tables/benchmark_robosuite_exact_law.csv",
+          "rows": 180
+        },
+        {
+          "path": "results/tables/benchmark_robosuite_seed_metrics.csv",
+          "rows": 5
+        }
+      ],
+      "figures": [
+        "results/figures/benchmark_robosuite_curves.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "maniskill_suite",
+      "category": "benchmark",
+      "script": "experiments/benchmark_maniskill_suite.py",
+      "result": "results/benchmark_maniskill_suite.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_maniskill_suite",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_maniskill_closed_loop.csv",
+          "rows": 90
+        },
+        {
+          "path": "results/tables/benchmark_maniskill_curves.csv",
+          "rows": 900
+        },
+        {
+          "path": "results/tables/benchmark_maniskill_curves_aggregate.csv",
+          "rows": 90
+        },
+        {
+          "path": "results/tables/benchmark_maniskill_exact_law.csv",
+          "rows": 180
+        },
+        {
+          "path": "results/tables/benchmark_maniskill_model_metrics.csv",
+          "rows": 6
+        },
+        {
+          "path": "results/tables/benchmark_maniskill_real_vs_predicted_gap.csv",
+          "rows": 90
+        },
+        {
+          "path": "results/tables/benchmark_maniskill_visual_probe.csv",
+          "rows": 10
+        }
+      ],
+      "figures": [
+        "results/figures/benchmark_maniskill_curves.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "visual_toy",
+      "category": "visual",
+      "script": "experiments/visual_optional.py",
+      "result": "results/visual_optional.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "visual_optional",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_visual_optional.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [],
+      "figures": [
+        "results/figures/visual_toy_render_example.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "benchmark_visual_optional",
+      "category": "visual",
+      "script": "experiments/benchmark_visual_optional.py",
+      "result": "results/benchmark_visual_optional.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_visual_optional",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_visual_optional.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [],
+      "figures": [
+        "results/figures/benchmark_visual_reacher_frame.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "benchmark_visual_wam",
+      "category": "visual",
+      "script": "experiments/benchmark_visual_wam_lite.py",
+      "result": "results/benchmark_visual_wam_lite.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_visual_wam_lite",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_visual_optional.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_visual_wam_lite_curves.csv",
+          "rows": 750
+        },
+        {
+          "path": "results/tables/benchmark_visual_wam_lite_curves_aggregate.csv",
+          "rows": 30
+        },
+        {
+          "path": "results/tables/benchmark_visual_wam_lite_exact_law.csv",
+          "rows": 150
+        },
+        {
+          "path": "results/tables/benchmark_visual_wam_lite_seed_metrics.csv",
+          "rows": 5
+        }
+      ],
+      "figures": [
+        "results/figures/benchmark_visual_wam_lite_curves.png",
+        "results/figures/benchmark_visual_wam_lite_frame.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "gym_robotics_visual_wam",
+      "category": "visual",
+      "script": "experiments/benchmark_gym_robotics_visual_wam.py",
+      "result": "results/benchmark_gym_robotics_visual_wam.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_gym_robotics_visual_wam",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_visual_optional.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_gym_robotics_visual_wam_curves.csv",
+          "rows": 1350
+        },
+        {
+          "path": "results/tables/benchmark_gym_robotics_visual_wam_curves_aggregate.csv",
+          "rows": 90
+        },
+        {
+          "path": "results/tables/benchmark_gym_robotics_visual_wam_exact_law.csv",
+          "rows": 270
+        },
+        {
+          "path": "results/tables/benchmark_gym_robotics_visual_wam_seed_metrics.csv",
+          "rows": 5
+        }
+      ],
+      "figures": [
+        "results/figures/benchmark_gym_robotics_visual_FetchPickAndPlace-v4_frame.png",
+        "results/figures/benchmark_gym_robotics_visual_FetchPush-v4_frame.png",
+        "results/figures/benchmark_gym_robotics_visual_FetchReach-v4_frame.png",
+        "results/figures/benchmark_gym_robotics_visual_wam_curves.png",
+        "results/figures/benchmark_gym_robotics_visual_wam_curves.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "maniskill_visual_probe",
+      "category": "visual",
+      "script": "experiments/benchmark_maniskill_visual_probe.py",
+      "result": "results/benchmark_maniskill_visual_probe.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_maniskill_visual_probe",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_visual_optional.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_maniskill_visual_probe.csv",
+          "rows": 10
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "inference_audit",
+      "category": "audit",
+      "script": "experiments/inference_audit_framework.py",
+      "result": "results/inference_audit_framework.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "inference_audit_framework",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_inference_audit.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/inference_audit_curves.csv",
+          "rows": 20160
+        },
+        {
+          "path": "results/tables/inference_audit_decision_counts.csv",
+          "rows": 13
+        },
+        {
+          "path": "results/tables/inference_audit_framework.csv",
+          "rows": 2880
+        },
+        {
+          "path": "results/tables/inference_audit_profile_counts.csv",
+          "rows": 15
+        },
+        {
+          "path": "results/tables/inference_audit_seed_metrics.csv",
+          "rows": 5
+        }
+      ],
+      "figures": [
+        "results/figures/inference_audit_tail_alignment.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "inference_audit_learned",
+      "category": "audit",
+      "script": "experiments/inference_audit_framework.py",
+      "result": "results/inference_audit_framework_learned.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "inference_audit_framework",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_inference_audit.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/inference_audit_curves_learned.csv",
+          "rows": 13440
+        },
+        {
+          "path": "results/tables/inference_audit_decision_counts_learned.csv",
+          "rows": 15
+        },
+        {
+          "path": "results/tables/inference_audit_framework_learned.csv",
+          "rows": 1920
+        },
+        {
+          "path": "results/tables/inference_audit_profile_counts_learned.csv",
+          "rows": 15
+        },
+        {
+          "path": "results/tables/inference_audit_seed_metrics_learned.csv",
+          "rows": 5
+        }
+      ],
+      "figures": [
+        "results/figures/inference_audit_tail_alignment_learned.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "scorer_repair",
+      "category": "audit",
+      "script": "experiments/scorer_repair_experiment.py",
+      "result": "results/scorer_repair_experiment.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "scorer_repair_experiment",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_inference_audit.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/scorer_repair_experiment.csv",
+          "rows": 17640
+        },
+        {
+          "path": "results/tables/scorer_repair_experiment_aggregate.csv",
+          "rows": 147
+        },
+        {
+          "path": "results/tables/scorer_repair_seed_metrics.csv",
+          "rows": 5
+        }
+      ],
+      "figures": [
+        "results/figures/scorer_repair_experiment.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "imagination_scaling",
+      "category": "audit",
+      "script": "experiments/imagination_scaling_law.py",
+      "result": "results/imagination_scaling_law.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "imagination_scaling_law",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_inference_audit.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/imagination_scaling_law.csv",
+          "rows": 23040
+        },
+        {
+          "path": "results/tables/imagination_scaling_law_aggregate.csv",
+          "rows": 576
+        },
+        {
+          "path": "results/tables/imagination_scaling_profiles.csv",
+          "rows": 2880
+        },
+        {
+          "path": "results/tables/imagination_scaling_seed_metrics.csv",
+          "rows": 5
+        }
+      ],
+      "figures": [
+        "results/figures/imagination_scaling_frontier.png"
+      ],
+      "ok": true
+    },
+    {
+      "name": "robocasa_smoke",
+      "category": "robocasa",
+      "script": "experiments/benchmark_robocasa_smoke.py",
+      "result": "results/benchmark_robocasa_smoke.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_robocasa_smoke",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_robocasa_broad_curves.csv",
+          "rows": 576
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_broad_eval_rollouts.csv",
+          "rows": 128
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_broad_exact_law.csv",
+          "rows": 256
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_broad_seed_metrics.csv",
+          "rows": 16
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_broad_task_metrics.csv",
+          "rows": 4
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_broad_train_validation.csv",
+          "rows": 96
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_catalog_artifact_coverage.csv",
+          "rows": 18
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_catalog_registry.csv",
+          "rows": 396
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_closed_loop.csv",
+          "rows": 6
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_curves.csv",
+          "rows": 80
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_exact_law.csv",
+          "rows": 40
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_extra4_curves.csv",
+          "rows": 576
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_extra4_eval_rollouts.csv",
+          "rows": 128
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_extra4_exact_law.csv",
+          "rows": 256
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_extra4_seed_metrics.csv",
+          "rows": 16
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_extra4_task_metrics.csv",
+          "rows": 4
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_extra4_train_validation.csv",
+          "rows": 96
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family12_curves.csv",
+          "rows": 864
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family12_eval_rollouts.csv",
+          "rows": 192
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family12_exact_law.csv",
+          "rows": 384
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family12_seed_metrics.csv",
+          "rows": 24
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family12_task_metrics.csv",
+          "rows": 12
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family12_train_validation.csv",
+          "rows": 192
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family24_curves.csv",
+          "rows": 1728
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family24_eval_rollouts.csv",
+          "rows": 384
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family24_exact_law.csv",
+          "rows": 768
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family24_seed_metrics.csv",
+          "rows": 48
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family24_task_metrics.csv",
+          "rows": 24
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family24_train_validation.csv",
+          "rows": 384
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family28_curves.csv",
+          "rows": 2016
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family28_eval_rollouts.csv",
+          "rows": 448
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family28_exact_law.csv",
+          "rows": 896
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family28_seed_metrics.csv",
+          "rows": 56
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family28_task_metrics.csv",
+          "rows": 28
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family28_train_validation.csv",
+          "rows": 672
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family32_curves.csv",
+          "rows": 2304
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family32_eval_rollouts.csv",
+          "rows": 512
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family32_exact_law.csv",
+          "rows": 1024
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family32_seed_metrics.csv",
+          "rows": 64
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family32_task_metrics.csv",
+          "rows": 32
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family32_train_validation.csv",
+          "rows": 768
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_learned_curves.csv",
+          "rows": 120
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_learned_eval_rollouts.csv",
+          "rows": 80
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_learned_exact_law.csv",
+          "rows": 40
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_learned_seed_metrics.csv",
+          "rows": 5
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_learned_train_validation.csv",
+          "rows": 112
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_extra.csv",
+          "rows": 4
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_frontier_probe.csv",
+          "rows": 64
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_atomic_probe.csv",
+          "rows": 25
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_000.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_001.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_002.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_003.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_004.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_005.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_007.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_008.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_009.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_010.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_011.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_012.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_013.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_014.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_015.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_016.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_017.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_018.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_019.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_020.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_021.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_022.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_023.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_024.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_025.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_026.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_027.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_028.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_029.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_030.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_031.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_033.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_034.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_035.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_036.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_037.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_038.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_039.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_040.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_041.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_042.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_stratified_probe.csv",
+          "rows": 28
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_multitask_curves.csv",
+          "rows": 540
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_multitask_eval_rollouts.csv",
+          "rows": 240
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_multitask_exact_law.csv",
+          "rows": 240
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_multitask_seed_metrics.csv",
+          "rows": 15
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_multitask_task_metrics.csv",
+          "rows": 3
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_multitask_train_validation.csv",
+          "rows": 240
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual35_h1_n4_curves.csv",
+          "rows": 945
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual35_h1_n4_eval_rollouts.csv",
+          "rows": 280
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual35_h1_n4_exact_law.csv",
+          "rows": 420
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual35_h1_n4_seed_metrics.csv",
+          "rows": 35
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual35_h1_n4_task_metrics.csv",
+          "rows": 35
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual35_h1_n4_train_validation.csv",
+          "rows": 280
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_chunks.csv",
+          "rows": 43
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_rollouts.csv",
+          "rows": 80
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_seed_metrics.csv",
+          "rows": 5
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified55_curves.csv",
+          "rows": 3960
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified55_eval_rollouts.csv",
+          "rows": 880
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified55_exact_law.csv",
+          "rows": 1760
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified55_seed_metrics.csv",
+          "rows": 110
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified55_task_metrics.csv",
+          "rows": 55
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified55_train_validation.csv",
+          "rows": 1320
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified97_curves.csv",
+          "rows": 6984
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified97_eval_rollouts.csv",
+          "rows": 1552
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified97_exact_law.csv",
+          "rows": 3104
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified97_seed_metrics.csv",
+          "rows": 194
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified97_task_metrics.csv",
+          "rows": 97
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified97_train_validation.csv",
+          "rows": 2328
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "robocasa_learned",
+      "category": "robocasa",
+      "script": "experiments/benchmark_robocasa_learned_wam.py",
+      "result": "results/benchmark_robocasa_learned_wam.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_robocasa_learned_wam",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_robocasa_learned_curves.csv",
+          "rows": 120
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_learned_eval_rollouts.csv",
+          "rows": 80
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_learned_exact_law.csv",
+          "rows": 40
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_learned_seed_metrics.csv",
+          "rows": 5
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_learned_train_validation.csv",
+          "rows": 112
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "robocasa_multitask",
+      "category": "robocasa",
+      "script": "experiments/benchmark_robocasa_multitask_wam.py",
+      "result": "results/benchmark_robocasa_multitask_wam.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_robocasa_multitask_wam",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_robocasa_multitask_curves.csv",
+          "rows": 540
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_multitask_eval_rollouts.csv",
+          "rows": 240
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_multitask_exact_law.csv",
+          "rows": 240
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_multitask_seed_metrics.csv",
+          "rows": 15
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_multitask_task_metrics.csv",
+          "rows": 3
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_multitask_train_validation.csv",
+          "rows": 240
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "robocasa_broad",
+      "category": "robocasa",
+      "script": "experiments/benchmark_robocasa_multitask_wam.py",
+      "result": "results/benchmark_robocasa_broad_wam.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_robocasa_broad_wam",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_robocasa_broad_curves.csv",
+          "rows": 576
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_broad_eval_rollouts.csv",
+          "rows": 128
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_broad_exact_law.csv",
+          "rows": 256
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_broad_seed_metrics.csv",
+          "rows": 16
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_broad_task_metrics.csv",
+          "rows": 4
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_broad_train_validation.csv",
+          "rows": 96
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "robocasa_family12",
+      "category": "robocasa",
+      "script": "experiments/benchmark_robocasa_multitask_wam.py",
+      "result": "results/benchmark_robocasa_family12_wam.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_robocasa_family12_wam",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_robocasa_family12_curves.csv",
+          "rows": 864
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family12_eval_rollouts.csv",
+          "rows": 192
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family12_exact_law.csv",
+          "rows": 384
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family12_seed_metrics.csv",
+          "rows": 24
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family12_task_metrics.csv",
+          "rows": 12
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family12_train_validation.csv",
+          "rows": 192
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "robocasa_family24",
+      "category": "robocasa",
+      "script": "experiments/benchmark_robocasa_multitask_wam.py",
+      "result": "results/benchmark_robocasa_family24_wam.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_robocasa_family24_wam",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_robocasa_family24_curves.csv",
+          "rows": 1728
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family24_eval_rollouts.csv",
+          "rows": 384
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family24_exact_law.csv",
+          "rows": 768
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family24_seed_metrics.csv",
+          "rows": 48
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family24_task_metrics.csv",
+          "rows": 24
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family24_train_validation.csv",
+          "rows": 384
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "robocasa_extra4",
+      "category": "robocasa",
+      "script": "experiments/benchmark_robocasa_multitask_wam.py",
+      "result": "results/benchmark_robocasa_extra4_wam.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_robocasa_extra4_wam",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_robocasa_extra4_curves.csv",
+          "rows": 576
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_extra4_eval_rollouts.csv",
+          "rows": 128
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_extra4_exact_law.csv",
+          "rows": 256
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_extra4_seed_metrics.csv",
+          "rows": 16
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_extra4_task_metrics.csv",
+          "rows": 4
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_extra4_train_validation.csv",
+          "rows": 96
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "robocasa_family28",
+      "category": "robocasa",
+      "script": "experiments/benchmark_robocasa_multitask_wam.py",
+      "result": "results/benchmark_robocasa_family28_wam.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_robocasa_family28_wam",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_robocasa_family28_curves.csv",
+          "rows": 2016
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family28_eval_rollouts.csv",
+          "rows": 448
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family28_exact_law.csv",
+          "rows": 896
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family28_seed_metrics.csv",
+          "rows": 56
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family28_task_metrics.csv",
+          "rows": 28
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family28_train_validation.csv",
+          "rows": 672
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "robocasa_family32",
+      "category": "robocasa",
+      "script": "experiments/benchmark_robocasa_multitask_wam.py",
+      "result": "results/benchmark_robocasa_family32_wam.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_robocasa_family32_wam",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_robocasa_family32_curves.csv",
+          "rows": 2304
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family32_eval_rollouts.csv",
+          "rows": 512
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family32_exact_law.csv",
+          "rows": 1024
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family32_seed_metrics.csv",
+          "rows": 64
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family32_task_metrics.csv",
+          "rows": 32
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_family32_train_validation.csv",
+          "rows": 768
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "robocasa_stratified55",
+      "category": "robocasa",
+      "script": "experiments/benchmark_robocasa_multitask_wam.py",
+      "result": "results/benchmark_robocasa_stratified55_wam.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_robocasa_stratified55_wam",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_robocasa_stratified55_curves.csv",
+          "rows": 3960
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified55_eval_rollouts.csv",
+          "rows": 880
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified55_exact_law.csv",
+          "rows": 1760
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified55_seed_metrics.csv",
+          "rows": 110
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified55_task_metrics.csv",
+          "rows": 55
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified55_train_validation.csv",
+          "rows": 1320
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "robocasa_stratified97",
+      "category": "robocasa",
+      "script": "experiments/benchmark_robocasa_multitask_wam.py",
+      "result": "results/benchmark_robocasa_stratified97_wam.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_robocasa_stratified97_wam",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_robocasa_stratified97_curves.csv",
+          "rows": 6984
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified97_eval_rollouts.csv",
+          "rows": 1552
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified97_exact_law.csv",
+          "rows": 3104
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified97_seed_metrics.csv",
+          "rows": 194
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified97_task_metrics.csv",
+          "rows": 97
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_stratified97_train_validation.csv",
+          "rows": 2328
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "robocasa_residual_sweep",
+      "category": "robocasa",
+      "script": "experiments/benchmark_robocasa_residual_frontier_sweep.py",
+      "result": "results/benchmark_robocasa_residual_frontier_sweep.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_robocasa_residual_frontier_sweep",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_robocasa_residual_probes.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_chunks.csv",
+          "rows": 43
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "robocasa_residual35",
+      "category": "robocasa",
+      "script": "experiments/benchmark_robocasa_multitask_wam.py",
+      "result": "results/benchmark_robocasa_residual35_h1_n4_wam.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_robocasa_residual35_h1_n4_wam",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_robocasa_residual_probes.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_robocasa_residual35_h1_n4_curves.csv",
+          "rows": 945
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual35_h1_n4_eval_rollouts.csv",
+          "rows": 280
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual35_h1_n4_exact_law.csv",
+          "rows": 420
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual35_h1_n4_seed_metrics.csv",
+          "rows": 35
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual35_h1_n4_task_metrics.csv",
+          "rows": 35
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual35_h1_n4_train_validation.csv",
+          "rows": 280
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "robocasa_catalog",
+      "category": "robocasa",
+      "script": "experiments/benchmark_robocasa_catalog_probe.py",
+      "result": "results/benchmark_robocasa_catalog_probe.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_robocasa_catalog_probe",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        },
+        {
+          "path": "scripts/run_robocasa_residual_probes.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_robocasa_catalog_artifact_coverage.csv",
+          "rows": 18
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_catalog_registry.csv",
+          "rows": 396
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "libero_wam",
+      "category": "libero",
+      "script": "experiments/benchmark_libero_wam.py",
+      "result": "results/benchmark_libero_wam.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_libero_wam",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_libero_autonomous_bc_policy_episodes.csv",
+          "rows": 100
+        },
+        {
+          "path": "results/tables/benchmark_libero_curves.csv",
+          "rows": 600
+        },
+        {
+          "path": "results/tables/benchmark_libero_eval_rollouts.csv",
+          "rows": 240
+        },
+        {
+          "path": "results/tables/benchmark_libero_exact_law.csv",
+          "rows": 240
+        },
+        {
+          "path": "results/tables/benchmark_libero_learned_action_head_episodes.csv",
+          "rows": 50
+        },
+        {
+          "path": "results/tables/benchmark_libero_scripted_policy_episodes.csv",
+          "rows": 50
+        },
+        {
+          "path": "results/tables/benchmark_libero_seed_metrics.csv",
+          "rows": 15
+        },
+        {
+          "path": "results/tables/benchmark_libero_train_validation.csv",
+          "rows": 288
+        },
+        {
+          "path": "results/tables/benchmark_libero_visual_language_bc_policy_episodes.csv",
+          "rows": 60
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "libero_scripted",
+      "category": "libero",
+      "script": "experiments/benchmark_libero_scripted_policy.py",
+      "result": "results/benchmark_libero_scripted_policy.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_libero_scripted_policy",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_libero_scripted_policy_episodes.csv",
+          "rows": 50
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "libero_action_head",
+      "category": "libero",
+      "script": "experiments/benchmark_libero_learned_action_head.py",
+      "result": "results/benchmark_libero_learned_action_head.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_libero_learned_action_head",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_libero_learned_action_head_episodes.csv",
+          "rows": 50
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "libero_autonomous_bc",
+      "category": "libero",
+      "script": "experiments/benchmark_libero_autonomous_bc_policy.py",
+      "result": "results/benchmark_libero_autonomous_bc_policy.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_libero_autonomous_bc_policy",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_libero_autonomous_bc_policy_episodes.csv",
+          "rows": 100
+        }
+      ],
+      "figures": [],
+      "ok": true
+    },
+    {
+      "name": "libero_visual_language_bc",
+      "category": "libero",
+      "script": "experiments/benchmark_libero_visual_language_bc_policy.py",
+      "result": "results/benchmark_libero_visual_language_bc_policy.json",
+      "script_exists": true,
+      "result_exists": true,
+      "result_nonempty": true,
+      "result_experiment": "benchmark_libero_visual_language_bc_policy",
+      "verified_field_ok": true,
+      "run_scripts": [
+        {
+          "path": "scripts/run_benchmark_full.sh",
+          "exists": true,
+          "missing_snippets": []
+        }
+      ],
+      "tables": [
+        {
+          "path": "results/tables/benchmark_libero_visual_language_bc_policy_episodes.csv",
+          "rows": 60
+        }
+      ],
+      "figures": [],
+      "ok": true
+    }
+  ]
+}

@@ -17,6 +17,7 @@ SELF_OUTPUTS = {
     "claim_evidence_quality.json",
     "claim_ledger_integrity.json",
     "claims_status.json",
+    "experiment_registry.json",
     "narrative_consistency.json",
     "raw_result_recompute.json",
     "result_consistency.json",
