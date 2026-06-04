@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=343, issues=0, status_counts={'ok': 343}"
+      "evidence": "refs=605, issues=0, status_counts={'ok': 605}"
     },
     {
       "id": 101,
@@ -610,19 +610,25 @@
       "id": 102,
       "claim": "Published narrative numbers match current artifacts.",
       "status": "VERIFIED",
-      "evidence": "checks=32, issues=0"
+      "evidence": "checks=31, issues=0"
     },
     {
       "id": 103,
       "claim": "Claim ledger is structurally consistent.",
       "status": "VERIFIED",
-      "evidence": "claims=104, max_id=104, checks=21, issues=0"
+      "evidence": "claims=105, max_id=105, checks=21, issues=0"
     },
     {
       "id": 104,
       "claim": "Canonical execution scripts preserve required gate contracts.",
       "status": "VERIFIED",
-      "evidence": "scripts=7, checks=37, issues=0"
+      "evidence": "scripts=7, checks=41, issues=0"
+    },
+    {
+      "id": 105,
+      "claim": "Verified claims have mapped source artifacts and quality-checked evidence.",
+      "status": "VERIFIED",
+      "evidence": "claims=105, mapped=105, sources=131, issues=0"
     }
   ],
   "readme_overclaims": [],
@@ -630,7 +636,7 @@
   "report_overclaims": [],
   "narrative_overclaims": [],
   "overclaims": [],
-  "num_verified": 104,
+  "num_verified": 105,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

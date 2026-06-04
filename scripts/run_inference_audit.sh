@@ -50,6 +50,10 @@ fi
 "${PY[@]}" scripts/narrative_consistency.py --fail-on-error
 "${PY[@]}" scripts/script_contracts.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
+"${PY[@]}" scripts/claim_evidence_quality.py --fail-on-error
+"${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_ledger_integrity.py --fail-on-error
+"${PY[@]}" scripts/claims_status.py
+"${PY[@]}" scripts/claim_evidence_quality.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_ledger_integrity.py --fail-on-error

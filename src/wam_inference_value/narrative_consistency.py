@@ -87,6 +87,7 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{result_consistency.",
         "{narrative_consistency.",
         "{script_contracts.",
+        "{claim_evidence_quality.",
         "{claim_ledger_integrity.",
         "{gym_",
         "{metaworld.",
@@ -254,11 +255,10 @@ def audit_readme(root: Path, results_dir: Path, checks: list[NarrativeCheck]) ->
 
 def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCheck]) -> None:
     text = read_text(root / "reports" / "final_decision_report.md")
-    claims = load_json(results_dir, "claims_status.json")
     artifact_integrity = load_json(results_dir, "artifact_integrity.json")
     result_consistency = load_json(results_dir, "result_consistency.json")
-    claim_ledger_integrity = load_json(results_dir, "claim_ledger_integrity.json")
     script_contracts = load_json(results_dir, "script_contracts.json")
+    claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
     learned = load_json(results_dir, "learned_wam_lite_training.json")
     val = (learned.get("metrics") or {}).get("validation") or {}
     learned_cmp = load_json(results_dir, "learned_wam_vs_analytic_wam.json")
@@ -271,7 +271,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     benchmark_visual = load_json(results_dir, "benchmark_visual_wam_lite.json")
     gym_visual = load_json(results_dir, "benchmark_gym_robotics_visual_wam.json")
 
-    add_contains(checks, "final_decision_report", text, "pytest_count", "`python -m pytest -q`: passed with `58 passed`")
+    add_contains(checks, "final_decision_report", text, "pytest_count", "`python -m pytest -q`: passed with `61 passed`")
     add_contains(
         checks,
         "final_decision_report",
@@ -358,20 +358,11 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
         checks,
         "final_decision_report",
         text,
-        "claim_ledger_command",
+        "claim_evidence_quality_command",
         (
-            f"`python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `{claim_ledger_integrity.get('n_claims')}` claims, "
-            f"`{claim_ledger_integrity.get('n_checks')}` ledger checks, and `{claim_ledger_integrity.get('n_issues')}` issues"
-        ),
-    )
-    add_contains(
-        checks,
-        "final_decision_report",
-        text,
-        "claims_command",
-        (
-            f"`python scripts/claims_status.py`: passed with `{claims.get('num_verified')}` verified, `{claims.get('num_partial')}` partial, "
-            f"`{claims.get('num_unsupported')}` unsupported, `{claims.get('num_failed')}` failed"
+            f"`python scripts/claim_evidence_quality.py --fail-on-error`: passed with `{claim_evidence_quality.get('n_claims')}` claims, "
+            f"`{claim_evidence_quality.get('n_source_links')}` source links, `{claim_evidence_quality.get('n_checks')}` evidence checks, "
+            f"and `{claim_evidence_quality.get('n_issues')}` issues"
         ),
     )
     add_no_template_markers(checks, "final_decision_report", text)

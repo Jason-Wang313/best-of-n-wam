@@ -1,0 +1,1245 @@
+{
+  "experiment": "claim_evidence_quality",
+  "verified": true,
+  "n_claims": 105,
+  "max_claim_id": 105,
+  "n_source_mapped_claims": 105,
+  "n_source_links": 131,
+  "n_checks": 7,
+  "n_issues": 0,
+  "checks": [
+    {
+      "name": "claims_present",
+      "ok": true,
+      "detail": "claims=105"
+    },
+    {
+      "name": "all_current_claims_have_sources",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "source_map_has_no_current_extras",
+      "ok": true,
+      "detail": "extras=[]"
+    },
+    {
+      "name": "evidence_has_no_placeholder_literals",
+      "ok": true,
+      "detail": "claim_ids=[]"
+    },
+    {
+      "name": "verified_evidence_is_structured",
+      "ok": true,
+      "detail": "claim_ids=[]"
+    },
+    {
+      "name": "ci_claims_have_ci_evidence",
+      "ok": true,
+      "detail": "claim_ids=[]"
+    },
+    {
+      "name": "mapped_sources_exist_and_parse",
+      "ok": true,
+      "detail": "sources=131, invalid=0"
+    }
+  ],
+  "issues": [],
+  "missing_source_map_ids": [],
+  "extra_source_map_ids": [],
+  "evidence_placeholder_ids": [],
+  "weak_evidence_ids": [],
+  "ci_claims_without_ci_evidence": [],
+  "missing_or_invalid_sources": [],
+  "source_records": [
+    {
+      "claim_id": 1,
+      "raw_path": "results/exp1_exact_rollout_law_validation.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp1_exact_rollout_law_validation.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 3211,
+      "detail": "json"
+    },
+    {
+      "claim_id": 2,
+      "raw_path": "results/exp1_exact_rollout_law_validation.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp1_exact_rollout_law_validation.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 3211,
+      "detail": "json"
+    },
+    {
+      "claim_id": 3,
+      "raw_path": "results/exp2_auc_vs_moment_hierarchy.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp2_auc_vs_moment_hierarchy.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 1609,
+      "detail": "json"
+    },
+    {
+      "claim_id": 4,
+      "raw_path": "results/exp2_auc_vs_moment_hierarchy.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp2_auc_vs_moment_hierarchy.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 1609,
+      "detail": "json"
+    },
+    {
+      "claim_id": 5,
+      "raw_path": "results/exp3_pilot_to_heldout_prediction.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp3_pilot_to_heldout_prediction.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 2527,
+      "detail": "json"
+    },
+    {
+      "claim_id": 6,
+      "raw_path": "results/exp3_pilot_to_heldout_prediction.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp3_pilot_to_heldout_prediction.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 2527,
+      "detail": "json"
+    },
+    {
+      "claim_id": 7,
+      "raw_path": "results/exp4_score_function_comparison.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp4_score_function_comparison.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4295,
+      "detail": "json"
+    },
+    {
+      "claim_id": 8,
+      "raw_path": "results/exp4_score_function_comparison_learned.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp4_score_function_comparison_learned.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4473,
+      "detail": "json"
+    },
+    {
+      "claim_id": 9,
+      "raw_path": "results/learned_wam_vs_analytic_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\learned_wam_vs_analytic_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 16159,
+      "detail": "json"
+    },
+    {
+      "claim_id": 10,
+      "raw_path": "results/exp5_real_vs_imagined_utility_gap.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp5_real_vs_imagined_utility_gap.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 3094,
+      "detail": "json"
+    },
+    {
+      "claim_id": 11,
+      "raw_path": "results/exp5_real_vs_imagined_utility_gap_learned.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp5_real_vs_imagined_utility_gap_learned.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 3320,
+      "detail": "json"
+    },
+    {
+      "claim_id": 12,
+      "raw_path": "results/exp10_falsification_bad_scorer.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp10_falsification_bad_scorer.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 491,
+      "detail": "json"
+    },
+    {
+      "claim_id": 12,
+      "raw_path": "results/multi_env_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\multi_env_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 33208,
+      "detail": "json"
+    },
+    {
+      "claim_id": 13,
+      "raw_path": "results/exp10_falsification_bad_scorer.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp10_falsification_bad_scorer.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 491,
+      "detail": "json"
+    },
+    {
+      "claim_id": 13,
+      "raw_path": "results/multi_env_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\multi_env_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 33208,
+      "detail": "json"
+    },
+    {
+      "claim_id": 14,
+      "raw_path": "results/exp6_adaptive_rollout_allocation_learned.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp6_adaptive_rollout_allocation_learned.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 3163,
+      "detail": "json"
+    },
+    {
+      "claim_id": 15,
+      "raw_path": "results/exp6_adaptive_rollout_allocation_learned.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp6_adaptive_rollout_allocation_learned.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 3163,
+      "detail": "json"
+    },
+    {
+      "claim_id": 16,
+      "raw_path": "results/exp7_closed_loop_receding_horizon_eval.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp7_closed_loop_receding_horizon_eval.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 6567,
+      "detail": "json"
+    },
+    {
+      "claim_id": 16,
+      "raw_path": "results/exp7_closed_loop_receding_horizon_eval_learned.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp7_closed_loop_receding_horizon_eval_learned.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 6966,
+      "detail": "json"
+    },
+    {
+      "claim_id": 17,
+      "raw_path": "results/exp7_closed_loop_receding_horizon_eval_learned.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp7_closed_loop_receding_horizon_eval_learned.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 6966,
+      "detail": "json"
+    },
+    {
+      "claim_id": 18,
+      "raw_path": "results/exp7_closed_loop_receding_horizon_eval_learned.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp7_closed_loop_receding_horizon_eval_learned.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 6966,
+      "detail": "json"
+    },
+    {
+      "claim_id": 19,
+      "raw_path": "results/exp8_nonstationary_dynamics_extension.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp8_nonstationary_dynamics_extension.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 2499,
+      "detail": "json"
+    },
+    {
+      "claim_id": 20,
+      "raw_path": "results/exp8_nonstationary_dynamics_extension.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp8_nonstationary_dynamics_extension.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 2499,
+      "detail": "json"
+    },
+    {
+      "claim_id": 21,
+      "raw_path": "results/exp8_nonstationary_dynamics_extension.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\exp8_nonstationary_dynamics_extension.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 2499,
+      "detail": "json"
+    },
+    {
+      "claim_id": 22,
+      "raw_path": "results/learned_wam_lite_training.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\learned_wam_lite_training.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4851,
+      "detail": "json"
+    },
+    {
+      "claim_id": 23,
+      "raw_path": "results/learned_wam_lite_training.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\learned_wam_lite_training.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4851,
+      "detail": "json"
+    },
+    {
+      "claim_id": 24,
+      "raw_path": "results/learned_wam_lite_training.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\learned_wam_lite_training.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4851,
+      "detail": "json"
+    },
+    {
+      "claim_id": 25,
+      "raw_path": "results/learned_wam_vs_analytic_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\learned_wam_vs_analytic_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 16159,
+      "detail": "json"
+    },
+    {
+      "claim_id": 26,
+      "raw_path": "results/multi_env_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\multi_env_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 33208,
+      "detail": "json"
+    },
+    {
+      "claim_id": 26,
+      "raw_path": "results/tables/multi_env_curves.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\multi_env_curves.csv",
+      "exists": true,
+      "ok": true,
+      "bytes": 1581738,
+      "rows": 10500,
+      "detail": "csv"
+    },
+    {
+      "claim_id": 26,
+      "raw_path": "results/tables/maxout_model_metrics.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\maxout_model_metrics.csv",
+      "exists": true,
+      "ok": true,
+      "bytes": 4685,
+      "rows": 45,
+      "detail": "csv"
+    },
+    {
+      "claim_id": 27,
+      "raw_path": "results/multi_env_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\multi_env_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 33208,
+      "detail": "json"
+    },
+    {
+      "claim_id": 27,
+      "raw_path": "results/tables/multi_env_curves.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\multi_env_curves.csv",
+      "exists": true,
+      "ok": true,
+      "bytes": 1581738,
+      "rows": 10500,
+      "detail": "csv"
+    },
+    {
+      "claim_id": 27,
+      "raw_path": "results/tables/maxout_model_metrics.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\maxout_model_metrics.csv",
+      "exists": true,
+      "ok": true,
+      "bytes": 4685,
+      "rows": 45,
+      "detail": "csv"
+    },
+    {
+      "claim_id": 28,
+      "raw_path": "results/multi_env_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\multi_env_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 33208,
+      "detail": "json"
+    },
+    {
+      "claim_id": 28,
+      "raw_path": "results/tables/multi_env_curves.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\multi_env_curves.csv",
+      "exists": true,
+      "ok": true,
+      "bytes": 1581738,
+      "rows": 10500,
+      "detail": "csv"
+    },
+    {
+      "claim_id": 28,
+      "raw_path": "results/tables/maxout_model_metrics.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\maxout_model_metrics.csv",
+      "exists": true,
+      "ok": true,
+      "bytes": 4685,
+      "rows": 45,
+      "detail": "csv"
+    },
+    {
+      "claim_id": 29,
+      "raw_path": "results/multi_env_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\multi_env_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 33208,
+      "detail": "json"
+    },
+    {
+      "claim_id": 29,
+      "raw_path": "results/tables/multi_env_curves.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\multi_env_curves.csv",
+      "exists": true,
+      "ok": true,
+      "bytes": 1581738,
+      "rows": 10500,
+      "detail": "csv"
+    },
+    {
+      "claim_id": 29,
+      "raw_path": "results/tables/maxout_model_metrics.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\maxout_model_metrics.csv",
+      "exists": true,
+      "ok": true,
+      "bytes": 4685,
+      "rows": 45,
+      "detail": "csv"
+    },
+    {
+      "claim_id": 30,
+      "raw_path": "results/multi_env_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\multi_env_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 33208,
+      "detail": "json"
+    },
+    {
+      "claim_id": 30,
+      "raw_path": "results/tables/multi_env_curves.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\multi_env_curves.csv",
+      "exists": true,
+      "ok": true,
+      "bytes": 1581738,
+      "rows": 10500,
+      "detail": "csv"
+    },
+    {
+      "claim_id": 30,
+      "raw_path": "results/tables/maxout_model_metrics.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\maxout_model_metrics.csv",
+      "exists": true,
+      "ok": true,
+      "bytes": 4685,
+      "rows": 45,
+      "detail": "csv"
+    },
+    {
+      "claim_id": 31,
+      "raw_path": "results/benchmark_smoke.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_smoke.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 942,
+      "detail": "json"
+    },
+    {
+      "claim_id": 31,
+      "raw_path": "src/wam_inference_value/benchmarks/base.py",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\src\\wam_inference_value\\benchmarks\\base.py",
+      "exists": true,
+      "ok": true,
+      "bytes": 962,
+      "detail": "py"
+    },
+    {
+      "claim_id": 31,
+      "raw_path": "src/wam_inference_value/benchmarks/maniskill_adapter.py",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\src\\wam_inference_value\\benchmarks\\maniskill_adapter.py",
+      "exists": true,
+      "ok": true,
+      "bytes": 7551,
+      "detail": "py"
+    },
+    {
+      "claim_id": 32,
+      "raw_path": "results/benchmark_rollout_pools.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_rollout_pools.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 80,
+      "detail": "json"
+    },
+    {
+      "claim_id": 33,
+      "raw_path": "results/benchmark_exact_law_validation.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_exact_law_validation.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 175,
+      "detail": "json"
+    },
+    {
+      "claim_id": 34,
+      "raw_path": "results/benchmark_score_comparison.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_score_comparison.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 1352,
+      "detail": "json"
+    },
+    {
+      "claim_id": 35,
+      "raw_path": "results/benchmark_real_vs_imagined_gap.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_real_vs_imagined_gap.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 168,
+      "detail": "json"
+    },
+    {
+      "claim_id": 36,
+      "raw_path": "results/benchmark_closed_loop_eval.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_closed_loop_eval.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 1323,
+      "detail": "json"
+    },
+    {
+      "claim_id": 37,
+      "raw_path": "results/benchmark_wam_training.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_wam_training.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 566,
+      "detail": "json"
+    },
+    {
+      "claim_id": 38,
+      "raw_path": "results/visual_optional.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\visual_optional.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 257,
+      "detail": "json"
+    },
+    {
+      "claim_id": 39,
+      "raw_path": "results/visual_optional.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\visual_optional.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 257,
+      "detail": "json"
+    },
+    {
+      "claim_id": 40,
+      "raw_path": "results/benchmark_visual_optional.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_visual_optional.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 314,
+      "detail": "json"
+    },
+    {
+      "claim_id": 41,
+      "raw_path": "results/inference_audit_framework.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\inference_audit_framework.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 6443,
+      "detail": "json"
+    },
+    {
+      "claim_id": 42,
+      "raw_path": "results/inference_audit_framework.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\inference_audit_framework.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 6443,
+      "detail": "json"
+    },
+    {
+      "claim_id": 43,
+      "raw_path": "results/inference_audit_framework.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\inference_audit_framework.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 6443,
+      "detail": "json"
+    },
+    {
+      "claim_id": 44,
+      "raw_path": "results/inference_audit_framework.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\inference_audit_framework.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 6443,
+      "detail": "json"
+    },
+    {
+      "claim_id": 45,
+      "raw_path": "results/inference_audit_framework_learned.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\inference_audit_framework_learned.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 6721,
+      "detail": "json"
+    },
+    {
+      "claim_id": 46,
+      "raw_path": "results/scorer_repair_experiment.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\scorer_repair_experiment.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 1848,
+      "detail": "json"
+    },
+    {
+      "claim_id": 47,
+      "raw_path": "results/imagination_scaling_law.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\imagination_scaling_law.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 2725,
+      "detail": "json"
+    },
+    {
+      "claim_id": 48,
+      "raw_path": "results/benchmark_maniskill_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4862,
+      "detail": "json"
+    },
+    {
+      "claim_id": 49,
+      "raw_path": "results/benchmark_maniskill_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4862,
+      "detail": "json"
+    },
+    {
+      "claim_id": 50,
+      "raw_path": "results/benchmark_maniskill_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4862,
+      "detail": "json"
+    },
+    {
+      "claim_id": 51,
+      "raw_path": "results/benchmark_maniskill_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4862,
+      "detail": "json"
+    },
+    {
+      "claim_id": 52,
+      "raw_path": "results/benchmark_maniskill_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4862,
+      "detail": "json"
+    },
+    {
+      "claim_id": 53,
+      "raw_path": "results/benchmark_maniskill_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4862,
+      "detail": "json"
+    },
+    {
+      "claim_id": 54,
+      "raw_path": "results/benchmark_maniskill_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4862,
+      "detail": "json"
+    },
+    {
+      "claim_id": 55,
+      "raw_path": "results/benchmark_visual_wam_lite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_visual_wam_lite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 2090,
+      "detail": "json"
+    },
+    {
+      "claim_id": 56,
+      "raw_path": "results/benchmark_visual_wam_lite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_visual_wam_lite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 2090,
+      "detail": "json"
+    },
+    {
+      "claim_id": 57,
+      "raw_path": "results/benchmark_visual_wam_lite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_visual_wam_lite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 2090,
+      "detail": "json"
+    },
+    {
+      "claim_id": 58,
+      "raw_path": "results/benchmark_visual_wam_lite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_visual_wam_lite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 2090,
+      "detail": "json"
+    },
+    {
+      "claim_id": 59,
+      "raw_path": "results/benchmark_gym_robotics_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_gym_robotics_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4003,
+      "detail": "json"
+    },
+    {
+      "claim_id": 60,
+      "raw_path": "results/benchmark_gym_robotics_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_gym_robotics_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4003,
+      "detail": "json"
+    },
+    {
+      "claim_id": 61,
+      "raw_path": "results/benchmark_gym_robotics_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_gym_robotics_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4003,
+      "detail": "json"
+    },
+    {
+      "claim_id": 62,
+      "raw_path": "results/benchmark_gym_robotics_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_gym_robotics_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4003,
+      "detail": "json"
+    },
+    {
+      "claim_id": 63,
+      "raw_path": "results/benchmark_gym_robotics_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_gym_robotics_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4003,
+      "detail": "json"
+    },
+    {
+      "claim_id": 64,
+      "raw_path": "results/benchmark_gym_robotics_visual_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_gym_robotics_visual_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 3948,
+      "detail": "json"
+    },
+    {
+      "claim_id": 65,
+      "raw_path": "results/benchmark_gym_robotics_visual_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_gym_robotics_visual_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 3948,
+      "detail": "json"
+    },
+    {
+      "claim_id": 66,
+      "raw_path": "results/benchmark_gym_robotics_visual_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_gym_robotics_visual_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 3948,
+      "detail": "json"
+    },
+    {
+      "claim_id": 67,
+      "raw_path": "results/benchmark_gym_robotics_visual_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_gym_robotics_visual_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 3948,
+      "detail": "json"
+    },
+    {
+      "claim_id": 68,
+      "raw_path": "results/benchmark_maniskill_visual_probe.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_visual_probe.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 22586,
+      "detail": "json"
+    },
+    {
+      "claim_id": 68,
+      "raw_path": "results/benchmark_maniskill_dependency_probe.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_dependency_probe.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 13510,
+      "detail": "json"
+    },
+    {
+      "claim_id": 69,
+      "raw_path": "results/benchmark_metaworld_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_metaworld_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4741,
+      "detail": "json"
+    },
+    {
+      "claim_id": 70,
+      "raw_path": "results/benchmark_metaworld_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_metaworld_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4741,
+      "detail": "json"
+    },
+    {
+      "claim_id": 71,
+      "raw_path": "results/benchmark_metaworld_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_metaworld_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4741,
+      "detail": "json"
+    },
+    {
+      "claim_id": 72,
+      "raw_path": "results/benchmark_metaworld_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_metaworld_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4741,
+      "detail": "json"
+    },
+    {
+      "claim_id": 73,
+      "raw_path": "results/benchmark_robosuite_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robosuite_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 5200,
+      "detail": "json"
+    },
+    {
+      "claim_id": 74,
+      "raw_path": "results/benchmark_robosuite_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robosuite_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 5200,
+      "detail": "json"
+    },
+    {
+      "claim_id": 75,
+      "raw_path": "results/benchmark_robosuite_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robosuite_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 5200,
+      "detail": "json"
+    },
+    {
+      "claim_id": 76,
+      "raw_path": "results/benchmark_robosuite_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robosuite_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 5200,
+      "detail": "json"
+    },
+    {
+      "claim_id": 77,
+      "raw_path": "results/benchmark_robosuite_suite.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robosuite_suite.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 5200,
+      "detail": "json"
+    },
+    {
+      "claim_id": 78,
+      "raw_path": "results/benchmark_robocasa_smoke.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_smoke.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 1813,
+      "detail": "json"
+    },
+    {
+      "claim_id": 79,
+      "raw_path": "results/benchmark_robocasa_learned_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_learned_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 2797,
+      "detail": "json"
+    },
+    {
+      "claim_id": 80,
+      "raw_path": "results/benchmark_robocasa_multitask_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_multitask_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 5218,
+      "detail": "json"
+    },
+    {
+      "claim_id": 81,
+      "raw_path": "README.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\README.md",
+      "exists": true,
+      "ok": true,
+      "bytes": 19161,
+      "detail": "md"
+    },
+    {
+      "claim_id": 81,
+      "raw_path": "results/claims_status.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 35629,
+      "detail": "json"
+    },
+    {
+      "claim_id": 82,
+      "raw_path": "paper_outline.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\paper_outline.md",
+      "exists": true,
+      "ok": true,
+      "bytes": 11895,
+      "detail": "md"
+    },
+    {
+      "claim_id": 82,
+      "raw_path": "results/claims_status.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 35629,
+      "detail": "json"
+    },
+    {
+      "claim_id": 83,
+      "raw_path": "results/benchmark_libero_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_libero_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4143,
+      "detail": "json"
+    },
+    {
+      "claim_id": 84,
+      "raw_path": "results/benchmark_robocasa_broad_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_broad_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 5643,
+      "detail": "json"
+    },
+    {
+      "claim_id": 85,
+      "raw_path": "results/benchmark_robocasa_family12_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family12_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 9193,
+      "detail": "json"
+    },
+    {
+      "claim_id": 86,
+      "raw_path": "results/benchmark_libero_scripted_policy.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_libero_scripted_policy.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 3804,
+      "detail": "json"
+    },
+    {
+      "claim_id": 87,
+      "raw_path": "results/benchmark_libero_learned_action_head.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_libero_learned_action_head.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 1446,
+      "detail": "json"
+    },
+    {
+      "claim_id": 88,
+      "raw_path": "results/benchmark_libero_autonomous_bc_policy.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_libero_autonomous_bc_policy.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 1644,
+      "detail": "json"
+    },
+    {
+      "claim_id": 89,
+      "raw_path": "results/benchmark_libero_visual_language_bc_policy.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_libero_visual_language_bc_policy.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 1894,
+      "detail": "json"
+    },
+    {
+      "claim_id": 90,
+      "raw_path": "results/benchmark_robocasa_family24_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family24_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 14591,
+      "detail": "json"
+    },
+    {
+      "claim_id": 91,
+      "raw_path": "results/benchmark_robocasa_catalog_probe.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_catalog_probe.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 15242,
+      "detail": "json"
+    },
+    {
+      "claim_id": 92,
+      "raw_path": "results/benchmark_robocasa_micro_rollout_extra.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_micro_rollout_extra.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 1133,
+      "detail": "json"
+    },
+    {
+      "claim_id": 93,
+      "raw_path": "results/benchmark_robocasa_extra4_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_extra4_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 5766,
+      "detail": "json"
+    },
+    {
+      "claim_id": 94,
+      "raw_path": "results/benchmark_robocasa_family28_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family28_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 16479,
+      "detail": "json"
+    },
+    {
+      "claim_id": 95,
+      "raw_path": "results/benchmark_robocasa_family32_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_family32_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 18307,
+      "detail": "json"
+    },
+    {
+      "claim_id": 96,
+      "raw_path": "results/benchmark_robocasa_stratified55_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_stratified55_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 28559,
+      "detail": "json"
+    },
+    {
+      "claim_id": 97,
+      "raw_path": "results/benchmark_robocasa_stratified97_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_stratified97_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 47381,
+      "detail": "json"
+    },
+    {
+      "claim_id": 98,
+      "raw_path": "results/benchmark_robocasa_residual35_h1_n4_wam.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_residual35_h1_n4_wam.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 19611,
+      "detail": "json"
+    },
+    {
+      "claim_id": 99,
+      "raw_path": "results/claims_status.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 35629,
+      "detail": "json"
+    },
+    {
+      "claim_id": 99,
+      "raw_path": "reports/claims_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claims_report.md",
+      "exists": true,
+      "ok": true,
+      "bytes": 26832,
+      "detail": "md"
+    },
+    {
+      "claim_id": 100,
+      "raw_path": "results/artifact_integrity.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 268963,
+      "detail": "json"
+    },
+    {
+      "claim_id": 100,
+      "raw_path": "reports/artifact_integrity_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\artifact_integrity_report.md",
+      "exists": true,
+      "ok": true,
+      "bytes": 230,
+      "detail": "md"
+    },
+    {
+      "claim_id": 101,
+      "raw_path": "results/result_consistency.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\result_consistency.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 23231,
+      "detail": "json"
+    },
+    {
+      "claim_id": 101,
+      "raw_path": "reports/result_consistency_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\result_consistency_report.md",
+      "exists": true,
+      "ok": true,
+      "bytes": 266,
+      "detail": "md"
+    },
+    {
+      "claim_id": 102,
+      "raw_path": "results/narrative_consistency.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\narrative_consistency.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 8487,
+      "detail": "json"
+    },
+    {
+      "claim_id": 102,
+      "raw_path": "reports/narrative_consistency_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\narrative_consistency_report.md",
+      "exists": true,
+      "ok": true,
+      "bytes": 199,
+      "detail": "md"
+    },
+    {
+      "claim_id": 103,
+      "raw_path": "results/claim_ledger_integrity.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_ledger_integrity.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 4662,
+      "detail": "json"
+    },
+    {
+      "claim_id": 103,
+      "raw_path": "reports/claim_ledger_integrity_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claim_ledger_integrity_report.md",
+      "exists": true,
+      "ok": true,
+      "bytes": 393,
+      "detail": "md"
+    },
+    {
+      "claim_id": 103,
+      "raw_path": "results/claims_status.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 35629,
+      "detail": "json"
+    },
+    {
+      "claim_id": 104,
+      "raw_path": "results/script_contracts.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\script_contracts.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 6181,
+      "detail": "json"
+    },
+    {
+      "claim_id": 104,
+      "raw_path": "reports/script_contracts_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\script_contracts_report.md",
+      "exists": true,
+      "ok": true,
+      "bytes": 280,
+      "detail": "md"
+    },
+    {
+      "claim_id": 105,
+      "raw_path": "results/claim_evidence_quality.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_evidence_quality.json",
+      "exists": true,
+      "ok": true,
+      "bytes": 39508,
+      "detail": "json"
+    },
+    {
+      "claim_id": 105,
+      "raw_path": "reports/claim_evidence_quality_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claim_evidence_quality_report.md",
+      "exists": true,
+      "ok": true,
+      "bytes": 289,
+      "detail": "md"
+    }
+  ]
+}

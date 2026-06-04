@@ -33,6 +33,7 @@ NARRATIVE_SURFACES = [
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
     ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
     ("script_contracts_report", REPORTS / "script_contracts_report.md"),
+    ("claim_evidence_quality_report", REPORTS / "claim_evidence_quality_report.md"),
     ("final_decision_report", REPORTS / "final_decision_report.md"),
     ("paper_result_summary", REPORTS / "paper_result_summary.md"),
     ("reviewer_risk_assessment", REPORTS / "reviewer_risk_assessment.md"),
@@ -292,6 +293,7 @@ def main() -> None:
     result_consistency = load_json("result_consistency.json")
     narrative_consistency = load_json("narrative_consistency.json")
     script_contracts = load_json("script_contracts.json")
+    claim_evidence_quality = load_json("claim_evidence_quality.json")
 
     claims: list[dict[str, Any]] = []
     add(claims, 1, "Exact finite binary law verified.", status(bool(exp1) and exp1.get("mean_success_mc_mae", 1.0) < 0.018, bool(exp1)), f"success MAE={exp1.get('mean_success_mc_mae')}")
@@ -1625,14 +1627,34 @@ def main() -> None:
         ),
         "evidence": f"scripts={script_contracts.get('n_scripts')}, checks={script_contracts.get('n_checks')}, issues={script_contracts.get('n_issues')}",
     }
+    claim_evidence_quality_claim = {
+        "id": 105,
+        "claim": "Verified claims have mapped source artifacts and quality-checked evidence.",
+        "status": status(
+            bool(claim_evidence_quality)
+            and claim_evidence_quality.get("verified", False)
+            and (claim_evidence_quality.get("n_claims") or 0) >= 104
+            and (claim_evidence_quality.get("n_source_mapped_claims") or 0) >= (claim_evidence_quality.get("n_claims") or 0)
+            and (claim_evidence_quality.get("n_source_links") or 0) >= 120
+            and claim_evidence_quality.get("n_issues") == 0
+            and artifact_exists(RESULTS / "claim_evidence_quality.json")
+            and artifact_exists(REPORTS / "claim_evidence_quality_report.md"),
+            bool(claim_evidence_quality),
+        ),
+        "evidence": (
+            f"claims={claim_evidence_quality.get('n_claims')}, mapped={claim_evidence_quality.get('n_source_mapped_claims')}, "
+            f"sources={claim_evidence_quality.get('n_source_links')}, issues={claim_evidence_quality.get('n_issues')}"
+        ),
+    }
     candidate_claims = claims + [
         {
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=104, max_id=104, checks=pending, issues=0",
+            "evidence": "claims=105, max_id=105, checks=pending, issues=0",
         },
         script_contract_claim,
+        claim_evidence_quality_claim,
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
@@ -1647,6 +1669,7 @@ def main() -> None:
         ),
     )
     claims.append(script_contract_claim)
+    claims.append(claim_evidence_quality_claim)
 
     payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)

@@ -11,7 +11,11 @@ CORE_GATE_SEQUENCE = [
     "scripts/narrative_consistency.py --fail-on-error",
     "scripts/script_contracts.py --fail-on-error",
     "scripts/claims_status.py",
+    "scripts/claim_evidence_quality.py --fail-on-error",
+    "scripts/claims_status.py",
     "scripts/claim_ledger_integrity.py --fail-on-error",
+    "scripts/claims_status.py",
+    "scripts/claim_evidence_quality.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_ledger_integrity.py --fail-on-error",
 ]
@@ -119,6 +123,7 @@ def audit_core_script(root: Path, script: str, required_snippets: list[str], che
     missing = [snippet for snippet in required_snippets if snippet not in text]
     add(checks, f"{label}_required_steps", not missing, f"missing={missing}")
     add(checks, f"{label}_gate_sequence", ordered_subsequence(text, CORE_GATE_SEQUENCE), "core gate sequence is ordered")
+    add(checks, f"{label}_double_claim_evidence_quality", count_occurrences(text, "scripts/claim_evidence_quality.py --fail-on-error") >= 2, "claim evidence gate runs before both ledger gates")
     add(checks, f"{label}_double_claim_ledger", count_occurrences(text, "scripts/claim_ledger_integrity.py --fail-on-error") >= 2, "ledger gate runs after both claim-status writes")
 
 
@@ -185,6 +190,6 @@ def script_contracts_markdown(payload: dict[str, Any]) -> str:
         for issue in issues:
             lines.append(f"- `{issue.get('name')}`: {issue.get('detail')}")
     else:
-        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered artifact/result/narrative/script-contract/claim/ledger gates.")
+        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered artifact/result/narrative/script-contract/claim/evidence/ledger gates.")
     lines.append("")
     return "\n".join(lines)

@@ -2,7 +2,7 @@
 
 - Verified: True
 - Scripts audited: 7
-- Checks: 37
+- Checks: 41
 - Issues: 0
 
-Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered artifact/result/narrative/script-contract/claim/ledger gates.
+Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered artifact/result/narrative/script-contract/claim/evidence/ledger gates.

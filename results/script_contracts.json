@@ -2,7 +2,7 @@
   "experiment": "script_contracts",
   "verified": true,
   "n_scripts": 7,
-  "n_checks": 37,
+  "n_checks": 41,
   "n_issues": 0,
   "core_gate_sequence": [
     "scripts/artifact_integrity.py --fail-on-error",
@@ -10,7 +10,11 @@
     "scripts/narrative_consistency.py --fail-on-error",
     "scripts/script_contracts.py --fail-on-error",
     "scripts/claims_status.py",
+    "scripts/claim_evidence_quality.py --fail-on-error",
+    "scripts/claims_status.py",
     "scripts/claim_ledger_integrity.py --fail-on-error",
+    "scripts/claims_status.py",
+    "scripts/claim_evidence_quality.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_ledger_integrity.py --fail-on-error"
   ],
@@ -39,6 +43,11 @@
       "name": "run_smoke_gate_sequence",
       "ok": true,
       "detail": "core gate sequence is ordered"
+    },
+    {
+      "name": "run_smoke_double_claim_evidence_quality",
+      "ok": true,
+      "detail": "claim evidence gate runs before both ledger gates"
     },
     {
       "name": "run_smoke_double_claim_ledger",
@@ -71,6 +80,11 @@
       "detail": "core gate sequence is ordered"
     },
     {
+      "name": "run_learned_wam_toy_double_claim_evidence_quality",
+      "ok": true,
+      "detail": "claim evidence gate runs before both ledger gates"
+    },
+    {
       "name": "run_learned_wam_toy_double_claim_ledger",
       "ok": true,
       "detail": "ledger gate runs after both claim-status writes"
@@ -101,6 +115,11 @@
       "detail": "core gate sequence is ordered"
     },
     {
+      "name": "run_all_double_claim_evidence_quality",
+      "ok": true,
+      "detail": "claim evidence gate runs before both ledger gates"
+    },
+    {
       "name": "run_all_double_claim_ledger",
       "ok": true,
       "detail": "ledger gate runs after both claim-status writes"
@@ -129,6 +148,11 @@
       "name": "run_inference_audit_gate_sequence",
       "ok": true,
       "detail": "core gate sequence is ordered"
+    },
+    {
+      "name": "run_inference_audit_double_claim_evidence_quality",
+      "ok": true,
+      "detail": "claim evidence gate runs before both ledger gates"
     },
     {
       "name": "run_inference_audit_double_claim_ledger",
