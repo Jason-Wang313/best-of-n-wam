@@ -605,6 +605,12 @@
       "claim": "Published result summaries agree with canonical tables.",
       "status": "VERIFIED",
       "evidence": "checks=157, issues=0"
+    },
+    {
+      "id": 102,
+      "claim": "Published narrative numbers match current artifacts.",
+      "status": "VERIFIED",
+      "evidence": "checks=21, issues=0"
     }
   ],
   "readme_overclaims": [],
@@ -612,7 +618,7 @@
   "report_overclaims": [],
   "narrative_overclaims": [],
   "overclaims": [],
-  "num_verified": 101,
+  "num_verified": 102,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

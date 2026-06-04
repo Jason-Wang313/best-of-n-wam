@@ -2,7 +2,7 @@
   "experiment": "artifact_integrity",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_result_json": 107,
+  "n_result_json": 108,
   "n_references": 339,
   "status_counts": {
     "ok": 339

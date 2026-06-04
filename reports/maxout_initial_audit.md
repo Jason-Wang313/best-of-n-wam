@@ -11,6 +11,7 @@ Audit date: 2026-05-30.
 - `claims_status.py` gates README and paper-outline overclaims.
 - `artifact_integrity.py` verifies that referenced result artifacts exist, parse, and are nonempty.
 - `result_consistency.py` verifies that summary JSONs agree with canonical tables for row counts, coverage, CI sanity, and success counts.
+- `narrative_consistency.py` verifies that high-impact README and final-report numbers match the current JSON artifacts.
 
 ## 2. Toy-Only
 

@@ -1,0 +1,155 @@
+{
+  "verified": true,
+  "n_checks": 21,
+  "n_issues": 0,
+  "checks": [
+    {
+      "surface": "README",
+      "name": "learned_blockpush_validation_errors",
+      "ok": true,
+      "expected": "validation final-position L2 MAE `0.1117`, validation utility MAE `0.8624`",
+      "detail": "found"
+    },
+    {
+      "surface": "README",
+      "name": "robocasa_three_task_samples_and_ci",
+      "ok": true,
+      "expected": "trains on 144 rollouts, validates on 96 rollouts with utility correlation `0.675`, evaluates on 240 heldout rollouts, has exact-law MAE `0.00035`, and beats random at N8 with CI lower `0.169`",
+      "detail": "found"
+    },
+    {
+      "surface": "README",
+      "name": "robocasa_family_metric_lists",
+      "ok": true,
+      "expected": "utility correlations `0.860`, `0.833`, `0.852`, `0.799`, `0.834`, `0.838`, `0.833`, and `0.838`, exact-law MAE at most `0.00036`, and learned-minus-random CI lower bounds `0.211`, `0.183`, `0.239`, `0.247`, `0.235`, `0.228`, `0.274`, and `0.315`",
+      "detail": "found"
+    },
+    {
+      "surface": "README",
+      "name": "robocasa_stratified97_scale",
+      "ok": true,
+      "expected": "evaluates 1,552 heldout rollouts across 194 rollout pools and keeps an oracle-minus-learned N8 CI lower bound of `0.0369`",
+      "detail": "found"
+    },
+    {
+      "surface": "README",
+      "name": "robocasa_residual35_metrics",
+      "ok": true,
+      "expected": "trains on 140 rollouts, validates on 140 rollouts with utility correlation `0.835`, evaluates on 280 heldout rollouts across 35 rollout pools, uses horizon `1` and Nmax `4`, has exact-law utility MAE `0.00025`, the learned scorer beats random at N4 with CI lower `0.197`, and the oracle-minus-learned N4 CI lower remains `0.0137`",
+      "detail": "found"
+    },
+    {
+      "surface": "README",
+      "name": "robocasa_residual_sweep_and_catalog",
+      "ok": true,
+      "expected": "attempted 43 task IDs, completed 41 chunks, timed out 2 chunks, found 39 runnable IDs, and found 35 nondegenerate IDs. A catalog audit finds 396 registered local task IDs, 132 task IDs covered by verified rollout-pool artifacts, 106 task IDs covered by micro-rollout probes, and 134 task IDs covered by any committed artifact",
+      "detail": "found"
+    },
+    {
+      "surface": "README",
+      "name": "libero_wam_metrics",
+      "ok": true,
+      "expected": "with 192 train samples, 96 validation samples, 240 heldout eval samples, exact-law utility MAE `0.00014`, validation utility correlation `0.353`, and learned energy-regularized scorer minus random N8 CI lower `0.265`",
+      "detail": "found"
+    },
+    {
+      "surface": "README",
+      "name": "libero_policy_counts",
+      "ok": true,
+      "expected": "50/50 successes across 10 tasks and 5 seeds, success-rate CI `[1.0, 1.0]`; a kNN action head trained on 5,014 scripted action examples that achieves 30/30 heldout sparse successes",
+      "detail": "found"
+    },
+    {
+      "surface": "README",
+      "name": "libero_bc_counts",
+      "ok": true,
+      "expected": "trained on 12,535 scripted action examples that achieves 50/50 heldout sparse successes",
+      "detail": "found"
+    },
+    {
+      "surface": "README",
+      "name": "libero_visual_bc_counts",
+      "ok": true,
+      "expected": "trained on 7,521 scripted action examples that achieves 30/30 heldout sparse successes",
+      "detail": "found"
+    },
+    {
+      "surface": "README",
+      "name": "libero_scripted_json_support",
+      "ok": true,
+      "expected": "libero scripted 50/50",
+      "detail": "episodes=50, successes=50"
+    },
+    {
+      "surface": "final_decision_report",
+      "name": "pytest_count",
+      "ok": true,
+      "expected": "`python -m pytest -q`: passed with `50 passed`",
+      "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
+      "name": "learned_wam_command_metrics",
+      "ok": true,
+      "expected": "learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`",
+      "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
+      "name": "benchmark_fetch_exact_mae",
+      "ok": true,
+      "expected": "Fetch exact-law utility MAE `0.0126`",
+      "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
+      "name": "benchmark_metaworld_exact_mae",
+      "ok": true,
+      "expected": "Meta-World exact-law utility MAE `0.0298`",
+      "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
+      "name": "benchmark_robosuite_exact_mae",
+      "ok": true,
+      "expected": "RoboSuite exact-law utility MAE `0.0024`",
+      "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
+      "name": "maniskill_command_metrics",
+      "ok": true,
+      "expected": "ManiSkill exact-law utility MAE `0.0034`; ManiSkill closed-loop learned-random CI lower bound `0.0102`",
+      "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
+      "name": "visual_command_metrics",
+      "ok": true,
+      "expected": "toy visual MAE `0.0185`; Reacher RGB WAM utility corr `0.2199`, utility MAE `0.5208`, visual-random N32 CI lower `0.1998`; Fetch RGB WAM mean corr `0.7325`, visual-random N32 CI lower `0.3475`",
+      "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
+      "name": "artifact_integrity_command",
+      "ok": true,
+      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `339` artifact references checked and `0` issues",
+      "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
+      "name": "result_consistency_command",
+      "ok": true,
+      "expected": "`python scripts/result_consistency.py --fail-on-error`: passed with `157` consistency checks and `0` issues",
+      "detail": "found"
+    },
+    {
+      "surface": "final_decision_report",
+      "name": "claims_command",
+      "ok": true,
+      "expected": "`python scripts/claims_status.py`: passed with `102` verified, `0` partial, `0` unsupported, `0` failed",
+      "detail": "found"
+    }
+  ],
+  "issues": []
+}

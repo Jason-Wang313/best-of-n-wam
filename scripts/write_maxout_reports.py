@@ -102,6 +102,7 @@ def main() -> None:
     scaling = load_json("imagination_scaling_law.json")
     artifact_integrity = load_json("artifact_integrity.json")
     result_consistency = load_json("result_consistency.json")
+    narrative_consistency = load_json("narrative_consistency.json")
 
     val = (learned.get("metrics") or {}).get("validation") or {}
     ood = (learned.get("metrics") or {}).get("ood") or []
@@ -143,6 +144,7 @@ Audit date: 2026-05-30.
 - `claims_status.py` gates README and paper-outline overclaims.
 - `artifact_integrity.py` verifies that referenced result artifacts exist, parse, and are nonempty.
 - `result_consistency.py` verifies that summary JSONs agree with canonical tables for row counts, coverage, CI sanity, and success counts.
+- `narrative_consistency.py` verifies that high-impact README and final-report numbers match the current JSON artifacts.
 
 ## 2. Toy-Only
 
@@ -564,7 +566,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 
 ## Command Results
 
-- `python -m pytest -q`: passed with `47 passed`.
+- `python -m pytest -q`: passed with `50 passed`.
 - Large analytic `scripts/run_all.sh`: attempted; the tool timeout was reached during the heavy EXP6 allocation sweep after EXP1-EXP5 refreshed. The spawned allocation process was stopped, robust EXP8 was regenerated separately, and the final claim gate remained fully verified.
 - `bash scripts/run_smoke.sh`: passed; EXP1 success MAE `0.00696`, utility MAE `0.04511`; EXP8 smoke conditional-law MAE `0.0055`.
 - `bash scripts/run_learned_wam_toy.sh`: passed; learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`.
@@ -578,6 +580,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `{fmt(audit.get('tail_alignment_gain_corr'))}`, repair-predicted N64 CI mean `{fmt(((repair.get('confidence_intervals') or {}).get('repair_minus_predicted_N64') or {}).get('mean'))}`, predicted N128-N1 scaling gain `{fmt(((scaling.get('confidence_intervals') or {}).get('predicted_gain_N128_minus_N1') or {}).get('mean'))}`.
 - `python scripts/artifact_integrity.py --fail-on-error`: passed with `{artifact_integrity.get('n_references')}` artifact references checked and `{artifact_integrity.get('n_issues')}` issues.
 - `python scripts/result_consistency.py --fail-on-error`: passed with `{result_consistency.get('n_checks')}` consistency checks and `{result_consistency.get('n_issues')}` issues.
+- `python scripts/narrative_consistency.py --fail-on-error`: passed with `{narrative_consistency.get('n_checks')}` narrative checks and `{narrative_consistency.get('n_issues')}` issues.
 - `python scripts/claims_status.py`: passed with `{claims_payload.get('num_verified')}` verified, `{claims_payload.get('num_partial')}` partial, `{claims_payload.get('num_unsupported')}` unsupported, `{claims_payload.get('num_failed')}` failed, and `0` README/paper overclaims.
 """
 

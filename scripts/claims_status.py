@@ -23,6 +23,7 @@ NARRATIVE_SURFACES = [
     ("paper_outline", PAPER),
     ("artifact_integrity_report", REPORTS / "artifact_integrity_report.md"),
     ("result_consistency_report", REPORTS / "result_consistency_report.md"),
+    ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
     ("final_decision_report", REPORTS / "final_decision_report.md"),
     ("paper_result_summary", REPORTS / "paper_result_summary.md"),
     ("reviewer_risk_assessment", REPORTS / "reviewer_risk_assessment.md"),
@@ -257,6 +258,7 @@ def main() -> None:
     scaling = load_json("imagination_scaling_law.json")
     artifact_integrity = load_json("artifact_integrity.json")
     result_consistency = load_json("result_consistency.json")
+    narrative_consistency = load_json("narrative_consistency.json")
 
     claims: list[dict[str, Any]] = []
     add(claims, 1, "Exact finite binary law verified.", status(bool(exp1) and exp1.get("mean_success_mc_mae", 1.0) < 0.018, bool(exp1)), f"success MAE={exp1.get('mean_success_mc_mae')}")
@@ -1552,6 +1554,21 @@ def main() -> None:
             bool(result_consistency),
         ),
         f"checks={result_consistency.get('n_checks')}, issues={result_consistency.get('n_issues')}",
+    )
+    add(
+        claims,
+        102,
+        "Published narrative numbers match current artifacts.",
+        status(
+            bool(narrative_consistency)
+            and narrative_consistency.get("verified", False)
+            and (narrative_consistency.get("n_checks") or 0) >= 20
+            and narrative_consistency.get("n_issues") == 0
+            and artifact_exists(RESULTS / "narrative_consistency.json")
+            and artifact_exists(REPORTS / "narrative_consistency_report.md"),
+            bool(narrative_consistency),
+        ),
+        f"checks={narrative_consistency.get('n_checks')}, issues={narrative_consistency.get('n_issues')}",
     )
 
     payload = {

@@ -233,14 +233,15 @@ This runs tests, smoke, learned WAM toy, multi-env, benchmark/visual attempts, i
 python scripts/claims_status.py
 ```
 
-Claims are classified as `VERIFIED`, `PARTIAL`, `UNSUPPORTED`, or `FAILED` from artifacts. The claim gate is preceded by two stricter consistency checks:
+Claims are classified as `VERIFIED`, `PARTIAL`, `UNSUPPORTED`, or `FAILED` from artifacts. The claim gate is preceded by three stricter consistency checks:
 
 ```bash
 python scripts/artifact_integrity.py --fail-on-error
 python scripts/result_consistency.py --fail-on-error
+python scripts/narrative_consistency.py --fail-on-error
 ```
 
-The artifact-integrity gate checks that referenced result files exist, parse, and are nonempty. The result-consistency gate checks that summary JSONs agree with canonical tables for confidence-interval sanity, row counts, seed coverage, task/environment coverage, rollout-pool counts, promoted-scorer CIs, and LIBERO success counts. README and paper-outline claims are intentionally scoped to artifact-backed results. Unsupported benchmark and universal-training claims belong in future work, not in the results.
+The artifact-integrity gate checks that referenced result files exist, parse, and are nonempty. The result-consistency gate checks that summary JSONs agree with canonical tables for confidence-interval sanity, row counts, seed coverage, task/environment coverage, rollout-pool counts, promoted-scorer CIs, and LIBERO success counts. The narrative-consistency gate checks high-impact README and final-report numbers against the current JSON artifacts. README and paper-outline claims are intentionally scoped to artifact-backed results. Unsupported benchmark and universal-training claims belong in future work, not in the results.
 
 ## Limitations
 
