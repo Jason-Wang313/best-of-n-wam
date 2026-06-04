@@ -55,7 +55,7 @@
     {
       "name": "source_manifest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `176` source files, `1264915` bytes, `14` source-manifest checks, and `0` issues"
+      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `176` source files, `1264844` bytes, `14` source-manifest checks, and `0` issues"
     },
     {
       "name": "runtime_environment_snippet_matches_artifact",

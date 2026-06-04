@@ -91,7 +91,6 @@ def collect_pytest_inventory(root: Path, timeout_s: int = 180) -> dict[str, Any]
     )
     payload = audit_pytest_collection(stdout=proc.stdout, returncode=proc.returncode)
     payload["command"] = [sys.executable, "-m", "pytest", "--collect-only", "-q"]
-    payload["stdout_tail"] = "\n".join(proc.stdout.splitlines()[-20:])
     return payload
 
 

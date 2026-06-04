@@ -145,6 +145,5 @@
     "pytest",
     "--collect-only",
     "-q"
-  ],
-  "stdout_tail": "tests/test_table_schema.py::test_table_schema_detects_nonfinite_numeric_cell\ntests/test_table_schema.py::test_table_schema_detects_missing_curve_metric\ntests/test_table_schema.py::test_table_schema_detects_duplicate_rows\ntests/test_test_inventory.py::test_parse_pytest_collect_stdout_counts_nodeids_and_trailer\ntests/test_test_inventory.py::test_audit_pytest_collection_accepts_sane_inventory\ntests/test_test_inventory.py::test_audit_pytest_collection_rejects_duplicate_and_trailer_mismatch\ntests/test_theorem_auc.py::test_n2_auc_identity_hard_assertion\ntests/test_theorem_binary.py::test_finite_law_matches_brute_force_with_ties\ntests/test_theorem_binary.py::test_monte_carlo_matches_within_tolerance\ntests/test_theorem_binary.py::test_n1_equals_p\ntests/test_theorem_binary.py::test_n2_auc_identity_matches_tie_aware_law\ntests/test_theorem_binary.py::test_all_correct_and_no_correct_edges\ntests/test_theorem_ties.py::test_tie_group_uses_group_mean_utility\ntests/test_theorem_ties.py::test_all_success_and_no_success_edges\ntests/test_theorem_utility.py::test_binary_utility_recovers_binary_law\ntests/test_theorem_utility.py::test_constant_utility_returns_constant\ntests/test_theorem_utility.py::test_oracle_score_monotone_improvement\ntests/test_theorem_utility.py::test_random_score_gives_little_selection_advantage_on_large_independent_pool\n\n98 tests collected in 5.37s"
+  ]
 }

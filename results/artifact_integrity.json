@@ -5736,7 +5736,7 @@
       "raw_path": "results/claim_evidence_quality.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_evidence_quality.json",
       "exists": true,
-      "bytes": 45614,
+      "bytes": 45613,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5747,7 +5747,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_evidence_quality.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_evidence_quality.json",
       "exists": true,
-      "bytes": 45614,
+      "bytes": 45613,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6220,7 +6220,7 @@
       "raw_path": "results/test_inventory.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
-      "bytes": 11062,
+      "bytes": 9651,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6231,7 +6231,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
-      "bytes": 11062,
+      "bytes": 9651,
       "rows": null,
       "status": "ok",
       "reason": ""

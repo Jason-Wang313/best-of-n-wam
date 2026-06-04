@@ -189,7 +189,7 @@
       "surface": "final_decision_report",
       "name": "source_manifest_command",
       "ok": true,
-      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `176` source files, `1264915` bytes, `14` source-manifest checks, and `0` issues",
+      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `176` source files, `1264844` bytes, `14` source-manifest checks, and `0` issues",
       "detail": "found"
     },
     {

@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=176, bytes=1264915, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 30, 'src': 47, 'tests': 38}, checks=14, issues=0"
+      "evidence": "files=176, bytes=1264844, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 30, 'src': 47, 'tests': 38}, checks=14, issues=0"
     },
     {
       "id": 112,
