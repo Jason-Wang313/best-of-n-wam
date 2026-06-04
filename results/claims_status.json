@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=641, issues=0, status_counts={'ok': 641}"
+      "evidence": "refs=645, issues=0, status_counts={'ok': 645}"
     },
     {
       "id": 101,
@@ -616,19 +616,19 @@
       "id": 103,
       "claim": "Claim ledger is structurally consistent.",
       "status": "VERIFIED",
-      "evidence": "claims=114, max_id=114, checks=21, issues=0"
+      "evidence": "claims=115, max_id=115, checks=21, issues=0"
     },
     {
       "id": 104,
       "claim": "Canonical execution scripts preserve required gate contracts.",
       "status": "VERIFIED",
-      "evidence": "scripts=7, checks=77, issues=0"
+      "evidence": "scripts=7, checks=81, issues=0"
     },
     {
       "id": 105,
       "claim": "Verified claims have mapped source artifacts and quality-checked evidence.",
       "status": "VERIFIED",
-      "evidence": "claims=114, mapped=114, sources=149, issues=0"
+      "evidence": "claims=115, mapped=115, sources=151, issues=0"
     },
     {
       "id": 106,
@@ -640,7 +640,7 @@
       "id": 107,
       "claim": "Verified claim wording satisfies semantic threshold checks.",
       "status": "VERIFIED",
-      "evidence": "claims=114, checks=168, CI claims=51, positive CI claims=33, error claims=11, issues=0"
+      "evidence": "claims=115, checks=168, CI claims=51, positive CI claims=33, error claims=11, issues=0"
     },
     {
       "id": 108,
@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=170, bytes=1232195, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 28, 'src': 45, 'tests': 36}, checks=14, issues=0"
+      "evidence": "files=173, bytes=1253108, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 29, 'src': 46, 'tests': 37}, checks=14, issues=0"
     },
     {
       "id": 112,
@@ -683,6 +683,12 @@
       "claim": "Committed learned-model artifacts are loadable and numerically sane.",
       "status": "VERIFIED",
       "evidence": "models=49, suffixes={'.npz': 36, '.joblib': 13}, bytes=119450103, npz_arrays=315, npz_elements=6077793, joblib_predictors=13, checks=10, issues=0"
+    },
+    {
+      "id": 115,
+      "claim": "Published final-report command results match current verification artifacts.",
+      "status": "VERIFIED",
+      "evidence": "snippets=16, python_commands=19, pytest=95, checks=19, issues=0"
     }
   ],
   "readme_overclaims": [],
@@ -690,7 +696,7 @@
   "report_overclaims": [],
   "narrative_overclaims": [],
   "overclaims": [],
-  "num_verified": 114,
+  "num_verified": 115,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

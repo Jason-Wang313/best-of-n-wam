@@ -289,7 +289,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     benchmark_visual = load_json(results_dir, "benchmark_visual_wam_lite.json")
     gym_visual = load_json(results_dir, "benchmark_gym_robotics_visual_wam.json")
 
-    add_contains(checks, "final_decision_report", text, "pytest_count", "`python -m pytest -q`: passed with `71 passed`")
+    add_contains(checks, "final_decision_report", text, "pytest_count", "`python -m pytest -q`: passed with `95 passed`")
     add_contains(
         checks,
         "final_decision_report",

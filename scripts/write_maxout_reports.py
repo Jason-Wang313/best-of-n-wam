@@ -169,6 +169,7 @@ Audit date: 2026-05-30.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.
 - `claim_evidence_quality.py` verifies that each current claim ID is mapped to source artifacts and has structured, non-placeholder evidence.
 - `claim_ledger_integrity.py` verifies sorted contiguous claim IDs, JSON/Markdown count agreement, structured claim evidence, evidence-path references, empty overclaim arrays, and no non-verified final claims.
+- `command_result_consistency.py` verifies that the final decision report's command-result lines match current verification artifacts.
 
 ## 2. Toy-Only
 
@@ -590,7 +591,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 
 ## Command Results
 
-- `python -m pytest -q`: passed with `71 passed`.
+- `python -m pytest -q`: passed with `95 passed`.
 - `bash scripts/run_all.sh`: passed; full analytic EXP1-EXP8 sweep completed with EXP1 success MAE `{fmt(exp1.get('mean_success_mc_mae'), 5)}`, EXP3 relative MAE reduction `{fmt(exp3.get('relative_mae_reduction'), 3)}`, EXP6 moment-uniform delta `{fmt(exp6.get('moment_law_improvement_over_uniform'), 4)}`, EXP7 useful N64-N1 success delta `{fmt(exp7.get('useful_success_gain_N64_minus_N1'), 3)}`, and EXP8 conditional-law MAE `{fmt(exp8.get('mean_abs_error_N16'), 4)}`.
 - `bash scripts/run_smoke.sh`: passed; EXP1 success MAE `0.00696`, utility MAE `0.04511`; EXP8 smoke conditional-law MAE `0.0055`.
 - `bash scripts/run_learned_wam_toy.sh`: passed; learned validation utility MAE `0.8624`, final-position L2 MAE `0.1117`; learned-vs-analytic N64 real-utility delta `1.170 +/- 0.219`.

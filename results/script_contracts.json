@@ -2,7 +2,7 @@
   "experiment": "script_contracts",
   "verified": true,
   "n_scripts": 7,
-  "n_checks": 77,
+  "n_checks": 81,
   "n_issues": 0,
   "core_gate_sequence": [
     "scripts/artifact_integrity.py --fail-on-error",
@@ -23,12 +23,14 @@
     "scripts/claim_evidence_quality.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_ledger_integrity.py --fail-on-error",
+    "scripts/command_result_consistency.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_semantics.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_evidence_quality.py --fail-on-error",
     "scripts/claims_status.py",
-    "scripts/claim_ledger_integrity.py --fail-on-error"
+    "scripts/claim_ledger_integrity.py --fail-on-error",
+    "scripts/command_result_consistency.py --fail-on-error"
   ],
   "checks": [
     {
@@ -112,6 +114,11 @@
       "detail": "ledger gate runs after both claim-status writes"
     },
     {
+      "name": "run_smoke_double_command_result_consistency",
+      "ok": true,
+      "detail": "command-result gate runs after both ledger gates"
+    },
+    {
       "name": "run_learned_wam_toy_exists",
       "ok": true,
       "detail": "path=scripts/run_learned_wam_toy.sh"
@@ -190,6 +197,11 @@
       "name": "run_learned_wam_toy_double_claim_ledger",
       "ok": true,
       "detail": "ledger gate runs after both claim-status writes"
+    },
+    {
+      "name": "run_learned_wam_toy_double_command_result_consistency",
+      "ok": true,
+      "detail": "command-result gate runs after both ledger gates"
     },
     {
       "name": "run_all_exists",
@@ -272,6 +284,11 @@
       "detail": "ledger gate runs after both claim-status writes"
     },
     {
+      "name": "run_all_double_command_result_consistency",
+      "ok": true,
+      "detail": "command-result gate runs after both ledger gates"
+    },
+    {
       "name": "run_inference_audit_exists",
       "ok": true,
       "detail": "path=scripts/run_inference_audit.sh"
@@ -350,6 +367,11 @@
       "name": "run_inference_audit_double_claim_ledger",
       "ok": true,
       "detail": "ledger gate runs after both claim-status writes"
+    },
+    {
+      "name": "run_inference_audit_double_command_result_consistency",
+      "ok": true,
+      "detail": "command-result gate runs after both ledger gates"
     },
     {
       "name": "run_maxout_all_exists",

@@ -102,9 +102,11 @@ SEEDS=(701 702 703 704 705)
 "${PY[@]}" scripts/claim_evidence_quality.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_ledger_integrity.py --fail-on-error
+"${PY[@]}" scripts/command_result_consistency.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_semantics.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_evidence_quality.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_ledger_integrity.py --fail-on-error
+"${PY[@]}" scripts/command_result_consistency.py --fail-on-error

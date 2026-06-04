@@ -38,6 +38,7 @@ NARRATIVE_SURFACES = [
     ("runtime_environment_report", REPORTS / "runtime_environment_report.md"),
     ("experiment_registry_report", REPORTS / "experiment_registry_report.md"),
     ("model_artifact_integrity_report", REPORTS / "model_artifact_integrity_report.md"),
+    ("command_result_consistency_report", REPORTS / "command_result_consistency_report.md"),
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
     ("claim_semantics_report", REPORTS / "claim_semantics_report.md"),
     ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
@@ -308,6 +309,7 @@ def main() -> None:
     runtime_environment = load_json("runtime_environment.json")
     experiment_registry = load_json("experiment_registry.json")
     model_artifact_integrity = load_json("model_artifact_integrity.json")
+    command_result_consistency = load_json("command_result_consistency.json")
     narrative_consistency = load_json("narrative_consistency.json")
     script_contracts = load_json("script_contracts.json")
     claim_semantics = load_json("claim_semantics.json")
@@ -1869,12 +1871,33 @@ def main() -> None:
             f"checks={model_artifact_integrity.get('n_checks')}, issues={model_artifact_integrity.get('n_issues')}"
         ),
     }
+    command_result_consistency_claim = {
+        "id": 115,
+        "claim": "Published final-report command results match current verification artifacts.",
+        "status": status(
+            bool(command_result_consistency)
+            and command_result_consistency.get("verified", False)
+            and (command_result_consistency.get("n_expected_snippets") or 0) >= 16
+            and (command_result_consistency.get("n_python_command_lines") or 0) >= 15
+            and (command_result_consistency.get("n_checks") or 0) >= 19
+            and command_result_consistency.get("n_issues") == 0
+            and artifact_exists(RESULTS / "command_result_consistency.json")
+            and artifact_exists(REPORTS / "command_result_consistency_report.md"),
+            bool(command_result_consistency),
+        ),
+        "evidence": (
+            f"snippets={command_result_consistency.get('n_expected_snippets')}, "
+            f"python_commands={command_result_consistency.get('n_python_command_lines')}, "
+            f"pytest={command_result_consistency.get('expected_pytest_passed')}, "
+            f"checks={command_result_consistency.get('n_checks')}, issues={command_result_consistency.get('n_issues')}"
+        ),
+    }
     candidate_claims = claims + [
         {
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=114, max_id=114, checks=pending, issues=0",
+            "evidence": "claims=115, max_id=115, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
@@ -1887,6 +1910,7 @@ def main() -> None:
         runtime_environment_claim,
         experiment_registry_claim,
         model_artifact_integrity_claim,
+        command_result_consistency_claim,
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
@@ -1911,6 +1935,7 @@ def main() -> None:
     claims.append(runtime_environment_claim)
     claims.append(experiment_registry_claim)
     claims.append(model_artifact_integrity_claim)
+    claims.append(command_result_consistency_claim)
 
     payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)
