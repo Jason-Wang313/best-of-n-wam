@@ -2,11 +2,13 @@
 
 ## Counts
 
-- verified: `98`
+- verified: `99`
 - partial: `0`
 - unsupported: `0`
 - failed: `0`
 - README overclaims: `0`
+- paper_outline overclaims: `0`
+- report overclaims: `0`
 
 ## Verified
 
@@ -108,6 +110,7 @@
 - 89. LIBERO RGB/proprio/language BC sparse-success smoke verified. Evidence: tasks=['libero_object/0', 'libero_object/1', 'libero_object/2', 'libero_object/3', 'libero_object/4', 'libero_object/5', 'libero_object/6', 'libero_object/7', 'libero_object/8', 'libero_object/9'], train=7521, eval=30/30, success CI={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}, policy={'type': 'rgb_proprio_language_knn_behavior_cloning', 'uses_rgb': True, 'uses_language': True, 'uses_robot_proprio': True, 'uses_simulator_object_state': False, 'uses_task_id': False, 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_previous_action': True, 'uses_step_clock': True, 'uses_language_candidate_filter': True, 'knn_k': 3, 'knn_temperature': 0.05, 'image_grid': 8, 'language_hash_dim': 64}
 - 81. README has no unsupported claims. Evidence: README overclaims=0
 - 82. paper_outline has no unsupported claims. Evidence: paper overclaims=0
+- 99. Narrative reports have no unsupported overclaims. Evidence: report overclaims=0
 
 ## Partial
 

@@ -587,10 +587,20 @@
       "claim": "paper_outline has no unsupported claims.",
       "status": "VERIFIED",
       "evidence": "paper overclaims=0"
+    },
+    {
+      "id": 99,
+      "claim": "Narrative reports have no unsupported overclaims.",
+      "status": "VERIFIED",
+      "evidence": "report overclaims=0"
     }
   ],
   "readme_overclaims": [],
-  "num_verified": 98,
+  "paper_overclaims": [],
+  "report_overclaims": [],
+  "narrative_overclaims": [],
+  "overclaims": [],
+  "num_verified": 99,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

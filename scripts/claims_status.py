@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from pathlib import Path
 from typing import Any
 
@@ -15,6 +16,50 @@ STATUS_JSON = RESULTS / "claims_status.json"
 STATUS_MD = RESULTS / "claims_status.md"
 README = ROOT / "README.md"
 PAPER = ROOT / "paper_outline.md"
+REPORTS = ROOT / "reports"
+NARRATIVE_SURFACES = [
+    ("README", README),
+    ("paper_outline", PAPER),
+    ("final_decision_report", REPORTS / "final_decision_report.md"),
+    ("paper_result_summary", REPORTS / "paper_result_summary.md"),
+    ("reviewer_risk_assessment", REPORTS / "reviewer_risk_assessment.md"),
+    ("maxout_completion_audit", REPORTS / "maxout_completion_audit.md"),
+]
+NARRATIVE_GUARDS = [
+    "not ",
+    "no ",
+    "lacks",
+    "missing",
+    "future",
+    "discussion",
+    "do not claim",
+    "without claiming",
+    "still weaker",
+    "unresolved",
+    "limitation",
+    "blocker",
+    "next step",
+    "beyond the current",
+    "beyond current",
+    "rather than",
+]
+NARRATIVE_RISK_PATTERNS = [
+    ("real_robot", re.compile(r"\breal[- ]robot\s+(evidence|validation|validated|result|artifacts?)\b", re.I)),
+    ("full_robocasa", re.compile(r"\bfull\s+RoboCasa-wide\s+(validation|learned-WAM validation|rollout collection)\b", re.I)),
+    ("modern_vla", re.compile(r"\bmodern\s+VLA\b.*\b(validation|performance|policy)\b", re.I)),
+    ("universal_wam_training", re.compile(r"\buniversal\s+WAM\s+(training|train-inference|training recipe|training laws?)\b", re.I)),
+    ("dreamzero_uwm", re.compile(r"\b(DreamZero|UWM)(?:-level)?\s+(evidence|integration|validation)\b", re.I)),
+]
+SECTION_GUARDS = [
+    "future",
+    "discussion",
+    "do not claim",
+    "limitation",
+    "unresolved",
+    "reviewer attack",
+    "remaining gap",
+    "weakest claims",
+]
 
 
 def load_json(name: str) -> dict:
@@ -48,6 +93,51 @@ def nested_ci_positive(payload: dict, section: str, key: str, threshold: float =
 
 def add(claims: list[dict[str, Any]], cid: int, claim: str, stat: str, evidence: str) -> None:
     claims.append({"id": cid, "claim": claim, "status": stat, "evidence": evidence})
+
+
+def guarded_narrative_line(line: str) -> bool:
+    lower = line.lower()
+    return any(guard in lower for guard in NARRATIVE_GUARDS)
+
+
+def guarded_narrative_section(section: str) -> bool:
+    lower = section.lower()
+    return any(guard in lower for guard in SECTION_GUARDS)
+
+
+def narrative_overclaims() -> list[dict[str, Any]]:
+    overclaims: list[dict[str, Any]] = []
+    for surface, path in NARRATIVE_SURFACES:
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        if re.search(r"(?ims)^##\s*3\.\s*Weakest Claims\s*\n\s*-\s*none\s*$", text):
+            overclaims.append(
+                {
+                    "surface": surface,
+                    "id": "narrative",
+                    "pattern": "Weakest Claims: none",
+                    "status": "UNSUPPORTED",
+                    "line": None,
+                }
+            )
+        current_section = ""
+        for lineno, line in enumerate(text.splitlines(), start=1):
+            if line.lstrip().startswith("#"):
+                current_section = line.strip("#").strip()
+            for label, pattern in NARRATIVE_RISK_PATTERNS:
+                if pattern.search(line) and not guarded_narrative_line(line) and not guarded_narrative_section(current_section):
+                    overclaims.append(
+                        {
+                            "surface": surface,
+                            "id": "narrative",
+                            "pattern": label,
+                            "status": "UNSUPPORTED",
+                            "line": lineno,
+                            "text": line.strip(),
+                        }
+                    )
+    return overclaims
 
 
 def main() -> None:
@@ -1016,12 +1106,23 @@ def main() -> None:
         if pattern.lower() in paper_text.lower() and c["status"] not in {"VERIFIED", "PARTIAL"}:
             overclaims.append({"surface": "paper_outline", "id": cid, "pattern": pattern, "status": c["status"]})
 
-    add(claims, 81, "README has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "README"]) == 0), f"README overclaims={len([o for o in overclaims if o['surface'] == 'README'])}")
-    add(claims, 82, "paper_outline has no unsupported claims.", status(len([o for o in overclaims if o["surface"] == "paper_outline"]) == 0), f"paper overclaims={len([o for o in overclaims if o['surface'] == 'paper_outline'])}")
+    narrative = narrative_overclaims()
+    all_overclaims = overclaims + narrative
+    readme_overclaims = [o for o in all_overclaims if o["surface"] == "README"]
+    paper_overclaims = [o for o in all_overclaims if o["surface"] == "paper_outline"]
+    report_overclaims = [o for o in all_overclaims if o["surface"] not in {"README", "paper_outline"}]
+
+    add(claims, 81, "README has no unsupported claims.", status(len(readme_overclaims) == 0), f"README overclaims={len(readme_overclaims)}")
+    add(claims, 82, "paper_outline has no unsupported claims.", status(len(paper_overclaims) == 0), f"paper overclaims={len(paper_overclaims)}")
+    add(claims, 99, "Narrative reports have no unsupported overclaims.", status(len(report_overclaims) == 0), f"report overclaims={len(report_overclaims)}")
 
     payload = {
         "claims": claims,
-        "readme_overclaims": overclaims,
+        "readme_overclaims": readme_overclaims,
+        "paper_overclaims": paper_overclaims,
+        "report_overclaims": report_overclaims,
+        "narrative_overclaims": narrative,
+        "overclaims": all_overclaims,
         "num_verified": sum(c["status"] == "VERIFIED" for c in claims),
         "num_partial": sum(c["status"] == "PARTIAL" for c in claims),
         "num_unsupported": sum(c["status"] == "UNSUPPORTED" for c in claims),
@@ -1032,14 +1133,16 @@ def main() -> None:
     lines = ["# Claims Status", ""]
     for c in claims:
         lines.append(f"- Claim {c['id']}: **{c['status']}** - {c['claim']} Evidence: {c['evidence']}")
-    if overclaims:
+    if all_overclaims:
         lines.append("")
         lines.append("## Overclaims")
-        for item in overclaims:
-            lines.append(f"- {item['surface']} claim {item['id']} pattern `{item['pattern']}` has status {item['status']}.")
+        for item in all_overclaims:
+            location = f":{item['line']}" if item.get("line") else ""
+            text = f" Text: {item['text']}" if item.get("text") else ""
+            lines.append(f"- {item['surface']}{location} claim {item['id']} pattern `{item['pattern']}` has status {item['status']}.{text}")
     STATUS_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("\n".join(lines))
-    if overclaims:
+    if all_overclaims:
         raise SystemExit(2)
 
 

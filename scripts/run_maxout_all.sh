@@ -26,3 +26,4 @@ bash scripts/run_visual_optional.sh
 bash scripts/run_inference_audit.sh
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/write_maxout_reports.py
+"${PY[@]}" scripts/claims_status.py

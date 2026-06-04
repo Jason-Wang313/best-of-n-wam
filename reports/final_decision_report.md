@@ -21,7 +21,11 @@ Benchmark-full plus Fetch, Meta-World, RoboSuite, ManiSkill state-mode, RoboCasa
 
 ## 3. Weakest Claims
 
-- none
+- No real-robot or hardware-in-the-loop evidence; every promoted robotics result is simulator or benchmark evidence.
+- LIBERO evidence is limited to three Spatial dense rollout-pool WAM-lite tasks plus Object sparse-success scripted/action-head/time-conditioned/RGB-proprio-language feature-kNN smokes, not modern VLA policy performance or full LIBERO validation.
+- RoboCasa evidence is broad but not full RoboCasa-wide validation: committed rollout-pool artifacts cover 132 of 396 local registry task IDs, with micro-rollout probes covering 106 task IDs.
+- ManiSkill evidence is CPU state-mode joint-delta control; RGB/RGB-D and end-effector-control validation are blocker-documented, not verified.
+- Learned WAMs are intentionally lightweight ridge/kNN/CPU models; the repo does not prove a universal WAM training recipe.
 
 ## 4. Abstract Claims
 
@@ -79,4 +83,4 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`; Reacher RGB WAM utility corr `0.2199`, utility MAE `0.5208`, visual-random N32 CI lower `0.1998`; Fetch RGB WAM mean corr `0.7325`, visual-random N32 CI lower `0.3475`; ManiSkill visual probe any visual success `False` with blocker `vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory`.
 - `python experiments/benchmark_maniskill_dependency_probe.py --attempt-source-install`: passed as a blocker probe; Pinocchio import `False`, binary `pin` wheel `False`, source install attempted `True`.
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `0.9864`, repair-predicted N64 CI mean `0.3489`, predicted N128-N1 scaling gain `0.0255`.
-- `python scripts/claims_status.py`: passed with `98` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.
+- `python scripts/claims_status.py`: passed with `99` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.

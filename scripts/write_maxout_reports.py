@@ -110,6 +110,14 @@ def main() -> None:
     partial = claims_by_status(claims, "PARTIAL")
     unsupported = claims_by_status(claims, "UNSUPPORTED")
     failed = claims_by_status(claims, "FAILED")
+    residual_weaknesses = [
+        "No real-robot or hardware-in-the-loop evidence; every promoted robotics result is simulator or benchmark evidence.",
+        "LIBERO evidence is limited to three Spatial dense rollout-pool WAM-lite tasks plus Object sparse-success scripted/action-head/time-conditioned/RGB-proprio-language feature-kNN smokes, not modern VLA policy performance or full LIBERO validation.",
+        "RoboCasa evidence is broad but not full RoboCasa-wide validation: committed rollout-pool artifacts cover 132 of 396 local registry task IDs, with micro-rollout probes covering 106 task IDs.",
+        "ManiSkill evidence is CPU state-mode joint-delta control; RGB/RGB-D and end-effector-control validation are blocker-documented, not verified.",
+        "Learned WAMs are intentionally lightweight ridge/kNN/CPU models; the repo does not prove a universal WAM training recipe.",
+    ]
+    weakest_claims = partial + unsupported[:8] + residual_weaknesses
     residual35_n_values = [int(n) for n in (robocasa_residual35.get("n_values") or [])]
     residual35_nmax = max(residual35_n_values) if residual35_n_values else None
     residual35_lr_ci = (robocasa_residual35.get("confidence_intervals") or {}).get(
@@ -441,6 +449,8 @@ If these fields are missing, rerun `bash scripts/run_multi_env.sh`.
 - unsupported: `{claims_payload.get('num_unsupported')}`
 - failed: `{claims_payload.get('num_failed')}`
 - README overclaims: `{len(claims_payload.get('readme_overclaims') or [])}`
+- paper_outline overclaims: `{len(claims_payload.get('paper_overclaims') or [])}`
+- report overclaims: `{len(claims_payload.get('report_overclaims') or [])}`
 
 ## Verified
 
@@ -504,7 +514,7 @@ Benchmark-full plus Fetch, Meta-World, RoboSuite, ManiSkill state-mode, RoboCasa
 
 ## 3. Weakest Claims
 
-{bullet_lines(partial + unsupported[:8])}
+{bullet_lines(weakest_claims)}
 
 ## 4. Abstract Claims
 
