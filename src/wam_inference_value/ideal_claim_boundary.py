@@ -86,6 +86,8 @@ IDEAL_CLAIM_ROWS = [
             "A verified claim ledger entry sourced from real-world artifacts.",
         ],
         "gap_evidence_files": [
+            "results/ideal_frontier_readiness.json",
+            "reports/ideal_frontier_readiness_report.md",
             "reports/final_decision_report.md",
             "reports/reviewer_risk_assessment.md",
         ],
@@ -109,6 +111,8 @@ IDEAL_CLAIM_ROWS = [
             "Evidence that evaluation-time inputs do not use shortcuts beyond the stated policy scope.",
         ],
         "gap_evidence_files": [
+            "results/ideal_frontier_readiness.json",
+            "reports/ideal_frontier_readiness_report.md",
             "results/benchmark_libero_wam.json",
             "results/benchmark_libero_visual_language_bc_policy.json",
             "reports/final_decision_report.md",
@@ -133,6 +137,8 @@ IDEAL_CLAIM_ROWS = [
             "Claim evidence that distinguishes full-suite validation from sampled or stratified-family validation.",
         ],
         "gap_evidence_files": [
+            "results/ideal_frontier_readiness.json",
+            "reports/ideal_frontier_readiness_report.md",
             "results/benchmark_robocasa_catalog_probe.json",
             "reports/benchmark_blocker_report.md",
             "reports/final_decision_report.md",
@@ -161,6 +167,8 @@ IDEAL_CLAIM_ROWS = [
             "Closed-loop or rollout-pool metrics generated after the renderer/control blockers are cleared.",
         ],
         "gap_evidence_files": [
+            "results/ideal_frontier_readiness.json",
+            "reports/ideal_frontier_readiness_report.md",
             "results/benchmark_maniskill_visual_probe.json",
             "results/benchmark_maniskill_dependency_probe.json",
             "reports/maniskill_visual_blocker_report.md",
@@ -186,6 +194,8 @@ IDEAL_CLAIM_ROWS = [
             "Claim evidence separating this future recipe from the current exact test-time inference law.",
         ],
         "gap_evidence_files": [
+            "results/ideal_frontier_readiness.json",
+            "reports/ideal_frontier_readiness_report.md",
             "results/publication_scope.json",
             "reports/final_decision_report.md",
             "reports/reviewer_risk_assessment.md",

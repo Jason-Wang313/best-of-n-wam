@@ -294,6 +294,16 @@
       ],
       "gap_evidence_files": [
         {
+          "path": "results/ideal_frontier_readiness.json",
+          "exists": true,
+          "bytes": 6563
+        },
+        {
+          "path": "reports/ideal_frontier_readiness_report.md",
+          "exists": true,
+          "bytes": 3748
+        },
+        {
           "path": "reports/final_decision_report.md",
           "exists": true,
           "bytes": 17385
@@ -351,6 +361,16 @@
         "Evidence that evaluation-time inputs do not use shortcuts beyond the stated policy scope."
       ],
       "gap_evidence_files": [
+        {
+          "path": "results/ideal_frontier_readiness.json",
+          "exists": true,
+          "bytes": 6563
+        },
+        {
+          "path": "reports/ideal_frontier_readiness_report.md",
+          "exists": true,
+          "bytes": 3748
+        },
         {
           "path": "results/benchmark_libero_wam.json",
           "exists": true,
@@ -417,6 +437,16 @@
         "Claim evidence that distinguishes full-suite validation from sampled or stratified-family validation."
       ],
       "gap_evidence_files": [
+        {
+          "path": "results/ideal_frontier_readiness.json",
+          "exists": true,
+          "bytes": 6563
+        },
+        {
+          "path": "reports/ideal_frontier_readiness_report.md",
+          "exists": true,
+          "bytes": 3748
+        },
         {
           "path": "results/benchmark_robocasa_catalog_probe.json",
           "exists": true,
@@ -493,6 +523,16 @@
       ],
       "gap_evidence_files": [
         {
+          "path": "results/ideal_frontier_readiness.json",
+          "exists": true,
+          "bytes": 6563
+        },
+        {
+          "path": "reports/ideal_frontier_readiness_report.md",
+          "exists": true,
+          "bytes": 3748
+        },
+        {
           "path": "results/benchmark_maniskill_visual_probe.json",
           "exists": true,
           "bytes": 29348
@@ -560,6 +600,16 @@
         "Claim evidence separating this future recipe from the current exact test-time inference law."
       ],
       "gap_evidence_files": [
+        {
+          "path": "results/ideal_frontier_readiness.json",
+          "exists": true,
+          "bytes": 6563
+        },
+        {
+          "path": "reports/ideal_frontier_readiness_report.md",
+          "exists": true,
+          "bytes": 3748
+        },
         {
           "path": "results/publication_scope.json",
           "exists": true,

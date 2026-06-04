@@ -646,7 +646,7 @@
       "id": 108,
       "claim": "Scientific result artifacts have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=398, bytes=56437819, suffixes={'.json': 106, '.npz': 41, '.png': 36, '.csv': 215}, issues=0"
+      "evidence": "files=399, bytes=56445757, suffixes={'.json': 107, '.npz': 41, '.png': 36, '.csv': 215}, issues=0"
     },
     {
       "id": 109,
@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=212, bytes=1510732, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 42, 'src': 59, 'tests': 50}, checks=14, issues=0"
+      "evidence": "files=215, bytes=1527264, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 43, 'src': 60, 'tests': 51}, checks=14, issues=0"
     },
     {
       "id": 112,
@@ -688,13 +688,13 @@
       "id": 115,
       "claim": "Published final-report command results match current verification artifacts.",
       "status": "VERIFIED",
-      "evidence": "snippets=28, python_commands=31, pytest=140, checks=31, issues=0"
+      "evidence": "snippets=28, python_commands=31, pytest=141, checks=31, issues=0"
     },
     {
       "id": 116,
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
       "status": "VERIFIED",
-      "evidence": "tests=140, unique=140, trailer=140, checks=6, issues=0"
+      "evidence": "tests=141, unique=141, trailer=141, checks=6, issues=0"
     },
     {
       "id": 117,

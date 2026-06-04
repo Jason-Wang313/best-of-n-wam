@@ -111,7 +111,7 @@
       "kind": "file",
       "bytes": 230,
       "tree_files": 1,
-      "sha256": "32b28f087358d04c2c1b86317b7447892d94b31c37df4108f7c6ab46b3b3587f",
+      "sha256": "439d2638e005dd55412078fde4e2fee3e7b5103866f4381a54efe29b60fed46b",
       "self_output": false
     },
     {
@@ -123,7 +123,7 @@
       "kind": "file",
       "bytes": 408,
       "tree_files": 1,
-      "sha256": "88ce716de72143c01b6e980759cf4f9a64134a14a9c6d1009abc77f9c87fe75a",
+      "sha256": "53fd503e3b5c77eb6df3a70aac67d4743031df0d5ccbc63c1897aabb35752af4",
       "self_output": false
     },
     {
@@ -147,7 +147,7 @@
       "kind": "file",
       "bytes": 454,
       "tree_files": 1,
-      "sha256": "ce0d0ca4f9efb62e54dfae45d34fa5b580decbaa845be4845d19315c1d290f83",
+      "sha256": "6ebbba8a7a424db16ab71773b952d717798e3efaf8a0d6933f9e7ca11d5d9f6a",
       "self_output": false
     },
     {
@@ -207,7 +207,7 @@
       "kind": "file",
       "bytes": 32278,
       "tree_files": 1,
-      "sha256": "f109be75162a7f51aed2f9823a767fae2361055d45da0e4b1d317f44437c122d",
+      "sha256": "ca7bb98df0a91e62efe045b0bd8d45d22909dd5efe3d6c8d5e8a9379c1ba5e11",
       "self_output": false
     },
     {
@@ -219,7 +219,7 @@
       "kind": "file",
       "bytes": 296,
       "tree_files": 1,
-      "sha256": "f49601a1a1b274281c3eff3cd0cadf1f6ee2b81bd6dbdcbd60fdefd63ca9aed7",
+      "sha256": "ef56b6d184fd7c765589dad6ce3f6f1f6c222239e87ba946d1b6fe35d184b3db",
       "self_output": false
     },
     {
@@ -265,9 +265,9 @@
       "repo_relative": "reports/ideal_claim_boundary_report.md",
       "exists": true,
       "kind": "file",
-      "bytes": 8040,
+      "bytes": 8475,
       "tree_files": 1,
-      "sha256": "9929272995f6a5248492846e9dbc0a5151dac52f0dcdf32fe609af573fdeee02",
+      "sha256": "de9b8c9d30e600f409227677241d994da34d9b1248b97a8fbde3853c450734d3",
       "self_output": false
     },
     {
@@ -387,7 +387,7 @@
       "kind": "file",
       "bytes": 535,
       "tree_files": 1,
-      "sha256": "33447b084c980f3ae0af38aec1ccd1a40c8e40bce0e150c308cb296a68a6e988",
+      "sha256": "29608916044260d31d47b2e8fc6d2402e6d30a1c0664113dcc101dc8f62ffcca",
       "self_output": false
     },
     {
@@ -411,7 +411,7 @@
       "kind": "file",
       "bytes": 286,
       "tree_files": 1,
-      "sha256": "f0b644d70efc0f70809daa58465f6028a40469db8bfc1d52169e72fe3ea9d065",
+      "sha256": "8be8e725f09e7e31f19095763cfc9d7a3123f36f168a04e51b1eb1d7151ed448",
       "self_output": false
     },
     {
@@ -423,7 +423,7 @@
       "kind": "file",
       "bytes": 386,
       "tree_files": 1,
-      "sha256": "54d5c2fd8ebe404d2d2b9eda57d21fafb65592d332bfdb04205874bc45a0c521",
+      "sha256": "0a394f32534d287a447a4346437696343310f3d8c28b5968cad3704ebc5a6d1c",
       "self_output": false
     },
     {
@@ -447,7 +447,7 @@
       "kind": "file",
       "bytes": 309422,
       "tree_files": 1,
-      "sha256": "c59076d5f0ec20cf758f3d964d8edbea40e564ab62ee6bdd290ad5b92afdcb46",
+      "sha256": "4f528e6bf2121bbbde4e68339aec305aa44f036f5df9d9e7f09c9ffa560f97b4",
       "self_output": false
     },
     {
@@ -457,9 +457,9 @@
       "repo_relative": "results/artifact_manifest.json",
       "exists": true,
       "kind": "file",
-      "bytes": 91319,
+      "bytes": 91523,
       "tree_files": 1,
-      "sha256": "9b42b193a04255f93a57a77ec6567857e94698d8155b9463e8c879e8fceca0bc",
+      "sha256": "5d6710a454fca95e11eb83ccbf47c1d45621213f8d91fb1487596f2139814489",
       "self_output": false
     },
     {
@@ -903,7 +903,7 @@
       "kind": "file",
       "bytes": 2108,
       "tree_files": 1,
-      "sha256": "ea9f6ef0c01d2a8d900b49864103d87a1d2a6afc67e51561f7ddc93fe287a119",
+      "sha256": "7471615d21af69505bdf161fc37fc0a1944551d116e98f52096c9c854ccc3f3b",
       "self_output": false
     },
     {
@@ -963,7 +963,7 @@
       "kind": "file",
       "bytes": 42923,
       "tree_files": 1,
-      "sha256": "07c977f223abba3461a6918ed82c504953e79b6d5dbf001815882775919c07a2",
+      "sha256": "069f184b047073f6520d925a3c68e2096d0ccf124586ebb0f611a63dbabdca25",
       "self_output": false
     },
     {
@@ -975,7 +975,7 @@
       "kind": "file",
       "bytes": 8118,
       "tree_files": 1,
-      "sha256": "3cdabd08e373d793986f83cf002400697534c904e7f71a4f6deae67629c88008",
+      "sha256": "02b0f1050321a2753fe868a65d51bb38fe946ea1553c7e4e73008d9fe5f0f481",
       "self_output": false
     },
     {
@@ -1165,9 +1165,9 @@
       "repo_relative": "results/ideal_claim_boundary.json",
       "exists": true,
       "kind": "file",
-      "bytes": 30779,
+      "bytes": 32154,
       "tree_files": 1,
-      "sha256": "31d27dbcfc87244758aa08da790b274a123ef1b92ba5adaf949bc8d25cc9569e",
+      "sha256": "0156290b2e5aa007f026df14a16965069227685cc576970b1061d79fc2f00895",
       "self_output": false
     },
     {
@@ -1263,7 +1263,7 @@
       "kind": "file",
       "bytes": 15322,
       "tree_files": 1,
-      "sha256": "bcb978d5446fecfdc24dcff71de9bbb7329915963587ff41f1690c1f1c7ca2ae",
+      "sha256": "ce78d9feeb40401f931f322312f1f069c99e843d45c703d3924df72dfe2874fa",
       "self_output": false
     },
     {
@@ -1311,7 +1311,7 @@
       "kind": "file",
       "bytes": 2364,
       "tree_files": 1,
-      "sha256": "7d7bb246b034279d10a27df3110aa7a856f25336ef5641b270c55b2d7341992c",
+      "sha256": "795ffeef95a93939ea35facb544de4ca2263030d22501d24f49c7d00333f8165",
       "self_output": false
     },
     {
@@ -1369,9 +1369,9 @@
       "repo_relative": "results/source_manifest.json",
       "exists": true,
       "kind": "file",
-      "bytes": 45999,
+      "bytes": 46615,
       "tree_files": 1,
-      "sha256": "f485b4a58d655ada8bc095b5792520df46b35105d7da0a09030c7d0d2a24acde",
+      "sha256": "e551e5f97fd77453384c41010c97dd7bddb920408123b284571ed52258aa14ab",
       "self_output": false
     },
     {
@@ -1417,9 +1417,9 @@
       "repo_relative": "results/test_inventory.json",
       "exists": true,
       "kind": "file",
-      "bytes": 14043,
+      "bytes": 14155,
       "tree_files": 1,
-      "sha256": "7647239713673901ecf5564c8791748b77d1cc968dd3d118e47ffb8b628c26ce",
+      "sha256": "8eb283462fcb1e9e9968b8d1ef7b259079db6483b04dac7b0c45824e73a997c9",
       "self_output": false
     },
     {
@@ -1431,7 +1431,7 @@
       "kind": "file",
       "bytes": 1822,
       "tree_files": 1,
-      "sha256": "36741df7b9135999a89ae01e67576571c4ef2da0d266c27f20ad2b6df9c62ed8",
+      "sha256": "510ff8f510bfc5edf230e6c5a3ef2351e95b056c6941205defaa2f64e388768f",
       "self_output": false
     },
     {
@@ -1517,7 +1517,7 @@
       "kind": "file",
       "bytes": 230,
       "tree_files": 1,
-      "sha256": "32b28f087358d04c2c1b86317b7447892d94b31c37df4108f7c6ab46b3b3587f",
+      "sha256": "439d2638e005dd55412078fde4e2fee3e7b5103866f4381a54efe29b60fed46b",
       "self_output": false
     },
     {
@@ -1529,7 +1529,7 @@
       "kind": "file",
       "bytes": 408,
       "tree_files": 1,
-      "sha256": "88ce716de72143c01b6e980759cf4f9a64134a14a9c6d1009abc77f9c87fe75a",
+      "sha256": "53fd503e3b5c77eb6df3a70aac67d4743031df0d5ccbc63c1897aabb35752af4",
       "self_output": false
     },
     {
@@ -1553,7 +1553,7 @@
       "kind": "file",
       "bytes": 454,
       "tree_files": 1,
-      "sha256": "ce0d0ca4f9efb62e54dfae45d34fa5b580decbaa845be4845d19315c1d290f83",
+      "sha256": "6ebbba8a7a424db16ab71773b952d717798e3efaf8a0d6933f9e7ca11d5d9f6a",
       "self_output": false
     },
     {
@@ -1613,7 +1613,7 @@
       "kind": "file",
       "bytes": 32278,
       "tree_files": 1,
-      "sha256": "f109be75162a7f51aed2f9823a767fae2361055d45da0e4b1d317f44437c122d",
+      "sha256": "ca7bb98df0a91e62efe045b0bd8d45d22909dd5efe3d6c8d5e8a9379c1ba5e11",
       "self_output": false
     },
     {
@@ -1625,7 +1625,7 @@
       "kind": "file",
       "bytes": 296,
       "tree_files": 1,
-      "sha256": "f49601a1a1b274281c3eff3cd0cadf1f6ee2b81bd6dbdcbd60fdefd63ca9aed7",
+      "sha256": "ef56b6d184fd7c765589dad6ce3f6f1f6c222239e87ba946d1b6fe35d184b3db",
       "self_output": false
     },
     {
@@ -1671,9 +1671,9 @@
       "repo_relative": "reports/ideal_claim_boundary_report.md",
       "exists": true,
       "kind": "file",
-      "bytes": 8040,
+      "bytes": 8475,
       "tree_files": 1,
-      "sha256": "9929272995f6a5248492846e9dbc0a5151dac52f0dcdf32fe609af573fdeee02",
+      "sha256": "de9b8c9d30e600f409227677241d994da34d9b1248b97a8fbde3853c450734d3",
       "self_output": false
     },
     {
@@ -2477,7 +2477,7 @@
       "kind": "file",
       "bytes": 535,
       "tree_files": 1,
-      "sha256": "33447b084c980f3ae0af38aec1ccd1a40c8e40bce0e150c308cb296a68a6e988",
+      "sha256": "29608916044260d31d47b2e8fc6d2402e6d30a1c0664113dcc101dc8f62ffcca",
       "self_output": false
     },
     {
@@ -2501,7 +2501,7 @@
       "kind": "file",
       "bytes": 286,
       "tree_files": 1,
-      "sha256": "f0b644d70efc0f70809daa58465f6028a40469db8bfc1d52169e72fe3ea9d065",
+      "sha256": "8be8e725f09e7e31f19095763cfc9d7a3123f36f168a04e51b1eb1d7151ed448",
       "self_output": false
     },
     {
@@ -2513,7 +2513,7 @@
       "kind": "file",
       "bytes": 386,
       "tree_files": 1,
-      "sha256": "54d5c2fd8ebe404d2d2b9eda57d21fafb65592d332bfdb04205874bc45a0c521",
+      "sha256": "0a394f32534d287a447a4346437696343310f3d8c28b5968cad3704ebc5a6d1c",
       "self_output": false
     },
     {
@@ -2537,7 +2537,7 @@
       "kind": "file",
       "bytes": 309422,
       "tree_files": 1,
-      "sha256": "c59076d5f0ec20cf758f3d964d8edbea40e564ab62ee6bdd290ad5b92afdcb46",
+      "sha256": "4f528e6bf2121bbbde4e68339aec305aa44f036f5df9d9e7f09c9ffa560f97b4",
       "self_output": false
     },
     {
@@ -2547,9 +2547,9 @@
       "repo_relative": "results/artifact_manifest.json",
       "exists": true,
       "kind": "file",
-      "bytes": 91319,
+      "bytes": 91523,
       "tree_files": 1,
-      "sha256": "9b42b193a04255f93a57a77ec6567857e94698d8155b9463e8c879e8fceca0bc",
+      "sha256": "5d6710a454fca95e11eb83ccbf47c1d45621213f8d91fb1487596f2139814489",
       "self_output": false
     },
     {
@@ -2993,7 +2993,7 @@
       "kind": "file",
       "bytes": 2108,
       "tree_files": 1,
-      "sha256": "ea9f6ef0c01d2a8d900b49864103d87a1d2a6afc67e51561f7ddc93fe287a119",
+      "sha256": "7471615d21af69505bdf161fc37fc0a1944551d116e98f52096c9c854ccc3f3b",
       "self_output": false
     },
     {
@@ -3053,7 +3053,7 @@
       "kind": "file",
       "bytes": 42923,
       "tree_files": 1,
-      "sha256": "07c977f223abba3461a6918ed82c504953e79b6d5dbf001815882775919c07a2",
+      "sha256": "069f184b047073f6520d925a3c68e2096d0ccf124586ebb0f611a63dbabdca25",
       "self_output": false
     },
     {
@@ -3065,7 +3065,7 @@
       "kind": "file",
       "bytes": 8118,
       "tree_files": 1,
-      "sha256": "3cdabd08e373d793986f83cf002400697534c904e7f71a4f6deae67629c88008",
+      "sha256": "02b0f1050321a2753fe868a65d51bb38fe946ea1553c7e4e73008d9fe5f0f481",
       "self_output": false
     },
     {
@@ -3687,9 +3687,9 @@
       "repo_relative": "results/ideal_claim_boundary.json",
       "exists": true,
       "kind": "file",
-      "bytes": 30779,
+      "bytes": 32154,
       "tree_files": 1,
-      "sha256": "31d27dbcfc87244758aa08da790b274a123ef1b92ba5adaf949bc8d25cc9569e",
+      "sha256": "0156290b2e5aa007f026df14a16965069227685cc576970b1061d79fc2f00895",
       "self_output": false
     },
     {
@@ -4145,7 +4145,7 @@
       "kind": "file",
       "bytes": 15322,
       "tree_files": 1,
-      "sha256": "bcb978d5446fecfdc24dcff71de9bbb7329915963587ff41f1690c1f1c7ca2ae",
+      "sha256": "ce78d9feeb40401f931f322312f1f069c99e843d45c703d3924df72dfe2874fa",
       "self_output": false
     },
     {
@@ -4193,7 +4193,7 @@
       "kind": "file",
       "bytes": 2364,
       "tree_files": 1,
-      "sha256": "7d7bb246b034279d10a27df3110aa7a856f25336ef5641b270c55b2d7341992c",
+      "sha256": "795ffeef95a93939ea35facb544de4ca2263030d22501d24f49c7d00333f8165",
       "self_output": false
     },
     {
@@ -4251,9 +4251,9 @@
       "repo_relative": "results/source_manifest.json",
       "exists": true,
       "kind": "file",
-      "bytes": 45999,
+      "bytes": 46615,
       "tree_files": 1,
-      "sha256": "f485b4a58d655ada8bc095b5792520df46b35105d7da0a09030c7d0d2a24acde",
+      "sha256": "e551e5f97fd77453384c41010c97dd7bddb920408123b284571ed52258aa14ab",
       "self_output": false
     },
     {
@@ -6783,9 +6783,9 @@
       "repo_relative": "results/test_inventory.json",
       "exists": true,
       "kind": "file",
-      "bytes": 14043,
+      "bytes": 14155,
       "tree_files": 1,
-      "sha256": "7647239713673901ecf5564c8791748b77d1cc968dd3d118e47ffb8b628c26ce",
+      "sha256": "8eb283462fcb1e9e9968b8d1ef7b259079db6483b04dac7b0c45824e73a997c9",
       "self_output": false
     },
     {
@@ -6797,7 +6797,7 @@
       "kind": "file",
       "bytes": 1822,
       "tree_files": 1,
-      "sha256": "36741df7b9135999a89ae01e67576571c4ef2da0d266c27f20ad2b6df9c62ed8",
+      "sha256": "510ff8f510bfc5edf230e6c5a3ef2351e95b056c6941205defaa2f64e388768f",
       "self_output": false
     },
     {

@@ -1,0 +1,185 @@
+{
+  "experiment": "ideal_frontier_readiness",
+  "verified": true,
+  "n_frontiers": 5,
+  "n_ready_to_promote": 0,
+  "n_not_ready_to_promote": 5,
+  "ready_frontier_ids": [],
+  "not_ready_frontier_ids": [
+    "real_robot_hil",
+    "modern_vla_libero",
+    "full_robocasa_wide",
+    "maniskill_visual_ee",
+    "universal_wam_training_recipe"
+  ],
+  "rows": [
+    {
+      "frontier_id": "real_robot_hil",
+      "ready_to_promote": false,
+      "n_signals": 2,
+      "n_met_signals": 0,
+      "n_missing_signals": 2,
+      "missing_signals": [
+        "real_robot_or_hil_artifact_present",
+        "real_world_success_metrics_present"
+      ],
+      "signals": [
+        {
+          "name": "real_robot_or_hil_artifact_present",
+          "ok": false,
+          "detail": "files=0"
+        },
+        {
+          "name": "real_world_success_metrics_present",
+          "ok": false,
+          "detail": "no physical trial metric artifact is declared"
+        }
+      ],
+      "next_action": "Collect real robot or hardware-in-the-loop rollout/control logs with trial IDs and success or utility metrics."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "ready_to_promote": false,
+      "n_signals": 6,
+      "n_met_signals": 4,
+      "n_missing_signals": 2,
+      "missing_signals": [
+        "modern_vla_model_class",
+        "current_runtime_can_rerun_libero"
+      ],
+      "signals": [
+        {
+          "name": "libero_rgb_language_policy_evaluated",
+          "ok": true,
+          "detail": "verified=True, eval_episodes=30"
+        },
+        {
+          "name": "no_shortcut_eval_interface",
+          "ok": true,
+          "detail": "policy={'type': 'rgb_proprio_language_knn_behavior_cloning', 'uses_rgb': True, 'uses_language': True, 'uses_robot_proprio': True, 'uses_simulator_object_state': False, 'uses_task_id': False, 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_previous_action': True, 'uses_step_clock': True, 'uses_language_candidate_filter': True, 'knn_k': 3, 'knn_temperature': 0.05, 'image_grid': 8, 'language_hash_dim': 64}"
+        },
+        {
+          "name": "sparse_success_ci_reported",
+          "ok": true,
+          "detail": "ci={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0}"
+        },
+        {
+          "name": "model_artifact_present",
+          "ok": true,
+          "detail": "model_path=results\\models\\benchmark_libero_visual_language_bc_policy.npz"
+        },
+        {
+          "name": "modern_vla_model_class",
+          "ok": false,
+          "detail": "policy_type='rgb_proprio_language_knn_behavior_cloning'"
+        },
+        {
+          "name": "current_runtime_can_rerun_libero",
+          "ok": false,
+          "detail": "current interpreter cannot import LIBERO unless LIBERO_PYTHON/LIBERO_SOURCE_PATH are supplied"
+        }
+      ],
+      "next_action": "Run a neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "ready_to_promote": false,
+      "n_signals": 4,
+      "n_met_signals": 1,
+      "n_missing_signals": 3,
+      "missing_signals": [
+        "full_registry_rollout_pool_coverage",
+        "full_registry_any_artifact_coverage",
+        "all_categories_fully_covered"
+      ],
+      "signals": [
+        {
+          "name": "catalog_probe_verified",
+          "ok": true,
+          "detail": "verified=True"
+        },
+        {
+          "name": "full_registry_rollout_pool_coverage",
+          "ok": false,
+          "detail": "rollout_pool_covered=132/396"
+        },
+        {
+          "name": "full_registry_any_artifact_coverage",
+          "ok": false,
+          "detail": "any_artifact_covered=134/396"
+        },
+        {
+          "name": "all_categories_fully_covered",
+          "ok": false,
+          "detail": "missing=['cleaning', 'close', 'cooking', 'long_horizon_or_compositional', 'manipulate', 'open', 'pick_place', 'turn']"
+        }
+      ],
+      "next_action": "Extend RoboCasa artifacts from sampled/stratified coverage to every declared registry task or state a narrower benchmark scope."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "ready_to_promote": false,
+      "n_signals": 4,
+      "n_met_signals": 1,
+      "n_missing_signals": 3,
+      "missing_signals": [
+        "rgb_or_rgbd_success",
+        "ee_control_success",
+        "pinocchio_available_for_ee"
+      ],
+      "signals": [
+        {
+          "name": "visual_probe_attempted",
+          "ok": true,
+          "detail": "attempted=True"
+        },
+        {
+          "name": "rgb_or_rgbd_success",
+          "ok": false,
+          "detail": "visual_success=False, attempts=10"
+        },
+        {
+          "name": "ee_control_success",
+          "ok": false,
+          "detail": "ee_success=False, attempts=2"
+        },
+        {
+          "name": "pinocchio_available_for_ee",
+          "ok": false,
+          "detail": "pinocchio=False"
+        }
+      ],
+      "next_action": "Clear the Vulkan descriptor-pool renderer failure and install a compatible Pinocchio stack for EE controllers."
+    },
+    {
+      "frontier_id": "universal_wam_training_recipe",
+      "ready_to_promote": false,
+      "n_signals": 3,
+      "n_met_signals": 1,
+      "n_missing_signals": 2,
+      "missing_signals": [
+        "optimizer_artifact_present",
+        "cross_environment_optimizer_evidence_present"
+      ],
+      "signals": [
+        {
+          "name": "future_scope_guard_present",
+          "ok": true,
+          "detail": "publication_scope_verified=True"
+        },
+        {
+          "name": "optimizer_artifact_present",
+          "ok": false,
+          "detail": "checked=['src\\\\wam_inference_value\\\\train_inference_optimizer.py', 'experiments\\\\universal_wam_train_inference_optimizer.py']"
+        },
+        {
+          "name": "cross_environment_optimizer_evidence_present",
+          "ok": false,
+          "detail": "no cross-environment optimizer result artifact is declared"
+        }
+      ],
+      "next_action": "Build and evaluate a train/inference optimizer across data scale, model class, horizon, scorer, safety, and rollout budget."
+    }
+  ],
+  "note": "Readiness audit only. A frontier is not a supported result until ready_to_promote is true and claims_status promotes it with artifact-backed evidence."
+}
