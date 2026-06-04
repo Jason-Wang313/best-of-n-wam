@@ -90,7 +90,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/result_consistency.py --fail-on-error`: passed with `157` consistency checks and `0` issues.
 - `python scripts/raw_result_recompute.py --fail-on-error`: passed with `10710` aggregate metrics, `20` exact-law files, `125` seed CI columns, and `0` issues.
 - `python scripts/table_schema.py --fail-on-error`: passed with `215` tables, `212858` rows, `17` schema checks, and `0` issues.
-- `python scripts/source_manifest.py --fail-on-error`: passed with `188` source files, `1333356` bytes, `14` source-manifest checks, and `0` issues.
+- `python scripts/source_manifest.py --fail-on-error`: passed with `188` source files, `1333445` bytes, `14` source-manifest checks, and `0` issues.
 - `python scripts/runtime_environment.py --fail-on-error`: passed with Python `3.10.11`, `4` core requirements, `5` / `5` optional requirements available, `15` runtime checks, and `0` issues.
 - `python scripts/experiment_registry.py --fail-on-error`: passed with `57` experiment-family entries, `69` wrapper links, `297` table artifacts, `40` figures, `10` registry checks, and `0` issues.
 - `python scripts/model_artifact_integrity.py --fail-on-error`: passed with `49` model artifacts, `315` NPZ arrays, `13` joblib predictors, `10` model-artifact checks, and `0` issues.
@@ -99,8 +99,8 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/claim_semantics.py --fail-on-error`: passed with `120` claims, `171` semantic checks, `51` CI-backed claims, and `0` issues.
 - `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `120` claims, `161` source links, `7` evidence checks, and `0` issues.
 - `python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `105` claim sources, `435` artifact references, and `0` issues.
-- `python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `103` claim sources, `433` artifact references, `536` hashed records, and `0` issues.
 - `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `120` claims, `31` ledger checks, and `0` issues.
 - `python scripts/claim_generation_consistency.py --fail-on-error`: passed with `120` claims, `10` generation checks, and `0` issues.
 - `python scripts/report_generation_consistency.py --fail-on-error`: passed with `8` reports, `9` generation checks, and `0` issues.
+- `python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `103` claim sources, `433` artifact references, `536` hashed records, and `0` issues.
 - `python scripts/claims_status.py`: passed with `120` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.

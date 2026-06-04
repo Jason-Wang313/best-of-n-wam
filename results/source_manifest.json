@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 188,
-  "total_bytes": 1333356,
+  "total_bytes": 1333445,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 171,
@@ -375,8 +375,8 @@
     {
       "path": "README.md",
       "suffix": ".md",
-      "bytes": 22299,
-      "sha256": "f7e61096d9a26e6bdabed44f6e377d8efa131e82a432d8a8f5a2240abd1bddfc"
+      "bytes": 22351,
+      "sha256": "7765263672311289e397e71b1449f3490b56f594acc030828714c8e716369186"
     },
     {
       "path": "requirements-benchmark.txt",
@@ -490,7 +490,7 @@
       "path": "scripts/run_all.sh",
       "suffix": ".sh",
       "bytes": 3294,
-      "sha256": "8e49e7e1119ee952f0fb2cf80d415c76e008dc48c03600691368a165e164f2ea"
+      "sha256": "fde4e9cdbf21ce327cdb8564c39d560b0d85752770f4ca0c294d87341c5fbeb4"
     },
     {
       "path": "scripts/run_benchmark_full.sh",
@@ -514,19 +514,19 @@
       "path": "scripts/run_inference_audit.sh",
       "suffix": ".sh",
       "bytes": 3260,
-      "sha256": "e27c994e57e6948d0b3f3ad76be21ea05df9b1fb62097721a66a2947e21c257d"
+      "sha256": "f26164a7c32a8ffc21017f52ad74347b5cc9e6b82d60a5a5740001c89c373bad"
     },
     {
       "path": "scripts/run_learned_wam_toy.sh",
       "suffix": ".sh",
       "bytes": 4119,
-      "sha256": "d357d76d2303127560a1af3403e155420c5e2bbe4884fd444fce4bcb908ea813"
+      "sha256": "cf901d519f89694ae9d7418a60aaffc295e643b67f62ae1abd515d2d63e18dd3"
     },
     {
       "path": "scripts/run_maxout_all.sh",
       "suffix": ".sh",
       "bytes": 4820,
-      "sha256": "dee2111f09cdddee44bd82a38ec25bcebb839ab16a47e85ca8287086acd943f3"
+      "sha256": "4ed224aa858d670d611f3228869242a7eaff58a8b778827efc5632a3860f412b"
     },
     {
       "path": "scripts/run_multi_env.sh",
@@ -544,7 +544,7 @@
       "path": "scripts/run_smoke.sh",
       "suffix": ".sh",
       "bytes": 6316,
-      "sha256": "1333e9f2c8d9dede1116376c6ed043709190d33ab14f6bdbac1473df24f1311e"
+      "sha256": "a656dac1a03372eae1c5504504261388d32afcb574324484ea6a515d9d70cfc4"
     },
     {
       "path": "scripts/run_visual_optional.sh",
@@ -591,8 +591,8 @@
     {
       "path": "scripts/write_maxout_reports.py",
       "suffix": ".py",
-      "bytes": 79506,
-      "sha256": "fa3012a83b28a53b7c432efb8bc8dc0f9aed13c9f0703c44c9ce2ec797e2cb56"
+      "bytes": 79549,
+      "sha256": "63c3f7626c11c23decf3bf206d398b861a0a5c8c39307a6ec19f311e842c8b34"
     },
     {
       "path": "src/wam_inference_value/__init__.py",
@@ -861,8 +861,8 @@
     {
       "path": "src/wam_inference_value/script_contracts.py",
       "suffix": ".py",
-      "bytes": 13120,
-      "sha256": "233b56a13efbeaccd151c1c3bd8a21185a047e48e4cf707c8b138e811eb1c317"
+      "bytes": 13118,
+      "sha256": "27158d42a7aac0ae50be91e72c6fd8443d10d4c1e8ef2f495679beb00dce11da"
     },
     {
       "path": "src/wam_inference_value/source_manifest.py",
@@ -1101,8 +1101,8 @@
     {
       "path": "tests/test_script_contracts.py",
       "suffix": ".py",
-      "bytes": 1156,
-      "sha256": "98090c7e1b6bfcb43c8ba3f04b4b9fd8f9cd40bce428efb6f1ec15e5c6ca90a2"
+      "bytes": 1152,
+      "sha256": "1b8e83521840a57637d8c872f6e3d1487680e3fde93af89ca851490003b2c38a"
     },
     {
       "path": "tests/test_source_manifest.py",
@@ -1170,7 +1170,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1333356, scan=1333356"
+      "detail": "payload=1333445, scan=1333445"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1215,7 +1215,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1333356"
+      "detail": "bytes=1333445"
     },
     {
       "name": "source_manifest_dir_coverage",

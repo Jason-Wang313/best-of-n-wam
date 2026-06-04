@@ -189,7 +189,7 @@
       "surface": "final_decision_report",
       "name": "source_manifest_command",
       "ok": true,
-      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `188` source files, `1333356` bytes, `14` source-manifest checks, and `0` issues",
+      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `188` source files, `1333445` bytes, `14` source-manifest checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -245,7 +245,7 @@
       "surface": "final_decision_report",
       "name": "evidence_hash_coverage_command",
       "ok": true,
-      "expected": "`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `103` claim sources, `435` artifact references, `536` hashed records, and `0` issues",
+      "expected": "`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `103` claim sources, `433` artifact references, `536` hashed records, and `0` issues",
       "detail": "found"
     },
     {

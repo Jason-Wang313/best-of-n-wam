@@ -34,4 +34,4 @@ def test_core_script_contract_flags_missing_gate(tmp_path: Path):
 
     failures = {check.name for check in checks if not check.ok}
     assert "run_smoke_gate_sequence" in failures
-    assert "run_smoke_double_command_result_consistency" in failures
+    assert "run_smoke_double_evidence_hash_coverage" in failures

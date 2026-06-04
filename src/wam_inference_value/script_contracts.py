@@ -25,23 +25,23 @@ CORE_GATE_SEQUENCE = [
     "scripts/claims_status.py",
     "scripts/claim_evidence_quality.py --fail-on-error",
     "scripts/tracked_artifact_provenance.py --fail-on-error",
-    "scripts/evidence_hash_coverage.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_ledger_integrity.py --fail-on-error",
     "scripts/claim_generation_consistency.py --fail-on-error",
     "scripts/report_generation_consistency.py --fail-on-error",
     "scripts/command_result_consistency.py --fail-on-error",
+    "scripts/evidence_hash_coverage.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_semantics.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_evidence_quality.py --fail-on-error",
     "scripts/tracked_artifact_provenance.py --fail-on-error",
-    "scripts/evidence_hash_coverage.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_ledger_integrity.py --fail-on-error",
     "scripts/claim_generation_consistency.py --fail-on-error",
     "scripts/report_generation_consistency.py --fail-on-error",
     "scripts/command_result_consistency.py --fail-on-error",
+    "scripts/evidence_hash_coverage.py --fail-on-error",
 ]
 CORE_SCRIPT_REQUIREMENTS = {
     "scripts/run_smoke.sh": [
@@ -160,7 +160,7 @@ def audit_core_script(root: Path, script: str, required_snippets: list[str], che
     add(checks, f"{label}_double_claim_semantics", count_occurrences(text, "scripts/claim_semantics.py --fail-on-error") >= 2, "claim semantic gate runs before both ledger gates")
     add(checks, f"{label}_double_claim_evidence_quality", count_occurrences(text, "scripts/claim_evidence_quality.py --fail-on-error") >= 2, "claim evidence gate runs before both ledger gates")
     add(checks, f"{label}_double_tracked_artifact_provenance", count_occurrences(text, "scripts/tracked_artifact_provenance.py --fail-on-error") >= 2, "tracked-artifact gate runs after both evidence-quality gates")
-    add(checks, f"{label}_double_evidence_hash_coverage", count_occurrences(text, "scripts/evidence_hash_coverage.py --fail-on-error") >= 2, "evidence-hash gate runs after both tracked-artifact gates")
+    add(checks, f"{label}_double_evidence_hash_coverage", count_occurrences(text, "scripts/evidence_hash_coverage.py --fail-on-error") >= 2, "evidence-hash gate runs after both command-result gates")
     add(checks, f"{label}_double_claim_ledger", count_occurrences(text, "scripts/claim_ledger_integrity.py --fail-on-error") >= 2, "ledger gate runs after both claim-status writes")
     add(checks, f"{label}_double_claim_generation_consistency", count_occurrences(text, "scripts/claim_generation_consistency.py --fail-on-error") >= 2, "claim-generation gate runs after both ledger gates")
     add(checks, f"{label}_double_report_generation_consistency", count_occurrences(text, "scripts/report_generation_consistency.py --fail-on-error") >= 2, "report-generation gate runs after both claim-generation gates")
@@ -230,6 +230,6 @@ def script_contracts_markdown(payload: dict[str, Any]) -> str:
         for issue in issues:
             lines.append(f"- `{issue.get('name')}`: {issue.get('detail')}")
     else:
-        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered test-inventory/artifact/result/raw-recompute/table-schema/source-manifest/runtime-environment/experiment-registry/result-manifest/model-artifact/figure-quality/report-writer/narrative/script-contract/claim/semantic/evidence/tracked-artifact/evidence-hash/ledger/claim-generation/report-generation/command-result gates.")
+        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered test-inventory/artifact/result/raw-recompute/table-schema/source-manifest/runtime-environment/experiment-registry/result-manifest/model-artifact/figure-quality/report-writer/narrative/script-contract/claim/semantic/evidence/tracked-artifact/ledger/claim-generation/report-generation/command-result/evidence-hash gates.")
     lines.append("")
     return "\n".join(lines)

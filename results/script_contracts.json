@@ -24,23 +24,23 @@
     "scripts/claims_status.py",
     "scripts/claim_evidence_quality.py --fail-on-error",
     "scripts/tracked_artifact_provenance.py --fail-on-error",
-    "scripts/evidence_hash_coverage.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_ledger_integrity.py --fail-on-error",
     "scripts/claim_generation_consistency.py --fail-on-error",
     "scripts/report_generation_consistency.py --fail-on-error",
     "scripts/command_result_consistency.py --fail-on-error",
+    "scripts/evidence_hash_coverage.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_semantics.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_evidence_quality.py --fail-on-error",
     "scripts/tracked_artifact_provenance.py --fail-on-error",
-    "scripts/evidence_hash_coverage.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_ledger_integrity.py --fail-on-error",
     "scripts/claim_generation_consistency.py --fail-on-error",
     "scripts/report_generation_consistency.py --fail-on-error",
-    "scripts/command_result_consistency.py --fail-on-error"
+    "scripts/command_result_consistency.py --fail-on-error",
+    "scripts/evidence_hash_coverage.py --fail-on-error"
   ],
   "checks": [
     {
@@ -136,7 +136,7 @@
     {
       "name": "run_smoke_double_evidence_hash_coverage",
       "ok": true,
-      "detail": "evidence-hash gate runs after both tracked-artifact gates"
+      "detail": "evidence-hash gate runs after both command-result gates"
     },
     {
       "name": "run_smoke_double_claim_ledger",
@@ -251,7 +251,7 @@
     {
       "name": "run_learned_wam_toy_double_evidence_hash_coverage",
       "ok": true,
-      "detail": "evidence-hash gate runs after both tracked-artifact gates"
+      "detail": "evidence-hash gate runs after both command-result gates"
     },
     {
       "name": "run_learned_wam_toy_double_claim_ledger",
@@ -366,7 +366,7 @@
     {
       "name": "run_all_double_evidence_hash_coverage",
       "ok": true,
-      "detail": "evidence-hash gate runs after both tracked-artifact gates"
+      "detail": "evidence-hash gate runs after both command-result gates"
     },
     {
       "name": "run_all_double_claim_ledger",
@@ -481,7 +481,7 @@
     {
       "name": "run_inference_audit_double_evidence_hash_coverage",
       "ok": true,
-      "detail": "evidence-hash gate runs after both tracked-artifact gates"
+      "detail": "evidence-hash gate runs after both command-result gates"
     },
     {
       "name": "run_inference_audit_double_claim_ledger",
