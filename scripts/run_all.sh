@@ -25,6 +25,7 @@ fi
 "${PY[@]}" experiments/adaptive_rollout_allocation.py --states 144 --rollouts 384 --pilot-k 64 --max-n 64 --mean-budgets 1 2 4 8 16 32 64 --seed 31
 "${PY[@]}" experiments/closed_loop_receding_horizon_eval.py --episodes 72 --seed 37
 "${PY[@]}" experiments/nonstationary_dynamics_extension.py --episodes 48 --rollouts 160 --mc-trials 5000 --seed 41
+"${PY[@]}" experiments/universal_wam_train_inference_optimizer.py --fail-on-error
 "${PY[@]}" scripts/test_inventory.py --fail-on-error
 "${PY[@]}" scripts/artifact_integrity.py --fail-on-error
 "${PY[@]}" scripts/result_consistency.py --fail-on-error

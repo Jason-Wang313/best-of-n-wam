@@ -45,12 +45,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 6563
+          "bytes": 7155
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 3748
+          "bytes": 4121
         },
         {
           "path": "reports/final_decision_report.md",
@@ -81,12 +81,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 6563
+          "bytes": 7155
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 3748
+          "bytes": 4121
         },
         {
           "path": "results/benchmark_libero_wam.json",
@@ -122,12 +122,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 6563
+          "bytes": 7155
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 3748
+          "bytes": 4121
         },
         {
           "path": "results/benchmark_robocasa_catalog_probe.json",
@@ -163,12 +163,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 6563
+          "bytes": 7155
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 3748
+          "bytes": 4121
         },
         {
           "path": "results/benchmark_maniskill_visual_probe.json",
@@ -209,12 +209,22 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 6563
+          "bytes": 7155
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 3748
+          "bytes": 4121
+        },
+        {
+          "path": "results/universal_wam_train_inference_optimizer.json",
+          "exists": true,
+          "bytes": 25001
+        },
+        {
+          "path": "reports/universal_wam_train_inference_optimizer_report.md",
+          "exists": true,
+          "bytes": 1240
         },
         {
           "path": "results/publication_scope.json",

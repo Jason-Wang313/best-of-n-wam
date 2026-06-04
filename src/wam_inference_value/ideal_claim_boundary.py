@@ -196,6 +196,8 @@ IDEAL_CLAIM_ROWS = [
         "gap_evidence_files": [
             "results/ideal_frontier_readiness.json",
             "reports/ideal_frontier_readiness_report.md",
+            "results/universal_wam_train_inference_optimizer.json",
+            "reports/universal_wam_train_inference_optimizer_report.md",
             "results/publication_scope.json",
             "reports/final_decision_report.md",
             "reports/reviewer_risk_assessment.md",

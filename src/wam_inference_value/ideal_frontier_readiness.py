@@ -57,6 +57,7 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     maniskill_visual = _load_json(results_dir / "benchmark_maniskill_visual_probe.json")
     maniskill_deps = _load_json(results_dir / "benchmark_maniskill_dependency_probe.json")
     publication_scope = _load_json(results_dir / "publication_scope.json")
+    optimizer = _load_json(results_dir / "universal_wam_train_inference_optimizer.json")
 
     rows: list[dict[str, Any]] = []
 
@@ -183,6 +184,7 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
         root / "src" / "wam_inference_value" / "train_inference_optimizer.py",
         root / "experiments" / "universal_wam_train_inference_optimizer.py",
     ]
+    dimensions = optimizer.get("choice_dimensions") if isinstance(optimizer.get("choice_dimensions"), dict) else {}
     _signal(
         universal,
         "future_scope_guard_present",
@@ -190,7 +192,30 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
         f"publication_scope_verified={publication_scope.get('verified')}",
     )
     _signal(universal, "optimizer_artifact_present", any(path.exists() for path in optimizer_files), f"checked={[str(path.relative_to(root)) for path in optimizer_files]}")
-    _signal(universal, "cross_environment_optimizer_evidence_present", False, "no cross-environment optimizer result artifact is declared")
+    _signal(
+        universal,
+        "optimizer_result_verified",
+        optimizer.get("verified") is True and optimizer.get("not_a_universal_proof") is True,
+        f"verified={optimizer.get('verified')}, not_a_universal_proof={optimizer.get('not_a_universal_proof')}",
+    )
+    _signal(
+        universal,
+        "optimizer_choice_dimensions_covered",
+        bool(dimensions) and all(bool(value) for value in dimensions.values()),
+        f"dimensions={dimensions}",
+    )
+    _signal(
+        universal,
+        "cross_environment_optimizer_evidence_present",
+        int(optimizer.get("n_selected_environments") or 0) >= 5 and int(optimizer.get("n_environment_families") or 0) >= 2,
+        f"selected_envs={optimizer.get('n_selected_environments')}, families={optimizer.get('n_environment_families')}",
+    )
+    _signal(
+        universal,
+        "universal_generalization_proof_present",
+        False,
+        "optimizer is evidence-bound to committed artifacts and explicitly not a universal proof",
+    )
     rows.append(
         _row(
             "universal_wam_training_recipe",

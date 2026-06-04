@@ -84,6 +84,8 @@ SEEDS=(701 702 703 704 705)
   --model-path "$MODEL_PATH" \
   --seeds "${SEEDS[@]}"
 
+"${PY[@]}" experiments/universal_wam_train_inference_optimizer.py --fail-on-error
+
 "${PY[@]}" scripts/test_inventory.py --fail-on-error
 "${PY[@]}" scripts/artifact_integrity.py --fail-on-error
 "${PY[@]}" scripts/result_consistency.py --fail-on-error

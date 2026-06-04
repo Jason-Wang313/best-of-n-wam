@@ -72,6 +72,6 @@
   - Missing future-only evidence class, not current evidence: Executable universal train/inference optimizer artifact.
   - Missing future-only evidence class, not current evidence: Cross-environment evidence that the optimizer chooses data, model, scorer, horizon, safety, and sampling budgets.
   - Missing future-only evidence class, not current evidence: Claim evidence separating this future recipe from the current exact test-time inference law.
-  Gap evidence files: `results/ideal_frontier_readiness.json`, `reports/ideal_frontier_readiness_report.md`, `results/publication_scope.json`, `reports/final_decision_report.md`, `reports/reviewer_risk_assessment.md`
+  Gap evidence files: `results/ideal_frontier_readiness.json`, `reports/ideal_frontier_readiness_report.md`, `results/universal_wam_train_inference_optimizer.json`, `reports/universal_wam_train_inference_optimizer_report.md`, `results/publication_scope.json`, `reports/final_decision_report.md`, `reports/reviewer_risk_assessment.md`
 
 The boundary is clean: artifact-backed rows may be promoted with their stated scope, while future-only ideal endpoints remain non-promotable.

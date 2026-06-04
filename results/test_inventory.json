@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 141,
-  "n_unique_tests": 141,
-  "trailer_count": 141,
+  "n_tests": 142,
+  "n_unique_tests": 142,
+  "trailer_count": 142,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -147,7 +147,8 @@
     "tests/test_theorem_utility.py::test_oracle_score_monotone_improvement",
     "tests/test_theorem_utility.py::test_random_score_gives_little_selection_advantage_on_large_independent_pool",
     "tests/test_tracked_artifact_provenance.py::test_tracked_artifact_provenance_accepts_tracked_sources",
-    "tests/test_tracked_artifact_provenance.py::test_tracked_artifact_provenance_flags_untracked_sources"
+    "tests/test_tracked_artifact_provenance.py::test_tracked_artifact_provenance_flags_untracked_sources",
+    "tests/test_train_inference_optimizer.py::test_optimizer_selects_from_seed_delta_evidence"
   ],
   "checks": [
     {
@@ -158,7 +159,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=141"
+      "detail": "nodeids=142"
     },
     {
       "name": "nodeids_unique",
@@ -168,12 +169,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=141"
+      "detail": "nodeids=142"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=141, nodeids=141"
+      "detail": "trailer=142, nodeids=142"
     },
     {
       "name": "required_test_families_present",

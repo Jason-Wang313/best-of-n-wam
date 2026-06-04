@@ -2,10 +2,10 @@
   "experiment": "artifact_manifest",
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_files": 399,
-  "total_bytes": 56445757,
+  "n_files": 400,
+  "total_bytes": 56471656,
   "counts_by_suffix": {
-    ".json": 107,
+    ".json": 108,
     ".npz": 41,
     ".png": 36,
     ".csv": 215
@@ -842,14 +842,14 @@
     {
       "path": "results/ideal_completion_audit.json",
       "suffix": ".json",
-      "bytes": 10130,
-      "sha256": "cdedd8185ee9865e64f35e04b3ba0591c7c1e13876767a79229aeff57db55aee"
+      "bytes": 10436,
+      "sha256": "5b6d22b591ba67da0baead89600ce285df999f3fa55f5247f6328be17d563589"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 6563,
-      "sha256": "90acbae6232127b35605110a9e724c5c040f87130af335a0cd1a0be2ef1adc79"
+      "bytes": 7155,
+      "sha256": "7f1b706f9735883d3a0008fc6e3a40ce717aacdeb03533bb8a01df4217b70745"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -2400,6 +2400,12 @@
       "sha256": "bcccd4723cc9d68792245722d439e5e4d7f177f18b7cdb5d394665b3cc393f75"
     },
     {
+      "path": "results/universal_wam_train_inference_optimizer.json",
+      "suffix": ".json",
+      "bytes": 25001,
+      "sha256": "68abaf3a5412c4e65da09988e9e4317e38718eee06a15ddc10b5c3643882cca3"
+    },
+    {
       "path": "results/visual_optional.json",
       "suffix": ".json",
       "bytes": 257,
@@ -2413,22 +2419,22 @@
     {
       "name": "manifest_records_present",
       "ok": true,
-      "detail": "records=399"
+      "detail": "records=400"
     },
     {
       "name": "manifest_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=399, scan=399"
+      "detail": "payload=400, scan=400"
     },
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=56445757, scan=56445757"
+      "detail": "payload=56471656, scan=56471656"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
       "ok": true,
-      "detail": "payload={'.json': 107, '.npz': 41, '.png': 36, '.csv': 215}, scan={'.json': 107, '.npz': 41, '.png': 36, '.csv': 215}"
+      "detail": "payload={'.json': 108, '.npz': 41, '.png': 36, '.csv': 215}, scan={'.json': 108, '.npz': 41, '.png': 36, '.csv': 215}"
     },
     {
       "name": "manifest_has_no_missing_current_artifacts",
@@ -2458,7 +2464,7 @@
     {
       "name": "manifest_scientific_artifact_file_count",
       "ok": true,
-      "detail": "files=399"
+      "detail": "files=400"
     },
     {
       "name": "manifest_table_count",
@@ -2468,7 +2474,7 @@
     {
       "name": "manifest_json_count",
       "ok": true,
-      "detail": "json=107"
+      "detail": "json=108"
     },
     {
       "name": "manifest_model_count",
@@ -2483,7 +2489,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=56445757"
+      "detail": "bytes=56471656"
     }
   ],
   "issues": [],

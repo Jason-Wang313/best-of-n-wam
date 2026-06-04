@@ -33,8 +33,11 @@ This report is a gap audit, not a result promotion mechanism.
   - ee_control_success: `False` (ee_success=False, attempts=2)
   - pinocchio_available_for_ee: `False` (pinocchio=False)
   Next action: Clear the Vulkan descriptor-pool renderer failure and install a compatible Pinocchio stack for EE controllers.
-- `universal_wam_training_recipe`: ready_to_promote=`False`; missing=['optimizer_artifact_present', 'cross_environment_optimizer_evidence_present']
+- `universal_wam_training_recipe`: ready_to_promote=`False`; missing=['universal_generalization_proof_present']
   - future_scope_guard_present: `True` (publication_scope_verified=True)
-  - optimizer_artifact_present: `False` (checked=['src\\wam_inference_value\\train_inference_optimizer.py', 'experiments\\universal_wam_train_inference_optimizer.py'])
-  - cross_environment_optimizer_evidence_present: `False` (no cross-environment optimizer result artifact is declared)
+  - optimizer_artifact_present: `True` (checked=['src\\wam_inference_value\\train_inference_optimizer.py', 'experiments\\universal_wam_train_inference_optimizer.py'])
+  - optimizer_result_verified: `True` (verified=True, not_a_universal_proof=True)
+  - optimizer_choice_dimensions_covered: `True` (dimensions={'data_scale': True, 'model_class': True, 'model_capacity': True, 'rollout_horizon': True, 'scorer': True, 'safety_policy': True, 'rollout_budget': True})
+  - cross_environment_optimizer_evidence_present: `True` (selected_envs=9, families=3)
+  - universal_generalization_proof_present: `False` (optimizer is evidence-bound to committed artifacts and explicitly not a universal proof)
   Next action: Build and evaluate a train/inference optimizer across data scale, model class, horizon, scorer, safety, and rollout budget.

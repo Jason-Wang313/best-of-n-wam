@@ -63,6 +63,7 @@ fi
 "${PY[@]}" experiments/adaptive_rollout_allocation.py --states 12 --rollouts 160 --pilot-k 32 --max-n 32 --mean-budgets 1 2 4 8 16 32 --seed 106
 "${PY[@]}" experiments/closed_loop_receding_horizon_eval.py --episodes 4 --seed 107
 "${PY[@]}" experiments/nonstationary_dynamics_extension.py --episodes 4 --rollouts 64 --mc-trials 1200 --seed 108
+WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" experiments/universal_wam_train_inference_optimizer.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/test_inventory.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/artifact_integrity.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/result_consistency.py --fail-on-error
