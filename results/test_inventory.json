@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 98,
-  "n_unique_tests": 98,
-  "trailer_count": 98,
+  "n_tests": 100,
+  "n_unique_tests": 100,
+  "trailer_count": 100,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -22,6 +22,8 @@
     "tests/test_claim_evidence_quality.py::test_claim_evidence_quality_accepts_mapped_structured_sources",
     "tests/test_claim_evidence_quality.py::test_claim_evidence_quality_flags_missing_source_map",
     "tests/test_claim_evidence_quality.py::test_claim_evidence_quality_flags_placeholder_evidence",
+    "tests/test_claim_generation_consistency.py::test_claim_generation_consistency_accepts_byte_stable_generator",
+    "tests/test_claim_generation_consistency.py::test_claim_generation_consistency_rejects_mutating_generator",
     "tests/test_claim_ledger.py::test_claim_ledger_accepts_sorted_contiguous_verified_claims",
     "tests/test_claim_ledger.py::test_claim_ledger_rejects_duplicate_missing_and_unsorted_ids",
     "tests/test_claim_ledger.py::test_claim_ledger_requires_all_claims_verified_for_final_gate",
@@ -115,7 +117,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=98"
+      "detail": "nodeids=100"
     },
     {
       "name": "nodeids_unique",
@@ -125,12 +127,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=98"
+      "detail": "nodeids=100"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=98, nodeids=98"
+      "detail": "trailer=100, nodeids=100"
     },
     {
       "name": "required_test_families_present",

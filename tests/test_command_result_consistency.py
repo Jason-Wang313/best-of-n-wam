@@ -39,14 +39,17 @@ def write_minimal_gate_artifacts(results: Path) -> None:
     write_json(results / "claim_semantics.json", {"n_claims": 114, "n_checks": 168, "n_ci_claims": 51, "n_issues": 0})
     write_json(results / "claim_evidence_quality.json", {"n_claims": 114, "n_source_links": 149, "n_checks": 7, "n_issues": 0})
     write_json(results / "claim_ledger_integrity.json", {"n_claims": 114, "n_checks": 31, "n_issues": 0})
+    write_json(results / "claim_generation_consistency.json", {"n_claims": 114, "n_checks": 10, "n_issues": 0})
 
 
 def write_final_report(root: Path, results: Path, *, stale_pytest: bool = False, stale_ledger: bool = False) -> None:
-    snippets = [snippet for _, snippet in expected_snippets(results)]
+    named_snippets = expected_snippets(results)
+    snippets = [snippet for _, snippet in named_snippets]
     if stale_pytest:
         snippets[0] = re.sub(r"\d+ passed", "71 passed", snippets[0])
     if stale_ledger:
-        snippets[-1] = snippets[-1].replace("and `0` issues", "and `1` issues")
+        ledger_index = next(index for index, (name, _) in enumerate(named_snippets) if name == "claim_ledger_integrity")
+        snippets[ledger_index] = snippets[ledger_index].replace("and `0` issues", "and `1` issues")
     report = root / "reports" / "final_decision_report.md"
     report.parent.mkdir(parents=True, exist_ok=True)
     report.write_text("## Command Results\n\n" + "\n".join(f"- {snippet}." for snippet in snippets), encoding="utf-8")

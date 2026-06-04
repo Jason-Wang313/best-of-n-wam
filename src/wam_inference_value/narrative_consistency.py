@@ -97,6 +97,7 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{claim_semantics.",
         "{claim_evidence_quality.",
         "{claim_ledger_integrity.",
+        "{claim_generation_consistency.",
         "{figure_quality.",
         "{test_inventory.",
         "{gym_",
@@ -279,6 +280,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     script_contracts = load_json(results_dir, "script_contracts.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
+    claim_generation_consistency = load_json(results_dir, "claim_generation_consistency.json")
     learned = load_json(results_dir, "learned_wam_lite_training.json")
     val = (learned.get("metrics") or {}).get("validation") or {}
     learned_cmp = load_json(results_dir, "learned_wam_vs_analytic_wam.json")
@@ -493,6 +495,18 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
             f"`python scripts/claim_evidence_quality.py --fail-on-error`: passed with `{claim_evidence_quality.get('n_claims')}` claims, "
             f"`{claim_evidence_quality.get('n_source_links')}` source links, `{claim_evidence_quality.get('n_checks')}` evidence checks, "
             f"and `{claim_evidence_quality.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "claim_generation_consistency_command",
+        (
+            f"`python scripts/claim_generation_consistency.py --fail-on-error`: passed with "
+            f"`{claim_generation_consistency.get('n_claims')}` claims, "
+            f"`{claim_generation_consistency.get('n_checks')}` generation checks, "
+            f"and `{claim_generation_consistency.get('n_issues')}` issues"
         ),
     )
     add_no_template_markers(checks, "final_decision_report", text)

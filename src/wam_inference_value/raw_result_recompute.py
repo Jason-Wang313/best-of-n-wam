@@ -15,6 +15,7 @@ from wam_inference_value.evaluation import ci95
 SELF_OUTPUTS = {
     "artifact_integrity.json",
     "claim_evidence_quality.json",
+    "claim_generation_consistency.json",
     "claim_ledger_integrity.json",
     "claims_status.json",
     "command_result_consistency.json",

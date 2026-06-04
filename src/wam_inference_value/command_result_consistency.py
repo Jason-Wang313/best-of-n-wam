@@ -55,6 +55,7 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
     claim_ledger_integrity = load_json(results_dir, "claim_ledger_integrity.json")
+    claim_generation_consistency = load_json(results_dir, "claim_generation_consistency.json")
     expected_pytest_passed = test_inventory.get("n_tests") or FALLBACK_PYTEST_PASSED
 
     runtime_python = (runtime_environment.get("python") or {}).get("version")
@@ -201,6 +202,15 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
                 f"`python scripts/claim_ledger_integrity.py --fail-on-error`: passed with "
                 f"`{claim_ledger_integrity.get('n_claims')}` claims, `{claim_ledger_integrity.get('n_checks')}` ledger checks, "
                 f"and `{claim_ledger_integrity.get('n_issues')}` issues"
+            ),
+        ),
+        (
+            "claim_generation_consistency",
+            (
+                f"`python scripts/claim_generation_consistency.py --fail-on-error`: passed with "
+                f"`{claim_generation_consistency.get('n_claims')}` claims, "
+                f"`{claim_generation_consistency.get('n_checks')}` generation checks, and "
+                f"`{claim_generation_consistency.get('n_issues')}` issues"
             ),
         ),
     ]

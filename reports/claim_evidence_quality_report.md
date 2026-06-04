@@ -1,9 +1,9 @@
 # Claim Evidence Quality Report
 
 - Verified: True
-- Claims audited: 116
-- Source-mapped claims: 116
-- Source links: 153
+- Claims audited: 117
+- Source-mapped claims: 117
+- Source links: 155
 - Checks: 7
 - Issues: 0
 

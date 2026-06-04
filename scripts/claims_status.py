@@ -43,6 +43,7 @@ NARRATIVE_SURFACES = [
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
     ("claim_semantics_report", REPORTS / "claim_semantics_report.md"),
     ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
+    ("claim_generation_consistency_report", REPORTS / "claim_generation_consistency_report.md"),
     ("script_contracts_report", REPORTS / "script_contracts_report.md"),
     ("claim_evidence_quality_report", REPORTS / "claim_evidence_quality_report.md"),
     ("final_decision_report", REPORTS / "final_decision_report.md"),
@@ -316,6 +317,7 @@ def main() -> None:
     script_contracts = load_json("script_contracts.json")
     claim_semantics = load_json("claim_semantics.json")
     claim_evidence_quality = load_json("claim_evidence_quality.json")
+    claim_generation_consistency = load_json("claim_generation_consistency.json")
 
     claims: list[dict[str, Any]] = []
     add(claims, 1, "Exact finite binary law verified.", status(bool(exp1) and exp1.get("mean_success_mc_mae", 1.0) < 0.018, bool(exp1)), f"success MAE={exp1.get('mean_success_mc_mae')}")
@@ -1879,9 +1881,9 @@ def main() -> None:
         "status": status(
             bool(command_result_consistency)
             and command_result_consistency.get("verified", False)
-            and (command_result_consistency.get("n_expected_snippets") or 0) >= 17
-            and (command_result_consistency.get("n_python_command_lines") or 0) >= 16
-            and (command_result_consistency.get("n_checks") or 0) >= 19
+            and (command_result_consistency.get("n_expected_snippets") or 0) >= 18
+            and (command_result_consistency.get("n_python_command_lines") or 0) >= 17
+            and (command_result_consistency.get("n_checks") or 0) >= 20
             and command_result_consistency.get("n_issues") == 0
             and artifact_exists(RESULTS / "command_result_consistency.json")
             and artifact_exists(REPORTS / "command_result_consistency_report.md"),
@@ -1914,12 +1916,32 @@ def main() -> None:
             f"issues={test_inventory.get('n_issues')}"
         ),
     }
+    claim_generation_consistency_claim = {
+        "id": 117,
+        "claim": "Generated claim-status artifacts are byte-stable under rerunning the claim generator.",
+        "status": status(
+            bool(claim_generation_consistency)
+            and claim_generation_consistency.get("verified", False)
+            and (claim_generation_consistency.get("n_files_checked") or 0) >= 2
+            and (claim_generation_consistency.get("n_claims") or 0) >= 116
+            and (claim_generation_consistency.get("n_checks") or 0) >= 10
+            and claim_generation_consistency.get("n_issues") == 0
+            and artifact_exists(RESULTS / "claim_generation_consistency.json")
+            and artifact_exists(REPORTS / "claim_generation_consistency_report.md"),
+            bool(claim_generation_consistency),
+        ),
+        "evidence": (
+            f"claims={claim_generation_consistency.get('n_claims')}, files={claim_generation_consistency.get('n_files_checked')}, "
+            f"checks={claim_generation_consistency.get('n_checks')}, issues={claim_generation_consistency.get('n_issues')}, "
+            "hashes_recorded_in=results/claim_generation_consistency.json"
+        ),
+    }
     candidate_claims = claims + [
         {
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=116, max_id=116, checks=pending, issues=0",
+            "evidence": "claims=117, max_id=117, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
@@ -1934,6 +1956,7 @@ def main() -> None:
         model_artifact_integrity_claim,
         command_result_consistency_claim,
         test_inventory_claim,
+        claim_generation_consistency_claim,
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
@@ -1960,6 +1983,7 @@ def main() -> None:
     claims.append(model_artifact_integrity_claim)
     claims.append(command_result_consistency_claim)
     claims.append(test_inventory_claim)
+    claims.append(claim_generation_consistency_claim)
 
     payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)

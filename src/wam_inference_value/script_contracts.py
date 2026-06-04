@@ -25,6 +25,7 @@ CORE_GATE_SEQUENCE = [
     "scripts/claim_evidence_quality.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_ledger_integrity.py --fail-on-error",
+    "scripts/claim_generation_consistency.py --fail-on-error",
     "scripts/command_result_consistency.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_semantics.py --fail-on-error",
@@ -32,6 +33,7 @@ CORE_GATE_SEQUENCE = [
     "scripts/claim_evidence_quality.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_ledger_integrity.py --fail-on-error",
+    "scripts/claim_generation_consistency.py --fail-on-error",
     "scripts/command_result_consistency.py --fail-on-error",
 ]
 CORE_SCRIPT_REQUIREMENTS = {
@@ -150,6 +152,7 @@ def audit_core_script(root: Path, script: str, required_snippets: list[str], che
     add(checks, f"{label}_double_claim_semantics", count_occurrences(text, "scripts/claim_semantics.py --fail-on-error") >= 2, "claim semantic gate runs before both ledger gates")
     add(checks, f"{label}_double_claim_evidence_quality", count_occurrences(text, "scripts/claim_evidence_quality.py --fail-on-error") >= 2, "claim evidence gate runs before both ledger gates")
     add(checks, f"{label}_double_claim_ledger", count_occurrences(text, "scripts/claim_ledger_integrity.py --fail-on-error") >= 2, "ledger gate runs after both claim-status writes")
+    add(checks, f"{label}_double_claim_generation_consistency", count_occurrences(text, "scripts/claim_generation_consistency.py --fail-on-error") >= 2, "claim-generation gate runs after both ledger gates")
     add(checks, f"{label}_double_command_result_consistency", count_occurrences(text, "scripts/command_result_consistency.py --fail-on-error") >= 2, "command-result gate runs after both ledger gates")
 
 
@@ -216,6 +219,6 @@ def script_contracts_markdown(payload: dict[str, Any]) -> str:
         for issue in issues:
             lines.append(f"- `{issue.get('name')}`: {issue.get('detail')}")
     else:
-        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered test-inventory/artifact/result/raw-recompute/table-schema/source-manifest/runtime-environment/experiment-registry/result-manifest/model-artifact/figure-quality/narrative/script-contract/claim/semantic/evidence/ledger/command-result gates.")
+        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered test-inventory/artifact/result/raw-recompute/table-schema/source-manifest/runtime-environment/experiment-registry/result-manifest/model-artifact/figure-quality/narrative/script-contract/claim/semantic/evidence/ledger/claim-generation/command-result gates.")
     lines.append("")
     return "\n".join(lines)
