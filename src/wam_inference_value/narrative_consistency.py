@@ -84,6 +84,7 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{bullet_lines(",
         "{claims_payload",
         "{artifact_integrity.",
+        "{artifact_manifest.",
         "{result_consistency.",
         "{raw_result_recompute.",
         "{narrative_consistency.",
@@ -258,6 +259,7 @@ def audit_readme(root: Path, results_dir: Path, checks: list[NarrativeCheck]) ->
 def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCheck]) -> None:
     text = read_text(root / "reports" / "final_decision_report.md")
     artifact_integrity = load_json(results_dir, "artifact_integrity.json")
+    artifact_manifest = load_json(results_dir, "artifact_manifest.json")
     result_consistency = load_json(results_dir, "result_consistency.json")
     raw_result_recompute = load_json(results_dir, "raw_result_recompute.json")
     script_contracts = load_json(results_dir, "script_contracts.json")
@@ -275,7 +277,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     benchmark_visual = load_json(results_dir, "benchmark_visual_wam_lite.json")
     gym_visual = load_json(results_dir, "benchmark_gym_robotics_visual_wam.json")
 
-    add_contains(checks, "final_decision_report", text, "pytest_count", "`python -m pytest -q`: passed with `68 passed`")
+    add_contains(checks, "final_decision_report", text, "pytest_count", "`python -m pytest -q`: passed with `71 passed`")
     add_contains(
         checks,
         "final_decision_report",
@@ -336,6 +338,17 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
         (
             f"`python scripts/artifact_integrity.py --fail-on-error`: passed with `{artifact_integrity.get('n_references')}` artifact references checked "
             f"and `{artifact_integrity.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "artifact_manifest_command",
+        (
+            f"`python scripts/artifact_manifest.py --fail-on-error`: passed with `{artifact_manifest.get('n_files')}` scientific artifacts, "
+            f"`{artifact_manifest.get('total_bytes')}` bytes, `{artifact_manifest.get('n_checks')}` manifest checks, "
+            f"and `{artifact_manifest.get('n_issues')}` issues"
         ),
     )
     add_contains(

@@ -233,12 +233,13 @@ This runs tests, smoke, learned WAM toy, multi-env, benchmark/visual attempts, i
 python scripts/claims_status.py
 ```
 
-Claims are classified as `VERIFIED`, `PARTIAL`, `UNSUPPORTED`, or `FAILED` from artifacts. The claim gate is surrounded by eight stricter consistency checks:
+Claims are classified as `VERIFIED`, `PARTIAL`, `UNSUPPORTED`, or `FAILED` from artifacts. The claim gate is surrounded by nine stricter consistency checks:
 
 ```bash
 python scripts/artifact_integrity.py --fail-on-error
 python scripts/result_consistency.py --fail-on-error
 python scripts/raw_result_recompute.py --fail-on-error
+python scripts/artifact_manifest.py --fail-on-error
 python scripts/narrative_consistency.py --fail-on-error
 python scripts/script_contracts.py --fail-on-error
 python scripts/claims_status.py
@@ -249,7 +250,7 @@ python scripts/claims_status.py
 python scripts/claim_ledger_integrity.py --fail-on-error
 ```
 
-The artifact-integrity gate checks that referenced result files exist, parse, and are nonempty. The result-consistency gate checks that summary JSONs agree with canonical tables for confidence-interval sanity, row counts, seed coverage, task/environment coverage, rollout-pool counts, promoted-scorer CIs, and LIBERO success counts. The raw-recompute gate independently recomputes aggregate means, exact-law MAEs, and seed-metric confidence intervals from raw CSV artifacts. The narrative-consistency gate checks high-impact README and final-report numbers against the current JSON artifacts. The script-contract gate checks canonical shell scripts for required experiment steps, strict Bash mode, optional benchmark guards, and ordered verification gates. The claim-semantics gate checks that verified claim wording is backed by matching threshold semantics, such as positive CI lower bounds for “beats” claims and small errors for exact-law claims. The claim-evidence gate maps every current claim ID to source artifacts and rejects missing sources, unstructured evidence, unresolved placeholders, and CI claims without CI evidence. The claim-ledger gate checks sorted contiguous claim IDs, valid statuses, JSON/Markdown count agreement, structured evidence strings, evidence-path references, empty overclaim arrays, and no non-verified final claims. README and paper-outline claims are intentionally scoped to artifact-backed results. Unsupported benchmark and universal-training claims belong in future work, not in the results.
+The artifact-integrity gate checks that referenced result files exist, parse, and are nonempty. The result-consistency gate checks that summary JSONs agree with canonical tables for confidence-interval sanity, row counts, seed coverage, task/environment coverage, rollout-pool counts, promoted-scorer CIs, and LIBERO success counts. The raw-recompute gate independently recomputes aggregate means, exact-law MAEs, and seed-metric confidence intervals from raw CSV artifacts. The artifact-manifest gate writes deterministic SHA-256 hashes for canonical scientific result JSONs, CSV tables, figures, and model files. The narrative-consistency gate checks high-impact README and final-report numbers against the current JSON artifacts. The script-contract gate checks canonical shell scripts for required experiment steps, strict Bash mode, optional benchmark guards, and ordered verification gates. The claim-semantics gate checks that verified claim wording is backed by matching threshold semantics, such as positive CI lower bounds for “beats” claims and small errors for exact-law claims. The claim-evidence gate maps every current claim ID to source artifacts and rejects missing sources, unstructured evidence, unresolved placeholders, and CI claims without CI evidence. The claim-ledger gate checks sorted contiguous claim IDs, valid statuses, JSON/Markdown count agreement, structured evidence strings, evidence-path references, empty overclaim arrays, and no non-verified final claims. README and paper-outline claims are intentionally scoped to artifact-backed results. Unsupported benchmark and universal-training claims belong in future work, not in the results.
 
 ## Limitations
 

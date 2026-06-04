@@ -29,6 +29,7 @@ NARRATIVE_SURFACES = [
     ("README", README),
     ("paper_outline", PAPER),
     ("artifact_integrity_report", REPORTS / "artifact_integrity_report.md"),
+    ("artifact_manifest_report", REPORTS / "artifact_manifest_report.md"),
     ("result_consistency_report", REPORTS / "result_consistency_report.md"),
     ("raw_result_recompute_report", REPORTS / "raw_result_recompute_report.md"),
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
@@ -292,6 +293,7 @@ def main() -> None:
     repair = load_json("scorer_repair_experiment.json")
     scaling = load_json("imagination_scaling_law.json")
     artifact_integrity = load_json("artifact_integrity.json")
+    artifact_manifest = load_json("artifact_manifest.json")
     result_consistency = load_json("result_consistency.json")
     raw_result_recompute = load_json("raw_result_recompute.json")
     narrative_consistency = load_json("narrative_consistency.json")
@@ -1694,17 +1696,40 @@ def main() -> None:
             f"error claims={claim_semantics.get('n_error_threshold_claims')}, issues={claim_semantics.get('n_issues')}"
         ),
     }
+    artifact_manifest_claim = {
+        "id": 108,
+        "claim": "Scientific result artifacts have a deterministic hash manifest.",
+        "status": status(
+            bool(artifact_manifest)
+            and artifact_manifest.get("verified", False)
+            and (artifact_manifest.get("n_files") or 0) >= 350
+            and (artifact_manifest.get("total_bytes") or 0) >= 10_000_000
+            and ((artifact_manifest.get("counts_by_suffix") or {}).get(".csv") or 0) >= 150
+            and ((artifact_manifest.get("counts_by_suffix") or {}).get(".json") or 0) >= 80
+            and ((artifact_manifest.get("counts_by_suffix") or {}).get(".npz") or 0) >= 20
+            and ((artifact_manifest.get("counts_by_suffix") or {}).get(".png") or 0) >= 20
+            and artifact_manifest.get("n_issues") == 0
+            and artifact_exists(RESULTS / "artifact_manifest.json")
+            and artifact_exists(REPORTS / "artifact_manifest_report.md"),
+            bool(artifact_manifest),
+        ),
+        "evidence": (
+            f"files={artifact_manifest.get('n_files')}, bytes={artifact_manifest.get('total_bytes')}, "
+            f"suffixes={artifact_manifest.get('counts_by_suffix')}, issues={artifact_manifest.get('n_issues')}"
+        ),
+    }
     candidate_claims = claims + [
         {
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=107, max_id=107, checks=pending, issues=0",
+            "evidence": "claims=108, max_id=108, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
         raw_result_recompute_claim,
         claim_semantics_claim,
+        artifact_manifest_claim,
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
@@ -1722,6 +1747,7 @@ def main() -> None:
     claims.append(claim_evidence_quality_claim)
     claims.append(raw_result_recompute_claim)
     claims.append(claim_semantics_claim)
+    claims.append(artifact_manifest_claim)
 
     payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)

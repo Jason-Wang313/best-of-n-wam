@@ -9,6 +9,7 @@ CORE_GATE_SEQUENCE = [
     "scripts/artifact_integrity.py --fail-on-error",
     "scripts/result_consistency.py --fail-on-error",
     "scripts/raw_result_recompute.py --fail-on-error",
+    "scripts/artifact_manifest.py --fail-on-error",
     "scripts/narrative_consistency.py --fail-on-error",
     "scripts/script_contracts.py --fail-on-error",
     "scripts/claims_status.py",
@@ -129,6 +130,7 @@ def audit_core_script(root: Path, script: str, required_snippets: list[str], che
     add(checks, f"{label}_required_steps", not missing, f"missing={missing}")
     add(checks, f"{label}_gate_sequence", ordered_subsequence(text, CORE_GATE_SEQUENCE), "core gate sequence is ordered")
     add(checks, f"{label}_raw_recompute_gate", count_occurrences(text, "scripts/raw_result_recompute.py --fail-on-error") >= 1, "raw recompute gate runs after result consistency")
+    add(checks, f"{label}_artifact_manifest_gate", count_occurrences(text, "scripts/artifact_manifest.py --fail-on-error") >= 1, "artifact manifest gate runs after raw recompute")
     add(checks, f"{label}_double_claim_semantics", count_occurrences(text, "scripts/claim_semantics.py --fail-on-error") >= 2, "claim semantic gate runs before both ledger gates")
     add(checks, f"{label}_double_claim_evidence_quality", count_occurrences(text, "scripts/claim_evidence_quality.py --fail-on-error") >= 2, "claim evidence gate runs before both ledger gates")
     add(checks, f"{label}_double_claim_ledger", count_occurrences(text, "scripts/claim_ledger_integrity.py --fail-on-error") >= 2, "ledger gate runs after both claim-status writes")
@@ -197,6 +199,6 @@ def script_contracts_markdown(payload: dict[str, Any]) -> str:
         for issue in issues:
             lines.append(f"- `{issue.get('name')}`: {issue.get('detail')}")
     else:
-        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered artifact/result/raw-recompute/narrative/script-contract/claim/semantic/evidence/ledger gates.")
+        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered artifact/result/raw-recompute/manifest/narrative/script-contract/claim/semantic/evidence/ledger gates.")
     lines.append("")
     return "\n".join(lines)

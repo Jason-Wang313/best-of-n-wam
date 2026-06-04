@@ -1,0 +1,2483 @@
+{
+  "experiment": "artifact_manifest",
+  "schema_version": 1,
+  "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
+  "n_files": 397,
+  "total_bytes": 56421681,
+  "counts_by_suffix": {
+    ".json": 105,
+    ".npz": 41,
+    ".png": 36,
+    ".csv": 215
+  },
+  "records": [
+    {
+      "path": "results/benchmark_closed_loop_eval.json",
+      "suffix": ".json",
+      "bytes": 1323,
+      "sha256": "61349a576d84da37332c4c2ab652cdc79aeea8d38013f7fbb5d32744c76aa0c5"
+    },
+    {
+      "path": "results/benchmark_exact_law_validation.json",
+      "suffix": ".json",
+      "bytes": 175,
+      "sha256": "45c572005116055e2e5ad53f6359848b20475e41be3c9ab449c12cecf56bfaad"
+    },
+    {
+      "path": "results/benchmark_gym_manip_suite.json",
+      "suffix": ".json",
+      "bytes": 3142,
+      "sha256": "8a2352516f73564af3292181762fdc85a6f8ab58949e0db359ebe9dd7595e639"
+    },
+    {
+      "path": "results/benchmark_gym_robotics_suite.json",
+      "suffix": ".json",
+      "bytes": 4003,
+      "sha256": "9a6ecc3974bbc5d87988951abb04083a8353abed6b3bf3535292d0c3e0d99f38"
+    },
+    {
+      "path": "results/benchmark_gym_robotics_visual_wam.json",
+      "suffix": ".json",
+      "bytes": 3948,
+      "sha256": "3650a3c9de92d3bc7ee66ec3c876d85c05e78a1fcc244e578abca74c4f65e7b1"
+    },
+    {
+      "path": "results/benchmark_libero_autonomous_bc_policy.json",
+      "suffix": ".json",
+      "bytes": 1644,
+      "sha256": "32ec9bf1680f1edb50ca0f203891b6e9126c258ac6c2cae27dac9f7dd02f513a"
+    },
+    {
+      "path": "results/benchmark_libero_learned_action_head.json",
+      "suffix": ".json",
+      "bytes": 1446,
+      "sha256": "bc304a3604dea1431da34a39f2c6ebc5f77a3b8734cf96c2ece1abb52ee90199"
+    },
+    {
+      "path": "results/benchmark_libero_scripted_policy.json",
+      "suffix": ".json",
+      "bytes": 3804,
+      "sha256": "3d968feca61b47d9e75bacd6687786c530c5ca90b1497dc30d06becde9640054"
+    },
+    {
+      "path": "results/benchmark_libero_visual_language_bc_policy.json",
+      "suffix": ".json",
+      "bytes": 1894,
+      "sha256": "5ee632b593147d30b4f3e91cfa7b99bfa24a6e776808ef228a617357dff80b33"
+    },
+    {
+      "path": "results/benchmark_libero_wam.json",
+      "suffix": ".json",
+      "bytes": 4143,
+      "sha256": "396e8943a46d9a1b7088d56031427692cc2ba7dca937e4fe0257fd4121d6d2dc"
+    },
+    {
+      "path": "results/benchmark_maniskill_dependency_probe.json",
+      "suffix": ".json",
+      "bytes": 13510,
+      "sha256": "36a1a9a35e325dcd7ae54dae71c94e2ce4618b303e12421afacb2d62a9e64ed1"
+    },
+    {
+      "path": "results/benchmark_maniskill_suite.json",
+      "suffix": ".json",
+      "bytes": 4862,
+      "sha256": "88125bf2a1db164cf90febbb6c1447b0948a6dd958477ca01d44b59ac163b533"
+    },
+    {
+      "path": "results/benchmark_maniskill_visual_probe.json",
+      "suffix": ".json",
+      "bytes": 22586,
+      "sha256": "2b2b4fc2b0f6987f288c523bfebe28ebf134089ab48186b7c8aaee816bde823e"
+    },
+    {
+      "path": "results/benchmark_metaworld_suite.json",
+      "suffix": ".json",
+      "bytes": 4741,
+      "sha256": "9e05034a2e0c05284fdd64ae54243a5c81eb7421aaca0003086e985f8c2a067a"
+    },
+    {
+      "path": "results/benchmark_real_vs_imagined_gap.json",
+      "suffix": ".json",
+      "bytes": 168,
+      "sha256": "5af332a9703b81241eb77229778f73a42725439590dc2e6bb0701d16725ada7e"
+    },
+    {
+      "path": "results/benchmark_robocasa_broad_wam.json",
+      "suffix": ".json",
+      "bytes": 6205,
+      "sha256": "602902e8ce874eda2e53cc040c6e287cdb31af424ad3126f8cce9f0ea61f6ced"
+    },
+    {
+      "path": "results/benchmark_robocasa_catalog_probe.json",
+      "suffix": ".json",
+      "bytes": 15242,
+      "sha256": "1232c367668acd6e4a31fbc20e0c0d13e473cacfca4c79d412f279d0d3c8ea52"
+    },
+    {
+      "path": "results/benchmark_robocasa_extra4_wam.json",
+      "suffix": ".json",
+      "bytes": 6326,
+      "sha256": "098bdc7692f7dff088a128d5fafa704fab15a5c942e3ef1f94f1538228b01ddb"
+    },
+    {
+      "path": "results/benchmark_robocasa_family12_wam.json",
+      "suffix": ".json",
+      "bytes": 9754,
+      "sha256": "018309d67be3dbe28cc1e212e405be89632b836ec7fdeae71c261f7ea2c91078"
+    },
+    {
+      "path": "results/benchmark_robocasa_family24_wam.json",
+      "suffix": ".json",
+      "bytes": 15150,
+      "sha256": "ed7d6e69bae2a95e61cbb467e04031838cdbc271965e27c229e62d55ab9f5f9d"
+    },
+    {
+      "path": "results/benchmark_robocasa_family28_wam.json",
+      "suffix": ".json",
+      "bytes": 17042,
+      "sha256": "bdfd24a84279e0f4b783ed26d3e458a6f4802cc0260a1bb99c53900cf0bca443"
+    },
+    {
+      "path": "results/benchmark_robocasa_family32_wam.json",
+      "suffix": ".json",
+      "bytes": 18868,
+      "sha256": "0c73d11af3ccf6c2b6a9385aa3e98ca2633cc4fc1a4110de9e9340efe3eaa453"
+    },
+    {
+      "path": "results/benchmark_robocasa_learned_wam.json",
+      "suffix": ".json",
+      "bytes": 2797,
+      "sha256": "742cfa94b8da8b2349b2e610f2d53427cfc250cbacd401bc6f702aaef050d9ee"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_extra.json",
+      "suffix": ".json",
+      "bytes": 1133,
+      "sha256": "47016f274a4ee57098a5dc39e7580ac1d4e84c4699d31aa7569d43ea1b3857c4"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_frontier_probe.json",
+      "suffix": ".json",
+      "bytes": 4050,
+      "sha256": "760ececbb993b1e5030d530b6e5de4abd602985dc110cf94cb1ff2b156a2beb9"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_atomic_probe.json",
+      "suffix": ".json",
+      "bytes": 1385,
+      "sha256": "a68092438495e46dbf0d42cb737510d452abfb3b7ac4a3dfb1af3c4e19d5bc07"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_000.json",
+      "suffix": ".json",
+      "bytes": 914,
+      "sha256": "28ca0f0bf33ff5fa616f0fa1d0a0e8eb5ad47c49eef01db7c0e45fb7444021dc"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_001.json",
+      "suffix": ".json",
+      "bytes": 946,
+      "sha256": "0ff26d70ff7eaa97b12af7243d8573930538aa586bb82a14cccc2e8988171101"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_002.json",
+      "suffix": ".json",
+      "bytes": 938,
+      "sha256": "7b7aa854e011e2decd10b3066abb87a032f079c010782f2117636ee224c79ac7"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_003.json",
+      "suffix": ".json",
+      "bytes": 922,
+      "sha256": "57a1b79db2b2d346ccb921aba8e0545efb16a1c6182062d848c912b4a5e6de71"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_004.json",
+      "suffix": ".json",
+      "bytes": 922,
+      "sha256": "934e7dcc3637d6f4c922c66ee4950dab1e19908cdda4ecf93a7deaaf7f978332"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_005.json",
+      "suffix": ".json",
+      "bytes": 920,
+      "sha256": "2933e1f7cdb4a10554e5721135c7c0adf8c996344dad69e9b2873cad990af4dd"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_006.json",
+      "suffix": ".json",
+      "bytes": 603,
+      "sha256": "3648041b9806435b4834e8f9a065a56839fbd814e99621e3f542abeb8d5d0404"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_007.json",
+      "suffix": ".json",
+      "bytes": 926,
+      "sha256": "c6a84de2d5839fb980cb7fc49f69b794991e1c14cbdbe56fe69d378395ca18a4"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_008.json",
+      "suffix": ".json",
+      "bytes": 929,
+      "sha256": "2b0cbdb830d39a7a6726ad76df7cd9e2dd429b55f85d02bf163a394ac4351cb0"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_009.json",
+      "suffix": ".json",
+      "bytes": 959,
+      "sha256": "18fef021f84adac3bc8aaab5477539103aacc5593c66a35a1e14eeeb5d8d93b6"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_010.json",
+      "suffix": ".json",
+      "bytes": 931,
+      "sha256": "accf21b2c2f73e94ed8a43d458a4c8669b7f32cb748d5ccc742561a13f078d02"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_011.json",
+      "suffix": ".json",
+      "bytes": 933,
+      "sha256": "c226ae8e09a6b19495a16ff32e15f668cfb85b1945791179df73f3ccf3a8a7a8"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_012.json",
+      "suffix": ".json",
+      "bytes": 951,
+      "sha256": "e48d8a4130bb4df51e50bc0ab1f9aacf4fd89f6bae2909cda9fbaaf2db123c3f"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_013.json",
+      "suffix": ".json",
+      "bytes": 864,
+      "sha256": "095806c17ae374521b15e624563521f77b0397839f56b2c63b7e3be9e7fa994e"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_014.json",
+      "suffix": ".json",
+      "bytes": 931,
+      "sha256": "3fa18a02b01cbc106256d0c448b7a01dfbccbe6d2e79eb88ab72f69c8cff9c09"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_015.json",
+      "suffix": ".json",
+      "bytes": 937,
+      "sha256": "69c7a6e6541ffa81cd7ea29b8a04fbc805e9e66f096d94a7d35a1d4714a58f8b"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_016.json",
+      "suffix": ".json",
+      "bytes": 932,
+      "sha256": "0af44401feb7002f93dee7c7039eb86160e2726b4301db7829f388cd186488e9"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_017.json",
+      "suffix": ".json",
+      "bytes": 924,
+      "sha256": "35cee0f41fee2dd4fb807cafae00889375c6afc568242964654f5860c46e9ce1"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_018.json",
+      "suffix": ".json",
+      "bytes": 930,
+      "sha256": "490385e840e55caae946b8475990db80b693843613af29fa2b64868ffaf0b61e"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_019.json",
+      "suffix": ".json",
+      "bytes": 938,
+      "sha256": "82dcb5a70a77cdcc6f95620233ff6c6f53b1e3fbb4e003b9375129296b6230b9"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_020.json",
+      "suffix": ".json",
+      "bytes": 940,
+      "sha256": "77bef8b9bc2d4360d1f85a5a9a584ab70d7664084bd500d1ed88ff0a81d7bd65"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_021.json",
+      "suffix": ".json",
+      "bytes": 939,
+      "sha256": "cc59e6be46b114e8a3bdc449586c6ff1ca7480937528e493b824754bbf5e5cf1"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_022.json",
+      "suffix": ".json",
+      "bytes": 946,
+      "sha256": "df522136759f04c1899a489eaec7b1cb6e1b945ef6416950f5a9d4d3c57eedd2"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_023.json",
+      "suffix": ".json",
+      "bytes": 938,
+      "sha256": "06cb187e6971c62e23e4d043e468b661c0dc21e50ebaae77bb7561ebb456f73b"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_024.json",
+      "suffix": ".json",
+      "bytes": 949,
+      "sha256": "e3241f1e6fc0bf15c6461418d4f1527447a3dd76fe385a979cdfbd41ac923ec6"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_025.json",
+      "suffix": ".json",
+      "bytes": 954,
+      "sha256": "25b4035701fd219026c92fa44fb5565dc7426912a9a8b222797239043da04c9f"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_026.json",
+      "suffix": ".json",
+      "bytes": 931,
+      "sha256": "2e0c1a0ca7b40bd577008944b84982fcaa9294e4d41d9858dca65e904cb8961d"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_027.json",
+      "suffix": ".json",
+      "bytes": 932,
+      "sha256": "b8c64314fe06920be7ece89cc7550b0158371b36d38b8e7be1ddd22deb1096ae"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_028.json",
+      "suffix": ".json",
+      "bytes": 935,
+      "sha256": "cbdff74f5e4e0409ff860dabaf1b77d1892861ff2241c077213a074081529ecf"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_029.json",
+      "suffix": ".json",
+      "bytes": 897,
+      "sha256": "30ff4308c48c2bb117c3fcdfcb55828ce7c9e9ebc6a070d2cbfc1074e6609b3b"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_030.json",
+      "suffix": ".json",
+      "bytes": 946,
+      "sha256": "fdc4ca41498781cdda47889db56b12f6268bb7c70c2a522932493438e15193ac"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_031.json",
+      "suffix": ".json",
+      "bytes": 944,
+      "sha256": "550840eaa530f22976f925fdfa6c92b8dd68d89b74b5c23f0083de1732eb90e0"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_032.json",
+      "suffix": ".json",
+      "bytes": 610,
+      "sha256": "3ca3a921488f7be97f5bbd7ab33275bcd7154742c33dc832063eaf7ad552e06b"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_033.json",
+      "suffix": ".json",
+      "bytes": 899,
+      "sha256": "faf64898859e16cde83dbc2d3f4bdad9787b005edbaabebaff46100006be8c5d"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_034.json",
+      "suffix": ".json",
+      "bytes": 906,
+      "sha256": "736dcc3f86172003f48d48b0b301ed12cde317f1b44c65e3e030ebaa6abf672e"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_035.json",
+      "suffix": ".json",
+      "bytes": 934,
+      "sha256": "41fa3f3213eb8892bf83b58b72af1be0f950a700168f221981b2f638f7413735"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_036.json",
+      "suffix": ".json",
+      "bytes": 937,
+      "sha256": "78a5e7b5598ce158759bc83edf4946e4c5b123b10b0973a3b6199ee0b3d2d0b9"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_037.json",
+      "suffix": ".json",
+      "bytes": 936,
+      "sha256": "d8dc210764d9a96c06ec5ee8369a087ed6379cc74e96c00041488b1592e37b9c"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_038.json",
+      "suffix": ".json",
+      "bytes": 948,
+      "sha256": "de59a6d7ac5984894f55a43d62f86dd9ba86288a558edc3ce9ed26f17b34e02c"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_039.json",
+      "suffix": ".json",
+      "bytes": 865,
+      "sha256": "c9bd05ca9af5e08619a277a3e8300cfab52591e35beb389a8d21e8efc752070e"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_040.json",
+      "suffix": ".json",
+      "bytes": 941,
+      "sha256": "a2be555b54dd873240fb22fd21ebf99dccbd57ae1790d7ea6410e8de500c7a3d"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_041.json",
+      "suffix": ".json",
+      "bytes": 938,
+      "sha256": "b6d6a17e948b79f18edb07b7ed58f5b2031e8aab38b69a180a51c82ac23adfcd"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_042.json",
+      "suffix": ".json",
+      "bytes": 946,
+      "sha256": "0064ab5d594e39cf31218e3bdf66069b4c9ce7531d4afa8a6be6cc6d56da63ff"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_stratified_probe.json",
+      "suffix": ".json",
+      "bytes": 2483,
+      "sha256": "c39070002514afa0ed3f30972f38099c440870b2205f8d4aad90664d4c740e24"
+    },
+    {
+      "path": "results/benchmark_robocasa_multitask_wam.json",
+      "suffix": ".json",
+      "bytes": 5781,
+      "sha256": "0a821c798f843ca47c49af280af564a65b9b7efe0019a6a2323bf77d1228d980"
+    },
+    {
+      "path": "results/benchmark_robocasa_residual35_h1_n4_wam.json",
+      "suffix": ".json",
+      "bytes": 20175,
+      "sha256": "8dbc968d4523bdc69443cd391d41c27e40d9affc39ba2ba3972f9e311069d45a"
+    },
+    {
+      "path": "results/benchmark_robocasa_residual_frontier_sweep.json",
+      "suffix": ".json",
+      "bytes": 3438,
+      "sha256": "eb0f4799b762c8305d812e4ad5493a3a653786ce857d7622e4bc27410eb805ce"
+    },
+    {
+      "path": "results/benchmark_robocasa_smoke.json",
+      "suffix": ".json",
+      "bytes": 1813,
+      "sha256": "5bcaa1726579e1f22cff2aa0153277f55031788b37ab00dab3055dc2726fccba"
+    },
+    {
+      "path": "results/benchmark_robocasa_stratified55_wam.json",
+      "suffix": ".json",
+      "bytes": 29121,
+      "sha256": "42e8c64c2af555f005d6795a6ea8372c36b3eb3e026db0385862952e3a7f0794"
+    },
+    {
+      "path": "results/benchmark_robocasa_stratified97_wam.json",
+      "suffix": ".json",
+      "bytes": 47947,
+      "sha256": "afa3c4336a0193a47b05b5a3629ffc1fc9faf5f0c07118384d00d9d8403fe4cd"
+    },
+    {
+      "path": "results/benchmark_robosuite_suite.json",
+      "suffix": ".json",
+      "bytes": 5200,
+      "sha256": "dc286c7604826ff2ce10450fe837202c10053fd7315bca2eb398eaa398c2f459"
+    },
+    {
+      "path": "results/benchmark_rollout_pools.json",
+      "suffix": ".json",
+      "bytes": 80,
+      "sha256": "0711739820597f4e992ed8f177f6c57f0d19bdd27bde4602a487177c5d004351"
+    },
+    {
+      "path": "results/benchmark_score_comparison.json",
+      "suffix": ".json",
+      "bytes": 1352,
+      "sha256": "d01d274c77e345d8b77d5278228974ae0b643f3170a5deab0bfbd9cd078ae537"
+    },
+    {
+      "path": "results/benchmark_smoke.json",
+      "suffix": ".json",
+      "bytes": 942,
+      "sha256": "0e708b3469f81cb08c73b4c4ee2ca3f7d8d758a4d91b6a5c95e05b87f27c52e5"
+    },
+    {
+      "path": "results/benchmark_visual_optional.json",
+      "suffix": ".json",
+      "bytes": 314,
+      "sha256": "b9ed140cbe33928e18b38b1ad6719ed92f68f9442fe6cdc55ed03826dc03204e"
+    },
+    {
+      "path": "results/benchmark_visual_wam_lite.json",
+      "suffix": ".json",
+      "bytes": 2090,
+      "sha256": "b8555b14710969d3e8809b2f829a160809e2a7814938e524297b91348404bf03"
+    },
+    {
+      "path": "results/benchmark_wam_training.json",
+      "suffix": ".json",
+      "bytes": 566,
+      "sha256": "c84b2d0e8a2e458de349224a1ddfa35648631e4077eb59f39bd303acb01e8bfa"
+    },
+    {
+      "path": "results/datasets/learned_wam_lite_ood_nonstationary.npz",
+      "suffix": ".npz",
+      "bytes": 156551,
+      "sha256": "625f0139ca567708598bc1961ba4cb99eeb3d7bf618f128b1819e1b2b48409f9"
+    },
+    {
+      "path": "results/datasets/learned_wam_lite_ood_severe.npz",
+      "suffix": ".npz",
+      "bytes": 156537,
+      "sha256": "1bf8f5c41496873a784521ee4ce40d769ebc5d788fadcd8ec369760f34c3d8c9"
+    },
+    {
+      "path": "results/datasets/learned_wam_lite_ood_stuck_slip.npz",
+      "suffix": ".npz",
+      "bytes": 156545,
+      "sha256": "48f0ab459ef9e2e14c34ac1378c028d06b92b20fc76440c192b2ed95df51796f"
+    },
+    {
+      "path": "results/datasets/learned_wam_lite_train.npz",
+      "suffix": ".npz",
+      "bytes": 1648758,
+      "sha256": "ddb3c4d3e2685e44452427aa531d09b7334f5c046a672816bb8a278ee5f59996"
+    },
+    {
+      "path": "results/datasets/learned_wam_lite_validation.npz",
+      "suffix": ".npz",
+      "bytes": 619652,
+      "sha256": "bffb24090dd753625b0e9ca4fa59252841b18ab20ccfc24bf4222a265a8a1041"
+    },
+    {
+      "path": "results/exp10_falsification_bad_scorer.json",
+      "suffix": ".json",
+      "bytes": 491,
+      "sha256": "5ec0492ea09da9c8d6692a29d2c6dad2d42f5721c82d466ab43b691ea9dc1394"
+    },
+    {
+      "path": "results/exp1_exact_rollout_law_validation.json",
+      "suffix": ".json",
+      "bytes": 3211,
+      "sha256": "150debfa6f4c78b2aba598819318d9010ed2c0ce08ed02362c971335cb21bbe5"
+    },
+    {
+      "path": "results/exp1_exact_rollout_law_validation_learned.json",
+      "suffix": ".json",
+      "bytes": 3333,
+      "sha256": "1e989b805d04c0c4748eb911dc040318a2ebd347b44d420d530ce838559ddb46"
+    },
+    {
+      "path": "results/exp2_auc_vs_moment_hierarchy.json",
+      "suffix": ".json",
+      "bytes": 1609,
+      "sha256": "19b9c13b9cdff28de22a492c2c3b46200c984c1eea3fa9e6960f9be0f29ee84c"
+    },
+    {
+      "path": "results/exp3_pilot_to_heldout_prediction.json",
+      "suffix": ".json",
+      "bytes": 2527,
+      "sha256": "8eab967f318a956f17097ea30fd7e160987386b8bd36bd6ce24d9dbc8c2ee877"
+    },
+    {
+      "path": "results/exp4_score_function_comparison.json",
+      "suffix": ".json",
+      "bytes": 4295,
+      "sha256": "28e93e0fc2b3d81572f430ef895c7c21d1011c42424e92b41372c2f9fd07cb91"
+    },
+    {
+      "path": "results/exp4_score_function_comparison_learned.json",
+      "suffix": ".json",
+      "bytes": 4473,
+      "sha256": "baf1c7ec440af11921691afcce9175865f0246045bb67e42c4f05b7fa380516a"
+    },
+    {
+      "path": "results/exp5_real_vs_imagined_utility_gap.json",
+      "suffix": ".json",
+      "bytes": 3094,
+      "sha256": "2f27891c0029b90beaf8fd3583c9b1d5c21af8c3b756875692d84f5e9e247275"
+    },
+    {
+      "path": "results/exp5_real_vs_imagined_utility_gap_learned.json",
+      "suffix": ".json",
+      "bytes": 3320,
+      "sha256": "9d95aa83b1b27b0b2a358c90cc3ed4d3d1fb9478a4d36cdf1032f89394461225"
+    },
+    {
+      "path": "results/exp6_adaptive_rollout_allocation.json",
+      "suffix": ".json",
+      "bytes": 3023,
+      "sha256": "7897e61f022489108c2d7f3b087987516821342f31ce194621d4635a1c0f0116"
+    },
+    {
+      "path": "results/exp6_adaptive_rollout_allocation_learned.json",
+      "suffix": ".json",
+      "bytes": 3163,
+      "sha256": "c48da79d7e53186e7b9a17f541736e3fcada518aedc1b50139a5721c6ca4523b"
+    },
+    {
+      "path": "results/exp7_closed_loop_receding_horizon_eval.json",
+      "suffix": ".json",
+      "bytes": 6567,
+      "sha256": "d505038ea6a8ef7712e3058a15bf3ab414e08a4c2b4d14e894b919887c785ccc"
+    },
+    {
+      "path": "results/exp7_closed_loop_receding_horizon_eval_learned.json",
+      "suffix": ".json",
+      "bytes": 6966,
+      "sha256": "65b9650318801d8f90500cf6b900a6dcc16dc6fc8c46f86decbf825866767c47"
+    },
+    {
+      "path": "results/exp8_nonstationary_dynamics_extension.json",
+      "suffix": ".json",
+      "bytes": 2499,
+      "sha256": "89df2de0229574e1b9f39d952fad00cd5c901aa8e648252bcfbfda701e521689"
+    },
+    {
+      "path": "results/figures/benchmark_gym_manip_curves.png",
+      "suffix": ".png",
+      "bytes": 59027,
+      "sha256": "0af4bf256524dc5c836cd56bebb18212933e92959951a7c367fe28ca98dfac51"
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_curves.png",
+      "suffix": ".png",
+      "bytes": 73831,
+      "sha256": "d15bc133eaecc74126cb6e916cca6ede9de2e390b7dcd6809ae24144e076aa02"
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_FetchPickAndPlace-v4_frame.png",
+      "suffix": ".png",
+      "bytes": 27661,
+      "sha256": "4597eda2cf36d03bde30f97d1b44148255cd393de69f2b8991c597c1495c8f59"
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_FetchPush-v4_frame.png",
+      "suffix": ".png",
+      "bytes": 28452,
+      "sha256": "30c93a7a0cdeaa20bbca4b6151299e8e2b9e0e415a92f05419ea8472b7ed2823"
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_FetchReach-v4_frame.png",
+      "suffix": ".png",
+      "bytes": 27640,
+      "sha256": "f32f57876382ddd7a82fb4e1de419812524bd54891a7519a8c746821b12fb9da"
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_visual_FetchPickAndPlace-v4_frame.png",
+      "suffix": ".png",
+      "bytes": 27749,
+      "sha256": "6b026b2353133f534fc76b61a5c9322652a88ff6c149117e15c2cdade8a30020"
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_visual_FetchPush-v4_frame.png",
+      "suffix": ".png",
+      "bytes": 28512,
+      "sha256": "128a58fb503ca4b2dee45a7e212dcdb7e94a024aa6e01114cf09dd7ee33bca99"
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_visual_FetchReach-v4_frame.png",
+      "suffix": ".png",
+      "bytes": 27650,
+      "sha256": "1ebb53de365afcfca6bcf3f7c304d7fd84d43c0e0fee07f6a2136e99518acac6"
+    },
+    {
+      "path": "results/figures/benchmark_gym_robotics_visual_wam_curves.png",
+      "suffix": ".png",
+      "bytes": 76492,
+      "sha256": "4521944d85803a83438030e1209dbde450c5ec89e2ae4d69ee4fbe82255535a6"
+    },
+    {
+      "path": "results/figures/benchmark_maniskill_curves.png",
+      "suffix": ".png",
+      "bytes": 59989,
+      "sha256": "2ec3479ec855f01049c7af7223d232a7dd5453c056cbecd1c5b9886850e44c82"
+    },
+    {
+      "path": "results/figures/benchmark_metaworld_curves.png",
+      "suffix": ".png",
+      "bytes": 72535,
+      "sha256": "a4cff56704a0f4d9cbcfc94c5b65f9872f19cf9da1362cee73d0083bc9bc73db"
+    },
+    {
+      "path": "results/figures/benchmark_robosuite_curves.png",
+      "suffix": ".png",
+      "bytes": 88667,
+      "sha256": "fc75e3b592bc1f33ade262e4a03604050977482b8e5e92a2693347632461b036"
+    },
+    {
+      "path": "results/figures/benchmark_visual_reacher_frame.png",
+      "suffix": ".png",
+      "bytes": 14970,
+      "sha256": "962431ff445ba2696ad1173c6392885cac557fbd58bd01a2fedfd662d7a34c27"
+    },
+    {
+      "path": "results/figures/benchmark_visual_wam_lite_curves.png",
+      "suffix": ".png",
+      "bytes": 60907,
+      "sha256": "c63b0f7a27dfb1dcff48fc3ffccc489ba6a3bc479ef29e0d67fd3e38d404455b"
+    },
+    {
+      "path": "results/figures/benchmark_visual_wam_lite_frame.png",
+      "suffix": ".png",
+      "bytes": 15448,
+      "sha256": "7c1d045e80f082d3211405f738057618d83c8e2ea58b7ba488e69d816fbb4d7e"
+    },
+    {
+      "path": "results/figures/exp10_falsification_bad_scorer.png",
+      "suffix": ".png",
+      "bytes": 56718,
+      "sha256": "20f48c9f05032965392e5a5a3ce6d299df960e1bb0d24a50cd428a3eac5c3d8d"
+    },
+    {
+      "path": "results/figures/exp1_exact_vs_mc_success.png",
+      "suffix": ".png",
+      "bytes": 65875,
+      "sha256": "a46a3febe02c12669239d2fcac9bfeba71e8dc220454e6ab437dd09374026aa3"
+    },
+    {
+      "path": "results/figures/exp1_exact_vs_mc_success_learned.png",
+      "suffix": ".png",
+      "bytes": 61505,
+      "sha256": "348a8eafe05303737985f5b340df1a4c9fd030f2d310f86ff582ce0d16d21fdd"
+    },
+    {
+      "path": "results/figures/exp2_auc_vs_moment_error.png",
+      "suffix": ".png",
+      "bytes": 41138,
+      "sha256": "e6e7896f47ef6539acab7ebfb5e540362dd609cbc36d2d9fda9461e669c22abd"
+    },
+    {
+      "path": "results/figures/exp3_pilot_to_heldout_mae.png",
+      "suffix": ".png",
+      "bytes": 88743,
+      "sha256": "4ca48945651c3fc0f7e226c2eba4dc506e967817c4a95283fa3e499233a419d0"
+    },
+    {
+      "path": "results/figures/exp4_score_function_curves.png",
+      "suffix": ".png",
+      "bytes": 80453,
+      "sha256": "58acfa905c554c99b166188d42eb557a516f2ad07f71c10fb01f0ec27d561c17"
+    },
+    {
+      "path": "results/figures/exp4_score_function_curves_learned.png",
+      "suffix": ".png",
+      "bytes": 88389,
+      "sha256": "70947a2a46e9da924d4935d4429e54457ad620f83783d33568b5b68ee764b306"
+    },
+    {
+      "path": "results/figures/exp5_imagined_vs_real_gap.png",
+      "suffix": ".png",
+      "bytes": 87582,
+      "sha256": "9bbe936b5887cd1134e9a12636793fff76ffb932c881d00e0963c72afbb312b6"
+    },
+    {
+      "path": "results/figures/exp5_imagined_vs_real_gap_learned.png",
+      "suffix": ".png",
+      "bytes": 90114,
+      "sha256": "a20b951e0a8e7200ddfb0b09b024511bd936b1055194ba3723648ad1be2ae477"
+    },
+    {
+      "path": "results/figures/exp6_adaptive_allocation.png",
+      "suffix": ".png",
+      "bytes": 114530,
+      "sha256": "1918a1b94245cc8eb7353bb78a8d0ab1d21f2fe11fc279636cd3643e6f89592d"
+    },
+    {
+      "path": "results/figures/exp6_adaptive_allocation_learned.png",
+      "suffix": ".png",
+      "bytes": 78779,
+      "sha256": "468229e6d33f98a27ed3c4dd419394a38858570d5dce007ec91736e0b36de14f"
+    },
+    {
+      "path": "results/figures/exp7_closed_loop_success.png",
+      "suffix": ".png",
+      "bytes": 83299,
+      "sha256": "7f0399c83337d4f60e7f4349a4537562d02996b66a72b279b7d748d4f198b605"
+    },
+    {
+      "path": "results/figures/exp7_closed_loop_success_learned.png",
+      "suffix": ".png",
+      "bytes": 78307,
+      "sha256": "0981c938b2dbcff491f75c2c557dd444989400e1cf0d1fb6cd24ac81d744afcb"
+    },
+    {
+      "path": "results/figures/exp8_nonstationary_shift.png",
+      "suffix": ".png",
+      "bytes": 70706,
+      "sha256": "e822420403f7b2bbe6693d90c14e5097d909a73946ec2984d2470c68f68a4526"
+    },
+    {
+      "path": "results/figures/imagination_scaling_frontier.png",
+      "suffix": ".png",
+      "bytes": 75483,
+      "sha256": "203b92d96615ce5831ba96e5001f40516a81af338285f9a7172d049ea9eb8df9"
+    },
+    {
+      "path": "results/figures/inference_audit_tail_alignment.png",
+      "suffix": ".png",
+      "bytes": 135277,
+      "sha256": "9393bebbd9923b97eee51c26ba13249356a1dca534ec474f598b734ddadaa170"
+    },
+    {
+      "path": "results/figures/inference_audit_tail_alignment_learned.png",
+      "suffix": ".png",
+      "bytes": 139985,
+      "sha256": "baeb274bbdde60322afc577f2162e261a829760795f9fb44a5730884841fd3a7"
+    },
+    {
+      "path": "results/figures/learned_wam_vs_analytic_wam.png",
+      "suffix": ".png",
+      "bytes": 66443,
+      "sha256": "29ceaba8f52d730f608645956e681961716ed7ba1f0e5388fc05efc31ee88797"
+    },
+    {
+      "path": "results/figures/multi_env_inference_curves.png",
+      "suffix": ".png",
+      "bytes": 107028,
+      "sha256": "f43b209d2d2cdc237218525823e137ec5f71911d7286957b3a67650ce96df50b"
+    },
+    {
+      "path": "results/figures/scorer_repair_experiment.png",
+      "suffix": ".png",
+      "bytes": 85647,
+      "sha256": "c87e32ca6e03fd33f952f3e4ffc9aa38921e9708b9f6184db6d367807c2016e1"
+    },
+    {
+      "path": "results/figures/visual_toy_render_example.png",
+      "suffix": ".png",
+      "bytes": 1638,
+      "sha256": "11f42e0a072ff6b99228fe1e109de9672d21cddc1f0dc2a91f5b2b35b041ec1f"
+    },
+    {
+      "path": "results/imagination_scaling_law.json",
+      "suffix": ".json",
+      "bytes": 2725,
+      "sha256": "f2493808d1826f00685badf83225cbab63d79d2ca5086b0d5ce174feb5b267c8"
+    },
+    {
+      "path": "results/inference_audit_framework.json",
+      "suffix": ".json",
+      "bytes": 6443,
+      "sha256": "e5e4750dee52a24faf3549062c12c084dfcb61edda2718c0ebe7d5a14a452440"
+    },
+    {
+      "path": "results/inference_audit_framework_learned.json",
+      "suffix": ".json",
+      "bytes": 6721,
+      "sha256": "1c5e52cd32d85c7de246b616f56fd711a19597107c4844df805949ab0cea52bb"
+    },
+    {
+      "path": "results/learned_wam_lite_training.json",
+      "suffix": ".json",
+      "bytes": 4851,
+      "sha256": "1d902eab3ef1995fd62d75b0798bb6174ed8651edcb7a71074404e9ee0cbe724"
+    },
+    {
+      "path": "results/learned_wam_vs_analytic_wam.json",
+      "suffix": ".json",
+      "bytes": 16159,
+      "sha256": "8fbfb870ebed90ce820dd2c2f42289b8cb50e0d1a5e552e42689581518448c82"
+    },
+    {
+      "path": "results/models/benchmark_gym_manip_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 6148,
+      "sha256": "f67d5ccd3b521105505f8b93ef950c5807cdc88873b65c9797a58a61fcfb8942"
+    },
+    {
+      "path": "results/models/benchmark_libero_autonomous_bc_policy.npz",
+      "suffix": ".npz",
+      "bytes": 2911100,
+      "sha256": "362785ae55798f237c364b1cc6e9f7bdccb27df703bd2e4cc0ffe1e82d10262b"
+    },
+    {
+      "path": "results/models/benchmark_libero_learned_action_head.npz",
+      "suffix": ".npz",
+      "bytes": 2049747,
+      "sha256": "d3a987e806d6aa96d0f04f9c647977aa01ecae2ef7a2dd8b9036495f51f3ea1d"
+    },
+    {
+      "path": "results/models/benchmark_libero_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 6212,
+      "sha256": "c27739934cdca2680fa16e94ddf8720f3e55388ecda253636a6ea39a6291af71"
+    },
+    {
+      "path": "results/models/benchmark_libero_visual_language_bc_policy.npz",
+      "suffix": ".npz",
+      "bytes": 20584662,
+      "sha256": "ba28067fae1a8b9044bf5b46a00b3e9c6cae9e902faeb06904045f64657f9803"
+    },
+    {
+      "path": "results/models/benchmark_maniskill_PegInsertionSide-v1_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 78350,
+      "sha256": "3961723ee688c519406715ef1a848964224824dfa250ac5fe28db9e9821b5c45"
+    },
+    {
+      "path": "results/models/benchmark_maniskill_PickCube-v1_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 78342,
+      "sha256": "274f08942fea58e43d89b6931d8106c2e478e1bafc9bc4af9d07d84465ad17ee"
+    },
+    {
+      "path": "results/models/benchmark_maniskill_PushCube-v1_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 78342,
+      "sha256": "73bcc8ee7e18f920858db7dce4e0664e258f38649d7003f2e23e54eabbd536a3"
+    },
+    {
+      "path": "results/models/benchmark_robocasa_broad_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 7429,
+      "sha256": "fe80b8969b22555086b68df90279ad12e4261d3aaa6a0674b03ed90da23df5a1"
+    },
+    {
+      "path": "results/models/benchmark_robocasa_extra4_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 7487,
+      "sha256": "a7983cc0af2f6c9b3638bbca4f79e6440e7c88aa23c6f39555462473e1ba117b"
+    },
+    {
+      "path": "results/models/benchmark_robocasa_family12_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 8067,
+      "sha256": "6b24246a7ce1711a1e1c83aa6857d8b043cade1c2002b15a4dbf7594c7b204f4"
+    },
+    {
+      "path": "results/models/benchmark_robocasa_family24_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 9117,
+      "sha256": "0e9da847419c74aee69c30de27990a1639058ec065cb2af6f811301dadfd554a"
+    },
+    {
+      "path": "results/models/benchmark_robocasa_family28_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 9497,
+      "sha256": "7e37f2a3cfb8827b801dfc8a5bc21437131f84dfde68e4347ed637e72d469727"
+    },
+    {
+      "path": "results/models/benchmark_robocasa_family32_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 9846,
+      "sha256": "1973686f7c9df09b4ccd1f973940856e0a616cd2c1e5282174ffe76288ceeb6e"
+    },
+    {
+      "path": "results/models/benchmark_robocasa_multitask_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 8059,
+      "sha256": "278c9443a9b135451ffe135a96a758b4980908b5f6e462b5ca77335fc6ea9a67"
+    },
+    {
+      "path": "results/models/benchmark_robocasa_residual35_h1_n4_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 9371,
+      "sha256": "87377878f7990569c5be2b18646a5f698a426a1fc272d9120fd16e944bdee8db"
+    },
+    {
+      "path": "results/models/benchmark_robocasa_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 7785,
+      "sha256": "a0dc85da8a7ffb78f238568fed63866f75c13f6b85eb6b29a230323e1d22b55b"
+    },
+    {
+      "path": "results/models/benchmark_robocasa_stratified55_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 11742,
+      "sha256": "9c12ca5ebfbbdf366d0321223a4c5d29de650484d023f45081a41146de6ef96a"
+    },
+    {
+      "path": "results/models/benchmark_robocasa_stratified97_ridge_wam.npz",
+      "suffix": ".npz",
+      "bytes": 15275,
+      "sha256": "7650158530f1d105ede2a4ac8912a1c3b6cbd69694b3340006e2b941034daf58"
+    },
+    {
+      "path": "results/models/learned_wam_lite_smoke.npz",
+      "suffix": ".npz",
+      "bytes": 6249,
+      "sha256": "5d30988dabb333a8a65df7d8625054f6eb54e63577a5bd2f53e1dcc21ebbc9c3"
+    },
+    {
+      "path": "results/models/learned_wam_lite_toy.npz",
+      "suffix": ".npz",
+      "bytes": 6251,
+      "sha256": "2f5e573755391e28e541021c3fa6b35804dd9e604e84cb30fa6c4233ca695a1c"
+    },
+    {
+      "path": "results/models/maxout_block_push_ensemble_wam.npz",
+      "suffix": ".npz",
+      "bytes": 15031,
+      "sha256": "453dfc35d234ea9299233bfae12caadcabd0de108c212a225863355a63ffa2aa"
+    },
+    {
+      "path": "results/models/maxout_block_push_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 3678,
+      "sha256": "f717a244f4a0e1ef26ef06d4edf129a12c51eef9f961748e49327f719b78bdbc"
+    },
+    {
+      "path": "results/models/maxout_block_push_mlp_dynamics_wam.npz",
+      "suffix": ".npz",
+      "bytes": 13151,
+      "sha256": "5cd2dff6b9c0cbf551c41f666d3ca567ce99f7a8770820f99348ed3bd95877e2"
+    },
+    {
+      "path": "results/models/maxout_deformable_toy_ensemble_wam.npz",
+      "suffix": ".npz",
+      "bytes": 15035,
+      "sha256": "204a4b3a8d34c2becd71fbb7bc936564329854d9f608e0f07ec566669547a5f8"
+    },
+    {
+      "path": "results/models/maxout_deformable_toy_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 3682,
+      "sha256": "ef8073fdd7ef922ee4eddf773b3729c300d690f378352fc5a706eccf1b7f5a99"
+    },
+    {
+      "path": "results/models/maxout_deformable_toy_mlp_dynamics_wam.npz",
+      "suffix": ".npz",
+      "bytes": 13155,
+      "sha256": "236563aa1df01f361ac84b5cc321015075ad6ffdd7aec86e0bc2cc321cbda509"
+    },
+    {
+      "path": "results/models/maxout_drawer_pull_ensemble_wam.npz",
+      "suffix": ".npz",
+      "bytes": 15032,
+      "sha256": "8bee7a9cc1f5fa5dcb705d8f5bfdd0f97e08f8d9aa006b27828cc5d7a05eeefd"
+    },
+    {
+      "path": "results/models/maxout_drawer_pull_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 3679,
+      "sha256": "e98dedaeaf3bc0d3e1ae08ed4d0668a80cb03351919b2836b53c58329bdbc275"
+    },
+    {
+      "path": "results/models/maxout_drawer_pull_mlp_dynamics_wam.npz",
+      "suffix": ".npz",
+      "bytes": 13152,
+      "sha256": "24851f61ee459f1088ee67566e26e5a46f5365ba3fb9a6c42600c0155b4da4e3"
+    },
+    {
+      "path": "results/models/maxout_nonstationary_shift_ensemble_wam.npz",
+      "suffix": ".npz",
+      "bytes": 15040,
+      "sha256": "31409fbea03239cc18bb066ebb17bdf5a4fecaac213c81376f519235ab0d0ba8"
+    },
+    {
+      "path": "results/models/maxout_nonstationary_shift_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 3687,
+      "sha256": "42472ee6a7d4e0b4abdd4dd729836ab956c75078c17e34b9b2ebd312ca98bad8"
+    },
+    {
+      "path": "results/models/maxout_nonstationary_shift_mlp_dynamics_wam.npz",
+      "suffix": ".npz",
+      "bytes": 13160,
+      "sha256": "f132b24116029e456b1a77dc8c0dab6941b3f69985ef7242528eea75309fcbd7"
+    },
+    {
+      "path": "results/models/maxout_slippery_grasp_ensemble_wam.npz",
+      "suffix": ".npz",
+      "bytes": 15035,
+      "sha256": "41033923060f8aa5b67678d9103d0674c5822c46e64cc3ffd598445ce735a14d"
+    },
+    {
+      "path": "results/models/maxout_slippery_grasp_horizon_wam.npz",
+      "suffix": ".npz",
+      "bytes": 3682,
+      "sha256": "b5c5691268d91d16b20ab4344dec208da68e8fce113285bb32d17cc034b6ec91"
+    },
+    {
+      "path": "results/models/maxout_slippery_grasp_mlp_dynamics_wam.npz",
+      "suffix": ".npz",
+      "bytes": 13155,
+      "sha256": "dca6d20e3a308fa36eb5064f67aa8fafb83b4375950cc5b51453651a7f1d88b3"
+    },
+    {
+      "path": "results/multi_env_suite.json",
+      "suffix": ".json",
+      "bytes": 33208,
+      "sha256": "7fae00800682b2367eb1f64752d7f94e4b86c2ba65e404e3148c3732d31765ad"
+    },
+    {
+      "path": "results/scorer_repair_experiment.json",
+      "suffix": ".json",
+      "bytes": 1848,
+      "sha256": "bb2ca6c2d3bf1f11582747ad56cc9b0585c90695e0c040bc0d0eee48069d35ce"
+    },
+    {
+      "path": "results/tables/benchmark_gym_manip_closed_loop.csv",
+      "suffix": ".csv",
+      "bytes": 5132,
+      "sha256": "f81e23a3ef5bf251c3e6c0054078ea605eebd46855b8e382f423732c3a0d8244"
+    },
+    {
+      "path": "results/tables/benchmark_gym_manip_curves.csv",
+      "suffix": ".csv",
+      "bytes": 49011,
+      "sha256": "deeace6e6317d22326b2535b55b8b52b548ce9e8d2eb8221d4f25d49f645755a"
+    },
+    {
+      "path": "results/tables/benchmark_gym_manip_curves_aggregate.csv",
+      "suffix": ".csv",
+      "bytes": 1401,
+      "sha256": "1a933dc9a9878c2dc34925fd054fe9f6790ce69e02810c2897ab5c36640b0a5d"
+    },
+    {
+      "path": "results/tables/benchmark_gym_manip_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 4736,
+      "sha256": "ffcb5abcc4c091ac71f0e11568c11dbb6df0563c79c430f4be276c44ec51a037"
+    },
+    {
+      "path": "results/tables/benchmark_gym_manip_real_vs_predicted_gap.csv",
+      "suffix": ".csv",
+      "bytes": 2318,
+      "sha256": "0ab1513a8bdd1b196e4472676411596e0608f1d1dc2a9d59659a15cf73901dd9"
+    },
+    {
+      "path": "results/tables/benchmark_gym_robotics_closed_loop.csv",
+      "suffix": ".csv",
+      "bytes": 13586,
+      "sha256": "ef78ea1197280e9d651534a0e551a834a502d1be9e3008c0ad2b0fb928174a5f"
+    },
+    {
+      "path": "results/tables/benchmark_gym_robotics_curves.csv",
+      "suffix": ".csv",
+      "bytes": 159094,
+      "sha256": "bc9a24c78122c3799f6cf5e86bef651f19de063a0a782d9b34da47bf75a210ab"
+    },
+    {
+      "path": "results/tables/benchmark_gym_robotics_curves_aggregate.csv",
+      "suffix": ".csv",
+      "bytes": 7347,
+      "sha256": "5739fff5156929bb69162f35e77e79b8e4047c630cbf24e2c8ef409aaf856261"
+    },
+    {
+      "path": "results/tables/benchmark_gym_robotics_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 17733,
+      "sha256": "f3702babd7bc22d5a9e79d4290954db82dd2be285dbc80b65dd6c8ca48e0cb43"
+    },
+    {
+      "path": "results/tables/benchmark_gym_robotics_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 406,
+      "sha256": "4afaf7ea24bf2cf7250421e250f1d1f8adcf450950fd0b63cfc3b66f9440f39d"
+    },
+    {
+      "path": "results/tables/benchmark_gym_robotics_visual_wam_curves.csv",
+      "suffix": ".csv",
+      "bytes": 118937,
+      "sha256": "7f8fdff789b87c3877d8cfe22b18f7dfc9fb593ef443fe6ae397c0f497456f35"
+    },
+    {
+      "path": "results/tables/benchmark_gym_robotics_visual_wam_curves_aggregate.csv",
+      "suffix": ".csv",
+      "bytes": 7288,
+      "sha256": "072a1a4057c88349fcdd3db35dcccb78be97c3b96e95f5911b54255423cf59a4"
+    },
+    {
+      "path": "results/tables/benchmark_gym_robotics_visual_wam_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 13327,
+      "sha256": "4b288c26fa1bfd89606815f7dbe9aac2aabec25351fcd39841cf2f721ff5f48e"
+    },
+    {
+      "path": "results/tables/benchmark_gym_robotics_visual_wam_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 421,
+      "sha256": "e30ba0fb79b78364fbacfe7970d492d317f9ce2a48753618e65d7cf8cc3335ca"
+    },
+    {
+      "path": "results/tables/benchmark_libero_autonomous_bc_policy_episodes.csv",
+      "suffix": ".csv",
+      "bytes": 17990,
+      "sha256": "b4131024a83d438db35199c04ee8f711ad65af31ce38ecc688d6329836e8aed3"
+    },
+    {
+      "path": "results/tables/benchmark_libero_curves.csv",
+      "suffix": ".csv",
+      "bytes": 54577,
+      "sha256": "ff125cee9f730415755387b6e0720b3d521d2184371d0c854f26bbceed44af3f"
+    },
+    {
+      "path": "results/tables/benchmark_libero_eval_rollouts.csv",
+      "suffix": ".csv",
+      "bytes": 83890,
+      "sha256": "b902c55edf3c94a9addda5c6a1539efd5a4de4eba8617739513fd564c7e4b9bb"
+    },
+    {
+      "path": "results/tables/benchmark_libero_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 27539,
+      "sha256": "cb0e125e15d97483c3e261f2b4dd8f5638e9a825f42ed9f6f82fc9e9d33b86db"
+    },
+    {
+      "path": "results/tables/benchmark_libero_learned_action_head_episodes.csv",
+      "suffix": ".csv",
+      "bytes": 10444,
+      "sha256": "cfd3448ae92f27a933a2c3141c58fe1c0b0302cd69ecaff99f029e9eed3f553e"
+    },
+    {
+      "path": "results/tables/benchmark_libero_scripted_policy_episodes.csv",
+      "suffix": ".csv",
+      "bytes": 12425,
+      "sha256": "800b04cbe993235588938787ce60ce1c0da45afb27b3c46bb717f9fc4477dcc1"
+    },
+    {
+      "path": "results/tables/benchmark_libero_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 3159,
+      "sha256": "9315b16789fd5c820671872e5fb0e44c17950ad0ea93464f125c45850b55a773"
+    },
+    {
+      "path": "results/tables/benchmark_libero_train_validation.csv",
+      "suffix": ".csv",
+      "bytes": 70855,
+      "sha256": "1a5f7a481ea570f807d75b4b5bb92cbc14a51108e32f2ba9ca47bd325182edab"
+    },
+    {
+      "path": "results/tables/benchmark_libero_visual_language_bc_policy_episodes.csv",
+      "suffix": ".csv",
+      "bytes": 11467,
+      "sha256": "49aa3a9ba6fc8918a66489f343b33ed7f760f5355a0a1dae3597360806b075db"
+    },
+    {
+      "path": "results/tables/benchmark_maniskill_closed_loop.csv",
+      "suffix": ".csv",
+      "bytes": 7056,
+      "sha256": "d1ba883b238243a6e7131f03e3a8346c02a33fa9a1823607276b4da258f4978f"
+    },
+    {
+      "path": "results/tables/benchmark_maniskill_curves.csv",
+      "suffix": ".csv",
+      "bytes": 76512,
+      "sha256": "44ef2e5c52d547231d90c74aae38a4ff98cbd19330b38a17b81f7af75ade7370"
+    },
+    {
+      "path": "results/tables/benchmark_maniskill_curves_aggregate.csv",
+      "suffix": ".csv",
+      "bytes": 6990,
+      "sha256": "01acfc2f5f3e63359fc8f58dc232387ce9ec4400260d8900143b9813d7709d2e"
+    },
+    {
+      "path": "results/tables/benchmark_maniskill_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 8613,
+      "sha256": "2f16ca1c526bb85b51ada2f40e235c618b9d43cd5743e4d0a6d2e1519a0bb864"
+    },
+    {
+      "path": "results/tables/benchmark_maniskill_model_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 591,
+      "sha256": "4304151727ef615684576b06a5c4bea6a28af8347a93f39958f884349f536cc1"
+    },
+    {
+      "path": "results/tables/benchmark_maniskill_real_vs_predicted_gap.csv",
+      "suffix": ".csv",
+      "bytes": 4221,
+      "sha256": "597b9c450a3f8c74a946a02634e8a8f12da1ef810b423350c463748f8c08ec80"
+    },
+    {
+      "path": "results/tables/benchmark_maniskill_visual_probe.csv",
+      "suffix": ".csv",
+      "bytes": 2039,
+      "sha256": "427f992c5cd9d399620befbcd020adc4e65a94ee1378659a09cab623181e636c"
+    },
+    {
+      "path": "results/tables/benchmark_metaworld_closed_loop.csv",
+      "suffix": ".csv",
+      "bytes": 20188,
+      "sha256": "ef56e71937078af23c7de1fce7c9066fc53b97d7a0d0b88963a995388473ce88"
+    },
+    {
+      "path": "results/tables/benchmark_metaworld_curves.csv",
+      "suffix": ".csv",
+      "bytes": 130063,
+      "sha256": "10c9bc5828b434651e8bc66f50f53dad9c433ae09b7c1a02c9e830c86a94dbc6"
+    },
+    {
+      "path": "results/tables/benchmark_metaworld_curves_aggregate.csv",
+      "suffix": ".csv",
+      "bytes": 8269,
+      "sha256": "74eaff831d9e0a5c87779ddefba9de2d3ca357ce8fe3c4a9f85c7d7c64e4ab7c"
+    },
+    {
+      "path": "results/tables/benchmark_metaworld_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 11616,
+      "sha256": "b5b132ba29abedc2b9400885fb48d1da07622d0d4ad65391be75a2a46bd754cf"
+    },
+    {
+      "path": "results/tables/benchmark_metaworld_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 526,
+      "sha256": "0190f509204eb2b9b01def9ae599fe6d268eec5dbda59d244acd2bdc10e5979b"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_broad_curves.csv",
+      "suffix": ".csv",
+      "bytes": 57055,
+      "sha256": "64e18db45059f5a44239a13b0894938bf58dd704bb74e36280a217e3351f9877"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_broad_eval_rollouts.csv",
+      "suffix": ".csv",
+      "bytes": 33863,
+      "sha256": "4f214346f7ff30f03e05de7c2a18b5cb1678cc94d17e36beb310fafc7e2b0811"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_broad_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 31453,
+      "sha256": "f32c34332b8142a29d776175816822c8485d6297f8f050a7f63d0c67a768378d"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_broad_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 3300,
+      "sha256": "2bdb83bfa16b5ddfbd1da1691ac77a0ca4d3a3614111129e8dfac0f1db05b7b7"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_broad_task_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 794,
+      "sha256": "37e0abfab06e99e6293c50894e45c50ba4382024b7a28e86e53962c1a4890f3d"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_broad_train_validation.csv",
+      "suffix": ".csv",
+      "bytes": 15374,
+      "sha256": "704f7efa6642136ce8f60f5783e873c44e3443631cb0f5c094257457e168a2c8"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_catalog_artifact_coverage.csv",
+      "suffix": ".csv",
+      "bytes": 12239,
+      "sha256": "518247e32523883dabec5dc799a6bca24db0a41aefe501c95a8fa525af5403cb"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_catalog_registry.csv",
+      "suffix": ".csv",
+      "bytes": 26250,
+      "sha256": "eb874f878b21b3ba3472e7a6453b736af3850ecb5d939e3f7378d329657b8f64"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_closed_loop.csv",
+      "suffix": ".csv",
+      "bytes": 1088,
+      "sha256": "3e7b111254696c5dc1b04e5740c14248ddec18183544cb1918f1994c07c7af83"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_curves.csv",
+      "suffix": ".csv",
+      "bytes": 8012,
+      "sha256": "2efc41796530d9a40d659e23bee98e97cc920e007cd737dbf5370ab9fb76159e"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 5212,
+      "sha256": "88e8ecb08ab6d35681940797a6d554533151be689e579a7d393d48d224378c10"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_extra4_curves.csv",
+      "suffix": ".csv",
+      "bytes": 65384,
+      "sha256": "09faf4081f53a36b38639045329883e664a5f60b516717136dd3f8c723fb5d0e"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_extra4_eval_rollouts.csv",
+      "suffix": ".csv",
+      "bytes": 35685,
+      "sha256": "dedd939221a7cb599f4551562bc424e47676ac48922dee3b2312637842e0704b"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_extra4_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 35189,
+      "sha256": "d5540862a8fbeb079e0bafb97d1e60242e65c4094014bc8f0be7d0c3d3e3213e"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_extra4_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 3495,
+      "sha256": "1b976a938da5022ec551ed35073bfb22a10e4c1bf5116a76dbdd3b2696189a8d"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_extra4_task_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 854,
+      "sha256": "fff230c93af43affe3e5f433af464d965f1c9cfbf1fd74af02ef66a825995afd"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_extra4_train_validation.csv",
+      "suffix": ".csv",
+      "bytes": 16725,
+      "sha256": "b51e35233b51dded4fc235f6a8172c04ed43092178593159e707deef753c8a28"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family12_curves.csv",
+      "suffix": ".csv",
+      "bytes": 85194,
+      "sha256": "15a02853dfeb7f3afb521a78fbf54170d7878c85ac73849277141b3d0370f096"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family12_eval_rollouts.csv",
+      "suffix": ".csv",
+      "bytes": 50686,
+      "sha256": "53847c85ab74a916373a27b55bd21d7f3d8e035803eecd1eb99f0e9306fa6ce7"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family12_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 47002,
+      "sha256": "e47fa0543c57520a6d3418e7c7dbab0e553fd458d7b1b56869da4a5481d0d6fc"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family12_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 4883,
+      "sha256": "f6200aed28f4381b13917c28d41d277c0181aeb4e253a2e79151834fc50aab4d"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family12_task_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 2123,
+      "sha256": "e0abc81ec12d2898a528b46033da1278d88efd307adcff43d417653b679942fa"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family12_train_validation.csv",
+      "suffix": ".csv",
+      "bytes": 30954,
+      "sha256": "7a3fbf6af55bcab90d3561e5dec2b3c8eb4c6e8927c93db22c1b420ef96fa7c9"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family24_curves.csv",
+      "suffix": ".csv",
+      "bytes": 177547,
+      "sha256": "a892b17bf7c4fa7b3d50a3dfd2f04205f81a2227120246fa604daf8a7c167170"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family24_eval_rollouts.csv",
+      "suffix": ".csv",
+      "bytes": 101147,
+      "sha256": "1dee583393334332efaa934363679b2cd49103693f39c3bc64dd5f65d7930c96"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family24_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 97127,
+      "sha256": "e8eb5b7d8b35aa122209cea3bebca1c7d78a6d93917b53074a8873670cc3cd02"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family24_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 9648,
+      "sha256": "2b44ec6633314881479cf0bd26748494309f42dda0a7b895f49b794cf5dcdcce"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family24_task_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 4178,
+      "sha256": "40010133cf4ca608edc40ca6a75568160d93d970f50b37fc9ddab3afa030d36d"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family24_train_validation.csv",
+      "suffix": ".csv",
+      "bytes": 61881,
+      "sha256": "917df1ef2bd1b92b75c9d0ecb2a8d5b684c75234f4aee425757aa5d5f6fbc0e7"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family28_curves.csv",
+      "suffix": ".csv",
+      "bytes": 210482,
+      "sha256": "7da3e8974dc79ec602e96d93f82c620d8d43b11efbbd49dd1b526b43258aee97"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family28_eval_rollouts.csv",
+      "suffix": ".csv",
+      "bytes": 118927,
+      "sha256": "8580bbeeec67d7a66b693404bbaac9f7175a0627941457e49a267dad00846e85"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family28_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 114811,
+      "sha256": "f3c99dd8b47071957a59686b52b163b7b7dd758f4194263108bbfeff996c6d0b"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family28_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 11198,
+      "sha256": "14d4ca77e19d0b05e7edd872b5afbea7d7988cc08c934a09e75bc669bfabf617"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family28_task_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 4918,
+      "sha256": "1f91a2723b172afcb082eafb2aa31faabc1ca28e39277a9393ca196dfd08828c"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family28_train_validation.csv",
+      "suffix": ".csv",
+      "bytes": 109074,
+      "sha256": "0a9f4b1eb112c0875bcaa78311c7e9afdfd6d03837b20cb5292e068b2363a272"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family32_curves.csv",
+      "suffix": ".csv",
+      "bytes": 241161,
+      "sha256": "f136431363f94896099c48274c5a188ff7e2c4430e782e05809d4e9f9d9c87fa"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family32_eval_rollouts.csv",
+      "suffix": ".csv",
+      "bytes": 136302,
+      "sha256": "7cf0120b15627a185dd2860ebc5e7a077cfc506e3f9f73ac95ed34563cd6d59a"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family32_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 131456,
+      "sha256": "b3056af091ced8bef11b75103b47072369741d1bb7c96df77c1ddf97987d4ee2"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family32_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 12840,
+      "sha256": "8dcc82a7a449011fb140cc72c224d8f25b0e45c57538a7483b7fb094b8456c32"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family32_task_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 5618,
+      "sha256": "d896a95dc174d4efaa90004d3f848e1048f99a4a2575476fc8dc0bada23c745b"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_family32_train_validation.csv",
+      "suffix": ".csv",
+      "bytes": 125220,
+      "sha256": "6261fdabb2dad56c892afcae35becd8dacdfdf80e00faf2cc54ad13053c734e6"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_learned_curves.csv",
+      "suffix": ".csv",
+      "bytes": 12249,
+      "sha256": "ed02902b4ca9333cfb79a4124437f76cd46d85fedde4e3e5c898325ed2cd2d76"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_learned_eval_rollouts.csv",
+      "suffix": ".csv",
+      "bytes": 13630,
+      "sha256": "4fd8c16ecee2f62d9d800dbbdfb0e7ebbafc37d18b5337deb17573faf47ba524"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_learned_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 5178,
+      "sha256": "1d90894fe67e74dd62bf8a96ff7ed43ccdff4e36ecc2ee9b3a97c9da00bd79c4"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_learned_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 536,
+      "sha256": "9d1ab7e40adeab653e1b7334a60828654d2a0367241ec78d186e3a07a3a26097"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_learned_train_validation.csv",
+      "suffix": ".csv",
+      "bytes": 17753,
+      "sha256": "94f73ba5b81b524a7953a3e8068bf7622bcb242eca63338f82ed8c0d6a0c4fe3"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_extra.csv",
+      "suffix": ".csv",
+      "bytes": 1162,
+      "sha256": "114057af4d79d13a5a3d35031de96db9880ecf3d23f023efc265bcf8483ec8be"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_frontier_probe.csv",
+      "suffix": ".csv",
+      "bytes": 15412,
+      "sha256": "d6ce8c3a2b4ecaa59ccfacba2095086e4ad3262c1742bc7f4eded20fb7f3a24d"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_atomic_probe.csv",
+      "suffix": ".csv",
+      "bytes": 6503,
+      "sha256": "8cb6f5551897fbaa8c6c219d35e9b1a4215727064128cb221e9fc44e1ae5f521"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_000.csv",
+      "suffix": ".csv",
+      "bytes": 406,
+      "sha256": "e4265b4719b0a3989ef35dd7b8bffa80a965a52daf6db50280bf23a6535d155e"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_001.csv",
+      "suffix": ".csv",
+      "bytes": 444,
+      "sha256": "1a1c4da00067aacb0168e32672fea0bb5d96143f3709e89cc80b9e9aba41e67e"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_002.csv",
+      "suffix": ".csv",
+      "bytes": 439,
+      "sha256": "e099ff647a4ea06861b5989a261b0249e2f22fc3238ef7a32179b0409fe47d4b"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_003.csv",
+      "suffix": ".csv",
+      "bytes": 431,
+      "sha256": "a68d978555b5f2fa0ac46a476bea6aff9d838218386a49e6a1c1c92eb8d9acbd"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_004.csv",
+      "suffix": ".csv",
+      "bytes": 432,
+      "sha256": "54aa206dcf3dafaf4e6ed2e41ea660d42116bb310a716238ac04bfd0f850a6f2"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_005.csv",
+      "suffix": ".csv",
+      "bytes": 431,
+      "sha256": "957aedb829a6a5256d512e4f37213f8d1515d291305021b8e4704249c2959aaa"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_007.csv",
+      "suffix": ".csv",
+      "bytes": 436,
+      "sha256": "ba1a530a88ad58a3d9d9de84d21954c3861c88ac1edd17a53a735dec7073d5e8"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_008.csv",
+      "suffix": ".csv",
+      "bytes": 437,
+      "sha256": "d7e40c03ee56099d324fbf0457d8e93f8f523ad73f8a47f052edab98fce384c3"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_009.csv",
+      "suffix": ".csv",
+      "bytes": 450,
+      "sha256": "be25d952a37bd88f3cdb10fef2ef433c51ddd25d9d47c0018786157ca7dfd7d0"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_010.csv",
+      "suffix": ".csv",
+      "bytes": 438,
+      "sha256": "d29f713e6fe5a6c7e790a1b9ff95219230d7359f5dc4f6ba00b39907294280a8"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_011.csv",
+      "suffix": ".csv",
+      "bytes": 436,
+      "sha256": "9c4f5b82c980a88c86328ec384532813f45e8a00d133d2396327f057c3937148"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_012.csv",
+      "suffix": ".csv",
+      "bytes": 449,
+      "sha256": "94a41c3db783af97619fe866401968a7d7811c6e5c59dc6a5b5ba22613653b6a"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_013.csv",
+      "suffix": ".csv",
+      "bytes": 314,
+      "sha256": "759e45860b6a5fb0de5d38af8c45d602f7d72cb623fb7c16f51e999da84637d1"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_014.csv",
+      "suffix": ".csv",
+      "bytes": 436,
+      "sha256": "81fb683364402c62dd2b96a2514eee4623442fa204dc62a9c42d62a300a121a9"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_015.csv",
+      "suffix": ".csv",
+      "bytes": 440,
+      "sha256": "e549238e97164dc1a109522a93b9f13c4e37bb8e8361881e758701f6d60f2620"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_016.csv",
+      "suffix": ".csv",
+      "bytes": 439,
+      "sha256": "2ce4671bb7149245d45abe5fc6fa1ba6c3a54abd5ee1a4148f1a256335e7b547"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_017.csv",
+      "suffix": ".csv",
+      "bytes": 431,
+      "sha256": "f87ebd1c5ceca2d2cf2cf73783f5d01e33caff36ab5dd804479dc408ee581193"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_018.csv",
+      "suffix": ".csv",
+      "bytes": 435,
+      "sha256": "5a44a5183ce338cd7877fc8c666d6aec7921f002bb3429fe16d3faa393929404"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_019.csv",
+      "suffix": ".csv",
+      "bytes": 441,
+      "sha256": "3a0371241b66b63cca77d96b2080898fed318e4ab621c96ef9c92f08464a441b"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_020.csv",
+      "suffix": ".csv",
+      "bytes": 441,
+      "sha256": "a2f1895e3e2db02c5a9ee6a5b5d914e829b0d11b78428a41a5a85f7e6346eb67"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_021.csv",
+      "suffix": ".csv",
+      "bytes": 441,
+      "sha256": "b0b40da15c7462e926c083eff56bf000d39f0655f46a146d061d584fb31db711"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_022.csv",
+      "suffix": ".csv",
+      "bytes": 445,
+      "sha256": "016e954b259659ebd550e0b5c28ef85fcc7eb4d0cc40906c4f419e7c68683900"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_023.csv",
+      "suffix": ".csv",
+      "bytes": 437,
+      "sha256": "1576ffdacef2f50948b5affc487960d3e2099932edf418a0ddf52f89c5c856da"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_024.csv",
+      "suffix": ".csv",
+      "bytes": 446,
+      "sha256": "2a3aff94eac08f85ebff8ba6e734e725e2c364c45a659f6ee70788c19167e150"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_025.csv",
+      "suffix": ".csv",
+      "bytes": 449,
+      "sha256": "0865287b4bf5c1530712b81b629549fb34095ed24427f49d06283a4cdddd05af"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_026.csv",
+      "suffix": ".csv",
+      "bytes": 436,
+      "sha256": "90adf7db1c7967805520a66f22db5e1ca2a84ffa16e28837f0d5246c2946dac5"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_027.csv",
+      "suffix": ".csv",
+      "bytes": 438,
+      "sha256": "b75efec8165a1a34f492398473ad0dfd1966c32f830909dc1834c78a16c38fc1"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_028.csv",
+      "suffix": ".csv",
+      "bytes": 441,
+      "sha256": "a622d24dfad3308407a31592d79ae85cd4ebe8599e93d13131892ffcde6f6495"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_029.csv",
+      "suffix": ".csv",
+      "bytes": 389,
+      "sha256": "74048461caf2581e2855f2714ac51c2b2aae693bcd902100ebb826c526b72902"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_030.csv",
+      "suffix": ".csv",
+      "bytes": 447,
+      "sha256": "0d8e916517f7bcc3ade13d02525710c66a39653a03fad23487764447db53ebd9"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_031.csv",
+      "suffix": ".csv",
+      "bytes": 443,
+      "sha256": "0a6079d59d37be37241682956520da7c84d12fb313bbb49a87e14e17ddea5fe7"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_033.csv",
+      "suffix": ".csv",
+      "bytes": 390,
+      "sha256": "a1bf3d6880bbb19e943c34c4b2389e3cf5237c67ac3402f25a0669cda3e82160"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_034.csv",
+      "suffix": ".csv",
+      "bytes": 398,
+      "sha256": "92679dd7d47eb2d4ea7b8697958364eeb1f2d747dbaba8d124c2c53a7b6e14b4"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_035.csv",
+      "suffix": ".csv",
+      "bytes": 434,
+      "sha256": "d280e3718e21eebb13534e0ab77e5125f8e8b32da8b8c610aa0d37ae8a1029a1"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_036.csv",
+      "suffix": ".csv",
+      "bytes": 441,
+      "sha256": "9b393b83b110fef225821856b399035cd5aaf4a42513607d8bbcace7f74195c6"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_037.csv",
+      "suffix": ".csv",
+      "bytes": 438,
+      "sha256": "78b8226c067c4a222d1b20247236c14d4b6e1ffe2c2d872ccb2fcef351081df7"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_038.csv",
+      "suffix": ".csv",
+      "bytes": 445,
+      "sha256": "2709c18c57d5bc8584711958185d375490a2e25a36af0f38c37ee9a95f2c50a9"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_039.csv",
+      "suffix": ".csv",
+      "bytes": 323,
+      "sha256": "ab09f3511dadc249534ad344f760eb4679a8388cd72dbcd2913de0886a710eb8"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_040.csv",
+      "suffix": ".csv",
+      "bytes": 440,
+      "sha256": "631d95ad040259e981b85f83d708b8f8d191c030ba4f411e88d11ce93a96c660"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_041.csv",
+      "suffix": ".csv",
+      "bytes": 440,
+      "sha256": "e99fcf24049e9af463e9e5f5e65f402f3bfb761e748fdf85c78bc1a0b2cc5991"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_042.csv",
+      "suffix": ".csv",
+      "bytes": 443,
+      "sha256": "65ee8f72348668e77288a65be1c5551e8fb304feb615a4be60153268ea2b8245"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_micro_rollout_stratified_probe.csv",
+      "suffix": ".csv",
+      "bytes": 6291,
+      "sha256": "873d825b0e9801256bcf60cbc00099fddd509dff56f81696bce8eb36b411265b"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_multitask_curves.csv",
+      "suffix": ".csv",
+      "bytes": 60197,
+      "sha256": "76aa8e6311ae3a349c9b82c772a8582634aba62a2b2010ec569dc6466c118830"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_multitask_eval_rollouts.csv",
+      "suffix": ".csv",
+      "bytes": 66139,
+      "sha256": "61993cd7dd559b9fc3b7001edd4fb0d5af462b6b592e9c929b05bd9c851985a7"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_multitask_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 32430,
+      "sha256": "9e0856bbfa92343ae29fac8b29e84936d9ef47e6fac2d821f15e02c23a883ee1"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_multitask_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 3343,
+      "sha256": "ed26a8204ec5b1cd7d71c7342f725b1f1331e1072937b2532c51fd1caea86fa6"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_multitask_task_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 664,
+      "sha256": "be7d721fb5a514c66be6f578c400732de50b5eb5125b4a3f29f8036b1e9a266e"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_multitask_train_validation.csv",
+      "suffix": ".csv",
+      "bytes": 41500,
+      "sha256": "99797cdc02a85fd48474e29dc73cffa49feb97290aa39f2ec9e4a86369b88186"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_residual35_h1_n4_curves.csv",
+      "suffix": ".csv",
+      "bytes": 97685,
+      "sha256": "6ceb2f41d6147c8372da7f6e585ea2fdeea911a8f04ad7c54bf4d6d0e0a5d2ca"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_residual35_h1_n4_eval_rollouts.csv",
+      "suffix": ".csv",
+      "bytes": 75790,
+      "sha256": "ed97b12e5304bca59865a1876320ac90a7d8df8db0670136841393b21787cda5"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_residual35_h1_n4_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 53639,
+      "sha256": "b4e46966dfcbc8a4b019c24a6e86ea1ba4ac4c80aed2cdfaf3de93d76cc60527"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_residual35_h1_n4_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 6971,
+      "sha256": "5fa77cb0edac243a21ae8135d816154f0efd08ff0f103c05105aadb6914804e0"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_residual35_h1_n4_task_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 6087,
+      "sha256": "562560ce9cd4316a59b0d601c12b09e027573e33614cf72c2f0168b052362171"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_residual35_h1_n4_train_validation.csv",
+      "suffix": ".csv",
+      "bytes": 46682,
+      "sha256": "b214b5ea87e75249a5e8da1c532e7f5ff85f7a2f7573dfd257dfe4e63c2edd02"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_chunks.csv",
+      "suffix": ".csv",
+      "bytes": 7958,
+      "sha256": "6fcafc8e05d90c194d7e958af234cb90b971ad32ee32f9b1b1df685e0e0046d4"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_rollouts.csv",
+      "suffix": ".csv",
+      "bytes": 12805,
+      "sha256": "cb7c2b79301ff7d5997265c84aeba67461821cd356f0d8ce39dd2d854c213da3"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 428,
+      "sha256": "fd841bf2dbc78f873aca469bd0cbe93924b93f98e2e0f1495cc8fd2196aecc24"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_stratified55_curves.csv",
+      "suffix": ".csv",
+      "bytes": 409479,
+      "sha256": "d09e193bbe53295dd1692431898c9788412ecfa87bbc1d92cef6cc60c11efec8"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_stratified55_eval_rollouts.csv",
+      "suffix": ".csv",
+      "bytes": 234058,
+      "sha256": "a2468df036c928965ab13f0f59463518209c35983cbe6941e418fbdb2d902e8b"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_stratified55_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 223758,
+      "sha256": "e00917576133357eac56cd430862c47c44df82d4692d5f3852ec42ecd879f1e2"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_stratified55_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 21466,
+      "sha256": "4213ef5f8a780ee2940b6406ca08093fcc44aabd83c8dfa822f646d70be4fde9"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_stratified55_task_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 9532,
+      "sha256": "7c6005cea63c7b26d6da932dbbca9f1367aed851042086d3f1f14b2943c37666"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_stratified55_train_validation.csv",
+      "suffix": ".csv",
+      "bytes": 215397,
+      "sha256": "415b166c8501534ed07a43fec8f037b0a762f18a5ae17d90d5aa03e134575eec"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_stratified97_curves.csv",
+      "suffix": ".csv",
+      "bytes": 722870,
+      "sha256": "2f6aaba3d3d94c776cc2fde1950b6a312c1147819c2f92cf6fc88efcdb74d2c1"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_stratified97_eval_rollouts.csv",
+      "suffix": ".csv",
+      "bytes": 414269,
+      "sha256": "cc3c0c9ac4fd52ee7133150da1b35475db6d293df84375bc3bcd5175cebd1675"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_stratified97_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 395069,
+      "sha256": "b87ad9561db081921298fb458b9095517636341f080af95a656bcc11f690e10a"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_stratified97_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 37474,
+      "sha256": "b3cef8fadd6367f73fd144983ac9a29313329228c3ddf28592296b926ff3ae18"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_stratified97_task_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 16739,
+      "sha256": "f270045e2dca309bb4741f0b9453b17378c6197557ae3be401876f6973914754"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_stratified97_train_validation.csv",
+      "suffix": ".csv",
+      "bytes": 381719,
+      "sha256": "2e6509458dec52f3b47ad58ac3c94878e645766caaa48b4d2f360779e54419f8"
+    },
+    {
+      "path": "results/tables/benchmark_robosuite_closed_loop.csv",
+      "suffix": ".csv",
+      "bytes": 13200,
+      "sha256": "7903b63ea723250fac3864ac8c4e7a2e67980ed9bc85d4b93d09d6c27a02c8ee"
+    },
+    {
+      "path": "results/tables/benchmark_robosuite_curves.csv",
+      "suffix": ".csv",
+      "bytes": 92369,
+      "sha256": "f70462fd7be5c5bf8785d397401eff0e0cd92b33730d2f14487ca683a74e16e4"
+    },
+    {
+      "path": "results/tables/benchmark_robosuite_curves_aggregate.csv",
+      "suffix": ".csv",
+      "bytes": 8275,
+      "sha256": "83a4ca60e5402b66685684fd690f60d61ff09d267ef33eae15a0f53badccf828"
+    },
+    {
+      "path": "results/tables/benchmark_robosuite_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 6975,
+      "sha256": "9c57cd4795511ad232de41700402b739999820e657fff870f55453fadfaab583"
+    },
+    {
+      "path": "results/tables/benchmark_robosuite_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 659,
+      "sha256": "cb9ceed115ab3f8e40f68172329013075aa80f553d75b5a4a4c60d67b1a09b49"
+    },
+    {
+      "path": "results/tables/benchmark_status.csv",
+      "suffix": ".csv",
+      "bytes": 316,
+      "sha256": "357c41b65b7c5cf7c1051d340a282038d97ac2b128978094314ba0522e37ff28"
+    },
+    {
+      "path": "results/tables/benchmark_visual_wam_lite_curves.csv",
+      "suffix": ".csv",
+      "bytes": 48757,
+      "sha256": "764c0296c3498621b04906274d2a12138eb69381be5fd2393a68d608c9515b3e"
+    },
+    {
+      "path": "results/tables/benchmark_visual_wam_lite_curves_aggregate.csv",
+      "suffix": ".csv",
+      "bytes": 1758,
+      "sha256": "93652d015c2159f077d46f1252f7214c78701e426e840d2c0d5a55bdb1c234b5"
+    },
+    {
+      "path": "results/tables/benchmark_visual_wam_lite_exact_law.csv",
+      "suffix": ".csv",
+      "bytes": 4879,
+      "sha256": "88661f43a74c377ee9ed7f6aca61af231e287292c0864cb6c9720bc67086921d"
+    },
+    {
+      "path": "results/tables/benchmark_visual_wam_lite_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 408,
+      "sha256": "bd0a2e5689b03878e308046f48d55b0d388fc456fb42aeefbde91506cce22f12"
+    },
+    {
+      "path": "results/tables/exp10_falsification_bad_scorer.csv",
+      "suffix": ".csv",
+      "bytes": 138253,
+      "sha256": "e882a12c633fb9ea64316e3d95db9f39b79d11ae6f518f9f9f7db722b49c8c45"
+    },
+    {
+      "path": "results/tables/exp1_exact_rollout_law_validation.csv",
+      "suffix": ".csv",
+      "bytes": 107041,
+      "sha256": "a0220a0db710880ccccc5cae1c1cc87b8969d13d548c4d51004d0dacbd199044"
+    },
+    {
+      "path": "results/tables/exp1_exact_rollout_law_validation_learned.csv",
+      "suffix": ".csv",
+      "bytes": 27946,
+      "sha256": "fac0bd19c65fa5448600a8bb6888503033f6d49b3f237cfdc5599b7e515308e1"
+    },
+    {
+      "path": "results/tables/exp2_auc_vs_moment_hierarchy.csv",
+      "suffix": ".csv",
+      "bytes": 74487,
+      "sha256": "0a0d53452ed51dbec9c200d7dc484744467f70de086b9e972f5ecef4b2f7c6d4"
+    },
+    {
+      "path": "results/tables/exp2_same_auc_counterexample.csv",
+      "suffix": ".csv",
+      "bytes": 1285,
+      "sha256": "c8c2c2bd2682f8ffc1a3b90a72b4a079bd3014d263e359e0967950128f992a5b"
+    },
+    {
+      "path": "results/tables/exp3_pilot_to_heldout_prediction.csv",
+      "suffix": ".csv",
+      "bytes": 2953912,
+      "sha256": "8768602d347e4929fa9bf020f6b40366f11b96eb5525c49171a26b36a6146086"
+    },
+    {
+      "path": "results/tables/exp4_score_function_comparison.csv",
+      "suffix": ".csv",
+      "bytes": 1175911,
+      "sha256": "1246e5c151bdc97c52caf1be716da566adb3ccfae6d00cb6f7fdab4413526897"
+    },
+    {
+      "path": "results/tables/exp4_score_function_comparison_aggregate.csv",
+      "suffix": ".csv",
+      "bytes": 9954,
+      "sha256": "f86c2165025f5e569332f456f721e6fa510a4606a93d348eb957795ae4e302e4"
+    },
+    {
+      "path": "results/tables/exp4_score_function_comparison_aggregate_learned.csv",
+      "suffix": ".csv",
+      "bytes": 9933,
+      "sha256": "406c14e12dbaa46199d9e49bcf971b9eb4cf608c48ffcbdb9cfd49e6286bb9f5"
+    },
+    {
+      "path": "results/tables/exp4_score_function_comparison_learned.csv",
+      "suffix": ".csv",
+      "bytes": 248717,
+      "sha256": "5dbe0fcf8372d8b8d8ebc45bae9f3315a916a0d5b1a2598e360084170e5f1c83"
+    },
+    {
+      "path": "results/tables/exp4_scorer_ranking.csv",
+      "suffix": ".csv",
+      "bytes": 1039,
+      "sha256": "82cf80d938247e938a04f63477f78dd78f0f41293dee2b5edfb54079ca774a00"
+    },
+    {
+      "path": "results/tables/exp4_scorer_ranking_learned.csv",
+      "suffix": ".csv",
+      "bytes": 1014,
+      "sha256": "ccdce3a2206fe0713fb6efb6870d2d8e422f7926a4502ab38dc99c39cd557ac7"
+    },
+    {
+      "path": "results/tables/exp5_gap_summary.csv",
+      "suffix": ".csv",
+      "bytes": 828,
+      "sha256": "58d93ef314cc0f242861fd8bacb46ad2f02d1f3053cb6bdca6a7aa6e8cd99187"
+    },
+    {
+      "path": "results/tables/exp5_gap_summary_learned.csv",
+      "suffix": ".csv",
+      "bytes": 890,
+      "sha256": "de7cde12713c9b06618bf0e28009cb0776bc2a0082949680a5fa542ae6eb758f"
+    },
+    {
+      "path": "results/tables/exp5_real_vs_imagined_utility_gap.csv",
+      "suffix": ".csv",
+      "bytes": 627587,
+      "sha256": "9c01ee249378ccb55ff96e3313fc6fa81ea978b2a8ed8db929719c4370829704"
+    },
+    {
+      "path": "results/tables/exp5_real_vs_imagined_utility_gap_aggregate.csv",
+      "suffix": ".csv",
+      "bytes": 5157,
+      "sha256": "2920026682bf7d0e049e0a8b199fab485a8abb52e4ec802d8d0fad7e0317d079"
+    },
+    {
+      "path": "results/tables/exp5_real_vs_imagined_utility_gap_aggregate_learned.csv",
+      "suffix": ".csv",
+      "bytes": 5298,
+      "sha256": "0d52cd143c91fe5e76696a545b5e4c5102d435ec7b00f9e77d590a58d3057f3b"
+    },
+    {
+      "path": "results/tables/exp5_real_vs_imagined_utility_gap_learned.csv",
+      "suffix": ".csv",
+      "bytes": 141656,
+      "sha256": "e5e742754ad60bfdee350afde66e6fe4f78fef87a1840b5f700bf6cee557aec6"
+    },
+    {
+      "path": "results/tables/exp6_adaptive_rollout_allocation.csv",
+      "suffix": ".csv",
+      "bytes": 3004,
+      "sha256": "4fb016a98adeaaff06affa3e89674229c7101f13615eee1d998606f50ab712c1"
+    },
+    {
+      "path": "results/tables/exp6_adaptive_rollout_allocation_learned.csv",
+      "suffix": ".csv",
+      "bytes": 12224,
+      "sha256": "95ef31626cacd5931a5550e27c2300d0c0251127121a4c5d7ec16e35fc31ba85"
+    },
+    {
+      "path": "results/tables/exp7_closed_loop_receding_horizon_aggregate.csv",
+      "suffix": ".csv",
+      "bytes": 1913,
+      "sha256": "8c570b79ba8b0c74df2cff81f17de7ebdd785229b1eb7d9d63ed6ad6baaf4f8a"
+    },
+    {
+      "path": "results/tables/exp7_closed_loop_receding_horizon_aggregate_learned.csv",
+      "suffix": ".csv",
+      "bytes": 2044,
+      "sha256": "1b27d2a83ad82213527dea761c118c5fff4924b768e2bed777855a379f96c0e5"
+    },
+    {
+      "path": "results/tables/exp7_closed_loop_receding_horizon_eval.csv",
+      "suffix": ".csv",
+      "bytes": 119561,
+      "sha256": "1b15496e3100b4223358d4436d00fcee7d2b95baba2919dbbd4612b5b0dd0d37"
+    },
+    {
+      "path": "results/tables/exp7_closed_loop_receding_horizon_eval_learned.csv",
+      "suffix": ".csv",
+      "bytes": 106485,
+      "sha256": "4503380ce36712f41bd8c90a41507db4dfb1a5cc5ec5c34b21d574359130b5f7"
+    },
+    {
+      "path": "results/tables/exp8_nonstationary_conditional_law.csv",
+      "suffix": ".csv",
+      "bytes": 62558,
+      "sha256": "690a75a2e139b01ae4ef4f590dcea9172b278952fa4b435d4ed9fb1cf7fecc2b"
+    },
+    {
+      "path": "results/tables/exp8_nonstationary_phase_summary.csv",
+      "suffix": ".csv",
+      "bytes": 243,
+      "sha256": "0572bbb4560555883c12e5f7734d73664c6fc6ebe2d257efb4f17b2858955684"
+    },
+    {
+      "path": "results/tables/exp8_nonstationary_stale_vs_adaptive.csv",
+      "suffix": ".csv",
+      "bytes": 120933,
+      "sha256": "08b6557a413227b0aae9d8fe88b2562863e506d7733eb476552cfce0662cbfc1"
+    },
+    {
+      "path": "results/tables/exp8_nonstationary_stale_vs_adaptive_phase_summary.csv",
+      "suffix": ".csv",
+      "bytes": 227,
+      "sha256": "63d3ec7765b219594df9ed853f6fb9193edda93f215ac9d9033d6e8a6038a404"
+    },
+    {
+      "path": "results/tables/imagination_scaling_law.csv",
+      "suffix": ".csv",
+      "bytes": 2793481,
+      "sha256": "0f99e0709d303e88f2b77092b0f52f0d0df7e598a4926d260b9dff4781db5d54"
+    },
+    {
+      "path": "results/tables/imagination_scaling_law_aggregate.csv",
+      "suffix": ".csv",
+      "bytes": 67782,
+      "sha256": "5e4bfcc942e4a656a446f64733a97dca829bbb84be691b741c428425d5967b54"
+    },
+    {
+      "path": "results/tables/imagination_scaling_profiles.csv",
+      "suffix": ".csv",
+      "bytes": 368050,
+      "sha256": "77b96dc98e3a0b0af31ac5181dda19799efd06027751d20afa28cc5fb7c87ac8"
+    },
+    {
+      "path": "results/tables/imagination_scaling_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 718,
+      "sha256": "e9e9e55e558ca70d7e0a4881b40465005cf61404d6aa7d917019a0fd8ddf2ff0"
+    },
+    {
+      "path": "results/tables/inference_audit_curves.csv",
+      "suffix": ".csv",
+      "bytes": 2079119,
+      "sha256": "0b898e9e89196f12e6f313dd68435d73e5e62e326b5b78b18176383e6b3d6bc0"
+    },
+    {
+      "path": "results/tables/inference_audit_curves_learned.csv",
+      "suffix": ".csv",
+      "bytes": 1367228,
+      "sha256": "d891c326be1c26e578ca40160999381791b57f6762ab61324a4b42188312b8bb"
+    },
+    {
+      "path": "results/tables/inference_audit_decision_counts.csv",
+      "suffix": ".csv",
+      "bytes": 471,
+      "sha256": "5ca0a3ed754cd93439c4d133e9030ece6ada7c6fe20017acd5bc00ba16c8f46a"
+    },
+    {
+      "path": "results/tables/inference_audit_decision_counts_learned.csv",
+      "suffix": ".csv",
+      "bytes": 548,
+      "sha256": "8976aa5fc0d0ca7388663e5ca51c860945e4cabac1b035c5f48efe0560c0c2fd"
+    },
+    {
+      "path": "results/tables/inference_audit_framework.csv",
+      "suffix": ".csv",
+      "bytes": 830921,
+      "sha256": "cb7ed0438b97cda85578de9de33fa4a42c2507f3832cb2f92649363d9920cb19"
+    },
+    {
+      "path": "results/tables/inference_audit_framework_learned.csv",
+      "suffix": ".csv",
+      "bytes": 551483,
+      "sha256": "051c2e59c0d97c925eb6a89d253d45eb5f6b8b489af06a8f737dbb02935a3424"
+    },
+    {
+      "path": "results/tables/inference_audit_profile_counts.csv",
+      "suffix": ".csv",
+      "bytes": 486,
+      "sha256": "ef722f2b6811d083c3996871057be3899392ed7494c4804aa689b7b1ba9265d1"
+    },
+    {
+      "path": "results/tables/inference_audit_profile_counts_learned.csv",
+      "suffix": ".csv",
+      "bytes": 485,
+      "sha256": "bbc9d48fcb9693284b8764917bfe01c1ae9c3b2322217f29d01bad14048dc040"
+    },
+    {
+      "path": "results/tables/inference_audit_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 838,
+      "sha256": "c8504085cf47f0ee5c009d6704ed8b0466142dcad697b6085f246df23b9bfcb8"
+    },
+    {
+      "path": "results/tables/inference_audit_seed_metrics_learned.csv",
+      "suffix": ".csv",
+      "bytes": 841,
+      "sha256": "bb7568a3efecc9b6fa13eb6c0688802bfaa82487c54f504ac53307420551bc2c"
+    },
+    {
+      "path": "results/tables/learned_wam_lite_dataset_summary.csv",
+      "suffix": ".csv",
+      "bytes": 438,
+      "sha256": "d1b26c208bec6a2854e3b06526ff143cf7664d7f0776f622bfa4bd4074b6a24d"
+    },
+    {
+      "path": "results/tables/learned_wam_lite_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 674,
+      "sha256": "decf7b15ae9c60beb07bfe7e4c8378bc189d57194821d138c3c46d3b62f7fca7"
+    },
+    {
+      "path": "results/tables/learned_wam_vs_analytic_wam.csv",
+      "suffix": ".csv",
+      "bytes": 255217,
+      "sha256": "9b73bebcc8eff2a0dd11e70cda2bf18f7b7c9a1cbfa8cf3b624248b989e3e91a"
+    },
+    {
+      "path": "results/tables/learned_wam_vs_analytic_wam_aggregate.csv",
+      "suffix": ".csv",
+      "bytes": 4080,
+      "sha256": "0c1b78ea78a516c847717c6826e6991585522bacb9f843c63dde04fcdef6fbe9"
+    },
+    {
+      "path": "results/tables/maxout_model_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 4685,
+      "sha256": "41f7b211c01d2b4555e9b76438a91c128eae58a05de1466406ad2eea2fd49937"
+    },
+    {
+      "path": "results/tables/multi_env_curves.csv",
+      "suffix": ".csv",
+      "bytes": 1581738,
+      "sha256": "7941a19d45dfc2a3de0f973b86fc1feba1e84aed806c9f6211c90e7541211a41"
+    },
+    {
+      "path": "results/tables/multi_env_curves_aggregate.csv",
+      "suffix": ".csv",
+      "bytes": 308537,
+      "sha256": "63424de8a81a1bd04690c506f4d4ec5717350e7ef74a44315a8edff1d97ef362"
+    },
+    {
+      "path": "results/tables/scorer_repair_experiment.csv",
+      "suffix": ".csv",
+      "bytes": 1504046,
+      "sha256": "b2b2b60ecdc398f665e57ef30e14c88f1dd4696243ff7b97ccc5bc3977a9db3a"
+    },
+    {
+      "path": "results/tables/scorer_repair_experiment_aggregate.csv",
+      "suffix": ".csv",
+      "bytes": 10583,
+      "sha256": "0e391d066d75223e935ca7f6a3285d7983d813e3c3e553a7e758536147b7328a"
+    },
+    {
+      "path": "results/tables/scorer_repair_seed_metrics.csv",
+      "suffix": ".csv",
+      "bytes": 517,
+      "sha256": "bcccd4723cc9d68792245722d439e5e4d7f177f18b7cdb5d394665b3cc393f75"
+    },
+    {
+      "path": "results/visual_optional.json",
+      "suffix": ".json",
+      "bytes": 257,
+      "sha256": "81e6897183108fcfdf6a0ed79dbabab7d15da86ba49f964699a345a073edc303"
+    }
+  ],
+  "verified": true,
+  "n_checks": 15,
+  "n_issues": 0,
+  "checks": [
+    {
+      "name": "manifest_records_present",
+      "ok": true,
+      "detail": "records=397"
+    },
+    {
+      "name": "manifest_file_count_matches_scan",
+      "ok": true,
+      "detail": "payload=397, scan=397"
+    },
+    {
+      "name": "manifest_total_bytes_matches_scan",
+      "ok": true,
+      "detail": "payload=56421681, scan=56421681"
+    },
+    {
+      "name": "manifest_counts_by_suffix_match_scan",
+      "ok": true,
+      "detail": "payload={'.json': 105, '.npz': 41, '.png': 36, '.csv': 215}, scan={'.json': 105, '.npz': 41, '.png': 36, '.csv': 215}"
+    },
+    {
+      "name": "manifest_has_no_missing_current_artifacts",
+      "ok": true,
+      "detail": "missing=[], count=0"
+    },
+    {
+      "name": "manifest_has_no_stale_artifacts",
+      "ok": true,
+      "detail": "stale=[], count=0"
+    },
+    {
+      "name": "manifest_hashes_match_current_files",
+      "ok": true,
+      "detail": "mismatches=[], count=0"
+    },
+    {
+      "name": "manifest_bytes_match_current_files",
+      "ok": true,
+      "detail": "mismatches=[], count=0"
+    },
+    {
+      "name": "manifest_records_well_formed",
+      "ok": true,
+      "detail": "malformed=[], count=0"
+    },
+    {
+      "name": "manifest_scientific_artifact_file_count",
+      "ok": true,
+      "detail": "files=397"
+    },
+    {
+      "name": "manifest_table_count",
+      "ok": true,
+      "detail": "csv=215"
+    },
+    {
+      "name": "manifest_json_count",
+      "ok": true,
+      "detail": "json=105"
+    },
+    {
+      "name": "manifest_model_count",
+      "ok": true,
+      "detail": "npz=41"
+    },
+    {
+      "name": "manifest_figure_count",
+      "ok": true,
+      "detail": "png=36"
+    },
+    {
+      "name": "manifest_total_bytes_large_enough",
+      "ok": true,
+      "detail": "bytes=56421681"
+    }
+  ],
+  "issues": [],
+  "missing_current_artifacts": [],
+  "stale_manifest_artifacts": [],
+  "hash_mismatches": [],
+  "byte_mismatches": [],
+  "malformed_records": []
+}

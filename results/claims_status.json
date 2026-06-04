@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=613, issues=0, status_counts={'ok': 613}"
+      "evidence": "refs=617, issues=0, status_counts={'ok': 617}"
     },
     {
       "id": 101,
@@ -610,25 +610,25 @@
       "id": 102,
       "claim": "Published narrative numbers match current artifacts.",
       "status": "VERIFIED",
-      "evidence": "checks=33, issues=0"
+      "evidence": "checks=34, issues=0"
     },
     {
       "id": 103,
       "claim": "Claim ledger is structurally consistent.",
       "status": "VERIFIED",
-      "evidence": "claims=107, max_id=107, checks=21, issues=0"
+      "evidence": "claims=108, max_id=108, checks=21, issues=0"
     },
     {
       "id": 104,
       "claim": "Canonical execution scripts preserve required gate contracts.",
       "status": "VERIFIED",
-      "evidence": "scripts=7, checks=49, issues=0"
+      "evidence": "scripts=7, checks=53, issues=0"
     },
     {
       "id": 105,
       "claim": "Verified claims have mapped source artifacts and quality-checked evidence.",
       "status": "VERIFIED",
-      "evidence": "claims=107, mapped=107, sources=135, issues=0"
+      "evidence": "claims=108, mapped=108, sources=137, issues=0"
     },
     {
       "id": 106,
@@ -640,7 +640,13 @@
       "id": 107,
       "claim": "Verified claim wording satisfies semantic threshold checks.",
       "status": "VERIFIED",
-      "evidence": "claims=107, checks=168, CI claims=51, positive CI claims=33, error claims=11, issues=0"
+      "evidence": "claims=108, checks=168, CI claims=51, positive CI claims=33, error claims=11, issues=0"
+    },
+    {
+      "id": 108,
+      "claim": "Scientific result artifacts have a deterministic hash manifest.",
+      "status": "VERIFIED",
+      "evidence": "files=397, bytes=56421681, suffixes={'.json': 105, '.npz': 41, '.png': 36, '.csv': 215}, issues=0"
     }
   ],
   "readme_overclaims": [],
@@ -648,7 +654,7 @@
   "report_overclaims": [],
   "narrative_overclaims": [],
   "overclaims": [],
-  "num_verified": 107,
+  "num_verified": 108,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0
