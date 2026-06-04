@@ -253,6 +253,7 @@ def main() -> None:
     audit_learned = load_json("inference_audit_framework_learned.json")
     repair = load_json("scorer_repair_experiment.json")
     scaling = load_json("imagination_scaling_law.json")
+    artifact_integrity = load_json("artifact_integrity.json")
 
     claims: list[dict[str, Any]] = []
     add(claims, 1, "Exact finite binary law verified.", status(bool(exp1) and exp1.get("mean_success_mc_mae", 1.0) < 0.018, bool(exp1)), f"success MAE={exp1.get('mean_success_mc_mae')}")
@@ -1519,6 +1520,21 @@ def main() -> None:
     add(claims, 81, "README has no unsupported claims.", status(len(readme_overclaims) == 0), f"README overclaims={len(readme_overclaims)}")
     add(claims, 82, "paper_outline has no unsupported claims.", status(len(paper_overclaims) == 0), f"paper overclaims={len(paper_overclaims)}")
     add(claims, 99, "Narrative reports have no unsupported overclaims.", status(len(report_overclaims) == 0), f"report overclaims={len(report_overclaims)}")
+    add(
+        claims,
+        100,
+        "Published result artifact references are internally consistent.",
+        status(
+            bool(artifact_integrity)
+            and artifact_integrity.get("verified", False)
+            and (artifact_integrity.get("n_references") or 0) >= 250
+            and artifact_integrity.get("n_issues") == 0
+            and artifact_exists(RESULTS / "artifact_integrity.json")
+            and artifact_exists(REPORTS / "artifact_integrity_report.md"),
+            bool(artifact_integrity),
+        ),
+        f"refs={artifact_integrity.get('n_references')}, issues={artifact_integrity.get('n_issues')}, status_counts={artifact_integrity.get('status_counts')}",
+    )
 
     payload = {
         "claims": claims,

@@ -2,7 +2,7 @@
 
 ## Counts
 
-- verified: `99`
+- verified: `100`
 - partial: `0`
 - unsupported: `0`
 - failed: `0`
@@ -111,6 +111,7 @@
 - 81. README has no unsupported claims. Evidence: README overclaims=0
 - 82. paper_outline has no unsupported claims. Evidence: paper overclaims=0
 - 99. Narrative reports have no unsupported overclaims. Evidence: report overclaims=0
+- 100. Published result artifact references are internally consistent. Evidence: refs=339, issues=0, status_counts={'ok': 339}
 
 ## Partial
 

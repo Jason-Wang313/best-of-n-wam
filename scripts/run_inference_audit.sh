@@ -45,4 +45,5 @@ fi
   --horizons 4 8 12 \
   --pool-sizes 32 64 128
 
+"${PY[@]}" scripts/artifact_integrity.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py

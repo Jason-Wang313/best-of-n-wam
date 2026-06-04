@@ -84,4 +84,5 @@ SEEDS=(701 702 703 704 705)
   --model-path "$MODEL_PATH" \
   --seeds "${SEEDS[@]}"
 
+"${PY[@]}" scripts/artifact_integrity.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py

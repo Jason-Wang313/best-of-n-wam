@@ -593,6 +593,12 @@
       "claim": "Narrative reports have no unsupported overclaims.",
       "status": "VERIFIED",
       "evidence": "report overclaims=0"
+    },
+    {
+      "id": 100,
+      "claim": "Published result artifact references are internally consistent.",
+      "status": "VERIFIED",
+      "evidence": "refs=339, issues=0, status_counts={'ok': 339}"
     }
   ],
   "readme_overclaims": [],
@@ -600,7 +606,7 @@
   "report_overclaims": [],
   "narrative_overclaims": [],
   "overclaims": [],
-  "num_verified": 99,
+  "num_verified": 100,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0
