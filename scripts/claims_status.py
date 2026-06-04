@@ -50,6 +50,7 @@ NARRATIVE_RISK_PATTERNS = [
     ("universal_wam_training", re.compile(r"\buniversal\s+WAM\s+(training|train-inference|training recipe|training laws?)\b", re.I)),
     ("dreamzero_uwm", re.compile(r"\b(DreamZero|UWM)(?:-level)?\s+(evidence|integration|validation)\b", re.I)),
 ]
+DICT_VALUES = type({}.values())
 SECTION_GUARDS = [
     "future",
     "discussion",
@@ -93,6 +94,27 @@ def nested_ci_positive(payload: dict, section: str, key: str, threshold: float =
 
 def add(claims: list[dict[str, Any]], cid: int, claim: str, stat: str, evidence: str) -> None:
     claims.append({"id": cid, "claim": claim, "status": stat, "evidence": evidence})
+
+
+def artifact_path(value: Any) -> Path | None:
+    if not isinstance(value, str) or not value:
+        return None
+    path = Path(value).expanduser()
+    return path if path.is_absolute() else ROOT / path
+
+
+def artifact_exists(value: Any) -> bool:
+    path = artifact_path(value)
+    return path is not None and path.exists()
+
+
+def artifacts_exist(values: Any) -> bool:
+    if isinstance(values, dict):
+        values = values.values()
+    if not isinstance(values, (list, tuple, set, DICT_VALUES)):
+        values = [values]
+    checked = list(values)
+    return bool(checked) and all(artifact_exists(value) for value in checked)
 
 
 def guarded_narrative_line(line: str) -> bool:
@@ -252,9 +274,48 @@ def main() -> None:
         status(adaptive_shift_ci.get("lo") is not None and adaptive_shift_ci.get("lo") > 0.0, bool(exp8)),
         f"stale-adaptive post CI={adaptive_shift_ci}",
     )
-    add(claims, 22, "Learned WAM trained.", status(bool(learned_train), False), f"model={learned_train.get('model_path')}")
-    add(claims, 23, "Learned WAM ID error reported.", status(bool(learned_train) and bool((learned_train.get('metrics') or {}).get('validation')), bool(learned_train)), f"validation={((learned_train.get('metrics') or {}).get('validation'))}")
-    add(claims, 24, "Learned WAM OOD error reported.", status(bool(learned_train) and bool((learned_train.get('metrics') or {}).get('ood')), bool(learned_train)), f"ood count={len(((learned_train.get('metrics') or {}).get('ood') or []))}")
+    learned_metrics = learned_train.get("metrics") or {}
+    learned_validation = learned_metrics.get("validation") or {}
+    learned_ood = learned_metrics.get("ood") or []
+    learned_dataset_artifacts = learned_train.get("dataset_artifacts") or {}
+    add(
+        claims,
+        22,
+        "Learned WAM trained.",
+        status(
+            bool(learned_train)
+            and artifact_exists(learned_train.get("model_path"))
+            and artifacts_exist(learned_dataset_artifacts)
+            and (learned_validation.get("n_samples") or 0) >= 500,
+            bool(learned_train),
+        ),
+        f"model={learned_train.get('model_path')}",
+    )
+    add(
+        claims,
+        23,
+        "Learned WAM ID error reported.",
+        status(
+            bool(learned_train)
+            and (learned_validation.get("n_samples") or 0) >= 500
+            and learned_validation.get("utility_mae") is not None
+            and learned_validation.get("utility_corr") is not None,
+            bool(learned_train),
+        ),
+        f"validation={learned_validation}",
+    )
+    add(
+        claims,
+        24,
+        "Learned WAM OOD error reported.",
+        status(
+            bool(learned_train)
+            and len(learned_ood) >= 3
+            and all((row.get("n_samples") or 0) > 0 and row.get("utility_mae") is not None for row in learned_ood),
+            bool(learned_train),
+        ),
+        f"ood count={len(learned_ood)}",
+    )
     add(claims, 25, "Learned WAM reproduces key inference-value claims.", status(nested_ci_positive(learned_cmp, "deltas", "learned_minus_analytic_real_utility_N64"), bool(learned_cmp)), f"learned-analytic CI={((learned_cmp.get('confidence_intervals') or {}).get('deltas') or {}).get('learned_minus_analytic_real_utility_N64')}")
     envs = set(multi.get("envs") or [])
     add(claims, 26, "BlockPush verified.", status("block_push" in envs or bool(exp1), bool(exp1)), "multi-env or canonical artifacts")
@@ -262,28 +323,75 @@ def main() -> None:
     add(claims, 28, "SlipperyGrasp verified.", status("slippery_grasp" in envs, False), "multi-env artifact")
     add(claims, 29, "Nonstationary verified.", status("nonstationary_shift" in envs or bool(exp8), bool(exp8)), "multi-env/canonical artifact")
     add(claims, 30, "Deformable optional.", status("deformable_toy" in envs, False), "multi-env deformable artifact" if "deformable_toy" in envs else "not implemented")
-    add(claims, 31, "Benchmark adapter available.", status(bool(bench) and bench.get("attempted", False), False), f"attempted={bench.get('attempted')}, any_available={bench.get('any_available')}")
+    benchmark_adapter_files = [
+        ROOT / "src" / "wam_inference_value" / "benchmarks" / "base.py",
+        ROOT / "src" / "wam_inference_value" / "benchmarks" / "registry.py",
+        ROOT / "src" / "wam_inference_value" / "benchmarks" / "maniskill_adapter.py",
+        ROOT / "src" / "wam_inference_value" / "benchmarks" / "gym_manip_adapter.py",
+    ]
+    add(
+        claims,
+        31,
+        "Benchmark adapter available.",
+        status(bool(bench) and bench.get("attempted", False) and all(path.exists() for path in benchmark_adapter_files), False),
+        f"attempted={bench.get('attempted')}, any_available={bench.get('any_available')}",
+    )
     bench_score_ci = (benchmark_score.get("confidence_intervals") or {}).get("oracle_minus_random_real_utility_N32") or {}
     bench_closed_ci = (benchmark_closed.get("confidence_intervals") or {}).get("closed_loop_learned_minus_random_utility_N32") or {}
     add(claims, 32, "Benchmark rollout pools collected.", status(benchmark_pools.get("n_rollout_pools", 0) > 0, bool(bench) and bench.get("any_available", False)), f"pools={benchmark_pools.get('n_rollout_pools')}")
     add(claims, 33, "Benchmark exact law verified.", status(benchmark_exact.get("utility_mae") is not None and benchmark_exact.get("utility_mae") < 0.08, bool(benchmark_exact)), f"utility MAE={benchmark_exact.get('utility_mae')}")
     add(claims, 34, "Benchmark score comparison verified.", status(bench_score_ci.get("lo") is not None and bench_score_ci.get("lo") > 0.0, bool(benchmark_score)), f"oracle-random CI={bench_score_ci}")
-    add(claims, 35, "Benchmark real-vs-imagined gap verified.", status(benchmark_gap.get("gap_growth_N32_minus_N1") is not None, bool(benchmark_gap)), f"gap growth={benchmark_gap.get('gap_growth_N32_minus_N1')}")
+    add(
+        claims,
+        35,
+        "Benchmark real-vs-imagined gap verified.",
+        status(
+            benchmark_gap.get("gap_growth_N32_minus_N1") is not None
+            and benchmark_gap.get("gap_growth_N32_minus_N1") > 0.05
+            and artifact_exists(benchmark_gap.get("artifact")),
+            bool(benchmark_gap),
+        ),
+        f"gap growth={benchmark_gap.get('gap_growth_N32_minus_N1')}",
+    )
     add(claims, 36, "Benchmark closed-loop verified.", status(bench_closed_ci.get("lo") is not None and bench_closed_ci.get("lo") > 0.0, bool(benchmark_closed)), f"learned-random closed-loop CI={bench_closed_ci}")
-    add(claims, 37, "Benchmark learned WAM trained.", status(bool(benchmark_wam.get("model_path")) and bool(benchmark_wam.get("model_metrics")), bool(benchmark_wam)), f"model={benchmark_wam.get('model_path')}")
-    add(claims, 38, "Visual toy WAM attempted.", status(bool(visual) and visual.get("attempted", False), False), f"visual={visual.get('attempted')}")
-    add(claims, 39, "Visual toy WAM verified if artifacts exist.", status(bool(visual) and visual.get("verified", False), bool(visual)), f"test MAE={visual.get('test_mae')}")
+    add(
+        claims,
+        37,
+        "Benchmark learned WAM trained.",
+        status(
+            bool(benchmark_wam.get("model_path"))
+            and artifact_exists(benchmark_wam.get("model_path"))
+            and len(benchmark_wam.get("model_metrics") or []) >= 2,
+            bool(benchmark_wam),
+        ),
+        f"model={benchmark_wam.get('model_path')}",
+    )
+    add(claims, 38, "Visual toy WAM attempted.", status(bool(visual) and visual.get("attempted", False) and artifact_exists(visual.get("artifact")), False), f"visual={visual.get('attempted')}")
+    add(
+        claims,
+        39,
+        "Visual toy WAM verified if artifacts exist.",
+        status(bool(visual) and visual.get("verified", False) and (visual.get("test_mae") or 1.0) < 0.05 and artifact_exists(visual.get("artifact")), bool(visual)),
+        f"test MAE={visual.get('test_mae')}",
+    )
     add(claims, 40, "Benchmark visual optional.", status(bool(benchmark_visual) and benchmark_visual.get("verified", False), bool(benchmark_visual)), f"verified={benchmark_visual.get('verified')}")
 
     audit_ci = audit.get("confidence_intervals") or {}
     learned_audit_ci = audit_learned.get("confidence_intervals") or {}
     repair_ci = repair.get("confidence_intervals") or {}
     scaling_ci = scaling.get("confidence_intervals") or {}
+    audit_artifacts = audit.get("artifacts") or {}
     add(
         claims,
         41,
         "Inference-value audit profiles generated.",
-        status(bool(audit) and bool(audit.get("profile_counts")) and bool(audit.get("decision_counts")), bool(audit)),
+        status(
+            bool(audit)
+            and bool(audit.get("profile_counts"))
+            and bool(audit.get("decision_counts"))
+            and artifacts_exist(audit_artifacts),
+            bool(audit),
+        ),
         f"profiles={len(audit.get('profile_counts') or [])}, decisions={len(audit.get('decision_counts') or [])}",
     )
     add(
