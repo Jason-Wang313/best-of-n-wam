@@ -53,9 +53,12 @@ def _no_shortcuts(policy: dict[str, Any]) -> bool:
 def _neural_policy_class_completed(root: Path, payload: dict[str, Any]) -> bool:
     policy = _policy(payload)
     policy_type = _policy_type(policy)
+    ci = (payload.get("confidence_intervals") or {}).get("eval_success_rate") or {}
     return (
         payload.get("verified") is True
         and int(payload.get("eval_episodes") or 0) > 0
+        and int(payload.get("eval_successes") or 0) > 0
+        and float(ci.get("mean") or payload.get("eval_success_rate") or 0.0) > 0.0
         and _model_exists(root, payload)
         and policy.get("is_neural") is True
         and bool(policy_type)
@@ -144,8 +147,10 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
         neural_class_ok,
         (
             f"canonical_type={policy_type!r}, canonical_is_neural={policy.get('is_neural')}, "
+            f"canonical_eval_successes={libero_vl.get('eval_successes')}, "
             f"aux_type={neural_smoke_policy_type!r}, aux_is_neural={neural_smoke_policy.get('is_neural')}, "
-            f"aux_verified={libero_neural_smoke.get('verified')}, aux_eval={libero_neural_smoke.get('eval_episodes')}"
+            f"aux_verified={libero_neural_smoke.get('verified')}, aux_eval={libero_neural_smoke.get('eval_episodes')}, "
+            f"aux_eval_successes={libero_neural_smoke.get('eval_successes')}"
         ),
     )
     _signal(

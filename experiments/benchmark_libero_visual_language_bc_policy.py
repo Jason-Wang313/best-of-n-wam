@@ -683,6 +683,10 @@ def main() -> None:
         len(eval_rows) >= len(task_ids) * len(args.eval_seeds)
         and (ci.get("mean") or 0.0) >= float(args.min_success_rate)
         and (ci.get("lo") or 0.0) >= float(args.min_success_ci_lo)
+        and (
+            args.policy_backend != "tiny_neural_vla"
+            or int(sum(successes)) > 0
+        )
     )
     summary = {
         "experiment": "benchmark_libero_visual_language_bc_policy",

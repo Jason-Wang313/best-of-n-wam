@@ -646,7 +646,7 @@
       "id": 108,
       "claim": "Scientific result artifacts have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=412, bytes=57229170, suffixes={'.json': 116, '.npz': 42, '.png': 36, '.csv': 218}, issues=0"
+      "evidence": "files=412, bytes=57229373, suffixes={'.json': 116, '.npz': 42, '.png': 36, '.csv': 218}, issues=0"
     },
     {
       "id": 109,
@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=223, bytes=1592285, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 55}, checks=14, issues=0"
+      "evidence": "files=223, bytes=1595433, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 55}, checks=14, issues=0"
     },
     {
       "id": 112,

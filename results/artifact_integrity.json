@@ -5549,7 +5549,7 @@
       "raw_path": "results/artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 309851,
+      "bytes": 311873,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5560,7 +5560,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 309851,
+      "bytes": 311873,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5923,7 +5923,7 @@
       "raw_path": "results/artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 92845,
+      "bytes": 94491,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5934,7 +5934,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 92845,
+      "bytes": 94491,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6451,7 +6451,7 @@
       "raw_path": "results/evidence_hash_coverage.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
-      "bytes": 230903,
+      "bytes": 232596,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6462,7 +6462,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
-      "bytes": 230903,
+      "bytes": 232596,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6495,7 +6495,7 @@
       "raw_path": "results/repo_bound_artifact_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
-      "bytes": 590176,
+      "bytes": 593295,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6506,7 +6506,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
-      "bytes": 590176,
+      "bytes": 593295,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6583,7 +6583,7 @@
       "raw_path": "results/publication_scope.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\publication_scope.json",
       "exists": true,
-      "bytes": 70701,
+      "bytes": 70694,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6594,7 +6594,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\publication_scope.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\publication_scope.json",
       "exists": true,
-      "bytes": 70701,
+      "bytes": 70694,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6715,7 +6715,7 @@
       "raw_path": "results/frontier_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "exists": true,
-      "bytes": 79118,
+      "bytes": 79111,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6726,7 +6726,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "exists": true,
-      "bytes": 79118,
+      "bytes": 79111,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6891,7 +6891,7 @@
       "raw_path": "results/frontier_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "exists": true,
-      "bytes": 79118,
+      "bytes": 79111,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6902,7 +6902,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
       "exists": true,
-      "bytes": 79118,
+      "bytes": 79111,
       "rows": null,
       "status": "ok",
       "reason": ""

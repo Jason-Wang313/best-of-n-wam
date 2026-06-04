@@ -86,12 +86,12 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python experiments/benchmark_maniskill_dependency_probe.py --quick-timeout-s 60`: passed as a blocker probe; Pinocchio import `False`, robotics API `False`, binary PyPI `pinocchio` wheel `True`, binary `pin` wheel `False`, source install attempted `False`.
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `0.9864`, repair-predicted N64 CI mean `0.3489`, predicted N128-N1 scaling gain `0.0255`.
 - `python scripts/artifact_integrity.py --fail-on-error`: passed with `710` artifact references checked and `0` issues.
-- `python scripts/artifact_manifest.py --fail-on-error`: passed with `412` scientific artifacts, `57229170` bytes, `15` manifest checks, and `0` issues.
+- `python scripts/artifact_manifest.py --fail-on-error`: passed with `412` scientific artifacts, `57229373` bytes, `15` manifest checks, and `0` issues.
 - `python scripts/figure_quality.py --fail-on-error`: passed with `36` figures, `8` image-quality checks, and `0` issues.
 - `python scripts/result_consistency.py --fail-on-error`: passed with `157` consistency checks and `0` issues.
 - `python scripts/raw_result_recompute.py --fail-on-error`: passed with `10710` aggregate metrics, `20` exact-law files, `125` seed CI columns, and `0` issues.
 - `python scripts/table_schema.py --fail-on-error`: passed with `216` tables, `212863` rows, `17` schema checks, and `0` issues.
-- `python scripts/source_manifest.py --fail-on-error`: passed with `223` source files, `1592285` bytes, `14` source-manifest checks, and `0` issues.
+- `python scripts/source_manifest.py --fail-on-error`: passed with `223` source files, `1595433` bytes, `14` source-manifest checks, and `0` issues.
 - `python scripts/runtime_environment.py --fail-on-error`: passed with Python `3.10.11`, `4` core requirements, `5` / `5` optional requirements available, `15` runtime checks, and `0` issues.
 - `python scripts/experiment_registry.py --fail-on-error`: passed with `57` experiment-family entries, `69` wrapper links, `298` table artifacts, `40` figures, `10` registry checks, and `0` issues.
 - `python scripts/model_artifact_integrity.py --fail-on-error`: passed with `50` model artifacts, `338` NPZ arrays, `13` joblib predictors, `10` model-artifact checks, and `0` issues.
