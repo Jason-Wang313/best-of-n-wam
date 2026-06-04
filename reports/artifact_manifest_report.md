@@ -2,7 +2,7 @@
 
 - Verified: True
 - Files hashed: 412
-- Total bytes: 57229373
+- Total bytes: 59524729
 - Counts by suffix: {'.json': 116, '.npz': 42, '.png': 36, '.csv': 218}
 - Checks: 15
 - Issues: 0

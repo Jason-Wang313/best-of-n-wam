@@ -76,7 +76,7 @@
         {
           "name": "modern_vla_scale_or_pretrained_model",
           "ok": false,
-          "detail": "canonical_pretrained=None, canonical_params=None, aux_pretrained=False, aux_params=0"
+          "detail": "canonical_pretrained=None, canonical_params=None, aux_pretrained=False, aux_params=238343"
         },
         {
           "name": "current_runtime_can_rerun_libero",

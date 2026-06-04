@@ -119,10 +119,10 @@
 - 105. Verified claims have mapped source artifacts and quality-checked evidence. Evidence: claims=127, mapped=127, sources=175, issues=0
 - 106. Published summary metrics recompute from raw result tables. Evidence: aggregate metrics=10710, exact files=20, seed CI columns=125, issues=0
 - 107. Verified claim wording satisfies semantic threshold checks. Evidence: claims=127, checks=177, CI claims=53, positive CI claims=33, error claims=11, issues=0
-- 108. Scientific result artifacts have a deterministic hash manifest. Evidence: files=412, bytes=57229373, suffixes={'.json': 116, '.npz': 42, '.png': 36, '.csv': 218}, issues=0
+- 108. Scientific result artifacts have a deterministic hash manifest. Evidence: files=412, bytes=59524729, suffixes={'.json': 116, '.npz': 42, '.png': 36, '.csv': 218}, issues=0
 - 109. Publication figure artifacts pass image-quality checks. Evidence: figures=36, expected=25, checks=8, issues=0
 - 110. Canonical CSV result tables pass schema and numeric-sanity checks. Evidence: tables=216, rows=212863, numeric_columns=1967, checks=17, issues=0
-- 111. Source and verification code have a deterministic hash manifest. Evidence: files=223, bytes=1595433, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 55}, checks=14, issues=0
+- 111. Source and verification code have a deterministic hash manifest. Evidence: files=223, bytes=1595794, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 55}, checks=14, issues=0
 - 112. Runtime and dependency environment metadata has a verified manifest. Evidence: python=3.10.11, core=4, absent=0, version_issues=0, optional_available=5/5, modules=13, commands=5, checks=15, issues=0
 - 113. Canonical experiment families have verified registry coverage. Evidence: entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=298, rows=260531, figures=40, failed=0, checks=10, issues=0
 - 114. Committed learned-model artifacts are loadable and numerically sane. Evidence: models=50, suffixes={'.npz': 37, '.joblib': 13}, bytes=120200617, npz_arrays=338, npz_elements=6260371, joblib_predictors=13, checks=10, issues=0

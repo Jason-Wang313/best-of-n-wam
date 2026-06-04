@@ -7,15 +7,15 @@ This optional artifact evaluates a tiny neural RGB/proprio/language behavior-clo
 - Available: `True`.
 - Verified: `False`.
 - Policy type: `tiny_neural_vla_behavior_cloning`.
-- Train action examples: `253`.
+- Neural/action-head parameters: `238343`.
+- Train action examples: `759`.
 - Eval episodes: `1`.
 - Eval successes: `0`.
 - Eval success rate: `0.0` with bootstrap CI [`0.0`, `0.0`].
 
 ## Claim Boundary
 
-- This is an attempted tiny neural visual-language-action style smoke, not VLA-scale pretraining or broad LIBERO policy evidence.
-- This run achieved zero heldout sparse successes, so it is not promoted to neural model-class evidence.
+- This is a tiny neural visual-language-action style smoke, not VLA-scale pretraining or broad LIBERO policy evidence.
 - It does not use simulator object state, scripted phase labels, task IDs, or commanded target points at evaluation time.
 - It encodes task language as hashed text features and does not restrict evaluation by task ID or simulator object state.
 - This tagged smoke artifact evaluates `1` task(s); it is auxiliary model-class evidence and does not replace the canonical all-task LIBERO artifact.

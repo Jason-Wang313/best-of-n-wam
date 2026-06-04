@@ -304,6 +304,10 @@ def neural_predict(model: Any, x_z: np.ndarray, y_mean: np.ndarray, y_scale: np.
     return pred_z * y_scale + y_mean
 
 
+def neural_parameter_count(arrays: dict[str, np.ndarray]) -> int:
+    return int(sum(int(arr.size) for key, arr in arrays.items() if key.startswith("torch_")))
+
+
 def current_language(adapter: LIBEROAdapter) -> str:
     return str(getattr(adapter.task, "language", "") or getattr(adapter.task, "name", "") or "")
 
@@ -452,6 +456,7 @@ def write_report(summary: dict[str, Any], path: Path | None = None) -> None:
         f"- Available: `{summary.get('available')}`.",
         f"- Verified: `{summary.get('verified')}`.",
         f"- Policy type: `{policy_type}`.",
+        f"- Neural/action-head parameters: `{policy.get('vla_scale_parameters')}`.",
         f"- Train action examples: `{summary.get('train_examples')}`.",
         f"- Eval episodes: `{summary.get('eval_episodes')}`.",
         f"- Eval successes: `{summary.get('eval_successes')}`.",
@@ -709,7 +714,9 @@ def main() -> None:
             "is_neural": args.policy_backend == "tiny_neural_vla",
             "is_short_neural_smoke": bool(paths["tag"]) and args.policy_backend == "tiny_neural_vla",
             "pretrained_vla": False,
-            "vla_scale_parameters": 0,
+            "vla_scale_parameters": neural_parameter_count(neural_arrays)
+            if args.policy_backend == "tiny_neural_vla"
+            else None,
             "uses_rgb": True,
             "uses_language": True,
             "uses_robot_proprio": True,

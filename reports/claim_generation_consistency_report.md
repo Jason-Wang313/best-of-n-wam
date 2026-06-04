@@ -5,7 +5,7 @@
 - Claims: 127
 - Checks: 10
 - Issues: 0
-- claims_status.json SHA-256: `b0c314b33dbcb99fa72bdda3f2bc0bb585fc6dcac2b2da5220e5c1f161e898be`
-- claims_status.md SHA-256: `12ee9fdd035c972dc681c8b801ee2d03420967dc78cab7c93ab50f9db8966a18`
+- claims_status.json SHA-256: `e8e313725a786dc29f56f0dcdbd435f4d40601d8548d2a89a80a515ec4a69fb5`
+- claims_status.md SHA-256: `e8d1176f38048b0daf4c5967a4ad9c8ddd1e0268653972c719f67a0d90552f8f`
 
 Rerunning `scripts/claims_status.py` leaves `results/claims_status.json` and `results/claims_status.md` byte-stable and overclaim-free.

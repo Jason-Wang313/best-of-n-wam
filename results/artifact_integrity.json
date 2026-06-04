@@ -390,7 +390,7 @@
       "raw_path": "results\\models\\benchmark_libero_tiny_neural_vla_policy.npz",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_libero_tiny_neural_vla_policy.npz",
       "exists": true,
-      "bytes": 750514,
+      "bytes": 3045547,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5549,7 +5549,7 @@
       "raw_path": "results/artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 311873,
+      "bytes": 311874,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5560,7 +5560,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 311873,
+      "bytes": 311874,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5923,7 +5923,7 @@
       "raw_path": "results/artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 94491,
+      "bytes": 94492,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5934,7 +5934,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 94491,
+      "bytes": 94492,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6451,7 +6451,7 @@
       "raw_path": "results/evidence_hash_coverage.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
-      "bytes": 232596,
+      "bytes": 232597,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6462,7 +6462,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
-      "bytes": 232596,
+      "bytes": 232597,
       "rows": null,
       "status": "ok",
       "reason": ""

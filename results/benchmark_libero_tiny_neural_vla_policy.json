@@ -8,14 +8,16 @@
     "libero_object/0"
   ],
   "train_seeds": [
-    100
+    100,
+    101,
+    102
   ],
   "eval_seeds": [
-    200
+    103
   ],
-  "train_episodes": 1,
-  "train_successes": 1,
-  "train_examples": 253,
+  "train_episodes": 3,
+  "train_successes": 3,
+  "train_examples": 759,
   "eval_episodes": 1,
   "eval_successes": 0,
   "eval_success_rate": 0.0,
@@ -33,7 +35,7 @@
     "is_neural": true,
     "is_short_neural_smoke": true,
     "pretrained_vla": false,
-    "vla_scale_parameters": 0,
+    "vla_scale_parameters": 238343,
     "uses_rgb": true,
     "uses_language": true,
     "uses_robot_proprio": true,
@@ -46,9 +48,9 @@
     "uses_language_candidate_filter": false,
     "image_grid": 8,
     "language_hash_dim": 64,
-    "neural_hidden_dim": 16,
-    "neural_epochs": 1,
-    "neural_final_train_loss": 0.28378785304401233,
+    "neural_hidden_dim": 256,
+    "neural_epochs": 120,
+    "neural_final_train_loss": 0.007790289065838645,
     "knn_k": null,
     "knn_temperature": null
   },
@@ -59,5 +61,5 @@
     "episodes_csv": "results/tables/benchmark_libero_tiny_neural_vla_policy_episodes.csv",
     "report": "reports/libero_tiny_neural_vla_policy_report.md"
   },
-  "note": "Tiny neural RGB/proprio/language time-conditioned BC policy without simulator object state, task IDs, phase labels, target-point commands, or language-candidate retrieval. This tagged auxiliary run achieved zero heldout sparse successes, so it is recorded as attempted but not promoted to neural model-class evidence."
+  "note": "Tiny neural RGB/proprio/language time-conditioned BC policy without simulator object state, task IDs, phase labels, target-point commands, or language-candidate retrieval; a VLA-style smoke, not VLA-scale evidence."
 }
