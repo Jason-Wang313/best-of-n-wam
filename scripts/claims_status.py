@@ -964,6 +964,10 @@ def main() -> None:
     )
     maniskill_visual_probe_artifacts = maniskill_visual_probe.get("artifacts") or {}
     maniskill_dependency_artifacts = maniskill_dependency_probe.get("artifacts") or {}
+    pinocchio_api_available = maniskill_dependency_probe.get(
+        "pinocchio_api_available",
+        maniskill_dependency_probe.get("pinocchio_import_available", True),
+    )
     add(
         claims,
         68,
@@ -976,7 +980,7 @@ def main() -> None:
             and "ErrorOutOfPoolMemory" in str(maniskill_visual_probe.get("visual_blocker", ""))
             and bool(maniskill_dependency_probe)
             and maniskill_dependency_probe.get("attempted", False)
-            and not maniskill_dependency_probe.get("pinocchio_import_available", True)
+            and not pinocchio_api_available
             and not maniskill_dependency_probe.get("pin_binary_wheel_available", True)
             and artifacts_exist(maniskill_visual_probe_artifacts)
             and artifacts_exist(maniskill_dependency_artifacts)
@@ -988,6 +992,8 @@ def main() -> None:
         f"ee_attempts={maniskill_visual_probe.get('ee_control_attempt_count')}, "
         f"blocker={maniskill_visual_probe.get('visual_blocker')}; "
         f"pinocchio={maniskill_dependency_probe.get('pinocchio_import_available')}, "
+        f"pinocchio_api={maniskill_dependency_probe.get('pinocchio_api_available')}, "
+        f"pypi_pinocchio_binary={maniskill_dependency_probe.get('pypi_pinocchio_binary_wheel_available')}, "
         f"pin_binary={maniskill_dependency_probe.get('pin_binary_wheel_available')}",
     )
     metaworld_ci = metaworld.get("confidence_intervals") or {}

@@ -3,7 +3,7 @@
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_files": 405,
-  "total_bytes": 57234020,
+  "total_bytes": 57224139,
   "counts_by_suffix": {
     ".json": 111,
     ".npz": 42,
@@ -86,8 +86,8 @@
     {
       "path": "results/benchmark_maniskill_dependency_probe.json",
       "suffix": ".json",
-      "bytes": 13510,
-      "sha256": "36a1a9a35e325dcd7ae54dae71c94e2ce4618b303e12421afacb2d62a9e64ed1"
+      "bytes": 3535,
+      "sha256": "05ea60761ef757cec061986993a7acfd08512d0e15cc37ee8191adb949761923"
     },
     {
       "path": "results/benchmark_maniskill_suite.json",
@@ -866,8 +866,8 @@
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 7444,
-      "sha256": "769421f8a4e37c37feac8d0510f56631d04458be5b2974622c843ca076fbd2ae"
+      "bytes": 7538,
+      "sha256": "e3b9fc0c8ed68b3ce0b82df90380ff15bac6b6cb3c16814c4a39a7071177f9a9"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -2459,7 +2459,7 @@
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=57234020, scan=57234020"
+      "detail": "payload=57224139, scan=57224139"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
@@ -2519,7 +2519,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=57234020"
+      "detail": "bytes=57224139"
     }
   ],
   "issues": [],

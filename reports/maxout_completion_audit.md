@@ -43,7 +43,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - Benchmark RGB WAM-lite: `extra_trees_visual_wam`; verified: `True`; utility corr: `0.2199`; utility MAE: `0.5208`; exact-law MAE: `0.0157`.
 - Gymnasium Robotics RGB WAM-lite: verified: `True`; mean utility corr: `0.7325`; exact-law MAE: `0.0106`; visual-random N32 CI lower: `0.3475`.
 - ManiSkill visual/EE probe: attempted `True`; state baseline ok `True`; any visual success `False`; blocker `vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory`.
-- ManiSkill dependency probe: Pinocchio import `False`; binary `pin` wheel `False`; source install attempted `True`.
+- ManiSkill dependency probe: Pinocchio import `False`; robotics API `False`; binary PyPI `pinocchio` wheel `True`; binary `pin` wheel `False`; source install attempted `False`.
 - Inference audit tail/gain correlation: `0.9864`.
 - Learned-backend inference audit present: `True`.
 - Scorer repair N64 gain over predicted utility: `0.3489`.

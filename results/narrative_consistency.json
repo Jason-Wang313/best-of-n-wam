@@ -91,14 +91,14 @@
       "surface": "final_decision_report",
       "name": "pytest_count",
       "ok": true,
-      "expected": "`python -m pytest -q`: passed with `146 passed`",
+      "expected": "`python -m pytest -q`: passed with `149 passed`",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "test_inventory_command",
       "ok": true,
-      "expected": "`python scripts/test_inventory.py --fail-on-error`: passed with `146` collected tests, `6` inventory checks, and `0` issues",
+      "expected": "`python scripts/test_inventory.py --fail-on-error`: passed with `149` collected tests, `6` inventory checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -189,7 +189,7 @@
       "surface": "final_decision_report",
       "name": "source_manifest_command",
       "ok": true,
-      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `221` source files, `1582791` bytes, `14` source-manifest checks, and `0` issues",
+      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `223` source files, `1591229` bytes, `14` source-manifest checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -280,7 +280,7 @@
       "surface": "final_decision_report",
       "name": "tracked_artifact_provenance_command",
       "ok": true,
-      "expected": "`python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `119` claim sources, `449` artifact references, and `0` issues",
+      "expected": "`python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `119` claim sources, `450` artifact references, and `0` issues",
       "detail": "found"
     },
     {

@@ -150,7 +150,7 @@
         {
           "name": "pinocchio_available_for_ee",
           "ok": false,
-          "detail": "pinocchio=False"
+          "detail": "pinocchio_import=False, pinocchio_api=False, missing_symbols=['Model', 'GeometryModel', 'buildModelFromUrdf']"
         }
       ],
       "next_action": "Clear the Vulkan descriptor-pool renderer failure and install a compatible Pinocchio stack for EE controllers."

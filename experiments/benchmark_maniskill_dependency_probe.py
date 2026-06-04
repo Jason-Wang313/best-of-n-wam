@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import importlib
 import importlib.util
 import json
 import platform
@@ -13,6 +14,39 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
 from wam_inference_value.evaluation import ensure_result_dirs, results_dir, write_json
+
+
+PINOCCHIO_REQUIRED_SYMBOLS = ("Model", "GeometryModel", "buildModelFromUrdf")
+
+
+def probe_pinocchio_api() -> dict[str, Any]:
+    spec = importlib.util.find_spec("pinocchio")
+    if spec is None:
+        return {
+            "pinocchio_import_available": False,
+            "pinocchio_api_available": False,
+            "pinocchio_module_file": None,
+            "pinocchio_missing_symbols": list(PINOCCHIO_REQUIRED_SYMBOLS),
+            "pinocchio_probe_error": "module spec not found",
+        }
+    try:
+        module = importlib.import_module("pinocchio")
+    except Exception as exc:  # pragma: no cover - optional dependency path.
+        return {
+            "pinocchio_import_available": False,
+            "pinocchio_api_available": False,
+            "pinocchio_module_file": getattr(spec, "origin", None),
+            "pinocchio_missing_symbols": list(PINOCCHIO_REQUIRED_SYMBOLS),
+            "pinocchio_probe_error": f"{type(exc).__name__}: {exc}",
+        }
+    missing = [name for name in PINOCCHIO_REQUIRED_SYMBOLS if not hasattr(module, name)]
+    return {
+        "pinocchio_import_available": True,
+        "pinocchio_api_available": not missing,
+        "pinocchio_module_file": getattr(module, "__file__", None),
+        "pinocchio_missing_symbols": missing,
+        "pinocchio_probe_error": "",
+    }
 
 
 def run_command(cmd: list[str], timeout_s: int) -> dict[str, Any]:
@@ -49,8 +83,12 @@ def write_report(summary: dict[str, Any]) -> Path:
         f"- Python: `{summary.get('python')}`",
         f"- platform: `{summary.get('platform')}`",
         f"- Pinocchio import available: `{summary.get('pinocchio_import_available')}`",
+        f"- Pinocchio robotics API available: `{summary.get('pinocchio_api_available')}`",
+        f"- Pinocchio module file: `{summary.get('pinocchio_module_file')}`",
+        f"- missing Pinocchio API symbols: `{summary.get('pinocchio_missing_symbols')}`",
         f"- `pin` import available: `{summary.get('pin_import_available')}`",
         f"- binary `pin` wheel available through pip: `{summary.get('pin_binary_wheel_available')}`",
+        f"- binary PyPI `pinocchio` wheel available: `{summary.get('pypi_pinocchio_binary_wheel_available')}`",
         f"- binary `cmeel-boost` wheel available through pip: `{summary.get('cmeel_boost_binary_wheel_available')}`",
         "",
         "## Command Results",
@@ -80,7 +118,9 @@ def write_report(summary: dict[str, Any]) -> Path:
         [
             "## Interpretation",
             "",
-            "ManiSkill state-mode joint-delta control remains artifact-backed. End-effector control is not claimed in this Windows environment because Pinocchio is not importable and pip did not expose binary `pin`/`cmeel-boost` wheels for this interpreter. If source-install attempts are enabled, their command tails are included above.",
+            "ManiSkill state-mode joint-delta control remains artifact-backed. End-effector control is not claimed in this Windows environment because the robotics Pinocchio API is not available and pip did not expose binary `pin`/`cmeel-boost` wheels for this interpreter. If source-install attempts are enabled, their command tails are included above.",
+            "",
+            "The probe deliberately distinguishes the robotics Pinocchio API from the unrelated small PyPI package named `pinocchio`; the latter is not sufficient for ManiSkill/Sapien end-effector-control evidence.",
         ]
     )
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -91,6 +131,7 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     ensure_result_dirs()
     commands = [
         run_command([sys.executable, "-m", "pip", "index", "versions", "pin"], args.quick_timeout_s),
+        run_command([sys.executable, "-m", "pip", "download", "pinocchio", "--only-binary=:all:", "--no-deps", "-d", str(results_dir() / "tmp_pin_probe")], args.quick_timeout_s),
         run_command([sys.executable, "-m", "pip", "download", "pin", "--only-binary=:all:", "--no-deps", "-d", str(results_dir() / "tmp_pin_probe")], args.quick_timeout_s),
         run_command([sys.executable, "-m", "pip", "download", "cmeel-boost", "--only-binary=:all:", "--no-deps", "-d", str(results_dir() / "tmp_pin_probe")], args.quick_timeout_s),
     ]
@@ -98,16 +139,19 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         for version in args.source_versions:
             commands.append(run_command([sys.executable, "-m", "pip", "install", f"pin=={version}", "-q"], args.source_timeout_s))
 
+    pypi_pinocchio_download = next((c for c in commands if "download" in c.get("command", []) and "pinocchio" in c.get("command", [])), {})
     pin_download = next((c for c in commands if "download" in c.get("command", []) and "pin" in c.get("command", [])), {})
     boost_download = next((c for c in commands if "download" in c.get("command", []) and "cmeel-boost" in c.get("command", [])), {})
+    pinocchio_probe = probe_pinocchio_api()
     summary = {
         "experiment": "benchmark_maniskill_dependency_probe",
         "attempted": True,
         "python": sys.version.split()[0],
         "platform": platform.platform(),
-        "pinocchio_import_available": importlib.util.find_spec("pinocchio") is not None,
+        **pinocchio_probe,
         "pin_import_available": importlib.util.find_spec("pin") is not None,
         "pin_binary_wheel_available": bool(pin_download.get("ok")),
+        "pypi_pinocchio_binary_wheel_available": bool(pypi_pinocchio_download.get("ok")),
         "cmeel_boost_binary_wheel_available": bool(boost_download.get("ok")),
         "source_install_attempted": bool(args.attempt_source_install),
         "commands": commands,
@@ -129,6 +173,7 @@ def main() -> None:
     print(
         "ManiSkill dependency probe complete: "
         f"pinocchio={summary['pinocchio_import_available']}, "
+        f"pinocchio_api={summary['pinocchio_api_available']}, "
         f"pin_binary={summary['pin_binary_wheel_available']}, "
         f"boost_binary={summary['cmeel_boost_binary_wheel_available']}, "
         f"source_attempted={summary['source_install_attempted']}"

@@ -85,7 +85,7 @@
       "heading": "Visual Modes",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
-      "text": "It writes `results/benchmark_maniskill_dependency_probe.json` and `reports/maniskill_dependency_blocker_report.md`. The committed artifact documents that Pinocchio is not importable on this Windows/Python stack and that pip did not expose binary `pin`/`cmeel-boost` wheels, so ManiSkill end-effector-control validation is not claimed."
+      "text": "It writes `results/benchmark_maniskill_dependency_probe.json` and `reports/maniskill_dependency_blocker_report.md`. The committed artifact documents that the robotics Pinocchio API is unavailable on this Windows/Python stack and that pip did not expose binary `pin`/`cmeel-boost` wheels, so ManiSkill end-effector-control validation is not claimed. The probe distinguishes that API from the unrelated small PyPI package named `pinocchio`, which is not sufficient for ManiSkill/SAPIEN end-effector-control evidence."
     },
     {
       "surface": "README.md",
@@ -621,7 +621,7 @@
       "heading": "Main Reviewer Attacks",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
-      "text": "- ManiSkill EE-control remains unavailable locally because Pinocchio is absent and the `pin` dependency path lacks binary wheels for this Windows/Python stack; this is documented by a generated dependency probe."
+      "text": "- ManiSkill EE-control remains unavailable locally because the robotics Pinocchio API is absent and the `pin` dependency path lacks binary wheels for this Windows/Python stack; the probe distinguishes this from the unrelated small PyPI package named `pinocchio`."
     },
     {
       "surface": "reports/reviewer_risk_assessment.md",

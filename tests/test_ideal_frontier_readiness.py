@@ -57,7 +57,14 @@ def test_ideal_frontier_readiness_keeps_future_frontiers_unpromoted(tmp_path: Pa
             "ee_control_attempt_count": 2,
         },
     )
-    write_json(results / "benchmark_maniskill_dependency_probe.json", {"pinocchio_import_available": False})
+    write_json(
+        results / "benchmark_maniskill_dependency_probe.json",
+        {
+            "pinocchio_import_available": True,
+            "pinocchio_api_available": False,
+            "pinocchio_missing_symbols": ["Model", "GeometryModel", "buildModelFromUrdf"],
+        },
+    )
     write_json(results / "publication_scope.json", {"verified": True})
     write_json(results / "external_benchmark_runtime_probe.json", {"verified": True, "libero_import_available": True})
 

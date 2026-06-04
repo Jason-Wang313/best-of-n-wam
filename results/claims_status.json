@@ -406,7 +406,7 @@
       "id": 68,
       "claim": "ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.",
       "status": "VERIFIED",
-      "evidence": "visual_success=False, visual_attempts=10, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pin_binary=False"
+      "evidence": "visual_success=False, visual_attempts=10, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pinocchio_api=False, pypi_pinocchio_binary=True, pin_binary=False"
     },
     {
       "id": 69,
@@ -646,7 +646,7 @@
       "id": 108,
       "claim": "Scientific result artifacts have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=405, bytes=57234020, suffixes={'.json': 111, '.npz': 42, '.png': 36, '.csv': 216}, issues=0"
+      "evidence": "files=405, bytes=57224139, suffixes={'.json': 111, '.npz': 42, '.png': 36, '.csv': 216}, issues=0"
     },
     {
       "id": 109,
@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=222, bytes=1585076, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 54}, checks=14, issues=0"
+      "evidence": "files=223, bytes=1591222, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 55}, checks=14, issues=0"
     },
     {
       "id": 112,
@@ -688,13 +688,13 @@
       "id": 115,
       "claim": "Published final-report command results match current verification artifacts.",
       "status": "VERIFIED",
-      "evidence": "snippets=28, python_commands=31, pytest=147, checks=31, issues=0"
+      "evidence": "snippets=28, python_commands=31, pytest=149, checks=31, issues=0"
     },
     {
       "id": 116,
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
       "status": "VERIFIED",
-      "evidence": "tests=147, unique=147, trailer=147, checks=6, issues=0"
+      "evidence": "tests=149, unique=149, trailer=149, checks=6, issues=0"
     },
     {
       "id": 117,
