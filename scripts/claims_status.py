@@ -21,6 +21,8 @@ REPORTS = ROOT / "reports"
 NARRATIVE_SURFACES = [
     ("README", README),
     ("paper_outline", PAPER),
+    ("artifact_integrity_report", REPORTS / "artifact_integrity_report.md"),
+    ("result_consistency_report", REPORTS / "result_consistency_report.md"),
     ("final_decision_report", REPORTS / "final_decision_report.md"),
     ("paper_result_summary", REPORTS / "paper_result_summary.md"),
     ("reviewer_risk_assessment", REPORTS / "reviewer_risk_assessment.md"),
@@ -254,6 +256,7 @@ def main() -> None:
     repair = load_json("scorer_repair_experiment.json")
     scaling = load_json("imagination_scaling_law.json")
     artifact_integrity = load_json("artifact_integrity.json")
+    result_consistency = load_json("result_consistency.json")
 
     claims: list[dict[str, Any]] = []
     add(claims, 1, "Exact finite binary law verified.", status(bool(exp1) and exp1.get("mean_success_mc_mae", 1.0) < 0.018, bool(exp1)), f"success MAE={exp1.get('mean_success_mc_mae')}")
@@ -1534,6 +1537,21 @@ def main() -> None:
             bool(artifact_integrity),
         ),
         f"refs={artifact_integrity.get('n_references')}, issues={artifact_integrity.get('n_issues')}, status_counts={artifact_integrity.get('status_counts')}",
+    )
+    add(
+        claims,
+        101,
+        "Published result summaries agree with canonical tables.",
+        status(
+            bool(result_consistency)
+            and result_consistency.get("verified", False)
+            and (result_consistency.get("n_checks") or 0) >= 150
+            and result_consistency.get("n_issues") == 0
+            and artifact_exists(RESULTS / "result_consistency.json")
+            and artifact_exists(REPORTS / "result_consistency_report.md"),
+            bool(result_consistency),
+        ),
+        f"checks={result_consistency.get('n_checks')}, issues={result_consistency.get('n_issues')}",
     )
 
     payload = {

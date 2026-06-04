@@ -2,7 +2,7 @@
 
 ## Counts
 
-- verified: `100`
+- verified: `101`
 - partial: `0`
 - unsupported: `0`
 - failed: `0`
@@ -112,6 +112,7 @@
 - 82. paper_outline has no unsupported claims. Evidence: paper overclaims=0
 - 99. Narrative reports have no unsupported overclaims. Evidence: report overclaims=0
 - 100. Published result artifact references are internally consistent. Evidence: refs=339, issues=0, status_counts={'ok': 339}
+- 101. Published result summaries agree with canonical tables. Evidence: checks=157, issues=0
 
 ## Partial
 

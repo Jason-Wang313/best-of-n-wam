@@ -9,6 +9,8 @@ Audit date: 2026-05-30.
 - Analytic BlockPush2D artifacts exist for EXP1-EXP8.
 - Learned BlockPush2D WAM-lite artifacts exist for EXP1, EXP4, EXP5, EXP6, EXP7, and learned-vs-analytic-vs-oracle.
 - `claims_status.py` gates README and paper-outline overclaims.
+- `artifact_integrity.py` verifies that referenced result artifacts exist, parse, and are nonempty.
+- `result_consistency.py` verifies that summary JSONs agree with canonical tables for row counts, coverage, CI sanity, and success counts.
 
 ## 2. Toy-Only
 

@@ -599,6 +599,12 @@
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
       "evidence": "refs=339, issues=0, status_counts={'ok': 339}"
+    },
+    {
+      "id": 101,
+      "claim": "Published result summaries agree with canonical tables.",
+      "status": "VERIFIED",
+      "evidence": "checks=157, issues=0"
     }
   ],
   "readme_overclaims": [],
@@ -606,7 +612,7 @@
   "report_overclaims": [],
   "narrative_overclaims": [],
   "overclaims": [],
-  "num_verified": 100,
+  "num_verified": 101,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

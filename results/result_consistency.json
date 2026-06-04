@@ -1,0 +1,793 @@
+{
+  "verified": true,
+  "n_checks": 157,
+  "n_issues": 0,
+  "checks": [
+    {
+      "name": "confidence_interval_sanity",
+      "ok": true,
+      "detail": "ci_objects=266, issues=0"
+    },
+    {
+      "name": "multi_env_curves_present",
+      "ok": true,
+      "detail": "rows=10500"
+    },
+    {
+      "name": "multi_env_env_coverage",
+      "ok": true,
+      "detail": "table=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp'], json=['block_push', 'deformable_toy', 'drawer_pull', 'nonstationary_shift', 'slippery_grasp']"
+    },
+    {
+      "name": "multi_env_backend_coverage",
+      "ok": true,
+      "detail": "table=['analytic_nominal', 'ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam', 'oracle_true'], expected=['analytic_nominal', 'ensemble_wam', 'horizon_wam', 'mlp_dynamics_wam', 'oracle_true']"
+    },
+    {
+      "name": "multi_env_seed_coverage",
+      "ok": true,
+      "detail": "table=[1001, 1002, 1003, 1004, 1005], json=[1001, 1002, 1003, 1004, 1005]"
+    },
+    {
+      "name": "multi_env_n_coverage",
+      "ok": true,
+      "detail": "table=[1, 2, 4, 8, 16, 32, 64], json=[1, 2, 4, 8, 16, 32, 64]"
+    },
+    {
+      "name": "multi_env_model_metric_count",
+      "ok": true,
+      "detail": "rows=45"
+    },
+    {
+      "name": "multi_env_model_metric_split_coverage",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "name": "multi_env_inference_claim_count",
+      "ok": true,
+      "detail": "claims=25, expected=25"
+    },
+    {
+      "name": "multi_env_inference_claim_ci_n",
+      "ok": true,
+      "detail": "claims=25, n_seeds=5"
+    },
+    {
+      "name": "multi_env_mismatch_claim_count",
+      "ok": true,
+      "detail": "claims=20, expected=20"
+    },
+    {
+      "name": "multi_env_mismatch_claim_ci_n",
+      "ok": true,
+      "detail": "claims=20, n_seeds=5"
+    },
+    {
+      "name": "multi_env_aggregate_present",
+      "ok": true,
+      "detail": "rows=2100"
+    },
+    {
+      "name": "benchmark_curves_present",
+      "ok": true,
+      "detail": "rows=900"
+    },
+    {
+      "name": "benchmark_id_coverage",
+      "ok": true,
+      "detail": "table=['PegInsertionSide-v1', 'PickCube-v1', 'PushCube-v1'], json=['PegInsertionSide-v1', 'PickCube-v1', 'PushCube-v1']"
+    },
+    {
+      "name": "benchmark_pool_count",
+      "ok": true,
+      "detail": "table=30, json=30"
+    },
+    {
+      "name": "benchmark_seed_count",
+      "ok": true,
+      "detail": "seeds=[12001, 12002, 12003, 12004, 12005]"
+    },
+    {
+      "name": "benchmark_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4, 8, 16, 32]"
+    },
+    {
+      "name": "benchmark_exact_rows",
+      "ok": true,
+      "detail": "rows=180"
+    },
+    {
+      "name": "benchmark_closed_loop_rows",
+      "ok": true,
+      "detail": "rows=90"
+    },
+    {
+      "name": "benchmark_curves_present",
+      "ok": true,
+      "detail": "rows=1800"
+    },
+    {
+      "name": "benchmark_id_coverage",
+      "ok": true,
+      "detail": "table=['FetchPickAndPlace-v4', 'FetchPush-v4', 'FetchReach-v4'], json=['FetchPickAndPlace-v4', 'FetchPush-v4', 'FetchReach-v4']"
+    },
+    {
+      "name": "benchmark_pool_count",
+      "ok": true,
+      "detail": "table=60, json=60"
+    },
+    {
+      "name": "benchmark_seed_count",
+      "ok": true,
+      "detail": "seeds=[25001, 25002, 25003, 25004, 25005]"
+    },
+    {
+      "name": "benchmark_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4, 8, 16, 32]"
+    },
+    {
+      "name": "benchmark_exact_rows",
+      "ok": true,
+      "detail": "rows=360"
+    },
+    {
+      "name": "benchmark_closed_loop_rows",
+      "ok": true,
+      "detail": "rows=135"
+    },
+    {
+      "name": "benchmark_curves_present",
+      "ok": true,
+      "detail": "rows=1620"
+    },
+    {
+      "name": "benchmark_id_coverage",
+      "ok": true,
+      "detail": "table=['drawer-open-v3', 'push-v3', 'reach-v3'], json=['drawer-open-v3', 'push-v3', 'reach-v3']"
+    },
+    {
+      "name": "benchmark_pool_count",
+      "ok": true,
+      "detail": "table=45, json=45"
+    },
+    {
+      "name": "benchmark_seed_count",
+      "ok": true,
+      "detail": "seeds=[15001, 15002, 15003, 15004, 15005]"
+    },
+    {
+      "name": "benchmark_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4, 8, 16, 32]"
+    },
+    {
+      "name": "benchmark_exact_rows",
+      "ok": true,
+      "detail": "rows=270"
+    },
+    {
+      "name": "benchmark_closed_loop_rows",
+      "ok": true,
+      "detail": "rows=180"
+    },
+    {
+      "name": "benchmark_curves_present",
+      "ok": true,
+      "detail": "rows=1260"
+    },
+    {
+      "name": "benchmark_id_coverage",
+      "ok": true,
+      "detail": "table=['Door', 'Lift', 'Stack'], json=['Door', 'Lift', 'Stack']"
+    },
+    {
+      "name": "benchmark_pool_count",
+      "ok": true,
+      "detail": "table=30, json=30"
+    },
+    {
+      "name": "benchmark_seed_count",
+      "ok": true,
+      "detail": "seeds=[16001, 16002, 16003, 16004, 16005]"
+    },
+    {
+      "name": "benchmark_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4, 8, 16, 32]"
+    },
+    {
+      "name": "benchmark_exact_rows",
+      "ok": true,
+      "detail": "rows=180"
+    },
+    {
+      "name": "benchmark_closed_loop_rows",
+      "ok": true,
+      "detail": "rows=120"
+    },
+    {
+      "name": "benchmark_rgb_visual_wam_curves_present",
+      "ok": true,
+      "detail": "rows=750"
+    },
+    {
+      "name": "benchmark_rgb_visual_wam_exact_rows",
+      "ok": true,
+      "detail": "rows=150"
+    },
+    {
+      "name": "gym_robotics_rgb_visual_wam_curves_present",
+      "ok": true,
+      "detail": "rows=1350"
+    },
+    {
+      "name": "gym_robotics_rgb_visual_wam_exact_rows",
+      "ok": true,
+      "detail": "rows=270"
+    },
+    {
+      "name": "gym_robotics_rgb_visual_wam_env_coverage",
+      "ok": true,
+      "detail": "envs=['FetchPickAndPlace-v4', 'FetchPush-v4', 'FetchReach-v4']"
+    },
+    {
+      "name": "gym_robotics_rgb_visual_wam_model_artifacts",
+      "ok": true,
+      "detail": "models=3"
+    },
+    {
+      "name": "gym_robotics_rgb_visual_wam_frame_artifacts",
+      "ok": true,
+      "detail": "frames=3"
+    },
+    {
+      "name": "benchmark_robocasa_learned_wam_eval_rows",
+      "ok": true,
+      "detail": "rows=80, json=80"
+    },
+    {
+      "name": "benchmark_robocasa_learned_wam_data_rows",
+      "ok": true,
+      "detail": "rows=112, json=112"
+    },
+    {
+      "name": "benchmark_robocasa_learned_wam_pool_count",
+      "ok": true,
+      "detail": "table=5, json=5"
+    },
+    {
+      "name": "benchmark_robocasa_learned_wam_id_coverage",
+      "ok": true,
+      "detail": "table=1, json=1"
+    },
+    {
+      "name": "benchmark_robocasa_learned_wam_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4, 8], json=[1, 2, 4, 8]"
+    },
+    {
+      "name": "benchmark_robocasa_learned_wam_exact_rows",
+      "ok": true,
+      "detail": "rows=40, pools=5"
+    },
+    {
+      "name": "benchmark_robocasa_learned_wam_seed_metrics_rows",
+      "ok": true,
+      "detail": "rows=5, pools=5"
+    },
+    {
+      "name": "benchmark_robocasa_multitask_wam_eval_rows",
+      "ok": true,
+      "detail": "rows=240, json=240"
+    },
+    {
+      "name": "benchmark_robocasa_multitask_wam_data_rows",
+      "ok": true,
+      "detail": "rows=240, json=240"
+    },
+    {
+      "name": "benchmark_robocasa_multitask_wam_pool_count",
+      "ok": true,
+      "detail": "table=15, json=15"
+    },
+    {
+      "name": "benchmark_robocasa_multitask_wam_id_coverage",
+      "ok": true,
+      "detail": "table=3, json=3"
+    },
+    {
+      "name": "benchmark_robocasa_multitask_wam_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4, 8], json=[1, 2, 4, 8]"
+    },
+    {
+      "name": "benchmark_robocasa_multitask_wam_exact_rows",
+      "ok": true,
+      "detail": "rows=240, pools=15"
+    },
+    {
+      "name": "benchmark_robocasa_multitask_wam_seed_metrics_rows",
+      "ok": true,
+      "detail": "rows=15, pools=15"
+    },
+    {
+      "name": "benchmark_robocasa_multitask_wam_promoted_ci_positive",
+      "ok": true,
+      "detail": "promoted=learned_energy_regularized, ci={'n': 15, 'mean': 0.23492695125782703, 'std': 0.13017328673923353, 'stderr': 0.03361059811080895, 'ci95': 0.06587677229718554, 'lo': 0.1690501789606415, 'hi': 0.30080372355501256}"
+    },
+    {
+      "name": "benchmark_robocasa_broad_wam_eval_rows",
+      "ok": true,
+      "detail": "rows=128, json=128"
+    },
+    {
+      "name": "benchmark_robocasa_broad_wam_data_rows",
+      "ok": true,
+      "detail": "rows=96, json=96"
+    },
+    {
+      "name": "benchmark_robocasa_broad_wam_pool_count",
+      "ok": true,
+      "detail": "table=16, json=16"
+    },
+    {
+      "name": "benchmark_robocasa_broad_wam_id_coverage",
+      "ok": true,
+      "detail": "table=4, json=4"
+    },
+    {
+      "name": "benchmark_robocasa_broad_wam_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4, 8], json=[1, 2, 4, 8]"
+    },
+    {
+      "name": "benchmark_robocasa_broad_wam_exact_rows",
+      "ok": true,
+      "detail": "rows=256, pools=16"
+    },
+    {
+      "name": "benchmark_robocasa_broad_wam_seed_metrics_rows",
+      "ok": true,
+      "detail": "rows=16, pools=16"
+    },
+    {
+      "name": "benchmark_robocasa_broad_wam_promoted_ci_positive",
+      "ok": true,
+      "detail": "promoted=learned_wam, ci={'n': 16, 'mean': 0.3045073082302883, 'std': 0.19051552386059456, 'stderr': 0.04762888096514864, 'ci95': 0.09335260669169133, 'lo': 0.211154701538597, 'hi': 0.39785991492197964}"
+    },
+    {
+      "name": "benchmark_robocasa_family12_wam_eval_rows",
+      "ok": true,
+      "detail": "rows=192, json=192"
+    },
+    {
+      "name": "benchmark_robocasa_family12_wam_data_rows",
+      "ok": true,
+      "detail": "rows=192, json=192"
+    },
+    {
+      "name": "benchmark_robocasa_family12_wam_pool_count",
+      "ok": true,
+      "detail": "table=24, json=24"
+    },
+    {
+      "name": "benchmark_robocasa_family12_wam_id_coverage",
+      "ok": true,
+      "detail": "table=12, json=12"
+    },
+    {
+      "name": "benchmark_robocasa_family12_wam_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4, 8], json=[1, 2, 4, 8]"
+    },
+    {
+      "name": "benchmark_robocasa_family12_wam_exact_rows",
+      "ok": true,
+      "detail": "rows=384, pools=24"
+    },
+    {
+      "name": "benchmark_robocasa_family12_wam_seed_metrics_rows",
+      "ok": true,
+      "detail": "rows=24, pools=24"
+    },
+    {
+      "name": "benchmark_robocasa_family12_wam_promoted_ci_positive",
+      "ok": true,
+      "detail": "promoted=learned_energy_regularized, ci={'n': 24, 'mean': 0.2736319931949471, 'std': 0.2264236150811513, 'stderr': 0.04621852688876389, 'ci95': 0.09058831270197723, 'lo': 0.18304368049296985, 'hi': 0.36422030589692433}"
+    },
+    {
+      "name": "benchmark_robocasa_family24_wam_eval_rows",
+      "ok": true,
+      "detail": "rows=384, json=384"
+    },
+    {
+      "name": "benchmark_robocasa_family24_wam_data_rows",
+      "ok": true,
+      "detail": "rows=384, json=384"
+    },
+    {
+      "name": "benchmark_robocasa_family24_wam_pool_count",
+      "ok": true,
+      "detail": "table=48, json=48"
+    },
+    {
+      "name": "benchmark_robocasa_family24_wam_id_coverage",
+      "ok": true,
+      "detail": "table=24, json=24"
+    },
+    {
+      "name": "benchmark_robocasa_family24_wam_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4, 8], json=[1, 2, 4, 8]"
+    },
+    {
+      "name": "benchmark_robocasa_family24_wam_exact_rows",
+      "ok": true,
+      "detail": "rows=768, pools=48"
+    },
+    {
+      "name": "benchmark_robocasa_family24_wam_seed_metrics_rows",
+      "ok": true,
+      "detail": "rows=48, pools=48"
+    },
+    {
+      "name": "benchmark_robocasa_family24_wam_promoted_ci_positive",
+      "ok": true,
+      "detail": "promoted=learned_energy_regularized, ci={'n': 48, 'mean': 0.30556743688204, 'std': 0.2342383401351318, 'stderr': 0.03380939218288737, 'ci95': 0.06626640867845925, 'lo': 0.2393010282035808, 'hi': 0.37183384556049925}"
+    },
+    {
+      "name": "benchmark_robocasa_extra4_wam_eval_rows",
+      "ok": true,
+      "detail": "rows=128, json=128"
+    },
+    {
+      "name": "benchmark_robocasa_extra4_wam_data_rows",
+      "ok": true,
+      "detail": "rows=96, json=96"
+    },
+    {
+      "name": "benchmark_robocasa_extra4_wam_pool_count",
+      "ok": true,
+      "detail": "table=16, json=16"
+    },
+    {
+      "name": "benchmark_robocasa_extra4_wam_id_coverage",
+      "ok": true,
+      "detail": "table=4, json=4"
+    },
+    {
+      "name": "benchmark_robocasa_extra4_wam_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4, 8], json=[1, 2, 4, 8]"
+    },
+    {
+      "name": "benchmark_robocasa_extra4_wam_exact_rows",
+      "ok": true,
+      "detail": "rows=256, pools=16"
+    },
+    {
+      "name": "benchmark_robocasa_extra4_wam_seed_metrics_rows",
+      "ok": true,
+      "detail": "rows=16, pools=16"
+    },
+    {
+      "name": "benchmark_robocasa_extra4_wam_promoted_ci_positive",
+      "ok": true,
+      "detail": "promoted=learned_wam, ci={'n': 16, 'mean': 0.389104640308091, 'std': 0.2902967972911619, 'stderr': 0.07257419932279048, 'ci95': 0.14224543067266934, 'lo': 0.24685920963542166, 'hi': 0.5313500709807604}"
+    },
+    {
+      "name": "benchmark_robocasa_family28_wam_eval_rows",
+      "ok": true,
+      "detail": "rows=448, json=448"
+    },
+    {
+      "name": "benchmark_robocasa_family28_wam_data_rows",
+      "ok": true,
+      "detail": "rows=672, json=672"
+    },
+    {
+      "name": "benchmark_robocasa_family28_wam_pool_count",
+      "ok": true,
+      "detail": "table=56, json=56"
+    },
+    {
+      "name": "benchmark_robocasa_family28_wam_id_coverage",
+      "ok": true,
+      "detail": "table=28, json=28"
+    },
+    {
+      "name": "benchmark_robocasa_family28_wam_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4, 8], json=[1, 2, 4, 8]"
+    },
+    {
+      "name": "benchmark_robocasa_family28_wam_exact_rows",
+      "ok": true,
+      "detail": "rows=896, pools=56"
+    },
+    {
+      "name": "benchmark_robocasa_family28_wam_seed_metrics_rows",
+      "ok": true,
+      "detail": "rows=56, pools=56"
+    },
+    {
+      "name": "benchmark_robocasa_family28_wam_promoted_ci_positive",
+      "ok": true,
+      "detail": "promoted=learned_wam, ci={'n': 56, 'mean': 0.30243909345319026, 'std': 0.2562827497116669, 'stderr': 0.034247222984335565, 'ci95': 0.0671245570492977, 'lo': 0.23531453640389255, 'hi': 0.36956365050248796}"
+    },
+    {
+      "name": "benchmark_robocasa_family32_wam_eval_rows",
+      "ok": true,
+      "detail": "rows=512, json=512"
+    },
+    {
+      "name": "benchmark_robocasa_family32_wam_data_rows",
+      "ok": true,
+      "detail": "rows=768, json=768"
+    },
+    {
+      "name": "benchmark_robocasa_family32_wam_pool_count",
+      "ok": true,
+      "detail": "table=64, json=64"
+    },
+    {
+      "name": "benchmark_robocasa_family32_wam_id_coverage",
+      "ok": true,
+      "detail": "table=32, json=32"
+    },
+    {
+      "name": "benchmark_robocasa_family32_wam_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4, 8], json=[1, 2, 4, 8]"
+    },
+    {
+      "name": "benchmark_robocasa_family32_wam_exact_rows",
+      "ok": true,
+      "detail": "rows=1024, pools=64"
+    },
+    {
+      "name": "benchmark_robocasa_family32_wam_seed_metrics_rows",
+      "ok": true,
+      "detail": "rows=64, pools=64"
+    },
+    {
+      "name": "benchmark_robocasa_family32_wam_promoted_ci_positive",
+      "ok": true,
+      "detail": "promoted=learned_energy_regularized, ci={'n': 64, 'mean': 0.2881867956710381, 'std': 0.247375612716181, 'stderr': 0.030921951589522625, 'ci95': 0.06060702511546434, 'lo': 0.22757977055557377, 'hi': 0.34879382078650245}"
+    },
+    {
+      "name": "benchmark_robocasa_stratified55_wam_eval_rows",
+      "ok": true,
+      "detail": "rows=880, json=880"
+    },
+    {
+      "name": "benchmark_robocasa_stratified55_wam_data_rows",
+      "ok": true,
+      "detail": "rows=1320, json=1320"
+    },
+    {
+      "name": "benchmark_robocasa_stratified55_wam_pool_count",
+      "ok": true,
+      "detail": "table=110, json=110"
+    },
+    {
+      "name": "benchmark_robocasa_stratified55_wam_id_coverage",
+      "ok": true,
+      "detail": "table=55, json=55"
+    },
+    {
+      "name": "benchmark_robocasa_stratified55_wam_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4, 8], json=[1, 2, 4, 8]"
+    },
+    {
+      "name": "benchmark_robocasa_stratified55_wam_exact_rows",
+      "ok": true,
+      "detail": "rows=1760, pools=110"
+    },
+    {
+      "name": "benchmark_robocasa_stratified55_wam_seed_metrics_rows",
+      "ok": true,
+      "detail": "rows=110, pools=110"
+    },
+    {
+      "name": "benchmark_robocasa_stratified55_wam_promoted_ci_positive",
+      "ok": true,
+      "detail": "promoted=learned_wam, ci={'n': 110, 'mean': 0.32174102442400815, 'std': 0.2539765598768874, 'stderr': 0.024215714838790526, 'ci95': 0.04746280108402943, 'lo': 0.2742782233399787, 'hi': 0.3692038255080376}"
+    },
+    {
+      "name": "benchmark_robocasa_stratified97_wam_eval_rows",
+      "ok": true,
+      "detail": "rows=1552, json=1552"
+    },
+    {
+      "name": "benchmark_robocasa_stratified97_wam_data_rows",
+      "ok": true,
+      "detail": "rows=2328, json=2328"
+    },
+    {
+      "name": "benchmark_robocasa_stratified97_wam_pool_count",
+      "ok": true,
+      "detail": "table=194, json=194"
+    },
+    {
+      "name": "benchmark_robocasa_stratified97_wam_id_coverage",
+      "ok": true,
+      "detail": "table=97, json=97"
+    },
+    {
+      "name": "benchmark_robocasa_stratified97_wam_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4, 8], json=[1, 2, 4, 8]"
+    },
+    {
+      "name": "benchmark_robocasa_stratified97_wam_exact_rows",
+      "ok": true,
+      "detail": "rows=3104, pools=194"
+    },
+    {
+      "name": "benchmark_robocasa_stratified97_wam_seed_metrics_rows",
+      "ok": true,
+      "detail": "rows=194, pools=194"
+    },
+    {
+      "name": "benchmark_robocasa_stratified97_wam_promoted_ci_positive",
+      "ok": true,
+      "detail": "promoted=learned_wam, ci={'n': 194, 'mean': 0.34790032435530055, 'std': 0.2347443208321136, 'stderr': 0.016853660033059582, 'ci95': 0.03303317366479678, 'lo': 0.31486715069050375, 'hi': 0.38093349802009735}"
+    },
+    {
+      "name": "benchmark_robocasa_residual35_h1_n4_wam_eval_rows",
+      "ok": true,
+      "detail": "rows=280, json=280"
+    },
+    {
+      "name": "benchmark_robocasa_residual35_h1_n4_wam_data_rows",
+      "ok": true,
+      "detail": "rows=280, json=280"
+    },
+    {
+      "name": "benchmark_robocasa_residual35_h1_n4_wam_pool_count",
+      "ok": true,
+      "detail": "table=35, json=35"
+    },
+    {
+      "name": "benchmark_robocasa_residual35_h1_n4_wam_id_coverage",
+      "ok": true,
+      "detail": "table=35, json=35"
+    },
+    {
+      "name": "benchmark_robocasa_residual35_h1_n4_wam_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4], json=[1, 2, 4]"
+    },
+    {
+      "name": "benchmark_robocasa_residual35_h1_n4_wam_exact_rows",
+      "ok": true,
+      "detail": "rows=420, pools=35"
+    },
+    {
+      "name": "benchmark_robocasa_residual35_h1_n4_wam_seed_metrics_rows",
+      "ok": true,
+      "detail": "rows=35, pools=35"
+    },
+    {
+      "name": "benchmark_libero_wam_eval_rows",
+      "ok": true,
+      "detail": "rows=240, json=240"
+    },
+    {
+      "name": "benchmark_libero_wam_data_rows",
+      "ok": true,
+      "detail": "rows=288, json=288"
+    },
+    {
+      "name": "benchmark_libero_wam_pool_count",
+      "ok": true,
+      "detail": "table=15, json=15"
+    },
+    {
+      "name": "benchmark_libero_wam_id_coverage",
+      "ok": true,
+      "detail": "table=3, json=3"
+    },
+    {
+      "name": "benchmark_libero_wam_n_values",
+      "ok": true,
+      "detail": "N=[1, 2, 4, 8], json=[1, 2, 4, 8]"
+    },
+    {
+      "name": "benchmark_libero_wam_exact_rows",
+      "ok": true,
+      "detail": "rows=240, pools=15"
+    },
+    {
+      "name": "benchmark_libero_wam_seed_metrics_rows",
+      "ok": true,
+      "detail": "rows=15, pools=15"
+    },
+    {
+      "name": "benchmark_libero_wam_promoted_ci_positive",
+      "ok": true,
+      "detail": "promoted=learned_energy_regularized, ci={'n': 15, 'mean': 0.3375863022441559, 'std': 0.14290935532341625, 'stderr': 0.03689903687898863, 'ci95': 0.07232211228281771, 'lo': 0.2652641899613382, 'hi': 0.40990841452697363}"
+    },
+    {
+      "name": "benchmark_libero_scripted_policy_episode_rows",
+      "ok": true,
+      "detail": "rows=50"
+    },
+    {
+      "name": "benchmark_libero_scripted_policy_task_coverage",
+      "ok": true,
+      "detail": "table=10, json=10"
+    },
+    {
+      "name": "benchmark_libero_scripted_policy_success_count",
+      "ok": true,
+      "detail": "successes=50"
+    },
+    {
+      "name": "benchmark_libero_learned_action_head_episode_rows",
+      "ok": true,
+      "detail": "rows=50"
+    },
+    {
+      "name": "benchmark_libero_learned_action_head_task_coverage",
+      "ok": true,
+      "detail": "table=10, json=10"
+    },
+    {
+      "name": "benchmark_libero_learned_action_head_eval_episode_count",
+      "ok": true,
+      "detail": "rows=30, json=30"
+    },
+    {
+      "name": "benchmark_libero_learned_action_head_eval_success_count",
+      "ok": true,
+      "detail": "successes=30, json=30"
+    },
+    {
+      "name": "benchmark_libero_autonomous_bc_policy_episode_rows",
+      "ok": true,
+      "detail": "rows=100"
+    },
+    {
+      "name": "benchmark_libero_autonomous_bc_policy_task_coverage",
+      "ok": true,
+      "detail": "table=10, json=10"
+    },
+    {
+      "name": "benchmark_libero_autonomous_bc_policy_eval_episode_count",
+      "ok": true,
+      "detail": "rows=50, json=50"
+    },
+    {
+      "name": "benchmark_libero_autonomous_bc_policy_eval_success_count",
+      "ok": true,
+      "detail": "successes=50, json=50"
+    },
+    {
+      "name": "benchmark_libero_visual_language_bc_policy_episode_rows",
+      "ok": true,
+      "detail": "rows=60"
+    },
+    {
+      "name": "benchmark_libero_visual_language_bc_policy_task_coverage",
+      "ok": true,
+      "detail": "table=10, json=10"
+    },
+    {
+      "name": "benchmark_libero_visual_language_bc_policy_eval_episode_count",
+      "ok": true,
+      "detail": "rows=30, json=30"
+    },
+    {
+      "name": "benchmark_libero_visual_language_bc_policy_eval_success_count",
+      "ok": true,
+      "detail": "successes=30, json=30"
+    }
+  ],
+  "issues": []
+}

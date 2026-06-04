@@ -100,3 +100,4 @@
 - Claim 82: **VERIFIED** - paper_outline has no unsupported claims. Evidence: paper overclaims=0
 - Claim 99: **VERIFIED** - Narrative reports have no unsupported overclaims. Evidence: report overclaims=0
 - Claim 100: **VERIFIED** - Published result artifact references are internally consistent. Evidence: refs=339, issues=0, status_counts={'ok': 339}
+- Claim 101: **VERIFIED** - Published result summaries agree with canonical tables. Evidence: checks=157, issues=0
