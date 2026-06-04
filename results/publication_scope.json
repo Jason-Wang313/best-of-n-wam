@@ -6,7 +6,7 @@
   "n_risk_mentions": 72,
   "n_guarded_mentions": 72,
   "n_unguarded_mentions": 0,
-  "n_verified_claims": 124,
+  "n_verified_claims": 125,
   "mentions_by_surface": {
     "README.md": 13,
     "paper_outline.md": 10,
@@ -89,7 +89,7 @@
     },
     {
       "surface": "README.md",
-      "line": 274,
+      "line": 275,
       "heading": "Limitations",
       "pattern": "real_robot",
       "guarded": true,
@@ -97,7 +97,7 @@
     },
     {
       "surface": "README.md",
-      "line": 274,
+      "line": 275,
       "heading": "Limitations",
       "pattern": "modern_vla",
       "guarded": true,
@@ -105,7 +105,7 @@
     },
     {
       "surface": "README.md",
-      "line": 278,
+      "line": 279,
       "heading": "Future Work",
       "pattern": "modern_vla",
       "guarded": true,
@@ -113,7 +113,7 @@
     },
     {
       "surface": "README.md",
-      "line": 278,
+      "line": 279,
       "heading": "Future Work",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -121,7 +121,7 @@
     },
     {
       "surface": "README.md",
-      "line": 278,
+      "line": 279,
       "heading": "Future Work",
       "pattern": "universal_wam",
       "guarded": true,
@@ -635,7 +635,7 @@
     {
       "name": "current_claim_ledger_loaded",
       "ok": true,
-      "detail": "verified_claims=124"
+      "detail": "verified_claims=125"
     }
   ],
   "issues": [],

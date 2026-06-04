@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=685, issues=0, status_counts={'ok': 685}"
+      "evidence": "refs=689, issues=0, status_counts={'ok': 689}"
     },
     {
       "id": 101,
@@ -712,19 +712,19 @@
       "id": 119,
       "claim": "Claim evidence artifacts and published artifact references are represented in the git index.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=115, artifact_refs=443, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
+      "evidence": "claim_sources=115, artifact_refs=445, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
     },
     {
       "id": 120,
       "claim": "Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=111, artifact_refs=441, hashed=552, self_outputs_excluded=4, issues=0"
+      "evidence": "claim_sources=113, artifact_refs=443, hashed=556, self_outputs_excluded=4, issues=0"
     },
     {
       "id": 121,
       "claim": "Claim evidence artifacts and published artifact references are repository-bound.",
       "status": "VERIFIED",
-      "evidence": "records=856, claim_sources=171, artifact_refs=685, outside=0, absent=0, traversal=0, issues=0"
+      "evidence": "records=860, claim_sources=171, artifact_refs=689, outside=0, absent=0, traversal=0, issues=0"
     },
     {
       "id": 122,

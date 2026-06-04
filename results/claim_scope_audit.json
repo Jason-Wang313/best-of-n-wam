@@ -1210,7 +1210,7 @@
       "claim_id": 107,
       "category": "verification",
       "claim": "Verified claim wording satisfies semantic threshold checks.",
-      "evidence": "claims=125, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=2",
+      "evidence": "claims=125, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": false
     },
@@ -2009,7 +2009,7 @@
     {
       "name": "claim_107_verified_wording_has_metric_or_scope",
       "ok": true,
-      "detail": "claim=Verified claim wording satisfies semantic threshold checks.; evidence=claims=125, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=2"
+      "detail": "claim=Verified claim wording satisfies semantic threshold checks.; evidence=claims=125, checks=175, CI claims=53, positive CI claims=33, error claims=11, issues=0"
     },
     {
       "name": "claim_112_verified_wording_has_metric_or_scope",

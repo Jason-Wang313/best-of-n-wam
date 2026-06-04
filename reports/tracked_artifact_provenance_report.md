@@ -3,7 +3,7 @@
 - Verified: True
 - Git-tracked paths: 750
 - Claim source artifacts checked: 115
-- Published artifact references checked: 443
+- Published artifact references checked: 445
 - Untracked claim sources: 0
 - Untracked artifact references: 0
 - Checks: 8
