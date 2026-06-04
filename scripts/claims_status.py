@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import csv
 import json
 import os
 import re
@@ -97,6 +98,8 @@ def add(claims: list[dict[str, Any]], cid: int, claim: str, stat: str, evidence:
 
 
 def artifact_path(value: Any) -> Path | None:
+    if isinstance(value, Path):
+        return value.expanduser()
     if not isinstance(value, str) or not value:
         return None
     path = Path(value).expanduser()
@@ -115,6 +118,37 @@ def artifacts_exist(values: Any) -> bool:
         values = [values]
     checked = list(values)
     return bool(checked) and all(artifact_exists(value) for value in checked)
+
+
+def row_artifacts_exist(rows: Any, field: str, minimum: int = 1) -> bool:
+    if not isinstance(rows, list):
+        return False
+    values = [row.get(field) for row in rows if isinstance(row, dict) and row.get(field)]
+    return len(values) >= minimum and all(artifact_exists(value) for value in values)
+
+
+def csv_field_values(path_value: Any, field: str) -> set[str]:
+    path = artifact_path(path_value)
+    if path is None or not path.exists():
+        return set()
+    with path.open(newline="", encoding="utf-8") as handle:
+        reader = csv.DictReader(handle)
+        if field not in (reader.fieldnames or []):
+            return set()
+        return {row[field] for row in reader if row.get(field)}
+
+
+def csv_row_count(path_value: Any) -> int:
+    path = artifact_path(path_value)
+    if path is None or not path.exists():
+        return 0
+    with path.open(newline="", encoding="utf-8") as handle:
+        reader = csv.DictReader(handle)
+        return sum(1 for _ in reader)
+
+
+def prefixed_tables_ok(prefix: str, requirements: dict[str, int]) -> bool:
+    return all(csv_row_count(RESULTS / "tables" / f"{prefix}_{suffix}.csv") >= minimum for suffix, minimum in requirements.items())
 
 
 def guarded_narrative_line(line: str) -> bool:
@@ -318,11 +352,37 @@ def main() -> None:
     )
     add(claims, 25, "Learned WAM reproduces key inference-value claims.", status(nested_ci_positive(learned_cmp, "deltas", "learned_minus_analytic_real_utility_N64"), bool(learned_cmp)), f"learned-analytic CI={((learned_cmp.get('confidence_intervals') or {}).get('deltas') or {}).get('learned_minus_analytic_real_utility_N64')}")
     envs = set(multi.get("envs") or [])
-    add(claims, 26, "BlockPush verified.", status("block_push" in envs or bool(exp1), bool(exp1)), "multi-env or canonical artifacts")
-    add(claims, 27, "DrawerPull verified.", status("drawer_pull" in envs, False), "multi-env artifact")
-    add(claims, 28, "SlipperyGrasp verified.", status("slippery_grasp" in envs, False), "multi-env artifact")
-    add(claims, 29, "Nonstationary verified.", status("nonstationary_shift" in envs or bool(exp8), bool(exp8)), "multi-env/canonical artifact")
-    add(claims, 30, "Deformable optional.", status("deformable_toy" in envs, False), "multi-env deformable artifact" if "deformable_toy" in envs else "not implemented")
+    backbones = set(multi.get("backbones") or [])
+    expected_multi_envs = {"block_push", "drawer_pull", "slippery_grasp", "nonstationary_shift", "deformable_toy"}
+    expected_backbones = {"horizon_wam", "mlp_dynamics_wam", "ensemble_wam"}
+    multi_curves_path = RESULTS / "tables" / "multi_env_curves.csv"
+    multi_agg_path = RESULTS / "tables" / "multi_env_curves_aggregate.csv"
+    multi_metrics_path = RESULTS / "tables" / "maxout_model_metrics.csv"
+    multi_curves_envs = csv_field_values(multi_curves_path, "env")
+    multi_agg_envs = csv_field_values(multi_agg_path, "env")
+    multi_metric_envs = csv_field_values(multi_metrics_path, "env")
+    multi_metric_models = csv_field_values(multi_metrics_path, "model")
+    multi_model_files_ok = all(
+        artifact_exists(RESULTS / "models" / f"maxout_{env_name}_{model_name}.npz")
+        for env_name in expected_multi_envs
+        for model_name in expected_backbones
+    )
+    multi_tables_ok = (
+        expected_multi_envs.issubset(envs)
+        and expected_multi_envs.issubset(multi_curves_envs)
+        and expected_multi_envs.issubset(multi_agg_envs)
+        and expected_multi_envs.issubset(multi_metric_envs)
+        and expected_backbones.issubset(backbones)
+        and expected_backbones.issubset(multi_metric_models)
+        and csv_row_count(multi_curves_path) >= 1000
+        and csv_row_count(multi_metrics_path) >= 45
+        and multi_model_files_ok
+    )
+    add(claims, 26, "BlockPush verified.", status("block_push" in multi_curves_envs and (multi_tables_ok or bool(exp1)), bool(exp1)), "multi-env or canonical artifacts")
+    add(claims, 27, "DrawerPull verified.", status("drawer_pull" in multi_curves_envs and multi_tables_ok, bool(multi)), "multi-env artifact")
+    add(claims, 28, "SlipperyGrasp verified.", status("slippery_grasp" in multi_curves_envs and multi_tables_ok, bool(multi)), "multi-env artifact")
+    add(claims, 29, "Nonstationary verified.", status(("nonstationary_shift" in multi_curves_envs and multi_tables_ok) or bool(exp8), bool(exp8)), "multi-env/canonical artifact")
+    add(claims, 30, "Deformable optional.", status("deformable_toy" in multi_curves_envs and multi_tables_ok, bool(multi)), "multi-env deformable artifact" if "deformable_toy" in envs else "not implemented")
     benchmark_adapter_files = [
         ROOT / "src" / "wam_inference_value" / "benchmarks" / "base.py",
         ROOT / "src" / "wam_inference_value" / "benchmarks" / "registry.py",
@@ -338,8 +398,33 @@ def main() -> None:
     )
     bench_score_ci = (benchmark_score.get("confidence_intervals") or {}).get("oracle_minus_random_real_utility_N32") or {}
     bench_closed_ci = (benchmark_closed.get("confidence_intervals") or {}).get("closed_loop_learned_minus_random_utility_N32") or {}
-    add(claims, 32, "Benchmark rollout pools collected.", status(benchmark_pools.get("n_rollout_pools", 0) > 0, bool(bench) and bench.get("any_available", False)), f"pools={benchmark_pools.get('n_rollout_pools')}")
-    add(claims, 33, "Benchmark exact law verified.", status(benchmark_exact.get("utility_mae") is not None and benchmark_exact.get("utility_mae") < 0.08, bool(benchmark_exact)), f"utility MAE={benchmark_exact.get('utility_mae')}")
+    benchmark_curves_path = RESULTS / "tables" / "benchmark_gym_manip_curves.csv"
+    benchmark_exact_path = benchmark_exact.get("artifact")
+    add(
+        claims,
+        32,
+        "Benchmark rollout pools collected.",
+        status(
+            (benchmark_pools.get("n_rollout_pools", 0) >= 25)
+            and (benchmark_pools.get("n_rollouts", 0) >= 64)
+            and csv_row_count(benchmark_curves_path) >= 500,
+            bool(bench) and bench.get("any_available", False),
+        ),
+        f"pools={benchmark_pools.get('n_rollout_pools')}",
+    )
+    add(
+        claims,
+        33,
+        "Benchmark exact law verified.",
+        status(
+            benchmark_exact.get("utility_mae") is not None
+            and benchmark_exact.get("utility_mae") < 0.08
+            and artifact_exists(benchmark_exact_path)
+            and csv_row_count(benchmark_exact_path) >= 100,
+            bool(benchmark_exact),
+        ),
+        f"utility MAE={benchmark_exact.get('utility_mae')}",
+    )
     add(claims, 34, "Benchmark score comparison verified.", status(bench_score_ci.get("lo") is not None and bench_score_ci.get("lo") > 0.0, bool(benchmark_score)), f"oracle-random CI={bench_score_ci}")
     add(
         claims,
@@ -374,7 +459,20 @@ def main() -> None:
         status(bool(visual) and visual.get("verified", False) and (visual.get("test_mae") or 1.0) < 0.05 and artifact_exists(visual.get("artifact")), bool(visual)),
         f"test MAE={visual.get('test_mae')}",
     )
-    add(claims, 40, "Benchmark visual optional.", status(bool(benchmark_visual) and benchmark_visual.get("verified", False), bool(benchmark_visual)), f"verified={benchmark_visual.get('verified')}")
+    add(
+        claims,
+        40,
+        "Benchmark visual optional.",
+        status(
+            bool(benchmark_visual)
+            and benchmark_visual.get("attempted", False)
+            and benchmark_visual.get("verified", False)
+            and (benchmark_visual.get("frame_std") or 0.0) > 1.0
+            and artifact_exists(benchmark_visual.get("artifact")),
+            bool(benchmark_visual),
+        ),
+        f"verified={benchmark_visual.get('verified')}, frame_std={benchmark_visual.get('frame_std')}",
+    )
 
     audit_ci = audit.get("confidence_intervals") or {}
     learned_audit_ci = audit_learned.get("confidence_intervals") or {}
@@ -457,26 +555,51 @@ def main() -> None:
     )
 
     maniskill_ci = maniskill.get("confidence_intervals") or {}
+    maniskill_artifacts = maniskill.get("artifacts") or {}
+    maniskill_curves_rows = csv_row_count(maniskill_artifacts.get("curves"))
+    maniskill_exact_rows = csv_row_count(maniskill_artifacts.get("exact_law"))
+    maniskill_model_rows = csv_row_count(maniskill_artifacts.get("model_metrics"))
+    maniskill_closed_rows = csv_row_count(maniskill_artifacts.get("closed_loop"))
+    maniskill_model_files_ok = all(
+        artifact_exists(RESULTS / "models" / f"benchmark_maniskill_{env_id}_horizon_wam.npz")
+        for env_id in (maniskill.get("env_ids") or [])
+    )
     add(
         claims,
         48,
         "ManiSkill state benchmark suite verified.",
-        status(bool(maniskill) and maniskill.get("available", False) and len(maniskill.get("env_ids") or []) >= 3, bool(maniskill)),
+        status(
+            bool(maniskill)
+            and maniskill.get("available", False)
+            and len(maniskill.get("env_ids") or []) >= 3
+            and artifacts_exist(maniskill_artifacts),
+            bool(maniskill),
+        ),
         f"envs={maniskill.get('env_ids')}, control={maniskill.get('control_mode')}",
     )
     add(
         claims,
         49,
         "ManiSkill rollout pools collected.",
-        status((maniskill.get("n_rollout_pools") or 0) >= 25, bool(maniskill)),
-        f"pools={maniskill.get('n_rollout_pools')}, rollouts={maniskill.get('n_rollouts')}",
+        status(
+            (maniskill.get("n_rollout_pools") or 0) >= 25
+            and (maniskill.get("n_rollouts") or 0) >= 32
+            and maniskill_curves_rows >= 500,
+            bool(maniskill),
+        ),
+        f"pools={maniskill.get('n_rollout_pools')}, rollouts={maniskill.get('n_rollouts')}, rows={maniskill_curves_rows}",
     )
     add(
         claims,
         50,
         "ManiSkill exact law verified.",
-        status(maniskill.get("exact_law_utility_mae") is not None and maniskill.get("exact_law_utility_mae") < 0.03, bool(maniskill)),
-        f"utility MAE={maniskill.get('exact_law_utility_mae')}",
+        status(
+            maniskill.get("exact_law_utility_mae") is not None
+            and maniskill.get("exact_law_utility_mae") < 0.03
+            and maniskill_exact_rows >= 100,
+            bool(maniskill),
+        ),
+        f"utility MAE={maniskill.get('exact_law_utility_mae')}, exact rows={maniskill_exact_rows}",
     )
     dense_ci = maniskill_ci.get("dense_minus_random_real_utility_N32") or {}
     oracle_mani_ci = maniskill_ci.get("oracle_minus_random_real_utility_N32") or {}
@@ -488,7 +611,8 @@ def main() -> None:
             dense_ci.get("lo") is not None
             and dense_ci.get("lo") > 0.0
             and oracle_mani_ci.get("lo") is not None
-            and oracle_mani_ci.get("lo") > 0.0,
+            and oracle_mani_ci.get("lo") > 0.0
+            and maniskill_curves_rows >= 500,
             bool(maniskill),
         ),
         f"dense-random CI={dense_ci}; oracle-random CI={oracle_mani_ci}",
@@ -497,26 +621,39 @@ def main() -> None:
         claims,
         52,
         "ManiSkill WAM-lite trained and evaluated.",
-        status(len(maniskill.get("model_metrics") or []) >= 6, bool(maniskill)),
-        f"model metric rows={len(maniskill.get('model_metrics') or [])}",
+        status(
+            len(maniskill.get("model_metrics") or []) >= 6
+            and maniskill_model_rows >= 6
+            and maniskill_model_files_ok,
+            bool(maniskill),
+        ),
+        f"model metric rows={len(maniskill.get('model_metrics') or [])}, table rows={maniskill_model_rows}",
     )
     mani_closed_ci = maniskill_ci.get("closed_loop_learned_minus_random_utility_N8") or {}
     add(
         claims,
         53,
         "ManiSkill closed-loop learned scorer beats random.",
-        status(mani_closed_ci.get("lo") is not None and mani_closed_ci.get("lo") > 0.0, bool(maniskill)),
-        f"learned-random closed-loop CI={mani_closed_ci}",
+        status(
+            mani_closed_ci.get("lo") is not None
+            and mani_closed_ci.get("lo") > 0.0
+            and maniskill_closed_rows >= 50,
+            bool(maniskill),
+        ),
+        f"learned-random closed-loop CI={mani_closed_ci}, rows={maniskill_closed_rows}",
     )
     learned_open_ci = maniskill_ci.get("learned_minus_random_real_utility_N32") or {}
     add(
         claims,
         54,
         "ManiSkill learned open-loop scorer is honestly reported.",
-        status(learned_open_ci.get("n", 0) >= 5, bool(maniskill)),
-        f"learned-random open-loop CI={learned_open_ci}",
+        status(learned_open_ci.get("n", 0) >= 5 and maniskill_curves_rows >= 500, bool(maniskill)),
+        f"learned-random open-loop CI={learned_open_ci}, rows={maniskill_curves_rows}",
     )
     visual_wam_ci = benchmark_visual_wam.get("confidence_intervals") or {}
+    benchmark_visual_wam_artifacts = benchmark_visual_wam.get("artifacts") or {}
+    benchmark_visual_wam_curves_rows = csv_row_count(benchmark_visual_wam_artifacts.get("table"))
+    benchmark_visual_wam_exact_rows = csv_row_count(benchmark_visual_wam_artifacts.get("exact_law"))
     add(
         claims,
         55,
@@ -524,6 +661,10 @@ def main() -> None:
         status(
             bool(benchmark_visual_wam)
             and benchmark_visual_wam.get("verified", False)
+            and (benchmark_visual_wam.get("train_samples") or 0) >= 1000
+            and (benchmark_visual_wam.get("validation_samples") or 0) >= 300
+            and artifact_exists(benchmark_visual_wam.get("model_path"))
+            and artifacts_exist(benchmark_visual_wam_artifacts)
             and (benchmark_visual_wam.get("validation") or {}).get("utility_corr", 0.0) > 0.20,
             bool(benchmark_visual_wam),
         ),
@@ -535,10 +676,11 @@ def main() -> None:
         "Benchmark RGB visual WAM exact law verified.",
         status(
             benchmark_visual_wam.get("exact_law_utility_mae") is not None
-            and benchmark_visual_wam.get("exact_law_utility_mae") < 0.05,
+            and benchmark_visual_wam.get("exact_law_utility_mae") < 0.05
+            and benchmark_visual_wam_exact_rows >= 100,
             bool(benchmark_visual_wam),
         ),
-        f"utility MAE={benchmark_visual_wam.get('exact_law_utility_mae')}",
+        f"utility MAE={benchmark_visual_wam.get('exact_law_utility_mae')}, exact rows={benchmark_visual_wam_exact_rows}",
     )
     add(
         claims,
@@ -546,10 +688,11 @@ def main() -> None:
         "Benchmark RGB visual WAM scorer beats random with CI.",
         status(
             (visual_wam_ci.get("visual_minus_random_N32") or {}).get("lo") is not None
-            and (visual_wam_ci.get("visual_minus_random_N32") or {}).get("lo") > 0.0,
+            and (visual_wam_ci.get("visual_minus_random_N32") or {}).get("lo") > 0.0
+            and benchmark_visual_wam_curves_rows >= 500,
             bool(benchmark_visual_wam),
         ),
-        f"visual-random CI={visual_wam_ci.get('visual_minus_random_N32')}",
+        f"visual-random CI={visual_wam_ci.get('visual_minus_random_N32')}, rows={benchmark_visual_wam_curves_rows}",
     )
     add(
         claims,
@@ -557,12 +700,18 @@ def main() -> None:
         "Benchmark RGB visual WAM oracle gap reported.",
         status(
             (visual_wam_ci.get("oracle_minus_visual_N32") or {}).get("lo") is not None
-            and (visual_wam_ci.get("oracle_minus_visual_N32") or {}).get("lo") > 0.0,
+            and (visual_wam_ci.get("oracle_minus_visual_N32") or {}).get("lo") > 0.0
+            and benchmark_visual_wam_curves_rows >= 500,
             bool(benchmark_visual_wam),
         ),
-        f"oracle-visual CI={visual_wam_ci.get('oracle_minus_visual_N32')}",
+        f"oracle-visual CI={visual_wam_ci.get('oracle_minus_visual_N32')}, rows={benchmark_visual_wam_curves_rows}",
     )
     gym_robotics_ci = gym_robotics.get("confidence_intervals") or {}
+    gym_robotics_artifacts = gym_robotics.get("artifacts") or {}
+    gym_robotics_curves_rows = csv_row_count(gym_robotics_artifacts.get("curves"))
+    gym_robotics_exact_rows = csv_row_count(gym_robotics_artifacts.get("exact_law"))
+    gym_robotics_closed_rows = csv_row_count(gym_robotics_artifacts.get("closed_loop"))
+    gym_robotics_model_files_ok = row_artifacts_exist(gym_robotics.get("model_metrics"), "model_path", minimum=3)
     add(
         claims,
         59,
@@ -571,10 +720,13 @@ def main() -> None:
             bool(gym_robotics)
             and gym_robotics.get("available", False)
             and len(gym_robotics.get("env_ids") or []) >= 3
-            and (gym_robotics.get("n_rollout_pools") or 0) >= 50,
+            and (gym_robotics.get("n_rollout_pools") or 0) >= 50
+            and artifacts_exist(gym_robotics_artifacts)
+            and gym_robotics_model_files_ok
+            and gym_robotics_curves_rows >= 1000,
             bool(gym_robotics),
         ),
-        f"envs={gym_robotics.get('env_ids')}, pools={gym_robotics.get('n_rollout_pools')}",
+        f"envs={gym_robotics.get('env_ids')}, pools={gym_robotics.get('n_rollout_pools')}, rows={gym_robotics_curves_rows}",
     )
     add(
         claims,
@@ -582,10 +734,11 @@ def main() -> None:
         "Gymnasium Robotics Fetch exact law verified.",
         status(
             gym_robotics.get("exact_law_utility_mae") is not None
-            and gym_robotics.get("exact_law_utility_mae") < 0.06,
+            and gym_robotics.get("exact_law_utility_mae") < 0.06
+            and gym_robotics_exact_rows >= 200,
             bool(gym_robotics),
         ),
-        f"utility MAE={gym_robotics.get('exact_law_utility_mae')}",
+        f"utility MAE={gym_robotics.get('exact_law_utility_mae')}, exact rows={gym_robotics_exact_rows}",
     )
     add(
         claims,
@@ -593,7 +746,9 @@ def main() -> None:
         "Gymnasium Robotics learned WAM scorer beats random with CI.",
         status(
             (gym_robotics_ci.get("learned_minus_random_N32") or {}).get("lo") is not None
-            and (gym_robotics_ci.get("learned_minus_random_N32") or {}).get("lo") > 0.0,
+            and (gym_robotics_ci.get("learned_minus_random_N32") or {}).get("lo") > 0.0
+            and gym_robotics_model_files_ok
+            and gym_robotics_curves_rows >= 1000,
             bool(gym_robotics),
         ),
         f"learned-random CI={gym_robotics_ci.get('learned_minus_random_N32')}",
@@ -604,10 +759,11 @@ def main() -> None:
         "Gymnasium Robotics closed-loop learned scorer beats random.",
         status(
             (gym_robotics_ci.get("closed_loop_learned_minus_random_N32") or {}).get("lo") is not None
-            and (gym_robotics_ci.get("closed_loop_learned_minus_random_N32") or {}).get("lo") > 0.0,
+            and (gym_robotics_ci.get("closed_loop_learned_minus_random_N32") or {}).get("lo") > 0.0
+            and gym_robotics_closed_rows >= 100,
             bool(gym_robotics),
         ),
-        f"closed-loop learned-random CI={gym_robotics_ci.get('closed_loop_learned_minus_random_N32')}",
+        f"closed-loop learned-random CI={gym_robotics_ci.get('closed_loop_learned_minus_random_N32')}, rows={gym_robotics_closed_rows}",
     )
     add(
         claims,
@@ -615,12 +771,18 @@ def main() -> None:
         "Gymnasium Robotics oracle gap reported.",
         status(
             (gym_robotics_ci.get("oracle_minus_learned_N32") or {}).get("lo") is not None
-            and (gym_robotics_ci.get("oracle_minus_learned_N32") or {}).get("lo") > 0.0,
+            and (gym_robotics_ci.get("oracle_minus_learned_N32") or {}).get("lo") > 0.0
+            and gym_robotics_curves_rows >= 1000,
             bool(gym_robotics),
         ),
         f"oracle-learned CI={gym_robotics_ci.get('oracle_minus_learned_N32')}",
     )
     gym_robotics_visual_ci = gym_robotics_visual.get("confidence_intervals") or {}
+    gym_robotics_visual_artifacts = gym_robotics_visual.get("artifacts") or {}
+    gym_robotics_visual_curves_rows = csv_row_count(gym_robotics_visual_artifacts.get("curves"))
+    gym_robotics_visual_exact_rows = csv_row_count(gym_robotics_visual_artifacts.get("exact_law"))
+    gym_robotics_visual_model_files_ok = row_artifacts_exist(gym_robotics_visual.get("model_metrics"), "model_path", minimum=3)
+    gym_robotics_visual_frames_ok = row_artifacts_exist(gym_robotics_visual.get("model_metrics"), "frame_path", minimum=3)
     add(
         claims,
         64,
@@ -629,10 +791,14 @@ def main() -> None:
             bool(gym_robotics_visual)
             and gym_robotics_visual.get("verified", False)
             and len(gym_robotics_visual.get("env_ids") or []) >= 3
-            and (gym_robotics_visual.get("mean_validation_utility_corr") or 0.0) > 0.25,
+            and (gym_robotics_visual.get("mean_validation_utility_corr") or 0.0) > 0.25
+            and artifacts_exist(gym_robotics_visual_artifacts)
+            and gym_robotics_visual_model_files_ok
+            and gym_robotics_visual_frames_ok
+            and gym_robotics_visual_curves_rows >= 1000,
             bool(gym_robotics_visual),
         ),
-        f"envs={gym_robotics_visual.get('env_ids')}, mean corr={gym_robotics_visual.get('mean_validation_utility_corr')}",
+        f"envs={gym_robotics_visual.get('env_ids')}, mean corr={gym_robotics_visual.get('mean_validation_utility_corr')}, rows={gym_robotics_visual_curves_rows}",
     )
     add(
         claims,
@@ -640,10 +806,11 @@ def main() -> None:
         "Gymnasium Robotics RGB visual exact law verified.",
         status(
             gym_robotics_visual.get("exact_law_utility_mae") is not None
-            and gym_robotics_visual.get("exact_law_utility_mae") < 0.08,
+            and gym_robotics_visual.get("exact_law_utility_mae") < 0.08
+            and gym_robotics_visual_exact_rows >= 200,
             bool(gym_robotics_visual),
         ),
-        f"utility MAE={gym_robotics_visual.get('exact_law_utility_mae')}",
+        f"utility MAE={gym_robotics_visual.get('exact_law_utility_mae')}, exact rows={gym_robotics_visual_exact_rows}",
     )
     add(
         claims,
@@ -651,7 +818,8 @@ def main() -> None:
         "Gymnasium Robotics RGB visual scorer beats random with CI.",
         status(
             (gym_robotics_visual_ci.get("visual_minus_random_N32") or {}).get("lo") is not None
-            and (gym_robotics_visual_ci.get("visual_minus_random_N32") or {}).get("lo") > 0.0,
+            and (gym_robotics_visual_ci.get("visual_minus_random_N32") or {}).get("lo") > 0.0
+            and gym_robotics_visual_curves_rows >= 1000,
             bool(gym_robotics_visual),
         ),
         f"visual-random CI={gym_robotics_visual_ci.get('visual_minus_random_N32')}",
@@ -660,9 +828,15 @@ def main() -> None:
         claims,
         67,
         "Gymnasium Robotics RGB visual oracle gap is reported without requiring significance.",
-        status((gym_robotics_visual_ci.get("oracle_minus_visual_N32") or {}).get("n", 0) >= 5, bool(gym_robotics_visual)),
-        f"oracle-visual CI={gym_robotics_visual_ci.get('oracle_minus_visual_N32')}",
+        status(
+            (gym_robotics_visual_ci.get("oracle_minus_visual_N32") or {}).get("n", 0) >= 5
+            and gym_robotics_visual_curves_rows >= 1000,
+            bool(gym_robotics_visual),
+        ),
+        f"oracle-visual CI={gym_robotics_visual_ci.get('oracle_minus_visual_N32')}, rows={gym_robotics_visual_curves_rows}",
     )
+    maniskill_visual_probe_artifacts = maniskill_visual_probe.get("artifacts") or {}
+    maniskill_dependency_artifacts = maniskill_dependency_probe.get("artifacts") or {}
     add(
         claims,
         68,
@@ -676,12 +850,19 @@ def main() -> None:
             and bool(maniskill_dependency_probe)
             and maniskill_dependency_probe.get("attempted", False)
             and not maniskill_dependency_probe.get("pinocchio_import_available", True)
-            and not maniskill_dependency_probe.get("pin_binary_wheel_available", True),
+            and not maniskill_dependency_probe.get("pin_binary_wheel_available", True)
+            and artifacts_exist(maniskill_visual_probe_artifacts)
+            and artifacts_exist(maniskill_dependency_artifacts)
+            and csv_row_count(maniskill_visual_probe_artifacts.get("table")) >= 5,
             bool(maniskill_visual_probe),
         ),
         f"visual_success={maniskill_visual_probe.get('any_visual_success')}, blocker={maniskill_visual_probe.get('visual_blocker')}; pinocchio={maniskill_dependency_probe.get('pinocchio_import_available')}, pin_binary={maniskill_dependency_probe.get('pin_binary_wheel_available')}",
     )
     metaworld_ci = metaworld.get("confidence_intervals") or {}
+    metaworld_artifacts = metaworld.get("artifacts") or {}
+    metaworld_curves_rows = csv_row_count(metaworld_artifacts.get("curves"))
+    metaworld_exact_rows = csv_row_count(metaworld_artifacts.get("exact_law"))
+    metaworld_model_files_ok = row_artifacts_exist(metaworld.get("model_metrics"), "model_path", minimum=3)
     add(
         claims,
         69,
@@ -690,10 +871,13 @@ def main() -> None:
             bool(metaworld)
             and metaworld.get("available", False)
             and (metaworld.get("n_tasks_verified") or 0) >= 3
-            and (metaworld.get("n_rollout_pools") or 0) >= 45,
+            and (metaworld.get("n_rollout_pools") or 0) >= 45
+            and artifacts_exist(metaworld_artifacts)
+            and metaworld_model_files_ok
+            and metaworld_curves_rows >= 1000,
             bool(metaworld),
         ),
-        f"tasks={metaworld.get('task_names')}, pools={metaworld.get('n_rollout_pools')}",
+        f"tasks={metaworld.get('task_names')}, pools={metaworld.get('n_rollout_pools')}, rows={metaworld_curves_rows}",
     )
     add(
         claims,
@@ -701,10 +885,11 @@ def main() -> None:
         "Meta-World exact law verified.",
         status(
             metaworld.get("exact_law_utility_mae") is not None
-            and metaworld.get("exact_law_utility_mae") < 0.04,
+            and metaworld.get("exact_law_utility_mae") < 0.04
+            and metaworld_exact_rows >= 200,
             bool(metaworld),
         ),
-        f"utility MAE={metaworld.get('exact_law_utility_mae')}",
+        f"utility MAE={metaworld.get('exact_law_utility_mae')}, exact rows={metaworld_exact_rows}",
     )
     add(
         claims,
@@ -712,7 +897,9 @@ def main() -> None:
         "Meta-World learned WAM scorer beats random open-loop with CI.",
         status(
             (metaworld_ci.get("learned_minus_random_N32") or {}).get("lo") is not None
-            and (metaworld_ci.get("learned_minus_random_N32") or {}).get("lo") > 0.0,
+            and (metaworld_ci.get("learned_minus_random_N32") or {}).get("lo") > 0.0
+            and metaworld_model_files_ok
+            and metaworld_curves_rows >= 1000,
             bool(metaworld),
         ),
         f"learned-random CI={metaworld_ci.get('learned_minus_random_N32')}",
@@ -725,12 +912,18 @@ def main() -> None:
             (metaworld_ci.get("reward_minus_random_N32") or {}).get("lo") is not None
             and (metaworld_ci.get("reward_minus_random_N32") or {}).get("lo") > 0.0
             and (metaworld_ci.get("oracle_minus_random_N32") or {}).get("lo") is not None
-            and (metaworld_ci.get("oracle_minus_random_N32") or {}).get("lo") > 0.0,
+            and (metaworld_ci.get("oracle_minus_random_N32") or {}).get("lo") > 0.0
+            and metaworld_curves_rows >= 1000,
             bool(metaworld),
         ),
         f"reward-random CI={metaworld_ci.get('reward_minus_random_N32')}; oracle-random CI={metaworld_ci.get('oracle_minus_random_N32')}",
     )
     robosuite_ci = robosuite.get("confidence_intervals") or {}
+    robosuite_artifacts = robosuite.get("artifacts") or {}
+    robosuite_curves_rows = csv_row_count(robosuite_artifacts.get("curves"))
+    robosuite_exact_rows = csv_row_count(robosuite_artifacts.get("exact_law"))
+    robosuite_closed_rows = csv_row_count(robosuite_artifacts.get("closed_loop"))
+    robosuite_model_files_ok = row_artifacts_exist(robosuite.get("model_metrics"), "model_path", minimum=3)
     add(
         claims,
         73,
@@ -739,10 +932,13 @@ def main() -> None:
             bool(robosuite)
             and robosuite.get("available", False)
             and (robosuite.get("n_tasks_verified") or 0) >= 3
-            and (robosuite.get("n_rollout_pools") or 0) >= 30,
+            and (robosuite.get("n_rollout_pools") or 0) >= 30
+            and artifacts_exist(robosuite_artifacts)
+            and robosuite_model_files_ok
+            and robosuite_curves_rows >= 1000,
             bool(robosuite),
         ),
-        f"envs={robosuite.get('env_names')}, pools={robosuite.get('n_rollout_pools')}",
+        f"envs={robosuite.get('env_names')}, pools={robosuite.get('n_rollout_pools')}, rows={robosuite_curves_rows}",
     )
     add(
         claims,
@@ -750,10 +946,11 @@ def main() -> None:
         "RoboSuite exact law verified.",
         status(
             robosuite.get("exact_law_utility_mae") is not None
-            and robosuite.get("exact_law_utility_mae") < 0.02,
+            and robosuite.get("exact_law_utility_mae") < 0.02
+            and robosuite_exact_rows >= 150,
             bool(robosuite),
         ),
-        f"utility MAE={robosuite.get('exact_law_utility_mae')}",
+        f"utility MAE={robosuite.get('exact_law_utility_mae')}, exact rows={robosuite_exact_rows}",
     )
     add(
         claims,
@@ -761,7 +958,9 @@ def main() -> None:
         "RoboSuite learned WAM scorer beats random open-loop with CI.",
         status(
             (robosuite_ci.get("learned_minus_random_N32") or {}).get("lo") is not None
-            and (robosuite_ci.get("learned_minus_random_N32") or {}).get("lo") > 0.0,
+            and (robosuite_ci.get("learned_minus_random_N32") or {}).get("lo") > 0.0
+            and robosuite_model_files_ok
+            and robosuite_curves_rows >= 1000,
             bool(robosuite),
         ),
         f"learned-random CI={robosuite_ci.get('learned_minus_random_N32')}",
@@ -776,7 +975,8 @@ def main() -> None:
             and (robosuite_ci.get("progress_minus_random_N32") or {}).get("lo") is not None
             and (robosuite_ci.get("progress_minus_random_N32") or {}).get("lo") > 0.0
             and (robosuite_ci.get("oracle_minus_random_N32") or {}).get("lo") is not None
-            and (robosuite_ci.get("oracle_minus_random_N32") or {}).get("lo") > 0.0,
+            and (robosuite_ci.get("oracle_minus_random_N32") or {}).get("lo") > 0.0
+            and robosuite_curves_rows >= 1000,
             bool(robosuite),
         ),
         f"reward-random CI={robosuite_ci.get('reward_minus_random_N32')}; progress-random CI={robosuite_ci.get('progress_minus_random_N32')}; oracle-random CI={robosuite_ci.get('oracle_minus_random_N32')}",
@@ -789,10 +989,15 @@ def main() -> None:
             (robosuite_ci.get("closed_loop_learned_minus_random_N8") or {}).get("lo") is not None
             and (robosuite_ci.get("closed_loop_learned_minus_random_N8") or {}).get("lo") > 0.0
             and (robosuite_ci.get("closed_loop_reward_minus_random_N8") or {}).get("lo") is not None
-            and (robosuite_ci.get("closed_loop_reward_minus_random_N8") or {}).get("lo") > 0.0,
+            and (robosuite_ci.get("closed_loop_reward_minus_random_N8") or {}).get("lo") > 0.0
+            and robosuite_closed_rows >= 100,
             bool(robosuite),
         ),
-        f"learned-random CI={robosuite_ci.get('closed_loop_learned_minus_random_N8')}; reward-random CI={robosuite_ci.get('closed_loop_reward_minus_random_N8')}",
+        f"learned-random CI={robosuite_ci.get('closed_loop_learned_minus_random_N8')}; reward-random CI={robosuite_ci.get('closed_loop_reward_minus_random_N8')}, rows={robosuite_closed_rows}",
+    )
+    robocasa_tables_ok = prefixed_tables_ok(
+        "benchmark_robocasa",
+        {"curves": 80, "exact_law": 40, "seed_metrics": 5, "rollouts": 80},
     )
     add(
         claims,
@@ -807,12 +1012,17 @@ def main() -> None:
             and robocasa.get("exact_law_utility_mae") is not None
             and robocasa.get("exact_law_utility_mae") < 0.01
             and (((robocasa.get("confidence_intervals") or {}).get("oracle_minus_random_N8") or {}).get("n") or 0) >= 5
-            and (((robocasa.get("confidence_intervals") or {}).get("oracle_minus_random_N8") or {}).get("lo") or 0.0) > 0.0,
+            and (((robocasa.get("confidence_intervals") or {}).get("oracle_minus_random_N8") or {}).get("lo") or 0.0) > 0.0
+            and robocasa_tables_ok,
             bool(robocasa),
         ),
         f"env={robocasa.get('env_id')}, pools={robocasa.get('n_rollout_pools')}, rollouts={robocasa.get('n_rollouts_total')}, exact MAE={robocasa.get('exact_law_utility_mae')}, oracle-random CI={((robocasa.get('confidence_intervals') or {}).get('oracle_minus_random_N8'))}",
     )
     robocasa_learned_ci = robocasa_learned.get("confidence_intervals") or {}
+    robocasa_learned_tables_ok = prefixed_tables_ok(
+        "benchmark_robocasa_learned",
+        {"curves": 120, "exact_law": 40, "train_validation": 112, "eval_rollouts": 80},
+    )
     add(
         claims,
         79,
@@ -826,12 +1036,18 @@ def main() -> None:
             and (robocasa_learned.get("eval_samples") or 0) >= 80
             and ((robocasa_learned.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
             and (robocasa_learned.get("exact_law_utility_mae") or 1.0) < 0.01
-            and ((robocasa_learned_ci.get("learned_minus_random_N8") or {}).get("lo") or 0.0) > 0.0,
+            and ((robocasa_learned_ci.get("learned_minus_random_N8") or {}).get("lo") or 0.0) > 0.0
+            and artifact_exists(robocasa_learned.get("model_path"))
+            and robocasa_learned_tables_ok,
             bool(robocasa_learned),
         ),
         f"train={robocasa_learned.get('train_samples')}, val={robocasa_learned.get('validation_samples')}, eval={robocasa_learned.get('eval_samples')}, utility corr={((robocasa_learned.get('model_metrics') or {}).get('utility_corr'))}, learned-random CI={robocasa_learned_ci.get('learned_minus_random_N8')}",
     )
     robocasa_multitask_ci = robocasa_multitask.get("confidence_intervals") or {}
+    robocasa_multitask_tables_ok = prefixed_tables_ok(
+        "benchmark_robocasa_multitask",
+        {"curves": 500, "exact_law": 200, "train_validation": 200, "eval_rollouts": 200, "seed_metrics": 15, "task_metrics": 3},
+    )
     add(
         claims,
         80,
@@ -848,7 +1064,9 @@ def main() -> None:
             and ((robocasa_multitask.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
             and (robocasa_multitask.get("exact_law_utility_mae") or 1.0) < 0.01
             and ((robocasa_multitask_ci.get("best_learned_minus_random_N8") or {}).get("lo") or 0.0) > 0.0
-            and ((robocasa_multitask_ci.get("oracle_minus_best_learned_N8") or {}).get("lo") or 0.0) > 0.0,
+            and ((robocasa_multitask_ci.get("oracle_minus_best_learned_N8") or {}).get("lo") or 0.0) > 0.0
+            and artifact_exists(robocasa_multitask.get("model_path"))
+            and robocasa_multitask_tables_ok,
             bool(robocasa_multitask),
         ),
         f"tasks={robocasa_multitask.get('env_ids')}, train={robocasa_multitask.get('train_samples')}, val={robocasa_multitask.get('validation_samples')}, eval={robocasa_multitask.get('eval_samples')}, utility corr={((robocasa_multitask.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_multitask.get('promoted_scorer')}, learned-random CI={robocasa_multitask_ci.get('best_learned_minus_random_N8')}, oracle-learned CI={robocasa_multitask_ci.get('oracle_minus_best_learned_N8')}",
@@ -856,6 +1074,13 @@ def main() -> None:
 
     libero_ci = libero_wam.get("confidence_intervals") or {}
     libero_max_n = max(libero_wam.get("n_values") or [8])
+    libero_tables_ok = (
+        csv_row_count(libero_wam.get("curves_path")) >= 600
+        and csv_row_count(libero_wam.get("exact_path")) >= 240
+        and csv_row_count(libero_wam.get("data_path")) >= 288
+        and csv_row_count(libero_wam.get("eval_path")) >= 240
+        and csv_row_count(libero_wam.get("seed_metrics_path")) >= 15
+    )
     add(
         claims,
         83,
@@ -871,13 +1096,19 @@ def main() -> None:
             and (libero_wam.get("eval_rollout_pools") or 0) >= 5
             and (libero_wam.get("exact_law_utility_mae") or 1.0) < 0.03
             and ((libero_wam.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
-            and ((libero_ci.get(f"best_learned_minus_random_N{libero_max_n}") or {}).get("lo") or 0.0) > 0.0,
+            and ((libero_ci.get(f"best_learned_minus_random_N{libero_max_n}") or {}).get("lo") or 0.0) > 0.0
+            and artifact_exists(libero_wam.get("model_path"))
+            and libero_tables_ok,
             bool(libero_wam),
         ),
         f"tasks={libero_wam.get('tasks')}, train={libero_wam.get('train_samples')}, val={libero_wam.get('validation_samples')}, eval={libero_wam.get('eval_samples')}, exact MAE={libero_wam.get('exact_law_utility_mae')}, utility corr={((libero_wam.get('model_metrics') or {}).get('utility_corr'))}, learned-random CI={libero_ci.get(f'best_learned_minus_random_N{libero_max_n}')}",
     )
     robocasa_broad_ci = robocasa_broad.get("confidence_intervals") or {}
     robocasa_broad_max_n = max(robocasa_broad.get("n_values") or [8])
+    robocasa_broad_tables_ok = prefixed_tables_ok(
+        "benchmark_robocasa_broad",
+        {"curves": 500, "exact_law": 200, "train_validation": 90, "eval_rollouts": 120, "seed_metrics": 16, "task_metrics": 4},
+    )
     add(
         claims,
         84,
@@ -893,13 +1124,19 @@ def main() -> None:
             and (robocasa_broad.get("eval_rollout_pools") or 0) >= 16
             and ((robocasa_broad.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
             and (robocasa_broad.get("exact_law_utility_mae") or 1.0) < 0.01
-            and ((robocasa_broad_ci.get(f"best_learned_minus_random_N{robocasa_broad_max_n}") or {}).get("lo") or 0.0) > 0.0,
+            and ((robocasa_broad_ci.get(f"best_learned_minus_random_N{robocasa_broad_max_n}") or {}).get("lo") or 0.0) > 0.0
+            and artifact_exists(robocasa_broad.get("model_path"))
+            and robocasa_broad_tables_ok,
             bool(robocasa_broad),
         ),
         f"tasks={robocasa_broad.get('env_ids')}, train={robocasa_broad.get('train_samples')}, val={robocasa_broad.get('validation_samples')}, eval={robocasa_broad.get('eval_samples')}, utility corr={((robocasa_broad.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_broad.get('promoted_scorer')}, learned-random CI={robocasa_broad_ci.get(f'best_learned_minus_random_N{robocasa_broad_max_n}')}",
     )
     robocasa_family12_ci = robocasa_family12.get("confidence_intervals") or {}
     robocasa_family12_max_n = max(robocasa_family12.get("n_values") or [8])
+    robocasa_family12_tables_ok = prefixed_tables_ok(
+        "benchmark_robocasa_family12",
+        {"curves": 800, "exact_law": 350, "train_validation": 180, "eval_rollouts": 180, "seed_metrics": 24, "task_metrics": 12},
+    )
     add(
         claims,
         85,
@@ -916,13 +1153,19 @@ def main() -> None:
             and ((robocasa_family12.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
             and (robocasa_family12.get("exact_law_utility_mae") or 1.0) < 0.01
             and ((robocasa_family12_ci.get(f"best_learned_minus_random_N{robocasa_family12_max_n}") or {}).get("lo") or 0.0) > 0.0
-            and ((robocasa_family12_ci.get(f"oracle_minus_best_learned_N{robocasa_family12_max_n}") or {}).get("lo") or 0.0) > 0.0,
+            and ((robocasa_family12_ci.get(f"oracle_minus_best_learned_N{robocasa_family12_max_n}") or {}).get("lo") or 0.0) > 0.0
+            and artifact_exists(robocasa_family12.get("model_path"))
+            and robocasa_family12_tables_ok,
             bool(robocasa_family12),
         ),
         f"tasks={robocasa_family12.get('env_ids')}, train={robocasa_family12.get('train_samples')}, val={robocasa_family12.get('validation_samples')}, eval={robocasa_family12.get('eval_samples')}, utility corr={((robocasa_family12.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_family12.get('promoted_scorer')}, learned-random CI={robocasa_family12_ci.get(f'best_learned_minus_random_N{robocasa_family12_max_n}')}",
     )
     robocasa_family24_ci = robocasa_family24.get("confidence_intervals") or {}
     robocasa_family24_max_n = max(robocasa_family24.get("n_values") or [8])
+    robocasa_family24_tables_ok = prefixed_tables_ok(
+        "benchmark_robocasa_family24",
+        {"curves": 1600, "exact_law": 700, "train_validation": 350, "eval_rollouts": 350, "seed_metrics": 48, "task_metrics": 24},
+    )
     add(
         claims,
         90,
@@ -939,7 +1182,9 @@ def main() -> None:
             and ((robocasa_family24.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
             and (robocasa_family24.get("exact_law_utility_mae") or 1.0) < 0.01
             and ((robocasa_family24_ci.get(f"best_learned_minus_random_N{robocasa_family24_max_n}") or {}).get("lo") or 0.0) > 0.0
-            and ((robocasa_family24_ci.get(f"oracle_minus_best_learned_N{robocasa_family24_max_n}") or {}).get("lo") or 0.0) > 0.0,
+            and ((robocasa_family24_ci.get(f"oracle_minus_best_learned_N{robocasa_family24_max_n}") or {}).get("lo") or 0.0) > 0.0
+            and artifact_exists(robocasa_family24.get("model_path"))
+            and robocasa_family24_tables_ok,
             bool(robocasa_family24),
         ),
         f"tasks={len(robocasa_family24.get('env_ids') or [])}, train={robocasa_family24.get('train_samples')}, val={robocasa_family24.get('validation_samples')}, eval={robocasa_family24.get('eval_samples')}, utility corr={((robocasa_family24.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_family24.get('promoted_scorer')}, learned-random CI={robocasa_family24_ci.get(f'best_learned_minus_random_N{robocasa_family24_max_n}')}",
@@ -954,7 +1199,9 @@ def main() -> None:
             and robocasa_catalog.get("verified", False)
             and (robocasa_catalog.get("registry_count") or 0) >= 300
             and (robocasa_catalog.get("verified_artifact_task_count") or 0) >= 28
-            and robocasa_catalog.get("coverage_fraction") is not None,
+            and robocasa_catalog.get("coverage_fraction") is not None
+            and csv_row_count(robocasa_catalog.get("registry_path")) >= 300
+            and csv_row_count(robocasa_catalog.get("artifact_coverage_path")) >= 10,
             bool(robocasa_catalog),
         ),
         f"registered={robocasa_catalog.get('registry_count')}, rollout_pool_covered={robocasa_catalog.get('verified_artifact_task_count')}, micro_covered={robocasa_catalog.get('micro_rollout_task_count')}, any_artifact={robocasa_catalog.get('any_artifact_task_count')}",
@@ -970,13 +1217,19 @@ def main() -> None:
             and (robocasa_micro.get("candidate_task_count") or 0) >= 4
             and (robocasa_micro.get("nondegenerate_task_count") or 0) >= 4
             and (robocasa_micro.get("rollouts_per_task") or 0) >= 2
-            and (robocasa_micro.get("horizon") or 0) >= 1,
+            and (robocasa_micro.get("horizon") or 0) >= 1
+            and csv_row_count(robocasa_micro.get("table_path")) >= 4
+            and artifact_exists(robocasa_micro.get("report_path")),
             bool(robocasa_micro),
         ),
         f"candidates={robocasa_micro.get('candidate_task_count')}, nondegenerate={robocasa_micro.get('nondegenerate_task_count')}, envs={robocasa_micro.get('nondegenerate_env_ids')}",
     )
     robocasa_extra4_ci = robocasa_extra4.get("confidence_intervals") or {}
     robocasa_extra4_max_n = max(robocasa_extra4.get("n_values") or [8])
+    robocasa_extra4_tables_ok = prefixed_tables_ok(
+        "benchmark_robocasa_extra4",
+        {"curves": 500, "exact_law": 200, "train_validation": 90, "eval_rollouts": 120, "seed_metrics": 16, "task_metrics": 4},
+    )
     add(
         claims,
         93,
@@ -993,13 +1246,19 @@ def main() -> None:
             and ((robocasa_extra4.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
             and (robocasa_extra4.get("exact_law_utility_mae") or 1.0) < 0.01
             and ((robocasa_extra4_ci.get(f"best_learned_minus_random_N{robocasa_extra4_max_n}") or {}).get("lo") or 0.0) > 0.0
-            and ((robocasa_extra4_ci.get(f"oracle_minus_best_learned_N{robocasa_extra4_max_n}") or {}).get("lo") or 0.0) > 0.0,
+            and ((robocasa_extra4_ci.get(f"oracle_minus_best_learned_N{robocasa_extra4_max_n}") or {}).get("lo") or 0.0) > 0.0
+            and artifact_exists(robocasa_extra4.get("model_path"))
+            and robocasa_extra4_tables_ok,
             bool(robocasa_extra4),
         ),
         f"tasks={robocasa_extra4.get('env_ids')}, train={robocasa_extra4.get('train_samples')}, val={robocasa_extra4.get('validation_samples')}, eval={robocasa_extra4.get('eval_samples')}, utility corr={((robocasa_extra4.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_extra4.get('promoted_scorer')}, learned-random CI={robocasa_extra4_ci.get(f'best_learned_minus_random_N{robocasa_extra4_max_n}')}, oracle-learned CI={robocasa_extra4_ci.get(f'oracle_minus_best_learned_N{robocasa_extra4_max_n}')}",
     )
     robocasa_family28_ci = robocasa_family28.get("confidence_intervals") or {}
     robocasa_family28_max_n = max(robocasa_family28.get("n_values") or [8])
+    robocasa_family28_tables_ok = prefixed_tables_ok(
+        "benchmark_robocasa_family28",
+        {"curves": 1900, "exact_law": 850, "train_validation": 650, "eval_rollouts": 420, "seed_metrics": 56, "task_metrics": 28},
+    )
     add(
         claims,
         94,
@@ -1016,13 +1275,19 @@ def main() -> None:
             and ((robocasa_family28.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
             and (robocasa_family28.get("exact_law_utility_mae") or 1.0) < 0.01
             and ((robocasa_family28_ci.get(f"best_learned_minus_random_N{robocasa_family28_max_n}") or {}).get("lo") or 0.0) > 0.0
-            and ((robocasa_family28_ci.get(f"oracle_minus_best_learned_N{robocasa_family28_max_n}") or {}).get("lo") or 0.0) > 0.0,
+            and ((robocasa_family28_ci.get(f"oracle_minus_best_learned_N{robocasa_family28_max_n}") or {}).get("lo") or 0.0) > 0.0
+            and artifact_exists(robocasa_family28.get("model_path"))
+            and robocasa_family28_tables_ok,
             bool(robocasa_family28),
         ),
         f"tasks={len(robocasa_family28.get('env_ids') or [])}, train={robocasa_family28.get('train_samples')}, val={robocasa_family28.get('validation_samples')}, eval={robocasa_family28.get('eval_samples')}, utility corr={((robocasa_family28.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_family28.get('promoted_scorer')}, learned-random CI={robocasa_family28_ci.get(f'best_learned_minus_random_N{robocasa_family28_max_n}')}, oracle-learned CI={robocasa_family28_ci.get(f'oracle_minus_best_learned_N{robocasa_family28_max_n}')}",
     )
     robocasa_family32_ci = robocasa_family32.get("confidence_intervals") or {}
     robocasa_family32_max_n = max(robocasa_family32.get("n_values") or [8])
+    robocasa_family32_tables_ok = prefixed_tables_ok(
+        "benchmark_robocasa_family32",
+        {"curves": 2200, "exact_law": 950, "train_validation": 700, "eval_rollouts": 500, "seed_metrics": 64, "task_metrics": 32},
+    )
     add(
         claims,
         95,
@@ -1039,13 +1304,19 @@ def main() -> None:
             and ((robocasa_family32.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
             and (robocasa_family32.get("exact_law_utility_mae") or 1.0) < 0.01
             and ((robocasa_family32_ci.get(f"best_learned_minus_random_N{robocasa_family32_max_n}") or {}).get("lo") or 0.0) > 0.0
-            and ((robocasa_family32_ci.get(f"oracle_minus_best_learned_N{robocasa_family32_max_n}") or {}).get("lo") or 0.0) > 0.0,
+            and ((robocasa_family32_ci.get(f"oracle_minus_best_learned_N{robocasa_family32_max_n}") or {}).get("lo") or 0.0) > 0.0
+            and artifact_exists(robocasa_family32.get("model_path"))
+            and robocasa_family32_tables_ok,
             bool(robocasa_family32),
         ),
         f"tasks={len(robocasa_family32.get('env_ids') or [])}, train={robocasa_family32.get('train_samples')}, val={robocasa_family32.get('validation_samples')}, eval={robocasa_family32.get('eval_samples')}, utility corr={((robocasa_family32.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_family32.get('promoted_scorer')}, learned-random CI={robocasa_family32_ci.get(f'best_learned_minus_random_N{robocasa_family32_max_n}')}, oracle-learned CI={robocasa_family32_ci.get(f'oracle_minus_best_learned_N{robocasa_family32_max_n}')}",
     )
     robocasa_stratified55_ci = robocasa_stratified55.get("confidence_intervals") or {}
     robocasa_stratified55_max_n = max(robocasa_stratified55.get("n_values") or [8])
+    robocasa_stratified55_tables_ok = prefixed_tables_ok(
+        "benchmark_robocasa_stratified55",
+        {"curves": 3800, "exact_law": 1600, "train_validation": 1200, "eval_rollouts": 800, "seed_metrics": 100, "task_metrics": 55},
+    )
     add(
         claims,
         96,
@@ -1062,13 +1333,19 @@ def main() -> None:
             and ((robocasa_stratified55.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
             and (robocasa_stratified55.get("exact_law_utility_mae") or 1.0) < 0.01
             and ((robocasa_stratified55_ci.get(f"best_learned_minus_random_N{robocasa_stratified55_max_n}") or {}).get("lo") or 0.0) > 0.0
-            and ((robocasa_stratified55_ci.get(f"oracle_minus_best_learned_N{robocasa_stratified55_max_n}") or {}).get("lo") or 0.0) > 0.0,
+            and ((robocasa_stratified55_ci.get(f"oracle_minus_best_learned_N{robocasa_stratified55_max_n}") or {}).get("lo") or 0.0) > 0.0
+            and artifact_exists(robocasa_stratified55.get("model_path"))
+            and robocasa_stratified55_tables_ok,
             bool(robocasa_stratified55),
         ),
         f"tasks={len(robocasa_stratified55.get('env_ids') or [])}, train={robocasa_stratified55.get('train_samples')}, val={robocasa_stratified55.get('validation_samples')}, eval={robocasa_stratified55.get('eval_samples')}, utility corr={((robocasa_stratified55.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_stratified55.get('promoted_scorer')}, learned-random CI={robocasa_stratified55_ci.get(f'best_learned_minus_random_N{robocasa_stratified55_max_n}')}, oracle-learned CI={robocasa_stratified55_ci.get(f'oracle_minus_best_learned_N{robocasa_stratified55_max_n}')}",
     )
     robocasa_stratified97_ci = robocasa_stratified97.get("confidence_intervals") or {}
     robocasa_stratified97_max_n = max(robocasa_stratified97.get("n_values") or [8])
+    robocasa_stratified97_tables_ok = prefixed_tables_ok(
+        "benchmark_robocasa_stratified97",
+        {"curves": 6500, "exact_law": 3000, "train_validation": 2200, "eval_rollouts": 1500, "seed_metrics": 190, "task_metrics": 97},
+    )
     add(
         claims,
         97,
@@ -1085,13 +1362,19 @@ def main() -> None:
             and ((robocasa_stratified97.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
             and (robocasa_stratified97.get("exact_law_utility_mae") or 1.0) < 0.01
             and ((robocasa_stratified97_ci.get(f"best_learned_minus_random_N{robocasa_stratified97_max_n}") or {}).get("lo") or 0.0) > 0.0
-            and ((robocasa_stratified97_ci.get(f"oracle_minus_best_learned_N{robocasa_stratified97_max_n}") or {}).get("lo") or 0.0) > 0.0,
+            and ((robocasa_stratified97_ci.get(f"oracle_minus_best_learned_N{robocasa_stratified97_max_n}") or {}).get("lo") or 0.0) > 0.0
+            and artifact_exists(robocasa_stratified97.get("model_path"))
+            and robocasa_stratified97_tables_ok,
             bool(robocasa_stratified97),
         ),
         f"tasks={len(robocasa_stratified97.get('env_ids') or [])}, train={robocasa_stratified97.get('train_samples')}, val={robocasa_stratified97.get('validation_samples')}, eval={robocasa_stratified97.get('eval_samples')}, pools={robocasa_stratified97.get('eval_rollout_pools')}, utility corr={((robocasa_stratified97.get('model_metrics') or {}).get('utility_corr'))}, promoted={robocasa_stratified97.get('promoted_scorer')}, learned-random CI={robocasa_stratified97_ci.get(f'best_learned_minus_random_N{robocasa_stratified97_max_n}')}, oracle-learned CI={robocasa_stratified97_ci.get(f'oracle_minus_best_learned_N{robocasa_stratified97_max_n}')}",
     )
     robocasa_residual35_ci = robocasa_residual35.get("confidence_intervals") or {}
     robocasa_residual35_max_n = max(robocasa_residual35.get("n_values") or [4])
+    robocasa_residual35_tables_ok = prefixed_tables_ok(
+        "benchmark_robocasa_residual35_h1_n4",
+        {"curves": 900, "exact_law": 400, "train_validation": 250, "eval_rollouts": 250, "seed_metrics": 35, "task_metrics": 35},
+    )
     add(
         claims,
         98,
@@ -1108,13 +1391,16 @@ def main() -> None:
             and ((robocasa_residual35.get("model_metrics") or {}).get("utility_corr") or 0.0) > 0.0
             and (robocasa_residual35.get("exact_law_utility_mae") or 1.0) < 0.01
             and ((robocasa_residual35_ci.get(f"best_learned_minus_random_N{robocasa_residual35_max_n}") or {}).get("lo") or 0.0) > 0.0
-            and ((robocasa_residual35_ci.get(f"oracle_minus_best_learned_N{robocasa_residual35_max_n}") or {}).get("lo") or 0.0) > 0.0,
+            and ((robocasa_residual35_ci.get(f"oracle_minus_best_learned_N{robocasa_residual35_max_n}") or {}).get("lo") or 0.0) > 0.0
+            and artifact_exists(robocasa_residual35.get("model_path"))
+            and robocasa_residual35_tables_ok,
             bool(robocasa_residual35),
         ),
         f"tasks={len(robocasa_residual35.get('env_ids') or [])}, train={robocasa_residual35.get('train_samples')}, val={robocasa_residual35.get('validation_samples')}, eval={robocasa_residual35.get('eval_samples')}, pools={robocasa_residual35.get('eval_rollout_pools')}, horizon={robocasa_residual35.get('horizon')}, Nmax={robocasa_residual35_max_n}, utility corr={((robocasa_residual35.get('model_metrics') or {}).get('utility_corr'))}, exact MAE={robocasa_residual35.get('exact_law_utility_mae')}, promoted={robocasa_residual35.get('promoted_scorer')}, learned-random CI={robocasa_residual35_ci.get(f'best_learned_minus_random_N{robocasa_residual35_max_n}')}, oracle-learned CI={robocasa_residual35_ci.get(f'oracle_minus_best_learned_N{robocasa_residual35_max_n}')}",
     )
 
     libero_scripted_ci = (libero_scripted.get("confidence_intervals") or {}).get("success_rate") or {}
+    libero_scripted_rows = csv_row_count(RESULTS / "tables" / "benchmark_libero_scripted_policy_episodes.csv")
     add(
         claims,
         86,
@@ -1128,12 +1414,14 @@ def main() -> None:
             and (libero_scripted.get("n_episodes") or 0) >= 50
             and (libero_scripted.get("n_successes") or 0) == (libero_scripted.get("n_episodes") or -1)
             and (libero_scripted.get("success_rate") or 0.0) >= 0.95
-            and (libero_scripted_ci.get("lo") or 0.0) >= 0.9,
+            and (libero_scripted_ci.get("lo") or 0.0) >= 0.9
+            and libero_scripted_rows >= 50,
             bool(libero_scripted),
         ),
-        f"episodes={libero_scripted.get('n_episodes')}, successes={libero_scripted.get('n_successes')}, success CI={libero_scripted_ci}",
+        f"episodes={libero_scripted.get('n_episodes')}, successes={libero_scripted.get('n_successes')}, rows={libero_scripted_rows}, success CI={libero_scripted_ci}",
     )
     libero_action_head_ci = (libero_action_head.get("confidence_intervals") or {}).get("eval_success_rate") or {}
+    libero_action_head_rows = csv_row_count(RESULTS / "tables" / "benchmark_libero_learned_action_head_episodes.csv")
     add(
         claims,
         87,
@@ -1147,13 +1435,16 @@ def main() -> None:
             and (libero_action_head.get("train_examples") or 0) >= 2000
             and (libero_action_head.get("eval_episodes") or 0) >= 30
             and (libero_action_head.get("eval_successes") or 0) == (libero_action_head.get("eval_episodes") or -1)
-            and (libero_action_head_ci.get("lo") or 0.0) >= 0.9,
+            and (libero_action_head_ci.get("lo") or 0.0) >= 0.9
+            and artifact_exists(libero_action_head.get("model_path"))
+            and libero_action_head_rows >= 30,
             bool(libero_action_head),
         ),
-        f"tasks={libero_action_head.get('tasks')}, eval={libero_action_head.get('eval_successes')}/{libero_action_head.get('eval_episodes')}, success CI={libero_action_head_ci}",
+        f"tasks={libero_action_head.get('tasks')}, eval={libero_action_head.get('eval_successes')}/{libero_action_head.get('eval_episodes')}, rows={libero_action_head_rows}, success CI={libero_action_head_ci}",
     )
     libero_autonomous_bc_ci = (libero_autonomous_bc.get("confidence_intervals") or {}).get("eval_success_rate") or {}
     libero_autonomous_bc_policy = libero_autonomous_bc.get("policy") or {}
+    libero_autonomous_bc_rows = csv_row_count(RESULTS / "tables" / "benchmark_libero_autonomous_bc_policy_episodes.csv")
     add(
         claims,
         88,
@@ -1170,13 +1461,16 @@ def main() -> None:
             and (libero_autonomous_bc_ci.get("lo") or 0.0) >= 0.9
             and libero_autonomous_bc_policy.get("uses_phase_index") is False
             and libero_autonomous_bc_policy.get("uses_target_point_command") is False
-            and libero_autonomous_bc_policy.get("uses_step_clock") is True,
+            and libero_autonomous_bc_policy.get("uses_step_clock") is True
+            and artifact_exists(libero_autonomous_bc.get("model_path"))
+            and libero_autonomous_bc_rows >= 50,
             bool(libero_autonomous_bc),
         ),
-        f"tasks={libero_autonomous_bc.get('tasks')}, train={libero_autonomous_bc.get('train_examples')}, eval={libero_autonomous_bc.get('eval_successes')}/{libero_autonomous_bc.get('eval_episodes')}, success CI={libero_autonomous_bc_ci}, policy={libero_autonomous_bc_policy}",
+        f"tasks={libero_autonomous_bc.get('tasks')}, train={libero_autonomous_bc.get('train_examples')}, eval={libero_autonomous_bc.get('eval_successes')}/{libero_autonomous_bc.get('eval_episodes')}, rows={libero_autonomous_bc_rows}, success CI={libero_autonomous_bc_ci}, policy={libero_autonomous_bc_policy}",
     )
     libero_visual_language_bc_ci = (libero_visual_language_bc.get("confidence_intervals") or {}).get("eval_success_rate") or {}
     libero_visual_language_bc_policy = libero_visual_language_bc.get("policy") or {}
+    libero_visual_language_bc_rows = csv_row_count(RESULTS / "tables" / "benchmark_libero_visual_language_bc_policy_episodes.csv")
     add(
         claims,
         89,
@@ -1197,10 +1491,12 @@ def main() -> None:
             and libero_visual_language_bc_policy.get("uses_simulator_object_state") is False
             and libero_visual_language_bc_policy.get("uses_task_id") is False
             and libero_visual_language_bc_policy.get("uses_phase_index") is False
-            and libero_visual_language_bc_policy.get("uses_target_point_command") is False,
+            and libero_visual_language_bc_policy.get("uses_target_point_command") is False
+            and artifact_exists(libero_visual_language_bc.get("model_path"))
+            and libero_visual_language_bc_rows >= 30,
             bool(libero_visual_language_bc),
         ),
-        f"tasks={libero_visual_language_bc.get('tasks')}, train={libero_visual_language_bc.get('train_examples')}, eval={libero_visual_language_bc.get('eval_successes')}/{libero_visual_language_bc.get('eval_episodes')}, success CI={libero_visual_language_bc_ci}, policy={libero_visual_language_bc_policy}",
+        f"tasks={libero_visual_language_bc.get('tasks')}, train={libero_visual_language_bc.get('train_examples')}, eval={libero_visual_language_bc.get('eval_successes')}/{libero_visual_language_bc.get('eval_episodes')}, rows={libero_visual_language_bc_rows}, success CI={libero_visual_language_bc_ci}, policy={libero_visual_language_bc_policy}",
     )
 
     readme_text = README.read_text(encoding="utf-8") if README.exists() else ""
