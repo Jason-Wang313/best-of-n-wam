@@ -95,6 +95,7 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{narrative_consistency.",
         "{script_contracts.",
         "{abstract_claim_support.",
+        "{publication_scope.",
         "{claim_semantics.",
         "{claim_evidence_quality.",
         "{tracked_artifact_provenance.",
@@ -284,6 +285,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     model_artifact_integrity = load_json(results_dir, "model_artifact_integrity.json")
     script_contracts = load_json(results_dir, "script_contracts.json")
     abstract_claim_support = load_json(results_dir, "abstract_claim_support.json")
+    publication_scope = load_json(results_dir, "publication_scope.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
     tracked_artifact_provenance = load_json(results_dir, "tracked_artifact_provenance.json")
@@ -496,6 +498,19 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
             f"`{abstract_claim_support.get('n_backing_claim_links')}` backing claim links, "
             f"`{abstract_claim_support.get('n_forbidden_headline_hits')}` forbidden headline hits, "
             f"and `{abstract_claim_support.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "publication_scope_command",
+        (
+            f"`python scripts/publication_scope.py --fail-on-error`: passed with "
+            f"`{publication_scope.get('n_publication_surfaces')}` publication surfaces, "
+            f"`{publication_scope.get('n_risk_mentions')}` risky mentions, "
+            f"`{publication_scope.get('n_unguarded_mentions')}` unguarded mentions, "
+            f"and `{publication_scope.get('n_issues')}` issues"
         ),
     )
     add_contains(

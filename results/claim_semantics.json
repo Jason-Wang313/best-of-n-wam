@@ -1,7 +1,7 @@
 {
   "experiment": "claim_semantics",
   "verified": true,
-  "n_claims": 122,
+  "n_claims": 123,
   "n_checks": 171,
   "n_issues": 0,
   "n_ci_claims": 51,
@@ -14,12 +14,12 @@
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=122"
+      "detail": "claims=123"
     },
     {
       "name": "all_claims_verified_except_semantic_self",
       "ok": true,
-      "detail": "claims=121"
+      "detail": "claims=122"
     },
     {
       "name": "claim_1_error_below_threshold",
@@ -824,22 +824,22 @@
     {
       "name": "claim_100_zero_issue_or_overclaim_count",
       "ok": true,
-      "detail": "evidence=refs=677, issues=0, status_counts={'ok': 677}"
+      "detail": "evidence=refs=681, issues=0, status_counts={'ok': 681}"
     },
     {
       "name": "claim_103_zero_issue_or_overclaim_count",
       "ok": true,
-      "detail": "evidence=claims=122, max_id=122, checks=21, issues=0"
+      "detail": "evidence=claims=123, max_id=123, checks=21, issues=0"
     },
     {
       "name": "claim_116_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=tests=113, unique=113, trailer=113, checks=6, issues=0"
+      "detail": "evidence=tests=116, unique=116, trailer=116, checks=6, issues=0"
     },
     {
       "name": "claim_117_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=claims=122, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json"
+      "detail": "evidence=claims=123, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json"
     },
     {
       "name": "claim_118_positive_count_or_artifact",

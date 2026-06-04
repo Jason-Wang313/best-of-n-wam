@@ -22,6 +22,7 @@ CORE_GATE_SEQUENCE = [
     "scripts/script_contracts.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/abstract_claim_support.py --fail-on-error",
+    "scripts/publication_scope.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_semantics.py --fail-on-error",
     "scripts/claims_status.py",
@@ -36,6 +37,7 @@ CORE_GATE_SEQUENCE = [
     "scripts/evidence_hash_coverage.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/abstract_claim_support.py --fail-on-error",
+    "scripts/publication_scope.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_semantics.py --fail-on-error",
     "scripts/claims_status.py",
@@ -164,6 +166,7 @@ def audit_core_script(root: Path, script: str, required_snippets: list[str], che
     add(checks, f"{label}_figure_quality_gate", count_occurrences(text, "scripts/figure_quality.py --fail-on-error") >= 1, "figure quality gate runs after model artifact integrity")
     add(checks, f"{label}_report_writer_gate", count_occurrences(text, "scripts/write_maxout_reports.py") >= 1, "report writer runs before narrative consistency")
     add(checks, f"{label}_double_abstract_claim_support", count_occurrences(text, "scripts/abstract_claim_support.py --fail-on-error") >= 2, "abstract-claim support gate runs after both claim-status writes")
+    add(checks, f"{label}_double_publication_scope", count_occurrences(text, "scripts/publication_scope.py --fail-on-error") >= 2, "publication-scope gate runs after both abstract-claim gates")
     add(checks, f"{label}_double_claim_semantics", count_occurrences(text, "scripts/claim_semantics.py --fail-on-error") >= 2, "claim semantic gate runs before both ledger gates")
     add(checks, f"{label}_double_claim_evidence_quality", count_occurrences(text, "scripts/claim_evidence_quality.py --fail-on-error") >= 2, "claim evidence gate runs before both ledger gates")
     add(checks, f"{label}_double_tracked_artifact_provenance", count_occurrences(text, "scripts/tracked_artifact_provenance.py --fail-on-error") >= 2, "tracked-artifact gate runs after both evidence-quality gates")
@@ -238,6 +241,6 @@ def script_contracts_markdown(payload: dict[str, Any]) -> str:
         for issue in issues:
             lines.append(f"- `{issue.get('name')}`: {issue.get('detail')}")
     else:
-        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered test-inventory/artifact/result/raw-recompute/table-schema/source-manifest/runtime-environment/experiment-registry/result-manifest/model-artifact/figure-quality/report-writer/narrative/script-contract/claim/abstract-claim/semantic/evidence/tracked-artifact/repo-bound-artifact/ledger/claim-generation/report-generation/command-result/evidence-hash gates.")
+        lines.append("Canonical scripts preserve required experiment steps, strict Bash mode, optional benchmark guards, and ordered test-inventory/artifact/result/raw-recompute/table-schema/source-manifest/runtime-environment/experiment-registry/result-manifest/model-artifact/figure-quality/report-writer/narrative/script-contract/claim/abstract-claim/publication-scope/semantic/evidence/tracked-artifact/repo-bound-artifact/ledger/claim-generation/report-generation/command-result/evidence-hash gates.")
     lines.append("")
     return "\n".join(lines)

@@ -6,6 +6,7 @@ def sample_stdout(count: int = 94) -> str:
         "tests/test_abstract_claim_support.py::test_abstract_claim_support_accepts_exact_supported_headlines",
         "tests/test_command_result_consistency.py::test_command_result_consistency_accepts_current_report",
         "tests/test_model_artifact_integrity.py::test_model_artifact_integrity_accepts_loadable_npz",
+        "tests/test_publication_scope.py::test_publication_scope_accepts_guarded_risk_mentions",
         "tests/test_script_contracts.py::test_ordered_subsequence_requires_order",
         "tests/test_theorem_binary.py::test_n1_equals_p",
     ]

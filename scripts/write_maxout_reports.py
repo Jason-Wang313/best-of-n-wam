@@ -122,6 +122,7 @@ def main() -> None:
     evidence_hash_coverage = load_json("evidence_hash_coverage.json")
     repo_bound_artifact_audit = load_json("repo_bound_artifact_audit.json")
     abstract_claim_support = load_json("abstract_claim_support.json")
+    publication_scope = load_json("publication_scope.json")
 
     val = (learned.get("metrics") or {}).get("validation") or {}
     ood = (learned.get("metrics") or {}).get("ood") or []
@@ -175,6 +176,7 @@ Audit date: 2026-05-30.
 - `narrative_consistency.py` verifies that high-impact README and final-report numbers match the current JSON artifacts.
 - `script_contracts.py` verifies that canonical shell scripts preserve required experiment steps, optional benchmark guards, and ordered verification gates.
 - `abstract_claim_support.py` verifies that final-report abstract claims are exactly the approved headline set, directly backed by verified claim IDs, and free of future-only robotics evidence.
+- `publication_scope.py` verifies that risky publication-facing robotics phrases are explicitly guarded as limitations, blockers, future work, discussion-only claims, or non-claims.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.
 - `claim_evidence_quality.py` verifies that each current claim ID is mapped to source artifacts and has structured, non-placeholder evidence.
 - `tracked_artifact_provenance.py` verifies that each current claim source and published artifact reference is represented in the git index.
@@ -631,6 +633,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/narrative_consistency.py --fail-on-error`: passed with `{narrative_consistency.get('n_checks')}` narrative checks and `{narrative_consistency.get('n_issues')}` issues.
 - `python scripts/script_contracts.py --fail-on-error`: passed with `{script_contracts.get('n_scripts')}` scripts, `{script_contracts.get('n_checks')}` contract checks, and `{script_contracts.get('n_issues')}` issues.
 - `python scripts/abstract_claim_support.py --fail-on-error`: passed with `{abstract_claim_support.get('n_abstract_claims')}` abstract claims, `{abstract_claim_support.get('n_backing_claim_links')}` backing claim links, `{abstract_claim_support.get('n_forbidden_headline_hits')}` forbidden headline hits, and `{abstract_claim_support.get('n_issues')}` issues.
+- `python scripts/publication_scope.py --fail-on-error`: passed with `{publication_scope.get('n_publication_surfaces')}` publication surfaces, `{publication_scope.get('n_risk_mentions')}` risky mentions, `{publication_scope.get('n_unguarded_mentions')}` unguarded mentions, and `{publication_scope.get('n_issues')}` issues.
 - `python scripts/claim_semantics.py --fail-on-error`: passed with `{claim_semantics.get('n_claims')}` claims, `{claim_semantics.get('n_checks')}` semantic checks, `{claim_semantics.get('n_ci_claims')}` CI-backed claims, and `{claim_semantics.get('n_issues')}` issues.
 - `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `{claim_evidence_quality.get('n_claims')}` claims, `{claim_evidence_quality.get('n_source_links')}` source links, `{claim_evidence_quality.get('n_checks')}` evidence checks, and `{claim_evidence_quality.get('n_issues')}` issues.
 - `python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `{tracked_artifact_provenance.get('n_claim_sources')}` claim sources, `{tracked_artifact_provenance.get('n_artifact_references')}` artifact references, and `{tracked_artifact_provenance.get('n_issues')}` issues.

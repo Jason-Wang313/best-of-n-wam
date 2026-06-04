@@ -25,6 +25,7 @@ EXCLUDED_RESULT_NAMES = {
     "figure_quality.json",
     "model_artifact_integrity.json",
     "narrative_consistency.json",
+    "publication_scope.json",
     "raw_result_recompute.json",
     "report_generation_consistency.json",
     "result_consistency.json",

@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 113,
-  "n_unique_tests": 113,
-  "trailer_count": 113,
+  "n_tests": 116,
+  "n_unique_tests": 116,
+  "trailer_count": 116,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -75,6 +75,9 @@
     "tests/test_narrative_consistency.py::test_markdown_series_uses_final_and",
     "tests/test_narrative_consistency.py::test_add_contains_records_missing_snippet",
     "tests/test_narrative_consistency.py::test_add_contains_records_found_snippet",
+    "tests/test_publication_scope.py::test_publication_scope_accepts_guarded_risk_mentions",
+    "tests/test_publication_scope.py::test_publication_scope_rejects_unguarded_real_robot_claim",
+    "tests/test_publication_scope.py::test_publication_scope_accepts_future_heading_context",
     "tests/test_raw_result_recompute.py::test_raw_result_recompute_accepts_matching_raw_tables",
     "tests/test_raw_result_recompute.py::test_raw_result_recompute_flags_aggregate_mismatch",
     "tests/test_raw_result_recompute.py::test_raw_result_recompute_flags_seed_ci_mismatch",
@@ -130,7 +133,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=113"
+      "detail": "nodeids=116"
     },
     {
       "name": "nodeids_unique",
@@ -140,12 +143,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=113"
+      "detail": "nodeids=116"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=113, nodeids=113"
+      "detail": "trailer=116, nodeids=116"
     },
     {
       "name": "required_test_families_present",

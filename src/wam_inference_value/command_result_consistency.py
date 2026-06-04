@@ -53,6 +53,7 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
     narrative_consistency = load_json(results_dir, "narrative_consistency.json")
     script_contracts = load_json(results_dir, "script_contracts.json")
     abstract_claim_support = load_json(results_dir, "abstract_claim_support.json")
+    publication_scope = load_json(results_dir, "publication_scope.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
     tracked_artifact_provenance = load_json(results_dir, "tracked_artifact_provenance.json")
@@ -193,6 +194,16 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
                 f"`{abstract_claim_support.get('n_backing_claim_links')}` backing claim links, "
                 f"`{abstract_claim_support.get('n_forbidden_headline_hits')}` forbidden headline hits, and "
                 f"`{abstract_claim_support.get('n_issues')}` issues"
+            ),
+        ),
+        (
+            "publication_scope",
+            (
+                f"`python scripts/publication_scope.py --fail-on-error`: passed with "
+                f"`{publication_scope.get('n_publication_surfaces')}` publication surfaces, "
+                f"`{publication_scope.get('n_risk_mentions')}` risky mentions, "
+                f"`{publication_scope.get('n_unguarded_mentions')}` unguarded mentions, and "
+                f"`{publication_scope.get('n_issues')}` issues"
             ),
         ),
         (

@@ -54,6 +54,7 @@ def audit_pytest_collection(*, stdout: str, returncode: int) -> dict[str, Any]:
         "tests/test_abstract_claim_support.py::",
         "tests/test_command_result_consistency.py::",
         "tests/test_model_artifact_integrity.py::",
+        "tests/test_publication_scope.py::",
         "tests/test_script_contracts.py::",
         "tests/test_theorem_binary.py::",
     ]

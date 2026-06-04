@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=677, issues=0, status_counts={'ok': 677}"
+      "evidence": "refs=681, issues=0, status_counts={'ok': 681}"
     },
     {
       "id": 101,
@@ -610,25 +610,25 @@
       "id": 102,
       "claim": "Published narrative numbers match current artifacts.",
       "status": "VERIFIED",
-      "evidence": "checks=47, issues=0"
+      "evidence": "checks=48, issues=0"
     },
     {
       "id": 103,
       "claim": "Claim ledger is structurally consistent.",
       "status": "VERIFIED",
-      "evidence": "claims=122, max_id=122, checks=21, issues=0"
+      "evidence": "claims=123, max_id=123, checks=21, issues=0"
     },
     {
       "id": 104,
       "claim": "Canonical execution scripts preserve required gate contracts.",
       "status": "VERIFIED",
-      "evidence": "scripts=7, checks=113, issues=0"
+      "evidence": "scripts=7, checks=117, issues=0"
     },
     {
       "id": 105,
       "claim": "Verified claims have mapped source artifacts and quality-checked evidence.",
       "status": "VERIFIED",
-      "evidence": "claims=122, mapped=122, sources=165, issues=0"
+      "evidence": "claims=123, mapped=123, sources=167, issues=0"
     },
     {
       "id": 106,
@@ -640,7 +640,7 @@
       "id": 107,
       "claim": "Verified claim wording satisfies semantic threshold checks.",
       "status": "VERIFIED",
-      "evidence": "claims=122, checks=171, CI claims=51, positive CI claims=33, error claims=11, issues=0"
+      "evidence": "claims=123, checks=171, CI claims=51, positive CI claims=33, error claims=11, issues=0"
     },
     {
       "id": 108,
@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=194, bytes=1374219, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 36, 'src': 53, 'tests': 44}, checks=14, issues=0"
+      "evidence": "files=197, bytes=1391960, dirs={'docs': 1, 'experiments': 55, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 37, 'src': 54, 'tests': 45}, checks=14, issues=0"
     },
     {
       "id": 112,
@@ -688,19 +688,19 @@
       "id": 115,
       "claim": "Published final-report command results match current verification artifacts.",
       "status": "VERIFIED",
-      "evidence": "snippets=23, python_commands=26, pytest=113, checks=26, issues=0"
+      "evidence": "snippets=24, python_commands=27, pytest=116, checks=27, issues=0"
     },
     {
       "id": 116,
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
       "status": "VERIFIED",
-      "evidence": "tests=113, unique=113, trailer=113, checks=6, issues=0"
+      "evidence": "tests=116, unique=116, trailer=116, checks=6, issues=0"
     },
     {
       "id": 117,
       "claim": "Generated claim-status artifacts are byte-stable under rerunning the claim generator.",
       "status": "VERIFIED",
-      "evidence": "claims=122, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json"
+      "evidence": "claims=123, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json"
     },
     {
       "id": 118,
@@ -712,25 +712,31 @@
       "id": 119,
       "claim": "Claim evidence artifacts and published artifact references are represented in the git index.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=109, artifact_refs=439, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
+      "evidence": "claim_sources=111, artifact_refs=441, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
     },
     {
       "id": 120,
       "claim": "Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=107, artifact_refs=437, hashed=544, self_outputs_excluded=4, issues=0"
+      "evidence": "claim_sources=109, artifact_refs=439, hashed=548, self_outputs_excluded=4, issues=0"
     },
     {
       "id": 121,
       "claim": "Claim evidence artifacts and published artifact references are repository-bound.",
       "status": "VERIFIED",
-      "evidence": "records=842, claim_sources=165, artifact_refs=677, outside=0, absent=0, traversal=0, issues=0"
+      "evidence": "records=848, claim_sources=167, artifact_refs=681, outside=0, absent=0, traversal=0, issues=0"
     },
     {
       "id": 122,
       "claim": "Final-report abstract-level claims are directly evidence-backed and scope-limited.",
       "status": "VERIFIED",
       "evidence": "abstract_claims=4, approved=4, backing_links=23, headline_forbidden=0, issues=0"
+    },
+    {
+      "id": 123,
+      "claim": "Publication-surface risky robotics claims are guarded as limitations or future work.",
+      "status": "VERIFIED",
+      "evidence": "surfaces=5, risk_mentions=72, guarded=72, unguarded=0, issues=0"
     }
   ],
   "readme_overclaims": [],
@@ -738,7 +744,7 @@
   "report_overclaims": [],
   "narrative_overclaims": [],
   "overclaims": [],
-  "num_verified": 122,
+  "num_verified": 123,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0

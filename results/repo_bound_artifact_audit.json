@@ -2,9 +2,9 @@
   "experiment": "repo_bound_artifact_audit",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_records": 842,
-  "n_claim_sources": 165,
-  "n_artifact_references": 677,
+  "n_records": 848,
+  "n_claim_sources": 167,
+  "n_artifact_references": 681,
   "n_outside_repo": 0,
   "n_missing": 0,
   "n_parent_traversal": 0,
@@ -12,23 +12,23 @@
     "documentation": 6,
     "figure": 36,
     "model": 37,
-    "report": 129,
-    "result_json": 386,
+    "report": 132,
+    "result_json": 389,
     "result_table": 242,
     "source_or_test": 6
   },
   "suffix_counts": {
     ".csv": 242,
     ".joblib": 13,
-    ".json": 386,
-    ".md": 135,
+    ".json": 389,
+    ".md": 138,
     ".npz": 24,
     ".png": 36,
     ".py": 6
   },
   "record_category_counts": {
-    "artifact_reference": 677,
-    "claim_source": 165
+    "artifact_reference": 681,
+    "claim_source": 167
   },
   "n_checks": 12,
   "n_issues": 0,
@@ -36,17 +36,17 @@
     {
       "name": "records_present",
       "ok": true,
-      "detail": "records=842"
+      "detail": "records=848"
     },
     {
       "name": "claim_sources_present",
       "ok": true,
-      "detail": "claim_sources=165"
+      "detail": "claim_sources=167"
     },
     {
       "name": "artifact_references_present",
       "ok": true,
-      "detail": "artifact_references=677"
+      "detail": "artifact_references=681"
     },
     {
       "name": "all_records_inside_repo",
@@ -66,7 +66,7 @@
     {
       "name": "result_json_coverage",
       "ok": true,
-      "detail": "count=386"
+      "detail": "count=389"
     },
     {
       "name": "result_table_coverage",
@@ -76,7 +76,7 @@
     {
       "name": "report_coverage",
       "ok": true,
-      "detail": "count=129"
+      "detail": "count=132"
     },
     {
       "name": "figure_coverage",
@@ -892,6 +892,54 @@
       "raw": "reports/narrative_consistency_report.md",
       "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\narrative_consistency_report.md",
       "repo_relative": "reports/narrative_consistency_report.md",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".md",
+      "artifact_category": "report",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.166.raw_path",
+      "claim_id": null,
+      "raw": "reports/publication_scope_report.md",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\publication_scope_report.md",
+      "repo_relative": "reports/publication_scope_report.md",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".md",
+      "artifact_category": "report",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.166.resolved_path",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\reports\\publication_scope_report.md",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\publication_scope_report.md",
+      "repo_relative": "reports/publication_scope_report.md",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".md",
+      "artifact_category": "report",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "claim_source",
+      "source": "claim_evidence_quality",
+      "source_json": null,
+      "json_ref": null,
+      "claim_id": 123,
+      "raw": "reports/publication_scope_report.md",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\publication_scope_report.md",
+      "repo_relative": "reports/publication_scope_report.md",
       "inside_repo": true,
       "exists": true,
       "kind": "file",
@@ -8940,6 +8988,54 @@
       "raw": "results/narrative_consistency.json",
       "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\narrative_consistency.json",
       "repo_relative": "results/narrative_consistency.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.165.raw_path",
+      "claim_id": null,
+      "raw": "results/publication_scope.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\publication_scope.json",
+      "repo_relative": "results/publication_scope.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.165.resolved_path",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\results\\publication_scope.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\publication_scope.json",
+      "repo_relative": "results/publication_scope.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "claim_source",
+      "source": "claim_evidence_quality",
+      "source_json": null,
+      "json_ref": null,
+      "claim_id": 123,
+      "raw": "results/publication_scope.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\publication_scope.json",
+      "repo_relative": "results/publication_scope.json",
       "inside_repo": true,
       "exists": true,
       "kind": "file",

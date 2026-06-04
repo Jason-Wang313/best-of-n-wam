@@ -61,6 +61,7 @@ fi
 "${PY[@]}" scripts/script_contracts.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/abstract_claim_support.py --fail-on-error
+"${PY[@]}" scripts/publication_scope.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_semantics.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
@@ -75,6 +76,7 @@ fi
 "${PY[@]}" scripts/evidence_hash_coverage.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/abstract_claim_support.py --fail-on-error
+"${PY[@]}" scripts/publication_scope.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_semantics.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
