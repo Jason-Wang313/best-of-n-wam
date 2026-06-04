@@ -54,6 +54,7 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
     script_contracts = load_json(results_dir, "script_contracts.json")
     abstract_claim_support = load_json(results_dir, "abstract_claim_support.json")
     publication_scope = load_json(results_dir, "publication_scope.json")
+    frontier_integrity = load_json(results_dir, "frontier_integrity.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_scope_audit = load_json(results_dir, "claim_scope_audit.json")
     claim_reference_integrity = load_json(results_dir, "claim_reference_integrity.json")
@@ -206,6 +207,16 @@ def expected_snippets(results_dir: Path) -> list[tuple[str, str]]:
                 f"`{publication_scope.get('n_risk_mentions')}` risky mentions, "
                 f"`{publication_scope.get('n_unguarded_mentions')}` unguarded mentions, and "
                 f"`{publication_scope.get('n_issues')}` issues"
+            ),
+        ),
+        (
+            "frontier_integrity",
+            (
+                f"`python scripts/frontier_integrity.py --fail-on-error`: passed with "
+                f"`{frontier_integrity.get('n_frontier_items')}` frontier items, "
+                f"`{frontier_integrity.get('n_guarded_frontier_mentions')}` guarded mentions, "
+                f"`{frontier_integrity.get('n_promoted_frontier_claims')}` promoted frontier claims, and "
+                f"`{frontier_integrity.get('n_issues')}` issues"
             ),
         ),
         (

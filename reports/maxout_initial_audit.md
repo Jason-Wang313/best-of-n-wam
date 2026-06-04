@@ -24,6 +24,7 @@ Audit date: 2026-05-30.
 - `script_contracts.py` verifies that canonical shell scripts preserve required experiment steps, optional benchmark guards, and ordered verification gates.
 - `abstract_claim_support.py` verifies that final-report abstract claims are exactly the approved headline set, directly backed by verified claim IDs, and free of future-only robotics evidence.
 - `publication_scope.py` verifies that risky publication-facing robotics phrases are explicitly guarded as limitations, blockers, future work, discussion-only claims, or non-claims.
+- `frontier_integrity.py` verifies that the remaining ideal robotics endpoints are guarded as non-claims and not promoted as verified results.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.
 - `claim_scope_audit.py` verifies that broad claim wording is scoped by task/env names, sample counts, modes, smoke/probe qualifiers, or explicit limitation evidence.
 - `claim_reference_integrity.py` verifies that explicit `VERIFIED CLAIM N` narrative references resolve to current verified claim IDs.

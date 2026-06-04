@@ -3,10 +3,10 @@
 - Verified: True
 - Publication surfaces: 5
 - Existing surfaces: 5
-- Risk mentions: 72
-- Guarded mentions: 72
+- Risk mentions: 80
+- Guarded mentions: 80
 - Unguarded mentions: 0
-- Verified claims loaded: 125
+- Verified claims loaded: 123
 - Checks: 7
 - Issues: 0
 

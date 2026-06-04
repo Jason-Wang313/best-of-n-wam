@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 123,
-  "n_unique_tests": 123,
-  "trailer_count": 123,
+  "n_tests": 127,
+  "n_unique_tests": 127,
+  "trailer_count": 127,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -66,6 +66,10 @@
     "tests/test_figure_quality.py::test_figure_quality_accepts_nonblank_png",
     "tests/test_figure_quality.py::test_figure_quality_detects_blank_png",
     "tests/test_figure_quality.py::test_figure_quality_detects_tiny_png",
+    "tests/test_frontier_integrity.py::test_frontier_integrity_accepts_guarded_nonclaims",
+    "tests/test_frontier_integrity.py::test_frontier_integrity_rejects_unguarded_publication_claim",
+    "tests/test_frontier_integrity.py::test_frontier_integrity_rejects_promoted_claim_ledger_entry",
+    "tests/test_frontier_integrity.py::test_frontier_integrity_requires_maniskill_blocker_artifacts",
     "tests/test_gym_manip_adapter.py::test_gym_manip_adapter_smoke_if_available",
     "tests/test_gym_robotics_adapter.py::test_gym_robotics_adapter_smoke_if_available",
     "tests/test_learned_wam.py::test_learned_wam_trains_and_predicts_finite_metrics",
@@ -140,7 +144,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=123"
+      "detail": "nodeids=127"
     },
     {
       "name": "nodeids_unique",
@@ -150,12 +154,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=123"
+      "detail": "nodeids=127"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=123, nodeids=123"
+      "detail": "trailer=127, nodeids=127"
     },
     {
       "name": "required_test_families_present",

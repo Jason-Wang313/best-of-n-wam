@@ -1,7 +1,7 @@
 # Claim Reference Integrity Report
 
 - Verified: True
-- Claims loaded: 125
+- Claims loaded: 126
 - Reference surfaces: 5
 - Existing surfaces: 5
 - VERIFIED CLAIM references: 24

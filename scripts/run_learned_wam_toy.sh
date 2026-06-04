@@ -101,6 +101,7 @@ SEEDS=(701 702 703 704 705)
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/abstract_claim_support.py --fail-on-error
 "${PY[@]}" scripts/publication_scope.py --fail-on-error
+"${PY[@]}" scripts/frontier_integrity.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_semantics.py --fail-on-error
 "${PY[@]}" scripts/claim_scope_audit.py --fail-on-error
@@ -118,6 +119,7 @@ SEEDS=(701 702 703 704 705)
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/abstract_claim_support.py --fail-on-error
 "${PY[@]}" scripts/publication_scope.py --fail-on-error
+"${PY[@]}" scripts/frontier_integrity.py --fail-on-error
 "${PY[@]}" scripts/claims_status.py
 "${PY[@]}" scripts/claim_semantics.py --fail-on-error
 "${PY[@]}" scripts/claim_scope_audit.py --fail-on-error

@@ -2,9 +2,9 @@
   "experiment": "repo_bound_artifact_audit",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_records": 860,
-  "n_claim_sources": 171,
-  "n_artifact_references": 689,
+  "n_records": 872,
+  "n_claim_sources": 173,
+  "n_artifact_references": 699,
   "n_outside_repo": 0,
   "n_missing": 0,
   "n_parent_traversal": 0,
@@ -12,23 +12,23 @@
     "documentation": 6,
     "figure": 36,
     "model": 37,
-    "report": 138,
-    "result_json": 395,
+    "report": 143,
+    "result_json": 402,
     "result_table": 242,
     "source_or_test": 6
   },
   "suffix_counts": {
     ".csv": 242,
     ".joblib": 13,
-    ".json": 395,
-    ".md": 144,
+    ".json": 402,
+    ".md": 149,
     ".npz": 24,
     ".png": 36,
     ".py": 6
   },
   "record_category_counts": {
-    "artifact_reference": 689,
-    "claim_source": 171
+    "artifact_reference": 699,
+    "claim_source": 173
   },
   "n_checks": 12,
   "n_issues": 0,
@@ -36,17 +36,17 @@
     {
       "name": "records_present",
       "ok": true,
-      "detail": "records=860"
+      "detail": "records=872"
     },
     {
       "name": "claim_sources_present",
       "ok": true,
-      "detail": "claim_sources=171"
+      "detail": "claim_sources=173"
     },
     {
       "name": "artifact_references_present",
       "ok": true,
-      "detail": "artifact_references=689"
+      "detail": "artifact_references=699"
     },
     {
       "name": "all_records_inside_repo",
@@ -66,7 +66,7 @@
     {
       "name": "result_json_coverage",
       "ok": true,
-      "detail": "count=395"
+      "detail": "count=402"
     },
     {
       "name": "result_table_coverage",
@@ -76,7 +76,7 @@
     {
       "name": "report_coverage",
       "ok": true,
-      "detail": "count=138"
+      "detail": "count=143"
     },
     {
       "name": "figure_coverage",
@@ -870,6 +870,54 @@
     {
       "record_category": "artifact_reference",
       "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.172.raw_path",
+      "claim_id": null,
+      "raw": "reports/frontier_integrity_report.md",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\frontier_integrity_report.md",
+      "repo_relative": "reports/frontier_integrity_report.md",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".md",
+      "artifact_category": "report",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.172.resolved_path",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\reports\\frontier_integrity_report.md",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\frontier_integrity_report.md",
+      "repo_relative": "reports/frontier_integrity_report.md",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".md",
+      "artifact_category": "report",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "claim_source",
+      "source": "claim_evidence_quality",
+      "source_json": null,
+      "json_ref": null,
+      "claim_id": 126,
+      "raw": "reports/frontier_integrity_report.md",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\frontier_integrity_report.md",
+      "repo_relative": "reports/frontier_integrity_report.md",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".md",
+      "artifact_category": "report",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
       "source_json": "benchmark_maniskill_dependency_probe.json",
       "json_ref": "artifacts.report",
       "claim_id": null,
@@ -886,10 +934,42 @@
     {
       "record_category": "artifact_reference",
       "source": "artifact_integrity",
+      "source_json": "frontier_integrity.json",
+      "json_ref": "records.87.artifact.path",
+      "claim_id": null,
+      "raw": "reports/maniskill_dependency_blocker_report.md",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\maniskill_dependency_blocker_report.md",
+      "repo_relative": "reports/maniskill_dependency_blocker_report.md",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".md",
+      "artifact_category": "report",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
       "source_json": "benchmark_maniskill_visual_probe.json",
       "json_ref": "artifacts.report",
       "claim_id": null,
       "raw": "C:\\Users\\wangz\\best-of-n-wam\\reports\\maniskill_visual_blocker_report.md",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\maniskill_visual_blocker_report.md",
+      "repo_relative": "reports/maniskill_visual_blocker_report.md",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".md",
+      "artifact_category": "report",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "frontier_integrity.json",
+      "json_ref": "records.86.artifact.path",
+      "claim_id": null,
+      "raw": "reports/maniskill_visual_blocker_report.md",
       "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\maniskill_visual_blocker_report.md",
       "repo_relative": "reports/maniskill_visual_blocker_report.md",
       "inside_repo": true,
@@ -3348,6 +3428,22 @@
       "raw_has_parent_traversal": false
     },
     {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "frontier_integrity.json",
+      "json_ref": "records.85.artifact.path",
+      "claim_id": null,
+      "raw": "results/benchmark_maniskill_dependency_probe.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_dependency_probe.json",
+      "repo_relative": "results/benchmark_maniskill_dependency_probe.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
       "record_category": "claim_source",
       "source": "claim_evidence_quality",
       "source_json": null,
@@ -3722,6 +3818,22 @@
       "json_ref": "source_records.82.resolved_path",
       "claim_id": null,
       "raw": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_visual_probe.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_visual_probe.json",
+      "repo_relative": "results/benchmark_maniskill_visual_probe.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "frontier_integrity.json",
+      "json_ref": "records.84.artifact.path",
+      "claim_id": null,
+      "raw": "results/benchmark_maniskill_visual_probe.json",
       "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_maniskill_visual_probe.json",
       "repo_relative": "results/benchmark_maniskill_visual_probe.json",
       "inside_repo": true,
@@ -7617,6 +7729,86 @@
       "kind": "file",
       "suffix": ".png",
       "artifact_category": "figure",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.171.raw_path",
+      "claim_id": null,
+      "raw": "results/frontier_integrity.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
+      "repo_relative": "results/frontier_integrity.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_evidence_quality.json",
+      "json_ref": "source_records.171.resolved_path",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
+      "repo_relative": "results/frontier_integrity.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_ledger_integrity.json",
+      "json_ref": "evidence_path_references.4.raw_path",
+      "claim_id": null,
+      "raw": "results/frontier_integrity.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
+      "repo_relative": "results/frontier_integrity.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "claim_ledger_integrity.json",
+      "json_ref": "evidence_path_references.4.resolved_path",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
+      "repo_relative": "results/frontier_integrity.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "claim_source",
+      "source": "claim_evidence_quality",
+      "source_json": null,
+      "json_ref": null,
+      "claim_id": 126,
+      "raw": "results/frontier_integrity.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
+      "repo_relative": "results/frontier_integrity.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
       "raw_has_parent_traversal": false
     },
     {

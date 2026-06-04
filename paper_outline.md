@@ -83,6 +83,7 @@ Report only artifact-backed claims:
 13. inference-value audit profiles and deployment gates
 14. pilot-calibrated scorer repair
 15. rollout compute-quality frontier
+16. frontier-integrity audit that keeps real-robot, modern VLA LIBERO, full RoboCasa-wide, and ManiSkill visual/EE endpoints in limitations/future work unless artifacts exist
 
 ## 11. Benchmark Status
 

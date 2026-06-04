@@ -3,22 +3,22 @@
   "verified": true,
   "n_publication_surfaces": 5,
   "n_existing_surfaces": 5,
-  "n_risk_mentions": 72,
-  "n_guarded_mentions": 72,
+  "n_risk_mentions": 80,
+  "n_guarded_mentions": 80,
   "n_unguarded_mentions": 0,
-  "n_verified_claims": 125,
+  "n_verified_claims": 123,
   "mentions_by_surface": {
-    "README.md": 13,
-    "paper_outline.md": 10,
+    "README.md": 17,
+    "paper_outline.md": 14,
     "reports/paper_result_summary.md": 12,
     "reports/final_decision_report.md": 30,
     "reports/reviewer_risk_assessment.md": 7
   },
   "mentions_by_pattern": {
-    "real_robot": 12,
-    "modern_vla": 14,
-    "full_robocasa": 12,
-    "maniskill_rgb_or_ee": 25,
+    "real_robot": 14,
+    "modern_vla": 16,
+    "full_robocasa": 14,
+    "maniskill_rgb_or_ee": 27,
     "universal_wam": 7,
     "dreamzero_uwm": 2
   },
@@ -89,7 +89,39 @@
     },
     {
       "surface": "README.md",
-      "line": 275,
+      "line": 272,
+      "heading": "Claims Status",
+      "pattern": "real_robot",
+      "guarded": true,
+      "text": "The test-inventory gate collects pytest node IDs and verifies the reported test count comes from an artifact rather than hard-coded stale text. The artifact-integrity gate checks that referenced result files exist, parse, and are nonempty. The result-consistency gate checks that summary JSONs agree with canonical tables for confidence-interval sanity, row counts, seed coverage, task/environment coverage, rollout-pool counts, promoted-scorer CIs, and LIBERO success counts. The raw-recompute gate independently recomputes aggregate means, exact-law MAEs, and seed-metric confidence intervals from raw CSV artifacts. The table-schema gate checks canonical CSV headers, required family columns, finite numeric values, nonblank key cells, valid success-rate ranges, and explicit optional blanks. The source-manifest gate writes deterministic SHA-256 hashes for source, experiment, script, test, README/paper, requirements, and theory files. The runtime-environment gate records and verifies Python/platform metadata, requirement-file hashes, core package versions, optional package availability, module probes, and command probes. The experiment-registry gate verifies canonical experiment-family scripts, JSON summaries, wrapper coverage, table artifacts, and figures where expected. The artifact-manifest gate writes deterministic SHA-256 hashes for canonical scientific result JSONs, CSV tables, figures, and model files. The model-artifact gate loads committed `.npz` and `.joblib` models and verifies nonempty finite numeric arrays plus predictor availability where applicable. The figure-quality gate checks that canonical PNG figures are present, readable, nonblank, nonflat, and large enough for publication-style inspection. The narrative-consistency gate checks high-impact README and final-report numbers against the current JSON artifacts. The script-contract gate checks canonical shell scripts for required experiment steps, strict Bash mode, optional benchmark guards, and ordered verification gates. The abstract-claim gate verifies that final-report headline claims are exactly the approved evidence-backed set and that future-only robotics evidence stays in discussion or unresolved sections. The publication-scope gate checks README, paper outline, paper result summary, final decision, and reviewer-risk text for risky robotics phrases and requires explicit limitation, blocker, future-work, discussion-only, or non-claim context. The frontier-integrity gate verifies that remaining ideal endpoints such as real-robot evidence, modern VLA-style LIBERO policy validation, full RoboCasa-wide validation, and ManiSkill visual/EE validation are guarded as non-claims rather than promoted results. The claim-semantics gate checks that verified claim wording is backed by matching threshold semantics, such as positive CI lower bounds for \"beats\" claims and small errors for exact-law claims. The claim-evidence gate maps every current claim ID to source artifacts and rejects missing sources, unstructured evidence, unresolved placeholders, and CI claims without CI evidence. The tracked-artifact gate verifies every current claim source and published artifact reference is represented in the git index. The repo-bound-artifact gate verifies every current claim source and published artifact reference resolves inside this repository and spans expected evidence classes. The claim-ledger gate checks sorted contiguous claim IDs, valid statuses, JSON/Markdown count agreement, structured evidence strings, evidence-path references, empty overclaim arrays, and no non-verified final claims. The claim-generation gate reruns `claims_status.py` and verifies the JSON and Markdown claim ledgers are byte-stable and overclaim-free. The report-generation gate reruns `write_maxout_reports.py` and verifies the generated narrative reports are byte-stable. The command-result gate checks that published final-report command lines match the current verification artifacts rather than stale run text. The terminal evidence-hash gate records deterministic SHA-256 hashes for every non-self current claim source and every non-self published artifact reference after the other audit outputs have settled. README and paper-outline claims are intentionally scoped to artifact-backed results. Unsupported benchmark and universal-training claims belong in future work, not in the results."
+    },
+    {
+      "surface": "README.md",
+      "line": 272,
+      "heading": "Claims Status",
+      "pattern": "modern_vla",
+      "guarded": true,
+      "text": "The test-inventory gate collects pytest node IDs and verifies the reported test count comes from an artifact rather than hard-coded stale text. The artifact-integrity gate checks that referenced result files exist, parse, and are nonempty. The result-consistency gate checks that summary JSONs agree with canonical tables for confidence-interval sanity, row counts, seed coverage, task/environment coverage, rollout-pool counts, promoted-scorer CIs, and LIBERO success counts. The raw-recompute gate independently recomputes aggregate means, exact-law MAEs, and seed-metric confidence intervals from raw CSV artifacts. The table-schema gate checks canonical CSV headers, required family columns, finite numeric values, nonblank key cells, valid success-rate ranges, and explicit optional blanks. The source-manifest gate writes deterministic SHA-256 hashes for source, experiment, script, test, README/paper, requirements, and theory files. The runtime-environment gate records and verifies Python/platform metadata, requirement-file hashes, core package versions, optional package availability, module probes, and command probes. The experiment-registry gate verifies canonical experiment-family scripts, JSON summaries, wrapper coverage, table artifacts, and figures where expected. The artifact-manifest gate writes deterministic SHA-256 hashes for canonical scientific result JSONs, CSV tables, figures, and model files. The model-artifact gate loads committed `.npz` and `.joblib` models and verifies nonempty finite numeric arrays plus predictor availability where applicable. The figure-quality gate checks that canonical PNG figures are present, readable, nonblank, nonflat, and large enough for publication-style inspection. The narrative-consistency gate checks high-impact README and final-report numbers against the current JSON artifacts. The script-contract gate checks canonical shell scripts for required experiment steps, strict Bash mode, optional benchmark guards, and ordered verification gates. The abstract-claim gate verifies that final-report headline claims are exactly the approved evidence-backed set and that future-only robotics evidence stays in discussion or unresolved sections. The publication-scope gate checks README, paper outline, paper result summary, final decision, and reviewer-risk text for risky robotics phrases and requires explicit limitation, blocker, future-work, discussion-only, or non-claim context. The frontier-integrity gate verifies that remaining ideal endpoints such as real-robot evidence, modern VLA-style LIBERO policy validation, full RoboCasa-wide validation, and ManiSkill visual/EE validation are guarded as non-claims rather than promoted results. The claim-semantics gate checks that verified claim wording is backed by matching threshold semantics, such as positive CI lower bounds for \"beats\" claims and small errors for exact-law claims. The claim-evidence gate maps every current claim ID to source artifacts and rejects missing sources, unstructured evidence, unresolved placeholders, and CI claims without CI evidence. The tracked-artifact gate verifies every current claim source and published artifact reference is represented in the git index. The repo-bound-artifact gate verifies every current claim source and published artifact reference resolves inside this repository and spans expected evidence classes. The claim-ledger gate checks sorted contiguous claim IDs, valid statuses, JSON/Markdown count agreement, structured evidence strings, evidence-path references, empty overclaim arrays, and no non-verified final claims. The claim-generation gate reruns `claims_status.py` and verifies the JSON and Markdown claim ledgers are byte-stable and overclaim-free. The report-generation gate reruns `write_maxout_reports.py` and verifies the generated narrative reports are byte-stable. The command-result gate checks that published final-report command lines match the current verification artifacts rather than stale run text. The terminal evidence-hash gate records deterministic SHA-256 hashes for every non-self current claim source and every non-self published artifact reference after the other audit outputs have settled. README and paper-outline claims are intentionally scoped to artifact-backed results. Unsupported benchmark and universal-training claims belong in future work, not in the results."
+    },
+    {
+      "surface": "README.md",
+      "line": 272,
+      "heading": "Claims Status",
+      "pattern": "full_robocasa",
+      "guarded": true,
+      "text": "The test-inventory gate collects pytest node IDs and verifies the reported test count comes from an artifact rather than hard-coded stale text. The artifact-integrity gate checks that referenced result files exist, parse, and are nonempty. The result-consistency gate checks that summary JSONs agree with canonical tables for confidence-interval sanity, row counts, seed coverage, task/environment coverage, rollout-pool counts, promoted-scorer CIs, and LIBERO success counts. The raw-recompute gate independently recomputes aggregate means, exact-law MAEs, and seed-metric confidence intervals from raw CSV artifacts. The table-schema gate checks canonical CSV headers, required family columns, finite numeric values, nonblank key cells, valid success-rate ranges, and explicit optional blanks. The source-manifest gate writes deterministic SHA-256 hashes for source, experiment, script, test, README/paper, requirements, and theory files. The runtime-environment gate records and verifies Python/platform metadata, requirement-file hashes, core package versions, optional package availability, module probes, and command probes. The experiment-registry gate verifies canonical experiment-family scripts, JSON summaries, wrapper coverage, table artifacts, and figures where expected. The artifact-manifest gate writes deterministic SHA-256 hashes for canonical scientific result JSONs, CSV tables, figures, and model files. The model-artifact gate loads committed `.npz` and `.joblib` models and verifies nonempty finite numeric arrays plus predictor availability where applicable. The figure-quality gate checks that canonical PNG figures are present, readable, nonblank, nonflat, and large enough for publication-style inspection. The narrative-consistency gate checks high-impact README and final-report numbers against the current JSON artifacts. The script-contract gate checks canonical shell scripts for required experiment steps, strict Bash mode, optional benchmark guards, and ordered verification gates. The abstract-claim gate verifies that final-report headline claims are exactly the approved evidence-backed set and that future-only robotics evidence stays in discussion or unresolved sections. The publication-scope gate checks README, paper outline, paper result summary, final decision, and reviewer-risk text for risky robotics phrases and requires explicit limitation, blocker, future-work, discussion-only, or non-claim context. The frontier-integrity gate verifies that remaining ideal endpoints such as real-robot evidence, modern VLA-style LIBERO policy validation, full RoboCasa-wide validation, and ManiSkill visual/EE validation are guarded as non-claims rather than promoted results. The claim-semantics gate checks that verified claim wording is backed by matching threshold semantics, such as positive CI lower bounds for \"beats\" claims and small errors for exact-law claims. The claim-evidence gate maps every current claim ID to source artifacts and rejects missing sources, unstructured evidence, unresolved placeholders, and CI claims without CI evidence. The tracked-artifact gate verifies every current claim source and published artifact reference is represented in the git index. The repo-bound-artifact gate verifies every current claim source and published artifact reference resolves inside this repository and spans expected evidence classes. The claim-ledger gate checks sorted contiguous claim IDs, valid statuses, JSON/Markdown count agreement, structured evidence strings, evidence-path references, empty overclaim arrays, and no non-verified final claims. The claim-generation gate reruns `claims_status.py` and verifies the JSON and Markdown claim ledgers are byte-stable and overclaim-free. The report-generation gate reruns `write_maxout_reports.py` and verifies the generated narrative reports are byte-stable. The command-result gate checks that published final-report command lines match the current verification artifacts rather than stale run text. The terminal evidence-hash gate records deterministic SHA-256 hashes for every non-self current claim source and every non-self published artifact reference after the other audit outputs have settled. README and paper-outline claims are intentionally scoped to artifact-backed results. Unsupported benchmark and universal-training claims belong in future work, not in the results."
+    },
+    {
+      "surface": "README.md",
+      "line": 272,
+      "heading": "Claims Status",
+      "pattern": "maniskill_rgb_or_ee",
+      "guarded": true,
+      "text": "The test-inventory gate collects pytest node IDs and verifies the reported test count comes from an artifact rather than hard-coded stale text. The artifact-integrity gate checks that referenced result files exist, parse, and are nonempty. The result-consistency gate checks that summary JSONs agree with canonical tables for confidence-interval sanity, row counts, seed coverage, task/environment coverage, rollout-pool counts, promoted-scorer CIs, and LIBERO success counts. The raw-recompute gate independently recomputes aggregate means, exact-law MAEs, and seed-metric confidence intervals from raw CSV artifacts. The table-schema gate checks canonical CSV headers, required family columns, finite numeric values, nonblank key cells, valid success-rate ranges, and explicit optional blanks. The source-manifest gate writes deterministic SHA-256 hashes for source, experiment, script, test, README/paper, requirements, and theory files. The runtime-environment gate records and verifies Python/platform metadata, requirement-file hashes, core package versions, optional package availability, module probes, and command probes. The experiment-registry gate verifies canonical experiment-family scripts, JSON summaries, wrapper coverage, table artifacts, and figures where expected. The artifact-manifest gate writes deterministic SHA-256 hashes for canonical scientific result JSONs, CSV tables, figures, and model files. The model-artifact gate loads committed `.npz` and `.joblib` models and verifies nonempty finite numeric arrays plus predictor availability where applicable. The figure-quality gate checks that canonical PNG figures are present, readable, nonblank, nonflat, and large enough for publication-style inspection. The narrative-consistency gate checks high-impact README and final-report numbers against the current JSON artifacts. The script-contract gate checks canonical shell scripts for required experiment steps, strict Bash mode, optional benchmark guards, and ordered verification gates. The abstract-claim gate verifies that final-report headline claims are exactly the approved evidence-backed set and that future-only robotics evidence stays in discussion or unresolved sections. The publication-scope gate checks README, paper outline, paper result summary, final decision, and reviewer-risk text for risky robotics phrases and requires explicit limitation, blocker, future-work, discussion-only, or non-claim context. The frontier-integrity gate verifies that remaining ideal endpoints such as real-robot evidence, modern VLA-style LIBERO policy validation, full RoboCasa-wide validation, and ManiSkill visual/EE validation are guarded as non-claims rather than promoted results. The claim-semantics gate checks that verified claim wording is backed by matching threshold semantics, such as positive CI lower bounds for \"beats\" claims and small errors for exact-law claims. The claim-evidence gate maps every current claim ID to source artifacts and rejects missing sources, unstructured evidence, unresolved placeholders, and CI claims without CI evidence. The tracked-artifact gate verifies every current claim source and published artifact reference is represented in the git index. The repo-bound-artifact gate verifies every current claim source and published artifact reference resolves inside this repository and spans expected evidence classes. The claim-ledger gate checks sorted contiguous claim IDs, valid statuses, JSON/Markdown count agreement, structured evidence strings, evidence-path references, empty overclaim arrays, and no non-verified final claims. The claim-generation gate reruns `claims_status.py` and verifies the JSON and Markdown claim ledgers are byte-stable and overclaim-free. The report-generation gate reruns `write_maxout_reports.py` and verifies the generated narrative reports are byte-stable. The command-result gate checks that published final-report command lines match the current verification artifacts rather than stale run text. The terminal evidence-hash gate records deterministic SHA-256 hashes for every non-self current claim source and every non-self published artifact reference after the other audit outputs have settled. README and paper-outline claims are intentionally scoped to artifact-backed results. Unsupported benchmark and universal-training claims belong in future work, not in the results."
+    },
+    {
+      "surface": "README.md",
+      "line": 276,
       "heading": "Limitations",
       "pattern": "real_robot",
       "guarded": true,
@@ -97,7 +129,7 @@
     },
     {
       "surface": "README.md",
-      "line": 275,
+      "line": 276,
       "heading": "Limitations",
       "pattern": "modern_vla",
       "guarded": true,
@@ -105,7 +137,7 @@
     },
     {
       "surface": "README.md",
-      "line": 279,
+      "line": 280,
       "heading": "Future Work",
       "pattern": "modern_vla",
       "guarded": true,
@@ -113,7 +145,7 @@
     },
     {
       "surface": "README.md",
-      "line": 279,
+      "line": 280,
       "heading": "Future Work",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -121,7 +153,7 @@
     },
     {
       "surface": "README.md",
-      "line": 279,
+      "line": 280,
       "heading": "Future Work",
       "pattern": "universal_wam",
       "guarded": true,
@@ -129,7 +161,39 @@
     },
     {
       "surface": "paper_outline.md",
-      "line": 97,
+      "line": 86,
+      "heading": "10. Results",
+      "pattern": "real_robot",
+      "guarded": true,
+      "text": "16. frontier-integrity audit that keeps real-robot, modern VLA LIBERO, full RoboCasa-wide, and ManiSkill visual/EE endpoints in limitations/future work unless artifacts exist"
+    },
+    {
+      "surface": "paper_outline.md",
+      "line": 86,
+      "heading": "10. Results",
+      "pattern": "modern_vla",
+      "guarded": true,
+      "text": "16. frontier-integrity audit that keeps real-robot, modern VLA LIBERO, full RoboCasa-wide, and ManiSkill visual/EE endpoints in limitations/future work unless artifacts exist"
+    },
+    {
+      "surface": "paper_outline.md",
+      "line": 86,
+      "heading": "10. Results",
+      "pattern": "full_robocasa",
+      "guarded": true,
+      "text": "16. frontier-integrity audit that keeps real-robot, modern VLA LIBERO, full RoboCasa-wide, and ManiSkill visual/EE endpoints in limitations/future work unless artifacts exist"
+    },
+    {
+      "surface": "paper_outline.md",
+      "line": 86,
+      "heading": "10. Results",
+      "pattern": "maniskill_rgb_or_ee",
+      "guarded": true,
+      "text": "16. frontier-integrity audit that keeps real-robot, modern VLA LIBERO, full RoboCasa-wide, and ManiSkill visual/EE endpoints in limitations/future work unless artifacts exist"
+    },
+    {
+      "surface": "paper_outline.md",
+      "line": 98,
       "heading": "11. Benchmark Status",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -137,7 +201,7 @@
     },
     {
       "surface": "paper_outline.md",
-      "line": 99,
+      "line": 100,
       "heading": "11. Benchmark Status",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -145,7 +209,7 @@
     },
     {
       "surface": "paper_outline.md",
-      "line": 101,
+      "line": 102,
       "heading": "11. Benchmark Status",
       "pattern": "modern_vla",
       "guarded": true,
@@ -153,7 +217,7 @@
     },
     {
       "surface": "paper_outline.md",
-      "line": 103,
+      "line": 104,
       "heading": "11. Benchmark Status",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -161,7 +225,7 @@
     },
     {
       "surface": "paper_outline.md",
-      "line": 105,
+      "line": 106,
       "heading": "11. Benchmark Status",
       "pattern": "modern_vla",
       "guarded": true,
@@ -169,7 +233,7 @@
     },
     {
       "surface": "paper_outline.md",
-      "line": 105,
+      "line": 106,
       "heading": "11. Benchmark Status",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -177,7 +241,7 @@
     },
     {
       "surface": "paper_outline.md",
-      "line": 109,
+      "line": 110,
       "heading": "12. Falsification And Limitations",
       "pattern": "real_robot",
       "guarded": true,
@@ -185,7 +249,7 @@
     },
     {
       "surface": "paper_outline.md",
-      "line": 109,
+      "line": 110,
       "heading": "12. Falsification And Limitations",
       "pattern": "universal_wam",
       "guarded": true,
@@ -193,7 +257,7 @@
     },
     {
       "surface": "paper_outline.md",
-      "line": 109,
+      "line": 110,
       "heading": "12. Falsification And Limitations",
       "pattern": "dreamzero_uwm",
       "guarded": true,
@@ -201,7 +265,7 @@
     },
     {
       "surface": "paper_outline.md",
-      "line": 113,
+      "line": 114,
       "heading": "13. Future Work",
       "pattern": "universal_wam",
       "guarded": true,
@@ -313,7 +377,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 24,
+      "line": 27,
       "heading": "3. Weakest Claims",
       "pattern": "real_robot",
       "guarded": true,
@@ -321,7 +385,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 25,
+      "line": 28,
       "heading": "3. Weakest Claims",
       "pattern": "modern_vla",
       "guarded": true,
@@ -329,7 +393,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 26,
+      "line": 29,
       "heading": "3. Weakest Claims",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -337,7 +401,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 27,
+      "line": 30,
       "heading": "3. Weakest Claims",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -345,7 +409,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 28,
+      "line": 31,
       "heading": "3. Weakest Claims",
       "pattern": "universal_wam",
       "guarded": true,
@@ -353,7 +417,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 39,
+      "line": 42,
       "heading": "5. Discussion-Only Claims",
       "pattern": "modern_vla",
       "guarded": true,
@@ -361,7 +425,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 39,
+      "line": 42,
       "heading": "5. Discussion-Only Claims",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -369,7 +433,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 40,
+      "line": 43,
       "heading": "5. Discussion-Only Claims",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -377,7 +441,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 41,
+      "line": 44,
       "heading": "5. Discussion-Only Claims",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -385,7 +449,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 42,
+      "line": 45,
       "heading": "5. Discussion-Only Claims",
       "pattern": "universal_wam",
       "guarded": true,
@@ -393,7 +457,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 46,
+      "line": 49,
       "heading": "6. Skeptical Reviewer Attack",
       "pattern": "real_robot",
       "guarded": true,
@@ -401,7 +465,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 46,
+      "line": 49,
       "heading": "6. Skeptical Reviewer Attack",
       "pattern": "modern_vla",
       "guarded": true,
@@ -409,7 +473,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 46,
+      "line": 49,
       "heading": "6. Skeptical Reviewer Attack",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -417,7 +481,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 46,
+      "line": 49,
       "heading": "6. Skeptical Reviewer Attack",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -425,7 +489,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 50,
+      "line": 53,
       "heading": "7. Current Answer",
       "pattern": "real_robot",
       "guarded": true,
@@ -433,7 +497,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 54,
+      "line": 57,
       "heading": "8. Unresolved",
       "pattern": "modern_vla",
       "guarded": true,
@@ -441,7 +505,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 55,
+      "line": 58,
       "heading": "8. Unresolved",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -449,7 +513,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 56,
+      "line": 59,
       "heading": "8. Unresolved",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -457,7 +521,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 57,
+      "line": 60,
       "heading": "8. Unresolved",
       "pattern": "real_robot",
       "guarded": true,
@@ -465,7 +529,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 58,
+      "line": 61,
       "heading": "8. Unresolved",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -473,7 +537,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 66,
+      "line": 69,
       "heading": "10. Main-Conference Readiness",
       "pattern": "real_robot",
       "guarded": true,
@@ -481,7 +545,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 66,
+      "line": 69,
       "heading": "10. Main-Conference Readiness",
       "pattern": "modern_vla",
       "guarded": true,
@@ -489,7 +553,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 66,
+      "line": 69,
       "heading": "10. Main-Conference Readiness",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -497,7 +561,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 66,
+      "line": 69,
       "heading": "10. Main-Conference Readiness",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -505,7 +569,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 70,
+      "line": 73,
       "heading": "11. Single Highest-Value Next Step",
       "pattern": "modern_vla",
       "guarded": true,
@@ -513,7 +577,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 70,
+      "line": 73,
       "heading": "11. Single Highest-Value Next Step",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -521,7 +585,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 70,
+      "line": 73,
       "heading": "11. Single Highest-Value Next Step",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -529,7 +593,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 81,
+      "line": 84,
       "heading": "Command Results",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -537,7 +601,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 84,
+      "line": 87,
       "heading": "Command Results",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -610,7 +674,7 @@
     {
       "name": "risk_mentions_present",
       "ok": true,
-      "detail": "mentions=72"
+      "detail": "mentions=80"
     },
     {
       "name": "all_risk_mentions_guarded",
@@ -620,22 +684,22 @@
     {
       "name": "readme_scope_mentions_present",
       "ok": true,
-      "detail": "mentions=13"
+      "detail": "mentions=17"
     },
     {
       "name": "paper_scope_mentions_present",
       "ok": true,
-      "detail": "mentions=10"
+      "detail": "mentions=14"
     },
     {
       "name": "future_only_categories_covered",
       "ok": true,
-      "detail": "patterns={'real_robot': 12, 'modern_vla': 14, 'full_robocasa': 12, 'maniskill_rgb_or_ee': 25, 'universal_wam': 7, 'dreamzero_uwm': 2}"
+      "detail": "patterns={'real_robot': 14, 'modern_vla': 16, 'full_robocasa': 14, 'maniskill_rgb_or_ee': 27, 'universal_wam': 7, 'dreamzero_uwm': 2}"
     },
     {
       "name": "current_claim_ledger_loaded",
       "ok": true,
-      "detail": "verified_claims=125"
+      "detail": "verified_claims=123"
     }
   ],
   "issues": [],

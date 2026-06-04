@@ -45,6 +45,7 @@ NARRATIVE_SURFACES = [
     ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
     ("claim_scope_audit_report", REPORTS / "claim_scope_audit_report.md"),
     ("claim_reference_integrity_report", REPORTS / "claim_reference_integrity_report.md"),
+    ("frontier_integrity_report", REPORTS / "frontier_integrity_report.md"),
     ("claim_generation_consistency_report", REPORTS / "claim_generation_consistency_report.md"),
     ("report_generation_consistency_report", REPORTS / "report_generation_consistency_report.md"),
     ("script_contracts_report", REPORTS / "script_contracts_report.md"),
@@ -326,6 +327,7 @@ def main() -> None:
     claim_semantics = load_json("claim_semantics.json")
     claim_scope_audit = load_json("claim_scope_audit.json")
     claim_reference_integrity = load_json("claim_reference_integrity.json")
+    frontier_integrity = load_json("frontier_integrity.json")
     claim_evidence_quality = load_json("claim_evidence_quality.json")
     tracked_artifact_provenance = load_json("tracked_artifact_provenance.json")
     evidence_hash_coverage = load_json("evidence_hash_coverage.json")
@@ -2108,6 +2110,29 @@ def main() -> None:
             f"issues={claim_reference_integrity.get('n_issues')}"
         ),
     }
+    frontier_integrity_claim = {
+        "id": 126,
+        "claim": "Ideal frontier robotics endpoints remain explicitly guarded and unpromoted.",
+        "status": status(
+            bool(frontier_integrity)
+            and frontier_integrity.get("verified", False)
+            and (frontier_integrity.get("n_frontier_items") or 0) >= 4
+            and (frontier_integrity.get("n_guarded_frontier_mentions") or 0) >= 12
+            and frontier_integrity.get("n_unguarded_frontier_mentions") == 0
+            and frontier_integrity.get("n_promoted_frontier_claims") == 0
+            and frontier_integrity.get("n_issues") == 0
+            and artifact_exists(RESULTS / "frontier_integrity.json")
+            and artifact_exists(REPORTS / "frontier_integrity_report.md"),
+            bool(frontier_integrity),
+        ),
+        "evidence": (
+            f"frontiers={frontier_integrity.get('n_frontier_items')}, "
+            f"guarded={frontier_integrity.get('n_guarded_frontier_mentions')}, "
+            f"unguarded={frontier_integrity.get('n_unguarded_frontier_mentions')}, "
+            f"promoted={frontier_integrity.get('n_promoted_frontier_claims')}, "
+            f"issues={frontier_integrity.get('n_issues')}, results/frontier_integrity.json"
+        ),
+    }
     test_inventory_claim = {
         "id": 116,
         "claim": "Pytest command-result counts come from a verified collected-test inventory.",
@@ -2173,7 +2198,7 @@ def main() -> None:
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=125, max_id=125, checks=pending, issues=0",
+            "evidence": "claims=126, max_id=126, checks=preview, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
@@ -2184,6 +2209,7 @@ def main() -> None:
         publication_scope_claim,
         claim_scope_audit_claim,
         claim_reference_integrity_claim,
+        frontier_integrity_claim,
         raw_result_recompute_claim,
         claim_semantics_claim,
         artifact_manifest_claim,
@@ -2219,6 +2245,7 @@ def main() -> None:
     claims.append(publication_scope_claim)
     claims.append(claim_scope_audit_claim)
     claims.append(claim_reference_integrity_claim)
+    claims.append(frontier_integrity_claim)
     claims.append(raw_result_recompute_claim)
     claims.append(claim_semantics_claim)
     claims.append(artifact_manifest_claim)

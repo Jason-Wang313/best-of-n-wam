@@ -2,7 +2,7 @@
   "experiment": "script_contracts",
   "verified": true,
   "n_scripts": 7,
-  "n_checks": 125,
+  "n_checks": 129,
   "n_issues": 0,
   "core_gate_sequence": [
     "scripts/test_inventory.py --fail-on-error",
@@ -22,6 +22,7 @@
     "scripts/claims_status.py",
     "scripts/abstract_claim_support.py --fail-on-error",
     "scripts/publication_scope.py --fail-on-error",
+    "scripts/frontier_integrity.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_semantics.py --fail-on-error",
     "scripts/claim_scope_audit.py --fail-on-error",
@@ -39,6 +40,7 @@
     "scripts/claims_status.py",
     "scripts/abstract_claim_support.py --fail-on-error",
     "scripts/publication_scope.py --fail-on-error",
+    "scripts/frontier_integrity.py --fail-on-error",
     "scripts/claims_status.py",
     "scripts/claim_semantics.py --fail-on-error",
     "scripts/claim_scope_audit.py --fail-on-error",
@@ -139,6 +141,11 @@
       "name": "run_smoke_double_publication_scope",
       "ok": true,
       "detail": "publication-scope gate runs after both abstract-claim gates"
+    },
+    {
+      "name": "run_smoke_double_frontier_integrity",
+      "ok": true,
+      "detail": "frontier-integrity gate runs after both publication-scope gates"
     },
     {
       "name": "run_smoke_double_claim_semantics",
@@ -281,6 +288,11 @@
       "detail": "publication-scope gate runs after both abstract-claim gates"
     },
     {
+      "name": "run_learned_wam_toy_double_frontier_integrity",
+      "ok": true,
+      "detail": "frontier-integrity gate runs after both publication-scope gates"
+    },
+    {
       "name": "run_learned_wam_toy_double_claim_semantics",
       "ok": true,
       "detail": "claim semantic gate runs before both ledger gates"
@@ -421,6 +433,11 @@
       "detail": "publication-scope gate runs after both abstract-claim gates"
     },
     {
+      "name": "run_all_double_frontier_integrity",
+      "ok": true,
+      "detail": "frontier-integrity gate runs after both publication-scope gates"
+    },
+    {
       "name": "run_all_double_claim_semantics",
       "ok": true,
       "detail": "claim semantic gate runs before both ledger gates"
@@ -559,6 +576,11 @@
       "name": "run_inference_audit_double_publication_scope",
       "ok": true,
       "detail": "publication-scope gate runs after both abstract-claim gates"
+    },
+    {
+      "name": "run_inference_audit_double_frontier_integrity",
+      "ok": true,
+      "detail": "frontier-integrity gate runs after both publication-scope gates"
     },
     {
       "name": "run_inference_audit_double_claim_semantics",

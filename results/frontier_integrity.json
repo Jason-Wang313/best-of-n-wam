@@ -1,0 +1,884 @@
+{
+  "experiment": "frontier_integrity",
+  "verified": true,
+  "n_frontier_items": 4,
+  "n_claims_loaded": 126,
+  "n_publication_surfaces": 7,
+  "n_frontier_mentions": 84,
+  "n_guarded_frontier_mentions": 84,
+  "n_unguarded_frontier_mentions": 0,
+  "n_promoted_frontier_claims": 0,
+  "frontier_items": [
+    {
+      "frontier_id": "real_robot_hil",
+      "label": "Real robot or hardware-in-the-loop evidence",
+      "status": "guarded_not_promoted",
+      "n_mentions": 19,
+      "n_guarded_mentions": 19,
+      "n_unguarded_mentions": 0,
+      "n_promoted_claims": 0,
+      "n_required_artifacts": 0,
+      "n_missing_required_artifacts": 0,
+      "required_artifacts": []
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "label": "Modern VLA-style LIBERO sparse-success policy evidence",
+      "status": "guarded_not_promoted",
+      "n_mentions": 18,
+      "n_guarded_mentions": 18,
+      "n_unguarded_mentions": 0,
+      "n_promoted_claims": 0,
+      "n_required_artifacts": 0,
+      "n_missing_required_artifacts": 0,
+      "required_artifacts": []
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "label": "Full RoboCasa-wide learned-WAM validation",
+      "status": "guarded_not_promoted",
+      "n_mentions": 16,
+      "n_guarded_mentions": 16,
+      "n_unguarded_mentions": 0,
+      "n_promoted_claims": 0,
+      "n_required_artifacts": 0,
+      "n_missing_required_artifacts": 0,
+      "required_artifacts": []
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "label": "ManiSkill visual/RGB-D or end-effector-control validation",
+      "status": "guarded_not_promoted",
+      "n_mentions": 31,
+      "n_guarded_mentions": 31,
+      "n_unguarded_mentions": 0,
+      "n_promoted_claims": 0,
+      "n_required_artifacts": 4,
+      "n_missing_required_artifacts": 0,
+      "required_artifacts": [
+        {
+          "path": "results/benchmark_maniskill_visual_probe.json",
+          "exists": true,
+          "bytes": 22586
+        },
+        {
+          "path": "results/benchmark_maniskill_dependency_probe.json",
+          "exists": true,
+          "bytes": 13510
+        },
+        {
+          "path": "reports/maniskill_visual_blocker_report.md",
+          "exists": true,
+          "bytes": 2557
+        },
+        {
+          "path": "reports/maniskill_dependency_blocker_report.md",
+          "exists": true,
+          "bytes": 12424
+        }
+      ]
+    }
+  ],
+  "records": [
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "README.md",
+      "line": 113,
+      "heading": "Real-vs-Imagined Utility Gap",
+      "guarded": true,
+      "text": "The project explicitly tests the failure mode where increasing `N` improves imagined utility while real utility saturates or worsens under mismatch. This is a supported toy and learned-toy claim, not a real-robot claim."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "README.md",
+      "line": 174,
+      "heading": "Benchmark Validation",
+      "guarded": true,
+      "text": "LIBERO is verified in five optional layers: a three-task `libero_spatial` rollout-pool WAM-lite artifact with 192 train samples, 96 validation samples, 240 heldout eval samples, exact-law utility MAE `0.00014`, validation utility correlation `0.353`, and learned energy-regularized scorer minus random N8 CI lower `0.265`; a separate all-ten `libero_object` sparse-success scripted controller smoke with 50/50 successes across 10 tasks and 5 seeds, success-rate CI `[1.0, 1.0]`; a kNN action head trained on 5,014 scripted action examples that achieves 30/30 heldout sparse successes across all 10 Object tasks, success-rate CI `[1.0, 1.0]`; a time-conditioned low-dimensional kNN behavior-cloned policy trained on 12,535 scripted action examples that achieves 50/50 heldout sparse successes across all 10 Object tasks, success-rate CI `[1.0, 1.0]`, without scripted phase labels or target-point commands at evaluation time; and an RGB/proprio/language feature-kNN behavior-cloned policy trained on 7,521 scripted action examples that achieves 30/30 heldout sparse successes across all 10 Object tasks, success-rate CI `[1.0, 1.0]`, without simulator object state, task IDs, phase labels, or target-point commands at evaluation time. These are not modern VLA policy performance, full LIBERO validation, or real-robot evidence. VERIFIED CLAIM 86. VERIFIED CLAIM 87. VERIFIED CLAIM 88. VERIFIED CLAIM 89. VERIFIED CLAIM 91. VERIFIED CLAIM 92. VERIFIED CLAIM 93. VERIFIED CLAIM 94. VERIFIED CLAIM 95. VERIFIED CLAIM 96. VERIFIED CLAIM 97. VERIFIED CLAIM 98."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "README.md",
+      "line": 272,
+      "heading": "Claims Status",
+      "guarded": true,
+      "text": "The test-inventory gate collects pytest node IDs and verifies the reported test count comes from an artifact rather than hard-coded stale text. The artifact-integrity gate checks that referenced result files exist, parse, and are nonempty. The result-consistency gate checks that summary JSONs agree with canonical tables for confidence-interval sanity, row counts, seed coverage, task/environment coverage, rollout-pool counts, promoted-scorer CIs, and LIBERO success counts. The raw-recompute gate independently recomputes aggregate means, exact-law MAEs, and seed-metric confidence intervals from raw CSV artifacts. The table-schema gate checks canonical CSV headers, required family columns, finite numeric values, nonblank key cells, valid success-rate ranges, and explicit optional blanks. The source-manifest gate writes deterministic SHA-256 hashes for source, experiment, script, test, README/paper, requirements, and theory files. The runtime-environment gate records and verifies Python/platform metadata, requirement-file hashes, core package versions, optional package availability, module probes, and command probes. The experiment-registry gate verifies canonical experiment-family scripts, JSON summaries, wrapper coverage, table artifacts, and figures where expected. The artifact-manifest gate writes deterministic SHA-256 hashes for canonical scientific result JSONs, CSV tables, figures, and model files. The model-artifact gate loads committed `.npz` and `.joblib` models and verifies nonempty finite numeric arrays plus predictor availability where applicable. The figure-quality gate checks that canonical PNG figures are present, readable, nonblank, nonflat, and large enough for publication-style inspection. The narrative-consistency gate checks high-impact README and final-report numbers against the current JSON artifacts. The script-contract gate checks canonical shell scripts for required experiment steps, strict Bash mode, optional benchmark guards, and ordered verification gates. The abstract-claim gate verifies that final-report headline claims are exactly the approved evidence-backed set and that future-only robotics evidence stays in discussion or unresolved sections. The publication-scope gate checks README, paper outline, paper result summary, final decision, and reviewer-risk text for risky robotics phrases and requires explicit limitation, blocker, future-work, discussion-only, or non-claim context. The frontier-integrity gate verifies that remaining ideal endpoints such as real-robot evidence, modern VLA-style LIBERO policy validation, full RoboCasa-wide validation, and ManiSkill visual/EE validation are guarded as non-claims rather than promoted results. The claim-semantics gate checks that verified claim wording is backed by matching threshold semantics, such as positive CI lower bounds for \"beats\" claims and small errors for exact-law claims. The claim-evidence gate maps every current claim ID to source artifacts and rejects missing sources, unstructured evidence, unresolved placeholders, and CI claims without CI evidence. The tracked-artifact gate verifies every current claim source and published artifact reference is represented in the git index. The repo-bound-artifact gate verifies every current claim source and published artifact reference resolves inside this repository and spans expected evidence classes. The claim-ledger gate checks sorted contiguous claim IDs, valid statuses, JSON/Markdown count agreement, structured evidence strings, evidence-path references, empty overclaim arrays, and no non-verified final claims. The claim-generation gate reruns `claims_status.py` and verifies the JSON and Markdown claim ledgers are byte-stable and overclaim-free. The report-generation gate reruns `write_maxout_reports.py` and verifies the generated narrative reports are byte-stable. The command-result gate checks that published final-report command lines match the current verification artifacts rather than stale run text. The terminal evidence-hash gate records deterministic SHA-256 hashes for every non-self current claim source and every non-self published artifact reference after the other audit outputs have settled. README and paper-outline claims are intentionally scoped to artifact-backed results. Unsupported benchmark and universal-training claims belong in future work, not in the results."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "README.md",
+      "line": 276,
+      "heading": "Limitations",
+      "guarded": true,
+      "text": "This is learned-toy, multi-env toy, benchmark rollout-pool validation, all-ten LIBERO Object sparse-success scripted/action-head/time-conditioned/RGB-language BC smokes, and visual WAM-lite validation on Gymnasium/MuJoCo and Fetch RGB frames, not real-robot evidence. The LIBERO WAM result is dense rollout-pool utility evidence; the LIBERO Object controller is hand scripted with object-conditioned grasp heights; the learned action-head result still uses scripted phase ordering and target points; the time-conditioned BC result uses low-dimensional simulator state plus a finite-horizon step clock; and the RGB/proprio/language BC result is a lightweight feature-kNN behavior clone, not a modern VLA policy. The repo does not solve WAM training, robot generalization, or universal train/test compute allocation. Pilot estimates are statistical objects with uncertainty; the exact theorem assumes the relevant score/utility distribution is known. Oracle scorers are diagnostic upper bounds, not deployable controllers."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "paper_outline.md",
+      "line": 86,
+      "heading": "10. Results",
+      "guarded": true,
+      "text": "16. frontier-integrity audit that keeps real-robot, modern VLA LIBERO, full RoboCasa-wide, and ManiSkill visual/EE endpoints in limitations/future work unless artifacts exist"
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "paper_outline.md",
+      "line": 110,
+      "heading": "12. Falsification And Limitations",
+      "guarded": true,
+      "text": "Emphasize that more imagination helps only when scores align with real utility. Under model mismatch or a bad scorer, best-of-N can amplify hallucinated or unsafe futures. The paper does not claim real robot evidence, DreamZero/UWM-level integration, or a universal WAM training recipe."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "reports/paper_result_summary.md",
+      "line": 25,
+      "heading": "Do Not Claim",
+      "guarded": true,
+      "text": "- Real robot validation."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "reports/final_decision_report.md",
+      "line": 24,
+      "heading": "3. Weakest Claims",
+      "guarded": true,
+      "text": "- No real-robot or hardware-in-the-loop evidence; every promoted robotics result is simulator or benchmark evidence."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "reports/final_decision_report.md",
+      "line": 46,
+      "heading": "6. Skeptical Reviewer Attack",
+      "guarded": true,
+      "text": "The project still lacks real robot artifacts, modern VLA-style sparse-success LIBERO policy validation, full RoboCasa-wide learned-WAM validation, and ManiSkill visual or EE-control validation."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "reports/final_decision_report.md",
+      "line": 50,
+      "heading": "7. Current Answer",
+      "guarded": true,
+      "text": "The repo answers the mathematical and controlled toy-science objections with tests, multi-env artifacts, learned WAM-lite backbones, falsification, an anti-overclaim system, a state-based Gymnasium/MuJoCo benchmark, a three-task Gymnasium Robotics Fetch benchmark, a three-task Meta-World ML1 benchmark, a three-task RoboSuite Panda benchmark, a three-task ManiSkill3 state-mode benchmark, RoboCasa kitchen pick-place, broad atomic-manipulation, 12-task, 24-task family, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook learned-WAM artifacts, a three-task LIBERO Spatial rollout-pool learned-WAM artifact, a LIBERO Object sparse-success scripted smoke, a LIBERO learned action-head smoke, a LIBERO time-conditioned low-dimensional BC sparse-success smoke, and a LIBERO RGB/proprio/language sparse-success smoke. It does not yet answer real-robot realism."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "reports/final_decision_report.md",
+      "line": 57,
+      "heading": "8. Unresolved",
+      "guarded": true,
+      "text": "- Real robot validation."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "reports/final_decision_report.md",
+      "line": 66,
+      "heading": "10. Main-Conference Readiness",
+      "guarded": true,
+      "text": "Substantially stronger after Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill state-mode validation, pick-place, broad, 12-task, 24-task, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook RoboCasa learned-WAM validation, three-task LIBERO rollout-pool validation, LIBERO Object sparse-success scripted smoke, LIBERO learned action-head smoke, LIBERO time-conditioned low-dimensional BC smoke, and LIBERO RGB/proprio/language BC smoke. Still not a real-robot paper and still weaker than a benchmark-heavy robotics paper with modern VLA-style sparse-success LIBERO policy performance, full RoboCasa-wide validation, or RGB-D manipulation."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "reports/reviewer_risk_assessment.md",
+      "line": 23,
+      "heading": "Evidence That Helps",
+      "guarded": true,
+      "text": "- The anti-overclaim claim gate prevents unsupported real-robot or unavailable-benchmark claims from slipping into README/paper text."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "reports/reviewer_risk_assessment.md",
+      "line": 28,
+      "heading": "Remaining Gap",
+      "guarded": true,
+      "text": "The single highest reviewer-risk gap is absence of real-robot evidence, modern VLA-style benchmark policy validation, and full benchmark-suite policy coverage. LIBERO is now present as a three-task dense-utility rollout-pool WAM artifact plus sparse-success scripted, learned action-head, time-conditioned low-dimensional BC, and RGB/proprio/language Object smokes, but not full LIBERO policy evidence. RoboCasa is substantially broader than before, including a residual 35-task clean/cook artifact, but still not full RoboCasa-wide validation."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "reports/maxout_initial_audit.md",
+      "line": 44,
+      "heading": "2. Toy-Only",
+      "guarded": true,
+      "text": "- No real robot, DreamZero, UWM, modern VLA, or full LIBERO policy result is claimed; RoboCasa is verified for pick-place-family, broad atomic kitchen, 12-task, 24-task family, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook rollout-pool artifacts, and LIBERO is verified as a three-task rollout-pool dense-utility artifact plus narrow scripted, learned action-head, time-conditioned low-dimensional BC, and RGB/proprio/language BC sparse-success smokes."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "reports/maxout_initial_audit.md",
+      "line": 60,
+      "heading": "4. Missing For Robotics Reviewers",
+      "guarded": true,
+      "text": "- No real robot data."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "reports/maxout_initial_audit.md",
+      "line": 73,
+      "heading": "6. README Claim Guarding",
+      "guarded": true,
+      "text": "- README must state ManiSkill as state-mode joint-delta evidence only, not EE-control or real-robot evidence."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "reports/maxout_initial_audit.md",
+      "line": 75,
+      "heading": "6. README Claim Guarding",
+      "guarded": true,
+      "text": "- README must not claim real robot evidence or universal WAM training laws."
+    },
+    {
+      "frontier_id": "real_robot_hil",
+      "surface": "reports/maxout_initial_audit.md",
+      "line": 101,
+      "heading": "10. Readiness Tier",
+      "guarded": true,
+      "text": "The project has learned-toy, multi-env toy, Gymnasium/MuJoCo, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, and ManiSkill3 state-mode benchmark validation paths. It is much closer to a serious ML submission artifact, but still not real-robot validated."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "README.md",
+      "line": 174,
+      "heading": "Benchmark Validation",
+      "guarded": true,
+      "text": "LIBERO is verified in five optional layers: a three-task `libero_spatial` rollout-pool WAM-lite artifact with 192 train samples, 96 validation samples, 240 heldout eval samples, exact-law utility MAE `0.00014`, validation utility correlation `0.353`, and learned energy-regularized scorer minus random N8 CI lower `0.265`; a separate all-ten `libero_object` sparse-success scripted controller smoke with 50/50 successes across 10 tasks and 5 seeds, success-rate CI `[1.0, 1.0]`; a kNN action head trained on 5,014 scripted action examples that achieves 30/30 heldout sparse successes across all 10 Object tasks, success-rate CI `[1.0, 1.0]`; a time-conditioned low-dimensional kNN behavior-cloned policy trained on 12,535 scripted action examples that achieves 50/50 heldout sparse successes across all 10 Object tasks, success-rate CI `[1.0, 1.0]`, without scripted phase labels or target-point commands at evaluation time; and an RGB/proprio/language feature-kNN behavior-cloned policy trained on 7,521 scripted action examples that achieves 30/30 heldout sparse successes across all 10 Object tasks, success-rate CI `[1.0, 1.0]`, without simulator object state, task IDs, phase labels, or target-point commands at evaluation time. These are not modern VLA policy performance, full LIBERO validation, or real-robot evidence. VERIFIED CLAIM 86. VERIFIED CLAIM 87. VERIFIED CLAIM 88. VERIFIED CLAIM 89. VERIFIED CLAIM 91. VERIFIED CLAIM 92. VERIFIED CLAIM 93. VERIFIED CLAIM 94. VERIFIED CLAIM 95. VERIFIED CLAIM 96. VERIFIED CLAIM 97. VERIFIED CLAIM 98."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "README.md",
+      "line": 272,
+      "heading": "Claims Status",
+      "guarded": true,
+      "text": "The test-inventory gate collects pytest node IDs and verifies the reported test count comes from an artifact rather than hard-coded stale text. The artifact-integrity gate checks that referenced result files exist, parse, and are nonempty. The result-consistency gate checks that summary JSONs agree with canonical tables for confidence-interval sanity, row counts, seed coverage, task/environment coverage, rollout-pool counts, promoted-scorer CIs, and LIBERO success counts. The raw-recompute gate independently recomputes aggregate means, exact-law MAEs, and seed-metric confidence intervals from raw CSV artifacts. The table-schema gate checks canonical CSV headers, required family columns, finite numeric values, nonblank key cells, valid success-rate ranges, and explicit optional blanks. The source-manifest gate writes deterministic SHA-256 hashes for source, experiment, script, test, README/paper, requirements, and theory files. The runtime-environment gate records and verifies Python/platform metadata, requirement-file hashes, core package versions, optional package availability, module probes, and command probes. The experiment-registry gate verifies canonical experiment-family scripts, JSON summaries, wrapper coverage, table artifacts, and figures where expected. The artifact-manifest gate writes deterministic SHA-256 hashes for canonical scientific result JSONs, CSV tables, figures, and model files. The model-artifact gate loads committed `.npz` and `.joblib` models and verifies nonempty finite numeric arrays plus predictor availability where applicable. The figure-quality gate checks that canonical PNG figures are present, readable, nonblank, nonflat, and large enough for publication-style inspection. The narrative-consistency gate checks high-impact README and final-report numbers against the current JSON artifacts. The script-contract gate checks canonical shell scripts for required experiment steps, strict Bash mode, optional benchmark guards, and ordered verification gates. The abstract-claim gate verifies that final-report headline claims are exactly the approved evidence-backed set and that future-only robotics evidence stays in discussion or unresolved sections. The publication-scope gate checks README, paper outline, paper result summary, final decision, and reviewer-risk text for risky robotics phrases and requires explicit limitation, blocker, future-work, discussion-only, or non-claim context. The frontier-integrity gate verifies that remaining ideal endpoints such as real-robot evidence, modern VLA-style LIBERO policy validation, full RoboCasa-wide validation, and ManiSkill visual/EE validation are guarded as non-claims rather than promoted results. The claim-semantics gate checks that verified claim wording is backed by matching threshold semantics, such as positive CI lower bounds for \"beats\" claims and small errors for exact-law claims. The claim-evidence gate maps every current claim ID to source artifacts and rejects missing sources, unstructured evidence, unresolved placeholders, and CI claims without CI evidence. The tracked-artifact gate verifies every current claim source and published artifact reference is represented in the git index. The repo-bound-artifact gate verifies every current claim source and published artifact reference resolves inside this repository and spans expected evidence classes. The claim-ledger gate checks sorted contiguous claim IDs, valid statuses, JSON/Markdown count agreement, structured evidence strings, evidence-path references, empty overclaim arrays, and no non-verified final claims. The claim-generation gate reruns `claims_status.py` and verifies the JSON and Markdown claim ledgers are byte-stable and overclaim-free. The report-generation gate reruns `write_maxout_reports.py` and verifies the generated narrative reports are byte-stable. The command-result gate checks that published final-report command lines match the current verification artifacts rather than stale run text. The terminal evidence-hash gate records deterministic SHA-256 hashes for every non-self current claim source and every non-self published artifact reference after the other audit outputs have settled. README and paper-outline claims are intentionally scoped to artifact-backed results. Unsupported benchmark and universal-training claims belong in future work, not in the results."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "README.md",
+      "line": 276,
+      "heading": "Limitations",
+      "guarded": true,
+      "text": "This is learned-toy, multi-env toy, benchmark rollout-pool validation, all-ten LIBERO Object sparse-success scripted/action-head/time-conditioned/RGB-language BC smokes, and visual WAM-lite validation on Gymnasium/MuJoCo and Fetch RGB frames, not real-robot evidence. The LIBERO WAM result is dense rollout-pool utility evidence; the LIBERO Object controller is hand scripted with object-conditioned grasp heights; the learned action-head result still uses scripted phase ordering and target points; the time-conditioned BC result uses low-dimensional simulator state plus a finite-horizon step clock; and the RGB/proprio/language BC result is a lightweight feature-kNN behavior clone, not a modern VLA policy. The repo does not solve WAM training, robot generalization, or universal train/test compute allocation. Pilot estimates are statistical objects with uncertainty; the exact theorem assumes the relevant score/utility distribution is known. Oracle scorers are diagnostic upper bounds, not deployable controllers."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "README.md",
+      "line": 280,
+      "heading": "Future Work",
+      "guarded": true,
+      "text": "The natural next step is a Robot Chinchilla-style WAM optimizer: jointly allocate dataset scale, model capacity, rollout horizon, scorer quality, safety constraints, and test-time rollout budget. A second high-value extension is modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wide validation beyond the current pick-place-family, broad atomic-manipulation, 12-task family, 24-task family, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook rollout-pool artifacts."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "paper_outline.md",
+      "line": 86,
+      "heading": "10. Results",
+      "guarded": true,
+      "text": "16. frontier-integrity audit that keeps real-robot, modern VLA LIBERO, full RoboCasa-wide, and ManiSkill visual/EE endpoints in limitations/future work unless artifacts exist"
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "paper_outline.md",
+      "line": 102,
+      "heading": "11. Benchmark Status",
+      "guarded": true,
+      "text": "LIBERO is integrated as an optional separate-environment artifact in five layers. The WAM-lite layer covers three `libero_spatial` tasks: a ridge state/action-sequence model trains on 192 rollout samples, validates on 96 samples with utility correlation `0.353`, evaluates on 240 heldout rollout samples from 15 rollout pools, has exact-law utility MAE `0.00014`, and the promoted learned energy-regularized scorer beats random at N8 with CI lower `0.265`. A separate sparse-success smoke runs a hand scripted OSC pick-place controller with object-conditioned grasp heights on all 10 `libero_object` tasks over 5 seeds and obtains 50/50 successes, with success-rate CI `[1.0, 1.0]`. A third artifact trains a kNN action head on 5,014 scripted action examples and obtains 30/30 heldout sparse successes across all 10 Object tasks, with success-rate CI `[1.0, 1.0]`. A fourth artifact trains a time-conditioned low-dimensional kNN behavior-cloned policy on 12,535 scripted action examples and obtains 50/50 heldout sparse successes across all 10 Object tasks, with success-rate CI `[1.0, 1.0]`; at evaluation time it uses simulator state, task ID, previous action, and a finite-horizon step clock, but no scripted phase labels or target-point commands. A fifth artifact trains an RGB/proprio/language feature-kNN behavior-cloned policy on 7,521 scripted action examples and obtains 30/30 heldout sparse successes across all 10 Object tasks, with success-rate CI `[1.0, 1.0]`; at evaluation time it uses rendered RGB features, robot proprioception, task language, previous action, and a step clock, but no simulator object state, task IDs, phase labels, or target-point commands. This supports LIBERO rollout-pool dense-utility validation, all-ten Object sparse-success simulator smokes, learned action-head and low-dimensional BC smokes, and a guarded RGB/proprio/language BC smoke; it is not modern VLA policy performance or full LIBERO validation. VERIFIED CLAIM 86. VERIFIED CLAIM 87. VERIFIED CLAIM 88. VERIFIED CLAIM 89."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "paper_outline.md",
+      "line": 106,
+      "heading": "11. Benchmark Status",
+      "guarded": true,
+      "text": "Benchmark RGB WAM-lite validation is integrated on Gymnasium/MuJoCo `Reacher-v5` and Gymnasium Robotics Fetch, where RGB rendering works. The model consumes rendered RGB frame features and action sequences, predicts rollout utility, and is evaluated with exact-law and best-of-N scorer-comparison artifacts. ManiSkill RGB/RGB-D WAM validation is not claimed because the local SAPIEN/Vulkan renderer failed during RGB observation creation; the exact probe matrix and errors are saved in `results/benchmark_maniskill_visual_probe.json` and `reports/maniskill_visual_blocker_report.md`. RoboCasa now includes pick-place-family, broad atomic-manipulation, 12-task family, 24-task family, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook rollout-pool artifacts; LIBERO now includes three Spatial dense rollout-pool tasks, the Object sparse-success scripted smoke, learned action-head and low-dimensional BC smokes, and an RGB/proprio/language BC smoke, but still not modern VLA policy performance."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "reports/paper_result_summary.md",
+      "line": 17,
+      "heading": "Discussion-Only Claims",
+      "guarded": true,
+      "text": "- Modern VLA-style sparse-success LIBERO policy performance and full RoboCasa-wide learned-WAM validation."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "reports/paper_result_summary.md",
+      "line": 26,
+      "heading": "Do Not Claim",
+      "guarded": true,
+      "text": "- Modern VLA-style sparse-success LIBERO policy validation or full RoboCasa-wide validation."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "reports/final_decision_report.md",
+      "line": 25,
+      "heading": "3. Weakest Claims",
+      "guarded": true,
+      "text": "- LIBERO evidence is limited to three Spatial dense rollout-pool WAM-lite tasks plus Object sparse-success scripted/action-head/time-conditioned/RGB-proprio-language feature-kNN smokes, not modern VLA policy performance or full LIBERO validation."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "reports/final_decision_report.md",
+      "line": 39,
+      "heading": "5. Discussion-Only Claims",
+      "guarded": true,
+      "text": "- Modern VLA-style sparse-success LIBERO policy performance and full RoboCasa-wide learned-WAM validation."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "reports/final_decision_report.md",
+      "line": 46,
+      "heading": "6. Skeptical Reviewer Attack",
+      "guarded": true,
+      "text": "The project still lacks real robot artifacts, modern VLA-style sparse-success LIBERO policy validation, full RoboCasa-wide learned-WAM validation, and ManiSkill visual or EE-control validation."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "reports/final_decision_report.md",
+      "line": 54,
+      "heading": "8. Unresolved",
+      "guarded": true,
+      "text": "- Modern VLA-style sparse-success LIBERO policy evaluation beyond the current hand scripted/action-head/time-conditioned low-dimensional/RGB-proprio-language feature-kNN smokes and dense rollout-pool utility."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "reports/final_decision_report.md",
+      "line": 66,
+      "heading": "10. Main-Conference Readiness",
+      "guarded": true,
+      "text": "Substantially stronger after Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill state-mode validation, pick-place, broad, 12-task, 24-task, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook RoboCasa learned-WAM validation, three-task LIBERO rollout-pool validation, LIBERO Object sparse-success scripted smoke, LIBERO learned action-head smoke, LIBERO time-conditioned low-dimensional BC smoke, and LIBERO RGB/proprio/language BC smoke. Still not a real-robot paper and still weaker than a benchmark-heavy robotics paper with modern VLA-style sparse-success LIBERO policy performance, full RoboCasa-wide validation, or RGB-D manipulation."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "reports/final_decision_report.md",
+      "line": 70,
+      "heading": "11. Single Highest-Value Next Step",
+      "guarded": true,
+      "text": "Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wide task coverage next; ManiSkill RGB/RGB-D WAM validation remains the other high-value path if the local SAPIEN/Vulkan blocker is cleared."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "reports/reviewer_risk_assessment.md",
+      "line": 28,
+      "heading": "Remaining Gap",
+      "guarded": true,
+      "text": "The single highest reviewer-risk gap is absence of real-robot evidence, modern VLA-style benchmark policy validation, and full benchmark-suite policy coverage. LIBERO is now present as a three-task dense-utility rollout-pool WAM artifact plus sparse-success scripted, learned action-head, time-conditioned low-dimensional BC, and RGB/proprio/language Object smokes, but not full LIBERO policy evidence. RoboCasa is substantially broader than before, including a residual 35-task clean/cook artifact, but still not full RoboCasa-wide validation."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "reports/maxout_initial_audit.md",
+      "line": 44,
+      "heading": "2. Toy-Only",
+      "guarded": true,
+      "text": "- No real robot, DreamZero, UWM, modern VLA, or full LIBERO policy result is claimed; RoboCasa is verified for pick-place-family, broad atomic kitchen, 12-task, 24-task family, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook rollout-pool artifacts, and LIBERO is verified as a three-task rollout-pool dense-utility artifact plus narrow scripted, learned action-head, time-conditioned low-dimensional BC, and RGB/proprio/language BC sparse-success smokes."
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "surface": "reports/maxout_initial_audit.md",
+      "line": 55,
+      "heading": "4. Missing For Robotics Reviewers",
+      "guarded": true,
+      "text": "- Modern VLA-style or full-suite LIBERO policy artifacts are still missing; current LIBERO evidence is a three-task Spatial rollout-pool WAM-lite artifact with dense progress utility, a hand scripted Object sparse-success smoke, a learned action-head smoke with scripted phases and target points, a time-conditioned low-dimensional BC smoke without phase labels or target commands at evaluation time, and an RGB/proprio/language feature-kNN BC smoke without object state or task IDs."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "README.md",
+      "line": 172,
+      "heading": "Benchmark Validation",
+      "guarded": true,
+      "text": "The residual 35-task clean/cook artifact trains on 140 rollouts, validates on 140 rollouts with utility correlation `0.835`, evaluates on 280 heldout rollouts across 35 rollout pools, uses horizon `1` and Nmax `4`, has exact-law utility MAE `0.00025`, the learned scorer beats random at N4 with CI lower `0.197`, and the oracle-minus-learned N4 CI lower remains `0.0137`. A separate residual clean/cook micro-rollout sweep attempted 43 task IDs, completed 41 chunks, timed out 2 chunks, found 39 runnable IDs, and found 35 nondegenerate IDs. A catalog audit finds 396 registered local task IDs, 132 task IDs covered by verified rollout-pool artifacts, 106 task IDs covered by micro-rollout probes, and 134 task IDs covered by any committed artifact. These are not full RoboCasa-wide validation or solved policies."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "README.md",
+      "line": 272,
+      "heading": "Claims Status",
+      "guarded": true,
+      "text": "The test-inventory gate collects pytest node IDs and verifies the reported test count comes from an artifact rather than hard-coded stale text. The artifact-integrity gate checks that referenced result files exist, parse, and are nonempty. The result-consistency gate checks that summary JSONs agree with canonical tables for confidence-interval sanity, row counts, seed coverage, task/environment coverage, rollout-pool counts, promoted-scorer CIs, and LIBERO success counts. The raw-recompute gate independently recomputes aggregate means, exact-law MAEs, and seed-metric confidence intervals from raw CSV artifacts. The table-schema gate checks canonical CSV headers, required family columns, finite numeric values, nonblank key cells, valid success-rate ranges, and explicit optional blanks. The source-manifest gate writes deterministic SHA-256 hashes for source, experiment, script, test, README/paper, requirements, and theory files. The runtime-environment gate records and verifies Python/platform metadata, requirement-file hashes, core package versions, optional package availability, module probes, and command probes. The experiment-registry gate verifies canonical experiment-family scripts, JSON summaries, wrapper coverage, table artifacts, and figures where expected. The artifact-manifest gate writes deterministic SHA-256 hashes for canonical scientific result JSONs, CSV tables, figures, and model files. The model-artifact gate loads committed `.npz` and `.joblib` models and verifies nonempty finite numeric arrays plus predictor availability where applicable. The figure-quality gate checks that canonical PNG figures are present, readable, nonblank, nonflat, and large enough for publication-style inspection. The narrative-consistency gate checks high-impact README and final-report numbers against the current JSON artifacts. The script-contract gate checks canonical shell scripts for required experiment steps, strict Bash mode, optional benchmark guards, and ordered verification gates. The abstract-claim gate verifies that final-report headline claims are exactly the approved evidence-backed set and that future-only robotics evidence stays in discussion or unresolved sections. The publication-scope gate checks README, paper outline, paper result summary, final decision, and reviewer-risk text for risky robotics phrases and requires explicit limitation, blocker, future-work, discussion-only, or non-claim context. The frontier-integrity gate verifies that remaining ideal endpoints such as real-robot evidence, modern VLA-style LIBERO policy validation, full RoboCasa-wide validation, and ManiSkill visual/EE validation are guarded as non-claims rather than promoted results. The claim-semantics gate checks that verified claim wording is backed by matching threshold semantics, such as positive CI lower bounds for \"beats\" claims and small errors for exact-law claims. The claim-evidence gate maps every current claim ID to source artifacts and rejects missing sources, unstructured evidence, unresolved placeholders, and CI claims without CI evidence. The tracked-artifact gate verifies every current claim source and published artifact reference is represented in the git index. The repo-bound-artifact gate verifies every current claim source and published artifact reference resolves inside this repository and spans expected evidence classes. The claim-ledger gate checks sorted contiguous claim IDs, valid statuses, JSON/Markdown count agreement, structured evidence strings, evidence-path references, empty overclaim arrays, and no non-verified final claims. The claim-generation gate reruns `claims_status.py` and verifies the JSON and Markdown claim ledgers are byte-stable and overclaim-free. The report-generation gate reruns `write_maxout_reports.py` and verifies the generated narrative reports are byte-stable. The command-result gate checks that published final-report command lines match the current verification artifacts rather than stale run text. The terminal evidence-hash gate records deterministic SHA-256 hashes for every non-self current claim source and every non-self published artifact reference after the other audit outputs have settled. README and paper-outline claims are intentionally scoped to artifact-backed results. Unsupported benchmark and universal-training claims belong in future work, not in the results."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "README.md",
+      "line": 280,
+      "heading": "Future Work",
+      "guarded": true,
+      "text": "The natural next step is a Robot Chinchilla-style WAM optimizer: jointly allocate dataset scale, model capacity, rollout horizon, scorer quality, safety constraints, and test-time rollout budget. A second high-value extension is modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wide validation beyond the current pick-place-family, broad atomic-manipulation, 12-task family, 24-task family, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook rollout-pool artifacts."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "paper_outline.md",
+      "line": 86,
+      "heading": "10. Results",
+      "guarded": true,
+      "text": "16. frontier-integrity audit that keeps real-robot, modern VLA LIBERO, full RoboCasa-wide, and ManiSkill visual/EE endpoints in limitations/future work unless artifacts exist"
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "paper_outline.md",
+      "line": 100,
+      "heading": "11. Benchmark Status",
+      "guarded": true,
+      "text": "RoboCasa is integrated as an optional contact-rich kitchen artifact in a separate RoboCasa-compatible virtual environment with official kitchen assets. The single-task layer uses `robocasa/PickPlaceCounterToCabinet`, five clone-restored rollout pools with 80 random action-sequence rollouts, exact-law utility MAE `0.00027`, oracle-minus-random N8 CI lower `0.1515`, and a lightweight ridge state/action-sequence WAM-lite with validation utility correlation `0.764` and learned-minus-random N8 CI lower `0.0503`. The pick-place-family layer is a three-task task conditioned WAM-lite over `PickPlaceCounterToCabinet`, `PickPlaceCounterToDrawer`, and `PickPlaceCounterToMicrowave`: 144 train rollouts, 96 validation rollouts, validation utility correlation `0.675`, 240 heldout eval rollouts, exact-law MAE `0.00035`, and learned energy-regularized scorer minus random N8 CI lower `0.169`. The broad atomic-manipulation, 12-task, 24-task, extra four-task, combined 28-task, combined 32-task, stratified 55-task, and stratified 97-task layers report validation utility correlations `0.860`, `0.833`, `0.852`, `0.799`, `0.834`, `0.838`, `0.833`, and `0.838`; exact-law MAE at most `0.00036`; and learned-minus-random CI lower bounds `0.211`, `0.183`, `0.239`, `0.247`, `0.235`, `0.228`, `0.274`, and `0.315`. The stratified 97-task frontier layer evaluates 1,552 heldout eval rollouts across 194 rollout pools and preserves an oracle-minus-learned N8 CI lower bound of `0.0369`. A residual 35-task clean/cook layer trains on 140 rollouts, validates on 140 rollouts with utility correlation `0.835`, evaluates on 280 heldout rollouts across 35 rollout pools, uses horizon `1` and Nmax `4`, has exact-law utility MAE `0.00025`, the learned scorer beats random at N4 with CI lower `0.197`, and the oracle-minus-learned N4 CI lower remains `0.0137`. Separate micro-rollout preflights and sweeps verify reset/clone/short-rollout viability for four extra pick-place task IDs, 23 stratified kitchen task IDs, 42 frontier task IDs from 64 attempted candidates, and 35 nondegenerate residual clean/cook task IDs from 43 candidates. A registry audit finds 396 local RoboCasa task IDs, 132 task IDs covered by verified rollout-pool artifacts, 106 task IDs covered by micro-rollout probes, and 134 task IDs covered by any committed artifact. These support RoboCasa rollout-pool dense-utility results across pick-place and non-pick-place task families, not full RoboCasa-wide validation or solved policies. VERIFIED CLAIM 91. VERIFIED CLAIM 92. VERIFIED CLAIM 93. VERIFIED CLAIM 94. VERIFIED CLAIM 95. VERIFIED CLAIM 96. VERIFIED CLAIM 97. VERIFIED CLAIM 98."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "reports/paper_result_summary.md",
+      "line": 17,
+      "heading": "Discussion-Only Claims",
+      "guarded": true,
+      "text": "- Modern VLA-style sparse-success LIBERO policy performance and full RoboCasa-wide learned-WAM validation."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "reports/paper_result_summary.md",
+      "line": 26,
+      "heading": "Do Not Claim",
+      "guarded": true,
+      "text": "- Modern VLA-style sparse-success LIBERO policy validation or full RoboCasa-wide validation."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "reports/final_decision_report.md",
+      "line": 26,
+      "heading": "3. Weakest Claims",
+      "guarded": true,
+      "text": "- RoboCasa evidence is broad but not full RoboCasa-wide validation: committed rollout-pool artifacts cover 132 of 396 local registry task IDs, with micro-rollout probes covering 106 task IDs."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "reports/final_decision_report.md",
+      "line": 39,
+      "heading": "5. Discussion-Only Claims",
+      "guarded": true,
+      "text": "- Modern VLA-style sparse-success LIBERO policy performance and full RoboCasa-wide learned-WAM validation."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "reports/final_decision_report.md",
+      "line": 46,
+      "heading": "6. Skeptical Reviewer Attack",
+      "guarded": true,
+      "text": "The project still lacks real robot artifacts, modern VLA-style sparse-success LIBERO policy validation, full RoboCasa-wide learned-WAM validation, and ManiSkill visual or EE-control validation."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "reports/final_decision_report.md",
+      "line": 55,
+      "heading": "8. Unresolved",
+      "guarded": true,
+      "text": "- Full RoboCasa-wide learned-WAM rollout collection beyond the current pick-place-family, broad atomic-manipulation, 12-task, 24-task family, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook artifacts."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "reports/final_decision_report.md",
+      "line": 66,
+      "heading": "10. Main-Conference Readiness",
+      "guarded": true,
+      "text": "Substantially stronger after Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill state-mode validation, pick-place, broad, 12-task, 24-task, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook RoboCasa learned-WAM validation, three-task LIBERO rollout-pool validation, LIBERO Object sparse-success scripted smoke, LIBERO learned action-head smoke, LIBERO time-conditioned low-dimensional BC smoke, and LIBERO RGB/proprio/language BC smoke. Still not a real-robot paper and still weaker than a benchmark-heavy robotics paper with modern VLA-style sparse-success LIBERO policy performance, full RoboCasa-wide validation, or RGB-D manipulation."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "reports/final_decision_report.md",
+      "line": 70,
+      "heading": "11. Single Highest-Value Next Step",
+      "guarded": true,
+      "text": "Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wide task coverage next; ManiSkill RGB/RGB-D WAM validation remains the other high-value path if the local SAPIEN/Vulkan blocker is cleared."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "reports/reviewer_risk_assessment.md",
+      "line": 28,
+      "heading": "Remaining Gap",
+      "guarded": true,
+      "text": "The single highest reviewer-risk gap is absence of real-robot evidence, modern VLA-style benchmark policy validation, and full benchmark-suite policy coverage. LIBERO is now present as a three-task dense-utility rollout-pool WAM artifact plus sparse-success scripted, learned action-head, time-conditioned low-dimensional BC, and RGB/proprio/language Object smokes, but not full LIBERO policy evidence. RoboCasa is substantially broader than before, including a residual 35-task clean/cook artifact, but still not full RoboCasa-wide validation."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "reports/maxout_initial_audit.md",
+      "line": 56,
+      "heading": "4. Missing For Robotics Reviewers",
+      "guarded": true,
+      "text": "- Full RoboCasa-wide learned-WAM benchmark artifacts are still missing; current RoboCasa evidence is a single-task smoke rollout pool, a single-task learned-WAM artifact, a three-task pick-place family learned-WAM artifact, a broad four-task atomic-manipulation artifact, a 12-task open/close/turn family artifact, a 24-task open/close/turn/pick-place family artifact, an extra four-task pick-place-direction artifact, combined 28-task and 32-task family artifacts, stratified 55-task and 97-task kitchen artifacts, and a separate residual 35-task clean/cook horizon-1/N4 artifact."
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "surface": "reports/maxout_initial_audit.md",
+      "line": 72,
+      "heading": "6. README Claim Guarding",
+      "guarded": true,
+      "text": "- README must state LIBERO as optional/separate-environment and limited to three Spatial rollout-pool dense-utility validation plus Object sparse-success scripted, learned action-head, time-conditioned low-dimensional BC, and RGB/proprio/language BC smokes; RoboCasa is optional/separate-environment and includes pick-place-family, broad atomic-manipulation, 12-task, 24-task family, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook rollout-pool validation, not full RoboCasa-wide validation."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "README.md",
+      "line": 168,
+      "heading": "Benchmark Validation",
+      "guarded": true,
+      "text": "The Gymnasium Robotics artifacts add contact-rich Fetch manipulation tasks with state/action-sequence WAM-lite training, exact-law validation, scorer comparison, closed-loop evaluation, RGB-frame/action-sequence visual WAM-lite validation, and RGB frame artifacts. Meta-World artifacts add a separate multi-task Sawyer manipulation suite with learned state/action-sequence WAM-lite, exact-law validation, scorer comparison, and small closed-loop traces. RoboSuite artifacts add Panda Lift/Stack/Door clone-restored MuJoCo rollout pools with learned state/action-sequence WAM-lite training, exact-law validation, open-loop scorer comparison, and small closed-loop learned/reward-versus-random evaluation. The ManiSkill artifact uses CPU state observations and `pd_joint_delta_pos` control. End-effector delta-pose control is not claimed in this environment because the optional Pinocchio dependency was unavailable; the repo also includes a generated ManiSkill visual/EE-control probe so that this limitation is artifact-backed rather than anecdotal."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "README.md",
+      "line": 204,
+      "heading": "Visual Modes",
+      "guarded": true,
+      "text": "Current benchmark visual artifacts use rendered RGB frames plus candidate action sequences. ManiSkill RGB/RGB-D visual WAM validation is not claimed because the local SAPIEN/Vulkan renderer failed with a descriptor-pool error; ManiSkill evidence remains state-mode."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "README.md",
+      "line": 206,
+      "heading": "Visual Modes",
+      "guarded": true,
+      "text": "The optional ManiSkill visual probe is:"
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "README.md",
+      "line": 220,
+      "heading": "Visual Modes",
+      "guarded": true,
+      "text": "It writes `results/benchmark_maniskill_dependency_probe.json` and `reports/maniskill_dependency_blocker_report.md`. The committed artifact documents that Pinocchio is not importable on this Windows/Python stack and that pip did not expose binary `pin`/`cmeel-boost` wheels, so ManiSkill end-effector-control validation is not claimed."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "README.md",
+      "line": 272,
+      "heading": "Claims Status",
+      "guarded": true,
+      "text": "The test-inventory gate collects pytest node IDs and verifies the reported test count comes from an artifact rather than hard-coded stale text. The artifact-integrity gate checks that referenced result files exist, parse, and are nonempty. The result-consistency gate checks that summary JSONs agree with canonical tables for confidence-interval sanity, row counts, seed coverage, task/environment coverage, rollout-pool counts, promoted-scorer CIs, and LIBERO success counts. The raw-recompute gate independently recomputes aggregate means, exact-law MAEs, and seed-metric confidence intervals from raw CSV artifacts. The table-schema gate checks canonical CSV headers, required family columns, finite numeric values, nonblank key cells, valid success-rate ranges, and explicit optional blanks. The source-manifest gate writes deterministic SHA-256 hashes for source, experiment, script, test, README/paper, requirements, and theory files. The runtime-environment gate records and verifies Python/platform metadata, requirement-file hashes, core package versions, optional package availability, module probes, and command probes. The experiment-registry gate verifies canonical experiment-family scripts, JSON summaries, wrapper coverage, table artifacts, and figures where expected. The artifact-manifest gate writes deterministic SHA-256 hashes for canonical scientific result JSONs, CSV tables, figures, and model files. The model-artifact gate loads committed `.npz` and `.joblib` models and verifies nonempty finite numeric arrays plus predictor availability where applicable. The figure-quality gate checks that canonical PNG figures are present, readable, nonblank, nonflat, and large enough for publication-style inspection. The narrative-consistency gate checks high-impact README and final-report numbers against the current JSON artifacts. The script-contract gate checks canonical shell scripts for required experiment steps, strict Bash mode, optional benchmark guards, and ordered verification gates. The abstract-claim gate verifies that final-report headline claims are exactly the approved evidence-backed set and that future-only robotics evidence stays in discussion or unresolved sections. The publication-scope gate checks README, paper outline, paper result summary, final decision, and reviewer-risk text for risky robotics phrases and requires explicit limitation, blocker, future-work, discussion-only, or non-claim context. The frontier-integrity gate verifies that remaining ideal endpoints such as real-robot evidence, modern VLA-style LIBERO policy validation, full RoboCasa-wide validation, and ManiSkill visual/EE validation are guarded as non-claims rather than promoted results. The claim-semantics gate checks that verified claim wording is backed by matching threshold semantics, such as positive CI lower bounds for \"beats\" claims and small errors for exact-law claims. The claim-evidence gate maps every current claim ID to source artifacts and rejects missing sources, unstructured evidence, unresolved placeholders, and CI claims without CI evidence. The tracked-artifact gate verifies every current claim source and published artifact reference is represented in the git index. The repo-bound-artifact gate verifies every current claim source and published artifact reference resolves inside this repository and spans expected evidence classes. The claim-ledger gate checks sorted contiguous claim IDs, valid statuses, JSON/Markdown count agreement, structured evidence strings, evidence-path references, empty overclaim arrays, and no non-verified final claims. The claim-generation gate reruns `claims_status.py` and verifies the JSON and Markdown claim ledgers are byte-stable and overclaim-free. The report-generation gate reruns `write_maxout_reports.py` and verifies the generated narrative reports are byte-stable. The command-result gate checks that published final-report command lines match the current verification artifacts rather than stale run text. The terminal evidence-hash gate records deterministic SHA-256 hashes for every non-self current claim source and every non-self published artifact reference after the other audit outputs have settled. README and paper-outline claims are intentionally scoped to artifact-backed results. Unsupported benchmark and universal-training claims belong in future work, not in the results."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "paper_outline.md",
+      "line": 86,
+      "heading": "10. Results",
+      "guarded": true,
+      "text": "16. frontier-integrity audit that keeps real-robot, modern VLA LIBERO, full RoboCasa-wide, and ManiSkill visual/EE endpoints in limitations/future work unless artifacts exist"
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "paper_outline.md",
+      "line": 98,
+      "heading": "11. Benchmark Status",
+      "guarded": true,
+      "text": "ManiSkill3 is integrated in CPU state mode on `PickCube-v1`, `PushCube-v1`, and `PegInsertionSide-v1` with `pd_joint_delta_pos` control. Artifact-backed ManiSkill claims include rollout pools, exact-law validation, score comparison, WAM-lite training, and a small closed-loop learned-versus-random comparison. End-effector delta-pose control is not claimed because Pinocchio was unavailable in this Windows environment; a generated probe records the failed EE-control attempts."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "paper_outline.md",
+      "line": 104,
+      "heading": "11. Benchmark Status",
+      "guarded": true,
+      "text": "A separate ManiSkill dependency probe records that Pinocchio is not importable and that pip does not expose binary `pin`/`cmeel-boost` wheels for this Windows/Python stack. This supports the limitation statement; it is not evidence for EE-control validation."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "paper_outline.md",
+      "line": 106,
+      "heading": "11. Benchmark Status",
+      "guarded": true,
+      "text": "Benchmark RGB WAM-lite validation is integrated on Gymnasium/MuJoCo `Reacher-v5` and Gymnasium Robotics Fetch, where RGB rendering works. The model consumes rendered RGB frame features and action sequences, predicts rollout utility, and is evaluated with exact-law and best-of-N scorer-comparison artifacts. ManiSkill RGB/RGB-D WAM validation is not claimed because the local SAPIEN/Vulkan renderer failed during RGB observation creation; the exact probe matrix and errors are saved in `results/benchmark_maniskill_visual_probe.json` and `reports/maniskill_visual_blocker_report.md`. RoboCasa now includes pick-place-family, broad atomic-manipulation, 12-task family, 24-task family, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook rollout-pool artifacts; LIBERO now includes three Spatial dense rollout-pool tasks, the Object sparse-success scripted smoke, learned action-head and low-dimensional BC smokes, and an RGB/proprio/language BC smoke, but still not modern VLA policy performance."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/paper_result_summary.md",
+      "line": 11,
+      "heading": "Abstract-Safe Claims",
+      "guarded": true,
+      "text": "- ManiSkill RGB/RGB-D and EE-control attempts are documented as a blocker artifact, not counted as visual validation."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/paper_result_summary.md",
+      "line": 12,
+      "heading": "Abstract-Safe Claims",
+      "guarded": true,
+      "text": "- ManiSkill Pinocchio dependency probing documents why EE-control is not claimed in this environment."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/paper_result_summary.md",
+      "line": 19,
+      "heading": "Discussion-Only Claims",
+      "guarded": true,
+      "text": "- ManiSkill RGB/RGB-D WAM validation."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/paper_result_summary.md",
+      "line": 27,
+      "heading": "Do Not Claim",
+      "guarded": true,
+      "text": "- ManiSkill RGB/RGB-D or EE-control validation."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/final_decision_report.md",
+      "line": 5,
+      "heading": "1. Tier",
+      "guarded": true,
+      "text": "Benchmark-full plus Fetch, Meta-World, RoboSuite, ManiSkill state-mode, RoboCasa single-task, three-task pick-place-family, broad four-task, 12-task, 24-task family, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook learned WAM-lite, LIBERO Spatial three-task rollout-pool WAM-lite, LIBERO Object sparse-success scripted smoke, LIBERO learned action-head smoke, LIBERO time-conditioned autonomous low-dimensional BC smoke, LIBERO RGB/proprio/language BC smoke, visual-, blocker-probe-, and audit-validated: learned-toy, multi-env toy validation, Gymnasium/MuJoCo Reacher-v5 benchmark validation, Gymnasium Robotics Fetch validation, Meta-World ML1 manipulation validation, RoboSuite Panda manipulation validation, ManiSkill3 state-mode manipulation validation, RoboCasa kitchen smoke plus single-task, three-task, broad task family, 12-task, 24-task family, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual clean/cook learned-WAM validation, LIBERO rollout-pool learned-WAM validation, LIBERO scripted sparse-success smoke, LIBERO learned action-head sparse-success smoke, LIBERO time-conditioned low-dimensional BC sparse-success smoke, LIBERO RGB/proprio/language sparse-success smoke, toy visual mode, Reacher RGB WAM-lite, Fetch RGB WAM-lite, ManiSkill visual/EE-control blocker probing, and inference-value audit framework artifacts."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/final_decision_report.md",
+      "line": 27,
+      "heading": "3. Weakest Claims",
+      "guarded": true,
+      "text": "- ManiSkill evidence is CPU state-mode joint-delta control; RGB/RGB-D and end-effector-control validation are blocker-documented, not verified."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/final_decision_report.md",
+      "line": 40,
+      "heading": "5. Discussion-Only Claims",
+      "guarded": true,
+      "text": "- ManiSkill RGB/RGB-D or EE-control validation."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/final_decision_report.md",
+      "line": 41,
+      "heading": "5. Discussion-Only Claims",
+      "guarded": true,
+      "text": "- ManiSkill RGB/RGB-D benchmark WAM validation."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/final_decision_report.md",
+      "line": 46,
+      "heading": "6. Skeptical Reviewer Attack",
+      "guarded": true,
+      "text": "The project still lacks real robot artifacts, modern VLA-style sparse-success LIBERO policy validation, full RoboCasa-wide learned-WAM validation, and ManiSkill visual or EE-control validation."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/final_decision_report.md",
+      "line": 56,
+      "heading": "8. Unresolved",
+      "guarded": true,
+      "text": "- ManiSkill RGB/RGB-D or end-effector-control validation."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/final_decision_report.md",
+      "line": 58,
+      "heading": "8. Unresolved",
+      "guarded": true,
+      "text": "- Strong ManiSkill RGB/RGB-D WAM evidence; current repo has only a local failure probe with exact renderer/control blockers."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/final_decision_report.md",
+      "line": 66,
+      "heading": "10. Main-Conference Readiness",
+      "guarded": true,
+      "text": "Substantially stronger after Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, ManiSkill state-mode validation, pick-place, broad, 12-task, 24-task, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook RoboCasa learned-WAM validation, three-task LIBERO rollout-pool validation, LIBERO Object sparse-success scripted smoke, LIBERO learned action-head smoke, LIBERO time-conditioned low-dimensional BC smoke, and LIBERO RGB/proprio/language BC smoke. Still not a real-robot paper and still weaker than a benchmark-heavy robotics paper with modern VLA-style sparse-success LIBERO policy performance, full RoboCasa-wide validation, or RGB-D manipulation."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/final_decision_report.md",
+      "line": 70,
+      "heading": "11. Single Highest-Value Next Step",
+      "guarded": true,
+      "text": "Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wide task coverage next; ManiSkill RGB/RGB-D WAM validation remains the other high-value path if the local SAPIEN/Vulkan blocker is cleared."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/final_decision_report.md",
+      "line": 81,
+      "heading": "Command Results",
+      "guarded": true,
+      "text": "- `bash scripts/run_benchmark_full.sh`: passed with Gymnasium/MuJoCo `Reacher-v5`, Gymnasium Robotics Fetch, Meta-World ML1, RoboSuite Panda, and ManiSkill3 state-mode tasks; optional RoboCasa smoke, single-task learned-WAM, three-task learned-WAM, broad four-task learned-WAM, 12-task family learned-WAM, 24-task family learned-WAM, extra four-task learned-WAM, combined 28-task learned-WAM, combined 32-task learned-WAM, stratified micro probe, frontier micro probe, stratified 55-task learned-WAM, and stratified 97-task learned-WAM runs were generated separately with `ROBOCASA_PYTHON`; optional LIBERO three-task Spatial rollout-pool WAM, Object sparse-success scripted smoke, learned action-head smoke, time-conditioned autonomous low-dimensional BC smoke, and RGB/proprio/language BC smoke were generated separately with `LIBERO_PYTHON`; Reacher exact-law utility MAE `0.01875`; Reacher closed-loop learned-random CI lower bound `0.4102`; Fetch exact-law utility MAE `0.0126`; Meta-World exact-law utility MAE `0.0298`; Meta-World learned-random N32 CI lower `0.0975`; RoboSuite exact-law utility MAE `0.0024`; RoboSuite learned-random N32 CI lower `0.2447`; RoboSuite closed-loop learned-random N8 CI lower `0.0798`; ManiSkill exact-law utility MAE `0.0034`; ManiSkill closed-loop learned-random CI lower bound `0.0102`; RoboCasa smoke exact-law utility MAE `0.0003`; RoboCasa learned utility corr `0.7640`; RoboCasa learned-random N8 CI lower `0.0503`; RoboCasa three-task utility corr `0.6752`; RoboCasa three-task learned-random N8 CI lower `0.1691`; RoboCasa broad utility corr `0.8599`; RoboCasa broad learned-random N8 CI lower `0.2112`; RoboCasa 12-task family utility corr `0.8330`; RoboCasa 12-task family learned-random N8 CI lower `0.1830`; RoboCasa 24-task family utility corr `0.8523`; RoboCasa 24-task family learned-random N8 CI lower `0.2393`; RoboCasa extra four-task utility corr `0.7993`; RoboCasa extra four-task learned-random N8 CI lower `0.2469`; RoboCasa combined 28-task utility corr `0.8335`; RoboCasa combined 28-task learned-random N8 CI lower `0.2353`; RoboCasa combined 32-task utility corr `0.8384`; RoboCasa combined 32-task learned-random N8 CI lower `0.2276`; RoboCasa stratified 55-task utility corr `0.8326`; RoboCasa stratified 55-task learned-random N8 CI lower `0.2743`; RoboCasa stratified 55-task exact-law utility MAE `0.0003`; RoboCasa stratified 97-task utility corr `0.8380`; RoboCasa stratified 97-task learned-random N8 CI lower `0.3149`; RoboCasa stratified 97-task oracle-learned N8 CI lower `0.0369`; RoboCasa stratified 97-task exact-law utility MAE `0.0003`; RoboCasa frontier micro nondegenerate tasks `42`; LIBERO utility corr `0.3526`; LIBERO learned-random N8 CI lower `0.2653`; LIBERO scripted success CI lower `1.0000`; LIBERO action-head success CI lower `1.0000`; LIBERO autonomous BC success CI lower `1.0000`; LIBERO RGB/proprio/language BC success CI lower `1.0000`."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/final_decision_report.md",
+      "line": 84,
+      "heading": "Command Results",
+      "guarded": true,
+      "text": "- `bash scripts/run_visual_optional.sh`: passed; toy visual MAE `0.0185`; Reacher RGB WAM utility corr `0.2199`, utility MAE `0.5208`, visual-random N32 CI lower `0.1998`; Fetch RGB WAM mean corr `0.7325`, visual-random N32 CI lower `0.3475`; ManiSkill visual probe any visual success `False` with blocker `vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory`."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/reviewer_risk_assessment.md",
+      "line": 12,
+      "heading": "Main Reviewer Attacks",
+      "guarded": true,
+      "text": "- The empirical work is mostly state-based, but benchmark visual WAM evidence now exists for Gymnasium/MuJoCo Reacher-v5 and Gymnasium Robotics Fetch RGB frames; ManiSkill RGB/RGB-D remains unavailable locally and is documented by a generated renderer probe."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/reviewer_risk_assessment.md",
+      "line": 13,
+      "heading": "Main Reviewer Attacks",
+      "guarded": true,
+      "text": "- ManiSkill EE-control remains unavailable locally because Pinocchio is absent and the `pin` dependency path lacks binary wheels for this Windows/Python stack; this is documented by a generated dependency probe."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/reviewer_risk_assessment.md",
+      "line": 14,
+      "heading": "Main Reviewer Attacks",
+      "guarded": true,
+      "text": "- The strongest contact-rich external evidence is Gymnasium Robotics Fetch plus Meta-World ML1, RoboSuite Panda, ManiSkill state mode, RoboCasa three-task pick-place, broad four-task atomic-manipulation, 12-task, 24-task family, extra four-task, combined 28-task, combined 32-task, stratified 55-task, stratified 97-task, and residual 35-task clean/cook artifacts, LIBERO Spatial rollout-pool validation, LIBERO Object sparse-success scripted smoke, LIBERO learned action-head smoke, LIBERO time-conditioned low-dimensional autonomous BC smoke, and LIBERO RGB/proprio/language BC smoke, but still not real hardware."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/maxout_initial_audit.md",
+      "line": 57,
+      "heading": "4. Missing For Robotics Reviewers",
+      "guarded": true,
+      "text": "- ManiSkill evidence is state-mode and joint-delta controlled; end-effector delta-pose control is not claimed because Pinocchio was unavailable."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/maxout_initial_audit.md",
+      "line": 73,
+      "heading": "6. README Claim Guarding",
+      "guarded": true,
+      "text": "- README must state ManiSkill as state-mode joint-delta evidence only, not EE-control or real-robot evidence."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/maxout_completion_audit.md",
+      "line": 45,
+      "heading": "Artifact Coverage",
+      "guarded": true,
+      "text": "- ManiSkill visual/EE probe: attempted `True`; state baseline ok `True`; any visual success `False`; blocker `vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory`."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "surface": "reports/maxout_completion_audit.md",
+      "line": 90,
+      "heading": "Acceptance Status",
+      "guarded": true,
+      "text": "- ManiSkill visual/EE-control probe: generated artifact-backed blocker report when local RGB/RGB-D and EE-control attempts failed."
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "artifact": {
+        "path": "results/benchmark_maniskill_visual_probe.json",
+        "exists": true,
+        "bytes": 22586
+      }
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "artifact": {
+        "path": "results/benchmark_maniskill_dependency_probe.json",
+        "exists": true,
+        "bytes": 13510
+      }
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "artifact": {
+        "path": "reports/maniskill_visual_blocker_report.md",
+        "exists": true,
+        "bytes": 2557
+      }
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "artifact": {
+        "path": "reports/maniskill_dependency_blocker_report.md",
+        "exists": true,
+        "bytes": 12424
+      }
+    }
+  ],
+  "promoted_claims": [],
+  "n_checks": 18,
+  "n_issues": 0,
+  "checks": [
+    {
+      "name": "frontier_surfaces_exist",
+      "ok": true,
+      "detail": "missing_surfaces=[]"
+    },
+    {
+      "name": "claim_ledger_loaded",
+      "ok": true,
+      "detail": "claims=126"
+    },
+    {
+      "name": "real_robot_hil_guarded_mentions_present",
+      "ok": true,
+      "detail": "guarded=19, required=4"
+    },
+    {
+      "name": "real_robot_hil_no_unguarded_publication_mentions",
+      "ok": true,
+      "detail": "unguarded=0"
+    },
+    {
+      "name": "real_robot_hil_not_promoted_as_verified_claim",
+      "ok": true,
+      "detail": "promotions=0"
+    },
+    {
+      "name": "real_robot_hil_required_blocker_artifacts_exist",
+      "ok": true,
+      "detail": "missing_artifacts=[]"
+    },
+    {
+      "name": "modern_vla_libero_guarded_mentions_present",
+      "ok": true,
+      "detail": "guarded=18, required=3"
+    },
+    {
+      "name": "modern_vla_libero_no_unguarded_publication_mentions",
+      "ok": true,
+      "detail": "unguarded=0"
+    },
+    {
+      "name": "modern_vla_libero_not_promoted_as_verified_claim",
+      "ok": true,
+      "detail": "promotions=0"
+    },
+    {
+      "name": "modern_vla_libero_required_blocker_artifacts_exist",
+      "ok": true,
+      "detail": "missing_artifacts=[]"
+    },
+    {
+      "name": "full_robocasa_wide_guarded_mentions_present",
+      "ok": true,
+      "detail": "guarded=16, required=3"
+    },
+    {
+      "name": "full_robocasa_wide_no_unguarded_publication_mentions",
+      "ok": true,
+      "detail": "unguarded=0"
+    },
+    {
+      "name": "full_robocasa_wide_not_promoted_as_verified_claim",
+      "ok": true,
+      "detail": "promotions=0"
+    },
+    {
+      "name": "full_robocasa_wide_required_blocker_artifacts_exist",
+      "ok": true,
+      "detail": "missing_artifacts=[]"
+    },
+    {
+      "name": "maniskill_visual_ee_guarded_mentions_present",
+      "ok": true,
+      "detail": "guarded=31, required=3"
+    },
+    {
+      "name": "maniskill_visual_ee_no_unguarded_publication_mentions",
+      "ok": true,
+      "detail": "unguarded=0"
+    },
+    {
+      "name": "maniskill_visual_ee_not_promoted_as_verified_claim",
+      "ok": true,
+      "detail": "promotions=0"
+    },
+    {
+      "name": "maniskill_visual_ee_required_blocker_artifacts_exist",
+      "ok": true,
+      "detail": "missing_artifacts=[]"
+    }
+  ],
+  "issues": []
+}
