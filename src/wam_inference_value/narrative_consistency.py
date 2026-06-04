@@ -87,6 +87,7 @@ def add_no_template_markers(checks: list[NarrativeCheck], surface: str, text: st
         "{artifact_manifest.",
         "{result_consistency.",
         "{raw_result_recompute.",
+        "{table_schema.",
         "{narrative_consistency.",
         "{script_contracts.",
         "{claim_semantics.",
@@ -264,6 +265,7 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
     figure_quality = load_json(results_dir, "figure_quality.json")
     result_consistency = load_json(results_dir, "result_consistency.json")
     raw_result_recompute = load_json(results_dir, "raw_result_recompute.json")
+    table_schema = load_json(results_dir, "table_schema.json")
     script_contracts = load_json(results_dir, "script_contracts.json")
     claim_semantics = load_json(results_dir, "claim_semantics.json")
     claim_evidence_quality = load_json(results_dir, "claim_evidence_quality.json")
@@ -382,6 +384,17 @@ def audit_final_decision(root: Path, results_dir: Path, checks: list[NarrativeCh
             f"`python scripts/raw_result_recompute.py --fail-on-error`: passed with `{raw_result_recompute.get('aggregate_metrics_compared')}` aggregate metrics, "
             f"`{raw_result_recompute.get('exact_law_mae_files')}` exact-law files, `{raw_result_recompute.get('seed_metric_ci_columns')}` seed CI columns, "
             f"and `{raw_result_recompute.get('n_issues')}` issues"
+        ),
+    )
+    add_contains(
+        checks,
+        "final_decision_report",
+        text,
+        "table_schema_command",
+        (
+            f"`python scripts/table_schema.py --fail-on-error`: passed with `{table_schema.get('n_tables')}` tables, "
+            f"`{table_schema.get('total_rows')}` rows, `{table_schema.get('n_checks')}` schema checks, "
+            f"and `{table_schema.get('n_issues')}` issues"
         ),
     )
     add_contains(

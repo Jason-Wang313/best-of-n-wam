@@ -66,6 +66,7 @@ fi
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/artifact_integrity.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/result_consistency.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/raw_result_recompute.py --fail-on-error
+WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/table_schema.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/artifact_manifest.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/figure_quality.py --fail-on-error
 WAM_RESULTS_DIR="$CANONICAL_RESULTS_DIR" "${PY[@]}" scripts/narrative_consistency.py --fail-on-error

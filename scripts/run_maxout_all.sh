@@ -27,6 +27,7 @@ bash scripts/run_inference_audit.sh
 "${PY[@]}" scripts/artifact_integrity.py --fail-on-error
 "${PY[@]}" scripts/result_consistency.py --fail-on-error
 "${PY[@]}" scripts/raw_result_recompute.py --fail-on-error
+"${PY[@]}" scripts/table_schema.py --fail-on-error
 "${PY[@]}" scripts/artifact_manifest.py --fail-on-error
 "${PY[@]}" scripts/figure_quality.py --fail-on-error
 "${PY[@]}" scripts/narrative_consistency.py --fail-on-error
@@ -47,6 +48,7 @@ bash scripts/run_inference_audit.sh
 "${PY[@]}" scripts/artifact_integrity.py --fail-on-error
 "${PY[@]}" scripts/result_consistency.py --fail-on-error
 "${PY[@]}" scripts/raw_result_recompute.py --fail-on-error
+"${PY[@]}" scripts/table_schema.py --fail-on-error
 "${PY[@]}" scripts/artifact_manifest.py --fail-on-error
 "${PY[@]}" scripts/figure_quality.py --fail-on-error
 "${PY[@]}" scripts/narrative_consistency.py --fail-on-error

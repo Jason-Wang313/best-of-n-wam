@@ -2,12 +2,13 @@
   "experiment": "script_contracts",
   "verified": true,
   "n_scripts": 7,
-  "n_checks": 57,
+  "n_checks": 61,
   "n_issues": 0,
   "core_gate_sequence": [
     "scripts/artifact_integrity.py --fail-on-error",
     "scripts/result_consistency.py --fail-on-error",
     "scripts/raw_result_recompute.py --fail-on-error",
+    "scripts/table_schema.py --fail-on-error",
     "scripts/artifact_manifest.py --fail-on-error",
     "scripts/figure_quality.py --fail-on-error",
     "scripts/narrative_consistency.py --fail-on-error",
@@ -57,9 +58,14 @@
       "detail": "raw recompute gate runs after result consistency"
     },
     {
+      "name": "run_smoke_table_schema_gate",
+      "ok": true,
+      "detail": "table schema gate runs after raw recompute"
+    },
+    {
       "name": "run_smoke_artifact_manifest_gate",
       "ok": true,
-      "detail": "artifact manifest gate runs after raw recompute"
+      "detail": "artifact manifest gate runs after table schema"
     },
     {
       "name": "run_smoke_figure_quality_gate",
@@ -112,9 +118,14 @@
       "detail": "raw recompute gate runs after result consistency"
     },
     {
+      "name": "run_learned_wam_toy_table_schema_gate",
+      "ok": true,
+      "detail": "table schema gate runs after raw recompute"
+    },
+    {
       "name": "run_learned_wam_toy_artifact_manifest_gate",
       "ok": true,
-      "detail": "artifact manifest gate runs after raw recompute"
+      "detail": "artifact manifest gate runs after table schema"
     },
     {
       "name": "run_learned_wam_toy_figure_quality_gate",
@@ -167,9 +178,14 @@
       "detail": "raw recompute gate runs after result consistency"
     },
     {
+      "name": "run_all_table_schema_gate",
+      "ok": true,
+      "detail": "table schema gate runs after raw recompute"
+    },
+    {
       "name": "run_all_artifact_manifest_gate",
       "ok": true,
-      "detail": "artifact manifest gate runs after raw recompute"
+      "detail": "artifact manifest gate runs after table schema"
     },
     {
       "name": "run_all_figure_quality_gate",
@@ -222,9 +238,14 @@
       "detail": "raw recompute gate runs after result consistency"
     },
     {
+      "name": "run_inference_audit_table_schema_gate",
+      "ok": true,
+      "detail": "table schema gate runs after raw recompute"
+    },
+    {
       "name": "run_inference_audit_artifact_manifest_gate",
       "ok": true,
-      "detail": "artifact manifest gate runs after raw recompute"
+      "detail": "artifact manifest gate runs after table schema"
     },
     {
       "name": "run_inference_audit_figure_quality_gate",

@@ -33,6 +33,7 @@ NARRATIVE_SURFACES = [
     ("figure_quality_report", REPORTS / "figure_quality_report.md"),
     ("result_consistency_report", REPORTS / "result_consistency_report.md"),
     ("raw_result_recompute_report", REPORTS / "raw_result_recompute_report.md"),
+    ("table_schema_report", REPORTS / "table_schema_report.md"),
     ("narrative_consistency_report", REPORTS / "narrative_consistency_report.md"),
     ("claim_semantics_report", REPORTS / "claim_semantics_report.md"),
     ("claim_ledger_integrity_report", REPORTS / "claim_ledger_integrity_report.md"),
@@ -298,6 +299,7 @@ def main() -> None:
     figure_quality = load_json("figure_quality.json")
     result_consistency = load_json("result_consistency.json")
     raw_result_recompute = load_json("raw_result_recompute.json")
+    table_schema = load_json("table_schema.json")
     narrative_consistency = load_json("narrative_consistency.json")
     script_contracts = load_json("script_contracts.json")
     claim_semantics = load_json("claim_semantics.json")
@@ -1739,12 +1741,33 @@ def main() -> None:
             f"checks={figure_quality.get('n_checks')}, issues={figure_quality.get('n_issues')}"
         ),
     }
+    table_schema_claim = {
+        "id": 110,
+        "claim": "Canonical CSV result tables pass schema and numeric-sanity checks.",
+        "status": status(
+            bool(table_schema)
+            and table_schema.get("verified", False)
+            and (table_schema.get("n_tables") or 0) >= 200
+            and (table_schema.get("total_rows") or 0) >= 200_000
+            and (table_schema.get("numeric_column_instances") or 0) >= 500
+            and (table_schema.get("n_checks") or 0) >= 15
+            and table_schema.get("n_issues") == 0
+            and artifact_exists(RESULTS / "table_schema.json")
+            and artifact_exists(REPORTS / "table_schema_report.md"),
+            bool(table_schema),
+        ),
+        "evidence": (
+            f"tables={table_schema.get('n_tables')}, rows={table_schema.get('total_rows')}, "
+            f"numeric_columns={table_schema.get('numeric_column_instances')}, checks={table_schema.get('n_checks')}, "
+            f"issues={table_schema.get('n_issues')}"
+        ),
+    }
     candidate_claims = claims + [
         {
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=109, max_id=109, checks=pending, issues=0",
+            "evidence": "claims=110, max_id=110, checks=pending, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
@@ -1752,6 +1775,7 @@ def main() -> None:
         claim_semantics_claim,
         artifact_manifest_claim,
         figure_quality_claim,
+        table_schema_claim,
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
@@ -1771,6 +1795,7 @@ def main() -> None:
     claims.append(claim_semantics_claim)
     claims.append(artifact_manifest_claim)
     claims.append(figure_quality_claim)
+    claims.append(table_schema_claim)
 
     payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)

@@ -105,6 +105,7 @@ def main() -> None:
     figure_quality = load_json("figure_quality.json")
     result_consistency = load_json("result_consistency.json")
     raw_result_recompute = load_json("raw_result_recompute.json")
+    table_schema = load_json("table_schema.json")
     narrative_consistency = load_json("narrative_consistency.json")
     claim_ledger_integrity = load_json("claim_ledger_integrity.json")
     script_contracts = load_json("script_contracts.json")
@@ -154,6 +155,7 @@ Audit date: 2026-05-30.
 - `figure_quality.py` verifies that canonical PNG figures are present, readable, nonblank, nonflat, and large enough for publication-style inspection.
 - `result_consistency.py` verifies that summary JSONs agree with canonical tables for row counts, coverage, CI sanity, and success counts.
 - `raw_result_recompute.py` independently recomputes aggregate means, exact-law MAEs, and seed-metric CIs from raw CSV artifacts.
+- `table_schema.py` verifies canonical CSV table headers, required family columns, finite numeric values, key-cell completeness, success-rate ranges, and explicit optional blanks.
 - `narrative_consistency.py` verifies that high-impact README and final-report numbers match the current JSON artifacts.
 - `script_contracts.py` verifies that canonical shell scripts preserve required experiment steps, optional benchmark guards, and ordered verification gates.
 - `claim_semantics.py` verifies that verified-claim wording is backed by matching semantic thresholds.
@@ -597,6 +599,7 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/figure_quality.py --fail-on-error`: passed with `{figure_quality.get('n_figures')}` figures, `{figure_quality.get('n_checks')}` image-quality checks, and `{figure_quality.get('n_issues')}` issues.
 - `python scripts/result_consistency.py --fail-on-error`: passed with `{result_consistency.get('n_checks')}` consistency checks and `{result_consistency.get('n_issues')}` issues.
 - `python scripts/raw_result_recompute.py --fail-on-error`: passed with `{raw_result_recompute.get('aggregate_metrics_compared')}` aggregate metrics, `{raw_result_recompute.get('exact_law_mae_files')}` exact-law files, `{raw_result_recompute.get('seed_metric_ci_columns')}` seed CI columns, and `{raw_result_recompute.get('n_issues')}` issues.
+- `python scripts/table_schema.py --fail-on-error`: passed with `{table_schema.get('n_tables')}` tables, `{table_schema.get('total_rows')}` rows, `{table_schema.get('n_checks')}` schema checks, and `{table_schema.get('n_issues')}` issues.
 - `python scripts/narrative_consistency.py --fail-on-error`: passed with `{narrative_consistency.get('n_checks')}` narrative checks and `{narrative_consistency.get('n_issues')}` issues.
 - `python scripts/script_contracts.py --fail-on-error`: passed with `{script_contracts.get('n_scripts')}` scripts, `{script_contracts.get('n_checks')}` contract checks, and `{script_contracts.get('n_issues')}` issues.
 - `python scripts/claim_semantics.py --fail-on-error`: passed with `{claim_semantics.get('n_claims')}` claims, `{claim_semantics.get('n_checks')}` semantic checks, `{claim_semantics.get('n_ci_claims')}` CI-backed claims, and `{claim_semantics.get('n_issues')}` issues.

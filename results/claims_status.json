@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=621, issues=0, status_counts={'ok': 621}"
+      "evidence": "refs=625, issues=0, status_counts={'ok': 625}"
     },
     {
       "id": 101,
@@ -610,25 +610,25 @@
       "id": 102,
       "claim": "Published narrative numbers match current artifacts.",
       "status": "VERIFIED",
-      "evidence": "checks=35, issues=0"
+      "evidence": "checks=36, issues=0"
     },
     {
       "id": 103,
       "claim": "Claim ledger is structurally consistent.",
       "status": "VERIFIED",
-      "evidence": "claims=109, max_id=109, checks=21, issues=0"
+      "evidence": "claims=110, max_id=110, checks=21, issues=0"
     },
     {
       "id": 104,
       "claim": "Canonical execution scripts preserve required gate contracts.",
       "status": "VERIFIED",
-      "evidence": "scripts=7, checks=57, issues=0"
+      "evidence": "scripts=7, checks=61, issues=0"
     },
     {
       "id": 105,
       "claim": "Verified claims have mapped source artifacts and quality-checked evidence.",
       "status": "VERIFIED",
-      "evidence": "claims=109, mapped=109, sources=139, issues=0"
+      "evidence": "claims=110, mapped=110, sources=141, issues=0"
     },
     {
       "id": 106,
@@ -640,7 +640,7 @@
       "id": 107,
       "claim": "Verified claim wording satisfies semantic threshold checks.",
       "status": "VERIFIED",
-      "evidence": "claims=109, checks=168, CI claims=51, positive CI claims=33, error claims=11, issues=0"
+      "evidence": "claims=110, checks=168, CI claims=51, positive CI claims=33, error claims=11, issues=0"
     },
     {
       "id": 108,
@@ -653,6 +653,12 @@
       "claim": "Publication figure artifacts pass image-quality checks.",
       "status": "VERIFIED",
       "evidence": "figures=36, expected=25, checks=8, issues=0"
+    },
+    {
+      "id": 110,
+      "claim": "Canonical CSV result tables pass schema and numeric-sanity checks.",
+      "status": "VERIFIED",
+      "evidence": "tables=215, rows=212858, numeric_columns=1959, checks=17, issues=0"
     }
   ],
   "readme_overclaims": [],
@@ -660,7 +666,7 @@
   "report_overclaims": [],
   "narrative_overclaims": [],
   "overclaims": [],
-  "num_verified": 109,
+  "num_verified": 110,
   "num_partial": 0,
   "num_unsupported": 0,
   "num_failed": 0
