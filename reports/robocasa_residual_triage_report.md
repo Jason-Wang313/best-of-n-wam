@@ -11,13 +11,13 @@
 ## Status Counts
 
 - `constructor_signature_failure`: `11`
-- `degenerate_or_failed`: `9`
 - `micro_nondegenerate_covered`: `4`
 - `not_implemented`: `1`
 - `rollout_pool_covered`: `132`
 - `timed_out`: `9`
 - `unattempted`: `228`
 - `value_error`: `2`
+- `zero_distance_no_progress`: `9`
 
 ## Unattempted By Category
 

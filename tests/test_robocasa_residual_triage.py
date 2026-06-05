@@ -35,6 +35,7 @@ def test_robocasa_residual_triage_separates_failure_modes(tmp_path: Path) -> Non
             {"env_id": "robocasa/CoveredPool", "category": "pick_place"},
             {"env_id": "robocasa/CoveredMicro", "category": "open"},
             {"env_id": "robocasa/OpenDoor", "category": "open"},
+            {"env_id": "robocasa/OpenFixture", "category": "open"},
             {"env_id": "robocasa/SlowTask", "category": "long_horizon_or_compositional"},
             {"env_id": "robocasa/UntouchedTask", "category": "cooking"},
         ],
@@ -49,6 +50,24 @@ def test_robocasa_residual_triage_separates_failure_modes(tmp_path: Path) -> Non
                 "nondegenerate": False,
                 "seconds": 0.01,
                 "error": "TypeError: ManipulateDoor.__init__() missing 1 required positional argument: 'fixture_id'",
+            }
+        ],
+    )
+    write_csv(
+        results / "tables" / "benchmark_robocasa_micro_rollout_zero_progress_probe.csv",
+        [
+            {
+                "env_id": "robocasa/OpenFixture",
+                "reset_ok": True,
+                "rollout_ok": True,
+                "nondegenerate": False,
+                "initial_distance": 0.0,
+                "mean_progress": 0.0,
+                "utility_std": 0.2,
+                "utility_min": -0.3,
+                "utility_max": -0.1,
+                "seconds": 0.02,
+                "error": "",
             }
         ],
     )
@@ -67,6 +86,7 @@ def test_robocasa_residual_triage_separates_failure_modes(tmp_path: Path) -> Non
     assert payload["status_counts"]["rollout_pool_covered"] == 1
     assert payload["status_counts"]["micro_nondegenerate_covered"] == 1
     assert payload["status_counts"]["constructor_signature_failure"] == 1
+    assert payload["status_counts"]["zero_distance_no_progress"] == 1
     assert payload["status_counts"]["timed_out"] == 1
     assert payload["status_counts"]["unattempted"] == 1
     assert payload["unattempted_by_category"] == {"cooking": 1}

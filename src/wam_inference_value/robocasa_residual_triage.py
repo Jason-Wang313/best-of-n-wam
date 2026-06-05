@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import json
+import math
 from collections import Counter
 from pathlib import Path
 from typing import Any
@@ -20,6 +21,14 @@ def _parse_bool(value: Any) -> bool:
     if isinstance(value, bool):
         return value
     return str(value).strip().lower() in {"true", "1", "yes"}
+
+
+def _parse_float(value: Any) -> float | None:
+    try:
+        parsed = float(value)
+    except (TypeError, ValueError):
+        return None
+    return parsed if math.isfinite(parsed) else None
 
 
 def _read_csv_rows(path: Path) -> list[dict[str, str]]:
@@ -79,6 +88,11 @@ def _micro_attempt_rows(root_results: Path) -> dict[str, list[dict[str, Any]]]:
                     "reset_ok": _parse_bool(row.get("reset_ok")),
                     "rollout_ok": _parse_bool(row.get("rollout_ok")),
                     "nondegenerate": _parse_bool(row.get("nondegenerate")),
+                    "initial_distance": _parse_float(row.get("initial_distance")),
+                    "mean_progress": _parse_float(row.get("mean_progress")),
+                    "utility_std": _parse_float(row.get("utility_std")),
+                    "utility_min": _parse_float(row.get("utility_min")),
+                    "utility_max": _parse_float(row.get("utility_max")),
                     "seconds": row.get("seconds"),
                     "error": str(row.get("error") or ""),
                     "error_class": _error_class(str(row.get("error") or "")),
@@ -103,6 +117,18 @@ def _micro_attempt_rows(root_results: Path) -> dict[str, list[dict[str, Any]]]:
     return attempts
 
 
+def _is_zero_distance_no_progress_attempt(row: dict[str, Any]) -> bool:
+    if not row.get("reset_ok") or not row.get("rollout_ok") or row.get("nondegenerate"):
+        return False
+    if row.get("error_class"):
+        return False
+    initial_distance = row.get("initial_distance")
+    mean_progress = row.get("mean_progress")
+    return initial_distance is not None and abs(float(initial_distance)) <= 1e-12 and (
+        mean_progress is None or abs(float(mean_progress)) <= 1e-12
+    )
+
+
 def _status_for(env_id: str, rollout_pool: set[str], micro_covered: set[str], attempts: list[dict[str, Any]]) -> tuple[str, str]:
     if env_id in rollout_pool:
         return "rollout_pool_covered", "verified rollout-pool/smoke artifact"
@@ -121,6 +147,16 @@ def _status_for(env_id: str, rollout_pool: set[str], micro_covered: set[str], at
         return "not_implemented", f"not implemented attempts={classes['not_implemented']}"
     if classes.get("value_error"):
         return "value_error", f"value errors={classes['value_error']}"
+    zero_distance = [row for row in attempts if _is_zero_distance_no_progress_attempt(row)]
+    if zero_distance:
+        utility_varied = sum(
+            int((row.get("utility_std") is not None and float(row["utility_std"]) > 0.0))
+            for row in zero_distance
+        )
+        return (
+            "zero_distance_no_progress",
+            f"reset/rollout ok but task distance and progress stayed zero attempts={len(zero_distance)}, utility_varied={utility_varied}",
+        )
     return "degenerate_or_failed", f"attempts={len(attempts)}"
 
 

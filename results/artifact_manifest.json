@@ -3,7 +3,7 @@
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_files": 450,
-  "total_bytes": 77226188,
+  "total_bytes": 77226963,
   "counts_by_suffix": {
     ".json": 140,
     ".npz": 45,
@@ -584,8 +584,8 @@
     {
       "path": "results/benchmark_robocasa_residual_triage.json",
       "suffix": ".json",
-      "bytes": 841,
-      "sha256": "538ba234e4a77bccba53931bea528bf8e86cfe0e57e18c78247661214d6cec30"
+      "bytes": 846,
+      "sha256": "85e550e89d01227841bf291fa679e9197f85a07417d68777aea2609332a67d3b"
     },
     {
       "path": "results/benchmark_robocasa_smoke.json",
@@ -993,13 +993,13 @@
       "path": "results/ideal_frontier_blocker_audit.json",
       "suffix": ".json",
       "bytes": 12669,
-      "sha256": "347068aa1aa18c62becbcaea138da2618642570e71fc00590a61815bf2e8800b"
+      "sha256": "01e3569a31c3c1287a0901629976bb12f26678c28ec7163ff286177a3cc22603"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 9759,
-      "sha256": "ac279a37ca42f2cbda99b02696cd4a11b2015526f925a4c236effdb1739a6389"
+      "bytes": 9764,
+      "sha256": "646809b2e5a1056d8313bd837bdbf04263cc49a91c940f1bcabeaf12d65ca8c3"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -2228,8 +2228,8 @@
     {
       "path": "results/tables/benchmark_robocasa_residual_triage.csv",
       "suffix": ".csv",
-      "bytes": 59480,
-      "sha256": "ca5bbdfdf8dea487e3e1e86dc0191c29cfd6dbc028c22797a7e057e26d61abab"
+      "bytes": 60245,
+      "sha256": "ed71609c73e82d4652256330c049ae3b6be284d205a0ea9e41e18bf0aa90f20c"
     },
     {
       "path": "results/tables/benchmark_robocasa_rollouts.csv",
@@ -2729,7 +2729,7 @@
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=77226188, scan=77226188"
+      "detail": "payload=77226963, scan=77226963"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
@@ -2789,7 +2789,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=77226188"
+      "detail": "bytes=77226963"
     }
   ],
   "issues": [],

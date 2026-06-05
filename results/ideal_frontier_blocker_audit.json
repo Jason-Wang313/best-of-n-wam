@@ -132,12 +132,12 @@
         {
           "path": "results/benchmark_robocasa_residual_triage.json",
           "exists": true,
-          "bytes": 841
+          "bytes": 846
         },
         {
           "path": "reports/robocasa_residual_triage_report.md",
           "exists": true,
-          "bytes": 700
+          "bytes": 705
         }
       ],
       "evidence": {

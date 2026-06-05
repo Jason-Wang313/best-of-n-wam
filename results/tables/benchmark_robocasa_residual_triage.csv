@@ -6,7 +6,7 @@ robocasa/AddSugarCubes,long_horizon_or_compositional,timed_out,timeout attempts=
 robocasa/AddSweetener,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/AddToSoupPot,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
 robocasa/AdjustHeat,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
-robocasa/AdjustToasterOvenTemperature,cooking,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_000.csv,False,False,False
+robocasa/AdjustToasterOvenTemperature,cooking,zero_distance_no_progress,"reset/rollout ok but task distance and progress stayed zero attempts=2, utility_varied=2",2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_000.csv,False,False,False
 robocasa/AdjustWaterTemperature,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/AfterwashSorting,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/AirDryFruit,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
@@ -69,8 +69,8 @@ robocasa/CloseFridge,close,rollout_pool_covered,verified rollout-pool/smoke arti
 robocasa/CloseFridgeDrawer,close,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
 robocasa/CloseMicrowave,close,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
 robocasa/CloseOven,close,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
-robocasa/CloseStandMixerHead,close,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
-robocasa/CloseToasterOvenDoor,close,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/CloseStandMixerHead,close,zero_distance_no_progress,"reset/rollout ok but task distance and progress stayed zero attempts=2, utility_varied=2",2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/CloseToasterOvenDoor,close,zero_distance_no_progress,"reset/rollout ok but task distance and progress stayed zero attempts=2, utility_varied=2",2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
 robocasa/ClusterItemsForClearing,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_012.csv,True,True,True
 robocasa/ClusterUtensilsInDrawer,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/CoffeeServeMug,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
@@ -174,7 +174,7 @@ robocasa/NutAssembly,long_horizon_or_compositional,unattempted,no committed micr
 robocasa/NutAssemblyRound,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/NutAssemblySingle,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/NutAssemblySquare,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
-robocasa/OpenBlenderLid,open,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/OpenBlenderLid,open,zero_distance_no_progress,"reset/rollout ok but task distance and progress stayed zero attempts=2, utility_varied=2",2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
 robocasa/OpenCabinet,open,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
 robocasa/OpenDishwasher,open,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
 robocasa/OpenDoor,open,constructor_signature_failure,constructor signature failures=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
@@ -185,8 +185,8 @@ robocasa/OpenFridge,open,rollout_pool_covered,verified rollout-pool/smoke artifa
 robocasa/OpenFridgeDrawer,open,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
 robocasa/OpenMicrowave,open,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
 robocasa/OpenOven,open,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
-robocasa/OpenStandMixerHead,open,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
-robocasa/OpenToasterOvenDoor,open,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/OpenStandMixerHead,open,zero_distance_no_progress,"reset/rollout ok but task distance and progress stayed zero attempts=2, utility_varied=2",2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/OpenToasterOvenDoor,open,zero_distance_no_progress,"reset/rollout ok but task distance and progress stayed zero attempts=2, utility_varied=2",2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
 robocasa/OrganizeBakingIngredients,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/OrganizeCleaningSupplies,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_025.csv,True,True,True
 robocasa/OrganizeCoffeeCondiments,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
@@ -251,7 +251,7 @@ robocasa/PortionOnSize,long_horizon_or_compositional,unattempted,no committed mi
 robocasa/PortionYogurt,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/PreRinseStation,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_028.csv,True,True,True
 robocasa/PreSoakPan,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
-robocasa/PreheatOven,cooking,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_029.csv;benchmark_robocasa_micro_rollout_stratified_probe.csv,False,False,False
+robocasa/PreheatOven,cooking,zero_distance_no_progress,"reset/rollout ok but task distance and progress stayed zero attempts=2, utility_varied=2",2,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_029.csv;benchmark_robocasa_micro_rollout_stratified_probe.csv,False,False,False
 robocasa/PreheatPot,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/PrepForSanitizing,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/PrepForTenderizing,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
@@ -330,8 +330,8 @@ robocasa/ShakePan,long_horizon_or_compositional,unattempted,no committed micro o
 robocasa/SimmeringSauce,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/SizeSorting,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/SlideDishwasherRack,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
-robocasa/SlideOvenRack,cooking,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_033.csv;benchmark_robocasa_micro_rollout_stratified_probe.csv,False,False,False
-robocasa/SlideToasterOvenRack,cooking,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_034.csv;benchmark_robocasa_micro_rollout_stratified_probe.csv,False,False,False
+robocasa/SlideOvenRack,cooking,zero_distance_no_progress,"reset/rollout ok but task distance and progress stayed zero attempts=2, utility_varied=2",2,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_033.csv;benchmark_robocasa_micro_rollout_stratified_probe.csv,False,False,False
+robocasa/SlideToasterOvenRack,cooking,zero_distance_no_progress,"reset/rollout ok but task distance and progress stayed zero attempts=2, utility_varied=2",2,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_034.csv;benchmark_robocasa_micro_rollout_stratified_probe.csv,False,False,False
 robocasa/SnackSorting,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/SoakSponge,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/SortBreakfastIngredients,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False

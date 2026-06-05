@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 246,
-  "total_bytes": 1810072,
+  "total_bytes": 1812349,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 229,
@@ -1047,8 +1047,8 @@
     {
       "path": "src/wam_inference_value/robocasa_residual_triage.py",
       "suffix": ".py",
-      "bytes": 9664,
-      "sha256": "ff340eb23b47dd0d91815ea3dbebc572a1e5a26fef9fae8125e0b4faa1dd3872"
+      "bytes": 11233,
+      "sha256": "71ac026a4411b94f4821d5ce58298cf12877bde759ddf6dba4ddf8543d2b1f08"
     },
     {
       "path": "src/wam_inference_value/rollouts.py",
@@ -1419,8 +1419,8 @@
     {
       "path": "tests/test_robocasa_residual_triage.py",
       "suffix": ".py",
-      "bytes": 2663,
-      "sha256": "5234ef663d203b459b6a88fd81f085df560ffe8384a224cc3ff428e379c3ca37"
+      "bytes": 3371,
+      "sha256": "557c6891ae3da940ad43736339d445f322e8e787e47ecca2befd7e914c071d14"
     },
     {
       "path": "tests/test_robosuite_adapter.py",
@@ -1518,7 +1518,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1810072, scan=1810072"
+      "detail": "payload=1812349, scan=1812349"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1563,7 +1563,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1810072"
+      "detail": "bytes=1812349"
     },
     {
       "name": "source_manifest_dir_coverage",
