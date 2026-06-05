@@ -2,13 +2,13 @@
   "experiment": "artifact_manifest",
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_files": 438,
-  "total_bytes": 73714122,
+  "n_files": 441,
+  "total_bytes": 77191778,
   "counts_by_suffix": {
-    ".json": 132,
-    ".npz": 44,
+    ".json": 133,
+    ".npz": 45,
     ".png": 36,
-    ".csv": 226
+    ".csv": 227
   },
   "records": [
     {
@@ -70,6 +70,12 @@
       "suffix": ".json",
       "bytes": 2430,
       "sha256": "1c9827cc5a6394d25f0063de841d92254e79d43a6d74f612f687548320c74405"
+    },
+    {
+      "path": "results/benchmark_libero_tiny_neural_rbf_vla_policy.json",
+      "suffix": ".json",
+      "bytes": 2521,
+      "sha256": "b44c5700be09c2f4035060cd9d5c741eb17369f88dc43fb3710f38c9f3c28525"
     },
     {
       "path": "results/benchmark_libero_tiny_neural_vla_attempt.json",
@@ -968,14 +974,14 @@
     {
       "path": "results/ideal_frontier_blocker_audit.json",
       "suffix": ".json",
-      "bytes": 11207,
-      "sha256": "58e3133b333be95dcb0667015a3c7a032ec8efbb1053a23cd9b99feae319e980"
+      "bytes": 11122,
+      "sha256": "77f51440d3a6695ea0ddb588e44843870c66fb5188cc9104ddc6b39a2a16cec5"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 8849,
-      "sha256": "e5da7425376d57594db222dc507176c0953e205dd495041cea2627d5b658df3c"
+      "bytes": 8790,
+      "sha256": "f679c9dd09931f95a066ff7c588cab3293d2fdf83fd9e54394d95106d0eebbd1"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -1042,6 +1048,12 @@
       "suffix": ".npz",
       "bytes": 6648479,
       "sha256": "625108d13883e6e61b7a1bce7bdc62360b968a5d38f1f17940b92b9bf92342c9"
+    },
+    {
+      "path": "results/models/benchmark_libero_tiny_neural_rbf_vla_policy.npz",
+      "suffix": ".npz",
+      "bytes": 3473995,
+      "sha256": "efaccfa0037d79b0554be2f14b60d47d41b2cb3f90877b475e093de1b4cbf820"
     },
     {
       "path": "results/models/benchmark_libero_tiny_neural_vla_policy.npz",
@@ -1402,6 +1414,12 @@
       "suffix": ".csv",
       "bytes": 1502,
       "sha256": "9e2eb3b6a023348c56e14365d01daabf41f55e0723c13eaa7f806b13fab7b2e2"
+    },
+    {
+      "path": "results/tables/benchmark_libero_tiny_neural_rbf_vla_policy_episodes.csv",
+      "suffix": ".csv",
+      "bytes": 1284,
+      "sha256": "48f78f7cb3614e9f82444237014ed64b476037c09e964eed2e30e743e6d352dd"
     },
     {
       "path": "results/tables/benchmark_libero_tiny_neural_vla_policy_episodes.csv",
@@ -2647,22 +2665,22 @@
     {
       "name": "manifest_records_present",
       "ok": true,
-      "detail": "records=438"
+      "detail": "records=441"
     },
     {
       "name": "manifest_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=438, scan=438"
+      "detail": "payload=441, scan=441"
     },
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=73714122, scan=73714122"
+      "detail": "payload=77191778, scan=77191778"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
       "ok": true,
-      "detail": "payload={'.json': 132, '.npz': 44, '.png': 36, '.csv': 226}, scan={'.json': 132, '.npz': 44, '.png': 36, '.csv': 226}"
+      "detail": "payload={'.json': 133, '.npz': 45, '.png': 36, '.csv': 227}, scan={'.json': 133, '.npz': 45, '.png': 36, '.csv': 227}"
     },
     {
       "name": "manifest_has_no_missing_current_artifacts",
@@ -2692,22 +2710,22 @@
     {
       "name": "manifest_scientific_artifact_file_count",
       "ok": true,
-      "detail": "files=438"
+      "detail": "files=441"
     },
     {
       "name": "manifest_table_count",
       "ok": true,
-      "detail": "csv=226"
+      "detail": "csv=227"
     },
     {
       "name": "manifest_json_count",
       "ok": true,
-      "detail": "json=132"
+      "detail": "json=133"
     },
     {
       "name": "manifest_model_count",
       "ok": true,
-      "detail": "npz=44"
+      "detail": "npz=45"
     },
     {
       "name": "manifest_figure_count",
@@ -2717,7 +2735,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=73714122"
+      "detail": "bytes=77191778"
     }
   ],
   "issues": [],

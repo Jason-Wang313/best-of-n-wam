@@ -1,0 +1,81 @@
+{
+  "experiment": "benchmark_libero_visual_language_bc_policy",
+  "available": true,
+  "attempted": true,
+  "verified": true,
+  "output_tag": "tiny_neural_rbf_vla_policy",
+  "tasks": [
+    "libero_object/0"
+  ],
+  "train_seeds": [
+    100,
+    101,
+    102,
+    103,
+    104
+  ],
+  "eval_seeds": [
+    200
+  ],
+  "train_episodes": 5,
+  "train_successes": 5,
+  "train_examples": 1265,
+  "heldout_eval": true,
+  "train_eval_seed_overlap": [],
+  "distill_episodes": 0,
+  "distill_successes": 0,
+  "distill_success_rate": null,
+  "distill_examples": 0,
+  "eval_episodes": 1,
+  "eval_successes": 1,
+  "eval_success_rate": 1.0,
+  "confidence_intervals": {
+    "eval_success_rate": {
+      "n": 1,
+      "mean": 1.0,
+      "lo": 1.0,
+      "hi": 1.0,
+      "std": 0.0
+    }
+  },
+  "model_fit_metrics": {
+    "action_mae": 0.0010021146947295952,
+    "action_rmse": 0.01671226207608292,
+    "action_max_abs_error": 0.4331228918824914
+  },
+  "policy": {
+    "type": "rbf_neural_vla_behavior_cloning",
+    "is_neural": true,
+    "is_short_neural_smoke": true,
+    "pretrained_vla": false,
+    "vla_scale_parameters": 846286,
+    "uses_rgb": true,
+    "uses_language": true,
+    "uses_robot_proprio": true,
+    "uses_simulator_object_state": false,
+    "uses_task_id": false,
+    "uses_phase_index": false,
+    "uses_target_point_command": false,
+    "uses_previous_action": true,
+    "uses_step_clock": true,
+    "uses_language_candidate_filter": false,
+    "distilled_from_teacher": false,
+    "teacher_used_only_for_training": false,
+    "image_grid": 8,
+    "language_hash_dim": 64,
+    "neural_hidden_dim": null,
+    "neural_epochs": null,
+    "neural_final_train_loss": null,
+    "rbf_temperature": 0.05,
+    "knn_k": null,
+    "knn_temperature": null
+  },
+  "object_grasp_tuning": true,
+  "model_path": "results\\models\\benchmark_libero_tiny_neural_rbf_vla_policy.npz",
+  "artifact_paths": {
+    "json": "results/benchmark_libero_tiny_neural_rbf_vla_policy.json",
+    "episodes_csv": "results/tables/benchmark_libero_tiny_neural_rbf_vla_policy_episodes.csv",
+    "report": "reports/libero_tiny_neural_rbf_vla_policy_report.md"
+  },
+  "note": "RBF-network RGB/proprio/language time-conditioned BC policy with neural basis activations over learned centers; no simulator object state, task IDs, phase labels, target-point commands, or language-candidate retrieval. This is neural model-class smoke evidence, not VLA-scale or pretrained evidence."
+}

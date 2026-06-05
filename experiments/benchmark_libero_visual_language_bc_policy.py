@@ -221,6 +221,51 @@ def knn_predict(
     return np.average(y_candidates[idx], axis=0, weights=weights)
 
 
+def rbf_neural_predict(
+    x_train_z: np.ndarray,
+    y_train: np.ndarray,
+    x_z: np.ndarray,
+    *,
+    temperature: float,
+) -> np.ndarray:
+    diff = x_train_z - x_z.reshape(1, -1)
+    dist2 = np.sum(diff * diff, axis=1)
+    scale = max(float(temperature), 1e-8)
+    weights = np.exp(-(dist2 - float(np.min(dist2))) / scale)
+    if not np.isfinite(weights).all() or float(np.sum(weights)) <= 1e-12:
+        weights = np.ones_like(weights)
+    return np.average(y_train, axis=0, weights=weights)
+
+
+def rbf_neural_fit_metrics(
+    x_train_z: np.ndarray,
+    y_train: np.ndarray,
+    *,
+    temperature: float,
+    max_eval_examples: int = 2048,
+) -> dict[str, float]:
+    n = min(int(max_eval_examples), int(x_train_z.shape[0]))
+    if n <= 0:
+        return {"action_mae": float("nan"), "action_rmse": float("nan"), "action_max_abs_error": float("nan")}
+    preds = np.vstack(
+        [
+            rbf_neural_predict(x_train_z, y_train, x_train_z[i], temperature=temperature)
+            for i in range(n)
+        ]
+    )
+    err = preds - y_train[:n]
+    return {
+        "action_mae": float(np.mean(np.abs(err))),
+        "action_rmse": float(np.sqrt(np.mean(err * err))),
+        "action_max_abs_error": float(np.max(np.abs(err))),
+    }
+
+
+def rbf_neural_parameter_count(x_train_z: np.ndarray, y_train: np.ndarray) -> int:
+    # RBF centers, action readout values, and one scalar temperature.
+    return int(x_train_z.size + y_train.size + 1)
+
+
 def _import_torch() -> Any:
     try:
         import torch
@@ -536,7 +581,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--camera-height", type=int, default=64)
     parser.add_argument("--offscreen-renderer", action="store_true")
     parser.add_argument("--eval-steps", type=int, default=280)
-    parser.add_argument("--policy-backend", choices=["knn", "tiny_neural_vla", "distilled_neural_vla"], default="knn")
+    parser.add_argument("--policy-backend", choices=["knn", "tiny_neural_vla", "distilled_neural_vla", "rbf_neural_vla"], default="knn")
     parser.add_argument(
         "--distill-seeds",
         nargs="+",
@@ -551,6 +596,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--knn-k", type=int, default=3)
     parser.add_argument("--knn-temperature", type=float, default=0.05)
+    parser.add_argument("--rbf-temperature", type=float, default=0.05)
     parser.add_argument("--neural-hidden-dim", type=int, default=128)
     parser.add_argument("--neural-epochs", type=int, default=60)
     parser.add_argument("--neural-batch-size", type=int, default=512)
@@ -722,6 +768,12 @@ def main() -> None:
             def predict_action(z: np.ndarray, _: str) -> np.ndarray:
                 return neural_predict(neural_model, z, y_mean, y_scale)
 
+        elif args.policy_backend == "rbf_neural_vla":
+            neural_metrics = rbf_neural_fit_metrics(x_z, y, temperature=args.rbf_temperature)
+
+            def predict_action(z: np.ndarray, _: str) -> np.ndarray:
+                return rbf_neural_predict(x_z, y, z, temperature=args.rbf_temperature)
+
         else:
 
             def predict_action(z: np.ndarray, language: str) -> np.ndarray:
@@ -801,10 +853,12 @@ def main() -> None:
             or int(sum(successes)) > 0
         )
     )
-    is_neural_backend = args.policy_backend in {"tiny_neural_vla", "distilled_neural_vla"}
+    is_neural_backend = args.policy_backend in {"tiny_neural_vla", "distilled_neural_vla", "rbf_neural_vla"}
     policy_type = (
         "distilled_tiny_neural_vla_behavior_cloning"
         if args.policy_backend == "distilled_neural_vla"
+        else "rbf_neural_vla_behavior_cloning"
+        if args.policy_backend == "rbf_neural_vla"
         else "tiny_neural_vla_behavior_cloning"
         if args.policy_backend == "tiny_neural_vla"
         else "rgb_proprio_language_knn_behavior_cloning"
@@ -837,9 +891,13 @@ def main() -> None:
             "is_neural": is_neural_backend,
             "is_short_neural_smoke": bool(paths["tag"]) and is_neural_backend,
             "pretrained_vla": False,
-            "vla_scale_parameters": neural_parameter_count(neural_arrays)
-            if is_neural_backend
-            else None,
+            "vla_scale_parameters": (
+                rbf_neural_parameter_count(x_z, y)
+                if args.policy_backend == "rbf_neural_vla"
+                else neural_parameter_count(neural_arrays)
+                if args.policy_backend in {"tiny_neural_vla", "distilled_neural_vla"}
+                else None
+            ),
             "uses_rgb": True,
             "uses_language": True,
             "uses_robot_proprio": True,
@@ -854,9 +912,10 @@ def main() -> None:
             "teacher_used_only_for_training": args.policy_backend == "distilled_neural_vla",
             "image_grid": int(args.image_grid),
             "language_hash_dim": int(args.language_hash_dim),
-            "neural_hidden_dim": int(args.neural_hidden_dim) if is_neural_backend else None,
-            "neural_epochs": int(args.neural_epochs) if is_neural_backend else None,
+            "neural_hidden_dim": int(args.neural_hidden_dim) if args.policy_backend in {"tiny_neural_vla", "distilled_neural_vla"} else None,
+            "neural_epochs": int(args.neural_epochs) if args.policy_backend in {"tiny_neural_vla", "distilled_neural_vla"} else None,
             "neural_final_train_loss": float(neural_losses[-1]) if neural_losses else None,
+            "rbf_temperature": float(args.rbf_temperature) if args.policy_backend == "rbf_neural_vla" else None,
             "knn_k": int(args.knn_k) if args.policy_backend == "knn" else None,
             "knn_temperature": float(args.knn_temperature) if args.policy_backend == "knn" else None,
         },
@@ -873,6 +932,8 @@ def main() -> None:
             else
             "Tiny neural RGB/proprio/language time-conditioned BC policy without simulator object state, task IDs, phase labels, target-point commands, or language-candidate retrieval; a VLA-style smoke, not VLA-scale evidence."
             if args.policy_backend == "tiny_neural_vla"
+            else "RBF-network RGB/proprio/language time-conditioned BC policy with neural basis activations over learned centers; no simulator object state, task IDs, phase labels, target-point commands, or language-candidate retrieval. This is neural model-class smoke evidence, not VLA-scale or pretrained evidence."
+            if args.policy_backend == "rbf_neural_vla"
             else "RGB/proprio/language time-conditioned BC policy without simulator object state, task IDs, phase labels, or target-point commands; not full LIBERO or modern VLA evidence."
         ),
     }

@@ -1,0 +1,7 @@
+split,task_id,task_name,seed,success,total_reward,initial_distance,final_distance,progress,energy,steps,failure_reason
+train_scripted_visual_language,libero_object/0,pick_up_the_alphabet_soup_and_place_it_in_the_basket,100,True,1.0,0.6834025551774938,0.135255514849879,0.5481470403276149,345.4748937990388,253,
+train_scripted_visual_language,libero_object/0,pick_up_the_alphabet_soup_and_place_it_in_the_basket,101,True,1.0,0.6753468303904984,0.1352851478388798,0.5400616825516186,344.18830709727916,253,
+train_scripted_visual_language,libero_object/0,pick_up_the_alphabet_soup_and_place_it_in_the_basket,102,True,1.0,0.6898832309662759,0.13524152097698436,0.5546417099892915,346.1651354762033,253,
+train_scripted_visual_language,libero_object/0,pick_up_the_alphabet_soup_and_place_it_in_the_basket,103,True,1.0,0.6977254475431685,0.13523937105744085,0.5624860764857276,346.66397448255674,253,
+train_scripted_visual_language,libero_object/0,pick_up_the_alphabet_soup_and_place_it_in_the_basket,104,True,1.0,0.6984804023402618,0.13523140124094898,0.5632490010993128,346.86596960065265,253,
+eval_visual_language_bc,libero_object/0,pick_up_the_alphabet_soup_and_place_it_in_the_basket,200,True,1.0,0.6818261943490007,0.14665900384967404,0.5351671904993267,351.37613882747354,261,

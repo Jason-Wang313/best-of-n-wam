@@ -38,7 +38,6 @@
       "blocker_class": "modern_vla_runtime_or_checkpoint_absent",
       "ready_to_promote": false,
       "missing_signals": [
-        "neural_visual_language_model_class",
         "modern_vla_scale_or_pretrained_model"
       ],
       "next_action": "Run a pretrained or VLA-scale neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs.",
@@ -239,12 +238,12 @@
     {
       "name": "modern_vla_libero_has_missing_signals",
       "ok": true,
-      "detail": "missing=['neural_visual_language_model_class', 'modern_vla_scale_or_pretrained_model']"
+      "detail": "missing=['modern_vla_scale_or_pretrained_model']"
     },
     {
       "name": "modern_vla_libero_missing_signal_details_present",
       "ok": true,
-      "detail": "detail_count=2, missing_count=2"
+      "detail": "detail_count=1, missing_count=1"
     },
     {
       "name": "modern_vla_libero_next_action_present",

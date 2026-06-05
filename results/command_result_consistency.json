@@ -5,7 +5,7 @@
   "n_python_command_lines": 31,
   "n_checks": 31,
   "n_issues": 0,
-  "expected_pytest_passed": 176,
+  "expected_pytest_passed": 177,
   "checks": [
     {
       "name": "command_section_present",
@@ -15,22 +15,22 @@
     {
       "name": "pytest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python -m pytest -q`: passed with `176 passed`"
+      "detail": "expected=`python -m pytest -q`: passed with `177 passed`"
     },
     {
       "name": "test_inventory_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/test_inventory.py --fail-on-error`: passed with `176` collected tests, `6` inventory checks, and `0` issues"
+      "detail": "expected=`python scripts/test_inventory.py --fail-on-error`: passed with `177` collected tests, `6` inventory checks, and `0` issues"
     },
     {
       "name": "artifact_integrity_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/artifact_integrity.py --fail-on-error`: passed with `723` artifact references checked and `0` issues"
+      "detail": "expected=`python scripts/artifact_integrity.py --fail-on-error`: passed with `724` artifact references checked and `0` issues"
     },
     {
       "name": "artifact_manifest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/artifact_manifest.py --fail-on-error`: passed with `438` scientific artifacts, `73714122` bytes, `15` manifest checks, and `0` issues"
+      "detail": "expected=`python scripts/artifact_manifest.py --fail-on-error`: passed with `441` scientific artifacts, `77191778` bytes, `15` manifest checks, and `0` issues"
     },
     {
       "name": "figure_quality_snippet_matches_artifact",
@@ -50,12 +50,12 @@
     {
       "name": "table_schema_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/table_schema.py --fail-on-error`: passed with `226` tables, `213292` rows, `17` schema checks, and `0` issues"
+      "detail": "expected=`python scripts/table_schema.py --fail-on-error`: passed with `227` tables, `213298` rows, `17` schema checks, and `0` issues"
     },
     {
       "name": "source_manifest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `239` source files, `1699699` bytes, `14` source-manifest checks, and `0` issues"
+      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `239` source files, `1705109` bytes, `14` source-manifest checks, and `0` issues"
     },
     {
       "name": "runtime_environment_snippet_matches_artifact",
@@ -65,12 +65,12 @@
     {
       "name": "experiment_registry_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/experiment_registry.py --fail-on-error`: passed with `57` experiment-family entries, `69` wrapper links, `298` table artifacts, `40` figures, `10` registry checks, and `0` issues"
+      "detail": "expected=`python scripts/experiment_registry.py --fail-on-error`: passed with `57` experiment-family entries, `69` wrapper links, `309` table artifacts, `40` figures, `10` registry checks, and `0` issues"
     },
     {
       "name": "model_artifact_integrity_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/model_artifact_integrity.py --fail-on-error`: passed with `52` model artifacts, `387` NPZ arrays, `13` joblib predictors, `10` model-artifact checks, and `0` issues"
+      "detail": "expected=`python scripts/model_artifact_integrity.py --fail-on-error`: passed with `53` model artifacts, `398` NPZ arrays, `13` joblib predictors, `10` model-artifact checks, and `0` issues"
     },
     {
       "name": "narrative_consistency_snippet_matches_artifact",

@@ -25,7 +25,7 @@ This report is blocker evidence, not validation evidence for the ideal endpoints
 
 - blocker class: `modern_vla_runtime_or_checkpoint_absent`
 - ready to promote: `False`
-- missing signals: `['neural_visual_language_model_class', 'modern_vla_scale_or_pretrained_model']`
+- missing signals: `['modern_vla_scale_or_pretrained_model']`
 - next action: Run a pretrained or VLA-scale neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs.
 
 ### Evidence

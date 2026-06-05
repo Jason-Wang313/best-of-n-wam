@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 239,
-  "total_bytes": 1699699,
+  "total_bytes": 1705109,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 222,
@@ -117,8 +117,8 @@
     {
       "path": "experiments/benchmark_libero_visual_language_bc_policy.py",
       "suffix": ".py",
-      "bytes": 40391,
-      "sha256": "2e34668ce3a4391e59f23b2551ae800b62b4682bfe267e9ff965c6660ff13e72"
+      "bytes": 43145,
+      "sha256": "527df54c8949c3afbf10340a82a0ddc530ee18035f039c54d94d3a453dd2ac10"
     },
     {
       "path": "experiments/benchmark_libero_wam.py",
@@ -1269,8 +1269,8 @@
     {
       "path": "tests/test_ideal_frontier_readiness.py",
       "suffix": ".py",
-      "bytes": 23506,
-      "sha256": "0e8cb5fa82cdec0bf0f7baa84f4ac3b8a9271ba155df1b985f23f40f6ab7909d"
+      "bytes": 26162,
+      "sha256": "2e3a702cb833d9c1d0fbfa8efedd243c6113060a383e54acacf837cd87d85762"
     },
     {
       "path": "tests/test_learned_wam.py",
@@ -1476,7 +1476,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1699699, scan=1699699"
+      "detail": "payload=1705109, scan=1705109"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1521,7 +1521,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1699699"
+      "detail": "bytes=1705109"
     },
     {
       "name": "source_manifest_dir_coverage",

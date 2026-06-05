@@ -2,15 +2,15 @@
   "experiment": "model_artifact_integrity",
   "verified": true,
   "models_dir": "C:\\Users\\wangz\\best-of-n-wam\\results\\models",
-  "n_models": 52,
+  "n_models": 53,
   "counts_by_suffix": {
-    ".npz": 39,
+    ".npz": 40,
     ".joblib": 13
   },
-  "total_bytes": 136572684,
-  "n_npz_arrays": 387,
-  "n_npz_numeric_arrays": 309,
-  "n_npz_elements": 10302259,
+  "total_bytes": 140046679,
+  "n_npz_arrays": 398,
+  "n_npz_numeric_arrays": 317,
+  "n_npz_elements": 11151803,
   "n_joblib_predictors": 13,
   "n_checks": 10,
   "n_issues": 0,
@@ -18,12 +18,12 @@
     {
       "name": "model_artifacts_present",
       "ok": true,
-      "detail": "models=52"
+      "detail": "models=53"
     },
     {
       "name": "model_artifact_npz_breadth",
       "ok": true,
-      "detail": "npz=39"
+      "detail": "npz=40"
     },
     {
       "name": "model_artifact_joblib_breadth",
@@ -33,7 +33,7 @@
     {
       "name": "model_artifact_total_bytes",
       "ok": true,
-      "detail": "bytes=136572684"
+      "detail": "bytes=140046679"
     },
     {
       "name": "model_artifacts_load",
@@ -1186,6 +1186,149 @@
           "all_finite": true,
           "min": -0.03418884798884392,
           "max": 0.023186150938272476
+        }
+      ]
+    },
+    {
+      "path": "results/models/benchmark_libero_tiny_neural_rbf_vla_policy.npz",
+      "suffix": ".npz",
+      "bytes": 3473995,
+      "sha256": "efaccfa0037d79b0554be2f14b60d47d41b2cb3f90877b475e093de1b4cbf820",
+      "load_ok": true,
+      "loader": "numpy.load",
+      "n_arrays": 11,
+      "total_elements": 849544,
+      "numeric_arrays": 8,
+      "all_finite": true,
+      "arrays": [
+        {
+          "name": "x_train",
+          "shape": [
+            1265,
+            662
+          ],
+          "dtype": "float32",
+          "size": 837430,
+          "numeric": true,
+          "finite_count": 837430,
+          "all_finite": true,
+          "min": -2.4445974826812744,
+          "max": 2.6573009490966797
+        },
+        {
+          "name": "y_train",
+          "shape": [
+            1265,
+            7
+          ],
+          "dtype": "float32",
+          "size": 8855,
+          "numeric": true,
+          "finite_count": 8855,
+          "all_finite": true,
+          "min": -1.0,
+          "max": 1.0
+        },
+        {
+          "name": "mean",
+          "shape": [
+            662
+          ],
+          "dtype": "float32",
+          "size": 662,
+          "numeric": true,
+          "finite_count": 662,
+          "all_finite": true,
+          "min": -2.063793182373047,
+          "max": 2.275888442993164
+        },
+        {
+          "name": "scale",
+          "shape": [
+            662
+          ],
+          "dtype": "float32",
+          "size": 662,
+          "numeric": true,
+          "finite_count": 662,
+          "all_finite": true,
+          "min": 7.704590643697884e-06,
+          "max": 1.0
+        },
+        {
+          "name": "feature_weights",
+          "shape": [
+            662
+          ],
+          "dtype": "float32",
+          "size": 662,
+          "numeric": true,
+          "finite_count": 662,
+          "all_finite": true,
+          "min": 0.44999998807907104,
+          "max": 2.5
+        },
+        {
+          "name": "train_languages",
+          "shape": [
+            1265
+          ],
+          "dtype": "object",
+          "size": 1265,
+          "numeric": false
+        },
+        {
+          "name": "task_ids",
+          "shape": [
+            1
+          ],
+          "dtype": "object",
+          "size": 1,
+          "numeric": false
+        },
+        {
+          "name": "train_seeds",
+          "shape": [
+            5
+          ],
+          "dtype": "int32",
+          "size": 5,
+          "numeric": true,
+          "finite_count": 5,
+          "all_finite": true,
+          "min": 100.0,
+          "max": 104.0
+        },
+        {
+          "name": "distill_seeds",
+          "shape": [
+            0
+          ],
+          "dtype": "int32",
+          "size": 0,
+          "numeric": true,
+          "finite_count": 0,
+          "all_finite": true
+        },
+        {
+          "name": "eval_seeds",
+          "shape": [
+            1
+          ],
+          "dtype": "int32",
+          "size": 1,
+          "numeric": true,
+          "finite_count": 1,
+          "all_finite": true,
+          "min": 200.0,
+          "max": 200.0
+        },
+        {
+          "name": "policy_backend",
+          "shape": [],
+          "dtype": "<U14",
+          "size": 1,
+          "numeric": false
         }
       ]
     },

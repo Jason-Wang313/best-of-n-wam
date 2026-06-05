@@ -16,8 +16,8 @@
   "n_failed_records": 0,
   "failed_records": [],
   "n_wrapper_links": 69,
-  "n_table_artifacts": 298,
-  "n_table_rows": 260531,
+  "n_table_artifacts": 309,
+  "n_table_rows": 260972,
   "n_figure_artifacts": 40,
   "n_checks": 10,
   "n_issues": 0,
@@ -45,12 +45,12 @@
     {
       "name": "experiment_registry_table_coverage",
       "ok": true,
-      "detail": "tables=298"
+      "detail": "tables=309"
     },
     {
       "name": "experiment_registry_table_row_coverage",
       "ok": true,
-      "detail": "rows=260531"
+      "detail": "rows=260972"
     },
     {
       "name": "experiment_registry_figure_coverage",
@@ -1089,7 +1089,11 @@
         },
         {
           "path": "results/tables/benchmark_maniskill_visual_probe.csv",
-          "rows": 13
+          "rows": 16
+        },
+        {
+          "path": "results/tables/benchmark_maniskill_visual_probe_cpu_render_quick.csv",
+          "rows": 1
         }
       ],
       "figures": [
@@ -1248,7 +1252,7 @@
       "tables": [
         {
           "path": "results/tables/benchmark_maniskill_visual_probe.csv",
-          "rows": 13
+          "rows": 16
         }
       ],
       "figures": [],
@@ -1462,7 +1466,7 @@
         },
         {
           "path": "results/tables/benchmark_robocasa_catalog_artifact_coverage.csv",
-          "rows": 18
+          "rows": 21
         },
         {
           "path": "results/tables/benchmark_robocasa_catalog_registry.csv",
@@ -1619,6 +1623,14 @@
         {
           "path": "results/tables/benchmark_robocasa_learned_train_validation.csv",
           "rows": 112
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_atomic_gap_probe_002.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_micro_rollout_atomic_task_distance_probe.csv",
+          "rows": 2
         },
         {
           "path": "results/tables/benchmark_robocasa_micro_rollout_extra.csv",
@@ -1849,8 +1861,28 @@
           "rows": 280
         },
         {
+          "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_atomic_gap_probe_chunks.csv",
+          "rows": 4
+        },
+        {
           "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_chunks.csv",
           "rows": 43
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe_chunks.csv",
+          "rows": 2
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_quick_close_chunks.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_quick_gap_chunks.csv",
+          "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual_triage.csv",
+          "rows": 396
         },
         {
           "path": "results/tables/benchmark_robocasa_rollouts.csv",
@@ -2465,7 +2497,7 @@
       "tables": [
         {
           "path": "results/tables/benchmark_robocasa_catalog_artifact_coverage.csv",
-          "rows": 18
+          "rows": 21
         },
         {
           "path": "results/tables/benchmark_robocasa_catalog_registry.csv",
@@ -2522,8 +2554,20 @@
           "rows": 15
         },
         {
+          "path": "results/tables/benchmark_libero_tiny_neural_eval101_probe_episodes.csv",
+          "rows": 3
+        },
+        {
+          "path": "results/tables/benchmark_libero_tiny_neural_eval200_probe_episodes.csv",
+          "rows": 7
+        },
+        {
+          "path": "results/tables/benchmark_libero_tiny_neural_rbf_vla_policy_episodes.csv",
+          "rows": 6
+        },
+        {
           "path": "results/tables/benchmark_libero_tiny_neural_vla_policy_episodes.csv",
-          "rows": 2
+          "rows": 7
         },
         {
           "path": "results/tables/benchmark_libero_train_validation.csv",
