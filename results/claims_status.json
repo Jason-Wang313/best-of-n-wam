@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=728, issues=0, status_counts={'ok': 728}"
+      "evidence": "refs=729, issues=0, status_counts={'ok': 729}"
     },
     {
       "id": 101,
@@ -646,7 +646,7 @@
       "id": 108,
       "claim": "Scientific result artifacts have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=445, bytes=77217963, suffixes={'.json': 136, '.npz': 45, '.png': 36, '.csv': 228}, issues=0"
+      "evidence": "files=446, bytes=77222641, suffixes={'.json': 137, '.npz': 45, '.png': 36, '.csv': 228}, issues=0"
     },
     {
       "id": 109,
@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=246, bytes=1793628, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 52, 'src': 69, 'tests': 63}, checks=14, issues=0"
+      "evidence": "files=246, bytes=1805886, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 52, 'src': 69, 'tests': 63}, checks=14, issues=0"
     },
     {
       "id": 112,
@@ -688,13 +688,13 @@
       "id": 115,
       "claim": "Published final-report command results match current verification artifacts.",
       "status": "VERIFIED",
-      "evidence": "snippets=28, python_commands=31, pytest=188, checks=31, issues=0"
+      "evidence": "snippets=28, python_commands=31, pytest=191, checks=31, issues=0"
     },
     {
       "id": 116,
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
       "status": "VERIFIED",
-      "evidence": "tests=188, unique=188, trailer=188, checks=6, issues=0"
+      "evidence": "tests=191, unique=191, trailer=191, checks=6, issues=0"
     },
     {
       "id": 117,
@@ -724,7 +724,7 @@
       "id": 121,
       "claim": "Claim evidence artifacts and published artifact references are repository-bound.",
       "status": "VERIFIED",
-      "evidence": "records=903, claim_sources=175, artifact_refs=728, outside=0, absent=0, traversal=0, issues=0"
+      "evidence": "records=904, claim_sources=175, artifact_refs=729, outside=0, absent=0, traversal=0, issues=0"
     },
     {
       "id": 122,

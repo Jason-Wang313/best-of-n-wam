@@ -1,0 +1,93 @@
+{
+  "experiment": "modern_vla_libero_policy_eval",
+  "attempted": true,
+  "verified": false,
+  "heldout_libero_policy_eval": false,
+  "scope": "heldout sparse-success pretrained SmolVLA policy execution on LIBERO",
+  "model_id": "HuggingFaceVLA/smolvla_libero",
+  "runtime_python": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\libero310\\Scripts\\python.exe",
+  "libero_source": "C:\\Users\\wangz\\external_benchmarks\\LIBERO",
+  "libero_config": "C:\\Users\\wangz\\external_benchmarks\\.libero",
+  "suite": "libero_object",
+  "task_index": 0,
+  "horizon": 5,
+  "max_steps": 5,
+  "eval_seeds": [],
+  "requested_eval_seeds": [
+    300
+  ],
+  "n_eval_seeds": 0,
+  "eval_episodes": 0,
+  "eval_successes": 0,
+  "eval_success_rate": null,
+  "success_ci": {
+    "n": 0,
+    "mean": null,
+    "lo": null,
+    "hi": null
+  },
+  "confidence_intervals": {
+    "eval_success_rate": {
+      "n": 0,
+      "mean": null,
+      "lo": null,
+      "hi": null
+    }
+  },
+  "policy_loaded": false,
+  "parameter_count": null,
+  "processor_stats_loaded": null,
+  "action_selected": false,
+  "libero_steps_succeeded": false,
+  "input_feature_keys": null,
+  "raw_action_head": null,
+  "mapped_action": null,
+  "episodes": [],
+  "failure_stage": "process_crash",
+  "error_type": "WindowsAccessViolation",
+  "error": "[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n[Warning]: datasets path C:\\Users\\wangz\\external_benchmarks\\LIBERO\\libero\\libero\\../datasets does not exist!\nLoading  HuggingFaceTB/SmolVLM2-500M-Instruct weights ...\n",
+  "trace_tail": null,
+  "child_returncode": 3221225477,
+  "stdout_tail": [
+    "[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]",
+    "[Warning]: datasets path C:\\Users\\wangz\\external_benchmarks\\LIBERO\\libero\\libero\\../datasets does not exist!",
+    "Loading  HuggingFaceTB/SmolVLM2-500M-Instruct weights ..."
+  ],
+  "stderr_tail": [
+    "Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.",
+    "Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.",
+    "See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.",
+    "WARNING:root:No accelerated backend detected. Using default cpu, this will be slow.",
+    "WARNING:root:Device 'cuda' is not available. Switching to 'cpu'.",
+    "WARNING:root:No accelerated backend detected. Using default cpu, this will be slow.",
+    "WARNING:root:Device 'cuda' is not available. Switching to 'cpu'.",
+    "`torch_dtype` is deprecated! Use `dtype` instead!",
+    "WARNING:accelerate.big_modeling:Some parameters are on the meta device because they were offloaded to the cpu and disk.",
+    "Windows fatal exception: access violation",
+    "",
+    "Current thread 0x00048320 (most recent call first):",
+    "  File \"C:\\Users\\wangz\\external_benchmarks\\.venvs\\libero310\\lib\\site-packages\\torch\\storage.py\", line 354 in __getitem__",
+    "  File \"C:\\Users\\wangz\\external_benchmarks\\.venvs\\libero310\\lib\\site-packages\\safetensors\\torch.py\", line 360 in load_file",
+    "  File \"C:\\Users\\wangz\\external_benchmarks\\.venvs\\libero310\\lib\\site-packages\\lerobot\\policies\\smolvla\\modeling_smolvla.py\", line 152 in load_smolvla",
+    "  File \"C:\\Users\\wangz\\external_benchmarks\\.venvs\\libero310\\lib\\site-packages\\lerobot\\policies\\smolvla\\modeling_smolvla.py\", line 370 in _load_as_safetensor",
+    "  File \"C:\\Users\\wangz\\external_benchmarks\\.venvs\\libero310\\lib\\site-packages\\lerobot\\policies\\pretrained.py\", line 120 in from_pretrained",
+    "  File \"<string>\", line 114 in <module>"
+  ],
+  "child_payload": {
+    "ok": false,
+    "verified": false,
+    "failure_stage": "process_crash",
+    "error_type": "WindowsAccessViolation",
+    "error": "[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n[Warning]: datasets path C:\\Users\\wangz\\external_benchmarks\\LIBERO\\libero\\libero\\../datasets does not exist!\nLoading  HuggingFaceTB/SmolVLM2-500M-Instruct weights ...\n",
+    "heldout_libero_policy_eval": false,
+    "returncode": 3221225477
+  },
+  "append_existing": true,
+  "n_existing_compatible_episodes": 0,
+  "n_new_child_episodes": 0,
+  "artifacts": {
+    "episode_table": null,
+    "report": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_policy_eval_report.md"
+  },
+  "note": "A zero-success verified eval is still a real evaluation artifact, but it is not evidence of positive modern VLA policy performance."
+}

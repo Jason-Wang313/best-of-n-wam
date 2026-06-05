@@ -65,7 +65,7 @@
         {
           "path": "results/modern_vla_libero_policy_eval.json",
           "exists": true,
-          "bytes": 7444
+          "bytes": 7446
         },
         {
           "path": "reports/modern_vla_libero_policy_eval_report.md",

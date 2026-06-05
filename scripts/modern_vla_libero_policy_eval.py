@@ -37,6 +37,7 @@ def main() -> None:
     parser.add_argument("--horizon", type=int, default=10)
     parser.add_argument("--max-steps", type=int, default=None)
     parser.add_argument("--timeout-s", type=int, default=1800)
+    parser.add_argument("--append-existing", action="store_true")
     parser.add_argument("--fail-on-error", action="store_true")
     args = parser.parse_args()
     python_path = args.python or default_libero_python(ROOT)
@@ -54,6 +55,7 @@ def main() -> None:
         horizon=args.horizon,
         max_steps=args.max_steps,
         timeout_s=args.timeout_s,
+        append_existing=args.append_existing,
     )
     print(
         "modern VLA LIBERO policy eval: "

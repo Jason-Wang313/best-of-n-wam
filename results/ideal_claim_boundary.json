@@ -296,12 +296,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 9424
+          "bytes": 9453
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 6247
+          "bytes": 6276
         },
         {
           "path": "reports/final_decision_report.md",
@@ -364,12 +364,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 9424
+          "bytes": 9453
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 6247
+          "bytes": 6276
         },
         {
           "path": "results/external_benchmark_runtime_probe.json",
@@ -404,7 +404,7 @@
         {
           "path": "results/modern_vla_libero_policy_eval.json",
           "exists": true,
-          "bytes": 7444
+          "bytes": 7446
         },
         {
           "path": "reports/modern_vla_libero_policy_eval_report.md",
@@ -500,12 +500,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 9424
+          "bytes": 9453
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 6247
+          "bytes": 6276
         },
         {
           "path": "results/benchmark_robocasa_catalog_probe.json",
@@ -585,12 +585,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 9424
+          "bytes": 9453
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 6247
+          "bytes": 6276
         },
         {
           "path": "results/benchmark_maniskill_visual_probe.json",
@@ -663,12 +663,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 9424
+          "bytes": 9453
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 6247
+          "bytes": 6276
         },
         {
           "path": "results/universal_wam_train_inference_optimizer.json",

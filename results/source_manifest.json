@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 246,
-  "total_bytes": 1793628,
+  "total_bytes": 1805886,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 229,
@@ -537,8 +537,8 @@
     {
       "path": "scripts/modern_vla_libero_policy_eval.py",
       "suffix": ".py",
-      "bytes": 2659,
-      "sha256": "ce942c1d743c516da550714028d3c932cdf503872cef936b31db54d497506628"
+      "bytes": 2771,
+      "sha256": "b5fea56bead0efa36530b0e4267d7e8c94e8d36f755522fb935d350635426624"
     },
     {
       "path": "scripts/modern_vla_pretrained_load_probe.py",
@@ -981,8 +981,8 @@
     {
       "path": "src/wam_inference_value/modern_vla_policy_eval.py",
       "suffix": ".py",
-      "bytes": 24198,
-      "sha256": "732308dceccf5a568f64fee8d80126d0dc5a17f09072f497ae7248a084efab4e"
+      "bytes": 28418,
+      "sha256": "2b6f096dc4ba4169fd137bd1bdd4752b47e9f3415960b9a2e3ee1ffed936430e"
     },
     {
       "path": "src/wam_inference_value/modern_vla_probe.py",
@@ -1353,8 +1353,8 @@
     {
       "path": "tests/test_modern_vla_policy_eval.py",
       "suffix": ".py",
-      "bytes": 1995,
-      "sha256": "5847fa620b2118b243e46c861d2631ef5fe2a84f1895098919ae7c1ee34250d5"
+      "bytes": 9921,
+      "sha256": "98a57e2067a3f540f2283f04dd218bd69eed49142b5da598cb307c1948b138b6"
     },
     {
       "path": "tests/test_modern_vla_probe.py",
@@ -1518,7 +1518,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1793628, scan=1793628"
+      "detail": "payload=1805886, scan=1805886"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1563,7 +1563,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1793628"
+      "detail": "bytes=1805886"
     },
     {
       "name": "source_manifest_dir_coverage",

@@ -5,7 +5,7 @@
   "n_python_command_lines": 31,
   "n_checks": 31,
   "n_issues": 0,
-  "expected_pytest_passed": 188,
+  "expected_pytest_passed": 191,
   "checks": [
     {
       "name": "command_section_present",
@@ -15,22 +15,22 @@
     {
       "name": "pytest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python -m pytest -q`: passed with `188 passed`"
+      "detail": "expected=`python -m pytest -q`: passed with `191 passed`"
     },
     {
       "name": "test_inventory_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/test_inventory.py --fail-on-error`: passed with `188` collected tests, `6` inventory checks, and `0` issues"
+      "detail": "expected=`python scripts/test_inventory.py --fail-on-error`: passed with `191` collected tests, `6` inventory checks, and `0` issues"
     },
     {
       "name": "artifact_integrity_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/artifact_integrity.py --fail-on-error`: passed with `728` artifact references checked and `0` issues"
+      "detail": "expected=`python scripts/artifact_integrity.py --fail-on-error`: passed with `729` artifact references checked and `0` issues"
     },
     {
       "name": "artifact_manifest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/artifact_manifest.py --fail-on-error`: passed with `445` scientific artifacts, `77217963` bytes, `15` manifest checks, and `0` issues"
+      "detail": "expected=`python scripts/artifact_manifest.py --fail-on-error`: passed with `446` scientific artifacts, `77222641` bytes, `15` manifest checks, and `0` issues"
     },
     {
       "name": "figure_quality_snippet_matches_artifact",
@@ -55,7 +55,7 @@
     {
       "name": "source_manifest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `246` source files, `1793628` bytes, `14` source-manifest checks, and `0` issues"
+      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `246` source files, `1805886` bytes, `14` source-manifest checks, and `0` issues"
     },
     {
       "name": "runtime_environment_snippet_matches_artifact",
@@ -130,7 +130,7 @@
     {
       "name": "repo_bound_artifact_audit_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `903` records, `175` claim sources, `728` artifact references, `0` outside-repo records, `0` missing records, and `0` issues"
+      "detail": "expected=`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `904` records, `175` claim sources, `729` artifact references, `0` outside-repo records, `0` missing records, and `0` issues"
     },
     {
       "name": "evidence_hash_coverage_snippet_matches_artifact",

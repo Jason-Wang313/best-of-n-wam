@@ -463,6 +463,68 @@ def _write_episode_table(path: Path, episodes: list[dict[str, Any]]) -> None:
             writer.writerow({key: row.get(key) for key in columns})
 
 
+def _existing_compatible_episodes(
+    path: Path,
+    *,
+    model_id: str,
+    suite: str,
+    task_index: int,
+    horizon: int,
+    max_steps: int,
+) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return []
+    if not isinstance(payload, dict):
+        return []
+    def as_int(value: Any, default: int = -1) -> int:
+        try:
+            return int(value)
+        except (TypeError, ValueError):
+            return int(default)
+
+    compatible = (
+        payload.get("model_id") == model_id
+        and payload.get("suite") == suite
+        and as_int(payload.get("task_index")) == int(task_index)
+        and as_int(payload.get("horizon")) == int(horizon)
+        and as_int(payload.get("max_steps")) == int(max_steps)
+    )
+    episodes = payload.get("episodes")
+    if not compatible or not isinstance(episodes, list):
+        return []
+    return [dict(row) for row in episodes if isinstance(row, dict)]
+
+
+def _merge_episodes(existing: list[dict[str, Any]], new: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    by_seed: dict[int, dict[str, Any]] = {}
+    for row in [*existing, *new]:
+        try:
+            seed = int(row.get("seed"))
+        except (TypeError, ValueError):
+            continue
+        by_seed[seed] = dict(row)
+    merged: list[dict[str, Any]] = []
+    for episode_id, seed in enumerate(sorted(by_seed)):
+        row = dict(by_seed[seed])
+        row["episode_id"] = int(episode_id)
+        merged.append(row)
+    return merged
+
+
+def _load_payload(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {}
+    return payload if isinstance(payload, dict) else {}
+
+
 def modern_vla_libero_policy_eval_markdown(payload: dict[str, Any]) -> str:
     ci = payload.get("success_ci") if isinstance(payload.get("success_ci"), dict) else {}
     lines = [
@@ -507,6 +569,7 @@ def run_modern_vla_libero_policy_eval(
     horizon: int = 10,
     max_steps: int | None = None,
     timeout_s: int = 1800,
+    append_existing: bool = False,
 ) -> dict[str, Any]:
     root = root.resolve()
     output_results_dir = (output_results_dir or results_dir()).resolve()
@@ -530,8 +593,24 @@ def run_modern_vla_libero_policy_eval(
     )
     child_payload = child.get("child") if isinstance(child.get("child"), dict) else {}
     episodes = child_payload.get("episodes") if isinstance(child_payload.get("episodes"), list) else []
-    eval_episodes = int(child_payload.get("eval_episodes") or len(episodes))
-    eval_successes = int(child_payload.get("eval_successes") or sum(int(bool(row.get("success"))) for row in episodes))
+    result_path = output_results_dir / "modern_vla_libero_policy_eval.json"
+    previous_payload = _load_payload(result_path)
+    existing_episodes = (
+        _existing_compatible_episodes(
+            result_path,
+            model_id=model_id,
+            suite=suite,
+            task_index=task_index,
+            horizon=horizon,
+            max_steps=max_steps,
+        )
+        if append_existing
+        else []
+    )
+    new_child_episodes = child_payload.get("episodes") if isinstance(child_payload.get("episodes"), list) else []
+    episodes = _merge_episodes(existing_episodes, new_child_episodes)
+    eval_episodes = int(len(episodes))
+    eval_successes = int(sum(int(bool(row.get("success"))) for row in episodes))
     success_ci = wilson_ci(eval_successes, eval_episodes)
     verified = (
         child.get("returncode") == 0
@@ -557,8 +636,9 @@ def run_modern_vla_libero_policy_eval(
         "task_index": int(task_index),
         "horizon": int(horizon),
         "max_steps": int(max_steps),
-        "eval_seeds": seeds,
-        "n_eval_seeds": len(set(seeds)),
+        "eval_seeds": sorted({int(row.get("seed")) for row in episodes if row.get("seed") is not None}),
+        "requested_eval_seeds": seeds,
+        "n_eval_seeds": len({int(row.get("seed")) for row in episodes if row.get("seed") is not None}),
         "eval_episodes": eval_episodes,
         "eval_successes": eval_successes,
         "eval_success_rate": None if eval_episodes <= 0 else float(eval_successes / eval_episodes),
@@ -581,13 +661,42 @@ def run_modern_vla_libero_policy_eval(
         "stdout_tail": child.get("stdout_tail"),
         "stderr_tail": child.get("stderr_tail"),
         "child_payload": child_payload,
+        "append_existing": bool(append_existing),
+        "n_existing_compatible_episodes": len(existing_episodes),
+        "n_new_child_episodes": len(new_child_episodes),
         "artifacts": {"episode_table": str(table_path) if episodes else None},
         "note": "A zero-success verified eval is still a real evaluation artifact, but it is not evidence of positive modern VLA policy performance.",
     }
-    write_json(output_results_dir / "modern_vla_libero_policy_eval.json", payload)
+    last_attempt_path = output_results_dir / "modern_vla_libero_policy_eval_last_attempt.json"
+    if append_existing and not verified and not new_child_episodes and int(previous_payload.get("eval_episodes") or 0) > 0:
+        write_json(last_attempt_path, payload)
+        preserved = dict(previous_payload)
+        artifacts = dict(preserved.get("artifacts") or {})
+        artifacts["last_attempt"] = str(last_attempt_path)
+        preserved["artifacts"] = artifacts
+        preserved["latest_attempt_preserved_previous"] = True
+        preserved["latest_attempt_summary"] = {
+            "verified": bool(verified),
+            "failure_stage": payload.get("failure_stage"),
+            "error_type": payload.get("error_type"),
+            "child_returncode": payload.get("child_returncode"),
+            "requested_eval_seeds": payload.get("requested_eval_seeds"),
+            "horizon": payload.get("horizon"),
+            "max_steps": payload.get("max_steps"),
+            "eval_episodes": payload.get("eval_episodes"),
+            "eval_successes": payload.get("eval_successes"),
+        }
+        write_json(result_path, preserved)
+        report_path = root / "reports" / "modern_vla_libero_policy_eval_report.md"
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_path.write_text(modern_vla_libero_policy_eval_markdown(preserved), encoding="utf-8")
+        preserved["artifacts"]["report"] = str(report_path)
+        write_json(result_path, preserved)
+        return preserved
+    write_json(result_path, payload)
     report_path = root / "reports" / "modern_vla_libero_policy_eval_report.md"
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(modern_vla_libero_policy_eval_markdown(payload), encoding="utf-8")
     payload["artifacts"]["report"] = str(report_path)
-    write_json(output_results_dir / "modern_vla_libero_policy_eval.json", payload)
+    write_json(result_path, payload)
     return payload

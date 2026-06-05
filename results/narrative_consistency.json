@@ -91,14 +91,14 @@
       "surface": "final_decision_report",
       "name": "pytest_count",
       "ok": true,
-      "expected": "`python -m pytest -q`: passed with `188 passed`",
+      "expected": "`python -m pytest -q`: passed with `191 passed`",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "test_inventory_command",
       "ok": true,
-      "expected": "`python scripts/test_inventory.py --fail-on-error`: passed with `188` collected tests, `6` inventory checks, and `0` issues",
+      "expected": "`python scripts/test_inventory.py --fail-on-error`: passed with `191` collected tests, `6` inventory checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -147,14 +147,14 @@
       "surface": "final_decision_report",
       "name": "artifact_integrity_command",
       "ok": true,
-      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `728` artifact references checked and `0` issues",
+      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `729` artifact references checked and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "artifact_manifest_command",
       "ok": true,
-      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `445` scientific artifacts, `77217963` bytes, `15` manifest checks, and `0` issues",
+      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `446` scientific artifacts, `77222641` bytes, `15` manifest checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -189,7 +189,7 @@
       "surface": "final_decision_report",
       "name": "source_manifest_command",
       "ok": true,
-      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `246` source files, `1793628` bytes, `14` source-manifest checks, and `0` issues",
+      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `246` source files, `1805886` bytes, `14` source-manifest checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -287,7 +287,7 @@
       "surface": "final_decision_report",
       "name": "repo_bound_artifact_audit_command",
       "ok": true,
-      "expected": "`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `903` records, `175` claim sources, `728` artifact references, `0` outside-repo records, `0` missing records, and `0` issues",
+      "expected": "`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `904` records, `175` claim sources, `729` artifact references, `0` outside-repo records, `0` missing records, and `0` issues",
       "detail": "found"
     },
     {

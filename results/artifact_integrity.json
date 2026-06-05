@@ -2,10 +2,10 @@
   "experiment": "artifact_integrity",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_result_json": 164,
-  "n_references": 728,
+  "n_result_json": 165,
+  "n_references": 729,
   "status_counts": {
-    "ok": 728
+    "ok": 729
   },
   "n_issues": 0,
   "issues": [],
@@ -5703,7 +5703,7 @@
       "raw_path": "results/artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 320038,
+      "bytes": 320950,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5714,7 +5714,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 320038,
+      "bytes": 320950,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6077,7 +6077,7 @@
       "raw_path": "results/artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 101965,
+      "bytes": 102186,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6088,7 +6088,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 101965,
+      "bytes": 102186,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6429,7 +6429,7 @@
       "raw_path": "results/test_inventory.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
-      "bytes": 19192,
+      "bytes": 19521,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6440,7 +6440,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
-      "bytes": 19192,
+      "bytes": 19521,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6605,7 +6605,7 @@
       "raw_path": "results/evidence_hash_coverage.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
-      "bytes": 239692,
+      "bytes": 240101,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6616,7 +6616,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
-      "bytes": 239692,
+      "bytes": 240101,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6649,7 +6649,7 @@
       "raw_path": "results/repo_bound_artifact_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
-      "bytes": 605958,
+      "bytes": 607379,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6660,7 +6660,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
-      "bytes": 605958,
+      "bytes": 607379,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -7899,6 +7899,17 @@
     },
     {
       "source_json": "modern_vla_libero_policy_eval.json",
+      "json_path": "artifacts.report",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_policy_eval_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_policy_eval_report.md",
+      "exists": true,
+      "bytes": 1035,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "modern_vla_libero_policy_eval_last_attempt.json",
       "json_path": "artifacts.report",
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_policy_eval_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_policy_eval_report.md",
