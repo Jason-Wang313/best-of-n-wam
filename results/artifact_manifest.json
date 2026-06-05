@@ -2,13 +2,13 @@
   "experiment": "artifact_manifest",
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_files": 412,
-  "total_bytes": 63117647,
+  "n_files": 416,
+  "total_bytes": 63120391,
   "counts_by_suffix": {
-    ".json": 116,
+    ".json": 119,
     ".npz": 42,
     ".png": 36,
-    ".csv": 218
+    ".csv": 219
   },
   "records": [
     {
@@ -184,6 +184,18 @@
       "suffix": ".json",
       "bytes": 589,
       "sha256": "f1041e037c4e0faa666263d754a44e6a2d2d19f43a4954d3bf42fca51aafc423"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_cleaning_gap_probe_000.json",
+      "suffix": ".json",
+      "bytes": 589,
+      "sha256": "3934dfdb2f93b1a7c80dae561fff9d34dc8485ec9e625c672beb25952fb23091"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_cleaning_gap_probe_001.json",
+      "suffix": ".json",
+      "bytes": 598,
+      "sha256": "c92819710bcb3969a96c983ba5a7735f90c0b1d78899678f76124af1b4f5408a"
     },
     {
       "path": "results/benchmark_robocasa_micro_rollout_extra.json",
@@ -490,6 +502,12 @@
       "suffix": ".json",
       "bytes": 999,
       "sha256": "d3fa21fb75a9e029ef2e6b519e2fe9a91c2f71f41fee76879ea391c37ac922c8"
+    },
+    {
+      "path": "results/benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe.json",
+      "suffix": ".json",
+      "bytes": 992,
+      "sha256": "766193190687176785a4f2a2457a3145f89c9c5369de66d139b93b2e304c9611"
     },
     {
       "path": "results/benchmark_robocasa_smoke.json",
@@ -891,7 +909,7 @@
       "path": "results/ideal_completion_audit.json",
       "suffix": ".json",
       "bytes": 11315,
-      "sha256": "dcbbe14297346ba2dc5a5b0fb831a9a8baeba1d9e6c135a7482d5b4bf7382d2d"
+      "sha256": "f02ef2f51661aaf26361d53a26379626096e8ec27b821e0e7126fce09cb412a0"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
@@ -1418,8 +1436,8 @@
     {
       "path": "results/tables/benchmark_robocasa_catalog_artifact_coverage.csv",
       "suffix": ".csv",
-      "bytes": 12343,
-      "sha256": "69d9ede8e866bb08a85badc792050fcfc1e41de92fdedc9ff33ee4f4fba88213"
+      "bytes": 12449,
+      "sha256": "878484e592d37d1033655a48e2dfcb5e9b0cb902986f0a83a708d964742bb61c"
     },
     {
       "path": "results/tables/benchmark_robocasa_catalog_registry.csv",
@@ -2016,6 +2034,12 @@
       "sha256": "6fcafc8e05d90c194d7e958af234cb90b971ad32ee32f9b1b1df685e0e0046d4"
     },
     {
+      "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe_chunks.csv",
+      "suffix": ".csv",
+      "bytes": 459,
+      "sha256": "40c34a720a3ff74af4c194c1b4fb968b2227b627603d7922e650e7edffbc540a"
+    },
+    {
       "path": "results/tables/benchmark_robocasa_rollouts.csv",
       "suffix": ".csv",
       "bytes": 12805,
@@ -2491,22 +2515,22 @@
     {
       "name": "manifest_records_present",
       "ok": true,
-      "detail": "records=412"
+      "detail": "records=416"
     },
     {
       "name": "manifest_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=412, scan=412"
+      "detail": "payload=416, scan=416"
     },
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=63117647, scan=63117647"
+      "detail": "payload=63120391, scan=63120391"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
       "ok": true,
-      "detail": "payload={'.json': 116, '.npz': 42, '.png': 36, '.csv': 218}, scan={'.json': 116, '.npz': 42, '.png': 36, '.csv': 218}"
+      "detail": "payload={'.json': 119, '.npz': 42, '.png': 36, '.csv': 219}, scan={'.json': 119, '.npz': 42, '.png': 36, '.csv': 219}"
     },
     {
       "name": "manifest_has_no_missing_current_artifacts",
@@ -2536,17 +2560,17 @@
     {
       "name": "manifest_scientific_artifact_file_count",
       "ok": true,
-      "detail": "files=412"
+      "detail": "files=416"
     },
     {
       "name": "manifest_table_count",
       "ok": true,
-      "detail": "csv=218"
+      "detail": "csv=219"
     },
     {
       "name": "manifest_json_count",
       "ok": true,
-      "detail": "json=116"
+      "detail": "json=119"
     },
     {
       "name": "manifest_model_count",
@@ -2561,7 +2585,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=63117647"
+      "detail": "bytes=63120391"
     }
   ],
   "issues": [],

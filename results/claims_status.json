@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=710, issues=0, status_counts={'ok': 710}"
+      "evidence": "refs=712, issues=0, status_counts={'ok': 712}"
     },
     {
       "id": 101,
@@ -646,7 +646,7 @@
       "id": 108,
       "claim": "Scientific result artifacts have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=412, bytes=63117647, suffixes={'.json': 116, '.npz': 42, '.png': 36, '.csv': 218}, issues=0"
+      "evidence": "files=416, bytes=63120391, suffixes={'.json': 119, '.npz': 42, '.png': 36, '.csv': 219}, issues=0"
     },
     {
       "id": 109,
@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=223, bytes=1608949, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 55}, checks=14, issues=0"
+      "evidence": "files=223, bytes=1609023, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 55}, checks=14, issues=0"
     },
     {
       "id": 112,
@@ -712,19 +712,19 @@
       "id": 119,
       "claim": "Claim evidence artifacts and published artifact references are represented in the git index.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=119, artifact_refs=454, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
+      "evidence": "claim_sources=119, artifact_refs=456, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
     },
     {
       "id": 120,
       "claim": "Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=117, artifact_refs=452, hashed=569, self_outputs_excluded=4, issues=0"
+      "evidence": "claim_sources=117, artifact_refs=454, hashed=571, self_outputs_excluded=4, issues=0"
     },
     {
       "id": 121,
       "claim": "Claim evidence artifacts and published artifact references are repository-bound.",
       "status": "VERIFIED",
-      "evidence": "records=885, claim_sources=175, artifact_refs=710, outside=0, absent=0, traversal=0, issues=0"
+      "evidence": "records=887, claim_sources=175, artifact_refs=712, outside=0, absent=0, traversal=0, issues=0"
     },
     {
       "id": 122,

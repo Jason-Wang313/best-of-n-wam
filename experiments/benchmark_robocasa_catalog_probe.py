@@ -36,6 +36,7 @@ ROBOCASA_MICRO_ARTIFACTS = [
     "benchmark_robocasa_micro_rollout_residual_clean_cook_probe.json",
     "benchmark_robocasa_residual_frontier_sweep.json",
     "benchmark_robocasa_residual_frontier_sweep_atomic_gap_probe.json",
+    "benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe.json",
 ]
 
 

@@ -2,10 +2,10 @@
   "experiment": "artifact_integrity",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_result_json": 144,
-  "n_references": 710,
+  "n_result_json": 147,
+  "n_references": 712,
   "status_counts": {
-    "ok": 710
+    "ok": 712
   },
   "n_issues": 0,
   "issues": [],
@@ -797,8 +797,8 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_catalog_artifact_coverage.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_catalog_artifact_coverage.csv",
       "exists": true,
-      "bytes": 12343,
-      "rows": 19,
+      "bytes": 12449,
+      "rows": 20,
       "status": "ok",
       "reason": ""
     },
@@ -2523,6 +2523,28 @@
       "json_path": "report_path",
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_atomic_gap_probe_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_atomic_gap_probe_report.md",
+      "exists": true,
+      "bytes": 419,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe.json",
+      "json_path": "table_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe_chunks.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe_chunks.csv",
+      "exists": true,
+      "bytes": 459,
+      "rows": 2,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe.json",
+      "json_path": "report_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_cleaning_gap_probe_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_cleaning_gap_probe_report.md",
       "exists": true,
       "bytes": 419,
       "rows": null,

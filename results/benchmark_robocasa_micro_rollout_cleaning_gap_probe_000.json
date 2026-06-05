@@ -1,0 +1,19 @@
+{
+  "experiment": "benchmark_robocasa_micro_rollout_cleaning_gap_probe_000",
+  "attempted": true,
+  "available": true,
+  "verified": false,
+  "output_tag": "cleaning_gap_probe_000",
+  "candidate_task_count": 1,
+  "runnable_task_count": 0,
+  "nondegenerate_task_count": 0,
+  "runnable_env_ids": [],
+  "nondegenerate_env_ids": [],
+  "timed_out": true,
+  "timeout_seconds": 240.0,
+  "wall_clock_seconds": 250.0656771659851,
+  "env_ids": [
+    "robocasa/CandleCleanup"
+  ],
+  "note": "Chunk timed out during RoboCasa micro-rollout probing; no validation claim is promoted."
+}
