@@ -23,6 +23,8 @@ BLOCKER_REQUIREMENTS: dict[str, dict[str, Any]] = {
             "reports/modern_vla_availability_probe_report.md",
             "results/modern_vla_libero_execution_probe.json",
             "reports/modern_vla_libero_execution_probe_report.md",
+            "results/modern_vla_libero_policy_eval.json",
+            "reports/modern_vla_libero_policy_eval_report.md",
             "results/benchmark_libero_visual_language_bc_policy.json",
         ],
     },
@@ -99,6 +101,7 @@ def _frontier_evidence(root: Path, frontier_id: str) -> dict[str, Any]:
     if frontier_id == "modern_vla_libero":
         probe = _load_json(results / "modern_vla_availability_probe.json")
         execution = _load_json(results / "modern_vla_libero_execution_probe.json")
+        policy_eval = _load_json(results / "modern_vla_libero_policy_eval.json")
         return {
             "probe_verified": probe.get("verified"),
             "vla_package_importable": probe.get("vla_package_importable"),
@@ -112,6 +115,10 @@ def _frontier_evidence(root: Path, frontier_id: str) -> dict[str, Any]:
             "execution_failure_stage": execution.get("failure_stage"),
             "execution_error_type": execution.get("error_type"),
             "ready_for_policy_eval": probe.get("ready_for_policy_eval"),
+            "policy_eval_verified": policy_eval.get("verified"),
+            "policy_eval_episodes": policy_eval.get("eval_episodes"),
+            "policy_eval_successes": policy_eval.get("eval_successes"),
+            "policy_eval_success_ci": policy_eval.get("success_ci"),
         }
     if frontier_id == "full_robocasa_wide":
         catalog = _load_json(results / "benchmark_robocasa_catalog_probe.json")

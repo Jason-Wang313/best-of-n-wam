@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 183,
-  "n_unique_tests": 183,
-  "trailer_count": 183,
+  "n_tests": 188,
+  "n_unique_tests": 188,
+  "trailer_count": 188,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -105,6 +105,8 @@
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_rejects_zero_success_neural_smoke",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_rejects_nonheldout_neural_smoke",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_accepts_auxiliary_rbf_neural_smoke",
+    "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_requires_separate_positive_modern_vla_policy_eval",
+    "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_does_not_promote_zero_success_modern_vla_eval",
     "tests/test_learned_wam.py::test_learned_wam_trains_and_predicts_finite_metrics",
     "tests/test_learned_wam.py::test_rollout_pool_uses_learned_backend",
     "tests/test_learned_wam.py::test_normalized_utility_degenerate_pool_is_finite",
@@ -123,6 +125,9 @@
     "tests/test_model_artifact_integrity.py::test_model_artifact_integrity_detects_unreadable_npz",
     "tests/test_modern_vla_execution_probe.py::test_execution_probe_records_missing_python_without_promoting_eval",
     "tests/test_modern_vla_execution_probe.py::test_execution_probe_markdown_states_not_performance_result",
+    "tests/test_modern_vla_policy_eval.py::test_policy_eval_records_missing_python_without_promoting_eval",
+    "tests/test_modern_vla_policy_eval.py::test_policy_eval_markdown_does_not_promote_zero_success",
+    "tests/test_modern_vla_policy_eval.py::test_wilson_ci_for_sparse_success_rate",
     "tests/test_modern_vla_probe.py::test_modern_vla_probe_records_local_matches_without_hf",
     "tests/test_modern_vla_probe.py::test_modern_vla_probe_counts_joint_runtime_as_eval_prerequisite",
     "tests/test_modern_vla_probe.py::test_modern_vla_probe_counts_pretrained_load_but_not_eval",
@@ -200,7 +205,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=183"
+      "detail": "nodeids=188"
     },
     {
       "name": "nodeids_unique",
@@ -210,12 +215,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=183"
+      "detail": "nodeids=188"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=183, nodeids=183"
+      "detail": "trailer=188, nodeids=188"
     },
     {
       "name": "required_test_families_present",

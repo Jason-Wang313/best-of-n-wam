@@ -185,6 +185,7 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     libero_neural_smoke = _best_neural_libero_auxiliary(root, libero_neural_smokes)
     modern_vla_probe = _load_json(results_dir / "modern_vla_availability_probe.json")
     modern_vla_execution = _load_json(results_dir / "modern_vla_libero_execution_probe.json")
+    modern_vla_policy_eval = _load_json(results_dir / "modern_vla_libero_policy_eval.json")
     real_robot_probe = _load_json(results_dir / "real_robot_hil_probe.json")
     robocasa_catalog = _load_json(results_dir / "benchmark_robocasa_catalog_probe.json")
     robocasa_triage = _load_json(results_dir / "benchmark_robocasa_residual_triage.json")
@@ -232,6 +233,20 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     no_shortcuts = _no_shortcuts(policy)
     neural_class_ok = _neural_policy_class_completed(root, libero_vl) or _neural_policy_class_completed(root, libero_neural_smoke)
     execution_params = int(modern_vla_execution.get("parameter_count") or 0)
+    policy_eval_ci = modern_vla_policy_eval.get("success_ci") if isinstance(modern_vla_policy_eval.get("success_ci"), dict) else {}
+    policy_eval_episodes = int(modern_vla_policy_eval.get("eval_episodes") or 0)
+    policy_eval_seeds = int(modern_vla_policy_eval.get("n_eval_seeds") or 0)
+    policy_eval_max_steps = int(modern_vla_policy_eval.get("max_steps") or 0)
+    policy_eval_successes = int(modern_vla_policy_eval.get("eval_successes") or 0)
+    policy_eval_positive = (
+        modern_vla_policy_eval.get("verified") is True
+        and modern_vla_policy_eval.get("heldout_libero_policy_eval") is True
+        and policy_eval_episodes >= 5
+        and policy_eval_seeds >= 5
+        and policy_eval_max_steps >= 5
+        and int(policy_eval_ci.get("n") or 0) >= 5
+        and policy_eval_successes > 0
+    )
     execution_scale_ok = (
         modern_vla_execution.get("verified") is True
         and modern_vla_execution.get("policy_loaded") is True
@@ -298,12 +313,16 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     _signal(
         modern_vla,
         "heldout_sparse_success_modern_vla_eval",
-        modern_vla_execution.get("heldout_libero_policy_eval") is True
-        and int(modern_vla_execution.get("eval_episodes") or 0) > 0,
+        policy_eval_positive,
         (
-            f"heldout_eval={modern_vla_execution.get('heldout_libero_policy_eval')}, "
-            f"eval_episodes={modern_vla_execution.get('eval_episodes')}, "
-            f"success_ci={modern_vla_execution.get('success_ci')}; "
+            f"eval_verified={modern_vla_policy_eval.get('verified')}, "
+            f"heldout_eval={modern_vla_policy_eval.get('heldout_libero_policy_eval')}, "
+            f"eval_episodes={policy_eval_episodes}, "
+            f"n_eval_seeds={policy_eval_seeds}, "
+            f"max_steps={policy_eval_max_steps}, "
+            f"eval_successes={policy_eval_successes}, "
+            f"success_rate={modern_vla_policy_eval.get('eval_success_rate')}, "
+            f"success_ci={policy_eval_ci}; "
             f"one_step_verified={modern_vla_execution.get('verified')}, "
             f"one_step_success={modern_vla_execution.get('success_after_one_step')}"
         ),

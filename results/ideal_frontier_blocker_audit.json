@@ -45,7 +45,7 @@
         {
           "path": "results/modern_vla_availability_probe.json",
           "exists": true,
-          "bytes": 7806
+          "bytes": 7814
         },
         {
           "path": "reports/modern_vla_availability_probe_report.md",
@@ -63,6 +63,16 @@
           "bytes": 1146
         },
         {
+          "path": "results/modern_vla_libero_policy_eval.json",
+          "exists": true,
+          "bytes": 3574
+        },
+        {
+          "path": "reports/modern_vla_libero_policy_eval_report.md",
+          "exists": true,
+          "bytes": 1155
+        },
+        {
           "path": "results/benchmark_libero_visual_language_bc_policy.json",
           "exists": true,
           "bytes": 1894
@@ -75,12 +85,21 @@
         "hf_reachable_count": 5,
         "vla_libero_joint_runtime_available": true,
         "pretrained_vla_loaded": true,
-        "pretrained_vla_parameter_count": 450046212,
+        "pretrained_vla_parameter_count": 604934220,
         "execution_attempted": true,
         "execution_verified": true,
         "execution_failure_stage": null,
         "execution_error_type": null,
-        "ready_for_policy_eval": true
+        "ready_for_policy_eval": true,
+        "policy_eval_verified": false,
+        "policy_eval_episodes": 0,
+        "policy_eval_successes": 0,
+        "policy_eval_success_ci": {
+          "n": 0,
+          "mean": null,
+          "lo": null,
+          "hi": null
+        }
       }
     },
     {

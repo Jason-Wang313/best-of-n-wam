@@ -36,12 +36,16 @@ This report is blocker evidence, not validation evidence for the ideal endpoints
 - `hf_reachable_count`: `5`
 - `vla_libero_joint_runtime_available`: `True`
 - `pretrained_vla_loaded`: `True`
-- `pretrained_vla_parameter_count`: `450046212`
+- `pretrained_vla_parameter_count`: `604934220`
 - `execution_attempted`: `True`
 - `execution_verified`: `True`
 - `execution_failure_stage`: `None`
 - `execution_error_type`: `None`
 - `ready_for_policy_eval`: `True`
+- `policy_eval_verified`: `False`
+- `policy_eval_episodes`: `0`
+- `policy_eval_successes`: `0`
+- `policy_eval_success_ci`: `{'n': 0, 'mean': None, 'lo': None, 'hi': None}`
 
 ## full_robocasa_wide
 

@@ -119,6 +119,8 @@ IDEAL_CLAIM_ROWS = [
             "reports/modern_vla_pretrained_load_probe_report.md",
             "results/modern_vla_libero_execution_probe.json",
             "reports/modern_vla_libero_execution_probe_report.md",
+            "results/modern_vla_libero_policy_eval.json",
+            "reports/modern_vla_libero_policy_eval_report.md",
             "results/benchmark_libero_tiny_neural_vla_attempt.json",
             "reports/libero_tiny_neural_vla_attempt_report.md",
             "results/benchmark_libero_tiny_neural_vla_policy.json",

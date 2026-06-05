@@ -725,3 +725,149 @@ def test_ideal_frontier_readiness_accepts_auxiliary_rbf_neural_smoke(tmp_path: P
     modern = {row["frontier_id"]: row for row in payload["rows"]}["modern_vla_libero"]
     assert "neural_visual_language_model_class" not in modern["missing_signals"]
     assert "modern_vla_scale_or_pretrained_model" in modern["missing_signals"]
+
+
+def test_ideal_frontier_readiness_requires_separate_positive_modern_vla_policy_eval(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    results.mkdir()
+    model = tmp_path / "results" / "models" / "libero_knn.npz"
+    model.parent.mkdir()
+    model.write_bytes(b"model")
+    write_json(
+        results / "benchmark_libero_visual_language_bc_policy.json",
+        {
+            "verified": True,
+            "eval_episodes": 30,
+            "eval_successes": 30,
+            "model_path": "results/models/libero_knn.npz",
+            "confidence_intervals": {"eval_success_rate": {"n": 30, "mean": 1.0, "lo": 1.0}},
+            "policy": {
+                "type": "rgb_proprio_language_knn_behavior_cloning",
+                "is_neural": False,
+                "uses_rgb": True,
+                "uses_language": True,
+                "uses_robot_proprio": True,
+                "uses_simulator_object_state": False,
+                "uses_task_id": False,
+                "uses_phase_index": False,
+                "uses_target_point_command": False,
+            },
+        },
+    )
+    write_json(
+        results / "benchmark_libero_tiny_neural_vla_policy.json",
+        {
+            "verified": True,
+            "eval_episodes": 1,
+            "eval_successes": 1,
+            "train_seeds": [1],
+            "eval_seeds": [2],
+            "model_path": "results/models/libero_knn.npz",
+            "confidence_intervals": {"eval_success_rate": {"n": 1, "mean": 1.0}},
+            "policy": {
+                "type": "tiny_neural_vla_behavior_cloning",
+                "is_neural": True,
+                "uses_rgb": True,
+                "uses_language": True,
+                "uses_robot_proprio": True,
+                "uses_simulator_object_state": False,
+                "uses_task_id": False,
+                "uses_phase_index": False,
+                "uses_target_point_command": False,
+            },
+        },
+    )
+    write_json(
+        results / "modern_vla_libero_execution_probe.json",
+        {
+            "attempted": True,
+            "verified": True,
+            "policy_loaded": True,
+            "action_selected": True,
+            "libero_step_succeeded": True,
+            "model_id": "HuggingFaceVLA/smolvla_libero",
+            "parameter_count": MODERN_VLA_MIN_PARAMETERS,
+        },
+    )
+    write_json(
+        results / "modern_vla_libero_policy_eval.json",
+        {
+            "verified": True,
+            "heldout_libero_policy_eval": True,
+            "eval_episodes": 5,
+            "n_eval_seeds": 5,
+            "max_steps": 5,
+            "eval_successes": 1,
+            "eval_success_rate": 0.2,
+            "success_ci": {"n": 5, "mean": 0.2, "lo": 0.04, "hi": 0.62, "method": "wilson"},
+        },
+    )
+    write_json(results / "external_benchmark_runtime_probe.json", {"verified": True, "libero_import_available": True})
+
+    payload = audit_ideal_frontier_readiness(tmp_path, results)
+
+    modern = {row["frontier_id"]: row for row in payload["rows"]}["modern_vla_libero"]
+    assert modern["ready_to_promote"] is True
+    assert modern["missing_signals"] == []
+
+
+def test_ideal_frontier_readiness_does_not_promote_zero_success_modern_vla_eval(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    results.mkdir()
+    model = tmp_path / "results" / "models" / "libero_knn.npz"
+    model.parent.mkdir()
+    model.write_bytes(b"model")
+    write_json(
+        results / "benchmark_libero_visual_language_bc_policy.json",
+        {
+            "verified": True,
+            "eval_episodes": 30,
+            "eval_successes": 30,
+            "model_path": "results/models/libero_knn.npz",
+            "confidence_intervals": {"eval_success_rate": {"n": 30, "mean": 1.0, "lo": 1.0}},
+            "policy": {
+                "type": "rgb_proprio_language_knn_behavior_cloning",
+                "is_neural": False,
+                "uses_rgb": True,
+                "uses_language": True,
+                "uses_robot_proprio": True,
+                "uses_simulator_object_state": False,
+                "uses_task_id": False,
+                "uses_phase_index": False,
+                "uses_target_point_command": False,
+            },
+        },
+    )
+    write_json(
+        results / "modern_vla_libero_execution_probe.json",
+        {
+            "attempted": True,
+            "verified": True,
+            "policy_loaded": True,
+            "action_selected": True,
+            "libero_step_succeeded": True,
+            "model_id": "HuggingFaceVLA/smolvla_libero",
+            "parameter_count": MODERN_VLA_MIN_PARAMETERS,
+        },
+    )
+    write_json(
+        results / "modern_vla_libero_policy_eval.json",
+        {
+            "verified": True,
+            "heldout_libero_policy_eval": True,
+            "eval_episodes": 5,
+            "n_eval_seeds": 5,
+            "max_steps": 5,
+            "eval_successes": 0,
+            "eval_success_rate": 0.0,
+            "success_ci": {"n": 5, "mean": 0.0, "lo": 0.0, "hi": 0.43, "method": "wilson"},
+        },
+    )
+    write_json(results / "external_benchmark_runtime_probe.json", {"verified": True, "libero_import_available": True})
+
+    payload = audit_ideal_frontier_readiness(tmp_path, results)
+
+    modern = {row["frontier_id"]: row for row in payload["rows"]}["modern_vla_libero"]
+    heldout_signal = next(signal for signal in modern["signals"] if signal["name"] == "heldout_sparse_success_modern_vla_eval")
+    assert heldout_signal["ok"] is False
+    assert "eval_successes=0" in heldout_signal["detail"]
