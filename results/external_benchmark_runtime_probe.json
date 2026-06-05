@@ -3,6 +3,8 @@
   "verified": true,
   "libero_import_available": true,
   "robocasa_import_available": true,
+  "vla_libero_joint_runtime_available": false,
+  "vla_runtime_success": null,
   "libero_success": {
     "name": "external_libero310",
     "ok": true,
@@ -97,7 +99,81 @@
       }
     }
   ],
-  "n_checks": 3,
+  "vla_runtime_attempts": [
+    {
+      "name": "vla_external_libero310",
+      "ok": true,
+      "returncode": 0,
+      "python_path": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\libero310\\Scripts\\python.exe",
+      "source_path": "C:\\Users\\wangz\\external_benchmarks\\LIBERO",
+      "config_path": "C:\\Users\\wangz\\external_benchmarks\\.libero",
+      "stdout_tail": [
+        "{\"ok\": true, \"python_version\": \"3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]\", \"available\": {\"libero\": true, \"lerobot_smolvla\": false, \"torch\": true, \"transformers\": false, \"huggingface_hub\": false}, \"libero_smolvla_runtime_ready\": false}"
+      ],
+      "stderr_tail": "",
+      "payload": {
+        "ok": true,
+        "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+        "available": {
+          "libero": true,
+          "lerobot_smolvla": false,
+          "torch": true,
+          "transformers": false,
+          "huggingface_hub": false
+        },
+        "libero_smolvla_runtime_ready": false
+      }
+    },
+    {
+      "name": "vla_external_libero38",
+      "ok": true,
+      "returncode": 0,
+      "python_path": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\libero\\Scripts\\python.exe",
+      "source_path": "C:\\Users\\wangz\\external_benchmarks\\LIBERO",
+      "config_path": "C:\\Users\\wangz\\external_benchmarks\\.libero",
+      "stdout_tail": [
+        "{\"ok\": true, \"python_version\": \"3.8.20 (default, Oct  2 2024, 15:21:04) [MSC v.1929 64 bit (AMD64)]\", \"available\": {\"libero\": true, \"lerobot_smolvla\": false, \"torch\": true, \"transformers\": false, \"huggingface_hub\": false}, \"libero_smolvla_runtime_ready\": false}"
+      ],
+      "stderr_tail": "",
+      "payload": {
+        "ok": true,
+        "python_version": "3.8.20 (default, Oct  2 2024, 15:21:04) [MSC v.1929 64 bit (AMD64)]",
+        "available": {
+          "libero": true,
+          "lerobot_smolvla": false,
+          "torch": true,
+          "transformers": false,
+          "huggingface_hub": false
+        },
+        "libero_smolvla_runtime_ready": false
+      }
+    },
+    {
+      "name": "vla_external_robocasa",
+      "ok": true,
+      "returncode": 0,
+      "python_path": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\robocasa\\Scripts\\python.exe",
+      "source_path": "C:\\Users\\wangz\\external_benchmarks\\robocasa",
+      "config_path": null,
+      "stdout_tail": [
+        "{\"ok\": true, \"python_version\": \"3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]\", \"available\": {\"libero\": false, \"lerobot_smolvla\": true, \"torch\": true, \"transformers\": false, \"huggingface_hub\": true}, \"libero_smolvla_runtime_ready\": false}"
+      ],
+      "stderr_tail": "",
+      "payload": {
+        "ok": true,
+        "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+        "available": {
+          "libero": false,
+          "lerobot_smolvla": true,
+          "torch": true,
+          "transformers": false,
+          "huggingface_hub": true
+        },
+        "libero_smolvla_runtime_ready": false
+      }
+    }
+  ],
+  "n_checks": 4,
   "n_issues": 0,
   "checks": [
     {
@@ -111,11 +187,16 @@
       "detail": "attempts=1"
     },
     {
+      "name": "vla_runtime_probe_attempted",
+      "ok": true,
+      "detail": "attempts=3, joint_ready=False"
+    },
+    {
       "name": "at_least_one_external_runtime_available",
       "ok": true,
       "detail": "libero=True, robocasa=True"
     }
   ],
   "issues": [],
-  "note": "Runtime import probe only. This does not validate modern VLA policy quality, full RoboCasa coverage, or real-robot evidence."
+  "note": "Runtime import probe only. This does not load pretrained VLA weights or validate modern VLA policy quality, full RoboCasa coverage, or real-robot evidence."
 }

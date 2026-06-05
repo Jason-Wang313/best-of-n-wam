@@ -3,7 +3,7 @@
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_files": 441,
-  "total_bytes": 77191778,
+  "total_bytes": 77195329,
   "counts_by_suffix": {
     ".json": 133,
     ".npz": 45,
@@ -746,8 +746,8 @@
     {
       "path": "results/external_benchmark_runtime_probe.json",
       "suffix": ".json",
-      "bytes": 7080,
-      "sha256": "b6731d7fb98a5fba057f68f341cc10e0179e2ac8ad9a2f8b8f3e74f58dfda4ef"
+      "bytes": 10631,
+      "sha256": "29a554cfaa8df397ae6d947dd7502a8fb3e0c540ae8c5371782c08346cc866c2"
     },
     {
       "path": "results/figures/benchmark_gym_manip_curves.png",
@@ -2675,7 +2675,7 @@
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=77191778, scan=77191778"
+      "detail": "payload=77195329, scan=77195329"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
@@ -2735,7 +2735,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=77191778"
+      "detail": "bytes=77195329"
     }
   ],
   "issues": [],

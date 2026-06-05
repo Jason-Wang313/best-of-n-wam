@@ -159,15 +159,87 @@ print(json.dumps({
 """
 
 
+VLA_RUNTIME_PROBE_CODE = r"""
+import importlib.util
+import json
+import sys
+
+modules = {
+    "libero": "libero.libero",
+    "lerobot_smolvla": "lerobot.policies.smolvla",
+    "torch": "torch",
+    "transformers": "transformers",
+    "huggingface_hub": "huggingface_hub",
+}
+
+def safe_find_spec(name):
+    try:
+        return importlib.util.find_spec(name) is not None
+    except ModuleNotFoundError:
+        return False
+
+available = {key: safe_find_spec(name) for key, name in modules.items()}
+print(json.dumps({
+    "ok": True,
+    "python_version": sys.version,
+    "available": available,
+    "libero_smolvla_runtime_ready": bool(
+        available["libero"]
+        and available["lerobot_smolvla"]
+        and available["torch"]
+        and available["transformers"]
+        and available["huggingface_hub"]
+    ),
+}))
+"""
+
+
+def _vla_runtime_candidates(root: Path) -> list[RuntimeCandidate]:
+    seen: set[tuple[str, str | None, str | None]] = set()
+    candidates: list[RuntimeCandidate] = []
+    for candidate in [*_libero_candidates(root), *_robocasa_candidates(root)]:
+        key = (
+            str(candidate.python_path) if candidate.python_path is not None else None,
+            str(candidate.source_path) if candidate.source_path is not None else None,
+            str(candidate.config_path) if candidate.config_path is not None else None,
+        )
+        if key in seen:
+            continue
+        seen.add(key)
+        candidates.append(
+            RuntimeCandidate(
+                f"vla_{candidate.name}",
+                candidate.python_path,
+                candidate.source_path,
+                candidate.config_path,
+            )
+        )
+    return candidates
+
+
 def probe_external_benchmark_runtimes(root: Path) -> dict[str, Any]:
     root = root.resolve()
     libero_attempts = [_run_probe(candidate, LIBERO_PROBE_CODE) for candidate in _libero_candidates(root)]
     robocasa_attempts = [_run_probe(candidate, ROBOCASA_PROBE_CODE) for candidate in _robocasa_candidates(root)]
+    vla_runtime_attempts = [_run_probe(candidate, VLA_RUNTIME_PROBE_CODE) for candidate in _vla_runtime_candidates(root)]
     libero_success = next((attempt for attempt in libero_attempts if attempt.get("ok")), None)
     robocasa_success = next((attempt for attempt in robocasa_attempts if attempt.get("ok")), None)
+    vla_runtime_success = next(
+        (
+            attempt
+            for attempt in vla_runtime_attempts
+            if attempt.get("ok") and (attempt.get("payload") or {}).get("libero_smolvla_runtime_ready") is True
+        ),
+        None,
+    )
     checks = [
         {"name": "libero_probe_attempted", "ok": bool(libero_attempts), "detail": f"attempts={len(libero_attempts)}"},
         {"name": "robocasa_probe_attempted", "ok": bool(robocasa_attempts), "detail": f"attempts={len(robocasa_attempts)}"},
+        {
+            "name": "vla_runtime_probe_attempted",
+            "ok": bool(vla_runtime_attempts),
+            "detail": f"attempts={len(vla_runtime_attempts)}, joint_ready={bool(vla_runtime_success)}",
+        },
         {"name": "at_least_one_external_runtime_available", "ok": bool(libero_success or robocasa_success), "detail": f"libero={bool(libero_success)}, robocasa={bool(robocasa_success)}"},
     ]
     issues = [check for check in checks if not check["ok"]]
@@ -176,15 +248,18 @@ def probe_external_benchmark_runtimes(root: Path) -> dict[str, Any]:
         "verified": not issues,
         "libero_import_available": bool(libero_success),
         "robocasa_import_available": bool(robocasa_success),
+        "vla_libero_joint_runtime_available": bool(vla_runtime_success),
+        "vla_runtime_success": vla_runtime_success,
         "libero_success": libero_success,
         "robocasa_success": robocasa_success,
         "libero_attempts": libero_attempts,
         "robocasa_attempts": robocasa_attempts,
+        "vla_runtime_attempts": vla_runtime_attempts,
         "n_checks": len(checks),
         "n_issues": len(issues),
         "checks": checks,
         "issues": issues,
-        "note": "Runtime import probe only. This does not validate modern VLA policy quality, full RoboCasa coverage, or real-robot evidence.",
+        "note": "Runtime import probe only. This does not load pretrained VLA weights or validate modern VLA policy quality, full RoboCasa coverage, or real-robot evidence.",
     }
 
 
@@ -195,6 +270,7 @@ def external_runtime_probe_markdown(payload: dict[str, Any]) -> str:
         f"- Verified: `{payload.get('verified')}`",
         f"- LIBERO import available: `{payload.get('libero_import_available')}`",
         f"- RoboCasa import available: `{payload.get('robocasa_import_available')}`",
+        f"- joint LIBERO+SmolVLA runtime available: `{payload.get('vla_libero_joint_runtime_available')}`",
         f"- Checks: `{payload.get('n_checks')}`",
         f"- Issues: `{payload.get('n_issues')}`",
         "",
@@ -211,6 +287,18 @@ def external_runtime_probe_markdown(payload: dict[str, Any]) -> str:
             lines.append(f"- Source: `{success.get('source_path')}`")
             lines.append(f"- Config: `{success.get('config_path')}`")
             lines.append("")
+    vla_attempts = payload.get("vla_runtime_attempts") or []
+    if vla_attempts:
+        lines.append("## VLA Runtime Compatibility")
+        lines.append("")
+        for attempt in vla_attempts:
+            available = ((attempt.get("payload") or {}).get("available") or {}) if isinstance(attempt, dict) else {}
+            lines.append(
+                f"- `{attempt.get('name')}`: ok=`{attempt.get('ok')}`, "
+                f"joint_ready=`{(attempt.get('payload') or {}).get('libero_smolvla_runtime_ready')}`, "
+                f"available={available}"
+            )
+        lines.append("")
     issues = payload.get("issues") or []
     if issues:
         lines.append("## Issues")

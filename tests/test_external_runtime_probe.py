@@ -33,6 +33,9 @@ def test_external_runtime_probe_uses_env_paths(tmp_path: Path, monkeypatch) -> N
     assert payload["verified"] is True
     assert payload["libero_import_available"] is True
     assert payload["robocasa_import_available"] is True
+    assert payload["vla_libero_joint_runtime_available"] is False
+    assert payload["vla_runtime_attempts"]
     assert payload["libero_success"]["name"] == "env_LIBERO_PYTHON"
     assert payload["robocasa_success"]["name"] == "env_ROBOCASA_PYTHON"
     assert "Runtime import probe only" in payload["note"]
+    assert "pretrained VLA weights" in payload["note"]

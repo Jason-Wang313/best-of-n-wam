@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 239,
-  "total_bytes": 1705109,
+  "total_bytes": 1708479,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 222,
@@ -891,8 +891,8 @@
     {
       "path": "src/wam_inference_value/external_runtime_probe.py",
       "suffix": ".py",
-      "bytes": 8486,
-      "sha256": "efd5942c8007a883205a0a796dacd9fead95e7e561ad0a4350aa9e37b12c2ce8"
+      "bytes": 11692,
+      "sha256": "5f7ef80abd457c86a7b7febb67b0c8dc377c272f5242e50a6ab9e243563ac96c"
     },
     {
       "path": "src/wam_inference_value/figure_quality.py",
@@ -1221,8 +1221,8 @@
     {
       "path": "tests/test_external_runtime_probe.py",
       "suffix": ".py",
-      "bytes": 1638,
-      "sha256": "d489bb651ec1ccd6b11781821405a13c26be2657b4dfde11e454214a1c13d868"
+      "bytes": 1802,
+      "sha256": "fc5b941589eea16bf6f28f2d94215c7eb67bb35f6bc7f2de179fa9075d3f3db3"
     },
     {
       "path": "tests/test_figure_quality.py",
@@ -1476,7 +1476,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1705109, scan=1705109"
+      "detail": "payload=1708479, scan=1708479"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1521,7 +1521,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1705109"
+      "detail": "bytes=1708479"
     },
     {
       "name": "source_manifest_dir_coverage",

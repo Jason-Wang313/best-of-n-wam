@@ -3,7 +3,8 @@
 - Verified: `True`
 - LIBERO import available: `True`
 - RoboCasa import available: `True`
-- Checks: `3`
+- joint LIBERO+SmolVLA runtime available: `False`
+- Checks: `4`
 - Issues: `0`
 
 This is a runtime/import probe only; it does not promote benchmark-performance claims.
@@ -21,3 +22,9 @@ This is a runtime/import probe only; it does not promote benchmark-performance c
 - Python: `C:\Users\wangz\external_benchmarks\.venvs\robocasa\Scripts\python.exe`
 - Source: `C:\Users\wangz\external_benchmarks\robocasa`
 - Config: `None`
+
+## VLA Runtime Compatibility
+
+- `vla_external_libero310`: ok=`True`, joint_ready=`False`, available={'libero': True, 'lerobot_smolvla': False, 'torch': True, 'transformers': False, 'huggingface_hub': False}
+- `vla_external_libero38`: ok=`True`, joint_ready=`False`, available={'libero': True, 'lerobot_smolvla': False, 'torch': True, 'transformers': False, 'huggingface_hub': False}
+- `vla_external_robocasa`: ok=`True`, joint_ready=`False`, available={'libero': False, 'lerobot_smolvla': True, 'torch': True, 'transformers': False, 'huggingface_hub': True}

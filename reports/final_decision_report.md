@@ -86,12 +86,12 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python experiments/benchmark_maniskill_dependency_probe.py --quick-timeout-s 60`: passed as a blocker probe; Pinocchio import `False`, robotics API `False`, binary PyPI `pinocchio` wheel `True`, binary `pin` wheel `False`, source install attempted `False`.
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `0.9864`, repair-predicted N64 CI mean `0.3489`, predicted N128-N1 scaling gain `0.0255`.
 - `python scripts/artifact_integrity.py --fail-on-error`: passed with `724` artifact references checked and `0` issues.
-- `python scripts/artifact_manifest.py --fail-on-error`: passed with `441` scientific artifacts, `77191778` bytes, `15` manifest checks, and `0` issues.
+- `python scripts/artifact_manifest.py --fail-on-error`: passed with `441` scientific artifacts, `77195329` bytes, `15` manifest checks, and `0` issues.
 - `python scripts/figure_quality.py --fail-on-error`: passed with `36` figures, `8` image-quality checks, and `0` issues.
 - `python scripts/result_consistency.py --fail-on-error`: passed with `157` consistency checks and `0` issues.
 - `python scripts/raw_result_recompute.py --fail-on-error`: passed with `10710` aggregate metrics, `20` exact-law files, `125` seed CI columns, and `0` issues.
 - `python scripts/table_schema.py --fail-on-error`: passed with `227` tables, `213298` rows, `17` schema checks, and `0` issues.
-- `python scripts/source_manifest.py --fail-on-error`: passed with `239` source files, `1705109` bytes, `14` source-manifest checks, and `0` issues.
+- `python scripts/source_manifest.py --fail-on-error`: passed with `239` source files, `1708479` bytes, `14` source-manifest checks, and `0` issues.
 - `python scripts/runtime_environment.py --fail-on-error`: passed with Python `3.10.11`, `4` core requirements, `5` / `5` optional requirements available, `15` runtime checks, and `0` issues.
 - `python scripts/experiment_registry.py --fail-on-error`: passed with `57` experiment-family entries, `69` wrapper links, `309` table artifacts, `40` figures, `10` registry checks, and `0` issues.
 - `python scripts/model_artifact_integrity.py --fail-on-error`: passed with `53` model artifacts, `398` NPZ arrays, `13` joblib predictors, `10` model-artifact checks, and `0` issues.
@@ -105,10 +105,10 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/claim_scope_audit.py --fail-on-error`: passed with `127` claims, `155` scoped broad-claim mentions, `160` checks, and `0` issues.
 - `python scripts/claim_reference_integrity.py --fail-on-error`: passed with `24` explicit verified-claim references, `12` unique referenced claims, and `0` issues.
 - `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `127` claims, `175` source links, `7` evidence checks, and `0` issues.
-- `python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `119` claim sources, `467` artifact references, and `0` issues.
+- `python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `119` claim sources, `468` artifact references, and `0` issues.
 - `python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `889` records, `175` claim sources, `714` artifact references, `0` outside-repo records, `0` missing records, and `0` issues.
 - `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `127` claims, `31` ledger checks, and `0` issues.
 - `python scripts/claim_generation_consistency.py --fail-on-error`: passed with `127` claims, `10` generation checks, and `0` issues.
 - `python scripts/report_generation_consistency.py --fail-on-error`: passed with `8` reports, `9` generation checks, and `0` issues.
-- `python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `117` claim sources, `465` artifact references, `582` hashed records, and `0` issues.
+- `python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `117` claim sources, `466` artifact references, `583` hashed records, and `0` issues.
 - `python scripts/claims_status.py`: passed with `127` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.
