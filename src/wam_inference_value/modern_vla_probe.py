@@ -147,6 +147,22 @@ def run_modern_vla_availability_probe(
     local_matches = _safe_local_matches(local_roots)
     hf_models = [_hf_model_probe(repo_id, timeout_s=timeout_s) for repo_id in HF_MODEL_CANDIDATES] if probe_hf else []
     secret_status = _secret_presence([mirror_root, user_root / ".cache" / "huggingface"])
+    runtime_probe_path = output_results_dir / "external_benchmark_runtime_probe.json"
+    runtime_probe: dict[str, Any] = {}
+    if runtime_probe_path.exists():
+        try:
+            loaded = json.loads(runtime_probe_path.read_text(encoding="utf-8"))
+            runtime_probe = loaded if isinstance(loaded, dict) else {}
+        except json.JSONDecodeError:
+            runtime_probe = {}
+    pretrained_probe_path = output_results_dir / "modern_vla_pretrained_load_probe.json"
+    pretrained_probe: dict[str, Any] = {}
+    if pretrained_probe_path.exists():
+        try:
+            loaded = json.loads(pretrained_probe_path.read_text(encoding="utf-8"))
+            pretrained_probe = loaded if isinstance(loaded, dict) else {}
+        except json.JSONDecodeError:
+            pretrained_probe = {}
 
     importable = {row["name"] for row in packages if row["importable"]}
     vla_package_importable = bool(importable.intersection({"openvla", "octo", "openpi", "gr00t", "lerobot"}))
@@ -156,7 +172,9 @@ def run_modern_vla_availability_probe(
         if any(token in Path(row["path"]).name.lower() for token in ("openvla", "octo", "openpi", "gr00t"))
     ]
     reachable_hf = [row for row in hf_models if row.get("reachable")]
-    ready_for_policy_eval = bool(vla_package_importable and local_vla_like)
+    vla_joint_runtime_available = runtime_probe.get("vla_libero_joint_runtime_available") is True
+    pretrained_vla_loaded = pretrained_probe.get("verified") is True and pretrained_probe.get("pretrained_vla_loaded") is True
+    ready_for_policy_eval = bool((vla_package_importable and local_vla_like) or vla_joint_runtime_available)
 
     payload = {
         "experiment": "modern_vla_availability_probe",
@@ -172,17 +190,25 @@ def run_modern_vla_availability_probe(
         "hf_models": hf_models,
         "hf_reachable_count": len(reachable_hf),
         "secret_status": secret_status,
+        "joint_runtime_probe_present": bool(runtime_probe),
+        "vla_libero_joint_runtime_available": vla_joint_runtime_available,
+        "vla_runtime_success": runtime_probe.get("vla_runtime_success"),
+        "pretrained_load_probe_present": bool(pretrained_probe),
+        "pretrained_vla_loaded": pretrained_vla_loaded,
+        "pretrained_vla_parameter_count": pretrained_probe.get("parameter_count"),
+        "pretrained_vla_model_id": pretrained_probe.get("model_id"),
         "ready_for_policy_eval": ready_for_policy_eval,
         "missing_for_ideal_claim": [
             item
             for item, ok in [
-                ("runnable modern VLA policy package", vla_package_importable),
-                ("local VLA checkpoint or policy repository", bool(local_vla_like)),
+                ("runnable modern VLA policy package", vla_package_importable or vla_joint_runtime_available),
+                ("local VLA policy repository or joint runtime", bool(local_vla_like) or vla_joint_runtime_available),
+                ("pretrained VLA weights loaded", pretrained_vla_loaded),
                 ("LIBERO-compatible sparse-success VLA evaluation artifact", False),
             ]
             if not ok
         ],
-        "note": "Availability probe only. Public model metadata or secret presence is not policy validation and does not support a modern VLA LIBERO result.",
+        "note": "Availability probe only. Runtime/package availability, public model metadata, or secret presence is not policy validation and does not support a modern VLA LIBERO result without a heldout evaluation artifact.",
     }
     write_json(output_results_dir / "modern_vla_availability_probe.json", payload)
     return payload
@@ -196,6 +222,9 @@ def modern_vla_availability_markdown(payload: dict[str, Any]) -> str:
         f"- VLA package importable: `{payload.get('vla_package_importable')}`",
         f"- local VLA-like matches: `{payload.get('local_vla_like_count')}`",
         f"- Hugging Face models reachable: `{payload.get('hf_reachable_count')}`",
+        f"- joint LIBERO+VLA runtime available: `{payload.get('vla_libero_joint_runtime_available')}`",
+        f"- pretrained VLA loaded: `{payload.get('pretrained_vla_loaded')}`",
+        f"- pretrained VLA parameters: `{payload.get('pretrained_vla_parameter_count')}`",
         f"- ready for policy eval: `{payload.get('ready_for_policy_eval')}`",
         "",
         "## Missing For Ideal Claim",

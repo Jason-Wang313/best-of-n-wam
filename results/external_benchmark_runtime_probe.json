@@ -3,8 +3,31 @@
   "verified": true,
   "libero_import_available": true,
   "robocasa_import_available": true,
-  "vla_libero_joint_runtime_available": false,
-  "vla_runtime_success": null,
+  "vla_libero_joint_runtime_available": true,
+  "vla_runtime_success": {
+    "name": "vla_vla_external_robocasa_with_libero_source",
+    "ok": true,
+    "returncode": 0,
+    "python_path": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\robocasa\\Scripts\\python.exe",
+    "source_path": "C:\\Users\\wangz\\external_benchmarks\\LIBERO",
+    "config_path": "C:\\Users\\wangz\\external_benchmarks\\.libero",
+    "stdout_tail": [
+      "{\"ok\": true, \"python_version\": \"3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]\", \"available\": {\"libero\": true, \"lerobot_smolvla\": true, \"torch\": true, \"transformers\": true, \"huggingface_hub\": true}, \"libero_smolvla_runtime_ready\": true}"
+    ],
+    "stderr_tail": "",
+    "payload": {
+      "ok": true,
+      "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+      "available": {
+        "libero": true,
+        "lerobot_smolvla": true,
+        "torch": true,
+        "transformers": true,
+        "huggingface_hub": true
+      },
+      "libero_smolvla_runtime_ready": true
+    }
+  },
   "libero_success": {
     "name": "external_libero310",
     "ok": true,
@@ -156,7 +179,7 @@
       "source_path": "C:\\Users\\wangz\\external_benchmarks\\robocasa",
       "config_path": null,
       "stdout_tail": [
-        "{\"ok\": true, \"python_version\": \"3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]\", \"available\": {\"libero\": false, \"lerobot_smolvla\": true, \"torch\": true, \"transformers\": false, \"huggingface_hub\": true}, \"libero_smolvla_runtime_ready\": false}"
+        "{\"ok\": true, \"python_version\": \"3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]\", \"available\": {\"libero\": false, \"lerobot_smolvla\": true, \"torch\": true, \"transformers\": true, \"huggingface_hub\": true}, \"libero_smolvla_runtime_ready\": false}"
       ],
       "stderr_tail": "",
       "payload": {
@@ -166,10 +189,34 @@
           "libero": false,
           "lerobot_smolvla": true,
           "torch": true,
-          "transformers": false,
+          "transformers": true,
           "huggingface_hub": true
         },
         "libero_smolvla_runtime_ready": false
+      }
+    },
+    {
+      "name": "vla_vla_external_robocasa_with_libero_source",
+      "ok": true,
+      "returncode": 0,
+      "python_path": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\robocasa\\Scripts\\python.exe",
+      "source_path": "C:\\Users\\wangz\\external_benchmarks\\LIBERO",
+      "config_path": "C:\\Users\\wangz\\external_benchmarks\\.libero",
+      "stdout_tail": [
+        "{\"ok\": true, \"python_version\": \"3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]\", \"available\": {\"libero\": true, \"lerobot_smolvla\": true, \"torch\": true, \"transformers\": true, \"huggingface_hub\": true}, \"libero_smolvla_runtime_ready\": true}"
+      ],
+      "stderr_tail": "",
+      "payload": {
+        "ok": true,
+        "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+        "available": {
+          "libero": true,
+          "lerobot_smolvla": true,
+          "torch": true,
+          "transformers": true,
+          "huggingface_hub": true
+        },
+        "libero_smolvla_runtime_ready": true
       }
     }
   ],
@@ -189,7 +236,7 @@
     {
       "name": "vla_runtime_probe_attempted",
       "ok": true,
-      "detail": "attempts=3, joint_ready=False"
+      "detail": "attempts=4, joint_ready=True"
     },
     {
       "name": "at_least_one_external_runtime_available",

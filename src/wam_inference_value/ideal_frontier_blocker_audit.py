@@ -101,6 +101,9 @@ def _frontier_evidence(root: Path, frontier_id: str) -> dict[str, Any]:
             "vla_package_importable": probe.get("vla_package_importable"),
             "local_vla_like_count": probe.get("local_vla_like_count"),
             "hf_reachable_count": probe.get("hf_reachable_count"),
+            "vla_libero_joint_runtime_available": probe.get("vla_libero_joint_runtime_available"),
+            "pretrained_vla_loaded": probe.get("pretrained_vla_loaded"),
+            "pretrained_vla_parameter_count": probe.get("pretrained_vla_parameter_count"),
             "ready_for_policy_eval": probe.get("ready_for_policy_eval"),
         }
     if frontier_id == "full_robocasa_wide":

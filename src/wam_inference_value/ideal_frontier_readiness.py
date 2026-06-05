@@ -268,6 +268,9 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
             f"vla_package_importable={modern_vla_probe.get('vla_package_importable')}, "
             f"local_vla_like={modern_vla_probe.get('local_vla_like_count')}, "
             f"hf_reachable={modern_vla_probe.get('hf_reachable_count')}, "
+            f"joint_runtime={modern_vla_probe.get('vla_libero_joint_runtime_available')}, "
+            f"pretrained_loaded={modern_vla_probe.get('pretrained_vla_loaded')}, "
+            f"pretrained_params={modern_vla_probe.get('pretrained_vla_parameter_count')}, "
             f"ready_for_policy_eval={modern_vla_probe.get('ready_for_policy_eval')}"
         ),
     )

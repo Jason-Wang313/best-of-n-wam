@@ -75,7 +75,7 @@
         {
           "name": "modern_vla_scale_or_pretrained_model",
           "ok": false,
-          "detail": "canonical_pretrained=None, canonical_params=None, aux_pretrained=False, aux_params=846286; availability_probe_verified=True, vla_package_importable=False, local_vla_like=0, hf_reachable=5, ready_for_policy_eval=False"
+          "detail": "canonical_pretrained=None, canonical_params=None, aux_pretrained=False, aux_params=846286; availability_probe_verified=True, vla_package_importable=False, local_vla_like=0, hf_reachable=5, joint_runtime=True, pretrained_loaded=True, pretrained_params=450046212, ready_for_policy_eval=True"
         },
         {
           "name": "current_runtime_can_rerun_libero",

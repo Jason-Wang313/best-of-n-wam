@@ -197,7 +197,18 @@ print(json.dumps({
 def _vla_runtime_candidates(root: Path) -> list[RuntimeCandidate]:
     seen: set[tuple[str, str | None, str | None]] = set()
     candidates: list[RuntimeCandidate] = []
-    for candidate in [*_libero_candidates(root), *_robocasa_candidates(root)]:
+    libero_source = _as_path(os.environ.get("LIBERO_SOURCE_PATH")) or root.parent / "external_benchmarks" / "LIBERO"
+    libero_config = _as_path(os.environ.get("LIBERO_CONFIG_PATH")) or root.parent / "external_benchmarks" / ".libero"
+    cross_candidates = [
+        RuntimeCandidate(
+            f"vla_{candidate.name}_with_libero_source",
+            candidate.python_path,
+            libero_source,
+            libero_config,
+        )
+        for candidate in _robocasa_candidates(root)
+    ]
+    for candidate in [*_libero_candidates(root), *_robocasa_candidates(root), *cross_candidates]:
         key = (
             str(candidate.python_path) if candidate.python_path is not None else None,
             str(candidate.source_path) if candidate.source_path is not None else None,

@@ -19,7 +19,7 @@ This report is a gap audit, not a result promotion mechanism.
   - sparse_success_ci_reported: `True` (ci={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0})
   - model_artifact_present: `True` (model_path=results\models\benchmark_libero_visual_language_bc_policy.npz)
   - neural_visual_language_model_class: `True` (canonical_type='rgb_proprio_language_knn_behavior_cloning', canonical_is_neural=None, canonical_eval_successes=30, canonical_heldout=True, aux_candidates=4, aux_artifact='benchmark_libero_tiny_neural_rbf_vla_policy.json', aux_type='rbf_neural_vla_behavior_cloning', aux_is_neural=True, aux_verified=True, aux_eval=1, aux_eval_successes=1, aux_heldout=True)
-  - modern_vla_scale_or_pretrained_model: `False` (canonical_pretrained=None, canonical_params=None, aux_pretrained=False, aux_params=846286; availability_probe_verified=True, vla_package_importable=False, local_vla_like=0, hf_reachable=5, ready_for_policy_eval=False)
+  - modern_vla_scale_or_pretrained_model: `False` (canonical_pretrained=None, canonical_params=None, aux_pretrained=False, aux_params=846286; availability_probe_verified=True, vla_package_importable=False, local_vla_like=0, hf_reachable=5, joint_runtime=True, pretrained_loaded=True, pretrained_params=450046212, ready_for_policy_eval=True)
   - current_runtime_can_rerun_libero: `True` (runtime_probe_verified=True, libero=True)
   Next action: Run a pretrained or VLA-scale neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs.
 - `full_robocasa_wide`: ready_to_promote=`False`; missing=['full_registry_rollout_pool_coverage', 'full_registry_any_artifact_coverage', 'all_categories_fully_covered']

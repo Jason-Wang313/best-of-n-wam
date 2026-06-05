@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=724, issues=0, status_counts={'ok': 724}"
+      "evidence": "refs=728, issues=0, status_counts={'ok': 728}"
     },
     {
       "id": 101,
@@ -646,7 +646,7 @@
       "id": 108,
       "claim": "Scientific result artifacts have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=441, bytes=77195329, suffixes={'.json': 133, '.npz': 45, '.png': 36, '.csv': 227}, issues=0"
+      "evidence": "files=442, bytes=77201968, suffixes={'.json': 134, '.npz': 45, '.png': 36, '.csv': 227}, issues=0"
     },
     {
       "id": 109,
@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=239, bytes=1708479, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 49, 'src': 67, 'tests': 61}, checks=14, issues=0"
+      "evidence": "files=240, bytes=1722272, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 50, 'src': 67, 'tests': 61}, checks=14, issues=0"
     },
     {
       "id": 112,
@@ -688,13 +688,13 @@
       "id": 115,
       "claim": "Published final-report command results match current verification artifacts.",
       "status": "VERIFIED",
-      "evidence": "snippets=28, python_commands=31, pytest=177, checks=31, issues=0"
+      "evidence": "snippets=28, python_commands=31, pytest=179, checks=31, issues=0"
     },
     {
       "id": 116,
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
       "status": "VERIFIED",
-      "evidence": "tests=177, unique=177, trailer=177, checks=6, issues=0"
+      "evidence": "tests=179, unique=179, trailer=179, checks=6, issues=0"
     },
     {
       "id": 117,
@@ -712,13 +712,13 @@
       "id": 119,
       "claim": "Claim evidence artifacts and published artifact references are represented in the git index.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=119, artifact_refs=468, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
+      "evidence": "claim_sources=119, artifact_refs=469, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
     },
     {
       "id": 120,
       "claim": "Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=117, artifact_refs=466, hashed=583, self_outputs_excluded=4, issues=0"
+      "evidence": "claim_sources=117, artifact_refs=467, hashed=584, self_outputs_excluded=4, issues=0"
     },
     {
       "id": 121,

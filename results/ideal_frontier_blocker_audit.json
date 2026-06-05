@@ -45,12 +45,12 @@
         {
           "path": "results/modern_vla_availability_probe.json",
           "exists": true,
-          "bytes": 5028
+          "bytes": 7386
         },
         {
           "path": "reports/modern_vla_availability_probe_report.md",
           "exists": true,
-          "bytes": 1250
+          "bytes": 1287
         },
         {
           "path": "results/benchmark_libero_visual_language_bc_policy.json",
@@ -63,7 +63,10 @@
         "vla_package_importable": false,
         "local_vla_like_count": 0,
         "hf_reachable_count": 5,
-        "ready_for_policy_eval": false
+        "vla_libero_joint_runtime_available": true,
+        "pretrained_vla_loaded": true,
+        "pretrained_vla_parameter_count": 450046212,
+        "ready_for_policy_eval": true
       }
     },
     {

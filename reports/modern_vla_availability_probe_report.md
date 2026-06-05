@@ -4,12 +4,13 @@
 - VLA package importable: `False`
 - local VLA-like matches: `0`
 - Hugging Face models reachable: `5`
-- ready for policy eval: `False`
+- joint LIBERO+VLA runtime available: `True`
+- pretrained VLA loaded: `True`
+- pretrained VLA parameters: `450046212`
+- ready for policy eval: `True`
 
 ## Missing For Ideal Claim
 
-- runnable modern VLA policy package
-- local VLA checkpoint or policy repository
 - LIBERO-compatible sparse-success VLA evaluation artifact
 
 ## Importable Packages
