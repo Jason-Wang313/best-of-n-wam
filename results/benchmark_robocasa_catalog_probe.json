@@ -6,10 +6,10 @@
   "registry_count": 396,
   "verified_artifact_task_count": 132,
   "coverage_fraction": 0.3333333333333333,
-  "micro_rollout_task_count": 106,
-  "micro_rollout_coverage_fraction": 0.2676767676767677,
-  "any_artifact_task_count": 134,
-  "any_artifact_coverage_fraction": 0.3383838383838384,
+  "micro_rollout_task_count": 108,
+  "micro_rollout_coverage_fraction": 0.2727272727272727,
+  "any_artifact_task_count": 136,
+  "any_artifact_coverage_fraction": 0.3434343434343434,
   "verified_artifact_env_ids": [
     "robocasa/AddIceCubes",
     "robocasa/AddToSoupPot",
@@ -171,6 +171,7 @@
     "robocasa/ClearSink",
     "robocasa/ClearSinkArea",
     "robocasa/ClearSinkSpace",
+    "robocasa/CloseElectricKettleLid",
     "robocasa/ClusterItemsForClearing",
     "robocasa/CoffeeSetupMug",
     "robocasa/CollectWashingSupplies",
@@ -208,6 +209,7 @@
     "robocasa/MoveFridgeToFreezer",
     "robocasa/MoveToCounter",
     "robocasa/MoveToFreezerDrawer",
+    "robocasa/OpenElectricKettleLid",
     "robocasa/OrganizeCleaningSupplies",
     "robocasa/OrganizeCondiments",
     "robocasa/OvenBroilFish",
@@ -282,6 +284,7 @@
     "robocasa/CloseCabinet",
     "robocasa/CloseDishwasher",
     "robocasa/CloseDrawer",
+    "robocasa/CloseElectricKettleLid",
     "robocasa/CloseFridge",
     "robocasa/CloseFridgeDrawer",
     "robocasa/CloseMicrowave",
@@ -326,6 +329,7 @@
     "robocasa/OpenCabinet",
     "robocasa/OpenDishwasher",
     "robocasa/OpenDrawer",
+    "robocasa/OpenElectricKettleLid",
     "robocasa/OpenFridge",
     "robocasa/OpenFridgeDrawer",
     "robocasa/OpenMicrowave",
@@ -400,8 +404,8 @@
       "category": "close",
       "registered": 13,
       "rollout_pool_covered": 7,
-      "micro_rollout_covered": 0,
-      "any_artifact_covered": 7
+      "micro_rollout_covered": 1,
+      "any_artifact_covered": 8
     },
     {
       "category": "cooking",
@@ -435,8 +439,8 @@
       "category": "open",
       "registered": 13,
       "rollout_pool_covered": 7,
-      "micro_rollout_covered": 0,
-      "any_artifact_covered": 7
+      "micro_rollout_covered": 1,
+      "any_artifact_covered": 8
     },
     {
       "category": "pick_place",

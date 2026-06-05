@@ -32,7 +32,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboCasa stratified micro-rollout probe: verified `True`; nondegenerate task IDs `23`; rollouts per task `2`; horizon `1`.
 - RoboCasa frontier micro-rollout probe: verified `True`; candidates `64`; runnable `52`; nondegenerate task IDs `42`; rollouts per task `2`; horizon `1`.
 - RoboCasa residual clean/cook micro-rollout sweep: verified `True`; candidates `43`; completed chunks `41`; timed-out chunks `2`; runnable `39`; nondegenerate task IDs `35`; rollouts per task `2`; horizon `1`.
-- RoboCasa registry coverage audit: registered task IDs `396`; rollout-pool task IDs `132`; micro-rollout task IDs `106`; any-artifact task IDs `134`.
+- RoboCasa registry coverage audit: registered task IDs `396`; rollout-pool task IDs `132`; micro-rollout task IDs `108`; any-artifact task IDs `136`.
 - RoboCasa atomic gap probe: attempted `4` uncovered task IDs; timed-out chunks `3`; nondegenerate task IDs `0`; promoted `False`.
 - LIBERO WAM-lite: verified `True`; tasks `['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2']`; train/eval samples `192`/`240`; utility corr `0.3526`; exact-law MAE `0.0001`; learned-random N8 CI lower `0.2653`.
 - LIBERO scripted sparse-success smoke: verified `True`; episodes `50`; successes `50`; success-rate CI lower `1.0000`.
@@ -79,7 +79,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboCasa stratified micro-rollout probe: `23` task IDs reset and produced short nondegenerate rollouts across wider kitchen categories. This remains lower-tier viability evidence; the separate stratified 55-task and 97-task WAM artifacts are stronger learned-WAM validation for promoted task IDs.
 - RoboCasa frontier micro-rollout probe: `42` of `64` candidate task IDs reset and produced short nondegenerate rollouts across manipulation, movement, pick-place, cleaning, washing, cooking, and arrangement families. This remains lower-tier viability evidence; the separate 97-task WAM artifact is the stronger learned-WAM validation for promoted task IDs.
 - RoboCasa residual clean/cook micro-rollout sweep: `35` of `43` cleaning/cooking task IDs produced nondegenerate short rollouts; two timeout chunks are documented, and this sweep is not promoted as full learned-WAM evidence beyond the separate residual 35-task artifact.
-- RoboCasa catalog coverage audit: local registry contains `396` task IDs; verified rollout-pool artifacts cover `132` of them, micro-rollout probes cover `106`, and any committed artifact covers `134`. This is coverage accounting, not validation for uncovered IDs.
+- RoboCasa catalog coverage audit: local registry contains `396` task IDs; verified rollout-pool artifacts cover `132` of them, micro-rollout probes cover `108`, and any committed artifact covers `136`. This is coverage accounting, not validation for uncovered IDs.
 - LIBERO learned WAM-lite: three Spatial tasks `['libero_spatial/0', 'libero_spatial/1', 'libero_spatial/2']` trained on `192` rollout samples and evaluated on `240` heldout rollout samples with dense progress utility.
 - LIBERO sparse-success scripted smoke: all 10 Object tasks evaluated over `5` seeds with `50` successes over `50` episodes.
 - LIBERO learned action-head smoke: `knn` action head trained on `5014` scripted action examples and evaluated on `30` heldout sparse-success episodes over all 10 Object tasks.
@@ -145,7 +145,7 @@ Benchmark-visual validated: theorem layer, learned toy, multi-env toy, Gymnasium
 - RoboCasa stratified micro-rollout tasks: `23` / `28` nondegenerate.
 - RoboCasa frontier micro-rollout tasks: `42` / `64` nondegenerate.
 - RoboCasa residual clean/cook micro-rollout tasks: `35` / `43` nondegenerate.
-- RoboCasa catalog coverage: `132` rollout-pool task IDs and `106` micro-rollout task IDs out of `396` registered task IDs.
+- RoboCasa catalog coverage: `132` rollout-pool task IDs and `108` micro-rollout task IDs out of `396` registered task IDs.
 - LIBERO WAM utility corr: `0.3526`.
 - LIBERO learned-random N8 CI lower: `0.2653`.
 - LIBERO exact-law utility MAE: `0.0001`.

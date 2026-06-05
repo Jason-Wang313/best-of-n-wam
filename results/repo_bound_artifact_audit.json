@@ -2,9 +2,9 @@
   "experiment": "repo_bound_artifact_audit",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_records": 887,
+  "n_records": 889,
   "n_claim_sources": 175,
-  "n_artifact_references": 712,
+  "n_artifact_references": 714,
   "n_outside_repo": 0,
   "n_missing": 0,
   "n_parent_traversal": 0,
@@ -12,22 +12,22 @@
     "documentation": 6,
     "figure": 36,
     "model": 38,
-    "report": 149,
+    "report": 150,
     "result_json": 407,
-    "result_table": 245,
+    "result_table": 246,
     "source_or_test": 6
   },
   "suffix_counts": {
-    ".csv": 245,
+    ".csv": 246,
     ".joblib": 13,
     ".json": 407,
-    ".md": 155,
+    ".md": 156,
     ".npz": 25,
     ".png": 36,
     ".py": 6
   },
   "record_category_counts": {
-    "artifact_reference": 712,
+    "artifact_reference": 714,
     "claim_source": 175
   },
   "n_checks": 12,
@@ -36,7 +36,7 @@
     {
       "name": "records_present",
       "ok": true,
-      "detail": "records=887"
+      "detail": "records=889"
     },
     {
       "name": "claim_sources_present",
@@ -46,7 +46,7 @@
     {
       "name": "artifact_references_present",
       "ok": true,
-      "detail": "artifact_references=712"
+      "detail": "artifact_references=714"
     },
     {
       "name": "all_records_inside_repo",
@@ -71,12 +71,12 @@
     {
       "name": "result_table_coverage",
       "ok": true,
-      "detail": "count=245"
+      "detail": "count=246"
     },
     {
       "name": "report_coverage",
       "ok": true,
-      "detail": "count=149"
+      "detail": "count=150"
     },
     {
       "name": "figure_coverage",
@@ -1468,6 +1468,22 @@
       "raw": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_micro_rollout_atomic_gap_probe_002_report.md",
       "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_micro_rollout_atomic_gap_probe_002_report.md",
       "repo_relative": "reports/robocasa_micro_rollout_atomic_gap_probe_002_report.md",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".md",
+      "artifact_category": "report",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "benchmark_robocasa_micro_rollout_atomic_task_distance_probe.json",
+      "json_ref": "report_path",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_micro_rollout_atomic_task_distance_probe_report.md",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_micro_rollout_atomic_task_distance_probe_report.md",
+      "repo_relative": "reports/robocasa_micro_rollout_atomic_task_distance_probe_report.md",
       "inside_repo": true,
       "exists": true,
       "kind": "file",
@@ -11372,6 +11388,22 @@
       "raw": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_micro_rollout_atomic_gap_probe_002.csv",
       "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_micro_rollout_atomic_gap_probe_002.csv",
       "repo_relative": "results/tables/benchmark_robocasa_micro_rollout_atomic_gap_probe_002.csv",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".csv",
+      "artifact_category": "result_table",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "benchmark_robocasa_micro_rollout_atomic_task_distance_probe.json",
+      "json_ref": "table_path",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_micro_rollout_atomic_task_distance_probe.csv",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_micro_rollout_atomic_task_distance_probe.csv",
+      "repo_relative": "results/tables/benchmark_robocasa_micro_rollout_atomic_task_distance_probe.csv",
       "inside_repo": true,
       "exists": true,
       "kind": "file",

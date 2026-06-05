@@ -2,28 +2,28 @@
   "experiment": "table_schema",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_tables": 216,
-  "total_rows": 212863,
-  "total_column_instances": 2576,
-  "numeric_column_instances": 1967,
-  "optional_blank_instances": 93,
+  "n_tables": 220,
+  "total_rows": 212880,
+  "total_column_instances": 2632,
+  "numeric_column_instances": 1994,
+  "optional_blank_instances": 101,
   "n_checks": 17,
   "n_issues": 0,
   "checks": [
     {
       "name": "table_files_present",
       "ok": true,
-      "detail": "tables=216"
+      "detail": "tables=220"
     },
     {
       "name": "table_rows_present",
       "ok": true,
-      "detail": "rows=212863"
+      "detail": "rows=212880"
     },
     {
       "name": "table_columns_present",
       "ok": true,
-      "detail": "column_instances=2576"
+      "detail": "column_instances=2632"
     },
     {
       "name": "table_headers_well_formed",
@@ -88,12 +88,12 @@
     {
       "name": "numeric_column_coverage",
       "ok": true,
-      "detail": "numeric_column_instances=1967"
+      "detail": "numeric_column_instances=1994"
     },
     {
       "name": "optional_blank_columns_are_explicit",
       "ok": true,
-      "detail": "optional_blank_instances=93"
+      "detail": "optional_blank_instances=101"
     }
   ],
   "issues": [],
@@ -879,7 +879,7 @@
     },
     {
       "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_libero_tiny_neural_vla_policy_episodes.csv",
-      "rows": 2,
+      "rows": 7,
       "columns": 12,
       "fieldnames": [
         "split",
@@ -1717,7 +1717,7 @@
     },
     {
       "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_catalog_artifact_coverage.csv",
-      "rows": 18,
+      "rows": 21,
       "columns": 6,
       "fieldnames": [
         "artifact",
@@ -3417,6 +3417,117 @@
         "utility"
       ],
       "blank_columns": [],
+      "malformed": false,
+      "duplicate_columns": [],
+      "blank_column_names": [],
+      "duplicate_rows": 0,
+      "blank_disallowed": [],
+      "nonfinite_numeric": [],
+      "noninteger_values": [],
+      "negative_id_values": [],
+      "nonpositive_compute_values": [],
+      "success_range_errors": [],
+      "boolean_errors": [],
+      "family_failures": []
+    },
+    {
+      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_atomic_gap_probe_002.csv",
+      "rows": 1,
+      "columns": 19,
+      "fieldnames": [
+        "env_id",
+        "task_index",
+        "seed",
+        "rollouts",
+        "horizon",
+        "available",
+        "reset_ok",
+        "rollout_ok",
+        "initial_distance",
+        "mean_final_distance",
+        "mean_progress",
+        "mean_utility",
+        "utility_std",
+        "utility_min",
+        "utility_max",
+        "success_count",
+        "nondegenerate",
+        "error",
+        "seconds"
+      ],
+      "numeric_columns": [
+        "horizon",
+        "rollouts",
+        "seconds",
+        "seed",
+        "success_count",
+        "task_index"
+      ],
+      "blank_columns": [
+        "initial_distance",
+        "mean_final_distance",
+        "mean_progress",
+        "mean_utility",
+        "utility_max",
+        "utility_min",
+        "utility_std"
+      ],
+      "malformed": false,
+      "duplicate_columns": [],
+      "blank_column_names": [],
+      "duplicate_rows": 0,
+      "blank_disallowed": [],
+      "nonfinite_numeric": [],
+      "noninteger_values": [],
+      "negative_id_values": [],
+      "nonpositive_compute_values": [],
+      "success_range_errors": [],
+      "boolean_errors": [],
+      "family_failures": []
+    },
+    {
+      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_atomic_task_distance_probe.csv",
+      "rows": 2,
+      "columns": 19,
+      "fieldnames": [
+        "env_id",
+        "task_index",
+        "seed",
+        "rollouts",
+        "horizon",
+        "available",
+        "reset_ok",
+        "rollout_ok",
+        "initial_distance",
+        "mean_final_distance",
+        "mean_progress",
+        "mean_utility",
+        "utility_std",
+        "utility_min",
+        "utility_max",
+        "success_count",
+        "nondegenerate",
+        "error",
+        "seconds"
+      ],
+      "numeric_columns": [
+        "horizon",
+        "initial_distance",
+        "mean_final_distance",
+        "mean_progress",
+        "mean_utility",
+        "rollouts",
+        "seconds",
+        "seed",
+        "success_count",
+        "task_index",
+        "utility_max",
+        "utility_min",
+        "utility_std"
+      ],
+      "blank_columns": [
+        "error"
+      ],
       "malformed": false,
       "duplicate_columns": [],
       "blank_column_names": [],
@@ -6501,8 +6612,78 @@
       "family_failures": []
     },
     {
+      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual_frontier_sweep_atomic_gap_probe_chunks.csv",
+      "rows": 4,
+      "columns": 9,
+      "fieldnames": [
+        "chunk_index",
+        "tag",
+        "env_ids",
+        "candidate_task_count",
+        "verified",
+        "timed_out",
+        "runnable_task_count",
+        "nondegenerate_task_count",
+        "summary_path"
+      ],
+      "numeric_columns": [
+        "candidate_task_count",
+        "chunk_index",
+        "nondegenerate_task_count",
+        "runnable_task_count"
+      ],
+      "blank_columns": [],
+      "malformed": false,
+      "duplicate_columns": [],
+      "blank_column_names": [],
+      "duplicate_rows": 0,
+      "blank_disallowed": [],
+      "nonfinite_numeric": [],
+      "noninteger_values": [],
+      "negative_id_values": [],
+      "nonpositive_compute_values": [],
+      "success_range_errors": [],
+      "boolean_errors": [],
+      "family_failures": []
+    },
+    {
       "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual_frontier_sweep_chunks.csv",
       "rows": 43,
+      "columns": 9,
+      "fieldnames": [
+        "chunk_index",
+        "tag",
+        "env_ids",
+        "candidate_task_count",
+        "verified",
+        "timed_out",
+        "runnable_task_count",
+        "nondegenerate_task_count",
+        "summary_path"
+      ],
+      "numeric_columns": [
+        "candidate_task_count",
+        "chunk_index",
+        "nondegenerate_task_count",
+        "runnable_task_count"
+      ],
+      "blank_columns": [],
+      "malformed": false,
+      "duplicate_columns": [],
+      "blank_column_names": [],
+      "duplicate_rows": 0,
+      "blank_disallowed": [],
+      "nonfinite_numeric": [],
+      "noninteger_values": [],
+      "negative_id_values": [],
+      "nonpositive_compute_values": [],
+      "success_range_errors": [],
+      "boolean_errors": [],
+      "family_failures": []
+    },
+    {
+      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe_chunks.csv",
+      "rows": 2,
       "columns": 9,
       "fieldnames": [
         "chunk_index",

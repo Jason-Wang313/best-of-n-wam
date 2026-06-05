@@ -64,7 +64,7 @@ robocasa/CloseDishwasher,close,True,False,True
 robocasa/CloseDoor,close,False,False,False
 robocasa/CloseDrawer,close,True,False,True
 robocasa/CloseDropDownDoor,close,False,False,False
-robocasa/CloseElectricKettleLid,close,False,False,False
+robocasa/CloseElectricKettleLid,close,False,True,True
 robocasa/CloseFridge,close,True,False,True
 robocasa/CloseFridgeDrawer,close,True,False,True
 robocasa/CloseMicrowave,close,True,False,True
@@ -180,7 +180,7 @@ robocasa/OpenDishwasher,open,True,False,True
 robocasa/OpenDoor,open,False,False,False
 robocasa/OpenDrawer,open,True,False,True
 robocasa/OpenDropDownDoor,open,False,False,False
-robocasa/OpenElectricKettleLid,open,False,False,False
+robocasa/OpenElectricKettleLid,open,False,True,True
 robocasa/OpenFridge,open,True,False,True
 robocasa/OpenFridgeDrawer,open,True,False,True
 robocasa/OpenMicrowave,open,True,False,True

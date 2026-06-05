@@ -2,10 +2,10 @@
   "experiment": "artifact_integrity",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_result_json": 147,
-  "n_references": 712,
+  "n_result_json": 148,
+  "n_references": 714,
   "status_counts": {
-    "ok": 712
+    "ok": 714
   },
   "n_issues": 0,
   "issues": [],
@@ -786,7 +786,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_catalog_registry.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_catalog_registry.csv",
       "exists": true,
-      "bytes": 26250,
+      "bytes": 26246,
       "rows": 396,
       "status": "ok",
       "reason": ""
@@ -797,8 +797,8 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_catalog_artifact_coverage.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_catalog_artifact_coverage.csv",
       "exists": true,
-      "bytes": 12449,
-      "rows": 20,
+      "bytes": 12614,
+      "rows": 21,
       "status": "ok",
       "reason": ""
     },
@@ -1326,6 +1326,28 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_micro_rollout_atomic_gap_probe_002_report.md",
       "exists": true,
       "bytes": 488,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_robocasa_micro_rollout_atomic_task_distance_probe.json",
+      "json_path": "table_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_micro_rollout_atomic_task_distance_probe.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_micro_rollout_atomic_task_distance_probe.csv",
+      "exists": true,
+      "bytes": 634,
+      "rows": 2,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_robocasa_micro_rollout_atomic_task_distance_probe.json",
+      "json_path": "report_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_micro_rollout_atomic_task_distance_probe_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_micro_rollout_atomic_task_distance_probe_report.md",
+      "exists": true,
+      "bytes": 545,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5351,7 +5373,7 @@
       "raw_path": "results/benchmark_robocasa_catalog_probe.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_catalog_probe.json",
       "exists": true,
-      "bytes": 15242,
+      "bytes": 15400,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5362,7 +5384,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_catalog_probe.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_robocasa_catalog_probe.json",
       "exists": true,
-      "bytes": 15242,
+      "bytes": 15400,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5571,7 +5593,7 @@
       "raw_path": "results/artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 311874,
+      "bytes": 312922,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5582,7 +5604,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 311874,
+      "bytes": 312922,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5945,7 +5967,7 @@
       "raw_path": "results/artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 94493,
+      "bytes": 95449,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5956,7 +5978,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 94493,
+      "bytes": 95449,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6297,7 +6319,7 @@
       "raw_path": "results/test_inventory.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
-      "bytes": 15331,
+      "bytes": 15624,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6308,7 +6330,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
-      "bytes": 15331,
+      "bytes": 15624,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6473,7 +6495,7 @@
       "raw_path": "results/evidence_hash_coverage.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
-      "bytes": 232597,
+      "bytes": 233457,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6484,7 +6506,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
-      "bytes": 232597,
+      "bytes": 233457,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6517,7 +6539,7 @@
       "raw_path": "results/repo_bound_artifact_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
-      "bytes": 593295,
+      "bytes": 594905,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6528,7 +6550,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
-      "bytes": 593295,
+      "bytes": 594905,
       "rows": null,
       "status": "ok",
       "reason": ""

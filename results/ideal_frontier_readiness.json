@@ -111,7 +111,7 @@
         {
           "name": "full_registry_any_artifact_coverage",
           "ok": false,
-          "detail": "any_artifact_covered=134/396"
+          "detail": "any_artifact_covered=136/396"
         },
         {
           "name": "all_categories_fully_covered",

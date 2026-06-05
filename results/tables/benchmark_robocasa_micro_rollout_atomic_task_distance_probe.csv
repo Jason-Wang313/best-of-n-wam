@@ -1,0 +1,3 @@
+env_id,task_index,seed,rollouts,horizon,available,reset_ok,rollout_ok,initial_distance,mean_final_distance,mean_progress,mean_utility,utility_std,utility_min,utility_max,success_count,nondegenerate,error,seconds
+robocasa/OpenElectricKettleLid,0,2026,2,1,True,True,True,0.95,0.95,0.0,-0.018511360883712767,0.0003623807430267346,-0.018873741626739503,-0.018148980140686034,0,True,,295.78337836265564
+robocasa/CloseElectricKettleLid,1,2027,2,1,True,True,True,0.9876609659483563,0.9874228593511628,0.00023810659719347704,-0.024020994555226566,0.0029248034954071044,-0.02694579805063367,-0.021096191059819462,0,True,,237.81322026252747

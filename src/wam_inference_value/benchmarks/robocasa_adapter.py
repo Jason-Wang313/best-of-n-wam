@@ -197,7 +197,147 @@ class RoboCasaAdapter:
         self.last_info = dict(info)
         return _flatten_numeric(obs), self.last_reward, bool(terminated), bool(truncated), self.last_info
 
+    def _task_direction(self) -> str:
+        name = self.env_id.split("/", 1)[-1].lower()
+        behavior = str(getattr(self.inner, "behavior", "")).lower()
+        if behavior in {"open", "close", "turn_on", "turn_off"}:
+            return behavior
+        if name.startswith("open"):
+            return "open"
+        if name.startswith("close"):
+            return "close"
+        if name.startswith("turnon"):
+            return "turn_on"
+        if name.startswith("turnoff"):
+            return "turn_off"
+        return behavior
+
+    def _call_fixture_method(self, fixture: Any, method_name: str) -> Any | None:
+        method = getattr(fixture, method_name, None)
+        if method is None:
+            return None
+        calls = (
+            lambda: method(env=self.inner),
+            lambda: method(self.inner),
+            lambda: method(),
+        )
+        for call in calls:
+            try:
+                return call()
+            except TypeError:
+                continue
+            except Exception:
+                return None
+        return None
+
+    @staticmethod
+    def _mean_threshold_distance(values: list[float], direction: str) -> float | None:
+        if not values:
+            return None
+        arr = np.asarray(values, dtype=float)
+        if direction == "open":
+            return float(np.mean(np.maximum(0.0, 0.95 - arr)))
+        if direction == "close":
+            return float(np.mean(np.maximum(0.0, arr - 0.05)))
+        return None
+
+    def _distance_from_state_dict(self, state: dict[str, Any], direction: str) -> float | None:
+        lower_state = {str(k).lower(): v for k, v in state.items()}
+
+        if direction == "turn_on" and "turned_on" in lower_state:
+            return 0.0 if bool(lower_state["turned_on"]) else 1.0
+        if direction == "turn_off" and "turned_on" in lower_state:
+            return 1.0 if bool(lower_state["turned_on"]) else 0.0
+        if direction == "turn_on" and "water_on" in lower_state:
+            return 0.0 if bool(lower_state["water_on"]) else 1.0
+        if direction == "turn_off" and "water_on" in lower_state:
+            return 1.0 if bool(lower_state["water_on"]) else 0.0
+
+        if "spout_ori" in lower_state and hasattr(self.inner, "behavior"):
+            return 0.0 if lower_state["spout_ori"] == getattr(self.inner, "behavior") else 1.0
+
+        if direction == "turn_on" and "time" in lower_state:
+            return float(max(0.0, 0.1 - float(lower_state["time"])))
+
+        scalar_keys = ("lid", "head", "door")
+        for key in scalar_keys:
+            if key in lower_state:
+                value = float(lower_state[key])
+                if direction == "open":
+                    return float(max(0.0, 0.95 - value))
+                if direction == "close":
+                    threshold = 0.01 if key in {"lid", "head"} else 0.05
+                    return float(max(0.0, value - threshold))
+
+        if direction == "close" and "lid_on_blender" in lower_state:
+            return 0.0 if bool(lower_state["lid_on_blender"]) else 1.0
+
+        rack_values: list[float] = []
+        for key, value in lower_state.items():
+            if key.startswith("rack") or key.startswith("tray"):
+                if value is None:
+                    continue
+                try:
+                    rack_values.append(float(value))
+                except (TypeError, ValueError):
+                    continue
+        return self._mean_threshold_distance(rack_values, direction)
+
+    def task_distance(self) -> float | None:
+        """Return remaining task-space distance when RoboCasa exposes fixture state.
+
+        Atomic RoboCasa tasks such as opening a lid or turning on a kettle often
+        have no movable object-to-EEF observation, but their fixtures expose
+        success-threshold state variables. This conservative metric uses those
+        state variables when available and otherwise leaves object-distance
+        logic in charge.
+        """
+
+        direction = self._task_direction()
+        fixture_names = (
+            "drawer",
+            "fxtr",
+            "electric_kettle",
+            "stand_mixer",
+            "toaster_oven",
+            "sink",
+            "blender",
+        )
+
+        for name in fixture_names:
+            fixture = getattr(self.inner, name, None)
+            if fixture is None:
+                continue
+            door_state = self._call_fixture_method(fixture, "get_door_state")
+            if isinstance(door_state, dict):
+                values: list[float] = []
+                for value in door_state.values():
+                    try:
+                        values.append(float(value))
+                    except (TypeError, ValueError):
+                        continue
+                distance = self._mean_threshold_distance(values, direction)
+                if distance is not None:
+                    return distance
+            for method_name in ("get_handle_state", "get_state"):
+                state = self._call_fixture_method(fixture, method_name)
+                if isinstance(state, dict):
+                    distance = self._distance_from_state_dict(state, direction)
+                    if distance is not None:
+                        return float(distance)
+
+            if direction == "open" and self._call_fixture_method(fixture, "is_open") is True:
+                return 0.0
+            if direction == "close" and self._call_fixture_method(fixture, "is_closed") is True:
+                return 0.0
+
+        return None
+
     def object_distance(self) -> float:
+        task_distance = self.task_distance()
+        if task_distance is not None:
+            return float(task_distance)
+
         raw = self._raw_obs()
         if "obj_to_robot0_eef_pos" in raw:
             return float(np.linalg.norm(np.asarray(raw["obj_to_robot0_eef_pos"], dtype=float).reshape(-1)[:3]))

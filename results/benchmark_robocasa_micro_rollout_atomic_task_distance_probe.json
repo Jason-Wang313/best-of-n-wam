@@ -1,0 +1,25 @@
+{
+  "experiment": "benchmark_robocasa_micro_rollout_atomic_task_distance_probe",
+  "attempted": true,
+  "available": true,
+  "verified": true,
+  "output_tag": "atomic_task_distance_probe",
+  "candidate_task_count": 2,
+  "runnable_task_count": 2,
+  "nondegenerate_task_count": 2,
+  "runnable_env_ids": [
+    "robocasa/OpenElectricKettleLid",
+    "robocasa/CloseElectricKettleLid"
+  ],
+  "nondegenerate_env_ids": [
+    "robocasa/OpenElectricKettleLid",
+    "robocasa/CloseElectricKettleLid"
+  ],
+  "rollouts_per_task": 2,
+  "horizon": 1,
+  "split": "pretrain",
+  "wall_clock_seconds": 539.2655725479126,
+  "table_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_micro_rollout_atomic_task_distance_probe.csv",
+  "report_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_micro_rollout_atomic_task_distance_probe_report.md",
+  "note": "RoboCasa micro-rollout viability only; not learned-WAM, exact-law, closed-loop, solved-policy, or full-suite validation."
+}

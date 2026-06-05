@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 152,
-  "n_unique_tests": 152,
-  "trailer_count": 152,
+  "n_tests": 155,
+  "n_unique_tests": 155,
+  "trailer_count": 155,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -126,6 +126,9 @@
     "tests/test_robocasa_adapter.py::test_robocasa_adapter_skips_when_dependency_missing",
     "tests/test_robocasa_adapter.py::test_robocasa_object_distance_prefers_broad_task_targets",
     "tests/test_robocasa_adapter.py::test_robocasa_object_distance_falls_back_to_named_targets",
+    "tests/test_robocasa_adapter.py::test_robocasa_task_distance_uses_drawer_joint_thresholds",
+    "tests/test_robocasa_adapter.py::test_robocasa_task_distance_uses_fixture_state_thresholds",
+    "tests/test_robocasa_adapter.py::test_robocasa_task_distance_uses_boolean_and_handle_state",
     "tests/test_robocasa_residual_sweep_paths.py::test_residual_sweep_summary_tag_preserves_canonical_default",
     "tests/test_robosuite_adapter.py::test_robosuite_adapter_smoke_if_available",
     "tests/test_runtime_environment.py::test_runtime_environment_records_core_and_optional_requirements",
@@ -169,7 +172,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=152"
+      "detail": "nodeids=155"
     },
     {
       "name": "nodeids_unique",
@@ -179,12 +182,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=152"
+      "detail": "nodeids=155"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=152, nodeids=152"
+      "detail": "trailer=155, nodeids=155"
     },
     {
       "name": "required_test_families_present",

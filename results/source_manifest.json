@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 223,
-  "total_bytes": 1609023,
+  "total_bytes": 1617738,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 206,
@@ -165,8 +165,8 @@
     {
       "path": "experiments/benchmark_robocasa_catalog_probe.py",
       "suffix": ".py",
-      "bytes": 9237,
-      "sha256": "b8fb0bdb42ff232e2c942913b5a123a5e9bc351f1ab7cff7663828996a0f9756"
+      "bytes": 9309,
+      "sha256": "1b84220b2a11f1f89d2709373638594e76f354ac306d6be10b94b0f52d141be6"
     },
     {
       "path": "experiments/benchmark_robocasa_learned_wam.py",
@@ -765,8 +765,8 @@
     {
       "path": "src/wam_inference_value/benchmarks/robocasa_adapter.py",
       "suffix": ".py",
-      "bytes": 15346,
-      "sha256": "8c220bfa3b764288bf039d14f2d93d571a419fb91eca3cb1fbac0baf21ea135f"
+      "bytes": 20989,
+      "sha256": "4f2464cafa596c9a3fddfa5eda8e16f2a26747df69b4bafaf4882f107b949f19"
     },
     {
       "path": "src/wam_inference_value/benchmarks/robosuite_adapter.py",
@@ -1281,8 +1281,8 @@
     {
       "path": "tests/test_robocasa_adapter.py",
       "suffix": ".py",
-      "bytes": 1557,
-      "sha256": "2412c01ad78379c711b8c0fcc621dd48f49911bab339d8efe786d78974abfe59"
+      "bytes": 4557,
+      "sha256": "328f0a7dfe32598b796d4a0c28e13b14e481a215498173dea54cb43aeff8bca2"
     },
     {
       "path": "tests/test_robocasa_residual_sweep_paths.py",
@@ -1380,7 +1380,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1609023, scan=1609023"
+      "detail": "payload=1617738, scan=1617738"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1425,7 +1425,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1609023"
+      "detail": "bytes=1617738"
     },
     {
       "name": "source_manifest_dir_coverage",

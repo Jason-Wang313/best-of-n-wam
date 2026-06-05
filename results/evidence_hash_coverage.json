@@ -2,8 +2,8 @@
   "experiment": "evidence_hash_coverage",
   "verified": true,
   "n_claim_sources": 117,
-  "n_artifact_references": 454,
-  "n_hashed_records": 571,
+  "n_artifact_references": 456,
+  "n_hashed_records": 573,
   "n_self_outputs_excluded": 4,
   "n_checks": 10,
   "n_issues": 0,
@@ -16,7 +16,7 @@
     {
       "name": "artifact_references_present",
       "ok": true,
-      "detail": "artifact_references=454"
+      "detail": "artifact_references=456"
     },
     {
       "name": "claim_source_hash_count",
@@ -26,7 +26,7 @@
     {
       "name": "artifact_reference_hash_count",
       "ok": true,
-      "detail": "artifact_references=454"
+      "detail": "artifact_references=456"
     },
     {
       "name": "all_nonself_records_exist",
@@ -111,7 +111,7 @@
       "kind": "file",
       "bytes": 230,
       "tree_files": 1,
-      "sha256": "703fc86af03ad6e842ba92090e6d311f8ca3491d5a51965ccb777e92b8df4f89",
+      "sha256": "d927394d62a70e6c15db85a5f848278d9c44f047d1a781b032144684a211df2c",
       "self_output": false
     },
     {
@@ -123,7 +123,7 @@
       "kind": "file",
       "bytes": 408,
       "tree_files": 1,
-      "sha256": "cb324d4c03f609366512cf07bc879810ce02f2a4fac89d2b533364ea08e5f0bb",
+      "sha256": "a2d084267e214130a40df632dc32f4f68e5985fa4b8a0c65175eed4b3e84173b",
       "self_output": false
     },
     {
@@ -147,7 +147,7 @@
       "kind": "file",
       "bytes": 454,
       "tree_files": 1,
-      "sha256": "7d145e87c1ff76b3ebd3b99a83aa9518c7a45c27d1b2977d0a8dba0602802e17",
+      "sha256": "e42b88de563127e671f31a9c7ba7caa81b31608f3ed83c1e3464770723970632",
       "self_output": false
     },
     {
@@ -207,7 +207,7 @@
       "kind": "file",
       "bytes": 32327,
       "tree_files": 1,
-      "sha256": "7425463bd9e7ab8d1c3ee5c5d863a2e68707ef072ee305630e9535e133858552",
+      "sha256": "15fa20ff9c8fe2150f602bede1f3fbe02d422bcc04d02a0ba4d01d018c4755bf",
       "self_output": false
     },
     {
@@ -219,7 +219,7 @@
       "kind": "file",
       "bytes": 296,
       "tree_files": 1,
-      "sha256": "2bf5b12ca2b4736e27a0f11bb270d39546d9ddea664e1fa2518cc29b80b0f5e5",
+      "sha256": "ce7a8c5d533a702aae5049d21772e47c9dac2efc0368a0ab21b9904b99568098",
       "self_output": false
     },
     {
@@ -327,7 +327,7 @@
       "kind": "file",
       "bytes": 599,
       "tree_files": 1,
-      "sha256": "ddfe7e0a7bf51a6e76a7fbb8f6c60115875fcc5254c69a958235a5a9ded35291",
+      "sha256": "6a9f22c68fe993dac611c62e37eb639cd93f4343df882586e3647ddd1e390e3a",
       "self_output": false
     },
     {
@@ -387,7 +387,7 @@
       "kind": "file",
       "bytes": 535,
       "tree_files": 1,
-      "sha256": "63dbd879446e5685a7c67418f95c78fcf4101ef68277e6cd1613339eb7b5e88e",
+      "sha256": "199365fe1654d4b811411640c7c1314460b9e512b9a02c9ee68775e142bef4aa",
       "self_output": false
     },
     {
@@ -399,7 +399,7 @@
       "kind": "file",
       "bytes": 414,
       "tree_files": 1,
-      "sha256": "8ee0309ec5d9686cb3bff8c1a6ca88a3c672f8df6ca56510b29287ad1ac70463",
+      "sha256": "9f33c490feb4939f361f023899a8e7465869141b3dfb49217766ec575ac33ef7",
       "self_output": false
     },
     {
@@ -411,7 +411,7 @@
       "kind": "file",
       "bytes": 286,
       "tree_files": 1,
-      "sha256": "da6081b8378d4017408848accd93f4b6cb59137969c1727a82ce2844e8842c90",
+      "sha256": "a36aac55f592d2991cae2fb4f41d2899f096310ae09d7ee8048c022a4778ae9b",
       "self_output": false
     },
     {
@@ -423,7 +423,7 @@
       "kind": "file",
       "bytes": 386,
       "tree_files": 1,
-      "sha256": "680e4f1219ceca5fadeb92087fc0b2bdcf5ecabbe7107bada81bdc26aa3a2dbc",
+      "sha256": "ecda252a1e01bc6113636b89b0cbf259df4bfd0e2e3b6d955ac39a551e60fc94",
       "self_output": false
     },
     {
@@ -445,9 +445,9 @@
       "repo_relative": "results/artifact_integrity.json",
       "exists": true,
       "kind": "file",
-      "bytes": 312922,
+      "bytes": 313944,
       "tree_files": 1,
-      "sha256": "f4f3e8bdae933d9b353e0ac4b3e4b2a8ae4a54d1e38dbc9ae256d292c8d7fb9a",
+      "sha256": "bcc3b597a578a289b444a05d776245ff9a4201c5ed240b7472dced04b7326991",
       "self_output": false
     },
     {
@@ -457,9 +457,9 @@
       "repo_relative": "results/artifact_manifest.json",
       "exists": true,
       "kind": "file",
-      "bytes": 95449,
+      "bytes": 95929,
       "tree_files": 1,
-      "sha256": "054aefa6670148672005ee45044c931e47f7e410a530a4063aea9893c585c756",
+      "sha256": "1f76641dc663e52144c5da4b6ffc904b33839b67ed942795b61afc94ecc666f6",
       "self_output": false
     },
     {
@@ -649,9 +649,9 @@
       "repo_relative": "results/benchmark_robocasa_catalog_probe.json",
       "exists": true,
       "kind": "file",
-      "bytes": 15242,
+      "bytes": 15400,
       "tree_files": 1,
-      "sha256": "1232c367668acd6e4a31fbc20e0c0d13e473cacfca4c79d412f279d0d3c8ea52",
+      "sha256": "9e22d0037a8a13304ce82025a80c033c13caf955fd801d09430c595ac5f4238f",
       "self_output": false
     },
     {
@@ -903,7 +903,7 @@
       "kind": "file",
       "bytes": 2108,
       "tree_files": 1,
-      "sha256": "28e1aa53d88be0cae2d96bce3fd9313ab2bdc4ecc2932437d30d256c4344f548",
+      "sha256": "f9c53fa7485abcc40b4755e5dc8809f77407badce9e549672833be08ab963826",
       "self_output": false
     },
     {
@@ -963,7 +963,7 @@
       "kind": "file",
       "bytes": 42972,
       "tree_files": 1,
-      "sha256": "66fd24bb337dbf19b4982f3fee6f03781eb4a3b0b2624ce5e0627d13bb307e16",
+      "sha256": "444c62791fcc1d222ab9f8003c0531cd5bf4b992c064fab399ad805bffe305b9",
       "self_output": false
     },
     {
@@ -975,7 +975,7 @@
       "kind": "file",
       "bytes": 8118,
       "tree_files": 1,
-      "sha256": "b93ccca629488e142ec8c44c4f619edfc43aa224db8de41ec2556d95aa353533",
+      "sha256": "95e1682e6faebb0c43d3c7ef98a0fc1275f71470b8bf5f43550c5adace67c518",
       "self_output": false
     },
     {
@@ -1167,7 +1167,7 @@
       "kind": "file",
       "bytes": 33338,
       "tree_files": 1,
-      "sha256": "a2eaaebcfea5c6fae6161e869a65d53d30f31aec3adaf62aef76cddf359a737a",
+      "sha256": "8cfeaa6a47cf96cc2a908ee5bdc5943b5739b48fa2f36cc7eac4bc70fa6c8577",
       "self_output": false
     },
     {
@@ -1297,9 +1297,9 @@
       "repo_relative": "results/repo_bound_artifact_audit.json",
       "exists": true,
       "kind": "file",
-      "bytes": 594905,
+      "bytes": 596478,
       "tree_files": 1,
-      "sha256": "b89bc1a41e5c3f476d1912699640bc2e7443079266091bd37c85cb044e638c5b",
+      "sha256": "a8aaac9f4675bdb2626c020203e38a6d456e99e3314a0ae7f0d4250a3fdea30f",
       "self_output": false
     },
     {
@@ -1311,7 +1311,7 @@
       "kind": "file",
       "bytes": 2364,
       "tree_files": 1,
-      "sha256": "7aca282890a79c0514fec0af3f10719f429cdfb4cc1bcb2e8bf2e52d449fa4e3",
+      "sha256": "ff2ec063ce8eaea20e48adecadaeaf3a322bc38d8e252f48113b0a7c14cf27ea",
       "self_output": false
     },
     {
@@ -1371,7 +1371,7 @@
       "kind": "file",
       "bytes": 48286,
       "tree_files": 1,
-      "sha256": "b805790677b2561a396ffc142485db80f4ca0c1557dee46ac67eef3942fd9577",
+      "sha256": "a17c27921ac08e06164589d8c59eb2c477143ba1d844d5bc852124fc24e3f8b0",
       "self_output": false
     },
     {
@@ -1381,9 +1381,9 @@
       "repo_relative": "results/table_schema.json",
       "exists": true,
       "kind": "file",
-      "bytes": 255265,
+      "bytes": 260161,
       "tree_files": 1,
-      "sha256": "dd54b103505a0bcdcc73c4bc50166958e76926d7f56a997eef008de7de52cf74",
+      "sha256": "cedf0c51b1800d3535c21bd9fdff2b49288abfabd83aecfb25c6ac6974de744c",
       "self_output": false
     },
     {
@@ -1417,9 +1417,9 @@
       "repo_relative": "results/test_inventory.json",
       "exists": true,
       "kind": "file",
-      "bytes": 15331,
+      "bytes": 15624,
       "tree_files": 1,
-      "sha256": "9f7c6fb5f926510f30a018e0f9931ecc8e5d5f292c57ab7f0c7f517abb3f4cf2",
+      "sha256": "b8bf85ea02e0b2d8517c5c7e7b6c8d72dc845960d8c9ffaef89be2ce4a6e7544",
       "self_output": false
     },
     {
@@ -1431,7 +1431,7 @@
       "kind": "file",
       "bytes": 1822,
       "tree_files": 1,
-      "sha256": "e4aec8d1423a71c5664a9137f1c4fae2625c816ce3f2584f649a311b690d9426",
+      "sha256": "e77ce0af6f3d6d751820aa0d25df2fd467220f3de290c159c3014ba985273d11",
       "self_output": false
     },
     {
@@ -1517,7 +1517,7 @@
       "kind": "file",
       "bytes": 230,
       "tree_files": 1,
-      "sha256": "703fc86af03ad6e842ba92090e6d311f8ca3491d5a51965ccb777e92b8df4f89",
+      "sha256": "d927394d62a70e6c15db85a5f848278d9c44f047d1a781b032144684a211df2c",
       "self_output": false
     },
     {
@@ -1529,7 +1529,7 @@
       "kind": "file",
       "bytes": 408,
       "tree_files": 1,
-      "sha256": "cb324d4c03f609366512cf07bc879810ce02f2a4fac89d2b533364ea08e5f0bb",
+      "sha256": "a2d084267e214130a40df632dc32f4f68e5985fa4b8a0c65175eed4b3e84173b",
       "self_output": false
     },
     {
@@ -1553,7 +1553,7 @@
       "kind": "file",
       "bytes": 454,
       "tree_files": 1,
-      "sha256": "7d145e87c1ff76b3ebd3b99a83aa9518c7a45c27d1b2977d0a8dba0602802e17",
+      "sha256": "e42b88de563127e671f31a9c7ba7caa81b31608f3ed83c1e3464770723970632",
       "self_output": false
     },
     {
@@ -1613,7 +1613,7 @@
       "kind": "file",
       "bytes": 32327,
       "tree_files": 1,
-      "sha256": "7425463bd9e7ab8d1c3ee5c5d863a2e68707ef072ee305630e9535e133858552",
+      "sha256": "15fa20ff9c8fe2150f602bede1f3fbe02d422bcc04d02a0ba4d01d018c4755bf",
       "self_output": false
     },
     {
@@ -1625,7 +1625,7 @@
       "kind": "file",
       "bytes": 296,
       "tree_files": 1,
-      "sha256": "2bf5b12ca2b4736e27a0f11bb270d39546d9ddea664e1fa2518cc29b80b0f5e5",
+      "sha256": "ce7a8c5d533a702aae5049d21772e47c9dac2efc0368a0ab21b9904b99568098",
       "self_output": false
     },
     {
@@ -1757,7 +1757,7 @@
       "kind": "file",
       "bytes": 599,
       "tree_files": 1,
-      "sha256": "ddfe7e0a7bf51a6e76a7fbb8f6c60115875fcc5254c69a958235a5a9ded35291",
+      "sha256": "6a9f22c68fe993dac611c62e37eb639cd93f4343df882586e3647ddd1e390e3a",
       "self_output": false
     },
     {
@@ -1866,6 +1866,18 @@
       "bytes": 488,
       "tree_files": 1,
       "sha256": "5132aa40964be694e46ae0a3974212c49223cb673ccfc2231b54066a877f1b95",
+      "self_output": false
+    },
+    {
+      "category": "artifact_reference",
+      "source": "artifact_integrity",
+      "claim_id": null,
+      "repo_relative": "reports/robocasa_micro_rollout_atomic_task_distance_probe_report.md",
+      "exists": true,
+      "kind": "file",
+      "bytes": 545,
+      "tree_files": 1,
+      "sha256": "df62cf00521cd8d05ab42b5d9b7cb94824faa2e5033ec3ec4ab0e8fa220bc85e",
       "self_output": false
     },
     {
@@ -2513,7 +2525,7 @@
       "kind": "file",
       "bytes": 535,
       "tree_files": 1,
-      "sha256": "63dbd879446e5685a7c67418f95c78fcf4101ef68277e6cd1613339eb7b5e88e",
+      "sha256": "199365fe1654d4b811411640c7c1314460b9e512b9a02c9ee68775e142bef4aa",
       "self_output": false
     },
     {
@@ -2525,7 +2537,7 @@
       "kind": "file",
       "bytes": 414,
       "tree_files": 1,
-      "sha256": "8ee0309ec5d9686cb3bff8c1a6ca88a3c672f8df6ca56510b29287ad1ac70463",
+      "sha256": "9f33c490feb4939f361f023899a8e7465869141b3dfb49217766ec575ac33ef7",
       "self_output": false
     },
     {
@@ -2537,7 +2549,7 @@
       "kind": "file",
       "bytes": 286,
       "tree_files": 1,
-      "sha256": "da6081b8378d4017408848accd93f4b6cb59137969c1727a82ce2844e8842c90",
+      "sha256": "a36aac55f592d2991cae2fb4f41d2899f096310ae09d7ee8048c022a4778ae9b",
       "self_output": false
     },
     {
@@ -2549,7 +2561,7 @@
       "kind": "file",
       "bytes": 386,
       "tree_files": 1,
-      "sha256": "680e4f1219ceca5fadeb92087fc0b2bdcf5ecabbe7107bada81bdc26aa3a2dbc",
+      "sha256": "ecda252a1e01bc6113636b89b0cbf259df4bfd0e2e3b6d955ac39a551e60fc94",
       "self_output": false
     },
     {
@@ -2571,9 +2583,9 @@
       "repo_relative": "results/artifact_integrity.json",
       "exists": true,
       "kind": "file",
-      "bytes": 312922,
+      "bytes": 313944,
       "tree_files": 1,
-      "sha256": "f4f3e8bdae933d9b353e0ac4b3e4b2a8ae4a54d1e38dbc9ae256d292c8d7fb9a",
+      "sha256": "bcc3b597a578a289b444a05d776245ff9a4201c5ed240b7472dced04b7326991",
       "self_output": false
     },
     {
@@ -2583,9 +2595,9 @@
       "repo_relative": "results/artifact_manifest.json",
       "exists": true,
       "kind": "file",
-      "bytes": 95449,
+      "bytes": 95929,
       "tree_files": 1,
-      "sha256": "054aefa6670148672005ee45044c931e47f7e410a530a4063aea9893c585c756",
+      "sha256": "1f76641dc663e52144c5da4b6ffc904b33839b67ed942795b61afc94ecc666f6",
       "self_output": false
     },
     {
@@ -2775,9 +2787,9 @@
       "repo_relative": "results/benchmark_robocasa_catalog_probe.json",
       "exists": true,
       "kind": "file",
-      "bytes": 15242,
+      "bytes": 15400,
       "tree_files": 1,
-      "sha256": "1232c367668acd6e4a31fbc20e0c0d13e473cacfca4c79d412f279d0d3c8ea52",
+      "sha256": "9e22d0037a8a13304ce82025a80c033c13caf955fd801d09430c595ac5f4238f",
       "self_output": false
     },
     {
@@ -3029,7 +3041,7 @@
       "kind": "file",
       "bytes": 2108,
       "tree_files": 1,
-      "sha256": "28e1aa53d88be0cae2d96bce3fd9313ab2bdc4ecc2932437d30d256c4344f548",
+      "sha256": "f9c53fa7485abcc40b4755e5dc8809f77407badce9e549672833be08ab963826",
       "self_output": false
     },
     {
@@ -3089,7 +3101,7 @@
       "kind": "file",
       "bytes": 42972,
       "tree_files": 1,
-      "sha256": "66fd24bb337dbf19b4982f3fee6f03781eb4a3b0b2624ce5e0627d13bb307e16",
+      "sha256": "444c62791fcc1d222ab9f8003c0531cd5bf4b992c064fab399ad805bffe305b9",
       "self_output": false
     },
     {
@@ -3101,7 +3113,7 @@
       "kind": "file",
       "bytes": 8118,
       "tree_files": 1,
-      "sha256": "b93ccca629488e142ec8c44c4f619edfc43aa224db8de41ec2556d95aa353533",
+      "sha256": "95e1682e6faebb0c43d3c7ef98a0fc1275f71470b8bf5f43550c5adace67c518",
       "self_output": false
     },
     {
@@ -3725,7 +3737,7 @@
       "kind": "file",
       "bytes": 33338,
       "tree_files": 1,
-      "sha256": "a2eaaebcfea5c6fae6161e869a65d53d30f31aec3adaf62aef76cddf359a737a",
+      "sha256": "8cfeaa6a47cf96cc2a908ee5bdc5943b5739b48fa2f36cc7eac4bc70fa6c8577",
       "self_output": false
     },
     {
@@ -4227,9 +4239,9 @@
       "repo_relative": "results/repo_bound_artifact_audit.json",
       "exists": true,
       "kind": "file",
-      "bytes": 594905,
+      "bytes": 596478,
       "tree_files": 1,
-      "sha256": "b89bc1a41e5c3f476d1912699640bc2e7443079266091bd37c85cb044e638c5b",
+      "sha256": "a8aaac9f4675bdb2626c020203e38a6d456e99e3314a0ae7f0d4250a3fdea30f",
       "self_output": false
     },
     {
@@ -4241,7 +4253,7 @@
       "kind": "file",
       "bytes": 2364,
       "tree_files": 1,
-      "sha256": "7aca282890a79c0514fec0af3f10719f429cdfb4cc1bcb2e8bf2e52d449fa4e3",
+      "sha256": "ff2ec063ce8eaea20e48adecadaeaf3a322bc38d8e252f48113b0a7c14cf27ea",
       "self_output": false
     },
     {
@@ -4301,7 +4313,7 @@
       "kind": "file",
       "bytes": 48286,
       "tree_files": 1,
-      "sha256": "b805790677b2561a396ffc142485db80f4ca0c1557dee46ac67eef3942fd9577",
+      "sha256": "a17c27921ac08e06164589d8c59eb2c477143ba1d844d5bc852124fc24e3f8b0",
       "self_output": false
     },
     {
@@ -4311,9 +4323,9 @@
       "repo_relative": "results/table_schema.json",
       "exists": true,
       "kind": "file",
-      "bytes": 255265,
+      "bytes": 260161,
       "tree_files": 1,
-      "sha256": "dd54b103505a0bcdcc73c4bc50166958e76926d7f56a997eef008de7de52cf74",
+      "sha256": "cedf0c51b1800d3535c21bd9fdff2b49288abfabd83aecfb25c6ac6974de744c",
       "self_output": false
     },
     {
@@ -4767,9 +4779,9 @@
       "repo_relative": "results/tables/benchmark_robocasa_catalog_artifact_coverage.csv",
       "exists": true,
       "kind": "file",
-      "bytes": 12449,
+      "bytes": 12614,
       "tree_files": 1,
-      "sha256": "878484e592d37d1033655a48e2dfcb5e9b0cb902986f0a83a708d964742bb61c",
+      "sha256": "f1e90ecaa3e277cc2548450fb5a78659e960fee14d55334e7de4241bb17d31cf",
       "self_output": false
     },
     {
@@ -4779,9 +4791,9 @@
       "repo_relative": "results/tables/benchmark_robocasa_catalog_registry.csv",
       "exists": true,
       "kind": "file",
-      "bytes": 26250,
+      "bytes": 26246,
       "tree_files": 1,
-      "sha256": "eb874f878b21b3ba3472e7a6453b736af3850ecb5d939e3f7378d329657b8f64",
+      "sha256": "b8cfbe14d1250743915844cf24e041ceaf2460e91526d1fcc76a89543cc5e146",
       "self_output": false
     },
     {
@@ -5250,6 +5262,18 @@
       "bytes": 550,
       "tree_files": 1,
       "sha256": "2ca0d494c6a1ddec84c21e70954d4de95629eea4d024edbfb38a913ab17ffa36",
+      "self_output": false
+    },
+    {
+      "category": "artifact_reference",
+      "source": "artifact_integrity",
+      "claim_id": null,
+      "repo_relative": "results/tables/benchmark_robocasa_micro_rollout_atomic_task_distance_probe.csv",
+      "exists": true,
+      "kind": "file",
+      "bytes": 634,
+      "tree_files": 1,
+      "sha256": "9a6e5ba8909617e4bd309f0f3ccce92dc61fdef0350190a26d1e02d42e43d2c3",
       "self_output": false
     },
     {
@@ -6867,9 +6891,9 @@
       "repo_relative": "results/test_inventory.json",
       "exists": true,
       "kind": "file",
-      "bytes": 15331,
+      "bytes": 15624,
       "tree_files": 1,
-      "sha256": "9f7c6fb5f926510f30a018e0f9931ecc8e5d5f292c57ab7f0c7f517abb3f4cf2",
+      "sha256": "b8bf85ea02e0b2d8517c5c7e7b6c8d72dc845960d8c9ffaef89be2ce4a6e7544",
       "self_output": false
     },
     {
@@ -6881,7 +6905,7 @@
       "kind": "file",
       "bytes": 1822,
       "tree_files": 1,
-      "sha256": "e4aec8d1423a71c5664a9137f1c4fae2625c816ce3f2584f649a311b690d9426",
+      "sha256": "e77ce0af6f3d6d751820aa0d25df2fd467220f3de290c159c3014ba985273d11",
       "self_output": false
     },
     {
