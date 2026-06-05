@@ -157,8 +157,8 @@
         "any_artifact_task_count": 136,
         "any_artifact_coverage_fraction": 0.3434343434343434,
         "triage_verified": true,
-        "unattempted": 224,
-        "attempted_not_covered": 36
+        "unattempted": 222,
+        "attempted_not_covered": 38
       }
     },
     {

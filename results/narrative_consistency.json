@@ -147,14 +147,14 @@
       "surface": "final_decision_report",
       "name": "artifact_integrity_command",
       "ok": true,
-      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `733` artifact references checked and `0` issues",
+      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `735` artifact references checked and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "artifact_manifest_command",
       "ok": true,
-      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `454` scientific artifacts, `77238314` bytes, `15` manifest checks, and `0` issues",
+      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `458` scientific artifacts, `77241202` bytes, `15` manifest checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -280,21 +280,21 @@
       "surface": "final_decision_report",
       "name": "tracked_artifact_provenance_command",
       "ok": true,
-      "expected": "`python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `119` claim sources, `477` artifact references, and `0` issues",
+      "expected": "`python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `119` claim sources, `479` artifact references, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "repo_bound_artifact_audit_command",
       "ok": true,
-      "expected": "`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `908` records, `175` claim sources, `733` artifact references, `0` outside-repo records, `0` missing records, and `0` issues",
+      "expected": "`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `910` records, `175` claim sources, `735` artifact references, `0` outside-repo records, `0` missing records, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "evidence_hash_coverage_command",
       "ok": true,
-      "expected": "`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `117` claim sources, `475` artifact references, `592` hashed records, and `0` issues",
+      "expected": "`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `117` claim sources, `477` artifact references, `594` hashed records, and `0` issues",
       "detail": "found"
     },
     {

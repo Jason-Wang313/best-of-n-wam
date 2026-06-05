@@ -5,8 +5,8 @@
 - rollout-pool covered: `132`
 - micro nondegenerate covered: `108`
 - any covered: `136`
-- attempted but not covered: `36`
-- unattempted: `224`
+- attempted but not covered: `38`
+- unattempted: `222`
 
 ## Status Counts
 
@@ -14,13 +14,13 @@
 - `micro_nondegenerate_covered`: `4`
 - `not_implemented`: `1`
 - `rollout_pool_covered`: `132`
-- `timed_out`: `13`
-- `unattempted`: `224`
+- `timed_out`: `15`
+- `unattempted`: `222`
 - `value_error`: `2`
 - `zero_distance_no_progress`: `9`
 
 ## Unattempted By Category
 
-- `long_horizon_or_compositional`: `224`
+- `long_horizon_or_compositional`: `222`
 
 This report is a triage artifact only. It does not promote failed, timed-out, or unattempted RoboCasa task IDs to benchmark evidence.

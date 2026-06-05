@@ -11,8 +11,8 @@ robocasa/AdjustWaterTemperature,long_horizon_or_compositional,timed_out,timeout 
 robocasa/AfterwashSorting,long_horizon_or_compositional,timed_out,timeout attempts=1,1,benchmark_robocasa_micro_rollout_residual_short_unattempted_probe_000.json,False,False,False
 robocasa/AirDryFruit,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
 robocasa/AlcoholServingPrep,long_horizon_or_compositional,timed_out,timeout attempts=1,1,benchmark_robocasa_micro_rollout_residual_short_unattempted_probe_001.json,False,False,False
-robocasa/AlignSilverware,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
-robocasa/ArrangeBreadBasket,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/AlignSilverware,long_horizon_or_compositional,timed_out,timeout attempts=1,1,benchmark_robocasa_micro_rollout_residual_short_unattempted_probe_b_000.json,False,False,False
+robocasa/ArrangeBreadBasket,long_horizon_or_compositional,timed_out,timeout attempts=1,1,benchmark_robocasa_micro_rollout_residual_short_unattempted_probe_b_001.json,False,False,False
 robocasa/ArrangeBreadBowl,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/ArrangeBuffetDessert,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/ArrangeCuttingFruits,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
