@@ -394,12 +394,12 @@
         {
           "path": "results/benchmark_libero_tiny_neural_vla_policy.json",
           "exists": true,
-          "bytes": 2163
+          "bytes": 2344
         },
         {
           "path": "reports/libero_tiny_neural_vla_policy_report.md",
           "exists": true,
-          "bytes": 1360
+          "bytes": 1451
         },
         {
           "path": "results/benchmark_libero_wam.json",

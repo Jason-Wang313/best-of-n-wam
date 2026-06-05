@@ -3,7 +3,7 @@
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_files": 412,
-  "total_bytes": 63117370,
+  "total_bytes": 63117551,
   "counts_by_suffix": {
     ".json": 116,
     ".npz": 42,
@@ -68,8 +68,8 @@
     {
       "path": "results/benchmark_libero_tiny_neural_vla_policy.json",
       "suffix": ".json",
-      "bytes": 2163,
-      "sha256": "820c101c73733acb2da17a338cf23a03c4bceb420fa0ababc102b7c73904209c"
+      "bytes": 2344,
+      "sha256": "a2c12973045cf1b3f4ee96e0664faf69c25d3c508ce0eb026faa14c11bc309c6"
     },
     {
       "path": "results/benchmark_libero_visual_language_bc_policy.json",
@@ -891,7 +891,7 @@
       "path": "results/ideal_completion_audit.json",
       "suffix": ".json",
       "bytes": 11315,
-      "sha256": "39091095de2d1821cd2ce5c6217545fbf029d7a12a1e7d19a5e5655a8cbcd203"
+      "sha256": "fc67edecbe6aa2a301d45bc41046f4a6b530d0c5e031b39c9931a24c6b640b28"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
@@ -2501,7 +2501,7 @@
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=63117370, scan=63117370"
+      "detail": "payload=63117551, scan=63117551"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
@@ -2561,7 +2561,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=63117370"
+      "detail": "bytes=63117551"
     }
   ],
   "issues": [],

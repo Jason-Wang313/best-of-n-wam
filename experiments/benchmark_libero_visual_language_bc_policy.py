@@ -304,6 +304,20 @@ def neural_predict(model: Any, x_z: np.ndarray, y_mean: np.ndarray, y_scale: np.
     return pred_z * y_scale + y_mean
 
 
+def neural_fit_metrics(model: Any, x_z: np.ndarray, y: np.ndarray, y_mean: np.ndarray, y_scale: np.ndarray) -> dict[str, float]:
+    torch = _import_torch()
+    with torch.no_grad():
+        x_tensor = torch.as_tensor(x_z.astype(np.float32))
+        pred_z = model(x_tensor).detach().cpu().numpy()
+    pred = pred_z * y_scale.reshape(1, -1) + y_mean.reshape(1, -1)
+    err = pred - y
+    return {
+        "action_mae": float(np.mean(np.abs(err))),
+        "action_rmse": float(np.sqrt(np.mean(err * err))),
+        "action_max_abs_error": float(np.max(np.abs(err))),
+    }
+
+
 def neural_parameter_count(arrays: dict[str, np.ndarray]) -> int:
     return int(sum(int(arr.size) for key, arr in arrays.items() if key.startswith("torch_")))
 
@@ -434,6 +448,7 @@ def run_bc_episode(
 def write_report(summary: dict[str, Any], path: Path | None = None) -> None:
     ci = (summary.get("confidence_intervals") or {}).get("eval_success_rate") or {}
     policy = summary.get("policy") if isinstance(summary.get("policy"), dict) else {}
+    fit = summary.get("model_fit_metrics") if isinstance(summary.get("model_fit_metrics"), dict) else {}
     policy_type = str(policy.get("type") or "unavailable")
     is_neural = bool(policy.get("is_neural"))
     distilled = bool(policy.get("distilled_from_teacher"))
@@ -477,6 +492,8 @@ def write_report(summary: dict[str, Any], path: Path | None = None) -> None:
         f"- Policy type: `{policy_type}`.",
         f"- Neural/action-head parameters: `{policy.get('vla_scale_parameters')}`.",
         f"- Train action examples: `{summary.get('train_examples')}`.",
+        f"- Distillation teacher success rate: `{summary.get('distill_success_rate')}`.",
+        f"- Neural train action MAE: `{fit.get('action_mae')}`.",
         f"- Eval episodes: `{summary.get('eval_episodes')}`.",
         f"- Eval successes: `{summary.get('eval_successes')}`.",
         f"- Eval success rate: `{ci.get('mean')}` with bootstrap CI [`{ci.get('lo')}`, `{ci.get('hi')}`].",
@@ -692,11 +709,13 @@ def main() -> None:
 
         neural_arrays: dict[str, np.ndarray] = {}
         neural_losses: list[float] = []
+        neural_metrics: dict[str, float] = {}
         neural_model: Any | None = None
         if args.policy_backend in {"tiny_neural_vla", "distilled_neural_vla"}:
             neural_model, neural_arrays, neural_losses = train_tiny_neural_vla(x_z, y, args)
             y_mean = neural_arrays["y_mean"].astype(float)
             y_scale = neural_arrays["y_scale"].astype(float)
+            neural_metrics = neural_fit_metrics(neural_model, x_z, y, y_mean, y_scale)
 
             def predict_action(z: np.ndarray, _: str) -> np.ndarray:
                 return neural_predict(neural_model, z, y_mean, y_scale)
@@ -796,11 +815,13 @@ def main() -> None:
         "train_examples": int(len(x)),
         "distill_episodes": int(len(distill_successes)),
         "distill_successes": int(sum(distill_successes)),
+        "distill_success_rate": float(np.mean(distill_successes)) if distill_successes else None,
         "distill_examples": int(distill_examples),
         "eval_episodes": int(len(eval_rows)),
         "eval_successes": int(sum(successes)),
         "eval_success_rate": float(np.mean(successes)) if successes else 0.0,
         "confidence_intervals": {"eval_success_rate": ci},
+        "model_fit_metrics": neural_metrics,
         "policy": {
             "type": policy_type,
             "is_neural": is_neural_backend,

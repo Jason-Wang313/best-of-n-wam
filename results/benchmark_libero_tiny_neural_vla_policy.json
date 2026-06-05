@@ -20,6 +20,7 @@
   "train_examples": 1531,
   "distill_episodes": 3,
   "distill_successes": 3,
+  "distill_success_rate": 1.0,
   "distill_examples": 772,
   "eval_episodes": 1,
   "eval_successes": 0,
@@ -32,6 +33,11 @@
       "hi": 0.0,
       "std": 0.0
     }
+  },
+  "model_fit_metrics": {
+    "action_mae": 0.013508637980324416,
+    "action_rmse": 0.0332351067891584,
+    "action_max_abs_error": 1.0519781024077663
   },
   "policy": {
     "type": "distilled_tiny_neural_vla_behavior_cloning",
