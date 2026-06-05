@@ -1,9 +1,9 @@
 # Table Schema Report
 
 - Verified: True
-- Tables audited: 221
-- Total rows: 212881
-- Numeric column instances: 1997
+- Tables audited: 222
+- Total rows: 212888
+- Numeric column instances: 2005
 - Checks: 17
 - Issues: 0
 

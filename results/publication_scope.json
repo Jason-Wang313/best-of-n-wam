@@ -6,7 +6,7 @@
   "n_risk_mentions": 80,
   "n_guarded_mentions": 80,
   "n_unguarded_mentions": 0,
-  "n_verified_claims": 127,
+  "n_verified_claims": 126,
   "mentions_by_surface": {
     "README.md": 17,
     "paper_outline.md": 14,
@@ -377,7 +377,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 24,
+      "line": 25,
       "heading": "3. Weakest Claims",
       "pattern": "real_robot",
       "guarded": true,
@@ -385,7 +385,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 25,
+      "line": 26,
       "heading": "3. Weakest Claims",
       "pattern": "modern_vla",
       "guarded": true,
@@ -393,7 +393,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 26,
+      "line": 27,
       "heading": "3. Weakest Claims",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -401,7 +401,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 27,
+      "line": 28,
       "heading": "3. Weakest Claims",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -409,7 +409,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 28,
+      "line": 29,
       "heading": "3. Weakest Claims",
       "pattern": "universal_wam",
       "guarded": true,
@@ -417,17 +417,9 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 39,
+      "line": 40,
       "heading": "5. Discussion-Only Claims",
       "pattern": "modern_vla",
-      "guarded": true,
-      "text": "- Modern VLA-style sparse-success LIBERO policy performance and full RoboCasa-wide learned-WAM validation."
-    },
-    {
-      "surface": "reports/final_decision_report.md",
-      "line": 39,
-      "heading": "5. Discussion-Only Claims",
-      "pattern": "full_robocasa",
       "guarded": true,
       "text": "- Modern VLA-style sparse-success LIBERO policy performance and full RoboCasa-wide learned-WAM validation."
     },
@@ -435,9 +427,9 @@
       "surface": "reports/final_decision_report.md",
       "line": 40,
       "heading": "5. Discussion-Only Claims",
-      "pattern": "maniskill_rgb_or_ee",
+      "pattern": "full_robocasa",
       "guarded": true,
-      "text": "- ManiSkill RGB/RGB-D or EE-control validation."
+      "text": "- Modern VLA-style sparse-success LIBERO policy performance and full RoboCasa-wide learned-WAM validation."
     },
     {
       "surface": "reports/final_decision_report.md",
@@ -445,11 +437,19 @@
       "heading": "5. Discussion-Only Claims",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
-      "text": "- ManiSkill RGB/RGB-D benchmark WAM validation."
+      "text": "- ManiSkill RGB/RGB-D or EE-control validation."
     },
     {
       "surface": "reports/final_decision_report.md",
       "line": 42,
+      "heading": "5. Discussion-Only Claims",
+      "pattern": "maniskill_rgb_or_ee",
+      "guarded": true,
+      "text": "- ManiSkill RGB/RGB-D benchmark WAM validation."
+    },
+    {
+      "surface": "reports/final_decision_report.md",
+      "line": 43,
       "heading": "5. Discussion-Only Claims",
       "pattern": "universal_wam",
       "guarded": true,
@@ -457,7 +457,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 46,
+      "line": 47,
       "heading": "6. Skeptical Reviewer Attack",
       "pattern": "real_robot",
       "guarded": true,
@@ -465,7 +465,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 46,
+      "line": 47,
       "heading": "6. Skeptical Reviewer Attack",
       "pattern": "modern_vla",
       "guarded": true,
@@ -473,7 +473,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 46,
+      "line": 47,
       "heading": "6. Skeptical Reviewer Attack",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -481,7 +481,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 46,
+      "line": 47,
       "heading": "6. Skeptical Reviewer Attack",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -489,7 +489,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 50,
+      "line": 51,
       "heading": "7. Current Answer",
       "pattern": "real_robot",
       "guarded": true,
@@ -497,7 +497,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 54,
+      "line": 55,
       "heading": "8. Unresolved",
       "pattern": "modern_vla",
       "guarded": true,
@@ -505,7 +505,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 55,
+      "line": 56,
       "heading": "8. Unresolved",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -513,7 +513,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 56,
+      "line": 57,
       "heading": "8. Unresolved",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -521,7 +521,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 57,
+      "line": 58,
       "heading": "8. Unresolved",
       "pattern": "real_robot",
       "guarded": true,
@@ -529,7 +529,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 58,
+      "line": 59,
       "heading": "8. Unresolved",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -537,7 +537,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 66,
+      "line": 67,
       "heading": "10. Main-Conference Readiness",
       "pattern": "real_robot",
       "guarded": true,
@@ -545,7 +545,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 66,
+      "line": 67,
       "heading": "10. Main-Conference Readiness",
       "pattern": "modern_vla",
       "guarded": true,
@@ -553,7 +553,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 66,
+      "line": 67,
       "heading": "10. Main-Conference Readiness",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -561,7 +561,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 66,
+      "line": 67,
       "heading": "10. Main-Conference Readiness",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -569,7 +569,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 70,
+      "line": 71,
       "heading": "11. Single Highest-Value Next Step",
       "pattern": "modern_vla",
       "guarded": true,
@@ -577,7 +577,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 70,
+      "line": 71,
       "heading": "11. Single Highest-Value Next Step",
       "pattern": "full_robocasa",
       "guarded": true,
@@ -585,7 +585,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 70,
+      "line": 71,
       "heading": "11. Single Highest-Value Next Step",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -593,7 +593,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 81,
+      "line": 82,
       "heading": "Command Results",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -601,7 +601,7 @@
     },
     {
       "surface": "reports/final_decision_report.md",
-      "line": 85,
+      "line": 86,
       "heading": "Command Results",
       "pattern": "maniskill_rgb_or_ee",
       "guarded": true,
@@ -699,7 +699,7 @@
     {
       "name": "current_claim_ledger_loaded",
       "ok": true,
-      "detail": "verified_claims=127"
+      "detail": "verified_claims=126"
     }
   ],
   "issues": [],

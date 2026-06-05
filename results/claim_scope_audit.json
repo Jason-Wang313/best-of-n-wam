@@ -1234,7 +1234,7 @@
       "claim_id": 114,
       "category": "model",
       "claim": "Committed learned-model artifacts are loadable and numerically sane.",
-      "evidence": "models=50, suffixes={'.npz': 37, '.joblib': 13}, bytes=120200617, npz_arrays=338, npz_elements=6260371, joblib_predictors=13, checks=10, issues=0",
+      "evidence": "models=51, suffixes={'.npz': 38, '.joblib': 13}, bytes=132735949, npz_arrays=363, npz_elements=9351893, joblib_predictors=13, checks=10, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": false
     },
@@ -1242,7 +1242,7 @@
       "claim_id": 116,
       "category": "verification",
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
-      "evidence": "tests=158, unique=158, trailer=158, checks=6, issues=0",
+      "evidence": "tests=159, unique=159, trailer=159, checks=6, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": false
     },
@@ -2024,12 +2024,12 @@
     {
       "name": "claim_114_model_wording_has_training_or_eval_scope",
       "ok": true,
-      "detail": "claim=Committed learned-model artifacts are loadable and numerically sane.; evidence=models=50, suffixes={'.npz': 37, '.joblib': 13}, bytes=120200617, npz_arrays=338, npz_elements=6260371, joblib_predictors=13, checks=10, issues=0"
+      "detail": "claim=Committed learned-model artifacts are loadable and numerically sane.; evidence=models=51, suffixes={'.npz': 38, '.joblib': 13}, bytes=132735949, npz_arrays=363, npz_elements=9351893, joblib_predictors=13, checks=10, issues=0"
     },
     {
       "name": "claim_116_verified_wording_has_metric_or_scope",
       "ok": true,
-      "detail": "claim=Pytest command-result counts come from a verified collected-test inventory.; evidence=tests=158, unique=158, trailer=158, checks=6, issues=0"
+      "detail": "claim=Pytest command-result counts come from a verified collected-test inventory.; evidence=tests=159, unique=159, trailer=159, checks=6, issues=0"
     },
     {
       "name": "claim_125_verified_wording_has_metric_or_scope",

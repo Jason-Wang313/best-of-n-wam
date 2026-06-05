@@ -6,8 +6,8 @@
   "n_checks": 31,
   "n_issues": 0,
   "status_counts": {
-    "VERIFIED": 127,
-    "PARTIAL": 0,
+    "VERIFIED": 126,
+    "PARTIAL": 1,
     "UNSUPPORTED": 0,
     "FAILED": 0
   },
@@ -102,12 +102,12 @@
     {
       "name": "num_verified_matches_claims",
       "ok": true,
-      "detail": "json=127, computed=127"
+      "detail": "json=126, computed=126"
     },
     {
       "name": "num_partial_matches_claims",
       "ok": true,
-      "detail": "json=0, computed=0"
+      "detail": "json=1, computed=1"
     },
     {
       "name": "num_unsupported_matches_claims",
@@ -177,12 +177,12 @@
     {
       "name": "claims_report_verified_count",
       "ok": true,
-      "detail": "expected=- verified: `127`"
+      "detail": "expected=- verified: `126`"
     },
     {
       "name": "claims_report_partial_count",
       "ok": true,
-      "detail": "expected=- partial: `0`"
+      "detail": "expected=- partial: `1`"
     },
     {
       "name": "claims_report_unsupported_count",

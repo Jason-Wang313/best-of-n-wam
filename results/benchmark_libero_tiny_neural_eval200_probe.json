@@ -1,0 +1,78 @@
+{
+  "experiment": "benchmark_libero_visual_language_bc_policy",
+  "available": true,
+  "attempted": true,
+  "verified": false,
+  "output_tag": "tiny_neural_eval200_probe",
+  "tasks": [
+    "libero_object/0"
+  ],
+  "train_seeds": [
+    100,
+    101,
+    102
+  ],
+  "eval_seeds": [
+    200
+  ],
+  "train_episodes": 3,
+  "train_successes": 3,
+  "train_examples": 1535,
+  "heldout_eval": true,
+  "train_eval_seed_overlap": [],
+  "distill_episodes": 3,
+  "distill_successes": 3,
+  "distill_success_rate": 1.0,
+  "distill_examples": 776,
+  "eval_episodes": 1,
+  "eval_successes": 0,
+  "eval_success_rate": 0.0,
+  "confidence_intervals": {
+    "eval_success_rate": {
+      "n": 1,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.0,
+      "std": 0.0
+    }
+  },
+  "model_fit_metrics": {
+    "action_mae": 0.01412817743845538,
+    "action_rmse": 0.03268691374534353,
+    "action_max_abs_error": 1.0464458703872348
+  },
+  "policy": {
+    "type": "distilled_tiny_neural_vla_behavior_cloning",
+    "is_neural": true,
+    "is_short_neural_smoke": true,
+    "pretrained_vla": false,
+    "vla_scale_parameters": 607751,
+    "uses_rgb": true,
+    "uses_language": true,
+    "uses_robot_proprio": true,
+    "uses_simulator_object_state": false,
+    "uses_task_id": false,
+    "uses_phase_index": false,
+    "uses_target_point_command": false,
+    "uses_previous_action": true,
+    "uses_step_clock": true,
+    "uses_language_candidate_filter": false,
+    "distilled_from_teacher": true,
+    "teacher_used_only_for_training": true,
+    "image_grid": 8,
+    "language_hash_dim": 64,
+    "neural_hidden_dim": 512,
+    "neural_epochs": 200,
+    "neural_final_train_loss": 0.0041748768728869555,
+    "knn_k": null,
+    "knn_temperature": null
+  },
+  "object_grasp_tuning": true,
+  "model_path": "results\\models\\benchmark_libero_tiny_neural_eval200_probe.npz",
+  "artifact_paths": {
+    "json": "results/benchmark_libero_tiny_neural_eval200_probe.json",
+    "episodes_csv": "results/tables/benchmark_libero_tiny_neural_eval200_probe_episodes.csv",
+    "report": "reports/libero_tiny_neural_eval200_probe_report.md"
+  },
+  "note": "Distilled tiny neural RGB/proprio/language time-conditioned BC policy; the retrieval teacher is used only to generate training labels, not at evaluation time. This is neural model-class smoke evidence, not VLA-scale or pretrained evidence."
+}

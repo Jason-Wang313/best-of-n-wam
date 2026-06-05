@@ -38,6 +38,20 @@ def _policy(payload: dict[str, Any]) -> dict[str, Any]:
     return policy if isinstance(policy, dict) else {}
 
 
+def _load_neural_libero_auxiliary_artifacts(results_dir: Path) -> list[dict[str, Any]]:
+    payloads: list[dict[str, Any]] = []
+    for path in sorted(results_dir.glob("benchmark_libero*tiny_neural*.json")):
+        payload = _load_json(path)
+        if not payload:
+            continue
+        if not isinstance(payload.get("policy"), dict):
+            continue
+        payload = dict(payload)
+        payload["_artifact_name"] = path.name
+        payloads.append(payload)
+    return payloads
+
+
 def _policy_type(policy: dict[str, Any]) -> str:
     return str(policy.get("type") or "").lower()
 
@@ -100,6 +114,21 @@ def _modern_vla_scale_or_pretrained(policy: dict[str, Any]) -> bool:
     return policy.get("pretrained_vla") is True or int(policy.get("vla_scale_parameters") or 0) >= MODERN_VLA_MIN_PARAMETERS
 
 
+def _best_neural_libero_auxiliary(root: Path, payloads: list[dict[str, Any]]) -> dict[str, Any]:
+    if not payloads:
+        return {}
+
+    def key(payload: dict[str, Any]) -> tuple[int, int, int, int]:
+        return (
+            int(_neural_policy_class_completed(root, payload)),
+            int(payload.get("eval_successes") or 0),
+            int(payload.get("eval_episodes") or 0),
+            int(((_policy(payload).get("vla_scale_parameters")) or 0)),
+        )
+
+    return max(payloads, key=key)
+
+
 def _signal(signals: list[ReadinessSignal], name: str, ok: bool, detail: str) -> None:
     signals.append(ReadinessSignal(name=name, ok=bool(ok), detail=detail))
 
@@ -123,7 +152,8 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     results_dir = (results_dir or root / "results").resolve()
 
     libero_vl = _load_json(results_dir / "benchmark_libero_visual_language_bc_policy.json")
-    libero_neural_smoke = _load_json(results_dir / "benchmark_libero_tiny_neural_vla_policy.json")
+    libero_neural_smokes = _load_neural_libero_auxiliary_artifacts(results_dir)
+    libero_neural_smoke = _best_neural_libero_auxiliary(root, libero_neural_smokes)
     robocasa_catalog = _load_json(results_dir / "benchmark_robocasa_catalog_probe.json")
     maniskill_visual = _load_json(results_dir / "benchmark_maniskill_visual_probe.json")
     maniskill_deps = _load_json(results_dir / "benchmark_maniskill_dependency_probe.json")
@@ -176,6 +206,8 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
             f"canonical_type={policy_type!r}, canonical_is_neural={policy.get('is_neural')}, "
             f"canonical_eval_successes={libero_vl.get('eval_successes')}, "
             f"canonical_heldout={_heldout_eval(libero_vl)}, "
+            f"aux_candidates={len(libero_neural_smokes)}, "
+            f"aux_artifact={libero_neural_smoke.get('_artifact_name')!r}, "
             f"aux_type={neural_smoke_policy_type!r}, aux_is_neural={neural_smoke_policy.get('is_neural')}, "
             f"aux_verified={libero_neural_smoke.get('verified')}, aux_eval={libero_neural_smoke.get('eval_episodes')}, "
             f"aux_eval_successes={libero_neural_smoke.get('eval_successes')}, "
