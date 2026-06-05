@@ -17,10 +17,12 @@ BLOCKER_REQUIREMENTS: dict[str, dict[str, Any]] = {
         ],
     },
     "modern_vla_libero": {
-        "blocker_class": "modern_vla_runtime_or_checkpoint_absent",
+        "blocker_class": "modern_vla_execution_or_eval_absent",
         "required_artifacts": [
             "results/modern_vla_availability_probe.json",
             "reports/modern_vla_availability_probe_report.md",
+            "results/modern_vla_libero_execution_probe.json",
+            "reports/modern_vla_libero_execution_probe_report.md",
             "results/benchmark_libero_visual_language_bc_policy.json",
         ],
     },
@@ -96,6 +98,7 @@ def _frontier_evidence(root: Path, frontier_id: str) -> dict[str, Any]:
         }
     if frontier_id == "modern_vla_libero":
         probe = _load_json(results / "modern_vla_availability_probe.json")
+        execution = _load_json(results / "modern_vla_libero_execution_probe.json")
         return {
             "probe_verified": probe.get("verified"),
             "vla_package_importable": probe.get("vla_package_importable"),
@@ -104,6 +107,10 @@ def _frontier_evidence(root: Path, frontier_id: str) -> dict[str, Any]:
             "vla_libero_joint_runtime_available": probe.get("vla_libero_joint_runtime_available"),
             "pretrained_vla_loaded": probe.get("pretrained_vla_loaded"),
             "pretrained_vla_parameter_count": probe.get("pretrained_vla_parameter_count"),
+            "execution_attempted": execution.get("attempted"),
+            "execution_verified": execution.get("verified"),
+            "execution_failure_stage": execution.get("failure_stage"),
+            "execution_error_type": execution.get("error_type"),
             "ready_for_policy_eval": probe.get("ready_for_policy_eval"),
         }
     if frontier_id == "full_robocasa_wide":

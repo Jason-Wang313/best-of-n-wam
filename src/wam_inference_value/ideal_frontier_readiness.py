@@ -184,6 +184,7 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     libero_neural_smokes = _load_neural_libero_auxiliary_artifacts(results_dir)
     libero_neural_smoke = _best_neural_libero_auxiliary(root, libero_neural_smokes)
     modern_vla_probe = _load_json(results_dir / "modern_vla_availability_probe.json")
+    modern_vla_execution = _load_json(results_dir / "modern_vla_libero_execution_probe.json")
     real_robot_probe = _load_json(results_dir / "real_robot_hil_probe.json")
     robocasa_catalog = _load_json(results_dir / "benchmark_robocasa_catalog_probe.json")
     robocasa_triage = _load_json(results_dir / "benchmark_robocasa_residual_triage.json")
@@ -271,7 +272,11 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
             f"joint_runtime={modern_vla_probe.get('vla_libero_joint_runtime_available')}, "
             f"pretrained_loaded={modern_vla_probe.get('pretrained_vla_loaded')}, "
             f"pretrained_params={modern_vla_probe.get('pretrained_vla_parameter_count')}, "
-            f"ready_for_policy_eval={modern_vla_probe.get('ready_for_policy_eval')}"
+            f"ready_for_policy_eval={modern_vla_probe.get('ready_for_policy_eval')}, "
+            f"execution_attempted={modern_vla_execution.get('attempted')}, "
+            f"execution_verified={modern_vla_execution.get('verified')}, "
+            f"execution_stage={modern_vla_execution.get('failure_stage')}, "
+            f"execution_error={modern_vla_execution.get('error_type')}"
         ),
     )
     _signal(

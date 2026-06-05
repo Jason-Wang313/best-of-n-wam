@@ -1130,7 +1130,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
       "ok": true,
-      "bytes": 318707,
+      "bytes": 319600,
       "detail": "json"
     },
     {
@@ -1283,7 +1283,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
       "ok": true,
-      "bytes": 101112,
+      "bytes": 101537,
       "detail": "json"
     },
     {
@@ -1319,7 +1319,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\table_schema.json",
       "exists": true,
       "ok": true,
-      "bytes": 266686,
+      "bytes": 267812,
       "detail": "json"
     },
     {
@@ -1337,7 +1337,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\source_manifest.json",
       "exists": true,
       "ok": true,
-      "bytes": 51551,
+      "bytes": 52390,
       "detail": "json"
     },
     {
@@ -1373,7 +1373,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\experiment_registry.json",
       "exists": true,
       "ok": true,
-      "bytes": 80447,
+      "bytes": 81998,
       "detail": "json"
     },
     {
@@ -1391,7 +1391,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\model_artifact_integrity.json",
       "exists": true,
       "ok": true,
-      "bytes": 135650,
+      "bytes": 139088,
       "detail": "json"
     },
     {
@@ -1427,7 +1427,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
       "ok": true,
-      "bytes": 17979,
+      "bytes": 18510,
       "detail": "json"
     },
     {
@@ -1499,7 +1499,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
       "ok": true,
-      "bytes": 238068,
+      "bytes": 239291,
       "detail": "json"
     },
     {
@@ -1517,7 +1517,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
       "ok": true,
-      "bytes": 596478,
+      "bytes": 605277,
       "detail": "json"
     },
     {
@@ -1571,7 +1571,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_scope_audit.json",
       "exists": true,
       "ok": true,
-      "bytes": 123500,
+      "bytes": 123502,
       "detail": "json"
     },
     {
@@ -1625,7 +1625,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
       "ok": true,
-      "bytes": 33338,
+      "bytes": 33923,
       "detail": "json"
     },
     {
@@ -1634,7 +1634,7 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
       "exists": true,
       "ok": true,
-      "bytes": 8911,
+      "bytes": 9119,
       "detail": "md"
     }
   ]

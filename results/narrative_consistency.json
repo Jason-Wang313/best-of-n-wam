@@ -42,7 +42,7 @@
       "surface": "README",
       "name": "robocasa_residual_sweep_and_catalog",
       "ok": true,
-      "expected": "attempted 43 task IDs, completed 41 chunks, timed out 2 chunks, found 39 runnable IDs, and found 35 nondegenerate IDs. A catalog audit finds 396 registered local task IDs, 132 task IDs covered by verified rollout-pool artifacts, 106 task IDs covered by micro-rollout probes, and 134 task IDs covered by any committed artifact",
+      "expected": "attempted 43 task IDs, completed 41 chunks, timed out 2 chunks, found 39 runnable IDs, and found 35 nondegenerate IDs. A catalog audit finds 396 registered local task IDs, 132 task IDs covered by verified rollout-pool artifacts, 108 task IDs covered by micro-rollout probes, and 136 task IDs covered by any committed artifact",
       "detail": "found"
     },
     {
@@ -91,14 +91,14 @@
       "surface": "final_decision_report",
       "name": "pytest_count",
       "ok": true,
-      "expected": "`python -m pytest -q`: passed with `149 passed`",
+      "expected": "`python -m pytest -q`: passed with `182 passed`",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "test_inventory_command",
       "ok": true,
-      "expected": "`python scripts/test_inventory.py --fail-on-error`: passed with `149` collected tests, `6` inventory checks, and `0` issues",
+      "expected": "`python scripts/test_inventory.py --fail-on-error`: passed with `182` collected tests, `6` inventory checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -147,14 +147,14 @@
       "surface": "final_decision_report",
       "name": "artifact_integrity_command",
       "ok": true,
-      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `710` artifact references checked and `0` issues",
+      "expected": "`python scripts/artifact_integrity.py --fail-on-error`: passed with `726` artifact references checked and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "artifact_manifest_command",
       "ok": true,
-      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `405` scientific artifacts, `57224139` bytes, `15` manifest checks, and `0` issues",
+      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `443` scientific artifacts, `77219291` bytes, `15` manifest checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -182,14 +182,14 @@
       "surface": "final_decision_report",
       "name": "table_schema_command",
       "ok": true,
-      "expected": "`python scripts/table_schema.py --fail-on-error`: passed with `216` tables, `212863` rows, `17` schema checks, and `0` issues",
+      "expected": "`python scripts/table_schema.py --fail-on-error`: passed with `227` tables, `213298` rows, `17` schema checks, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "source_manifest_command",
       "ok": true,
-      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `223` source files, `1592285` bytes, `14` source-manifest checks, and `0` issues",
+      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `243` source files, `1745768` bytes, `14` source-manifest checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -203,14 +203,14 @@
       "surface": "final_decision_report",
       "name": "experiment_registry_command",
       "ok": true,
-      "expected": "`python scripts/experiment_registry.py --fail-on-error`: passed with `57` experiment-family entries, `69` wrapper links, `298` table artifacts, `40` figures, `10` registry checks, and `0` issues",
+      "expected": "`python scripts/experiment_registry.py --fail-on-error`: passed with `57` experiment-family entries, `69` wrapper links, `309` table artifacts, `40` figures, `10` registry checks, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "model_artifact_integrity_command",
       "ok": true,
-      "expected": "`python scripts/model_artifact_integrity.py --fail-on-error`: passed with `50` model artifacts, `338` NPZ arrays, `13` joblib predictors, `10` model-artifact checks, and `0` issues",
+      "expected": "`python scripts/model_artifact_integrity.py --fail-on-error`: passed with `53` model artifacts, `398` NPZ arrays, `13` joblib predictors, `10` model-artifact checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -280,21 +280,21 @@
       "surface": "final_decision_report",
       "name": "tracked_artifact_provenance_command",
       "ok": true,
-      "expected": "`python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `119` claim sources, `450` artifact references, and `0` issues",
+      "expected": "`python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `119` claim sources, `470` artifact references, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "repo_bound_artifact_audit_command",
       "ok": true,
-      "expected": "`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `881` records, `175` claim sources, `706` artifact references, `0` outside-repo records, `0` missing records, and `0` issues",
+      "expected": "`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `901` records, `175` claim sources, `726` artifact references, `0` outside-repo records, `0` missing records, and `0` issues",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "evidence_hash_coverage_command",
       "ok": true,
-      "expected": "`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `117` claim sources, `448` artifact references, `565` hashed records, and `0` issues",
+      "expected": "`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `117` claim sources, `468` artifact references, `585` hashed records, and `0` issues",
       "detail": "found"
     },
     {

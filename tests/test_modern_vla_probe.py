@@ -81,6 +81,47 @@ def test_modern_vla_probe_counts_pretrained_load_but_not_eval(tmp_path: Path) ->
     assert payload["missing_for_ideal_claim"] == ["LIBERO-compatible sparse-success VLA evaluation artifact"]
 
 
+def test_modern_vla_probe_records_failed_libero_execution_attempt(tmp_path: Path) -> None:
+    root = tmp_path / "repo"
+    root.mkdir()
+    results = tmp_path / "results"
+    results.mkdir()
+    (results / "external_benchmark_runtime_probe.json").write_text(
+        json.dumps({"verified": True, "vla_libero_joint_runtime_available": True}),
+        encoding="utf-8",
+    )
+    (results / "modern_vla_pretrained_load_probe.json").write_text(
+        json.dumps({"verified": True, "pretrained_vla_loaded": True, "parameter_count": 450_046_212}),
+        encoding="utf-8",
+    )
+    (results / "modern_vla_libero_execution_probe.json").write_text(
+        json.dumps(
+            {
+                "attempted": True,
+                "verified": False,
+                "policy_loaded": False,
+                "action_selected": False,
+                "libero_step_succeeded": False,
+                "failure_stage": "policy_load",
+                "error_type": "NotImplementedError",
+                "heldout_libero_policy_eval": False,
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    payload = run_modern_vla_availability_probe(root, output_results_dir=results, probe_hf=False, scan_user_roots=False)
+
+    assert payload["libero_execution_probe_present"] is True
+    assert payload["libero_execution_attempted"] is True
+    assert payload["libero_execution_verified"] is False
+    assert payload["libero_execution_failure_stage"] == "policy_load"
+    assert payload["runtime_ready_for_policy_eval_attempt"] is True
+    assert payload["ready_for_policy_eval"] is False
+    assert "pretrained VLA can select an action and step LIBERO in a compatible runtime" in payload["missing_for_ideal_claim"]
+    assert "LIBERO-compatible sparse-success VLA evaluation artifact" in payload["missing_for_ideal_claim"]
+
+
 def test_modern_vla_probe_markdown_does_not_dump_secret_values() -> None:
     payload = {
         "verified": True,
@@ -90,6 +131,9 @@ def test_modern_vla_probe_markdown_does_not_dump_secret_values() -> None:
         "vla_libero_joint_runtime_available": False,
         "pretrained_vla_loaded": False,
         "pretrained_vla_parameter_count": None,
+        "libero_execution_probe_present": False,
+        "libero_execution_verified": False,
+        "libero_execution_failure_stage": None,
         "ready_for_policy_eval": False,
         "missing_for_ideal_claim": ["runnable modern VLA policy package"],
         "packages": [{"name": "openvla", "importable": False}],

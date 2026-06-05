@@ -47,7 +47,7 @@
     }
   ],
   "vla_package_importable": false,
-  "local_match_count": 18,
+  "local_match_count": 23,
   "local_vla_like_count": 0,
   "local_matches": [
     {
@@ -64,6 +64,10 @@
     },
     {
       "path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_availability_probe_report.md",
+      "kind": "file"
+    },
+    {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_execution_probe_report.md",
       "kind": "file"
     },
     {
@@ -84,6 +88,10 @@
     },
     {
       "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\modern_vla_availability_probe.json",
+      "kind": "file"
+    },
+    {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\modern_vla_libero_execution_probe.json",
       "kind": "file"
     },
     {
@@ -111,11 +119,23 @@
       "kind": "file"
     },
     {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\scripts\\modern_vla_libero_execution_probe.py",
+      "kind": "file"
+    },
+    {
       "path": "C:\\Users\\wangz\\best-of-n-wam\\scripts\\modern_vla_pretrained_load_probe.py",
       "kind": "file"
     },
     {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\src\\wam_inference_value\\modern_vla_execution_probe.py",
+      "kind": "file"
+    },
+    {
       "path": "C:\\Users\\wangz\\best-of-n-wam\\src\\wam_inference_value\\modern_vla_probe.py",
+      "kind": "file"
+    },
+    {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\tests\\test_modern_vla_execution_probe.py",
       "kind": "file"
     },
     {
@@ -132,7 +152,7 @@
       "pipeline_tag": "robotics",
       "library_name": "transformers",
       "sibling_count": 18,
-      "elapsed_seconds": 0.24985003471374512
+      "elapsed_seconds": 0.3737783432006836
     },
     {
       "repo_id": "openvla/openvla-7b-finetuned-libero-spatial",
@@ -142,7 +162,7 @@
       "pipeline_tag": "image-text-to-text",
       "library_name": "transformers",
       "sibling_count": 16,
-      "elapsed_seconds": 0.1828446388244629
+      "elapsed_seconds": 0.19920659065246582
     },
     {
       "repo_id": "openvla/openvla-7b-finetuned-libero-object",
@@ -152,7 +172,7 @@
       "pipeline_tag": "image-text-to-text",
       "library_name": "transformers",
       "sibling_count": 16,
-      "elapsed_seconds": 0.15657782554626465
+      "elapsed_seconds": 0.18902826309204102
     },
     {
       "repo_id": "physical-intelligence/fast",
@@ -162,7 +182,7 @@
       "pipeline_tag": "robotics",
       "library_name": "transformers",
       "sibling_count": 7,
-      "elapsed_seconds": 0.15409231185913086
+      "elapsed_seconds": 0.1623384952545166
     },
     {
       "repo_id": "nvidia/GR00T-N1.5-3B",
@@ -172,7 +192,7 @@
       "pipeline_tag": "robotics",
       "library_name": null,
       "sibling_count": 13,
-      "elapsed_seconds": 0.1737985610961914
+      "elapsed_seconds": 0.1741809844970703
     }
   ],
   "hf_reachable_count": 5,
@@ -192,32 +212,31 @@
     "name": "vla_vla_external_robocasa_with_libero_source",
     "ok": true,
     "returncode": 0,
-    "python_path": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\robocasa\\Scripts\\python.exe",
-    "source_path": "C:\\Users\\wangz\\external_benchmarks\\LIBERO",
-    "config_path": "C:\\Users\\wangz\\external_benchmarks\\.libero",
-    "stdout_tail": [
-      "{\"ok\": true, \"python_version\": \"3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]\", \"available\": {\"libero\": true, \"lerobot_smolvla\": true, \"torch\": true, \"transformers\": true, \"huggingface_hub\": true}, \"libero_smolvla_runtime_ready\": true}"
-    ],
-    "stderr_tail": "",
-    "payload": {
-      "ok": true,
-      "python_version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
-      "available": {
-        "libero": true,
-        "lerobot_smolvla": true,
-        "torch": true,
-        "transformers": true,
-        "huggingface_hub": true
-      },
-      "libero_smolvla_runtime_ready": true
+    "libero_smolvla_runtime_ready": true,
+    "available": {
+      "libero": true,
+      "lerobot_smolvla": true,
+      "torch": true,
+      "transformers": true,
+      "huggingface_hub": true
     }
   },
+  "runtime_ready_for_policy_eval_attempt": true,
   "pretrained_load_probe_present": true,
   "pretrained_vla_loaded": true,
   "pretrained_vla_parameter_count": 450046212,
   "pretrained_vla_model_id": "lerobot/smolvla_base",
-  "ready_for_policy_eval": true,
+  "libero_execution_probe_present": true,
+  "libero_execution_attempted": true,
+  "libero_execution_verified": false,
+  "libero_execution_policy_loaded": false,
+  "libero_execution_action_selected": false,
+  "libero_execution_step_succeeded": false,
+  "libero_execution_failure_stage": "policy_load",
+  "libero_execution_error_type": "NotImplementedError",
+  "ready_for_policy_eval": false,
   "missing_for_ideal_claim": [
+    "pretrained VLA can select an action and step LIBERO in a compatible runtime",
     "LIBERO-compatible sparse-success VLA evaluation artifact"
   ],
   "note": "Availability probe only. Runtime/package availability, public model metadata, or secret presence is not policy validation and does not support a modern VLA LIBERO result without a heldout evaluation artifact."

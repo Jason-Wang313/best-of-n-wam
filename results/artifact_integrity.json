@@ -2,10 +2,10 @@
   "experiment": "artifact_integrity",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_result_json": 162,
-  "n_references": 728,
+  "n_result_json": 163,
+  "n_references": 726,
   "status_counts": {
-    "ok": 728
+    "ok": 726
   },
   "n_issues": 0,
   "issues": [],
@@ -5703,7 +5703,7 @@
       "raw_path": "results/artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 320390,
+      "bytes": 319600,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5714,7 +5714,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 320390,
+      "bytes": 319600,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6077,7 +6077,7 @@
       "raw_path": "results/artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 101324,
+      "bytes": 101537,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6088,7 +6088,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 101324,
+      "bytes": 101537,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6209,7 +6209,7 @@
       "raw_path": "results/source_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\source_manifest.json",
       "exists": true,
-      "bytes": 51760,
+      "bytes": 52390,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6220,7 +6220,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\source_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\source_manifest.json",
       "exists": true,
-      "bytes": 51760,
+      "bytes": 52390,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6429,7 +6429,7 @@
       "raw_path": "results/test_inventory.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
-      "bytes": 18181,
+      "bytes": 18510,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6440,7 +6440,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
-      "bytes": 18181,
+      "bytes": 18510,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6605,7 +6605,7 @@
       "raw_path": "results/evidence_hash_coverage.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
-      "bytes": 238888,
+      "bytes": 239291,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6616,7 +6616,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\evidence_hash_coverage.json",
       "exists": true,
-      "bytes": 238888,
+      "bytes": 239291,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6649,7 +6649,7 @@
       "raw_path": "results/repo_bound_artifact_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
-      "bytes": 596478,
+      "bytes": 605277,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6660,7 +6660,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
-      "bytes": 596478,
+      "bytes": 605277,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6781,7 +6781,7 @@
       "raw_path": "results/claim_scope_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_scope_audit.json",
       "exists": true,
-      "bytes": 123500,
+      "bytes": 123502,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6792,7 +6792,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_scope_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_scope_audit.json",
       "exists": true,
-      "bytes": 123500,
+      "bytes": 123502,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6913,7 +6913,7 @@
       "raw_path": "results/ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 33338,
+      "bytes": 33923,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6924,7 +6924,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 33338,
+      "bytes": 33923,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6935,7 +6935,7 @@
       "raw_path": "reports/ideal_claim_boundary_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
       "exists": true,
-      "bytes": 8911,
+      "bytes": 9119,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6946,7 +6946,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
       "exists": true,
-      "bytes": 8911,
+      "bytes": 9119,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -7067,7 +7067,7 @@
       "raw_path": "results/ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 33338,
+      "bytes": 33923,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -7078,7 +7078,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 33338,
+      "bytes": 33923,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -7876,37 +7876,15 @@
       "reason": ""
     },
     {
-      "source_json": "modern_vla_availability_probe.json",
-      "json_path": "vla_runtime_success.python_path",
-      "raw_path": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\robocasa\\Scripts\\python.exe",
-      "resolved_path": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\robocasa\\Scripts\\python.exe",
+      "source_json": "modern_vla_libero_execution_probe.json",
+      "json_path": "artifacts.report",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_execution_probe_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_execution_probe_report.md",
       "exists": true,
-      "bytes": 268568,
+      "bytes": 763,
       "rows": null,
       "status": "ok",
       "reason": ""
-    },
-    {
-      "source_json": "modern_vla_availability_probe.json",
-      "json_path": "vla_runtime_success.source_path",
-      "raw_path": "C:\\Users\\wangz\\external_benchmarks\\LIBERO",
-      "resolved_path": "C:\\Users\\wangz\\external_benchmarks\\LIBERO",
-      "exists": true,
-      "bytes": null,
-      "rows": null,
-      "status": "ok",
-      "reason": "directory exists"
-    },
-    {
-      "source_json": "modern_vla_availability_probe.json",
-      "json_path": "vla_runtime_success.config_path",
-      "raw_path": "C:\\Users\\wangz\\external_benchmarks\\.libero",
-      "resolved_path": "C:\\Users\\wangz\\external_benchmarks\\.libero",
-      "exists": true,
-      "bytes": null,
-      "rows": null,
-      "status": "ok",
-      "reason": "directory exists"
     },
     {
       "source_json": "modern_vla_pretrained_load_probe.json",

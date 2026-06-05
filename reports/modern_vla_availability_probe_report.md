@@ -7,10 +7,14 @@
 - joint LIBERO+VLA runtime available: `True`
 - pretrained VLA loaded: `True`
 - pretrained VLA parameters: `450046212`
-- ready for policy eval: `True`
+- LIBERO execution probe present: `True`
+- LIBERO execution verified: `False`
+- LIBERO execution failure stage: `policy_load`
+- ready for policy eval: `False`
 
 ## Missing For Ideal Claim
 
+- pretrained VLA can select an action and step LIBERO in a compatible runtime
 - LIBERO-compatible sparse-success VLA evaluation artifact
 
 ## Importable Packages

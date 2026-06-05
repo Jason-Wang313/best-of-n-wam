@@ -1,13 +1,13 @@
 # Repo-Bound Artifact Audit Report
 
 - Verified: True
-- Records checked: 889
+- Records checked: 901
 - Claim sources: 175
-- Artifact references: 714
+- Artifact references: 726
 - Outside-repo records: 0
 - Missing records: 0
 - Parent traversal refs: 0
-- Artifact categories: {'documentation': 6, 'figure': 36, 'model': 38, 'report': 150, 'result_json': 407, 'result_table': 246, 'source_or_test': 6}
+- Artifact categories: {'documentation': 6, 'figure': 36, 'model': 41, 'report': 155, 'result_json': 407, 'result_table': 250, 'source_or_test': 6}
 - Checks: 12
 - Issues: 0
 

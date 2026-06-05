@@ -35,7 +35,7 @@
     },
     {
       "frontier_id": "modern_vla_libero",
-      "blocker_class": "modern_vla_runtime_or_checkpoint_absent",
+      "blocker_class": "modern_vla_execution_or_eval_absent",
       "ready_to_promote": false,
       "missing_signals": [
         "modern_vla_scale_or_pretrained_model"
@@ -45,12 +45,22 @@
         {
           "path": "results/modern_vla_availability_probe.json",
           "exists": true,
-          "bytes": 7386
+          "bytes": 7804
         },
         {
           "path": "reports/modern_vla_availability_probe_report.md",
           "exists": true,
-          "bytes": 1287
+          "bytes": 1496
+        },
+        {
+          "path": "results/modern_vla_libero_execution_probe.json",
+          "exists": true,
+          "bytes": 16313
+        },
+        {
+          "path": "reports/modern_vla_libero_execution_probe_report.md",
+          "exists": true,
+          "bytes": 763
         },
         {
           "path": "results/benchmark_libero_visual_language_bc_policy.json",
@@ -66,7 +76,11 @@
         "vla_libero_joint_runtime_available": true,
         "pretrained_vla_loaded": true,
         "pretrained_vla_parameter_count": 450046212,
-        "ready_for_policy_eval": true
+        "execution_attempted": true,
+        "execution_verified": false,
+        "execution_failure_stage": "policy_load",
+        "execution_error_type": "NotImplementedError",
+        "ready_for_policy_eval": false
       }
     },
     {

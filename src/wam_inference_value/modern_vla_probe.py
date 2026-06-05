@@ -129,6 +129,19 @@ def _hf_model_probe(repo_id: str, *, timeout_s: float) -> dict[str, Any]:
         }
 
 
+def _runtime_success_summary(value: Any) -> dict[str, Any] | None:
+    if not isinstance(value, dict):
+        return None
+    payload = value.get("payload") if isinstance(value.get("payload"), dict) else {}
+    return {
+        "name": value.get("name"),
+        "ok": value.get("ok"),
+        "returncode": value.get("returncode"),
+        "libero_smolvla_runtime_ready": payload.get("libero_smolvla_runtime_ready"),
+        "available": payload.get("available") if isinstance(payload.get("available"), dict) else {},
+    }
+
+
 def run_modern_vla_availability_probe(
     root: Path,
     *,
@@ -163,6 +176,14 @@ def run_modern_vla_availability_probe(
             pretrained_probe = loaded if isinstance(loaded, dict) else {}
         except json.JSONDecodeError:
             pretrained_probe = {}
+    execution_probe_path = output_results_dir / "modern_vla_libero_execution_probe.json"
+    execution_probe: dict[str, Any] = {}
+    if execution_probe_path.exists():
+        try:
+            loaded = json.loads(execution_probe_path.read_text(encoding="utf-8"))
+            execution_probe = loaded if isinstance(loaded, dict) else {}
+        except json.JSONDecodeError:
+            execution_probe = {}
 
     importable = {row["name"] for row in packages if row["importable"]}
     vla_package_importable = bool(importable.intersection({"openvla", "octo", "openpi", "gr00t", "lerobot"}))
@@ -174,7 +195,12 @@ def run_modern_vla_availability_probe(
     reachable_hf = [row for row in hf_models if row.get("reachable")]
     vla_joint_runtime_available = runtime_probe.get("vla_libero_joint_runtime_available") is True
     pretrained_vla_loaded = pretrained_probe.get("verified") is True and pretrained_probe.get("pretrained_vla_loaded") is True
-    ready_for_policy_eval = bool((vla_package_importable and local_vla_like) or vla_joint_runtime_available)
+    libero_execution_attempted = execution_probe.get("attempted") is True
+    libero_execution_verified = execution_probe.get("verified") is True
+    runtime_ready_for_policy_eval_attempt = bool((vla_package_importable and local_vla_like) or vla_joint_runtime_available)
+    ready_for_policy_eval = runtime_ready_for_policy_eval_attempt and not (
+        libero_execution_attempted and not libero_execution_verified
+    )
 
     payload = {
         "experiment": "modern_vla_availability_probe",
@@ -192,11 +218,20 @@ def run_modern_vla_availability_probe(
         "secret_status": secret_status,
         "joint_runtime_probe_present": bool(runtime_probe),
         "vla_libero_joint_runtime_available": vla_joint_runtime_available,
-        "vla_runtime_success": runtime_probe.get("vla_runtime_success"),
+        "vla_runtime_success": _runtime_success_summary(runtime_probe.get("vla_runtime_success")),
+        "runtime_ready_for_policy_eval_attempt": runtime_ready_for_policy_eval_attempt,
         "pretrained_load_probe_present": bool(pretrained_probe),
         "pretrained_vla_loaded": pretrained_vla_loaded,
         "pretrained_vla_parameter_count": pretrained_probe.get("parameter_count"),
         "pretrained_vla_model_id": pretrained_probe.get("model_id"),
+        "libero_execution_probe_present": bool(execution_probe),
+        "libero_execution_attempted": libero_execution_attempted,
+        "libero_execution_verified": libero_execution_verified,
+        "libero_execution_policy_loaded": execution_probe.get("policy_loaded"),
+        "libero_execution_action_selected": execution_probe.get("action_selected"),
+        "libero_execution_step_succeeded": execution_probe.get("libero_step_succeeded"),
+        "libero_execution_failure_stage": execution_probe.get("failure_stage"),
+        "libero_execution_error_type": execution_probe.get("error_type"),
         "ready_for_policy_eval": ready_for_policy_eval,
         "missing_for_ideal_claim": [
             item
@@ -204,6 +239,10 @@ def run_modern_vla_availability_probe(
                 ("runnable modern VLA policy package", vla_package_importable or vla_joint_runtime_available),
                 ("local VLA policy repository or joint runtime", bool(local_vla_like) or vla_joint_runtime_available),
                 ("pretrained VLA weights loaded", pretrained_vla_loaded),
+                (
+                    "pretrained VLA can select an action and step LIBERO in a compatible runtime",
+                    not libero_execution_attempted or libero_execution_verified,
+                ),
                 ("LIBERO-compatible sparse-success VLA evaluation artifact", False),
             ]
             if not ok
@@ -225,6 +264,9 @@ def modern_vla_availability_markdown(payload: dict[str, Any]) -> str:
         f"- joint LIBERO+VLA runtime available: `{payload.get('vla_libero_joint_runtime_available')}`",
         f"- pretrained VLA loaded: `{payload.get('pretrained_vla_loaded')}`",
         f"- pretrained VLA parameters: `{payload.get('pretrained_vla_parameter_count')}`",
+        f"- LIBERO execution probe present: `{payload.get('libero_execution_probe_present')}`",
+        f"- LIBERO execution verified: `{payload.get('libero_execution_verified')}`",
+        f"- LIBERO execution failure stage: `{payload.get('libero_execution_failure_stage')}`",
         f"- ready for policy eval: `{payload.get('ready_for_policy_eval')}`",
         "",
         "## Missing For Ideal Claim",

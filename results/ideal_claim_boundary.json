@@ -54,7 +54,7 @@
         {
           "path": "docs/theory.md",
           "exists": true,
-          "bytes": 4549
+          "bytes": 5525
         }
       ],
       "missing_files": [],
@@ -296,17 +296,17 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7777
+          "bytes": 8981
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4667
+          "bytes": 5880
         },
         {
           "path": "reports/final_decision_report.md",
           "exists": true,
-          "bytes": 17938
+          "bytes": 17728
         },
         {
           "path": "reports/reviewer_risk_assessment.md",
@@ -364,22 +364,42 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7777
+          "bytes": 8981
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4667
+          "bytes": 5880
         },
         {
           "path": "results/external_benchmark_runtime_probe.json",
           "exists": true,
-          "bytes": 7080
+          "bytes": 12834
         },
         {
           "path": "reports/external_benchmark_runtime_probe_report.md",
           "exists": true,
-          "bytes": 720
+          "bytes": 1530
+        },
+        {
+          "path": "results/modern_vla_pretrained_load_probe.json",
+          "exists": true,
+          "bytes": 1860
+        },
+        {
+          "path": "reports/modern_vla_pretrained_load_probe_report.md",
+          "exists": true,
+          "bytes": 620
+        },
+        {
+          "path": "results/modern_vla_libero_execution_probe.json",
+          "exists": true,
+          "bytes": 16313
+        },
+        {
+          "path": "reports/modern_vla_libero_execution_probe_report.md",
+          "exists": true,
+          "bytes": 763
         },
         {
           "path": "results/benchmark_libero_tiny_neural_vla_attempt.json",
@@ -414,7 +434,7 @@
         {
           "path": "reports/final_decision_report.md",
           "exists": true,
-          "bytes": 17938
+          "bytes": 17728
         }
       ],
       "missing_gap_evidence_files": []
@@ -470,12 +490,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7777
+          "bytes": 8981
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4667
+          "bytes": 5880
         },
         {
           "path": "results/benchmark_robocasa_catalog_probe.json",
@@ -490,7 +510,7 @@
         {
           "path": "reports/final_decision_report.md",
           "exists": true,
-          "bytes": 17938
+          "bytes": 17728
         }
       ],
       "missing_gap_evidence_files": []
@@ -516,7 +536,7 @@
         {
           "path": "results/benchmark_maniskill_visual_probe.json",
           "exists": true,
-          "bytes": 29348
+          "bytes": 37884
         },
         {
           "path": "results/benchmark_maniskill_dependency_probe.json",
@@ -555,17 +575,17 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7777
+          "bytes": 8981
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4667
+          "bytes": 5880
         },
         {
           "path": "results/benchmark_maniskill_visual_probe.json",
           "exists": true,
-          "bytes": 29348
+          "bytes": 37884
         },
         {
           "path": "results/benchmark_maniskill_dependency_probe.json",
@@ -575,7 +595,7 @@
         {
           "path": "reports/maniskill_visual_blocker_report.md",
           "exists": true,
-          "bytes": 3004
+          "bytes": 3449
         },
         {
           "path": "reports/maniskill_dependency_blocker_report.md",
@@ -633,12 +653,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7777
+          "bytes": 8981
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4667
+          "bytes": 5880
         },
         {
           "path": "results/universal_wam_train_inference_optimizer.json",
@@ -658,7 +678,7 @@
         {
           "path": "reports/final_decision_report.md",
           "exists": true,
-          "bytes": 17938
+          "bytes": 17728
         },
         {
           "path": "reports/reviewer_risk_assessment.md",
@@ -675,7 +695,7 @@
     {
       "name": "claims_loaded",
       "ok": true,
-      "detail": "verified_claims=126"
+      "detail": "verified_claims=127"
     },
     {
       "name": "frontier_integrity_loaded",

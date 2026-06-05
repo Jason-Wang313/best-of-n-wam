@@ -5,8 +5,8 @@
   "n_claims": 127,
   "n_checks": 10,
   "n_issues": 0,
-  "json_sha256": "b757acbd0e8c85b9ae947e0da0cb01630287451a33365c75f8e88383d864909d",
-  "md_sha256": "9fd7b892f63a6291118da719c76b2847cf90cf8e7fde7500b854e45611591875",
+  "json_sha256": "136ed3881f9ced573a80dde2346e44395dd109187656b96e5d5daa552421cd25",
+  "md_sha256": "06d6ff54224e6570124ced84331ea1ae6e1a5ef97f05c2e085bf3475abd84998",
   "generator_returncode": 0,
   "first_generator_returncode": 0,
   "second_generator_returncode": 0,
@@ -33,12 +33,12 @@
     {
       "name": "claims_json_byte_stable",
       "ok": true,
-      "detail": "first=b757acbd0e8c85b9ae947e0da0cb01630287451a33365c75f8e88383d864909d, second=b757acbd0e8c85b9ae947e0da0cb01630287451a33365c75f8e88383d864909d"
+      "detail": "first=136ed3881f9ced573a80dde2346e44395dd109187656b96e5d5daa552421cd25, second=136ed3881f9ced573a80dde2346e44395dd109187656b96e5d5daa552421cd25"
     },
     {
       "name": "claims_md_byte_stable",
       "ok": true,
-      "detail": "first=9fd7b892f63a6291118da719c76b2847cf90cf8e7fde7500b854e45611591875, second=9fd7b892f63a6291118da719c76b2847cf90cf8e7fde7500b854e45611591875"
+      "detail": "first=06d6ff54224e6570124ced84331ea1ae6e1a5ef97f05c2e085bf3475abd84998, second=06d6ff54224e6570124ced84331ea1ae6e1a5ef97f05c2e085bf3475abd84998"
     },
     {
       "name": "claims_json_parses",

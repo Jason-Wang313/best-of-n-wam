@@ -23,7 +23,7 @@ This report is blocker evidence, not validation evidence for the ideal endpoints
 
 ## modern_vla_libero
 
-- blocker class: `modern_vla_runtime_or_checkpoint_absent`
+- blocker class: `modern_vla_execution_or_eval_absent`
 - ready to promote: `False`
 - missing signals: `['modern_vla_scale_or_pretrained_model']`
 - next action: Run a pretrained or VLA-scale neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs.
@@ -37,7 +37,11 @@ This report is blocker evidence, not validation evidence for the ideal endpoints
 - `vla_libero_joint_runtime_available`: `True`
 - `pretrained_vla_loaded`: `True`
 - `pretrained_vla_parameter_count`: `450046212`
-- `ready_for_policy_eval`: `True`
+- `execution_attempted`: `True`
+- `execution_verified`: `False`
+- `execution_failure_stage`: `policy_load`
+- `execution_error_type`: `NotImplementedError`
+- `ready_for_policy_eval`: `False`
 
 ## full_robocasa_wide
 

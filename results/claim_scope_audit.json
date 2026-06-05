@@ -618,7 +618,7 @@
       "claim_id": 68,
       "category": "benchmark",
       "claim": "ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.",
-      "evidence": "visual_success=False, visual_attempts=10, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pinocchio_api=False, pypi_pinocchio_binary=True, pin_binary=False",
+      "evidence": "visual_success=False, visual_attempts=13, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pinocchio_api=False, pypi_pinocchio_binary=True, pin_binary=False",
       "has_numeric_scope": true,
       "has_concrete_scope": true
     },
@@ -626,7 +626,7 @@
       "claim_id": 68,
       "category": "visual",
       "claim": "ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.",
-      "evidence": "visual_success=False, visual_attempts=10, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pinocchio_api=False, pypi_pinocchio_binary=True, pin_binary=False",
+      "evidence": "visual_success=False, visual_attempts=13, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pinocchio_api=False, pypi_pinocchio_binary=True, pin_binary=False",
       "has_numeric_scope": true,
       "has_concrete_scope": true
     },
@@ -1226,7 +1226,7 @@
       "claim_id": 113,
       "category": "verification",
       "claim": "Canonical experiment families have verified registry coverage.",
-      "evidence": "entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=298, rows=260531, figures=40, failed=0, checks=10, issues=0",
+      "evidence": "entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=309, rows=260972, figures=40, failed=0, checks=10, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": true
     },
@@ -1234,7 +1234,7 @@
       "claim_id": 114,
       "category": "model",
       "claim": "Committed learned-model artifacts are loadable and numerically sane.",
-      "evidence": "models=51, suffixes={'.npz': 38, '.joblib': 13}, bytes=132735949, npz_arrays=363, npz_elements=9351893, joblib_predictors=13, checks=10, issues=0",
+      "evidence": "models=53, suffixes={'.npz': 40, '.joblib': 13}, bytes=140046679, npz_arrays=398, npz_elements=11151803, joblib_predictors=13, checks=10, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": false
     },
@@ -1242,7 +1242,7 @@
       "claim_id": 116,
       "category": "verification",
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
-      "evidence": "tests=159, unique=159, trailer=159, checks=6, issues=0",
+      "evidence": "tests=182, unique=182, trailer=182, checks=6, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": false
     },
@@ -1639,12 +1639,12 @@
     {
       "name": "claim_68_benchmark_wording_has_benchmark_scope",
       "ok": true,
-      "detail": "claim=ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.; evidence=visual_success=False, visual_attempts=10, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pinocchio_api=False, pypi_pinocchi"
+      "detail": "claim=ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.; evidence=visual_success=False, visual_attempts=13, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pinocchio_api=False, pypi_pinocchi"
     },
     {
       "name": "claim_68_visual_wording_has_observation_scope",
       "ok": true,
-      "detail": "claim=ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.; evidence=visual_success=False, visual_attempts=10, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pinocchio_api=False, pypi_pinocchi"
+      "detail": "claim=ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.; evidence=visual_success=False, visual_attempts=13, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pinocchio_api=False, pypi_pinocchi"
     },
     {
       "name": "claim_69_verified_wording_has_metric_or_scope",
@@ -2024,12 +2024,12 @@
     {
       "name": "claim_114_model_wording_has_training_or_eval_scope",
       "ok": true,
-      "detail": "claim=Committed learned-model artifacts are loadable and numerically sane.; evidence=models=51, suffixes={'.npz': 38, '.joblib': 13}, bytes=132735949, npz_arrays=363, npz_elements=9351893, joblib_predictors=13, checks=10, issues=0"
+      "detail": "claim=Committed learned-model artifacts are loadable and numerically sane.; evidence=models=53, suffixes={'.npz': 40, '.joblib': 13}, bytes=140046679, npz_arrays=398, npz_elements=11151803, joblib_predictors=13, checks=10, issues=0"
     },
     {
       "name": "claim_116_verified_wording_has_metric_or_scope",
       "ok": true,
-      "detail": "claim=Pytest command-result counts come from a verified collected-test inventory.; evidence=tests=159, unique=159, trailer=159, checks=6, issues=0"
+      "detail": "claim=Pytest command-result counts come from a verified collected-test inventory.; evidence=tests=182, unique=182, trailer=182, checks=6, issues=0"
     },
     {
       "name": "claim_125_verified_wording_has_metric_or_scope",
