@@ -181,6 +181,7 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     libero_vl = _load_json(results_dir / "benchmark_libero_visual_language_bc_policy.json")
     libero_neural_smokes = _load_neural_libero_auxiliary_artifacts(results_dir)
     libero_neural_smoke = _best_neural_libero_auxiliary(root, libero_neural_smokes)
+    modern_vla_probe = _load_json(results_dir / "modern_vla_availability_probe.json")
     robocasa_catalog = _load_json(results_dir / "benchmark_robocasa_catalog_probe.json")
     robocasa_triage = _load_json(results_dir / "benchmark_robocasa_residual_triage.json")
     maniskill_visual = _load_json(results_dir / "benchmark_maniskill_visual_probe.json")
@@ -248,7 +249,12 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
         modern_scale_ok,
         (
             f"canonical_pretrained={policy.get('pretrained_vla')}, canonical_params={policy.get('vla_scale_parameters')}, "
-            f"aux_pretrained={neural_smoke_policy.get('pretrained_vla')}, aux_params={neural_smoke_policy.get('vla_scale_parameters')}"
+            f"aux_pretrained={neural_smoke_policy.get('pretrained_vla')}, aux_params={neural_smoke_policy.get('vla_scale_parameters')}; "
+            f"availability_probe_verified={modern_vla_probe.get('verified')}, "
+            f"vla_package_importable={modern_vla_probe.get('vla_package_importable')}, "
+            f"local_vla_like={modern_vla_probe.get('local_vla_like_count')}, "
+            f"hf_reachable={modern_vla_probe.get('hf_reachable_count')}, "
+            f"ready_for_policy_eval={modern_vla_probe.get('ready_for_policy_eval')}"
         ),
     )
     _signal(

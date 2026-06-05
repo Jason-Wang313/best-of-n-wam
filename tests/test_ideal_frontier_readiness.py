@@ -132,6 +132,29 @@ def test_ideal_frontier_readiness_reports_robocasa_residual_attempts(tmp_path: P
     assert "quick_gap" in any_signal["detail"]
 
 
+def test_ideal_frontier_readiness_reports_modern_vla_availability_probe(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    results.mkdir()
+    write_json(
+        results / "modern_vla_availability_probe.json",
+        {
+            "verified": True,
+            "vla_package_importable": False,
+            "local_vla_like_count": 0,
+            "hf_reachable_count": 3,
+            "ready_for_policy_eval": False,
+        },
+    )
+
+    payload = audit_ideal_frontier_readiness(tmp_path, results)
+
+    modern = {row["frontier_id"]: row for row in payload["rows"]}["modern_vla_libero"]
+    scale_signal = next(signal for signal in modern["signals"] if signal["name"] == "modern_vla_scale_or_pretrained_model")
+    assert scale_signal["ok"] is False
+    assert "availability_probe_verified=True" in scale_signal["detail"]
+    assert "ready_for_policy_eval=False" in scale_signal["detail"]
+
+
 def test_ideal_frontier_readiness_accepts_neural_libero_policy_class(tmp_path: Path) -> None:
     results = tmp_path / "results"
     results.mkdir()

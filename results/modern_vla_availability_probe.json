@@ -1,0 +1,168 @@
+{
+  "experiment": "modern_vla_availability_probe",
+  "verified": true,
+  "python": "3.10.11",
+  "probe_hf": true,
+  "scan_user_roots": true,
+  "packages": [
+    {
+      "name": "torch",
+      "importable": true,
+      "origin": "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\torch\\__init__.py"
+    },
+    {
+      "name": "transformers",
+      "importable": true,
+      "origin": "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\transformers\\__init__.py"
+    },
+    {
+      "name": "huggingface_hub",
+      "importable": true,
+      "origin": "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\huggingface_hub\\__init__.py"
+    },
+    {
+      "name": "lerobot",
+      "importable": false,
+      "origin": null
+    },
+    {
+      "name": "openvla",
+      "importable": false,
+      "origin": null
+    },
+    {
+      "name": "octo",
+      "importable": false,
+      "origin": null
+    },
+    {
+      "name": "openpi",
+      "importable": false,
+      "origin": null
+    },
+    {
+      "name": "gr00t",
+      "importable": false,
+      "origin": null
+    }
+  ],
+  "vla_package_importable": false,
+  "local_match_count": 11,
+  "local_vla_like_count": 0,
+  "local_matches": [
+    {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\libero_tiny_neural_vla_attempt_report.md",
+      "kind": "file"
+    },
+    {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\libero_tiny_neural_vla_policy_report.md",
+      "kind": "file"
+    },
+    {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_availability_probe_report.md",
+      "kind": "file"
+    },
+    {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_libero_tiny_neural_vla_attempt.json",
+      "kind": "file"
+    },
+    {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\benchmark_libero_tiny_neural_vla_policy.json",
+      "kind": "file"
+    },
+    {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\modern_vla_availability_probe.json",
+      "kind": "file"
+    },
+    {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_libero_tiny_neural_vla_policy.npz",
+      "kind": "file"
+    },
+    {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_libero_tiny_neural_vla_policy_episodes.csv",
+      "kind": "file"
+    },
+    {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\scripts\\modern_vla_availability_probe.py",
+      "kind": "file"
+    },
+    {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\src\\wam_inference_value\\modern_vla_probe.py",
+      "kind": "file"
+    },
+    {
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\tests\\test_modern_vla_probe.py",
+      "kind": "file"
+    }
+  ],
+  "hf_models": [
+    {
+      "repo_id": "openvla/openvla-7b",
+      "reachable": true,
+      "private": false,
+      "sha_present": true,
+      "pipeline_tag": "robotics",
+      "library_name": "transformers",
+      "sibling_count": 18,
+      "elapsed_seconds": 0.2593967914581299
+    },
+    {
+      "repo_id": "openvla/openvla-7b-finetuned-libero-spatial",
+      "reachable": true,
+      "private": false,
+      "sha_present": true,
+      "pipeline_tag": "image-text-to-text",
+      "library_name": "transformers",
+      "sibling_count": 16,
+      "elapsed_seconds": 0.15093040466308594
+    },
+    {
+      "repo_id": "openvla/openvla-7b-finetuned-libero-object",
+      "reachable": true,
+      "private": false,
+      "sha_present": true,
+      "pipeline_tag": "image-text-to-text",
+      "library_name": "transformers",
+      "sibling_count": 16,
+      "elapsed_seconds": 0.17367935180664062
+    },
+    {
+      "repo_id": "physical-intelligence/fast",
+      "reachable": true,
+      "private": false,
+      "sha_present": true,
+      "pipeline_tag": "robotics",
+      "library_name": "transformers",
+      "sibling_count": 7,
+      "elapsed_seconds": 0.1990828514099121
+    },
+    {
+      "repo_id": "nvidia/GR00T-N1.5-3B",
+      "reachable": true,
+      "private": false,
+      "sha_present": true,
+      "pipeline_tag": "robotics",
+      "library_name": null,
+      "sibling_count": 13,
+      "elapsed_seconds": 0.1855320930480957
+    }
+  ],
+  "hf_reachable_count": 5,
+  "secret_status": {
+    "env_present": {
+      "HF_TOKEN": false,
+      "HUGGINGFACE_HUB_TOKEN": false,
+      "HF_HOME": false
+    },
+    "secret_like_file_count_capped": 40,
+    "secret_like_file_paths_redacted": true,
+    "tokens_redacted": true
+  },
+  "ready_for_policy_eval": false,
+  "missing_for_ideal_claim": [
+    "runnable modern VLA policy package",
+    "local VLA checkpoint or policy repository",
+    "LIBERO-compatible sparse-success VLA evaluation artifact"
+  ],
+  "note": "Availability probe only. Public model metadata or secret presence is not policy validation and does not support a modern VLA LIBERO result."
+}

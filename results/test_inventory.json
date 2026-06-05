@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 161,
-  "n_unique_tests": 161,
-  "trailer_count": 161,
+  "n_tests": 164,
+  "n_unique_tests": 164,
+  "trailer_count": 164,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -89,6 +89,7 @@
     "tests/test_ideal_completion_audit.py::test_ideal_completion_audit_accepts_complete_supported_rows",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_keeps_future_frontiers_unpromoted",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_reports_robocasa_residual_attempts",
+    "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_reports_modern_vla_availability_probe",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_accepts_neural_libero_policy_class",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_accepts_auxiliary_neural_smoke",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_scans_tagged_auxiliary_neural_smokes",
@@ -111,6 +112,8 @@
     "tests/test_model_artifact_integrity.py::test_model_artifact_integrity_accepts_loadable_npz",
     "tests/test_model_artifact_integrity.py::test_model_artifact_integrity_detects_nonfinite_npz",
     "tests/test_model_artifact_integrity.py::test_model_artifact_integrity_detects_unreadable_npz",
+    "tests/test_modern_vla_probe.py::test_modern_vla_probe_records_local_matches_without_hf",
+    "tests/test_modern_vla_probe.py::test_modern_vla_probe_markdown_does_not_dump_secret_values",
     "tests/test_narrative_consistency.py::test_markdown_series_uses_final_and",
     "tests/test_narrative_consistency.py::test_add_contains_records_missing_snippet",
     "tests/test_narrative_consistency.py::test_add_contains_records_found_snippet",
@@ -178,7 +181,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=161"
+      "detail": "nodeids=164"
     },
     {
       "name": "nodeids_unique",
@@ -188,12 +191,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=161"
+      "detail": "nodeids=164"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=161, nodeids=161"
+      "detail": "trailer=164, nodeids=164"
     },
     {
       "name": "required_test_families_present",

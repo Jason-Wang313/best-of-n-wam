@@ -2,10 +2,10 @@
   "experiment": "artifact_manifest",
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_files": 434,
-  "total_bytes": 73692664,
+  "n_files": 435,
+  "total_bytes": 73697819,
   "counts_by_suffix": {
-    ".json": 128,
+    ".json": 129,
     ".npz": 44,
     ".png": 36,
     ".csv": 226
@@ -968,8 +968,8 @@
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 8532,
-      "sha256": "cbc47bfe937301225fff8e4362f54092433e333d9bb8c0d3edf678be64ed98a3"
+      "bytes": 8659,
+      "sha256": "0aa711e2ae8f8700d801d35edb0deaadfd12bb4f27b092baf19179cbedd491ab"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -1234,6 +1234,12 @@
       "suffix": ".npz",
       "bytes": 13155,
       "sha256": "dca6d20e3a308fa36eb5064f67aa8fafb83b4375950cc5b51453651a7f1d88b3"
+    },
+    {
+      "path": "results/modern_vla_availability_probe.json",
+      "suffix": ".json",
+      "bytes": 5028,
+      "sha256": "74bbf6f5d174588dc658954880868546ceefa719adc342fb13d0599c00b0d102"
     },
     {
       "path": "results/multi_env_suite.json",
@@ -2623,22 +2629,22 @@
     {
       "name": "manifest_records_present",
       "ok": true,
-      "detail": "records=434"
+      "detail": "records=435"
     },
     {
       "name": "manifest_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=434, scan=434"
+      "detail": "payload=435, scan=435"
     },
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=73692664, scan=73692664"
+      "detail": "payload=73697819, scan=73697819"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
       "ok": true,
-      "detail": "payload={'.json': 128, '.npz': 44, '.png': 36, '.csv': 226}, scan={'.json': 128, '.npz': 44, '.png': 36, '.csv': 226}"
+      "detail": "payload={'.json': 129, '.npz': 44, '.png': 36, '.csv': 226}, scan={'.json': 129, '.npz': 44, '.png': 36, '.csv': 226}"
     },
     {
       "name": "manifest_has_no_missing_current_artifacts",
@@ -2668,7 +2674,7 @@
     {
       "name": "manifest_scientific_artifact_file_count",
       "ok": true,
-      "detail": "files=434"
+      "detail": "files=435"
     },
     {
       "name": "manifest_table_count",
@@ -2678,7 +2684,7 @@
     {
       "name": "manifest_json_count",
       "ok": true,
-      "detail": "json=128"
+      "detail": "json=129"
     },
     {
       "name": "manifest_model_count",
@@ -2693,7 +2699,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=73692664"
+      "detail": "bytes=73697819"
     }
   ],
   "issues": [],
