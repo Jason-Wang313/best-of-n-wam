@@ -30,7 +30,7 @@ This report is a gap audit, not a result promotion mechanism.
   Next action: Extend RoboCasa artifacts from sampled/stratified coverage to every declared registry task or state a narrower benchmark scope.
 - `maniskill_visual_ee`: ready_to_promote=`False`; missing=['rgb_or_rgbd_success', 'ee_control_success', 'pinocchio_available_for_ee']
   - visual_probe_attempted: `True` (attempted=True)
-  - rgb_or_rgbd_success: `False` (visual_success=False, attempts=10)
+  - rgb_or_rgbd_success: `False` (visual_success=False, attempts=13)
   - ee_control_success: `False` (ee_success=False, attempts=2)
   - pinocchio_available_for_ee: `False` (pinocchio_import=False, pinocchio_api=False, missing_symbols=['Model', 'GeometryModel', 'buildModelFromUrdf'])
   Next action: Clear the Vulkan descriptor-pool renderer failure and install a compatible Pinocchio stack for EE controllers.

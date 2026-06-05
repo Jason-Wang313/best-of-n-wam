@@ -141,7 +141,7 @@
         {
           "name": "rgb_or_rgbd_success",
           "ok": false,
-          "detail": "visual_success=False, attempts=10"
+          "detail": "visual_success=False, attempts=13"
         },
         {
           "name": "ee_control_success",

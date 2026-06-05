@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 224,
-  "total_bytes": 1628335,
+  "total_bytes": 1628356,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 207,
@@ -1005,8 +1005,8 @@
     {
       "path": "src/wam_inference_value/table_schema.py",
       "suffix": ".py",
-      "bytes": 15596,
-      "sha256": "909bfc31c2db664ce79cf7a12d0f4f5d2d1d0b2cfaad71697a9e1893e68e7ccd"
+      "bytes": 15617,
+      "sha256": "014a02ac0c1432e653d9fd1bb3f42920d8abc1d8242fb2da0a9b15c8110b1ca8"
     },
     {
       "path": "src/wam_inference_value/test_inventory.py",
@@ -1386,7 +1386,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1628335, scan=1628335"
+      "detail": "payload=1628356, scan=1628356"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1431,7 +1431,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1628335"
+      "detail": "bytes=1628356"
     },
     {
       "name": "source_manifest_dir_coverage",

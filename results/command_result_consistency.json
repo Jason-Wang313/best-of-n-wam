@@ -30,7 +30,7 @@
     {
       "name": "artifact_manifest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/artifact_manifest.py --fail-on-error`: passed with `423` scientific artifacts, `69778661` bytes, `15` manifest checks, and `0` issues"
+      "detail": "expected=`python scripts/artifact_manifest.py --fail-on-error`: passed with `423` scientific artifacts, `69788124` bytes, `15` manifest checks, and `0` issues"
     },
     {
       "name": "figure_quality_snippet_matches_artifact",
@@ -50,12 +50,12 @@
     {
       "name": "table_schema_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/table_schema.py --fail-on-error`: passed with `222` tables, `212888` rows, `17` schema checks, and `0` issues"
+      "detail": "expected=`python scripts/table_schema.py --fail-on-error`: passed with `222` tables, `212891` rows, `17` schema checks, and `0` issues"
     },
     {
       "name": "source_manifest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `224` source files, `1628335` bytes, `14` source-manifest checks, and `0` issues"
+      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `224` source files, `1628356` bytes, `14` source-manifest checks, and `0` issues"
     },
     {
       "name": "runtime_environment_snippet_matches_artifact",

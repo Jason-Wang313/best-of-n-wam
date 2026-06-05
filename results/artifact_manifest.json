@@ -3,7 +3,7 @@
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_files": 423,
-  "total_bytes": 69778661,
+  "total_bytes": 69788124,
   "counts_by_suffix": {
     ".json": 122,
     ".npz": 43,
@@ -104,8 +104,8 @@
     {
       "path": "results/benchmark_maniskill_visual_probe.json",
       "suffix": ".json",
-      "bytes": 29348,
-      "sha256": "3b8e27b13abd696262a01af429ecc6fa3ffe74f3971ccf90c942fba40af7647b"
+      "bytes": 37884,
+      "sha256": "1255b2e3cbd5bd4108bb3356428c3b9b20c8cfa6181c17b91cbe8537a6f632c2"
     },
     {
       "path": "results/benchmark_maniskill_visual_probe_cpu_render_quick.json",
@@ -1394,8 +1394,8 @@
     {
       "path": "results/tables/benchmark_maniskill_visual_probe.csv",
       "suffix": ".csv",
-      "bytes": 2660,
-      "sha256": "773a71bea8d58ee66a849769f625c8077c92ecba91f37c53803e61349547a00c"
+      "bytes": 3587,
+      "sha256": "0c520efc1b0681bc8c261dda25673a7114b5a4e6ae039441a6b521195efa0969"
     },
     {
       "path": "results/tables/benchmark_maniskill_visual_probe_cpu_render_quick.csv",
@@ -2567,7 +2567,7 @@
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=69778661, scan=69778661"
+      "detail": "payload=69788124, scan=69788124"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
@@ -2627,7 +2627,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=69778661"
+      "detail": "bytes=69788124"
     }
   ],
   "issues": [],

@@ -29,6 +29,7 @@ OPTIONAL_BLANK_COLUMNS = {
     "sensor_height",
     "human_width",
     "human_height",
+    "env_overrides",
     "env_ids",
 }
 TEXT_COLUMNS = {
