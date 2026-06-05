@@ -119,6 +119,10 @@ def test_ideal_frontier_blocker_audit_reports_modern_vla_failed_last_attempt(tmp
             "failure_stage": "process_crash",
             "error_type": "WindowsAccessViolation",
             "child_returncode": 3221225477,
+            "attempt_history": [
+                {"failure_stage": "process_crash", "error_type": "WindowsAccessViolation"},
+                {"failure_stage": "timeout", "error_type": "TimeoutExpired"},
+            ],
         },
     )
 
@@ -131,3 +135,5 @@ def test_ideal_frontier_blocker_audit_reports_modern_vla_failed_last_attempt(tmp
     assert evidence["last_attempt_max_steps"] == 5
     assert evidence["last_attempt_failure_stage"] == "process_crash"
     assert evidence["last_attempt_error_type"] == "WindowsAccessViolation"
+    assert evidence["attempt_history_count"] == 2
+    assert evidence["attempt_history_error_types"] == ["TimeoutExpired", "WindowsAccessViolation"]

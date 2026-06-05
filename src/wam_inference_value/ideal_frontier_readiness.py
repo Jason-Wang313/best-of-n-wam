@@ -239,6 +239,18 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     policy_eval_seeds = int(modern_vla_policy_eval.get("n_eval_seeds") or 0)
     policy_eval_max_steps = int(modern_vla_policy_eval.get("max_steps") or 0)
     policy_eval_successes = int(modern_vla_policy_eval.get("eval_successes") or 0)
+    modern_vla_attempt_history = modern_vla_policy_eval.get("attempt_history")
+    if not isinstance(modern_vla_attempt_history, list):
+        modern_vla_attempt_history = modern_vla_last_attempt.get("attempt_history")
+    if not isinstance(modern_vla_attempt_history, list):
+        modern_vla_attempt_history = []
+    modern_vla_attempt_error_types = sorted(
+        {
+            str(item.get("error_type"))
+            for item in modern_vla_attempt_history
+            if isinstance(item, dict) and item.get("error_type")
+        }
+    )
     policy_eval_positive = (
         modern_vla_policy_eval.get("verified") is True
         and modern_vla_policy_eval.get("heldout_libero_policy_eval") is True
@@ -331,6 +343,8 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
             f"last_attempt_requested_seeds={modern_vla_last_attempt.get('requested_eval_seeds')}, "
             f"last_attempt_failure_stage={modern_vla_last_attempt.get('failure_stage')}, "
             f"last_attempt_error_type={modern_vla_last_attempt.get('error_type')}; "
+            f"attempt_history_count={len(modern_vla_attempt_history)}, "
+            f"attempt_history_error_types={modern_vla_attempt_error_types}; "
             f"one_step_verified={modern_vla_execution.get('verified')}, "
             f"one_step_success={modern_vla_execution.get('success_after_one_step')}"
         ),

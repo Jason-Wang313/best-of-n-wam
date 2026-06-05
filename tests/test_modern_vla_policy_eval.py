@@ -197,7 +197,19 @@ def test_policy_eval_preserves_completed_eval_after_failed_append_chunk(tmp_path
             "episodes": [],
         },
     }
-    calls = iter([success_child, failed_child])
+    timeout_child = {
+        "returncode": None,
+        "stdout_tail": ["Loading weights ..."],
+        "stderr_tail": [],
+        "child": {
+            "verified": False,
+            "heldout_libero_policy_eval": False,
+            "failure_stage": "timeout",
+            "error_type": "TimeoutExpired",
+            "episodes": [],
+        },
+    }
+    calls = iter([success_child, failed_child, timeout_child])
     monkeypatch.setattr(policy_eval, "_run_child", lambda *args, **kwargs: next(calls))
 
     completed = run_modern_vla_libero_policy_eval(
@@ -232,6 +244,26 @@ def test_policy_eval_preserves_completed_eval_after_failed_append_chunk(tmp_path
     failed_payload = json.loads(last_attempt.read_text(encoding="utf-8"))
     assert failed_payload["failure_stage"] == "process_crash"
     assert failed_payload["max_steps"] == 5
+    assert failed_payload["attempt_history"][0]["error_type"] == "WindowsAccessViolation"
+
+    preserved_again = run_modern_vla_libero_policy_eval(
+        root,
+        python_path=tmp_path / "python.exe",
+        libero_source=tmp_path / "LIBERO",
+        libero_config=tmp_path / ".libero",
+        output_results_dir=results,
+        seeds=[302],
+        horizon=2,
+        max_steps=2,
+        append_existing=True,
+    )
+
+    failed_again_payload = json.loads(last_attempt.read_text(encoding="utf-8"))
+    assert preserved_again["eval_episodes"] == 1
+    assert preserved_again["attempt_history"][0]["error_type"] == "WindowsAccessViolation"
+    assert preserved_again["attempt_history"][1]["error_type"] == "TimeoutExpired"
+    assert failed_again_payload["previous_last_attempt_summary"]["error_type"] == "WindowsAccessViolation"
+    assert len(failed_again_payload["attempt_history"]) == 2
 
 
 def test_policy_eval_preserves_compatible_eval_after_failed_append_chunk(tmp_path: Path, monkeypatch) -> None:

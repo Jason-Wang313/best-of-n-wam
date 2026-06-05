@@ -86,12 +86,12 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python experiments/benchmark_maniskill_dependency_probe.py --quick-timeout-s 60`: passed as a blocker probe; Pinocchio import `False`, robotics API `False`, external env Python count `3`, external env robotics API any `False`, binary PyPI `pinocchio` wheel `True`, binary `pin` wheel `False`, source install attempted `False`.
 - `bash scripts/run_inference_audit.sh`: passed; audit tail-gain correlation `0.9864`, repair-predicted N64 CI mean `0.3489`, predicted N128-N1 scaling gain `0.0255`.
 - `python scripts/artifact_integrity.py --fail-on-error`: passed with `731` artifact references checked and `0` issues.
-- `python scripts/artifact_manifest.py --fail-on-error`: passed with `450` scientific artifacts, `77234763` bytes, `15` manifest checks, and `0` issues.
+- `python scripts/artifact_manifest.py --fail-on-error`: passed with `450` scientific artifacts, `77235437` bytes, `15` manifest checks, and `0` issues.
 - `python scripts/figure_quality.py --fail-on-error`: passed with `36` figures, `8` image-quality checks, and `0` issues.
 - `python scripts/result_consistency.py --fail-on-error`: passed with `157` consistency checks and `0` issues.
 - `python scripts/raw_result_recompute.py --fail-on-error`: passed with `10710` aggregate metrics, `20` exact-law files, `125` seed CI columns, and `0` issues.
 - `python scripts/table_schema.py --fail-on-error`: passed with `227` tables, `213298` rows, `17` schema checks, and `0` issues.
-- `python scripts/source_manifest.py --fail-on-error`: passed with `246` source files, `1825595` bytes, `14` source-manifest checks, and `0` issues.
+- `python scripts/source_manifest.py --fail-on-error`: passed with `246` source files, `1830330` bytes, `14` source-manifest checks, and `0` issues.
 - `python scripts/runtime_environment.py --fail-on-error`: passed with Python `3.10.11`, `4` core requirements, `5` / `5` optional requirements available, `15` runtime checks, and `0` issues.
 - `python scripts/experiment_registry.py --fail-on-error`: passed with `57` experiment-family entries, `69` wrapper links, `309` table artifacts, `40` figures, `10` registry checks, and `0` issues.
 - `python scripts/model_artifact_integrity.py --fail-on-error`: passed with `53` model artifacts, `398` NPZ arrays, `13` joblib predictors, `10` model-artifact checks, and `0` issues.
@@ -110,5 +110,5 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `127` claims, `31` ledger checks, and `0` issues.
 - `python scripts/claim_generation_consistency.py --fail-on-error`: passed with `127` claims, `10` generation checks, and `0` issues.
 - `python scripts/report_generation_consistency.py --fail-on-error`: passed with `8` reports, `9` generation checks, and `0` issues.
-- `python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `117` claim sources, `472` artifact references, `589` hashed records, and `1` issues.
+- `python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `117` claim sources, `473` artifact references, `590` hashed records, and `0` issues.
 - `python scripts/claims_status.py`: passed with `127` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.

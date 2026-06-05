@@ -646,7 +646,7 @@
       "id": 108,
       "claim": "Scientific result artifacts have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=450, bytes=77234763, suffixes={'.json': 140, '.npz': 45, '.png': 36, '.csv': 229}, issues=0"
+      "evidence": "files=450, bytes=77235437, suffixes={'.json': 140, '.npz': 45, '.png': 36, '.csv': 229}, issues=0"
     },
     {
       "id": 109,
@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=246, bytes=1825595, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 52, 'src': 69, 'tests': 63}, checks=14, issues=0"
+      "evidence": "files=246, bytes=1830330, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 52, 'src': 69, 'tests': 63}, checks=14, issues=0"
     },
     {
       "id": 112,
@@ -718,7 +718,7 @@
       "id": 120,
       "claim": "Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=117, artifact_refs=472, hashed=589, self_outputs_excluded=4, issues=0"
+      "evidence": "claim_sources=117, artifact_refs=473, hashed=590, self_outputs_excluded=4, issues=0"
     },
     {
       "id": 121,

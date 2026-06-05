@@ -69,7 +69,7 @@
         {
           "path": "results/modern_vla_libero_policy_eval.json",
           "exists": true,
-          "bytes": 7446
+          "bytes": 8805
         },
         {
           "path": "reports/modern_vla_libero_policy_eval_report.md",
@@ -107,14 +107,19 @@
         },
         "last_attempt_recorded": true,
         "last_attempt_verified": false,
-        "last_attempt_horizon": 5,
-        "last_attempt_max_steps": 5,
+        "last_attempt_horizon": 2,
+        "last_attempt_max_steps": 2,
         "last_attempt_requested_eval_seeds": [
-          300
+          305
         ],
-        "last_attempt_failure_stage": "process_crash",
-        "last_attempt_error_type": "WindowsAccessViolation",
-        "last_attempt_child_returncode": 3221225477
+        "last_attempt_failure_stage": "timeout",
+        "last_attempt_error_type": "TimeoutExpired",
+        "last_attempt_child_returncode": null,
+        "attempt_history_count": 2,
+        "attempt_history_error_types": [
+          "TimeoutExpired",
+          "WindowsAccessViolation"
+        ]
       }
     },
     {

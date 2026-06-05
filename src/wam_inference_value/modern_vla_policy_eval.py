@@ -525,6 +525,47 @@ def _load_payload(path: Path) -> dict[str, Any]:
     return payload if isinstance(payload, dict) else {}
 
 
+def _compact_attempt_summary(payload: dict[str, Any]) -> dict[str, Any]:
+    if not payload:
+        return {}
+    return {
+        "verified": bool(payload.get("verified")),
+        "heldout_libero_policy_eval": bool(payload.get("heldout_libero_policy_eval")),
+        "suite": payload.get("suite"),
+        "task_index": payload.get("task_index"),
+        "horizon": payload.get("horizon"),
+        "max_steps": payload.get("max_steps"),
+        "requested_eval_seeds": payload.get("requested_eval_seeds"),
+        "eval_episodes": payload.get("eval_episodes"),
+        "eval_successes": payload.get("eval_successes"),
+        "failure_stage": payload.get("failure_stage"),
+        "error_type": payload.get("error_type"),
+        "child_returncode": payload.get("child_returncode"),
+    }
+
+
+def _merge_attempt_history(*items: Any) -> list[dict[str, Any]]:
+    history: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for item in items:
+        if isinstance(item, list):
+            candidates = item
+        else:
+            candidates = [item]
+        for candidate in candidates:
+            if not isinstance(candidate, dict):
+                continue
+            summary = _compact_attempt_summary(candidate)
+            if not summary:
+                continue
+            key = json.dumps(summary, sort_keys=True)
+            if key in seen:
+                continue
+            seen.add(key)
+            history.append(summary)
+    return history
+
+
 def modern_vla_libero_policy_eval_markdown(payload: dict[str, Any]) -> str:
     ci = payload.get("success_ci") if isinstance(payload.get("success_ci"), dict) else {}
     lines = [
@@ -594,7 +635,9 @@ def run_modern_vla_libero_policy_eval(
     child_payload = child.get("child") if isinstance(child.get("child"), dict) else {}
     episodes = child_payload.get("episodes") if isinstance(child_payload.get("episodes"), list) else []
     result_path = output_results_dir / "modern_vla_libero_policy_eval.json"
+    last_attempt_path = output_results_dir / "modern_vla_libero_policy_eval_last_attempt.json"
     previous_payload = _load_payload(result_path)
+    previous_last_attempt = _load_payload(last_attempt_path)
     existing_episodes = (
         _existing_compatible_episodes(
             result_path,
@@ -667,25 +710,23 @@ def run_modern_vla_libero_policy_eval(
         "artifacts": {"episode_table": str(table_path) if episodes else None},
         "note": "A zero-success verified eval is still a real evaluation artifact, but it is not evidence of positive modern VLA policy performance.",
     }
-    last_attempt_path = output_results_dir / "modern_vla_libero_policy_eval_last_attempt.json"
     if append_existing and not verified and not new_child_episodes and int(previous_payload.get("eval_episodes") or 0) > 0:
+        latest_attempt_summary = _compact_attempt_summary(payload)
+        attempt_history = _merge_attempt_history(
+            previous_payload.get("attempt_history"),
+            previous_last_attempt,
+            payload,
+        )
+        payload["previous_last_attempt_summary"] = _compact_attempt_summary(previous_last_attempt)
+        payload["attempt_history"] = attempt_history
         write_json(last_attempt_path, payload)
         preserved = dict(previous_payload)
         artifacts = dict(preserved.get("artifacts") or {})
         artifacts["last_attempt"] = str(last_attempt_path)
         preserved["artifacts"] = artifacts
         preserved["latest_attempt_preserved_previous"] = True
-        preserved["latest_attempt_summary"] = {
-            "verified": bool(verified),
-            "failure_stage": payload.get("failure_stage"),
-            "error_type": payload.get("error_type"),
-            "child_returncode": payload.get("child_returncode"),
-            "requested_eval_seeds": payload.get("requested_eval_seeds"),
-            "horizon": payload.get("horizon"),
-            "max_steps": payload.get("max_steps"),
-            "eval_episodes": payload.get("eval_episodes"),
-            "eval_successes": payload.get("eval_successes"),
-        }
+        preserved["latest_attempt_summary"] = latest_attempt_summary
+        preserved["attempt_history"] = attempt_history
         write_json(result_path, preserved)
         report_path = root / "reports" / "modern_vla_libero_policy_eval_report.md"
         report_path.parent.mkdir(parents=True, exist_ok=True)

@@ -899,6 +899,10 @@ def test_ideal_frontier_readiness_reports_failed_modern_vla_last_attempt(tmp_pat
             "failure_stage": "process_crash",
             "error_type": "WindowsAccessViolation",
             "child_returncode": 3221225477,
+            "attempt_history": [
+                {"failure_stage": "process_crash", "error_type": "WindowsAccessViolation"},
+                {"failure_stage": "timeout", "error_type": "TimeoutExpired"},
+            ],
         },
     )
 
@@ -911,3 +915,5 @@ def test_ideal_frontier_readiness_reports_failed_modern_vla_last_attempt(tmp_pat
     assert "last_attempt_max_steps=5" in heldout_signal["detail"]
     assert "last_attempt_failure_stage=process_crash" in heldout_signal["detail"]
     assert "last_attempt_error_type=WindowsAccessViolation" in heldout_signal["detail"]
+    assert "attempt_history_count=2" in heldout_signal["detail"]
+    assert "TimeoutExpired" in heldout_signal["detail"]

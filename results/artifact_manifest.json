@@ -3,7 +3,7 @@
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_files": 450,
-  "total_bytes": 77234763,
+  "total_bytes": 77235437,
   "counts_by_suffix": {
     ".json": 140,
     ".npz": 45,
@@ -992,14 +992,14 @@
     {
       "path": "results/ideal_frontier_blocker_audit.json",
       "suffix": ".json",
-      "bytes": 16160,
-      "sha256": "2b47a96b138c290b88bfbb91fde486811bf5726304ae9ccd6d0584b2b20e2dcf"
+      "bytes": 16296,
+      "sha256": "404410a5691720f71edfc747d0843d88ead70dcce3a55d20288576b13724fc08"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 9928,
-      "sha256": "0f9400d00d411c168e415be22d53a6d1575adb4e307ff81400ca6b4d9ed84e46"
+      "bytes": 10013,
+      "sha256": "2da95c8439ce721ffa33ccd783fa87159640ded5434ded822576d73c8ddac202"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -1286,14 +1286,14 @@
     {
       "path": "results/modern_vla_libero_policy_eval.json",
       "suffix": ".json",
-      "bytes": 7446,
-      "sha256": "0a264340e6e9adb2f29ff190a8a1d829b5427e81cc6ec0f6eb000504501c78af"
+      "bytes": 8805,
+      "sha256": "6ce4b20e502526bad0d4f0ca4dce2c67858aff6c690e4a8b23a9f8df187f2ecb"
     },
     {
       "path": "results/modern_vla_libero_policy_eval_last_attempt.json",
       "suffix": ".json",
-      "bytes": 4676,
-      "sha256": "3382f0356d10f7500b52cb90f3df4c412c7e60e277082ee1407d189901d0fa21"
+      "bytes": 3770,
+      "sha256": "c10b999f7c05efa43433061db6a43e02fab2b821b9f611fa1e6b43117f9325c8"
     },
     {
       "path": "results/modern_vla_pretrained_load_probe.json",
@@ -2729,7 +2729,7 @@
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=77234763, scan=77234763"
+      "detail": "payload=77235437, scan=77235437"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
@@ -2789,7 +2789,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=77234763"
+      "detail": "bytes=77235437"
     }
   ],
   "issues": [],

@@ -177,7 +177,59 @@
   },
   "artifacts": {
     "episode_table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\modern_vla_libero_policy_eval_episodes.csv",
-    "report": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_policy_eval_report.md"
+    "report": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_policy_eval_report.md",
+    "last_attempt": "C:\\Users\\wangz\\best-of-n-wam\\results\\modern_vla_libero_policy_eval_last_attempt.json"
   },
-  "note": "A zero-success verified eval is still a real evaluation artifact, but it is not evidence of positive modern VLA policy performance."
+  "note": "A zero-success verified eval is still a real evaluation artifact, but it is not evidence of positive modern VLA policy performance.",
+  "latest_attempt_preserved_previous": true,
+  "latest_attempt_summary": {
+    "verified": false,
+    "heldout_libero_policy_eval": false,
+    "suite": "libero_object",
+    "task_index": 0,
+    "horizon": 2,
+    "max_steps": 2,
+    "requested_eval_seeds": [
+      305
+    ],
+    "eval_episodes": 0,
+    "eval_successes": 0,
+    "failure_stage": "timeout",
+    "error_type": "TimeoutExpired",
+    "child_returncode": null
+  },
+  "attempt_history": [
+    {
+      "verified": false,
+      "heldout_libero_policy_eval": false,
+      "suite": "libero_object",
+      "task_index": 0,
+      "horizon": 5,
+      "max_steps": 5,
+      "requested_eval_seeds": [
+        300
+      ],
+      "eval_episodes": 0,
+      "eval_successes": 0,
+      "failure_stage": "process_crash",
+      "error_type": "WindowsAccessViolation",
+      "child_returncode": 3221225477
+    },
+    {
+      "verified": false,
+      "heldout_libero_policy_eval": false,
+      "suite": "libero_object",
+      "task_index": 0,
+      "horizon": 2,
+      "max_steps": 2,
+      "requested_eval_seeds": [
+        305
+      ],
+      "eval_episodes": 0,
+      "eval_successes": 0,
+      "failure_stage": "timeout",
+      "error_type": "TimeoutExpired",
+      "child_returncode": null
+    }
+  ]
 }

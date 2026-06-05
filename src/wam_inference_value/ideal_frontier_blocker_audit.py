@@ -122,6 +122,11 @@ def _frontier_evidence(root: Path, frontier_id: str) -> dict[str, Any]:
         execution = _load_json(results / "modern_vla_libero_execution_probe.json")
         policy_eval = _load_json(results / "modern_vla_libero_policy_eval.json")
         last_attempt = _load_json(results / "modern_vla_libero_policy_eval_last_attempt.json")
+        attempt_history = policy_eval.get("attempt_history")
+        if not isinstance(attempt_history, list):
+            attempt_history = last_attempt.get("attempt_history")
+        if not isinstance(attempt_history, list):
+            attempt_history = []
         return {
             "probe_verified": probe.get("verified"),
             "vla_package_importable": probe.get("vla_package_importable"),
@@ -147,6 +152,14 @@ def _frontier_evidence(root: Path, frontier_id: str) -> dict[str, Any]:
             "last_attempt_failure_stage": last_attempt.get("failure_stage"),
             "last_attempt_error_type": last_attempt.get("error_type"),
             "last_attempt_child_returncode": last_attempt.get("child_returncode"),
+            "attempt_history_count": len(attempt_history),
+            "attempt_history_error_types": sorted(
+                {
+                    str(item.get("error_type"))
+                    for item in attempt_history
+                    if isinstance(item, dict) and item.get("error_type")
+                }
+            ),
         }
     if frontier_id == "full_robocasa_wide":
         catalog = _load_json(results / "benchmark_robocasa_catalog_probe.json")

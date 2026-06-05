@@ -80,7 +80,7 @@
         {
           "name": "heldout_sparse_success_modern_vla_eval",
           "ok": false,
-          "detail": "eval_verified=True, heldout_eval=True, eval_episodes=1, n_eval_seeds=1, max_steps=1, eval_successes=0, success_rate=0.0, success_ci={'n': 1, 'mean': 0.0, 'lo': 0.0, 'hi': 0.7934567085261071, 'method': 'wilson'}; last_attempt_present=True, last_attempt_verified=False, last_attempt_horizon=5, last_attempt_max_steps=5, last_attempt_requested_seeds=[300], last_attempt_failure_stage=process_crash, last_attempt_error_type=WindowsAccessViolation; one_step_verified=True, one_step_success=False"
+          "detail": "eval_verified=True, heldout_eval=True, eval_episodes=1, n_eval_seeds=1, max_steps=1, eval_successes=0, success_rate=0.0, success_ci={'n': 1, 'mean': 0.0, 'lo': 0.0, 'hi': 0.7934567085261071, 'method': 'wilson'}; last_attempt_present=True, last_attempt_verified=False, last_attempt_horizon=2, last_attempt_max_steps=2, last_attempt_requested_seeds=[305], last_attempt_failure_stage=timeout, last_attempt_error_type=TimeoutExpired; attempt_history_count=2, attempt_history_error_types=['TimeoutExpired', 'WindowsAccessViolation']; one_step_verified=True, one_step_success=False"
         },
         {
           "name": "current_runtime_can_rerun_libero",

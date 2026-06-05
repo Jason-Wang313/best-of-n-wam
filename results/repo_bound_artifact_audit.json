@@ -12,16 +12,16 @@
     "documentation": 6,
     "figure": 36,
     "model": 41,
-    "report": 158,
-    "result_json": 407,
+    "report": 157,
+    "result_json": 408,
     "result_table": 252,
     "source_or_test": 6
   },
   "suffix_counts": {
     ".csv": 252,
     ".joblib": 13,
-    ".json": 407,
-    ".md": 164,
+    ".json": 408,
+    ".md": 163,
     ".npz": 28,
     ".png": 36,
     ".py": 6
@@ -66,7 +66,7 @@
     {
       "name": "result_json_coverage",
       "ok": true,
-      "detail": "count=407"
+      "detail": "count=408"
     },
     {
       "name": "result_table_coverage",
@@ -76,7 +76,7 @@
     {
       "name": "report_coverage",
       "ok": true,
-      "detail": "count=158"
+      "detail": "count=157"
     },
     {
       "name": "figure_coverage",
@@ -1111,22 +1111,6 @@
       "record_category": "artifact_reference",
       "source": "artifact_integrity",
       "source_json": "modern_vla_libero_policy_eval.json",
-      "json_ref": "artifacts.report",
-      "claim_id": null,
-      "raw": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_policy_eval_report.md",
-      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_policy_eval_report.md",
-      "repo_relative": "reports/modern_vla_libero_policy_eval_report.md",
-      "inside_repo": true,
-      "exists": true,
-      "kind": "file",
-      "suffix": ".md",
-      "artifact_category": "report",
-      "raw_has_parent_traversal": false
-    },
-    {
-      "record_category": "artifact_reference",
-      "source": "artifact_integrity",
-      "source_json": "modern_vla_libero_policy_eval_last_attempt.json",
       "json_ref": "artifacts.report",
       "claim_id": null,
       "raw": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_policy_eval_report.md",
@@ -9377,6 +9361,22 @@
       "kind": "file",
       "suffix": ".npz",
       "artifact_category": "model",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "modern_vla_libero_policy_eval.json",
+      "json_ref": "artifacts.last_attempt",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\results\\modern_vla_libero_policy_eval_last_attempt.json",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\modern_vla_libero_policy_eval_last_attempt.json",
+      "repo_relative": "results/modern_vla_libero_policy_eval_last_attempt.json",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".json",
+      "artifact_category": "result_json",
       "raw_has_parent_traversal": false
     },
     {
