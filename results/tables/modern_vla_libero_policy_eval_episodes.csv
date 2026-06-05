@@ -1,0 +1,2 @@
+episode_id,seed,steps,success,initial_distance,final_distance,progress,total_reward,energy,done,truncated,step_error
+0,300,1,False,0.6939504881850818,0.6821578900491636,0.011792598135918153,0.0,1.1783329886324159,False,False,

@@ -1,8 +1,8 @@
 {
   "experiment": "modern_vla_libero_policy_eval",
   "attempted": true,
-  "verified": false,
-  "heldout_libero_policy_eval": false,
+  "verified": true,
+  "heldout_libero_policy_eval": true,
   "scope": "heldout sparse-success pretrained SmolVLA policy execution on LIBERO",
   "model_id": "HuggingFaceVLA/smolvla_libero",
   "runtime_python": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\libero310\\Scripts\\python.exe",
@@ -13,48 +13,87 @@
   "horizon": 2,
   "max_steps": 1,
   "eval_seeds": [
-    300,
-    301,
-    302,
-    303,
-    304
+    300
   ],
-  "n_eval_seeds": 5,
-  "eval_episodes": 0,
+  "n_eval_seeds": 1,
+  "eval_episodes": 1,
   "eval_successes": 0,
-  "eval_success_rate": null,
+  "eval_success_rate": 0.0,
   "success_ci": {
-    "n": 0,
-    "mean": null,
-    "lo": null,
-    "hi": null
+    "n": 1,
+    "mean": 0.0,
+    "lo": 0.0,
+    "hi": 0.7934567085261071,
+    "method": "wilson"
   },
   "confidence_intervals": {
     "eval_success_rate": {
-      "n": 0,
-      "mean": null,
-      "lo": null,
-      "hi": null
+      "n": 1,
+      "mean": 0.0,
+      "lo": 0.0,
+      "hi": 0.7934567085261071,
+      "method": "wilson"
     }
   },
-  "policy_loaded": false,
-  "parameter_count": null,
-  "processor_stats_loaded": null,
-  "action_selected": false,
-  "libero_steps_succeeded": false,
-  "input_feature_keys": null,
-  "raw_action_head": null,
-  "mapped_action": null,
-  "episodes": [],
-  "failure_stage": "process_crash",
-  "error_type": "ProcessCrash",
-  "error": "[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n[Warning]: datasets path C:\\Users\\wangz\\external_benchmarks\\LIBERO\\libero\\libero\\../datasets does not exist!\nLoading  HuggingFaceTB/SmolVLM2-500M-Instruct weights ...\n",
+  "policy_loaded": true,
+  "parameter_count": 604934220,
+  "processor_stats_loaded": {
+    "preprocessor": true,
+    "postprocessor": true,
+    "postprocessor_file": "policy_postprocessor_step_1_unnormalizer_processor.safetensors"
+  },
+  "action_selected": true,
+  "libero_steps_succeeded": true,
+  "input_feature_keys": [
+    "observation.images.image",
+    "observation.images.image2",
+    "observation.state"
+  ],
+  "raw_action_head": [
+    -0.27852535247802734,
+    -0.160305455327034,
+    -0.26431018114089966,
+    0.03476221114397049,
+    0.05187798663973808,
+    0.036043986678123474,
+    -1.0064258575439453
+  ],
+  "mapped_action": [
+    -0.27852535247802734,
+    -0.160305455327034,
+    -0.26431018114089966,
+    0.03476221114397049,
+    0.05187798663973808,
+    0.036043986678123474,
+    -1.0
+  ],
+  "episodes": [
+    {
+      "episode_id": 0,
+      "seed": 300,
+      "steps": 1,
+      "success": false,
+      "success_int": 0,
+      "initial_distance": 0.6939504881850818,
+      "final_distance": 0.6821578900491636,
+      "progress": 0.011792598135918153,
+      "total_reward": 0.0,
+      "energy": 1.1783329886324159,
+      "done": false,
+      "truncated": false,
+      "step_error": null
+    }
+  ],
+  "failure_stage": null,
+  "error_type": null,
+  "error": null,
   "trace_tail": null,
-  "child_returncode": 3221225477,
+  "child_returncode": 0,
   "stdout_tail": [
     "[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]",
     "[Warning]: datasets path C:\\Users\\wangz\\external_benchmarks\\LIBERO\\libero\\libero\\../datasets does not exist!",
-    "Loading  HuggingFaceTB/SmolVLM2-500M-Instruct weights ..."
+    "Loading  HuggingFaceTB/SmolVLM2-500M-Instruct weights ...",
+    "{\"ok\": true, \"verified\": true, \"failure_stage\": null, \"policy_loaded\": true, \"parameter_count\": 604934220, \"processor_stats_loaded\": {\"preprocessor\": true, \"postprocessor\": true, \"postprocessor_file\": \"policy_postprocessor_step_1_unnormalizer_processor.safetensors\"}, \"action_selected\": true, \"libero_steps_succeeded\": true, \"heldout_libero_policy_eval\": true, \"model_id\": \"HuggingFaceVLA/smolvla_libero\", \"task\": \"pick up the alphabet soup and place it in the basket\", \"suite\": \"libero_object\", \"task_index\": 0, \"horizon\": 2, \"max_steps\": 1, \"eval_seeds\": [300], \"eval_episodes\": 1, \"eval_successes\": 0, \"eval_success_rate\": 0.0, \"libero_action_dim\": 7, \"input_feature_keys\": [\"observation.images.image\", \"observation.images.image2\", \"observation.state\"], \"raw_action_head\": [-0.27852535247802734, -0.160305455327034, -0.26431018114089966, 0.03476221114397049, 0.05187798663973808, 0.036043986678123474, -1.0064258575439453], \"mapped_action\": [-0.27852535247802734, -0.160305455327034, -0.26431018114089966, 0.03476221114397049, 0.05187798663973808, 0.036043986678123474, -1.0], \"episodes\": [{\"episode_id\": 0, \"seed\": 300, \"steps\": 1, \"success\": false, \"success_int\": 0, \"initial_distance\": 0.6939504881850818, \"final_distance\": 0.6821578900491636, \"progress\": 0.011792598135918153, \"total_reward\": 0.0, \"energy\": 1.1783329886324159, \"done\": false, \"truncated\": false, \"step_error\": null}], \"elapsed_seconds\": 385.4422402381897}"
   ],
   "stderr_tail": [
     "Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.",
@@ -68,15 +107,76 @@
     "WARNING:accelerate.big_modeling:Some parameters are on the meta device because they were offloaded to the cpu and disk."
   ],
   "child_payload": {
-    "ok": false,
-    "verified": false,
-    "failure_stage": "process_crash",
-    "error_type": "ProcessCrash",
-    "error": "[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n[Warning]: datasets path C:\\Users\\wangz\\external_benchmarks\\LIBERO\\libero\\libero\\../datasets does not exist!\nLoading  HuggingFaceTB/SmolVLM2-500M-Instruct weights ...\n",
-    "heldout_libero_policy_eval": false
+    "ok": true,
+    "verified": true,
+    "failure_stage": null,
+    "policy_loaded": true,
+    "parameter_count": 604934220,
+    "processor_stats_loaded": {
+      "preprocessor": true,
+      "postprocessor": true,
+      "postprocessor_file": "policy_postprocessor_step_1_unnormalizer_processor.safetensors"
+    },
+    "action_selected": true,
+    "libero_steps_succeeded": true,
+    "heldout_libero_policy_eval": true,
+    "model_id": "HuggingFaceVLA/smolvla_libero",
+    "task": "pick up the alphabet soup and place it in the basket",
+    "suite": "libero_object",
+    "task_index": 0,
+    "horizon": 2,
+    "max_steps": 1,
+    "eval_seeds": [
+      300
+    ],
+    "eval_episodes": 1,
+    "eval_successes": 0,
+    "eval_success_rate": 0.0,
+    "libero_action_dim": 7,
+    "input_feature_keys": [
+      "observation.images.image",
+      "observation.images.image2",
+      "observation.state"
+    ],
+    "raw_action_head": [
+      -0.27852535247802734,
+      -0.160305455327034,
+      -0.26431018114089966,
+      0.03476221114397049,
+      0.05187798663973808,
+      0.036043986678123474,
+      -1.0064258575439453
+    ],
+    "mapped_action": [
+      -0.27852535247802734,
+      -0.160305455327034,
+      -0.26431018114089966,
+      0.03476221114397049,
+      0.05187798663973808,
+      0.036043986678123474,
+      -1.0
+    ],
+    "episodes": [
+      {
+        "episode_id": 0,
+        "seed": 300,
+        "steps": 1,
+        "success": false,
+        "success_int": 0,
+        "initial_distance": 0.6939504881850818,
+        "final_distance": 0.6821578900491636,
+        "progress": 0.011792598135918153,
+        "total_reward": 0.0,
+        "energy": 1.1783329886324159,
+        "done": false,
+        "truncated": false,
+        "step_error": null
+      }
+    ],
+    "elapsed_seconds": 385.4422402381897
   },
   "artifacts": {
-    "episode_table": null,
+    "episode_table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\modern_vla_libero_policy_eval_episodes.csv",
     "report": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_policy_eval_report.md"
   },
   "note": "A zero-success verified eval is still a real evaluation artifact, but it is not evidence of positive modern VLA policy performance."

@@ -2,9 +2,9 @@
   "experiment": "repo_bound_artifact_audit",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_records": 902,
+  "n_records": 903,
   "n_claim_sources": 175,
-  "n_artifact_references": 727,
+  "n_artifact_references": 728,
   "n_outside_repo": 0,
   "n_missing": 0,
   "n_parent_traversal": 0,
@@ -14,11 +14,11 @@
     "model": 41,
     "report": 156,
     "result_json": 407,
-    "result_table": 250,
+    "result_table": 251,
     "source_or_test": 6
   },
   "suffix_counts": {
-    ".csv": 250,
+    ".csv": 251,
     ".joblib": 13,
     ".json": 407,
     ".md": 162,
@@ -27,7 +27,7 @@
     ".py": 6
   },
   "record_category_counts": {
-    "artifact_reference": 727,
+    "artifact_reference": 728,
     "claim_source": 175
   },
   "n_checks": 12,
@@ -36,7 +36,7 @@
     {
       "name": "records_present",
       "ok": true,
-      "detail": "records=902"
+      "detail": "records=903"
     },
     {
       "name": "claim_sources_present",
@@ -46,7 +46,7 @@
     {
       "name": "artifact_references_present",
       "ok": true,
-      "detail": "artifact_references=727"
+      "detail": "artifact_references=728"
     },
     {
       "name": "all_records_inside_repo",
@@ -71,7 +71,7 @@
     {
       "name": "result_table_coverage",
       "ok": true,
-      "detail": "count=250"
+      "detail": "count=251"
     },
     {
       "name": "report_coverage",
@@ -13916,6 +13916,22 @@
       "raw": "results/tables/maxout_model_metrics.csv",
       "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\maxout_model_metrics.csv",
       "repo_relative": "results/tables/maxout_model_metrics.csv",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".csv",
+      "artifact_category": "result_table",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "modern_vla_libero_policy_eval.json",
+      "json_ref": "artifacts.episode_table",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\modern_vla_libero_policy_eval_episodes.csv",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\modern_vla_libero_policy_eval_episodes.csv",
+      "repo_relative": "results/tables/modern_vla_libero_policy_eval_episodes.csv",
       "inside_repo": true,
       "exists": true,
       "kind": "file",

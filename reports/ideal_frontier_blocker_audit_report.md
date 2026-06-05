@@ -42,10 +42,10 @@ This report is blocker evidence, not validation evidence for the ideal endpoints
 - `execution_failure_stage`: `None`
 - `execution_error_type`: `None`
 - `ready_for_policy_eval`: `True`
-- `policy_eval_verified`: `False`
-- `policy_eval_episodes`: `0`
+- `policy_eval_verified`: `True`
+- `policy_eval_episodes`: `1`
 - `policy_eval_successes`: `0`
-- `policy_eval_success_ci`: `{'n': 0, 'mean': None, 'lo': None, 'hi': None}`
+- `policy_eval_success_ci`: `{'n': 1, 'mean': 0.0, 'lo': 0.0, 'hi': 0.7934567085261071, 'method': 'wilson'}`
 
 ## full_robocasa_wide
 

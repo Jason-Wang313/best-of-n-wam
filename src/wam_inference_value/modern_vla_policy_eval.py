@@ -85,6 +85,8 @@ try:
         use_camera_obs=True,
         has_offscreen_renderer=True,
     )
+    adapter.reset(seeds[0] if seeds else 0)
+    first_raw = adapter._raw_obs()
     task = str(getattr(adapter.task, "language", "") or getattr(adapter.task, "name", "") or adapter.task_name)
 
     def load_processor_stats(policy, repo_id):
@@ -131,7 +133,6 @@ try:
         policy = SmolVLAPolicy.from_pretrained(model_id)
         processor_stats = load_processor_stats(policy, model_id)
         parameter_count = int(sum(p.numel() for p in policy.parameters()))
-        policy.eval()
     except Exception as exc:
         adapter.close()
         emit(
@@ -222,7 +223,7 @@ try:
             step_error = None
             initial_distance = float(adapter.task_distance())
             for _ in range(max_steps):
-                raw = adapter._raw_obs()
+                raw = first_raw if episode_id == 0 and steps == 0 else adapter._raw_obs()
                 batch = build_batch(raw)
                 with torch.no_grad():
                     raw_action = policy.select_action(batch).detach().cpu().numpy().reshape(-1)
@@ -385,6 +386,12 @@ def _run_child(
     env["WAM_LIBERO_EVAL_SEEDS"] = ",".join(str(int(seed)) for seed in seeds)
     env["WAM_LIBERO_HORIZON"] = str(int(horizon))
     env["WAM_LIBERO_MAX_STEPS"] = str(int(max_steps))
+    env.setdefault("OMP_NUM_THREADS", "1")
+    env.setdefault("MKL_NUM_THREADS", "1")
+    env.setdefault("NUMEXPR_NUM_THREADS", "1")
+    env.setdefault("TOKENIZERS_PARALLELISM", "false")
+    env.setdefault("PYTHONFAULTHANDLER", "1")
+    env.setdefault("TRANSFORMERS_NO_ADVISORY_WARNINGS", "1")
     try:
         proc = subprocess.run(
             [str(python_path), "-c", CHILD_CODE],
@@ -415,11 +422,12 @@ def _run_child(
     try:
         child_payload = json.loads(stdout_lines[-1]) if stdout_lines else {}
     except json.JSONDecodeError:
+        crash_label = "WindowsAccessViolation" if proc.returncode == 3221225477 else f"ProcessReturnCode{proc.returncode}"
         child_payload = {
             "ok": False,
             "verified": False,
             "failure_stage": "process_crash" if proc.returncode else "non_json_output",
-            "error_type": "ProcessCrash" if proc.returncode else "NonJsonOutput",
+            "error_type": crash_label if proc.returncode else "NonJsonOutput",
             "error": proc.stdout[-2000:],
             "heldout_libero_policy_eval": False,
             "returncode": proc.returncode,

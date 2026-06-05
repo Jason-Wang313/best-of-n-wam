@@ -65,12 +65,12 @@
         {
           "path": "results/modern_vla_libero_policy_eval.json",
           "exists": true,
-          "bytes": 3574
+          "bytes": 7444
         },
         {
           "path": "reports/modern_vla_libero_policy_eval_report.md",
           "exists": true,
-          "bytes": 1155
+          "bytes": 1035
         },
         {
           "path": "results/benchmark_libero_visual_language_bc_policy.json",
@@ -91,14 +91,15 @@
         "execution_failure_stage": null,
         "execution_error_type": null,
         "ready_for_policy_eval": true,
-        "policy_eval_verified": false,
-        "policy_eval_episodes": 0,
+        "policy_eval_verified": true,
+        "policy_eval_episodes": 1,
         "policy_eval_successes": 0,
         "policy_eval_success_ci": {
-          "n": 0,
-          "mean": null,
-          "lo": null,
-          "hi": null
+          "n": 1,
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.7934567085261071,
+          "method": "wilson"
         }
       }
     },

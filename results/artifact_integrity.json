@@ -3,9 +3,9 @@
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_result_json": 164,
-  "n_references": 727,
+  "n_references": 728,
   "status_counts": {
-    "ok": 727
+    "ok": 728
   },
   "n_issues": 0,
   "issues": [],
@@ -6077,7 +6077,7 @@
       "raw_path": "results/artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 101744,
+      "bytes": 101965,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6088,7 +6088,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 101744,
+      "bytes": 101965,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6649,7 +6649,7 @@
       "raw_path": "results/repo_bound_artifact_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
-      "bytes": 605277,
+      "bytes": 605958,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6660,7 +6660,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
-      "bytes": 605277,
+      "bytes": 605958,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -7888,11 +7888,22 @@
     },
     {
       "source_json": "modern_vla_libero_policy_eval.json",
+      "json_path": "artifacts.episode_table",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\modern_vla_libero_policy_eval_episodes.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\modern_vla_libero_policy_eval_episodes.csv",
+      "exists": true,
+      "bytes": 228,
+      "rows": 1,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "modern_vla_libero_policy_eval.json",
       "json_path": "artifacts.report",
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_policy_eval_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\modern_vla_libero_policy_eval_report.md",
       "exists": true,
-      "bytes": 1155,
+      "bytes": 1035,
       "rows": null,
       "status": "ok",
       "reason": ""

@@ -404,12 +404,12 @@
         {
           "path": "results/modern_vla_libero_policy_eval.json",
           "exists": true,
-          "bytes": 3574
+          "bytes": 7444
         },
         {
           "path": "reports/modern_vla_libero_policy_eval_report.md",
           "exists": true,
-          "bytes": 1155
+          "bytes": 1035
         },
         {
           "path": "results/benchmark_libero_tiny_neural_vla_attempt.json",

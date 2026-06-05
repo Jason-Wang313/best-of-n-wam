@@ -2,13 +2,13 @@
   "experiment": "artifact_manifest",
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_files": 444,
-  "total_bytes": 77213794,
+  "n_files": 445,
+  "total_bytes": 77217963,
   "counts_by_suffix": {
     ".json": 136,
     ".npz": 45,
     ".png": 36,
-    ".csv": 227
+    ".csv": 228
   },
   "records": [
     {
@@ -974,14 +974,14 @@
     {
       "path": "results/ideal_frontier_blocker_audit.json",
       "suffix": ".json",
-      "bytes": 12225,
-      "sha256": "3abeb59ba7d87b22fb60281b5ddf5bd71d0694ea66b6067513fb68fdbaa18e3c"
+      "bytes": 12267,
+      "sha256": "d3d23417f38bc401bcbfc5d0ea4147a4400e68bb19caf4677b4740539f9bbce7"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 9424,
-      "sha256": "1f42a7ba1753e1946acc1a192ad569e6ab050b46dbe0e1c29373f73cae1dfdc4"
+      "bytes": 9453,
+      "sha256": "6392fb98f08cac7cdbbca8aaf2157ccdd2378d12d9c0567bb6a938ede1bf0c82"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -1268,8 +1268,8 @@
     {
       "path": "results/modern_vla_libero_policy_eval.json",
       "suffix": ".json",
-      "bytes": 3574,
-      "sha256": "3693b385378379c92604866b37001d2bea2d0bcde4c6fb4dee3c51c79d75d170"
+      "bytes": 7444,
+      "sha256": "cee31360bb151bb26fc82575ceab3bc022c05245f04e92cb737317db0ff3a1ba"
     },
     {
       "path": "results/modern_vla_pretrained_load_probe.json",
@@ -2628,6 +2628,12 @@
       "sha256": "41f7b211c01d2b4555e9b76438a91c128eae58a05de1466406ad2eea2fd49937"
     },
     {
+      "path": "results/tables/modern_vla_libero_policy_eval_episodes.csv",
+      "suffix": ".csv",
+      "bytes": 228,
+      "sha256": "504cda849f5300d6d0afb6f99f31dabad5ed518f7921a9482b7031e74ed6376c"
+    },
+    {
       "path": "results/tables/multi_env_curves.csv",
       "suffix": ".csv",
       "bytes": 1581738,
@@ -2683,22 +2689,22 @@
     {
       "name": "manifest_records_present",
       "ok": true,
-      "detail": "records=444"
+      "detail": "records=445"
     },
     {
       "name": "manifest_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=444, scan=444"
+      "detail": "payload=445, scan=445"
     },
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=77213794, scan=77213794"
+      "detail": "payload=77217963, scan=77217963"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
       "ok": true,
-      "detail": "payload={'.json': 136, '.npz': 45, '.png': 36, '.csv': 227}, scan={'.json': 136, '.npz': 45, '.png': 36, '.csv': 227}"
+      "detail": "payload={'.json': 136, '.npz': 45, '.png': 36, '.csv': 228}, scan={'.json': 136, '.npz': 45, '.png': 36, '.csv': 228}"
     },
     {
       "name": "manifest_has_no_missing_current_artifacts",
@@ -2728,12 +2734,12 @@
     {
       "name": "manifest_scientific_artifact_file_count",
       "ok": true,
-      "detail": "files=444"
+      "detail": "files=445"
     },
     {
       "name": "manifest_table_count",
       "ok": true,
-      "detail": "csv=227"
+      "detail": "csv=228"
     },
     {
       "name": "manifest_json_count",
@@ -2753,7 +2759,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=77213794"
+      "detail": "bytes=77217963"
     }
   ],
   "issues": [],

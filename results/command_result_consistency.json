@@ -25,12 +25,12 @@
     {
       "name": "artifact_integrity_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/artifact_integrity.py --fail-on-error`: passed with `727` artifact references checked and `0` issues"
+      "detail": "expected=`python scripts/artifact_integrity.py --fail-on-error`: passed with `728` artifact references checked and `0` issues"
     },
     {
       "name": "artifact_manifest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/artifact_manifest.py --fail-on-error`: passed with `444` scientific artifacts, `77213794` bytes, `15` manifest checks, and `0` issues"
+      "detail": "expected=`python scripts/artifact_manifest.py --fail-on-error`: passed with `445` scientific artifacts, `77217963` bytes, `15` manifest checks, and `0` issues"
     },
     {
       "name": "figure_quality_snippet_matches_artifact",
@@ -55,7 +55,7 @@
     {
       "name": "source_manifest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `246` source files, `1793108` bytes, `14` source-manifest checks, and `0` issues"
+      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `246` source files, `1793628` bytes, `14` source-manifest checks, and `0` issues"
     },
     {
       "name": "runtime_environment_snippet_matches_artifact",
@@ -130,12 +130,12 @@
     {
       "name": "repo_bound_artifact_audit_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `901` records, `175` claim sources, `726` artifact references, `0` outside-repo records, `0` missing records, and `0` issues"
+      "detail": "expected=`python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `903` records, `175` claim sources, `728` artifact references, `0` outside-repo records, `0` missing records, and `0` issues"
     },
     {
       "name": "evidence_hash_coverage_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `117` claim sources, `468` artifact references, `585` hashed records, and `0` issues"
+      "detail": "expected=`python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `117` claim sources, `470` artifact references, `587` hashed records, and `0` issues"
     },
     {
       "name": "claim_ledger_integrity_snippet_matches_artifact",

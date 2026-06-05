@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 246,
-  "total_bytes": 1793108,
+  "total_bytes": 1793628,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 229,
@@ -981,8 +981,8 @@
     {
       "path": "src/wam_inference_value/modern_vla_policy_eval.py",
       "suffix": ".py",
-      "bytes": 23678,
-      "sha256": "9db68aff0c7595034390d8b0d022cbf6bf8d249e8ae867a1c5248613134a2896"
+      "bytes": 24198,
+      "sha256": "732308dceccf5a568f64fee8d80126d0dc5a17f09072f497ae7248a084efab4e"
     },
     {
       "path": "src/wam_inference_value/modern_vla_probe.py",
@@ -1518,7 +1518,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1793108, scan=1793108"
+      "detail": "payload=1793628, scan=1793628"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1563,7 +1563,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1793108"
+      "detail": "bytes=1793628"
     },
     {
       "name": "source_manifest_dir_coverage",

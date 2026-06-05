@@ -80,7 +80,7 @@
         {
           "name": "heldout_sparse_success_modern_vla_eval",
           "ok": false,
-          "detail": "eval_verified=False, heldout_eval=False, eval_episodes=0, n_eval_seeds=5, max_steps=1, eval_successes=0, success_rate=None, success_ci={'n': 0, 'mean': None, 'lo': None, 'hi': None}; one_step_verified=True, one_step_success=False"
+          "detail": "eval_verified=True, heldout_eval=True, eval_episodes=1, n_eval_seeds=1, max_steps=1, eval_successes=0, success_rate=0.0, success_ci={'n': 1, 'mean': 0.0, 'lo': 0.0, 'hi': 0.7934567085261071, 'method': 'wilson'}; one_step_verified=True, one_step_success=False"
         },
         {
           "name": "current_runtime_can_rerun_libero",
