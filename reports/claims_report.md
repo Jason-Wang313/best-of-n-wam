@@ -111,7 +111,7 @@
 - 97. RoboCasa stratified 97-task learned WAM-lite scorer beats random with CI. Evidence: tasks=97, train=1552, val=776, eval=1552, pools=194, utility corr=0.8380299394502633, promoted=learned_wam, learned-random CI={'n': 194, 'mean': 0.34790032435530055, 'std': 0.2347443208321136, 'stderr': 0.016853660033059582, 'ci95': 0.03303317366479678, 'lo': 0.31486715069050375, 'hi': 0.38093349802009735}, oracle-learned CI={'n': 194, 'mean': 0.04578491854497242, 'std': 0.0629307206718025, 'stderr': 0.0045181624334014545, 'ci95': 0.00885559836946685, 'lo': 0.03692932017550557, 'hi': 0.054640516914439274}
 - 98. RoboCasa residual 35-task clean/cook learned WAM-lite scorer beats random with CI. Evidence: tasks=35, train=140, val=140, eval=280, pools=35, horizon=1, Nmax=4, utility corr=0.8345242481462408, exact MAE=0.00024620294740340757, promoted=learned_wam, learned-random CI={'n': 35, 'mean': 0.2408146016473912, 'std': 0.13106289940391155, 'stderr': 0.02215367341365428, 'ci95': 0.04342119989076239, 'lo': 0.19739340175662884, 'hi': 0.2842358015381536}, oracle-learned CI={'n': 35, 'mean': 0.02177076474637765, 'std': 0.024328798100469916, 'stderr': 0.00411231744540864, 'ci95': 0.008060142193000936, 'lo': 0.013710622553376713, 'hi': 0.029830906939378586}
 - 99. Narrative reports have no unsupported overclaims. Evidence: report overclaims=0
-- 100. Published result artifact references are internally consistent. Evidence: refs=722, issues=0, status_counts={'ok': 722}
+- 100. Published result artifact references are internally consistent. Evidence: refs=723, issues=0, status_counts={'ok': 723}
 - 101. Published result summaries agree with canonical tables. Evidence: checks=157, issues=0
 - 102. Published narrative numbers match current artifacts. Evidence: checks=52, issues=0
 - 103. Claim ledger is structurally consistent. Evidence: claims=127, max_id=127, checks=21, issues=0
@@ -119,19 +119,19 @@
 - 105. Verified claims have mapped source artifacts and quality-checked evidence. Evidence: claims=127, mapped=127, sources=175, issues=0
 - 106. Published summary metrics recompute from raw result tables. Evidence: aggregate metrics=10710, exact files=20, seed CI columns=125, issues=0
 - 107. Verified claim wording satisfies semantic threshold checks. Evidence: claims=127, checks=177, CI claims=53, positive CI claims=33, error claims=11, issues=0
-- 108. Scientific result artifacts have a deterministic hash manifest. Evidence: files=431, bytes=69852815, suffixes={'.json': 127, '.npz': 43, '.png': 36, '.csv': 225}, issues=0
+- 108. Scientific result artifacts have a deterministic hash manifest. Evidence: files=434, bytes=73692664, suffixes={'.json': 128, '.npz': 44, '.png': 36, '.csv': 226}, issues=0
 - 109. Publication figure artifacts pass image-quality checks. Evidence: figures=36, expected=25, checks=8, issues=0
-- 110. Canonical CSV result tables pass schema and numeric-sanity checks. Evidence: tables=225, rows=213289, numeric_columns=2014, checks=17, issues=0
+- 110. Canonical CSV result tables pass schema and numeric-sanity checks. Evidence: tables=226, rows=213292, numeric_columns=2022, checks=17, issues=0
 - 111. Source and verification code have a deterministic hash manifest. Evidence: files=227, bytes=1646506, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 45, 'src': 63, 'tests': 57}, checks=14, issues=0
 - 112. Runtime and dependency environment metadata has a verified manifest. Evidence: python=3.10.11, core=4, absent=0, version_issues=0, optional_available=5/5, modules=13, commands=5, checks=15, issues=0
 - 113. Canonical experiment families have verified registry coverage. Evidence: entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=298, rows=260531, figures=40, failed=0, checks=10, issues=0
-- 114. Committed learned-model artifacts are loadable and numerically sane. Evidence: models=51, suffixes={'.npz': 38, '.joblib': 13}, bytes=132735949, npz_arrays=363, npz_elements=9351893, joblib_predictors=13, checks=10, issues=0
+- 114. Committed learned-model artifacts are loadable and numerically sane. Evidence: models=52, suffixes={'.npz': 39, '.joblib': 13}, bytes=136572684, npz_arrays=387, npz_elements=10302259, joblib_predictors=13, checks=10, issues=0
 - 115. Published final-report command results match current verification artifacts. Evidence: snippets=28, python_commands=31, pytest=161, checks=31, issues=0
 - 116. Pytest command-result counts come from a verified collected-test inventory. Evidence: tests=161, unique=161, trailer=161, checks=6, issues=0
 - 117. Generated claim-status artifacts are byte-stable under rerunning the claim generator. Evidence: claims=127, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json
 - 118. Generated max-out narrative reports are byte-stable under rerunning the report generator. Evidence: reports=8, files=8, checks=9, issues=0, hashes_recorded_in=results/report_generation_consistency.json
-- 119. Claim evidence artifacts and published artifact references are represented in the git index. Evidence: claim_sources=119, artifact_refs=466, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0
-- 120. Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage. Evidence: claim_sources=117, artifact_refs=464, hashed=581, self_outputs_excluded=4, issues=0
+- 119. Claim evidence artifacts and published artifact references are represented in the git index. Evidence: claim_sources=119, artifact_refs=467, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0
+- 120. Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage. Evidence: claim_sources=117, artifact_refs=465, hashed=582, self_outputs_excluded=4, issues=0
 - 121. Claim evidence artifacts and published artifact references are repository-bound. Evidence: records=889, claim_sources=175, artifact_refs=714, outside=0, absent=0, traversal=0, issues=0
 - 122. Final-report abstract-level claims are directly evidence-backed and scope-limited. Evidence: abstract_claims=4, approved=4, backing_links=23, headline_forbidden=0, issues=0
 - 123. Publication-surface risky robotics claims are guarded as limitations or future work. Evidence: surfaces=5, risk_mentions=80, guarded=80, unguarded=0, issues=0

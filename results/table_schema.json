@@ -2,28 +2,28 @@
   "experiment": "table_schema",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_tables": 225,
-  "total_rows": 213289,
-  "total_column_instances": 2690,
-  "numeric_column_instances": 2014,
-  "optional_blank_instances": 109,
+  "n_tables": 226,
+  "total_rows": 213292,
+  "total_column_instances": 2702,
+  "numeric_column_instances": 2022,
+  "optional_blank_instances": 110,
   "n_checks": 17,
   "n_issues": 0,
   "checks": [
     {
       "name": "table_files_present",
       "ok": true,
-      "detail": "tables=225"
+      "detail": "tables=226"
     },
     {
       "name": "table_rows_present",
       "ok": true,
-      "detail": "rows=213289"
+      "detail": "rows=213292"
     },
     {
       "name": "table_columns_present",
       "ok": true,
-      "detail": "column_instances=2690"
+      "detail": "column_instances=2702"
     },
     {
       "name": "table_headers_well_formed",
@@ -88,12 +88,12 @@
     {
       "name": "numeric_column_coverage",
       "ok": true,
-      "detail": "numeric_column_instances=2014"
+      "detail": "numeric_column_instances=2022"
     },
     {
       "name": "optional_blank_columns_are_explicit",
       "ok": true,
-      "detail": "optional_blank_instances=109"
+      "detail": "optional_blank_instances=110"
     }
   ],
   "issues": [],
@@ -864,6 +864,50 @@
         "state_id"
       ],
       "blank_columns": [],
+      "malformed": false,
+      "duplicate_columns": [],
+      "blank_column_names": [],
+      "duplicate_rows": 0,
+      "blank_disallowed": [],
+      "nonfinite_numeric": [],
+      "noninteger_values": [],
+      "negative_id_values": [],
+      "nonpositive_compute_values": [],
+      "success_range_errors": [],
+      "boolean_errors": [],
+      "family_failures": []
+    },
+    {
+      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_libero_tiny_neural_eval101_probe_episodes.csv",
+      "rows": 3,
+      "columns": 12,
+      "fieldnames": [
+        "split",
+        "task_id",
+        "task_name",
+        "seed",
+        "success",
+        "total_reward",
+        "initial_distance",
+        "final_distance",
+        "progress",
+        "energy",
+        "steps",
+        "failure_reason"
+      ],
+      "numeric_columns": [
+        "energy",
+        "final_distance",
+        "initial_distance",
+        "progress",
+        "seed",
+        "steps",
+        "success",
+        "total_reward"
+      ],
+      "blank_columns": [
+        "failure_reason"
+      ],
       "malformed": false,
       "duplicate_columns": [],
       "blank_column_names": [],

@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=722, issues=0, status_counts={'ok': 722}"
+      "evidence": "refs=723, issues=0, status_counts={'ok': 723}"
     },
     {
       "id": 101,
@@ -646,7 +646,7 @@
       "id": 108,
       "claim": "Scientific result artifacts have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=431, bytes=69852815, suffixes={'.json': 127, '.npz': 43, '.png': 36, '.csv': 225}, issues=0"
+      "evidence": "files=434, bytes=73692664, suffixes={'.json': 128, '.npz': 44, '.png': 36, '.csv': 226}, issues=0"
     },
     {
       "id": 109,
@@ -658,7 +658,7 @@
       "id": 110,
       "claim": "Canonical CSV result tables pass schema and numeric-sanity checks.",
       "status": "VERIFIED",
-      "evidence": "tables=225, rows=213289, numeric_columns=2014, checks=17, issues=0"
+      "evidence": "tables=226, rows=213292, numeric_columns=2022, checks=17, issues=0"
     },
     {
       "id": 111,
@@ -682,7 +682,7 @@
       "id": 114,
       "claim": "Committed learned-model artifacts are loadable and numerically sane.",
       "status": "VERIFIED",
-      "evidence": "models=51, suffixes={'.npz': 38, '.joblib': 13}, bytes=132735949, npz_arrays=363, npz_elements=9351893, joblib_predictors=13, checks=10, issues=0"
+      "evidence": "models=52, suffixes={'.npz': 39, '.joblib': 13}, bytes=136572684, npz_arrays=387, npz_elements=10302259, joblib_predictors=13, checks=10, issues=0"
     },
     {
       "id": 115,
@@ -712,13 +712,13 @@
       "id": 119,
       "claim": "Claim evidence artifacts and published artifact references are represented in the git index.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=119, artifact_refs=466, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
+      "evidence": "claim_sources=119, artifact_refs=467, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
     },
     {
       "id": 120,
       "claim": "Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=117, artifact_refs=464, hashed=581, self_outputs_excluded=4, issues=0"
+      "evidence": "claim_sources=117, artifact_refs=465, hashed=582, self_outputs_excluded=4, issues=0"
     },
     {
       "id": 121,

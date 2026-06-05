@@ -1,11 +1,11 @@
 # Model Artifact Integrity Report
 
 - Verified: True
-- Models: 51
-- Counts by suffix: {'.npz': 38, '.joblib': 13}
-- Total bytes: 132735949
-- NPZ arrays: 363
-- NPZ elements: 9351893
+- Models: 52
+- Counts by suffix: {'.npz': 39, '.joblib': 13}
+- Total bytes: 136572684
+- NPZ arrays: 387
+- NPZ elements: 10302259
 - Joblib predictors: 13
 - Checks: 10
 - Issues: 0

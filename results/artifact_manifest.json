@@ -2,13 +2,13 @@
   "experiment": "artifact_manifest",
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_files": 431,
-  "total_bytes": 69852815,
+  "n_files": 434,
+  "total_bytes": 73692664,
   "counts_by_suffix": {
-    ".json": 127,
-    ".npz": 43,
+    ".json": 128,
+    ".npz": 44,
     ".png": 36,
-    ".csv": 225
+    ".csv": 226
   },
   "records": [
     {
@@ -58,6 +58,12 @@
       "suffix": ".json",
       "bytes": 3804,
       "sha256": "3d968feca61b47d9e75bacd6687786c530c5ca90b1497dc30d06becde9640054"
+    },
+    {
+      "path": "results/benchmark_libero_tiny_neural_eval101_probe.json",
+      "suffix": ".json",
+      "bytes": 2408,
+      "sha256": "842fabca20c79d77cd80f02cbc8f0998e4d9bb24460e6a18db365f558047487b"
     },
     {
       "path": "results/benchmark_libero_tiny_neural_eval200_probe.json",
@@ -963,7 +969,7 @@
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
       "bytes": 8532,
-      "sha256": "2cd2b9d51203713768a13acdcdb0df9d6d0351d532a36c63a83644335bfca5b7"
+      "sha256": "cbc47bfe937301225fff8e4362f54092433e333d9bb8c0d3edf678be64ed98a3"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -1018,6 +1024,12 @@
       "suffix": ".npz",
       "bytes": 6212,
       "sha256": "c27739934cdca2680fa16e94ddf8720f3e55388ecda253636a6ea39a6291af71"
+    },
+    {
+      "path": "results/models/benchmark_libero_tiny_neural_eval101_probe.npz",
+      "suffix": ".npz",
+      "bytes": 3836735,
+      "sha256": "9461b7ac7e387cba4c816d4dd76f48766b04dc88556d42913f94895484494141"
     },
     {
       "path": "results/models/benchmark_libero_tiny_neural_eval200_probe.npz",
@@ -1360,6 +1372,12 @@
       "suffix": ".csv",
       "bytes": 3159,
       "sha256": "9315b16789fd5c820671872e5fb0e44c17950ad0ea93464f125c45850b55a773"
+    },
+    {
+      "path": "results/tables/benchmark_libero_tiny_neural_eval101_probe_episodes.csv",
+      "suffix": ".csv",
+      "bytes": 706,
+      "sha256": "6be67f4d3db8de052a8d9214b8a9df690073d63f466d717fcc0e806b5ca1cbe2"
     },
     {
       "path": "results/tables/benchmark_libero_tiny_neural_eval200_probe_episodes.csv",
@@ -2605,22 +2623,22 @@
     {
       "name": "manifest_records_present",
       "ok": true,
-      "detail": "records=431"
+      "detail": "records=434"
     },
     {
       "name": "manifest_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=431, scan=431"
+      "detail": "payload=434, scan=434"
     },
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=69852815, scan=69852815"
+      "detail": "payload=73692664, scan=73692664"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
       "ok": true,
-      "detail": "payload={'.json': 127, '.npz': 43, '.png': 36, '.csv': 225}, scan={'.json': 127, '.npz': 43, '.png': 36, '.csv': 225}"
+      "detail": "payload={'.json': 128, '.npz': 44, '.png': 36, '.csv': 226}, scan={'.json': 128, '.npz': 44, '.png': 36, '.csv': 226}"
     },
     {
       "name": "manifest_has_no_missing_current_artifacts",
@@ -2650,22 +2668,22 @@
     {
       "name": "manifest_scientific_artifact_file_count",
       "ok": true,
-      "detail": "files=431"
+      "detail": "files=434"
     },
     {
       "name": "manifest_table_count",
       "ok": true,
-      "detail": "csv=225"
+      "detail": "csv=226"
     },
     {
       "name": "manifest_json_count",
       "ok": true,
-      "detail": "json=127"
+      "detail": "json=128"
     },
     {
       "name": "manifest_model_count",
       "ok": true,
-      "detail": "npz=43"
+      "detail": "npz=44"
     },
     {
       "name": "manifest_figure_count",
@@ -2675,7 +2693,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=69852815"
+      "detail": "bytes=73692664"
     }
   ],
   "issues": [],
