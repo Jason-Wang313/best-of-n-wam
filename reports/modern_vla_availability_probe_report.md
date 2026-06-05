@@ -6,15 +6,14 @@
 - Hugging Face models reachable: `5`
 - joint LIBERO+VLA runtime available: `True`
 - pretrained VLA loaded: `True`
-- pretrained VLA parameters: `450046212`
+- pretrained VLA parameters: `604934220`
 - LIBERO execution probe present: `True`
-- LIBERO execution verified: `False`
-- LIBERO execution failure stage: `policy_load`
-- ready for policy eval: `False`
+- LIBERO execution verified: `True`
+- LIBERO execution failure stage: `None`
+- ready for policy eval: `True`
 
 ## Missing For Ideal Claim
 
-- pretrained VLA can select an action and step LIBERO in a compatible runtime
 - LIBERO-compatible sparse-success VLA evaluation artifact
 
 ## Importable Packages

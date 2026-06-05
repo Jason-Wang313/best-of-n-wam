@@ -152,7 +152,7 @@
       "pipeline_tag": "robotics",
       "library_name": "transformers",
       "sibling_count": 18,
-      "elapsed_seconds": 0.3737783432006836
+      "elapsed_seconds": 0.26966190338134766
     },
     {
       "repo_id": "openvla/openvla-7b-finetuned-libero-spatial",
@@ -162,7 +162,7 @@
       "pipeline_tag": "image-text-to-text",
       "library_name": "transformers",
       "sibling_count": 16,
-      "elapsed_seconds": 0.19920659065246582
+      "elapsed_seconds": 0.16445350646972656
     },
     {
       "repo_id": "openvla/openvla-7b-finetuned-libero-object",
@@ -172,7 +172,7 @@
       "pipeline_tag": "image-text-to-text",
       "library_name": "transformers",
       "sibling_count": 16,
-      "elapsed_seconds": 0.18902826309204102
+      "elapsed_seconds": 0.1754908561706543
     },
     {
       "repo_id": "physical-intelligence/fast",
@@ -182,7 +182,7 @@
       "pipeline_tag": "robotics",
       "library_name": "transformers",
       "sibling_count": 7,
-      "elapsed_seconds": 0.1623384952545166
+      "elapsed_seconds": 0.1826772689819336
     },
     {
       "repo_id": "nvidia/GR00T-N1.5-3B",
@@ -192,7 +192,7 @@
       "pipeline_tag": "robotics",
       "library_name": null,
       "sibling_count": 13,
-      "elapsed_seconds": 0.1741809844970703
+      "elapsed_seconds": 0.17105698585510254
     }
   ],
   "hf_reachable_count": 5,
@@ -224,19 +224,20 @@
   "runtime_ready_for_policy_eval_attempt": true,
   "pretrained_load_probe_present": true,
   "pretrained_vla_loaded": true,
-  "pretrained_vla_parameter_count": 450046212,
-  "pretrained_vla_model_id": "lerobot/smolvla_base",
+  "pretrained_vla_parameter_count": 604934220,
+  "pretrained_vla_model_id": "HuggingFaceVLA/smolvla_libero",
   "libero_execution_probe_present": true,
   "libero_execution_attempted": true,
-  "libero_execution_verified": false,
-  "libero_execution_policy_loaded": false,
-  "libero_execution_action_selected": false,
-  "libero_execution_step_succeeded": false,
-  "libero_execution_failure_stage": "policy_load",
-  "libero_execution_error_type": "NotImplementedError",
-  "ready_for_policy_eval": false,
+  "libero_execution_verified": true,
+  "libero_execution_policy_loaded": true,
+  "libero_execution_model_id": "HuggingFaceVLA/smolvla_libero",
+  "libero_execution_parameter_count": 604934220,
+  "libero_execution_action_selected": true,
+  "libero_execution_step_succeeded": true,
+  "libero_execution_failure_stage": null,
+  "libero_execution_error_type": null,
+  "ready_for_policy_eval": true,
   "missing_for_ideal_claim": [
-    "pretrained VLA can select an action and step LIBERO in a compatible runtime",
     "LIBERO-compatible sparse-success VLA evaluation artifact"
   ],
   "note": "Availability probe only. Runtime/package availability, public model metadata, or secret presence is not policy validation and does not support a modern VLA LIBERO result without a heldout evaluation artifact."

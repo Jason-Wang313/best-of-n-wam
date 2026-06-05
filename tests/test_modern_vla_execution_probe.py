@@ -37,11 +37,15 @@ def test_execution_probe_markdown_states_not_performance_result() -> None:
             "attempted": True,
             "verified": False,
             "heldout_libero_policy_eval": False,
-            "model_id": "lerobot/smolvla_base",
+            "model_id": "HuggingFaceVLA/smolvla_libero",
             "failure_stage": "policy_load",
             "error_type": "NotImplementedError",
+            "parameter_count": 604_934_220,
+            "processor_stats_loaded": {"preprocessor": True, "postprocessor": True},
+            "input_feature_keys": ["observation.images.image", "observation.state"],
         }
     )
 
     assert "not a modern VLA LIBERO performance result" in text
     assert "policy_load" in text
+    assert "604934220" in text

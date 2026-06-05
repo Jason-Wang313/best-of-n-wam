@@ -3,7 +3,7 @@
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_files": 443,
-  "total_bytes": 77219291,
+  "total_bytes": 77209558,
   "counts_by_suffix": {
     ".json": 135,
     ".npz": 45,
@@ -974,14 +974,14 @@
     {
       "path": "results/ideal_frontier_blocker_audit.json",
       "suffix": ".json",
-      "bytes": 11741,
-      "sha256": "4bb3158b9908bf8f8e00f8053c6550043b8249908ecf92d0c79fed72824e6766"
+      "bytes": 11689,
+      "sha256": "d30669261d2a3bbd96bd5c5b91ebb59318042f8f375343ff858f340db6e4f016"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 8981,
-      "sha256": "35dce21cfb632549e095e71f11ef647dceb7184aba17ded7a40d38ad3afe6a65"
+      "bytes": 9298,
+      "sha256": "3de9a2202507a0a7211bc4a3bc81ecc58478e3b196e554a72613c9ef612a3235"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -1256,20 +1256,20 @@
     {
       "path": "results/modern_vla_availability_probe.json",
       "suffix": ".json",
-      "bytes": 7804,
-      "sha256": "065cb4d522b95a7e1db9462eb1e1ab443d396fd139d1ea2d35fd40f29b2838da"
+      "bytes": 7814,
+      "sha256": "c7166a9f4344cca20fffd4a4f129b759d84e390becb5e734999ecb6d614ad2cb"
     },
     {
       "path": "results/modern_vla_libero_execution_probe.json",
       "suffix": ".json",
-      "bytes": 16313,
-      "sha256": "d355586d26d2ed1466488e2e647f03291d49418368d79b39ed203106752198bd"
+      "bytes": 5950,
+      "sha256": "697b208dd7927cff55bb14713ed6aa0b127077a99bd189ca9f213ce1cab4eeb0"
     },
     {
       "path": "results/modern_vla_pretrained_load_probe.json",
       "suffix": ".json",
-      "bytes": 1860,
-      "sha256": "69e4c2131bfbdb6d1436470634845946a441e3495401c521e224c6a80611b989"
+      "bytes": 2215,
+      "sha256": "2d3e86b6debcd2512ca15786c2768dc0d4cda87dfa2847c6953e6f809a1ff007"
     },
     {
       "path": "results/multi_env_suite.json",
@@ -2687,7 +2687,7 @@
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=77219291, scan=77219291"
+      "detail": "payload=77209558, scan=77209558"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
@@ -2747,7 +2747,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=77219291"
+      "detail": "bytes=77209558"
     }
   ],
   "issues": [],

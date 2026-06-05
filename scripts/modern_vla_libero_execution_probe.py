@@ -23,7 +23,7 @@ def main() -> None:
     parser.add_argument("--python", type=Path, default=None)
     parser.add_argument("--libero-source", type=Path, default=None)
     parser.add_argument("--libero-config", type=Path, default=None)
-    parser.add_argument("--model-id", default="lerobot/smolvla_base")
+    parser.add_argument("--model-id", default="HuggingFaceVLA/smolvla_libero")
     parser.add_argument("--suite", default="libero_object")
     parser.add_argument("--task-index", type=int, default=0)
     parser.add_argument("--seed", type=int, default=200)

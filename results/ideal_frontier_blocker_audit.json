@@ -38,29 +38,29 @@
       "blocker_class": "modern_vla_execution_or_eval_absent",
       "ready_to_promote": false,
       "missing_signals": [
-        "modern_vla_scale_or_pretrained_model"
+        "heldout_sparse_success_modern_vla_eval"
       ],
-      "next_action": "Run a pretrained or VLA-scale neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs.",
+      "next_action": "Extend the verified one-step LIBERO-tuned SmolVLA execution into heldout sparse-success episodes with confidence intervals.",
       "required_artifacts": [
         {
           "path": "results/modern_vla_availability_probe.json",
           "exists": true,
-          "bytes": 7804
+          "bytes": 7806
         },
         {
           "path": "reports/modern_vla_availability_probe_report.md",
           "exists": true,
-          "bytes": 1496
+          "bytes": 1408
         },
         {
           "path": "results/modern_vla_libero_execution_probe.json",
           "exists": true,
-          "bytes": 16313
+          "bytes": 5950
         },
         {
           "path": "reports/modern_vla_libero_execution_probe_report.md",
           "exists": true,
-          "bytes": 763
+          "bytes": 1146
         },
         {
           "path": "results/benchmark_libero_visual_language_bc_policy.json",
@@ -77,10 +77,10 @@
         "pretrained_vla_loaded": true,
         "pretrained_vla_parameter_count": 450046212,
         "execution_attempted": true,
-        "execution_verified": false,
-        "execution_failure_stage": "policy_load",
-        "execution_error_type": "NotImplementedError",
-        "ready_for_policy_eval": false
+        "execution_verified": true,
+        "execution_failure_stage": null,
+        "execution_error_type": null,
+        "ready_for_policy_eval": true
       }
     },
     {
@@ -255,7 +255,7 @@
     {
       "name": "modern_vla_libero_has_missing_signals",
       "ok": true,
-      "detail": "missing=['modern_vla_scale_or_pretrained_model']"
+      "detail": "missing=['heldout_sparse_success_modern_vla_eval']"
     },
     {
       "name": "modern_vla_libero_missing_signal_details_present",
@@ -265,7 +265,7 @@
     {
       "name": "modern_vla_libero_next_action_present",
       "ok": true,
-      "detail": "next_action=Run a pretrained or VLA-scale neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs."
+      "detail": "next_action=Extend the verified one-step LIBERO-tuned SmolVLA execution into heldout sparse-success episodes with confidence intervals."
     },
     {
       "name": "modern_vla_libero_blocker_artifacts_present",

@@ -13,15 +13,16 @@ This report is a gap audit, not a result promotion mechanism.
   - real_robot_or_hil_artifact_present: `False` (physical_trial_metric_files=0, availability_probe_verified=True, possible_hardware=0, probe_trial_metrics=0)
   - real_world_success_metrics_present: `False` (physical trial success/utility metric artifacts=0)
   Next action: Collect real robot or hardware-in-the-loop rollout/control logs with trial IDs and success or utility metrics.
-- `modern_vla_libero`: ready_to_promote=`False`; missing=['modern_vla_scale_or_pretrained_model']
+- `modern_vla_libero`: ready_to_promote=`False`; missing=['heldout_sparse_success_modern_vla_eval']
   - libero_rgb_language_policy_evaluated: `True` (verified=True, eval_episodes=30)
   - no_shortcut_eval_interface: `True` (policy={'type': 'rgb_proprio_language_knn_behavior_cloning', 'uses_rgb': True, 'uses_language': True, 'uses_robot_proprio': True, 'uses_simulator_object_state': False, 'uses_task_id': False, 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_previous_action': True, 'uses_step_clock': True, 'uses_language_candidate_filter': True, 'knn_k': 3, 'knn_temperature': 0.05, 'image_grid': 8, 'language_hash_dim': 64})
   - sparse_success_ci_reported: `True` (ci={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0})
   - model_artifact_present: `True` (model_path=results\models\benchmark_libero_visual_language_bc_policy.npz)
   - neural_visual_language_model_class: `True` (canonical_type='rgb_proprio_language_knn_behavior_cloning', canonical_is_neural=None, canonical_eval_successes=30, canonical_heldout=True, aux_candidates=4, aux_artifact='benchmark_libero_tiny_neural_rbf_vla_policy.json', aux_type='rbf_neural_vla_behavior_cloning', aux_is_neural=True, aux_verified=True, aux_eval=1, aux_eval_successes=1, aux_heldout=True)
-  - modern_vla_scale_or_pretrained_model: `False` (canonical_pretrained=None, canonical_params=None, aux_pretrained=False, aux_params=846286; availability_probe_verified=True, vla_package_importable=False, local_vla_like=0, hf_reachable=5, joint_runtime=True, pretrained_loaded=True, pretrained_params=450046212, ready_for_policy_eval=False, execution_attempted=True, execution_verified=False, execution_stage=policy_load, execution_error=NotImplementedError)
+  - modern_vla_scale_or_pretrained_model: `True` (canonical_pretrained=None, canonical_params=None, aux_pretrained=False, aux_params=846286; availability_probe_verified=True, vla_package_importable=False, local_vla_like=0, hf_reachable=5, joint_runtime=True, pretrained_loaded=True, pretrained_params=450046212, ready_for_policy_eval=True, execution_attempted=True, execution_verified=True, execution_model=HuggingFaceVLA/smolvla_libero, execution_params=604934220, execution_action=True, execution_step=True, execution_stage=None, execution_error=None)
+  - heldout_sparse_success_modern_vla_eval: `False` (heldout_eval=False, eval_episodes=None, success_ci=None; one_step_verified=True, one_step_success=False)
   - current_runtime_can_rerun_libero: `True` (runtime_probe_verified=True, libero=True)
-  Next action: Run a pretrained or VLA-scale neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs.
+  Next action: Extend the verified one-step LIBERO-tuned SmolVLA execution into heldout sparse-success episodes with confidence intervals.
 - `full_robocasa_wide`: ready_to_promote=`False`; missing=['full_registry_rollout_pool_coverage', 'full_registry_any_artifact_coverage', 'all_categories_fully_covered']
   - catalog_probe_verified: `True` (verified=True)
   - full_registry_rollout_pool_coverage: `False` (rollout_pool_covered=132/396)

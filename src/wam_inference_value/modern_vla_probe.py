@@ -228,6 +228,8 @@ def run_modern_vla_availability_probe(
         "libero_execution_attempted": libero_execution_attempted,
         "libero_execution_verified": libero_execution_verified,
         "libero_execution_policy_loaded": execution_probe.get("policy_loaded"),
+        "libero_execution_model_id": execution_probe.get("model_id"),
+        "libero_execution_parameter_count": execution_probe.get("parameter_count"),
         "libero_execution_action_selected": execution_probe.get("action_selected"),
         "libero_execution_step_succeeded": execution_probe.get("libero_step_succeeded"),
         "libero_execution_failure_stage": execution_probe.get("failure_stage"),

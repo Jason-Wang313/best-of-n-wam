@@ -2,9 +2,10 @@
 
 - attempted: `True`
 - verified load: `True`
-- model id: `lerobot/smolvla_base`
+- model id: `HuggingFaceVLA/smolvla_libero`
 - policy class: `SmolVLAPolicy`
-- parameter count: `450046212`
+- parameter count: `604934220`
+- processor stats loaded: `{'preprocessor': True, 'postprocessor': True, 'postprocessor_file': 'policy_postprocessor_step_1_unnormalizer_processor.safetensors'}`
 - device: `cpu`
 - runtime Python: `C:\Users\wangz\external_benchmarks\.venvs\robocasa\Scripts\python.exe`
 - LIBERO source on PYTHONPATH: `C:\Users\wangz\external_benchmarks\LIBERO`

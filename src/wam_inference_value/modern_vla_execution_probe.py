@@ -9,7 +9,7 @@ from typing import Any
 from .evaluation import results_dir, write_json
 
 
-MODEL_ID = "lerobot/smolvla_base"
+MODEL_ID = "HuggingFaceVLA/smolvla_libero"
 
 
 CHILD_CODE = r"""
@@ -29,6 +29,18 @@ try:
     import numpy as np
     import torch
     import lerobot.configs.policies as policies
+    from huggingface_hub import hf_hub_download
+    from safetensors.torch import load_file
+
+    original_load_state_dict = torch.nn.Module.load_state_dict
+
+    def assign_load_state_dict(self, state_dict, strict=True, assign=False):
+        try:
+            return original_load_state_dict(self, state_dict, strict=strict, assign=True)
+        except TypeError:
+            return original_load_state_dict(self, state_dict, strict=strict)
+
+    torch.nn.Module.load_state_dict = assign_load_state_dict
 
     class ReopenableNamedTemporaryFile:
         def __init__(self, mode="w+", *args, **kwargs):
@@ -71,8 +83,49 @@ try:
     raw = adapter._raw_obs()
     task = str(getattr(adapter.task, "language", "") or getattr(adapter.task, "name", "") or adapter.task_name)
 
+    def load_processor_stats(policy, repo_id):
+        loaded = {"preprocessor": False, "postprocessor": False}
+        pre_path = hf_hub_download(
+            repo_id=repo_id,
+            filename="policy_preprocessor_step_5_normalizer_processor.safetensors",
+        )
+        pre = load_file(pre_path, device="cpu")
+        if "observation.state.mean" in pre and "observation.state.std" in pre:
+            policy.normalize_inputs.load_state_dict(
+                {
+                    "buffer_observation_state.mean": pre["observation.state.mean"],
+                    "buffer_observation_state.std": pre["observation.state.std"],
+                },
+                strict=False,
+            )
+        if "action.mean" in pre and "action.std" in pre:
+            policy.normalize_targets.load_state_dict(
+                {"buffer_action.mean": pre["action.mean"], "buffer_action.std": pre["action.std"]},
+                strict=False,
+            )
+        loaded["preprocessor"] = True
+        for filename in (
+            "policy_postprocessor_step_1_unnormalizer_processor.safetensors",
+            "policy_postprocessor_step_0_unnormalizer_processor.safetensors",
+        ):
+            try:
+                post_path = hf_hub_download(repo_id=repo_id, filename=filename)
+                post = load_file(post_path, device="cpu")
+                if "action.mean" in post and "action.std" in post:
+                    policy.unnormalize_outputs.load_state_dict(
+                        {"buffer_action.mean": post["action.mean"], "buffer_action.std": post["action.std"]},
+                        strict=False,
+                    )
+                    loaded["postprocessor"] = True
+                    loaded["postprocessor_file"] = filename
+                    break
+            except Exception:
+                continue
+        return loaded
+
     try:
         policy = SmolVLAPolicy.from_pretrained(model_id)
+        processor_stats = load_processor_stats(policy, model_id)
         policy_loaded = True
         parameter_count = int(sum(p.numel() for p in policy.parameters()))
     except Exception as exc:
@@ -83,6 +136,7 @@ try:
                 "verified": False,
                 "failure_stage": "policy_load",
                 "policy_loaded": False,
+                "processor_stats_loaded": False,
                 "action_selected": False,
                 "libero_step_succeeded": False,
                 "heldout_libero_policy_eval": False,
@@ -95,24 +149,45 @@ try:
         )
         raise SystemExit(0)
 
-    def image_tensor(key):
+    def image_tensor(key, shape):
         arr = np.asarray(raw.get(key), dtype=np.float32)
         if arr.ndim != 3 or arr.shape[-1] < 3:
             arr = np.zeros((adapter.camera_height, adapter.camera_width, 3), dtype=np.float32)
         arr = arr[..., :3] / 255.0
         arr = np.transpose(arr, (2, 0, 1))
-        return torch.from_numpy(arr).unsqueeze(0)
+        tensor = torch.from_numpy(arr).unsqueeze(0)
+        if len(shape) == 3 and tuple(tensor.shape[1:]) != tuple(shape):
+            tensor = torch.nn.functional.interpolate(
+                tensor,
+                size=tuple(int(v) for v in shape[-2:]),
+                mode="bilinear",
+                align_corners=False,
+            )
+        return tensor
 
-    proprio = np.asarray(raw.get("robot0_proprio-state", np.zeros(6)), dtype=np.float32).reshape(-1)
-    if proprio.size < 6:
-        proprio = np.pad(proprio, (0, 6 - proprio.size))
-    state = torch.from_numpy(proprio[:6]).reshape(1, 6)
-    batch = {
-        "observation.state": state,
-        "observation.images.camera1": image_tensor("agentview_image"),
-        "observation.images.camera2": image_tensor("robot0_eye_in_hand_image"),
-        "task": task,
-    }
+    def feature_shape(feature, fallback):
+        return tuple(int(v) for v in getattr(feature, "shape", fallback))
+
+    proprio = np.asarray(raw.get("robot0_proprio-state", np.zeros(0)), dtype=np.float32).reshape(-1)
+    image_sources = ["agentview_image", "robot0_eye_in_hand_image", "agentview_image"]
+    image_index = 0
+    batch = {"task": task}
+    input_features = getattr(policy.config, "input_features", {}) or {}
+    for key, feature in input_features.items():
+        shape = feature_shape(feature, (3, adapter.camera_height, adapter.camera_width))
+        if key.startswith("observation.images"):
+            source_key = image_sources[min(image_index, len(image_sources) - 1)]
+            batch[key] = image_tensor(source_key, shape)
+            image_index += 1
+        elif key == "observation.state":
+            state_dim = int(shape[0]) if shape else 0
+            state = proprio.copy()
+            if state.size < state_dim:
+                state = np.pad(state, (0, state_dim - state.size))
+            batch[key] = torch.from_numpy(state[:state_dim]).reshape(1, state_dim)
+    if "observation.state" not in batch:
+        state = proprio if proprio.size else np.zeros(8, dtype=np.float32)
+        batch["observation.state"] = torch.from_numpy(state[:8]).reshape(1, min(8, state.size))
 
     try:
         with torch.no_grad():
@@ -127,6 +202,7 @@ try:
                 "failure_stage": "action_selection",
                 "policy_loaded": policy_loaded,
                 "parameter_count": parameter_count,
+                "processor_stats_loaded": processor_stats,
                 "action_selected": False,
                 "libero_step_succeeded": False,
                 "heldout_libero_policy_eval": False,
@@ -158,6 +234,7 @@ try:
                 "failure_stage": None,
                 "policy_loaded": policy_loaded,
                 "parameter_count": parameter_count,
+                "processor_stats_loaded": processor_stats,
                 "action_selected": action_selected,
                 "libero_step_succeeded": True,
                 "heldout_libero_policy_eval": False,
@@ -169,6 +246,7 @@ try:
                 "horizon": horizon,
                 "libero_action_dim": int(adapter.action_dim),
                 "smolvla_action_dim": int(raw_action.size),
+                "input_feature_keys": list(input_features.keys()),
                 "raw_action_head": raw_action[:8].astype(float).tolist(),
                 "mapped_action": action.astype(float).tolist(),
                 "reward": float(reward),
@@ -187,6 +265,7 @@ try:
                 "failure_stage": "libero_step",
                 "policy_loaded": policy_loaded,
                 "parameter_count": parameter_count,
+                "processor_stats_loaded": processor_stats,
                 "action_selected": action_selected,
                 "libero_step_succeeded": False,
                 "heldout_libero_policy_eval": False,
@@ -305,8 +384,14 @@ def modern_vla_libero_execution_markdown(payload: dict[str, Any]) -> str:
         f"- LIBERO source: `{payload.get('libero_source')}`",
         f"- failure stage: `{payload.get('failure_stage')}`",
         f"- policy loaded: `{payload.get('policy_loaded')}`",
+        f"- parameter count: `{payload.get('parameter_count')}`",
+        f"- processor stats loaded: `{payload.get('processor_stats_loaded')}`",
         f"- action selected: `{payload.get('action_selected')}`",
         f"- LIBERO step succeeded: `{payload.get('libero_step_succeeded')}`",
+        f"- input feature keys: `{payload.get('input_feature_keys')}`",
+        f"- raw action head: `{payload.get('raw_action_head')}`",
+        f"- success after one step: `{payload.get('success_after_one_step')}`",
+        f"- distance after one step: `{payload.get('distance_after_one_step')}`",
         f"- error type: `{payload.get('error_type')}`",
         f"- error: `{payload.get('error')}`",
         "",
@@ -368,8 +453,14 @@ def run_modern_vla_libero_execution_probe(
         "horizon": int(horizon),
         "policy_loaded": child_payload.get("policy_loaded") is True,
         "parameter_count": child_payload.get("parameter_count"),
+        "processor_stats_loaded": child_payload.get("processor_stats_loaded"),
         "action_selected": child_payload.get("action_selected") is True,
         "libero_step_succeeded": child_payload.get("libero_step_succeeded") is True,
+        "input_feature_keys": child_payload.get("input_feature_keys"),
+        "raw_action_head": child_payload.get("raw_action_head"),
+        "mapped_action": child_payload.get("mapped_action"),
+        "success_after_one_step": child_payload.get("success_after_one_step"),
+        "distance_after_one_step": child_payload.get("distance_after_one_step"),
         "heldout_libero_policy_eval": False,
         "failure_stage": child_payload.get("failure_stage"),
         "error_type": child_payload.get("error_type"),

@@ -3,27 +3,31 @@
   "attempted": true,
   "verified": true,
   "scope": "pretrained load only; not a heldout LIBERO policy evaluation",
-  "model_id": "lerobot/smolvla_base",
+  "model_id": "HuggingFaceVLA/smolvla_libero",
   "runtime_python": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\robocasa\\Scripts\\python.exe",
   "libero_source": "C:\\Users\\wangz\\external_benchmarks\\LIBERO",
   "libero_config": "C:\\Users\\wangz\\external_benchmarks\\.libero",
   "windows_tempfile_workaround_applied": true,
   "pretrained_vla_loaded": true,
   "pretrained_vla": true,
-  "parameter_count": 450046212,
+  "parameter_count": 604934220,
   "modern_vla_min_parameters": 100000000,
   "policy_class": "SmolVLAPolicy",
+  "processor_stats_loaded": {
+    "preprocessor": true,
+    "postprocessor": true,
+    "postprocessor_file": "policy_postprocessor_step_1_unnormalizer_processor.safetensors"
+  },
   "device": "cpu",
-  "elapsed_seconds": 129.11992740631104,
+  "elapsed_seconds": 174.88427686691284,
   "heldout_libero_policy_eval": false,
   "child_returncode": 0,
   "error_type": null,
   "error": null,
   "trace_tail": null,
   "stdout_tail": [
-    "Loading  HuggingFaceTB/SmolVLM2-500M-Video-Instruct weights ...",
-    "Reducing the number of VLM layers to 16 ...",
-    "{\"ok\": true, \"loaded\": true, \"policy_class\": \"SmolVLAPolicy\", \"parameter_count\": 450046212, \"device\": \"cpu\", \"elapsed_seconds\": 129.11992740631104}"
+    "Loading  HuggingFaceTB/SmolVLM2-500M-Instruct weights ...",
+    "{\"ok\": true, \"loaded\": true, \"model_id\": \"HuggingFaceVLA/smolvla_libero\", \"policy_class\": \"SmolVLAPolicy\", \"parameter_count\": 604934220, \"processor_stats_loaded\": {\"preprocessor\": true, \"postprocessor\": true, \"postprocessor_file\": \"policy_postprocessor_step_1_unnormalizer_processor.safetensors\"}, \"device\": \"cpu\", \"elapsed_seconds\": 174.88427686691284}"
   ],
   "stderr_tail": [
     "WARNING:root:No accelerated backend detected. Using default cpu, this will be slow.",

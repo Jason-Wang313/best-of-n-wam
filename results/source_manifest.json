@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 243,
-  "total_bytes": 1745768,
+  "total_bytes": 1757562,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 226,
@@ -531,14 +531,14 @@
     {
       "path": "scripts/modern_vla_libero_execution_probe.py",
       "suffix": ".py",
-      "bytes": 2248,
-      "sha256": "02fb073836f317acfa051c7dd743275c1df20f5335049ee98e7ad8abbffc7656"
+      "bytes": 2257,
+      "sha256": "1bc2b48bed6a9e8e3cfb330700bda719088168ce462759f34ce8ad28cfd7c224"
     },
     {
       "path": "scripts/modern_vla_pretrained_load_probe.py",
       "suffix": ".py",
-      "bytes": 8186,
-      "sha256": "5f3b2a996dab57a56e2d47ee0f79d7991b80e7b06e106d567c7e716077a4573d"
+      "bytes": 10095,
+      "sha256": "22b467305eb4e0b1a8792dc63b6790c99a04226e14734c396aaf60814617a3a0"
     },
     {
       "path": "scripts/narrative_consistency.py",
@@ -939,8 +939,8 @@
     {
       "path": "src/wam_inference_value/ideal_frontier_readiness.py",
       "suffix": ".py",
-      "bytes": 20594,
-      "sha256": "4c995159a4e33716bbe90d4274c5eda6ab1fffa66a21204f9d4537b95fefb052"
+      "bytes": 22007,
+      "sha256": "ae6caceb183f857543e01ef14d8d8909a04aa7209022cf5a6a58a7053fa36cdc"
     },
     {
       "path": "src/wam_inference_value/learned_wam.py",
@@ -969,14 +969,14 @@
     {
       "path": "src/wam_inference_value/modern_vla_execution_probe.py",
       "suffix": ".py",
-      "bytes": 14136,
-      "sha256": "8a4e817d24d24922b8de4577cf62117a984700d2425c141b578bd3bda0f86fdb"
+      "bytes": 18903,
+      "sha256": "ce6368b400afab730cb28b2df1fbed3223ce6d507887cc25ebabc9e23a29148e"
     },
     {
       "path": "src/wam_inference_value/modern_vla_probe.py",
       "suffix": ".py",
-      "bytes": 12828,
-      "sha256": "6cabe6986eed3b1fa746149ae61b03d4f0669d8b28c917538a4ea322e4337fc9"
+      "bytes": 12982,
+      "sha256": "8ffd54e95e5e931639f5750e53c43a3270de695ddddcd207b4d8dcc180841aa6"
     },
     {
       "path": "src/wam_inference_value/narrative_consistency.py",
@@ -1287,8 +1287,8 @@
     {
       "path": "tests/test_ideal_frontier_readiness.py",
       "suffix": ".py",
-      "bytes": 26162,
-      "sha256": "2e3a702cb833d9c1d0fbfa8efedd243c6113060a383e54acacf837cd87d85762"
+      "bytes": 29450,
+      "sha256": "dfbcaa58f0a9404ad2c8ca1767a60accb75fe3b802fdc4e12e7c07ff255310c2"
     },
     {
       "path": "tests/test_learned_wam.py",
@@ -1335,8 +1335,8 @@
     {
       "path": "tests/test_modern_vla_execution_probe.py",
       "suffix": ".py",
-      "bytes": 1573,
-      "sha256": "79312014d0532ba4bb0e07ef6fe16b45061ad0d9c7f2b34f7889b43119887222"
+      "bytes": 1827,
+      "sha256": "9992543d2280e483c4bc1694eae3a3435e2769ef4e444a3b10048b573d3d957f"
     },
     {
       "path": "tests/test_modern_vla_probe.py",
@@ -1500,7 +1500,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1745768, scan=1745768"
+      "detail": "payload=1757562, scan=1757562"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1545,7 +1545,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1745768"
+      "detail": "bytes=1757562"
     },
     {
       "name": "source_manifest_dir_coverage",

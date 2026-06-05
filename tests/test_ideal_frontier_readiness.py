@@ -155,6 +155,80 @@ def test_ideal_frontier_readiness_reports_modern_vla_availability_probe(tmp_path
     assert "ready_for_policy_eval=False" in scale_signal["detail"]
 
 
+def test_ideal_frontier_readiness_counts_verified_smolvla_execution_as_scale_prerequisite(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    results.mkdir()
+    write_json(
+        results / "benchmark_libero_visual_language_bc_policy.json",
+        {
+            "verified": True,
+            "eval_episodes": 3,
+            "confidence_intervals": {"eval_success_rate": {"n": 3, "mean": 1.0}},
+            "model_path": "results/models/libero_vl.npz",
+            "policy": {
+                "type": "rgb_proprio_language_knn_behavior_cloning",
+                "uses_rgb": True,
+                "uses_language": True,
+                "uses_robot_proprio": True,
+                "uses_simulator_object_state": False,
+                "uses_task_id": False,
+                "uses_phase_index": False,
+                "uses_target_point_command": False,
+            },
+        },
+    )
+    model_path = tmp_path / "results" / "models" / "libero_vl.npz"
+    model_path.parent.mkdir()
+    model_path.write_bytes(b"model")
+    write_json(
+        results / "benchmark_libero_tiny_neural_vla_policy.json",
+        {
+            "verified": True,
+            "eval_episodes": 1,
+            "eval_successes": 1,
+            "train_seeds": [1],
+            "eval_seeds": [2],
+            "model_path": "results/models/libero_vl.npz",
+            "confidence_intervals": {"eval_success_rate": {"n": 1, "mean": 1.0}},
+            "policy": {
+                "type": "tiny_neural_vla_behavior_cloning",
+                "is_neural": True,
+                "uses_rgb": True,
+                "uses_language": True,
+                "uses_robot_proprio": True,
+                "uses_simulator_object_state": False,
+                "uses_task_id": False,
+                "uses_phase_index": False,
+                "uses_target_point_command": False,
+            },
+        },
+    )
+    write_json(results / "external_benchmark_runtime_probe.json", {"verified": True, "libero_import_available": True})
+    write_json(
+        results / "modern_vla_libero_execution_probe.json",
+        {
+            "attempted": True,
+            "verified": True,
+            "policy_loaded": True,
+            "action_selected": True,
+            "libero_step_succeeded": True,
+            "model_id": "HuggingFaceVLA/smolvla_libero",
+            "parameter_count": MODERN_VLA_MIN_PARAMETERS,
+            "heldout_libero_policy_eval": False,
+        },
+    )
+
+    payload = audit_ideal_frontier_readiness(tmp_path, results)
+
+    modern = {row["frontier_id"]: row for row in payload["rows"]}["modern_vla_libero"]
+    scale_signal = next(signal for signal in modern["signals"] if signal["name"] == "modern_vla_scale_or_pretrained_model")
+    heldout_signal = next(signal for signal in modern["signals"] if signal["name"] == "heldout_sparse_success_modern_vla_eval")
+    assert scale_signal["ok"] is True
+    assert "execution_model=HuggingFaceVLA/smolvla_libero" in scale_signal["detail"]
+    assert heldout_signal["ok"] is False
+    assert modern["missing_signals"] == ["heldout_sparse_success_modern_vla_eval"]
+
+
 def test_ideal_frontier_readiness_does_not_count_real_robot_probe_as_trial(tmp_path: Path) -> None:
     results = tmp_path / "results"
     results.mkdir()
@@ -247,7 +321,10 @@ def test_ideal_frontier_readiness_accepts_neural_libero_policy_class(tmp_path: P
     modern = {row["frontier_id"]: row for row in payload["rows"]}["modern_vla_libero"]
     assert modern["ready_to_promote"] is False
     assert "neural_visual_language_model_class" not in modern["missing_signals"]
-    assert modern["missing_signals"] == ["modern_vla_scale_or_pretrained_model"]
+    assert modern["missing_signals"] == [
+        "modern_vla_scale_or_pretrained_model",
+        "heldout_sparse_success_modern_vla_eval",
+    ]
 
 
 def test_ideal_frontier_readiness_accepts_auxiliary_neural_smoke(tmp_path: Path) -> None:
@@ -310,7 +387,10 @@ def test_ideal_frontier_readiness_accepts_auxiliary_neural_smoke(tmp_path: Path)
     modern = {row["frontier_id"]: row for row in payload["rows"]}["modern_vla_libero"]
     assert modern["ready_to_promote"] is False
     assert "neural_visual_language_model_class" not in modern["missing_signals"]
-    assert modern["missing_signals"] == ["modern_vla_scale_or_pretrained_model"]
+    assert modern["missing_signals"] == [
+        "modern_vla_scale_or_pretrained_model",
+        "heldout_sparse_success_modern_vla_eval",
+    ]
 
 
 def test_ideal_frontier_readiness_scans_tagged_auxiliary_neural_smokes(tmp_path: Path) -> None:
@@ -389,7 +469,10 @@ def test_ideal_frontier_readiness_scans_tagged_auxiliary_neural_smokes(tmp_path:
     assert neural_signal["ok"] is True
     assert "aux_candidates=2" in neural_signal["detail"]
     assert "benchmark_libero_tiny_neural_success_probe.json" in neural_signal["detail"]
-    assert modern["missing_signals"] == ["modern_vla_scale_or_pretrained_model"]
+    assert modern["missing_signals"] == [
+        "modern_vla_scale_or_pretrained_model",
+        "heldout_sparse_success_modern_vla_eval",
+    ]
 
 
 def test_ideal_frontier_readiness_rejects_subscale_neural_smoke_as_modern_vla(tmp_path: Path) -> None:

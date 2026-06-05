@@ -40,11 +40,11 @@
     {
       "frontier_id": "modern_vla_libero",
       "ready_to_promote": false,
-      "n_signals": 7,
-      "n_met_signals": 6,
+      "n_signals": 8,
+      "n_met_signals": 7,
       "n_missing_signals": 1,
       "missing_signals": [
-        "modern_vla_scale_or_pretrained_model"
+        "heldout_sparse_success_modern_vla_eval"
       ],
       "signals": [
         {
@@ -74,8 +74,13 @@
         },
         {
           "name": "modern_vla_scale_or_pretrained_model",
+          "ok": true,
+          "detail": "canonical_pretrained=None, canonical_params=None, aux_pretrained=False, aux_params=846286; availability_probe_verified=True, vla_package_importable=False, local_vla_like=0, hf_reachable=5, joint_runtime=True, pretrained_loaded=True, pretrained_params=450046212, ready_for_policy_eval=True, execution_attempted=True, execution_verified=True, execution_model=HuggingFaceVLA/smolvla_libero, execution_params=604934220, execution_action=True, execution_step=True, execution_stage=None, execution_error=None"
+        },
+        {
+          "name": "heldout_sparse_success_modern_vla_eval",
           "ok": false,
-          "detail": "canonical_pretrained=None, canonical_params=None, aux_pretrained=False, aux_params=846286; availability_probe_verified=True, vla_package_importable=False, local_vla_like=0, hf_reachable=5, joint_runtime=True, pretrained_loaded=True, pretrained_params=450046212, ready_for_policy_eval=False, execution_attempted=True, execution_verified=False, execution_stage=policy_load, execution_error=NotImplementedError"
+          "detail": "heldout_eval=False, eval_episodes=None, success_ci=None; one_step_verified=True, one_step_success=False"
         },
         {
           "name": "current_runtime_can_rerun_libero",
@@ -83,7 +88,7 @@
           "detail": "runtime_probe_verified=True, libero=True"
         }
       ],
-      "next_action": "Run a pretrained or VLA-scale neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs."
+      "next_action": "Extend the verified one-step LIBERO-tuned SmolVLA execution into heldout sparse-success episodes with confidence intervals."
     },
     {
       "frontier_id": "full_robocasa_wide",

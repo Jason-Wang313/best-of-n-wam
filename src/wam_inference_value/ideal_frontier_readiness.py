@@ -231,7 +231,19 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     neural_smoke_policy_type = _policy_type(neural_smoke_policy)
     no_shortcuts = _no_shortcuts(policy)
     neural_class_ok = _neural_policy_class_completed(root, libero_vl) or _neural_policy_class_completed(root, libero_neural_smoke)
-    modern_scale_ok = _modern_vla_scale_or_pretrained(policy) or _modern_vla_scale_or_pretrained(neural_smoke_policy)
+    execution_params = int(modern_vla_execution.get("parameter_count") or 0)
+    execution_scale_ok = (
+        modern_vla_execution.get("verified") is True
+        and modern_vla_execution.get("policy_loaded") is True
+        and modern_vla_execution.get("action_selected") is True
+        and modern_vla_execution.get("libero_step_succeeded") is True
+        and execution_params >= MODERN_VLA_MIN_PARAMETERS
+    )
+    modern_scale_ok = (
+        _modern_vla_scale_or_pretrained(policy)
+        or _modern_vla_scale_or_pretrained(neural_smoke_policy)
+        or execution_scale_ok
+    )
     modern_vla: list[ReadinessSignal] = []
     _signal(
         modern_vla,
@@ -275,8 +287,25 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
             f"ready_for_policy_eval={modern_vla_probe.get('ready_for_policy_eval')}, "
             f"execution_attempted={modern_vla_execution.get('attempted')}, "
             f"execution_verified={modern_vla_execution.get('verified')}, "
+            f"execution_model={modern_vla_execution.get('model_id')}, "
+            f"execution_params={modern_vla_execution.get('parameter_count')}, "
+            f"execution_action={modern_vla_execution.get('action_selected')}, "
+            f"execution_step={modern_vla_execution.get('libero_step_succeeded')}, "
             f"execution_stage={modern_vla_execution.get('failure_stage')}, "
             f"execution_error={modern_vla_execution.get('error_type')}"
+        ),
+    )
+    _signal(
+        modern_vla,
+        "heldout_sparse_success_modern_vla_eval",
+        modern_vla_execution.get("heldout_libero_policy_eval") is True
+        and int(modern_vla_execution.get("eval_episodes") or 0) > 0,
+        (
+            f"heldout_eval={modern_vla_execution.get('heldout_libero_policy_eval')}, "
+            f"eval_episodes={modern_vla_execution.get('eval_episodes')}, "
+            f"success_ci={modern_vla_execution.get('success_ci')}; "
+            f"one_step_verified={modern_vla_execution.get('verified')}, "
+            f"one_step_success={modern_vla_execution.get('success_after_one_step')}"
         ),
     )
     _signal(
@@ -289,7 +318,7 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
         _row(
             "modern_vla_libero",
             modern_vla,
-            next_action="Run a pretrained or VLA-scale neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs.",
+            next_action="Extend the verified one-step LIBERO-tuned SmolVLA execution into heldout sparse-success episodes with confidence intervals.",
         )
     )
 

@@ -25,8 +25,8 @@ This report is blocker evidence, not validation evidence for the ideal endpoints
 
 - blocker class: `modern_vla_execution_or_eval_absent`
 - ready to promote: `False`
-- missing signals: `['modern_vla_scale_or_pretrained_model']`
-- next action: Run a pretrained or VLA-scale neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs.
+- missing signals: `['heldout_sparse_success_modern_vla_eval']`
+- next action: Extend the verified one-step LIBERO-tuned SmolVLA execution into heldout sparse-success episodes with confidence intervals.
 
 ### Evidence
 
@@ -38,10 +38,10 @@ This report is blocker evidence, not validation evidence for the ideal endpoints
 - `pretrained_vla_loaded`: `True`
 - `pretrained_vla_parameter_count`: `450046212`
 - `execution_attempted`: `True`
-- `execution_verified`: `False`
-- `execution_failure_stage`: `policy_load`
-- `execution_error_type`: `NotImplementedError`
-- `ready_for_policy_eval`: `False`
+- `execution_verified`: `True`
+- `execution_failure_stage`: `None`
+- `execution_error_type`: `None`
+- `ready_for_policy_eval`: `True`
 
 ## full_robocasa_wide
 
