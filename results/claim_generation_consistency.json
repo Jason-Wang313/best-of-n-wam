@@ -5,8 +5,8 @@
   "n_claims": 127,
   "n_checks": 10,
   "n_issues": 0,
-  "json_sha256": "c9fa4b2f8aebf0d3b0594b94a7e60b6395c69c82b280e1d346c83676059cc394",
-  "md_sha256": "be1f07192a21a6b963953ca25e5ebd775fdcdc6bea6bc1fb44e403cf04ef2338",
+  "json_sha256": "8d778cad7c704caa78b94bdf47952c250e4b7c259351ba049b6afb691e4001bd",
+  "md_sha256": "6b45cf9e744209ecd9d068327aab246672543b2dff7b1485a1bb20be024b375f",
   "generator_returncode": 0,
   "first_generator_returncode": 0,
   "second_generator_returncode": 0,
@@ -33,12 +33,12 @@
     {
       "name": "claims_json_byte_stable",
       "ok": true,
-      "detail": "first=c9fa4b2f8aebf0d3b0594b94a7e60b6395c69c82b280e1d346c83676059cc394, second=c9fa4b2f8aebf0d3b0594b94a7e60b6395c69c82b280e1d346c83676059cc394"
+      "detail": "first=8d778cad7c704caa78b94bdf47952c250e4b7c259351ba049b6afb691e4001bd, second=8d778cad7c704caa78b94bdf47952c250e4b7c259351ba049b6afb691e4001bd"
     },
     {
       "name": "claims_md_byte_stable",
       "ok": true,
-      "detail": "first=be1f07192a21a6b963953ca25e5ebd775fdcdc6bea6bc1fb44e403cf04ef2338, second=be1f07192a21a6b963953ca25e5ebd775fdcdc6bea6bc1fb44e403cf04ef2338"
+      "detail": "first=6b45cf9e744209ecd9d068327aab246672543b2dff7b1485a1bb20be024b375f, second=6b45cf9e744209ecd9d068327aab246672543b2dff7b1485a1bb20be024b375f"
     },
     {
       "name": "claims_json_parses",

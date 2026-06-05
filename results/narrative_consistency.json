@@ -280,7 +280,7 @@
       "surface": "final_decision_report",
       "name": "tracked_artifact_provenance_command",
       "ok": true,
-      "expected": "`python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `119` claim sources, `475` artifact references, and `0` issues",
+      "expected": "`python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `119` claim sources, `477` artifact references, and `0` issues",
       "detail": "found"
     },
     {

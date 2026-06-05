@@ -7,19 +7,19 @@
     "micro_nondegenerate_covered": 4,
     "not_implemented": 1,
     "rollout_pool_covered": 132,
-    "timed_out": 11,
-    "unattempted": 226,
+    "timed_out": 13,
+    "unattempted": 224,
     "value_error": 2,
     "zero_distance_no_progress": 9
   },
   "unattempted_by_category": {
-    "long_horizon_or_compositional": 226
+    "long_horizon_or_compositional": 224
   },
   "rollout_pool_covered": 132,
   "micro_nondegenerate_covered": 108,
   "any_covered": 136,
-  "attempted_not_covered": 34,
-  "unattempted": 226,
+  "attempted_not_covered": 36,
+  "unattempted": 224,
   "table_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_triage.csv",
   "note": "RoboCasa residual triage only. Constructor failures, timeouts, and degenerate probes are not validation evidence."
 }

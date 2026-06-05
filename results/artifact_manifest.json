@@ -2,13 +2,13 @@
   "experiment": "artifact_manifest",
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_files": 454,
-  "total_bytes": 77238314,
+  "n_files": 458,
+  "total_bytes": 77241202,
   "counts_by_suffix": {
-    ".json": 143,
+    ".json": 146,
     ".npz": 45,
     ".png": 36,
-    ".csv": 230
+    ".csv": 231
   },
   "records": [
     {
@@ -540,6 +540,18 @@
       "sha256": "0386ec46f9cd3fcbb5fcc7fe82a869846b864c7370f45d2f15ed84eee1017d95"
     },
     {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_short_unattempted_probe_000.json",
+      "suffix": ".json",
+      "bytes": 620,
+      "sha256": "a3df790467cf387aa833fa7d5897122fa7c44d9ddbb461adfed11362d6614972"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_short_unattempted_probe_001.json",
+      "suffix": ".json",
+      "bytes": 622,
+      "sha256": "16912fa73c2c3d47206d13f63cb1f3525cb5ec2387df562a075766d4cd753ece"
+    },
+    {
       "path": "results/benchmark_robocasa_micro_rollout_stratified_probe.json",
       "suffix": ".json",
       "bytes": 2483,
@@ -600,10 +612,16 @@
       "sha256": "285d412969606329e1cd7bef55827b44e5f7b34333dca34e2e7b4dd2f8d57af5"
     },
     {
+      "path": "results/benchmark_robocasa_residual_frontier_sweep_short_unattempted_probe.json",
+      "suffix": ".json",
+      "bytes": 1032,
+      "sha256": "f47eb2b9135f1c298ab04d215aeec994f9e3c03f61421f65dfa35e66718ef3a3"
+    },
+    {
       "path": "results/benchmark_robocasa_residual_triage.json",
       "suffix": ".json",
       "bytes": 847,
-      "sha256": "dcb51132d7165bdea7d8c8104e924b13c4240db6249f6a441fe3ef1403667642"
+      "sha256": "9ff83143a98aa73fd82e7ddc79f7ad25651205d87da4873ea43a16bfc0bbc5a3"
     },
     {
       "path": "results/benchmark_robocasa_smoke.json",
@@ -1011,13 +1029,13 @@
       "path": "results/ideal_frontier_blocker_audit.json",
       "suffix": ".json",
       "bytes": 16296,
-      "sha256": "0531becd18019846d9940745e5e016aa948fca0dc4c6fa383a3de0fd6378ad02"
+      "sha256": "b60a90e696f9cc6395dc33826bcbc0fef1efb9e2d5f992cd05e571be05f76564"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 10021,
-      "sha256": "151efe8deb2508539f131f38aa61f28e1219b3b4d17c78621f4b70622a50520e"
+      "bytes": 10026,
+      "sha256": "4ffb9b5127a00430a4d27290d9eadccc70301a1f851818981b513291ad59cbd6"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -2250,10 +2268,16 @@
       "sha256": "89659c359bc6c971cbef2b5cdee106c4aa6d43e554c2a88e4e838a00b3a2a9da"
     },
     {
+      "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_short_unattempted_probe_chunks.csv",
+      "suffix": ".csv",
+      "bytes": 515,
+      "sha256": "d6a8c0d6045c729a23ab270d421d12200aa0beccb80e3de281295069553a3294"
+    },
+    {
       "path": "results/tables/benchmark_robocasa_residual_triage.csv",
       "suffix": ".csv",
-      "bytes": 60337,
-      "sha256": "2e4b137325a5488232cc13cb004bc544b2d536e6088278e95dcee8d9be17ee12"
+      "bytes": 60431,
+      "sha256": "e734305c3c3a30899432c6aecb22b2c9ba9a7528600f50f4286ee7a175afba6a"
     },
     {
       "path": "results/tables/benchmark_robocasa_rollouts.csv",
@@ -2743,22 +2767,22 @@
     {
       "name": "manifest_records_present",
       "ok": true,
-      "detail": "records=454"
+      "detail": "records=458"
     },
     {
       "name": "manifest_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=454, scan=454"
+      "detail": "payload=458, scan=458"
     },
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=77238314, scan=77238314"
+      "detail": "payload=77241202, scan=77241202"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
       "ok": true,
-      "detail": "payload={'.json': 143, '.npz': 45, '.png': 36, '.csv': 230}, scan={'.json': 143, '.npz': 45, '.png': 36, '.csv': 230}"
+      "detail": "payload={'.json': 146, '.npz': 45, '.png': 36, '.csv': 231}, scan={'.json': 146, '.npz': 45, '.png': 36, '.csv': 231}"
     },
     {
       "name": "manifest_has_no_missing_current_artifacts",
@@ -2788,17 +2812,17 @@
     {
       "name": "manifest_scientific_artifact_file_count",
       "ok": true,
-      "detail": "files=454"
+      "detail": "files=458"
     },
     {
       "name": "manifest_table_count",
       "ok": true,
-      "detail": "csv=230"
+      "detail": "csv=231"
     },
     {
       "name": "manifest_json_count",
       "ok": true,
-      "detail": "json=143"
+      "detail": "json=146"
     },
     {
       "name": "manifest_model_count",
@@ -2813,7 +2837,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=77238314"
+      "detail": "bytes=77241202"
     }
   ],
   "issues": [],
