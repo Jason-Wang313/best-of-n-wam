@@ -8,6 +8,8 @@
     {
       "frontier_id": "real_robot_hil",
       "blocker_class": "hardware_or_hil_trial_absent",
+      "resolution_class": "external_physical_evidence_required",
+      "local_progress_status": "No local code or simulator artifact can promote this endpoint; it needs physical or HIL trial metrics.",
       "ready_to_promote": false,
       "missing_signals": [
         "real_robot_or_hil_artifact_present",
@@ -36,6 +38,8 @@
     {
       "frontier_id": "modern_vla_libero",
       "blocker_class": "modern_vla_execution_or_eval_absent",
+      "resolution_class": "runtime_policy_eval_required",
+      "local_progress_status": "Runtime access exists, but the promoted endpoint needs heldout sparse-success modern-VLA episodes with nonzero successes and CIs.",
       "ready_to_promote": false,
       "missing_signals": [
         "heldout_sparse_success_modern_vla_eval"
@@ -116,6 +120,8 @@
     {
       "frontier_id": "full_robocasa_wide",
       "blocker_class": "registry_coverage_incomplete",
+      "resolution_class": "benchmark_coverage_required",
+      "local_progress_status": "Further local RoboCasa sweeps can improve coverage, but full-suite promotion requires coverage of every declared registry task or a narrower claim.",
       "ready_to_promote": false,
       "missing_signals": [
         "full_registry_rollout_pool_coverage",
@@ -153,6 +159,8 @@
     {
       "frontier_id": "maniskill_visual_ee",
       "blocker_class": "renderer_or_ee_dependency_blocked",
+      "resolution_class": "local_runtime_dependency_required",
+      "local_progress_status": "State-mode evidence is complete; RGB/RGB-D and EE-control promotion needs a working Vulkan/SAPIEN renderer and robotics Pinocchio API.",
       "ready_to_promote": false,
       "missing_signals": [
         "rgb_or_rgbd_success",
@@ -198,6 +206,8 @@
     {
       "frontier_id": "universal_wam_training_recipe",
       "blocker_class": "unrestricted_universal_recipe_no_free_lunch",
+      "resolution_class": "mathematical_scope_boundary",
+      "local_progress_status": "This unrestricted universal-recipe endpoint is intentionally future-only; current artifacts support scoped optimization, not a universal proof.",
       "ready_to_promote": false,
       "missing_signals": [
         "universal_generalization_proof_present"
@@ -229,7 +239,7 @@
       }
     }
   ],
-  "n_checks": 32,
+  "n_checks": 42,
   "n_issues": 0,
   "checks": [
     {
@@ -256,6 +266,16 @@
       "name": "real_robot_hil_has_missing_signals",
       "ok": true,
       "detail": "missing=['real_robot_or_hil_artifact_present', 'real_world_success_metrics_present']"
+    },
+    {
+      "name": "real_robot_hil_resolution_class_valid",
+      "ok": true,
+      "detail": "resolution_class=external_physical_evidence_required"
+    },
+    {
+      "name": "real_robot_hil_local_progress_status_present",
+      "ok": true,
+      "detail": "local_progress_status=No local code or simulator artifact can promote this endpoint; it needs physical or HIL trial metrics."
     },
     {
       "name": "real_robot_hil_missing_signal_details_present",
@@ -288,6 +308,16 @@
       "detail": "missing=['heldout_sparse_success_modern_vla_eval']"
     },
     {
+      "name": "modern_vla_libero_resolution_class_valid",
+      "ok": true,
+      "detail": "resolution_class=runtime_policy_eval_required"
+    },
+    {
+      "name": "modern_vla_libero_local_progress_status_present",
+      "ok": true,
+      "detail": "local_progress_status=Runtime access exists, but the promoted endpoint needs heldout sparse-success modern-VLA episodes with nonzero successes and CIs."
+    },
+    {
       "name": "modern_vla_libero_missing_signal_details_present",
       "ok": true,
       "detail": "detail_count=1, missing_count=1"
@@ -316,6 +346,16 @@
       "name": "full_robocasa_wide_has_missing_signals",
       "ok": true,
       "detail": "missing=['full_registry_rollout_pool_coverage', 'full_registry_any_artifact_coverage', 'all_categories_fully_covered']"
+    },
+    {
+      "name": "full_robocasa_wide_resolution_class_valid",
+      "ok": true,
+      "detail": "resolution_class=benchmark_coverage_required"
+    },
+    {
+      "name": "full_robocasa_wide_local_progress_status_present",
+      "ok": true,
+      "detail": "local_progress_status=Further local RoboCasa sweeps can improve coverage, but full-suite promotion requires coverage of every declared registry task or a narrower claim."
     },
     {
       "name": "full_robocasa_wide_missing_signal_details_present",
@@ -348,6 +388,16 @@
       "detail": "missing=['rgb_or_rgbd_success', 'ee_control_success', 'pinocchio_available_for_ee']"
     },
     {
+      "name": "maniskill_visual_ee_resolution_class_valid",
+      "ok": true,
+      "detail": "resolution_class=local_runtime_dependency_required"
+    },
+    {
+      "name": "maniskill_visual_ee_local_progress_status_present",
+      "ok": true,
+      "detail": "local_progress_status=State-mode evidence is complete; RGB/RGB-D and EE-control promotion needs a working Vulkan/SAPIEN renderer and robotics Pinocchio API."
+    },
+    {
       "name": "maniskill_visual_ee_missing_signal_details_present",
       "ok": true,
       "detail": "detail_count=3, missing_count=3"
@@ -376,6 +426,16 @@
       "name": "universal_wam_training_recipe_has_missing_signals",
       "ok": true,
       "detail": "missing=['universal_generalization_proof_present']"
+    },
+    {
+      "name": "universal_wam_training_recipe_resolution_class_valid",
+      "ok": true,
+      "detail": "resolution_class=mathematical_scope_boundary"
+    },
+    {
+      "name": "universal_wam_training_recipe_local_progress_status_present",
+      "ok": true,
+      "detail": "local_progress_status=This unrestricted universal-recipe endpoint is intentionally future-only; current artifacts support scoped optimization, not a universal proof."
     },
     {
       "name": "universal_wam_training_recipe_missing_signal_details_present",

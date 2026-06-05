@@ -5,6 +5,7 @@ from pathlib import Path
 
 from wam_inference_value.ideal_frontier_blocker_audit import (
     BLOCKER_REQUIREMENTS,
+    VALID_RESOLUTION_CLASSES,
     build_ideal_frontier_blocker_audit,
     ideal_frontier_blocker_markdown,
 )
@@ -67,6 +68,8 @@ def test_ideal_frontier_blocker_audit_accepts_documented_unpromoted_frontiers(tm
     assert payload["n_frontiers"] == len(BLOCKER_REQUIREMENTS)
     assert payload["n_ready_to_promote"] == 0
     assert {row["frontier_id"] for row in payload["blocker_rows"]} == set(BLOCKER_REQUIREMENTS)
+    assert {row["resolution_class"] for row in payload["blocker_rows"]} <= VALID_RESOLUTION_CLASSES
+    assert all(len(row["local_progress_status"]) >= 48 for row in payload["blocker_rows"])
 
 
 def test_ideal_frontier_blocker_audit_rejects_missing_detail(tmp_path: Path) -> None:
@@ -98,6 +101,8 @@ def test_ideal_frontier_blocker_markdown_marks_scope_as_blocker_only(tmp_path: P
     text = ideal_frontier_blocker_markdown(payload)
 
     assert "blocker evidence, not validation evidence" in text
+    assert "resolution class" in text
+    assert "local progress status" in text
     assert "real_robot_hil" in text
 
 

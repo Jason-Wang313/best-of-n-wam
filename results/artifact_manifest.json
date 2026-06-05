@@ -3,7 +3,7 @@
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_files": 450,
-  "total_bytes": 77229483,
+  "total_bytes": 77232812,
   "counts_by_suffix": {
     ".json": 140,
     ".npz": 45,
@@ -992,8 +992,8 @@
     {
       "path": "results/ideal_frontier_blocker_audit.json",
       "suffix": ".json",
-      "bytes": 12669,
-      "sha256": "92ed4470a7af7716b36077d304f10ac17123b1fac53a251531fa4c2d6e81e672"
+      "bytes": 15998,
+      "sha256": "743f85882786f56d0f6d345cb863389d362f4580d1a7efecd19bd6a1a2eaddbf"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
@@ -2729,7 +2729,7 @@
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=77229483, scan=77229483"
+      "detail": "payload=77232812, scan=77232812"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
@@ -2789,7 +2789,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=77229483"
+      "detail": "bytes=77232812"
     }
   ],
   "issues": [],

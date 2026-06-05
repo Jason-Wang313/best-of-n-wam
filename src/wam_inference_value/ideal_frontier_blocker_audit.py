@@ -8,9 +8,20 @@ from typing import Any
 from .evaluation import results_dir, write_json
 
 
+VALID_RESOLUTION_CLASSES = {
+    "external_physical_evidence_required",
+    "runtime_policy_eval_required",
+    "benchmark_coverage_required",
+    "local_runtime_dependency_required",
+    "mathematical_scope_boundary",
+}
+
+
 BLOCKER_REQUIREMENTS: dict[str, dict[str, Any]] = {
     "real_robot_hil": {
         "blocker_class": "hardware_or_hil_trial_absent",
+        "resolution_class": "external_physical_evidence_required",
+        "local_progress_status": "No local code or simulator artifact can promote this endpoint; it needs physical or HIL trial metrics.",
         "required_artifacts": [
             "results/real_robot_hil_probe.json",
             "reports/real_robot_hil_probe_report.md",
@@ -18,6 +29,8 @@ BLOCKER_REQUIREMENTS: dict[str, dict[str, Any]] = {
     },
     "modern_vla_libero": {
         "blocker_class": "modern_vla_execution_or_eval_absent",
+        "resolution_class": "runtime_policy_eval_required",
+        "local_progress_status": "Runtime access exists, but the promoted endpoint needs heldout sparse-success modern-VLA episodes with nonzero successes and CIs.",
         "required_artifacts": [
             "results/modern_vla_availability_probe.json",
             "reports/modern_vla_availability_probe_report.md",
@@ -30,6 +43,8 @@ BLOCKER_REQUIREMENTS: dict[str, dict[str, Any]] = {
     },
     "full_robocasa_wide": {
         "blocker_class": "registry_coverage_incomplete",
+        "resolution_class": "benchmark_coverage_required",
+        "local_progress_status": "Further local RoboCasa sweeps can improve coverage, but full-suite promotion requires coverage of every declared registry task or a narrower claim.",
         "required_artifacts": [
             "results/benchmark_robocasa_catalog_probe.json",
             "results/benchmark_robocasa_residual_triage.json",
@@ -38,6 +53,8 @@ BLOCKER_REQUIREMENTS: dict[str, dict[str, Any]] = {
     },
     "maniskill_visual_ee": {
         "blocker_class": "renderer_or_ee_dependency_blocked",
+        "resolution_class": "local_runtime_dependency_required",
+        "local_progress_status": "State-mode evidence is complete; RGB/RGB-D and EE-control promotion needs a working Vulkan/SAPIEN renderer and robotics Pinocchio API.",
         "required_artifacts": [
             "results/benchmark_maniskill_visual_probe.json",
             "results/benchmark_maniskill_dependency_probe.json",
@@ -47,6 +64,8 @@ BLOCKER_REQUIREMENTS: dict[str, dict[str, Any]] = {
     },
     "universal_wam_training_recipe": {
         "blocker_class": "unrestricted_universal_recipe_no_free_lunch",
+        "resolution_class": "mathematical_scope_boundary",
+        "local_progress_status": "This unrestricted universal-recipe endpoint is intentionally future-only; current artifacts support scoped optimization, not a universal proof.",
         "required_artifacts": [
             "results/universal_wam_train_inference_optimizer.json",
             "results/universal_recipe_boundary.json",
@@ -202,6 +221,8 @@ def build_ideal_frontier_blocker_audit(root: Path, output_results_dir: Path | No
             {
                 "frontier_id": frontier_id,
                 "blocker_class": spec["blocker_class"],
+                "resolution_class": spec["resolution_class"],
+                "local_progress_status": spec["local_progress_status"],
                 "ready_to_promote": bool(row.get("ready_to_promote")),
                 "missing_signals": missing_signals,
                 "next_action": next_action,
@@ -212,6 +233,18 @@ def build_ideal_frontier_blocker_audit(root: Path, output_results_dir: Path | No
         _add(checks, f"{frontier_id}_row_present", bool(row), f"present={bool(row)}")
         _add(checks, f"{frontier_id}_still_unpromoted", row.get("ready_to_promote") is False, f"ready={row.get('ready_to_promote')}")
         _add(checks, f"{frontier_id}_has_missing_signals", bool(missing_signals), f"missing={missing_signals}")
+        _add(
+            checks,
+            f"{frontier_id}_resolution_class_valid",
+            str(spec.get("resolution_class")) in VALID_RESOLUTION_CLASSES,
+            f"resolution_class={spec.get('resolution_class')}",
+        )
+        _add(
+            checks,
+            f"{frontier_id}_local_progress_status_present",
+            len(str(spec.get("local_progress_status") or "")) >= 48,
+            f"local_progress_status={spec.get('local_progress_status')}",
+        )
         _add(
             checks,
             f"{frontier_id}_missing_signal_details_present",
@@ -256,6 +289,8 @@ def ideal_frontier_blocker_markdown(payload: dict[str, Any]) -> str:
                 f"## {row.get('frontier_id')}",
                 "",
                 f"- blocker class: `{row.get('blocker_class')}`",
+                f"- resolution class: `{row.get('resolution_class')}`",
+                f"- local progress status: {row.get('local_progress_status')}",
                 f"- ready to promote: `{row.get('ready_to_promote')}`",
                 f"- missing signals: `{row.get('missing_signals')}`",
                 f"- next action: {row.get('next_action')}",
