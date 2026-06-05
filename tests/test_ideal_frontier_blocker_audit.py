@@ -99,3 +99,30 @@ def test_ideal_frontier_blocker_markdown_marks_scope_as_blocker_only(tmp_path: P
 
     assert "blocker evidence, not validation evidence" in text
     assert "real_robot_hil" in text
+
+
+def test_ideal_frontier_blocker_audit_reports_modern_vla_failed_last_attempt(tmp_path: Path) -> None:
+    write_json(tmp_path / "results" / "ideal_frontier_readiness.json", readiness_payload())
+    write_required_artifacts(tmp_path)
+    write_json(
+        tmp_path / "results" / "modern_vla_libero_policy_eval_last_attempt.json",
+        {
+            "verified": False,
+            "horizon": 5,
+            "max_steps": 5,
+            "requested_eval_seeds": [300],
+            "failure_stage": "process_crash",
+            "error_type": "WindowsAccessViolation",
+            "child_returncode": 3221225477,
+        },
+    )
+
+    payload = build_ideal_frontier_blocker_audit(tmp_path, tmp_path / "results")
+
+    modern = next(row for row in payload["blocker_rows"] if row["frontier_id"] == "modern_vla_libero")
+    evidence = modern["evidence"]
+    assert evidence["last_attempt_recorded"] is True
+    assert evidence["last_attempt_verified"] is False
+    assert evidence["last_attempt_max_steps"] == 5
+    assert evidence["last_attempt_failure_stage"] == "process_crash"
+    assert evidence["last_attempt_error_type"] == "WindowsAccessViolation"

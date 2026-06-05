@@ -3,7 +3,7 @@
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_files": 446,
-  "total_bytes": 77222641,
+  "total_bytes": 77223275,
   "counts_by_suffix": {
     ".json": 137,
     ".npz": 45,
@@ -974,14 +974,14 @@
     {
       "path": "results/ideal_frontier_blocker_audit.json",
       "suffix": ".json",
-      "bytes": 12267,
-      "sha256": "8d72f729819cdb9a8edbd1c1ede8a29200dd49471e17b36c752ee649028644b7"
+      "bytes": 12669,
+      "sha256": "9131ac26317ed5f9e97db08a1c81cae4846b5231c78d2ad119a1fa415c9cdfbe"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 9453,
-      "sha256": "6392fb98f08cac7cdbbca8aaf2157ccdd2378d12d9c0567bb6a938ede1bf0c82"
+      "bytes": 9685,
+      "sha256": "bc3b827fe0bc2019ace99b41fce8aeab5bebcf0e73e1446b8e5ea32421b697b0"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -2705,7 +2705,7 @@
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=77222641, scan=77222641"
+      "detail": "payload=77223275, scan=77223275"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
@@ -2765,7 +2765,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=77222641"
+      "detail": "bytes=77223275"
     }
   ],
   "issues": [],

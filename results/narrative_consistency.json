@@ -91,14 +91,14 @@
       "surface": "final_decision_report",
       "name": "pytest_count",
       "ok": true,
-      "expected": "`python -m pytest -q`: passed with `191 passed`",
+      "expected": "`python -m pytest -q`: passed with `193 passed`",
       "detail": "found"
     },
     {
       "surface": "final_decision_report",
       "name": "test_inventory_command",
       "ok": true,
-      "expected": "`python scripts/test_inventory.py --fail-on-error`: passed with `191` collected tests, `6` inventory checks, and `0` issues",
+      "expected": "`python scripts/test_inventory.py --fail-on-error`: passed with `193` collected tests, `6` inventory checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -154,7 +154,7 @@
       "surface": "final_decision_report",
       "name": "artifact_manifest_command",
       "ok": true,
-      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `446` scientific artifacts, `77222641` bytes, `15` manifest checks, and `0` issues",
+      "expected": "`python scripts/artifact_manifest.py --fail-on-error`: passed with `446` scientific artifacts, `77223275` bytes, `15` manifest checks, and `0` issues",
       "detail": "found"
     },
     {
@@ -189,7 +189,7 @@
       "surface": "final_decision_report",
       "name": "source_manifest_command",
       "ok": true,
-      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `246` source files, `1805886` bytes, `14` source-manifest checks, and `0` issues",
+      "expected": "`python scripts/source_manifest.py --fail-on-error`: passed with `246` source files, `1810072` bytes, `14` source-manifest checks, and `0` issues",
       "detail": "found"
     },
     {

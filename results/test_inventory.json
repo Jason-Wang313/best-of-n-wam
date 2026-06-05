@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 191,
-  "n_unique_tests": 191,
-  "trailer_count": 191,
+  "n_tests": 193,
+  "n_unique_tests": 193,
+  "trailer_count": 193,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -91,6 +91,7 @@
     "tests/test_ideal_frontier_blocker_audit.py::test_ideal_frontier_blocker_audit_rejects_missing_detail",
     "tests/test_ideal_frontier_blocker_audit.py::test_ideal_frontier_blocker_audit_rejects_missing_artifact",
     "tests/test_ideal_frontier_blocker_audit.py::test_ideal_frontier_blocker_markdown_marks_scope_as_blocker_only",
+    "tests/test_ideal_frontier_blocker_audit.py::test_ideal_frontier_blocker_audit_reports_modern_vla_failed_last_attempt",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_keeps_future_frontiers_unpromoted",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_reports_robocasa_residual_attempts",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_reports_modern_vla_availability_probe",
@@ -107,6 +108,7 @@
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_accepts_auxiliary_rbf_neural_smoke",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_requires_separate_positive_modern_vla_policy_eval",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_does_not_promote_zero_success_modern_vla_eval",
+    "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_reports_failed_modern_vla_last_attempt",
     "tests/test_learned_wam.py::test_learned_wam_trains_and_predicts_finite_metrics",
     "tests/test_learned_wam.py::test_rollout_pool_uses_learned_backend",
     "tests/test_learned_wam.py::test_normalized_utility_degenerate_pool_is_finite",
@@ -208,7 +210,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=191"
+      "detail": "nodeids=193"
     },
     {
       "name": "nodeids_unique",
@@ -218,12 +220,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=191"
+      "detail": "nodeids=193"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=191, nodeids=191"
+      "detail": "trailer=193, nodeids=193"
     },
     {
       "name": "required_test_families_present",

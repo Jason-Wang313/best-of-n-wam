@@ -871,3 +871,43 @@ def test_ideal_frontier_readiness_does_not_promote_zero_success_modern_vla_eval(
     heldout_signal = next(signal for signal in modern["signals"] if signal["name"] == "heldout_sparse_success_modern_vla_eval")
     assert heldout_signal["ok"] is False
     assert "eval_successes=0" in heldout_signal["detail"]
+
+
+def test_ideal_frontier_readiness_reports_failed_modern_vla_last_attempt(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    results.mkdir()
+    write_json(
+        results / "modern_vla_libero_policy_eval.json",
+        {
+            "verified": True,
+            "heldout_libero_policy_eval": True,
+            "eval_episodes": 1,
+            "n_eval_seeds": 1,
+            "max_steps": 1,
+            "eval_successes": 0,
+            "eval_success_rate": 0.0,
+            "success_ci": {"n": 1, "mean": 0.0, "lo": 0.0, "hi": 0.79, "method": "wilson"},
+        },
+    )
+    write_json(
+        results / "modern_vla_libero_policy_eval_last_attempt.json",
+        {
+            "verified": False,
+            "horizon": 5,
+            "max_steps": 5,
+            "requested_eval_seeds": [300],
+            "failure_stage": "process_crash",
+            "error_type": "WindowsAccessViolation",
+            "child_returncode": 3221225477,
+        },
+    )
+
+    payload = audit_ideal_frontier_readiness(tmp_path, results)
+
+    modern = {row["frontier_id"]: row for row in payload["rows"]}["modern_vla_libero"]
+    heldout_signal = next(signal for signal in modern["signals"] if signal["name"] == "heldout_sparse_success_modern_vla_eval")
+    assert heldout_signal["ok"] is False
+    assert "last_attempt_present=True" in heldout_signal["detail"]
+    assert "last_attempt_max_steps=5" in heldout_signal["detail"]
+    assert "last_attempt_failure_stage=process_crash" in heldout_signal["detail"]
+    assert "last_attempt_error_type=WindowsAccessViolation" in heldout_signal["detail"]

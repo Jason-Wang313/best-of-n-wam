@@ -46,6 +46,14 @@ This report is blocker evidence, not validation evidence for the ideal endpoints
 - `policy_eval_episodes`: `1`
 - `policy_eval_successes`: `0`
 - `policy_eval_success_ci`: `{'n': 1, 'mean': 0.0, 'lo': 0.0, 'hi': 0.7934567085261071, 'method': 'wilson'}`
+- `last_attempt_recorded`: `True`
+- `last_attempt_verified`: `False`
+- `last_attempt_horizon`: `5`
+- `last_attempt_max_steps`: `5`
+- `last_attempt_requested_eval_seeds`: `[300]`
+- `last_attempt_failure_stage`: `process_crash`
+- `last_attempt_error_type`: `WindowsAccessViolation`
+- `last_attempt_child_returncode`: `3221225477`
 
 ## full_robocasa_wide
 

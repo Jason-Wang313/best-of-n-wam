@@ -5,7 +5,7 @@
   "n_python_command_lines": 31,
   "n_checks": 31,
   "n_issues": 0,
-  "expected_pytest_passed": 191,
+  "expected_pytest_passed": 193,
   "checks": [
     {
       "name": "command_section_present",
@@ -15,12 +15,12 @@
     {
       "name": "pytest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python -m pytest -q`: passed with `191 passed`"
+      "detail": "expected=`python -m pytest -q`: passed with `193 passed`"
     },
     {
       "name": "test_inventory_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/test_inventory.py --fail-on-error`: passed with `191` collected tests, `6` inventory checks, and `0` issues"
+      "detail": "expected=`python scripts/test_inventory.py --fail-on-error`: passed with `193` collected tests, `6` inventory checks, and `0` issues"
     },
     {
       "name": "artifact_integrity_snippet_matches_artifact",
@@ -30,7 +30,7 @@
     {
       "name": "artifact_manifest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/artifact_manifest.py --fail-on-error`: passed with `446` scientific artifacts, `77222641` bytes, `15` manifest checks, and `0` issues"
+      "detail": "expected=`python scripts/artifact_manifest.py --fail-on-error`: passed with `446` scientific artifacts, `77223275` bytes, `15` manifest checks, and `0` issues"
     },
     {
       "name": "figure_quality_snippet_matches_artifact",
@@ -55,7 +55,7 @@
     {
       "name": "source_manifest_snippet_matches_artifact",
       "ok": true,
-      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `246` source files, `1805886` bytes, `14` source-manifest checks, and `0` issues"
+      "detail": "expected=`python scripts/source_manifest.py --fail-on-error`: passed with `246` source files, `1810072` bytes, `14` source-manifest checks, and `0` issues"
     },
     {
       "name": "runtime_environment_snippet_matches_artifact",

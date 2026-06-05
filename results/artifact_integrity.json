@@ -6429,7 +6429,7 @@
       "raw_path": "results/test_inventory.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
-      "bytes": 19521,
+      "bytes": 19763,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6440,7 +6440,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\test_inventory.json",
       "exists": true,
-      "bytes": 19521,
+      "bytes": 19763,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6913,7 +6913,7 @@
       "raw_path": "results/ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 34208,
+      "bytes": 34361,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6924,7 +6924,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 34208,
+      "bytes": 34361,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6935,7 +6935,7 @@
       "raw_path": "reports/ideal_claim_boundary_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
       "exists": true,
-      "bytes": 9216,
+      "bytes": 9275,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6946,7 +6946,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\ideal_claim_boundary_report.md",
       "exists": true,
-      "bytes": 9216,
+      "bytes": 9275,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -7067,7 +7067,7 @@
       "raw_path": "results/ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 34208,
+      "bytes": 34361,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -7078,7 +7078,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
       "exists": true,
-      "bytes": 34208,
+      "bytes": 34361,
       "rows": null,
       "status": "ok",
       "reason": ""

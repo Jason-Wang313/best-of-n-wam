@@ -102,6 +102,7 @@ def _frontier_evidence(root: Path, frontier_id: str) -> dict[str, Any]:
         probe = _load_json(results / "modern_vla_availability_probe.json")
         execution = _load_json(results / "modern_vla_libero_execution_probe.json")
         policy_eval = _load_json(results / "modern_vla_libero_policy_eval.json")
+        last_attempt = _load_json(results / "modern_vla_libero_policy_eval_last_attempt.json")
         return {
             "probe_verified": probe.get("verified"),
             "vla_package_importable": probe.get("vla_package_importable"),
@@ -119,6 +120,14 @@ def _frontier_evidence(root: Path, frontier_id: str) -> dict[str, Any]:
             "policy_eval_episodes": policy_eval.get("eval_episodes"),
             "policy_eval_successes": policy_eval.get("eval_successes"),
             "policy_eval_success_ci": policy_eval.get("success_ci"),
+            "last_attempt_recorded": bool(last_attempt),
+            "last_attempt_verified": last_attempt.get("verified"),
+            "last_attempt_horizon": last_attempt.get("horizon"),
+            "last_attempt_max_steps": last_attempt.get("max_steps"),
+            "last_attempt_requested_eval_seeds": last_attempt.get("requested_eval_seeds"),
+            "last_attempt_failure_stage": last_attempt.get("failure_stage"),
+            "last_attempt_error_type": last_attempt.get("error_type"),
+            "last_attempt_child_returncode": last_attempt.get("child_returncode"),
         }
     if frontier_id == "full_robocasa_wide":
         catalog = _load_json(results / "benchmark_robocasa_catalog_probe.json")

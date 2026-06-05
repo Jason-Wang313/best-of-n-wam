@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 246,
-  "total_bytes": 1805886,
+  "total_bytes": 1810072,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 229,
@@ -927,8 +927,8 @@
     {
       "path": "src/wam_inference_value/ideal_claim_boundary.py",
       "suffix": ".py",
-      "bytes": 27862,
-      "sha256": "32f2ded2357491671d79139ea995f353ff5386b6a7c106713189a8a4c7ff562c"
+      "bytes": 27933,
+      "sha256": "3a99b460d1a5e7a2453d2759fb28cba70d6723bc71a0515982d066326f1be917"
     },
     {
       "path": "src/wam_inference_value/ideal_completion_audit.py",
@@ -939,14 +939,14 @@
     {
       "path": "src/wam_inference_value/ideal_frontier_blocker_audit.py",
       "suffix": ".py",
-      "bytes": 11921,
-      "sha256": "bcbc6f37ae73a69686bd5c43a63bb43e204cee16972a08fce096ae87fe7c1294"
+      "bytes": 12596,
+      "sha256": "c85e8ceb54b4c931fb1dd773a996af14ec1f120378cb35b93ae563302daac024"
     },
     {
       "path": "src/wam_inference_value/ideal_frontier_readiness.py",
       "suffix": ".py",
-      "bytes": 23074,
-      "sha256": "eaa54408e2372cb68979ed840ad98d9e56d1b0b5d996a634de40e3e3f1e6f015"
+      "bytes": 23769,
+      "sha256": "c4829ff92963ee402d1e8b455157722c8e758941d3ff0fcf1eab2c88be65b6df"
     },
     {
       "path": "src/wam_inference_value/learned_wam.py",
@@ -1293,14 +1293,14 @@
     {
       "path": "tests/test_ideal_frontier_blocker_audit.py",
       "suffix": ".py",
-      "bytes": 3907,
-      "sha256": "8eeb7aba64251acda1027637d6830bdd6c33159da811e30c89e266f7fb4fda52"
+      "bytes": 5059,
+      "sha256": "78a6cb410356c42e79069e40f33cd73e281850762ad81fd88cbeafde2e82bf8b"
     },
     {
       "path": "tests/test_ideal_frontier_readiness.py",
       "suffix": ".py",
-      "bytes": 34998,
-      "sha256": "83f036650b8b4c64937e7ea7fe352dcdaebdd3622277ed1da0fca66a098570da"
+      "bytes": 36591,
+      "sha256": "62d5a2af713a16604fbef795d9c6b2a0544182b11a616712f8774e338712e56b"
     },
     {
       "path": "tests/test_learned_wam.py",
@@ -1518,7 +1518,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1805886, scan=1805886"
+      "detail": "payload=1810072, scan=1810072"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1563,7 +1563,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1805886"
+      "detail": "bytes=1810072"
     },
     {
       "name": "source_manifest_dir_coverage",
