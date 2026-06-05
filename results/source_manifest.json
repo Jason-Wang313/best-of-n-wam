@@ -2,11 +2,11 @@
   "experiment": "source_manifest",
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
-  "n_files": 223,
-  "total_bytes": 1617738,
+  "n_files": 224,
+  "total_bytes": 1623925,
   "counts_by_suffix": {
     ".md": 3,
-    ".py": 206,
+    ".py": 207,
     ".toml": 1,
     ".txt": 2,
     ".sh": 11
@@ -21,7 +21,7 @@
     "requirements.txt": 1,
     "scripts": 44,
     "src": 62,
-    "tests": 55
+    "tests": 56
   },
   "records": [
     {
@@ -141,8 +141,8 @@
     {
       "path": "experiments/benchmark_maniskill_visual_probe.py",
       "suffix": ".py",
-      "bytes": 16859,
-      "sha256": "6fb245d997e3f2b41bc08c6697e1700402b9087d2c424ce27ca623020d3ccbc5"
+      "bytes": 20457,
+      "sha256": "da16b42ae48edf7fed67bff8edf4d7f8cf6073075d1a18a999a0f3a2966b6ffb"
     },
     {
       "path": "experiments/benchmark_metaworld_suite.py",
@@ -1005,8 +1005,8 @@
     {
       "path": "src/wam_inference_value/table_schema.py",
       "suffix": ".py",
-      "bytes": 15575,
-      "sha256": "1812fab3713ae8ff9afeb81c06e7694f99a2a2d55b40afc4bc5a226eae218447"
+      "bytes": 15596,
+      "sha256": "909bfc31c2db664ce79cf7a12d0f4f5d2d1d0b2cfaad71697a9e1893e68e7ccd"
     },
     {
       "path": "src/wam_inference_value/test_inventory.py",
@@ -1231,6 +1231,12 @@
       "sha256": "bfbd233bea83847613b429573479f531374315736d83a941f880ef99262f8d20"
     },
     {
+      "path": "tests/test_maniskill_visual_probe.py",
+      "suffix": ".py",
+      "bytes": 2568,
+      "sha256": "68ddfde5354a31eacb3da1416f7c81d38d021a70eb08b5d6df814df4ad029849"
+    },
+    {
       "path": "tests/test_metaworld_adapter.py",
       "suffix": ".py",
       "bytes": 987,
@@ -1370,27 +1376,27 @@
     {
       "name": "source_manifest_records_present",
       "ok": true,
-      "detail": "records=223"
+      "detail": "records=224"
     },
     {
       "name": "source_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=223, scan=223"
+      "detail": "payload=224, scan=224"
     },
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1617738, scan=1617738"
+      "detail": "payload=1623925, scan=1623925"
     },
     {
       "name": "source_suffix_counts_match_scan",
       "ok": true,
-      "detail": "payload={'.md': 3, '.py': 206, '.toml': 1, '.txt': 2, '.sh': 11}, scan={'.md': 3, '.py': 206, '.toml': 1, '.txt': 2, '.sh': 11}"
+      "detail": "payload={'.md': 3, '.py': 207, '.toml': 1, '.txt': 2, '.sh': 11}, scan={'.md': 3, '.py': 207, '.toml': 1, '.txt': 2, '.sh': 11}"
     },
     {
       "name": "source_dir_counts_match_scan",
       "ok": true,
-      "detail": "payload={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 55}, scan={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 55}"
+      "detail": "payload={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 56}, scan={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 56}"
     },
     {
       "name": "source_manifest_has_no_missing_current_files",
@@ -1420,17 +1426,17 @@
     {
       "name": "source_manifest_file_count",
       "ok": true,
-      "detail": "files=223"
+      "detail": "files=224"
     },
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1617738"
+      "detail": "bytes=1623925"
     },
     {
       "name": "source_manifest_dir_coverage",
       "ok": true,
-      "detail": "dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 55}"
+      "detail": "dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 56}"
     },
     {
       "name": "source_manifest_root_file_coverage",

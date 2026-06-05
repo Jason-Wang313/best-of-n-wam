@@ -1,0 +1,2 @@
+name,category,env_id,ok,obs_mode,control_mode,render_mode,sim_backend,render_backend,env_overrides,shader_dir,sensor_width,sensor_height,human_width,human_height,error_type,error,returncode
+rgb_minimal_32_env_cpu_render,visual_obs,PickCube-v1,False,rgb,pd_joint_delta_pos,,,,"{""CUDA_VISIBLE_DEVICES"": """", ""SAPIEN_RENDER_DEVICE"": ""cpu"", ""SAPIEN_VULKAN_DEVICE"": ""cpu""}",minimal,32,32,,,RuntimeError,vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory,0

@@ -1026,7 +1026,7 @@
       "claim_id": 91,
       "category": "benchmark",
       "claim": "RoboCasa registry coverage audit is artifacted.",
-      "evidence": "registered=396, rollout_pool_covered=132, micro_covered=106, any_artifact=134",
+      "evidence": "registered=396, rollout_pool_covered=132, micro_covered=108, any_artifact=136",
       "has_numeric_scope": true,
       "has_concrete_scope": true
     },
@@ -1242,7 +1242,7 @@
       "claim_id": 116,
       "category": "verification",
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
-      "evidence": "tests=149, unique=149, trailer=149, checks=6, issues=0",
+      "evidence": "tests=158, unique=158, trailer=158, checks=6, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": false
     },
@@ -1894,7 +1894,7 @@
     {
       "name": "claim_91_benchmark_wording_has_benchmark_scope",
       "ok": true,
-      "detail": "claim=RoboCasa registry coverage audit is artifacted.; evidence=registered=396, rollout_pool_covered=132, micro_covered=106, any_artifact=134"
+      "detail": "claim=RoboCasa registry coverage audit is artifacted.; evidence=registered=396, rollout_pool_covered=132, micro_covered=108, any_artifact=136"
     },
     {
       "name": "claim_92_verified_wording_has_metric_or_scope",
@@ -2029,7 +2029,7 @@
     {
       "name": "claim_116_verified_wording_has_metric_or_scope",
       "ok": true,
-      "detail": "claim=Pytest command-result counts come from a verified collected-test inventory.; evidence=tests=149, unique=149, trailer=149, checks=6, issues=0"
+      "detail": "claim=Pytest command-result counts come from a verified collected-test inventory.; evidence=tests=158, unique=158, trailer=158, checks=6, issues=0"
     },
     {
       "name": "claim_125_verified_wording_has_metric_or_scope",

@@ -745,7 +745,7 @@
     {
       "name": "claim_91_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=registered=396, rollout_pool_covered=132, micro_covered=106, any_artifact=134"
+      "detail": "evidence=registered=396, rollout_pool_covered=132, micro_covered=108, any_artifact=136"
     },
     {
       "name": "claim_93_ci_sanity",
@@ -845,7 +845,7 @@
     {
       "name": "claim_100_zero_issue_or_overclaim_count",
       "ok": true,
-      "detail": "evidence=refs=706, issues=0, status_counts={'ok': 706}"
+      "detail": "evidence=refs=716, issues=0, status_counts={'ok': 716}"
     },
     {
       "name": "claim_103_zero_issue_or_overclaim_count",
@@ -855,7 +855,7 @@
     {
       "name": "claim_116_positive_count_or_artifact",
       "ok": true,
-      "detail": "evidence=tests=149, unique=149, trailer=149, checks=6, issues=0"
+      "detail": "evidence=tests=158, unique=158, trailer=158, checks=6, issues=0"
     },
     {
       "name": "claim_117_positive_count_or_artifact",

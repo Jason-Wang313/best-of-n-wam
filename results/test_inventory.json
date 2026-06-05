@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 155,
-  "n_unique_tests": 155,
-  "trailer_count": 155,
+  "n_tests": 158,
+  "n_unique_tests": 158,
+  "trailer_count": 158,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -102,6 +102,9 @@
     "tests/test_maniskill_adapter.py::test_maniskill_runtime_path_skips_when_dependency_missing",
     "tests/test_maniskill_dependency_probe.py::test_probe_pinocchio_api_rejects_unrelated_package",
     "tests/test_maniskill_dependency_probe.py::test_probe_pinocchio_api_accepts_robotics_symbols",
+    "tests/test_maniskill_visual_probe.py::test_visual_probe_attempts_include_process_renderer_overrides",
+    "tests/test_maniskill_visual_probe.py::test_visual_probe_table_records_env_overrides",
+    "tests/test_maniskill_visual_probe.py::test_filtered_visual_probe_uses_noncanonical_artifact_names",
     "tests/test_metaworld_adapter.py::test_metaworld_adapter_smoke_if_available",
     "tests/test_model_artifact_integrity.py::test_model_artifact_integrity_accepts_loadable_npz",
     "tests/test_model_artifact_integrity.py::test_model_artifact_integrity_detects_nonfinite_npz",
@@ -172,7 +175,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=155"
+      "detail": "nodeids=158"
     },
     {
       "name": "nodeids_unique",
@@ -182,12 +185,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=155"
+      "detail": "nodeids=158"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=155, nodeids=155"
+      "detail": "trailer=158, nodeids=158"
     },
     {
       "name": "required_test_families_present",

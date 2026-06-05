@@ -46,6 +46,7 @@ TEXT_COLUMNS = {
     "env",
     "env_id",
     "env_ids",
+    "env_overrides",
     "error",
     "error_type",
     "evidence_level",

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import platform
 import subprocess
 import sys
@@ -85,10 +86,14 @@ def _run_attempt(attempt: dict[str, Any], timeout_s: int) -> dict[str, Any]:
         do_render=bool(attempt.get("do_render", False)),
     )
     try:
+        child_env = os.environ.copy()
+        env_overrides = {str(k): str(v) for k, v in dict(attempt.get("env") or {}).items()}
+        child_env.update(env_overrides)
         proc = subprocess.run(
             [sys.executable, "-c", code],
             text=True,
             capture_output=True,
+            env=child_env,
             timeout=int(timeout_s),
         )
         stdout_lines = [line for line in proc.stdout.splitlines() if line.strip()]
@@ -103,6 +108,7 @@ def _run_attempt(attempt: dict[str, Any], timeout_s: int) -> dict[str, Any]:
                 "category": attempt["category"],
                 "env_id": attempt["env_id"],
                 "kwargs": attempt["kwargs"],
+                "env": env_overrides,
                 "returncode": proc.returncode,
                 "stderr_tail": proc.stderr.splitlines()[-12:],
             }
@@ -118,9 +124,11 @@ def _run_attempt(attempt: dict[str, Any], timeout_s: int) -> dict[str, Any]:
             "category": attempt["category"],
             "env_id": attempt["env_id"],
             "kwargs": attempt["kwargs"],
+            "env": dict(attempt.get("env") or {}),
             "ok": False,
             "error_type": "TimeoutExpired",
             "error": f"probe exceeded {timeout_s}s",
+            "returncode": -1,
             "stdout_tail": (exc.stdout or "")[-1200:] if isinstance(exc.stdout, str) else "",
             "stderr_tail": (exc.stderr or "")[-1200:] if isinstance(exc.stderr, str) else "",
         }
@@ -130,6 +138,22 @@ def _attempts() -> list[dict[str, Any]]:
     sensor_32 = {"width": 32, "height": 32, "shader_pack": "minimal"}
     sensor_64 = {"width": 64, "height": 64, "shader_pack": "minimal"}
     human_32 = {"width": 32, "height": 32, "shader_pack": "minimal"}
+    cpu_render_env = {
+        "SAPIEN_RENDER_DEVICE": "cpu",
+        "SAPIEN_VULKAN_DEVICE": "cpu",
+        "CUDA_VISIBLE_DEVICES": "",
+    }
+    swiftshader_env = {
+        "SAPIEN_RENDER_DEVICE": "cpu",
+        "SAPIEN_VULKAN_DEVICE": "swiftshader",
+        "VK_ICD_FILENAMES": "",
+        "CUDA_VISIBLE_DEVICES": "",
+    }
+    disable_vk_layer_env = {
+        "SAPIEN_RENDER_DEVICE": "cpu",
+        "VK_LOADER_LAYERS_DISABLE": "*",
+        "CUDA_VISIBLE_DEVICES": "",
+    }
     return [
         {
             "name": "state_baseline_joint_delta",
@@ -154,6 +178,45 @@ def _attempts() -> list[dict[str, Any]]:
             "name": "rgb_minimal_32",
             "category": "visual_obs",
             "env_id": "PickCube-v1",
+            "kwargs": {
+                "obs_mode": "rgb",
+                "control_mode": "pd_joint_delta_pos",
+                "render_mode": None,
+                "shader_dir": "minimal",
+                "sensor_configs": sensor_32,
+            },
+        },
+        {
+            "name": "rgb_minimal_32_env_cpu_render",
+            "category": "visual_obs",
+            "env_id": "PickCube-v1",
+            "env": cpu_render_env,
+            "kwargs": {
+                "obs_mode": "rgb",
+                "control_mode": "pd_joint_delta_pos",
+                "render_mode": None,
+                "shader_dir": "minimal",
+                "sensor_configs": sensor_32,
+            },
+        },
+        {
+            "name": "rgb_minimal_32_env_swiftshader",
+            "category": "visual_obs",
+            "env_id": "PickCube-v1",
+            "env": swiftshader_env,
+            "kwargs": {
+                "obs_mode": "rgb",
+                "control_mode": "pd_joint_delta_pos",
+                "render_mode": None,
+                "shader_dir": "minimal",
+                "sensor_configs": sensor_32,
+            },
+        },
+        {
+            "name": "rgb_minimal_32_env_disable_vk_layers",
+            "category": "visual_obs",
+            "env_id": "PickCube-v1",
+            "env": disable_vk_layer_env,
             "kwargs": {
                 "obs_mode": "rgb",
                 "control_mode": "pd_joint_delta_pos",
@@ -282,6 +345,7 @@ def _attempts() -> list[dict[str, Any]]:
 
 def _flatten_for_table(row: dict[str, Any]) -> dict[str, Any]:
     kwargs = dict(row.get("kwargs") or {})
+    env = dict(row.get("env") or {})
     sensor = kwargs.get("sensor_configs") or {}
     human = kwargs.get("human_render_camera_configs") or {}
     error = row.get("error")
@@ -297,6 +361,7 @@ def _flatten_for_table(row: dict[str, Any]) -> dict[str, Any]:
         "render_mode": kwargs.get("render_mode"),
         "sim_backend": kwargs.get("sim_backend"),
         "render_backend": kwargs.get("render_backend"),
+        "env_overrides": json.dumps(env, sort_keys=True) if env else "",
         "shader_dir": kwargs.get("shader_dir"),
         "sensor_width": sensor.get("width"),
         "sensor_height": sensor.get("height"),
@@ -308,10 +373,21 @@ def _flatten_for_table(row: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def _write_blocker_report(summary: dict[str, Any]) -> Path:
+def _artifact_names(args: argparse.Namespace) -> tuple[str, str]:
+    output_tag = str(getattr(args, "output_tag", "") or "").strip()
+    attempt_names = list(getattr(args, "attempt_name", []) or [])
+    if output_tag:
+        safe_tag = "".join(ch if ch.isalnum() or ch in {"_", "-"} else "_" for ch in output_tag)
+        return f"benchmark_maniskill_visual_probe_{safe_tag}", f"maniskill_visual_{safe_tag}_blocker_report.md"
+    if attempt_names:
+        return "benchmark_maniskill_visual_probe_filtered", "maniskill_visual_filtered_blocker_report.md"
+    return "benchmark_maniskill_visual_probe", "maniskill_visual_blocker_report.md"
+
+
+def _write_blocker_report(summary: dict[str, Any], report_filename: str = "maniskill_visual_blocker_report.md") -> Path:
     reports_dir = ROOT / "reports"
     reports_dir.mkdir(parents=True, exist_ok=True)
-    path = reports_dir / "maniskill_visual_blocker_report.md"
+    path = reports_dir / report_filename
     visual_failures = [
         row
         for row in summary.get("attempts", [])
@@ -368,12 +444,14 @@ def _write_blocker_report(summary: dict[str, Any]) -> Path:
 
 def run(args: argparse.Namespace) -> dict[str, Any]:
     ensure_result_dirs()
+    artifact_stem, report_filename = _artifact_names(args)
     summary: dict[str, Any] = {
         "experiment": "benchmark_maniskill_visual_probe",
         "attempted": True,
         "available": is_maniskill_available(),
         "python": sys.version.split()[0],
         "platform": platform.platform(),
+        "canonical_artifact": artifact_stem == "benchmark_maniskill_visual_probe",
     }
     if not summary["available"]:
         summary.update(
@@ -386,16 +464,20 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
                 "reason": "ManiSkill import not found",
             }
         )
-        table_path = results_dir() / "tables" / "benchmark_maniskill_visual_probe.csv"
+        table_path = results_dir() / "tables" / f"{artifact_stem}.csv"
         pd.DataFrame([]).to_csv(table_path, index=False)
         summary["artifacts"] = {"table": str(table_path)}
-        report_path = _write_blocker_report(summary)
+        report_path = _write_blocker_report(summary, report_filename)
         summary["artifacts"]["report"] = str(report_path)
-        write_json(results_dir() / "benchmark_maniskill_visual_probe.json", summary)
+        write_json(results_dir() / f"{artifact_stem}.json", summary)
         return summary
 
-    rows = [_run_attempt(attempt, args.timeout_s) for attempt in _attempts()]
-    table_path = results_dir() / "tables" / "benchmark_maniskill_visual_probe.csv"
+    attempts = _attempts()
+    if getattr(args, "attempt_name", None):
+        requested = set(args.attempt_name)
+        attempts = [attempt for attempt in attempts if attempt["name"] in requested]
+    rows = [_run_attempt(attempt, args.timeout_s) for attempt in attempts]
+    table_path = results_dir() / "tables" / f"{artifact_stem}.csv"
     pd.DataFrame([_flatten_for_table(row) for row in rows]).to_csv(table_path, index=False)
 
     mani_versions = [row.get("mani_skill_version") for row in rows if row.get("mani_skill_version")]
@@ -420,15 +502,26 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     ee_errors = [str(row.get("error", "")) for row in ee_rows if not row.get("ok")]
     if ee_rows and not summary["any_ee_control_success"]:
         summary["ee_control_blocker"] = ee_errors[0] if ee_errors else "unknown EE-control failure"
-    report_path = _write_blocker_report(summary)
+    report_path = _write_blocker_report(summary, report_filename)
     summary["artifacts"]["report"] = str(report_path)
-    write_json(results_dir() / "benchmark_maniskill_visual_probe.json", summary)
+    write_json(results_dir() / f"{artifact_stem}.json", summary)
     return summary
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--timeout-s", type=int, default=75)
+    parser.add_argument(
+        "--attempt-name",
+        action="append",
+        default=[],
+        help="Run only the named attempt. May be repeated. Defaults to the full probe matrix.",
+    )
+    parser.add_argument(
+        "--output-tag",
+        default="",
+        help="Optional artifact suffix. Filtered runs default to non-canonical filtered artifacts.",
+    )
     args = parser.parse_args()
     summary = run(args)
     print(

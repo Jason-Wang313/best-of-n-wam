@@ -1,0 +1,65 @@
+{
+  "experiment": "benchmark_maniskill_visual_probe",
+  "attempted": true,
+  "available": true,
+  "python": "3.10.11",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "canonical_artifact": false,
+  "mani_skill_version": "3.0.1",
+  "attempts": [
+    {
+      "ok": false,
+      "error_type": "RuntimeError",
+      "error": "vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory",
+      "trace_tail": [
+        "    sensor_data=self._get_obs_sensor_data(apply_texture_transforms),",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 604, in _get_obs_sensor_data",
+        "    self.capture_sensor_data()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\envs\\sapien_env.py\", line 565, in capture_sensor_data",
+        "    sensor.capture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\sensors\\camera.py\", line 188, in capture",
+        "    self.camera.take_picture()",
+        "  File \"C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\mani_skill\\utils\\structs\\render_camera.py\", line 273, in take_picture",
+        "    self._render_cameras[0].take_picture()",
+        "RuntimeError: vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory"
+      ],
+      "mani_skill_version": "3.0.1",
+      "name": "rgb_minimal_32_env_cpu_render",
+      "category": "visual_obs",
+      "env_id": "PickCube-v1",
+      "kwargs": {
+        "obs_mode": "rgb",
+        "control_mode": "pd_joint_delta_pos",
+        "render_mode": null,
+        "shader_dir": "minimal",
+        "sensor_configs": {
+          "width": 32,
+          "height": 32,
+          "shader_pack": "minimal"
+        }
+      },
+      "env": {
+        "SAPIEN_RENDER_DEVICE": "cpu",
+        "SAPIEN_VULKAN_DEVICE": "cpu",
+        "CUDA_VISIBLE_DEVICES": ""
+      },
+      "returncode": 0,
+      "stderr_tail": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\sapien\\wrapper\\pinocchio_model.py:299: UserWarning: pinnochio package is not installed, robotics functionalities will not be available",
+        "  warnings.warn(",
+        "\u001b[33;1m2026-06-05 02:40:48,707 - mani_skill  - WARNING - shader_dir argument will be deprecated after ManiSkill v3.0.0 official release. Please use sensor_configs/human_render_camera_configs to set shaders.\u001b[0m",
+        "\u001b[33;1m2026-06-05 02:40:49,328 - mani_skill  - WARNING - Requested to use render device \"sapien_cuda\", but CUDA device was not found. Falling back to \"cpu\" device. Rendering might be disabled.\u001b[0m"
+      ]
+    }
+  ],
+  "state_baseline_ok": false,
+  "any_visual_success": false,
+  "any_ee_control_success": false,
+  "visual_attempt_count": 1,
+  "ee_control_attempt_count": 0,
+  "artifacts": {
+    "table": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_maniskill_visual_probe_cpu_render_quick.csv",
+    "report": "C:\\Users\\wangz\\best-of-n-wam\\reports\\maniskill_visual_cpu_render_quick_blocker_report.md"
+  },
+  "visual_blocker": "vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory"
+}
