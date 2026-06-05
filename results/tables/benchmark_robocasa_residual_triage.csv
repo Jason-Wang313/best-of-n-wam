@@ -1,0 +1,397 @@
+env_id,category,coverage_status,reason,attempt_count,attempt_sources,covered_by_rollout_pool,covered_by_micro,covered_by_any
+robocasa/AddIceCubes,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/AddLemonToFish,long_horizon_or_compositional,timed_out,timeout attempts=1,1,benchmark_robocasa_micro_rollout_residual_quick_gap_000.json,False,False,False
+robocasa/AddMarshmallow,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/AddSugarCubes,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/AddSweetener,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/AddToSoupPot,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/AdjustHeat,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/AdjustToasterOvenTemperature,cooking,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_000.csv,False,False,False
+robocasa/AdjustWaterTemperature,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/AfterwashSorting,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/AirDryFruit,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/AlcoholServingPrep,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/AlignSilverware,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ArrangeBreadBasket,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ArrangeBreadBowl,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ArrangeBuffetDessert,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ArrangeCuttingFruits,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ArrangeDrinkware,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/ArrangeSinkSanitization,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ArrangeTea,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/ArrangeTeaAccompaniments,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ArrangeUtensilsByType,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ArrangeVegetables,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/AssembleCookingArray,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_001.csv,True,True,True
+robocasa/BalancedMealPrep,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/BeginSlowCooking,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_002.csv,True,True,True
+robocasa/BeverageOrganization,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/BeverageSorting,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/BlendIngredients,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/BlendMarinade,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/BlendSalsaMix,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/BlendVegetableSauce,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/BoilCorn,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_003.csv,True,True,True
+robocasa/BoilEggs,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_004.csv,True,True,True
+robocasa/BoilPot,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_005.csv,True,True,True
+robocasa/BowlAndCup,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/BreadAndCheese,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/BreadSelection,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/BreadSetupSlicing,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/BuildAppetizerPlate,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ButterOnPan,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/CandleCleanup,cleaning,timed_out,timeout attempts=2,2,benchmark_robocasa_micro_rollout_cleaning_gap_probe_000.json;benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_006.json,False,False,False
+robocasa/CategorizeCondiments,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/CerealAndBowl,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/CheeseMixing,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/CheesyBread,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ChooseMeasuringCup,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ChooseRipeFruit,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/CleanBlenderJug,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/CleanBoard,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_007.csv,True,True,True
+robocasa/CleanMicrowave,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/ClearClutter,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/ClearCuttingBoard,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/ClearFoodWaste,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/ClearFreezer,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_008.csv,True,True,True
+robocasa/ClearReceptaclesForCleaning,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_009.csv,True,True,True
+robocasa/ClearSink,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/ClearSinkArea,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_010.csv,True,True,True
+robocasa/ClearSinkSpace,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_011.csv,True,True,True
+robocasa/CloseBlenderLid,close,timed_out,timeout attempts=1,3,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv;benchmark_robocasa_micro_rollout_residual_quick_close_000.json,False,False,False
+robocasa/CloseCabinet,close,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/CloseDishwasher,close,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/CloseDoor,close,constructor_signature_failure,constructor signature failures=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/CloseDrawer,close,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/CloseDropDownDoor,close,constructor_signature_failure,constructor signature failures=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/CloseElectricKettleLid,close,micro_nondegenerate_covered,verified micro-rollout nondegenerate artifact,3,benchmark_robocasa_micro_rollout_atomic_task_distance_probe.csv;benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,True,True
+robocasa/CloseFridge,close,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/CloseFridgeDrawer,close,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/CloseMicrowave,close,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/CloseOven,close,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/CloseStandMixerHead,close,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/CloseToasterOvenDoor,close,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/ClusterItemsForClearing,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_012.csv,True,True,True
+robocasa/ClusterUtensilsInDrawer,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/CoffeeServeMug,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/CoffeeSetupMug,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/CollectWashingSupplies,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/ColorfulSalsa,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/CondimentCollection,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/CookieDoughPrep,cooking,value_error,value errors=1,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_013.csv,False,False,False
+robocasa/CoolBakedCake,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_014.csv,True,True,True
+robocasa/CoolBakedCookies,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_015.csv,True,True,True
+robocasa/CoolKettle,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/CountertopCleanup,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/CreateChildFriendlyFridge,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/CupcakeCleanup,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_016.csv,True,True,True
+robocasa/CutBuffetPizza,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/CuttingToolSelection,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/DateNight,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/DefrostByCategory,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/DeliverBrewedCoffee,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/DeliverStraw,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/DessertAssembly,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/DessertUpgrade,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/DisplayMeatVariety,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/DistributeChicken,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/DistributeSteakOnPans,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/DivideBasins,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/DivideBuffetTrays,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/Door,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/DrainVeggies,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/DrawerUtensilSort,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/DrinkwareConsolidation,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/DryDishes,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_017.csv,True,True,True
+robocasa/DryDrinkware,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_018.csv,True,True,True
+robocasa/DumpLeftovers,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/EmptyDishRack,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/FillBlenderJug,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/FillKettle,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/FilterMicrowavableItem,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/FoodCleanup,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/FreezeBottledWaters,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/FreezeCookedFood,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_019.csv,True,True,True
+robocasa/FreezeIceTray,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/FreshProduceOrganization,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/FryingPanAdjustment,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/GarnishCake,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/GarnishCupcake,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/GarnishPancake,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/GatherCuttingTools,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/GatherMarinadeIngredients,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/GatherProduceWashing,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/GatherTableware,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/GatherVegetables,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/GetToastedBread,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/HeatKebabSandwich,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_020.csv,True,True,True
+robocasa/HeatMug,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/HeatMultipleWater,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_021.csv,True,True,True
+robocasa/HotDogSetup,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/JuiceFruitReamer,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/KettleBoiling,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/Kitchen,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/LemonSeasoningFish,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/Lift,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/LineUpCondiments,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/LoadCondimentsInFridge,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/LoadDishwasher,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/LoadFridgeByType,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/LoadFridgeFifo,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/LoadPreparedFood,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/LowerHeat,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/MakeBananaMilkshake,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/MakeCheesecakeFilling,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/MakeChocolateMilk,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/MakeFruitBowl,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/MakeIceLemonade,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/MakeIcedCoffee,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/MakeLoadedPotato,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ManipulateDoor,manipulate,constructor_signature_failure,constructor signature failures=3,3,benchmark_robocasa_micro_rollout_atomic_gap_probe_002.csv;benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/ManipulateDrawer,manipulate,timed_out,timeout attempts=1,3,benchmark_robocasa_micro_rollout_atomic_gap_probe_003.json;benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/ManipulateLowerDoor,manipulate,constructor_signature_failure,constructor signature failures=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/ManipulateSinkFaucet,manipulate,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/ManipulateStoveKnob,manipulate,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/MatchCupAndDrink,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/MaximizeFreezerSpace,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/MealPrepStaging,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/MeatSkewerAssembly,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/MeatTransfer,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/MicrowaveCorrectMeal,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/MicrowaveDefrostMeat,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_022.csv,True,True,True
+robocasa/MicrowavePressButton,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/MicrowaveThawing,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_023.csv,True,True,True
+robocasa/MicrowaveThawingFridge,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_024.csv,True,True,True
+robocasa/MixCakeFrosting,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/MixedFruitPlatter,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/MoveFreezerToFridge,move,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/MoveFridgeToFreezer,move,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/MoveToCounter,move,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/MoveToFreezerDrawer,move,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/MultistepSteaming,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/NavigateKitchen,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/NutAssembly,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/NutAssemblyRound,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/NutAssemblySingle,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/NutAssemblySquare,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/OpenBlenderLid,open,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/OpenCabinet,open,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/OpenDishwasher,open,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/OpenDoor,open,constructor_signature_failure,constructor signature failures=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/OpenDrawer,open,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/OpenDropDownDoor,open,constructor_signature_failure,constructor signature failures=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/OpenElectricKettleLid,open,micro_nondegenerate_covered,verified micro-rollout nondegenerate artifact,3,benchmark_robocasa_micro_rollout_atomic_task_distance_probe.csv;benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,True,True
+robocasa/OpenFridge,open,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/OpenFridgeDrawer,open,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/OpenMicrowave,open,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/OpenOven,open,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/OpenStandMixerHead,open,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/OpenToasterOvenDoor,open,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/OrganizeBakingIngredients,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/OrganizeCleaningSupplies,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_025.csv,True,True,True
+robocasa/OrganizeCoffeeCondiments,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/OrganizeCondiments,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/OrganizeMeasuringCups,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/OrganizeMetallicUtensils,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/OrganizeMugsByHandle,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/OrganizeVegetables,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/OvenBroilFish,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_026.csv,True,True,True
+robocasa/PJSandwichPrep,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PackDessert,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PackFoodByTemp,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PackFruitContainer,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PackIdenticalLunches,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PackSnack,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PanTransfer,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PastryDisplay,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PickPlace,pick_place,not_implemented,not implemented attempts=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/PickPlaceBread,pick_place,constructor_signature_failure,constructor signature failures=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/PickPlaceCabinetToCounter,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/PickPlaceCan,pick_place,constructor_signature_failure,constructor signature failures=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/PickPlaceCereal,pick_place,constructor_signature_failure,constructor signature failures=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/PickPlaceCoffee,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/PickPlaceCounterToBlender,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/PickPlaceCounterToCabinet,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/PickPlaceCounterToDrawer,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/PickPlaceCounterToMicrowave,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/PickPlaceCounterToOven,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/PickPlaceCounterToSink,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/PickPlaceCounterToStandMixer,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_extra.csv,True,True,True
+robocasa/PickPlaceCounterToStove,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/PickPlaceCounterToToasterOven,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_extra.csv,True,True,True
+robocasa/PickPlaceDrawerToCounter,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_extra.csv,True,True,True
+robocasa/PickPlaceFridgeDrawerToShelf,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/PickPlaceFridgeShelfToDrawer,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/PickPlaceMicrowaveToCounter,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_extra.csv,True,True,True
+robocasa/PickPlaceMilk,pick_place,constructor_signature_failure,constructor signature failures=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/PickPlaceSingle,pick_place,constructor_signature_failure,constructor signature failures=2,2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,False,False
+robocasa/PickPlaceSinkToCounter,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/PickPlaceStoveToCounter,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/PickPlaceToasterOvenToCounter,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/PickPlaceToasterToCounter,pick_place,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/PlaceBeveragesTogether,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PlaceBreakfastItemsAway,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PlaceDishesBySink,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PlaceEqualIceCubes,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PlaceFoodInBowls,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PlaceIceInCup,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PlaceLidToBoil,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_027.csv,True,True,True
+robocasa/PlaceMeatInMarinade,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PlaceMicrowaveSafeItem,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/PlaceOnDishRack,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PlaceStraw,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PlaceVegetablesEvenly,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PlaceVeggiesInDrawer,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PlateSteakMeal,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PlateStoreDinner,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PortionFruitBowl,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PortionHotDogs,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PortionInTupperware,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PortionOnSize,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PortionYogurt,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PreRinseStation,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_028.csv,True,True,True
+robocasa/PreSoakPan,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PreheatOven,cooking,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_029.csv;benchmark_robocasa_micro_rollout_stratified_probe.csv,False,False,False
+robocasa/PreheatPot,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepForSanitizing,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepForTenderizing,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepFridgeForCleaning,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_030.csv,True,True,True
+robocasa/PrepMarinatingMeat,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepSinkForCleaning,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_031.csv,True,True,True
+robocasa/PrepareBroilingStation,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepareCheeseStation,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepareCocktailStation,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepareCoffee,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepareDishwasher,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepareDrinkStation,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepareSandwichStation,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepareSausageCheese,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepareSmoothie,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepareSoupServing,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepareStoringLeftovers,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepareToast,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/PrepareVegetableRoasting,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepareVeggieDip,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrepareVeggiesForSteaming,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PressChicken,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrewashFoodAssembly,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/PrewashFoodSorting,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/QuickThaw,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/RearrangeFridgeItems,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/RecycleBottlesBySize,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/RecycleBottlesByType,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/RecycleSodaCans,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/RecycleStackedYogurt,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/RefillCondimentStation,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ReheatMeal,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ReheatMeatOnStove,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/RemoveBroiledFish,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/RemoveCuttingBoardItems,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/RemoveSteamedVegetables,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ReorganizeFrozenVegetables,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ResetCabinetDoors,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/RestockBowls,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/RestockCannedFood,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/RestockPantry,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/RestockSinkSupplies,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/RetrieveIceTray,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/RetrieveMeat,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ReturnHeatedFood,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/ReturnWashingSupplies,cleaning,timed_out,timeout attempts=2,2,benchmark_robocasa_micro_rollout_cleaning_gap_probe_001.json;benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_032.json,False,False,False
+robocasa/RinseBowls,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/RinseCuttingBoard,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/RinseFragileItem,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/RinseSinkBasin,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/RotatePan,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SanitizePrepCuttingBoard,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SanitizeSink,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ScalePortioning,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ScrubBowl,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ScrubCuttingBoard,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SearingMeat,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SeasoningSpiceSetup,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SeasoningSteak,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SeparateFreezerRack,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SeparateRawIngredients,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ServeMealJuice,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ServeSteak,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ServeTea,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ServeWarmCroissant,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SetBowlsForSoup,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SetUpCuttingStation,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SetUpSpiceStation,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SetupBowls,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SetupButterPlate,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SetupFruitBowl,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SetupFrying,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SetupSodaBowl,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SetupWineGlasses,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ShakePan,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SimmeringSauce,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SizeSorting,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SlideDishwasherRack,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SlideOvenRack,cooking,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_033.csv;benchmark_robocasa_micro_rollout_stratified_probe.csv,False,False,False
+robocasa/SlideToasterOvenRack,cooking,degenerate_or_failed,attempts=2,2,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_034.csv;benchmark_robocasa_micro_rollout_stratified_probe.csv,False,False,False
+robocasa/SnackSorting,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SoakSponge,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SortBreakfastIngredients,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SortingCleanup,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_035.csv,True,True,True
+robocasa/SpicyMarinade,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/Stack,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/StackBowlsCabinet,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/StackBowlsInSink,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/StackCans,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/StartCoffeeMachine,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/StartElectricKettle,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SteamFish,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SteamInMicrowave,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_036.csv,True,True,True
+robocasa/SteamVeggiesWithWater,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/StirVegetables,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/StockingBreakfastFoods,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/StopSlowCooking,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_037.csv,True,True,True
+robocasa/StoreDumplings,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/StoreLeftoversByType,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/StoreLeftoversInBowl,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/StrainerSetup,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SweetSavoryToastSetup,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_038.csv,True,True,True
+robocasa/SweetenCoffee,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/SweetenHotChocolate,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ThawInSink,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/TiltPan,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ToastBagel,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/ToastBaguette,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/ToastHeatableIngredients,cooking,value_error,value errors=1,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_039.csv,False,False,False
+robocasa/ToastOnCorrectRack,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_040.csv,True,True,True
+robocasa/ToastOneSlotPair,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_041.csv,True,True,True
+robocasa/ToasterOvenBroilFish,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_042.csv,True,True,True
+robocasa/TongBuffetSetup,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/ToolHang,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/TransportCookware,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/TurnOffMicrowave,turn,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/TurnOffSimmeredSauceHeat,turn,micro_nondegenerate_covered,verified micro-rollout nondegenerate artifact,1,benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,True,True
+robocasa/TurnOffSinkFaucet,turn,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/TurnOffStove,turn,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/TurnOnBlender,turn,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/TurnOnElectricKettle,turn,timed_out,timeout attempts=1,3,benchmark_robocasa_micro_rollout_atomic_gap_probe_000.json;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv;benchmark_robocasa_micro_rollout_stratified_probe.csv,False,False,False
+robocasa/TurnOnMicrowave,turn,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/TurnOnSinkFaucet,turn,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/TurnOnStove,turn,rollout_pool_covered,verified rollout-pool/smoke artifact,0,,True,False,True
+robocasa/TurnOnToaster,turn,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/TurnOnToasterOven,turn,timed_out,timeout attempts=1,3,benchmark_robocasa_micro_rollout_atomic_gap_probe_001.json;benchmark_robocasa_micro_rollout_residual_atomic_probe.csv;benchmark_robocasa_micro_rollout_stratified_probe.csv,False,False,False
+robocasa/TurnSinkSpout,turn,micro_nondegenerate_covered,verified micro-rollout nondegenerate artifact,1,benchmark_robocasa_micro_rollout_residual_atomic_probe.csv,False,True,True
+robocasa/TwoArmHandover,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/TwoArmLift,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/TwoArmPegInHole,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/TwoArmTransport,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/UtensilShuffle,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/VeggieDipPrep,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/WaffleReheat,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/WarmCroissant,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/WashFish,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/WashFruitColander,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/WashInSaucepan,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
+robocasa/WashLettuce,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
+robocasa/WeighIngredients,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/Wipe,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/WipeTable,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/YogurtDelightPrep,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False

@@ -31,9 +31,11 @@ OPTIONAL_BLANK_COLUMNS = {
     "human_height",
     "env_overrides",
     "env_ids",
+    "attempt_sources",
 }
 TEXT_COLUMNS = {
     "alignment_status",
+    "attempt_sources",
     "artifact",
     "backend",
     "benchmark",
@@ -41,6 +43,7 @@ TEXT_COLUMNS = {
     "case",
     "category",
     "control_mode",
+    "coverage_status",
     "decision_action",
     "decision_reason",
     "dynamics_backend",
@@ -78,8 +81,11 @@ TEXT_COLUMNS = {
 }
 BOOLEAN_COLUMNS = {
     "available",
+    "covered_by_any",
     "covered_by_any_committed_artifact",
+    "covered_by_micro",
     "covered_by_micro_rollout_probe",
+    "covered_by_rollout_pool",
     "covered_by_verified_rollout_pool_artifact",
     "nondegenerate",
     "ok",

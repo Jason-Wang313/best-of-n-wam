@@ -182,6 +182,7 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     libero_neural_smokes = _load_neural_libero_auxiliary_artifacts(results_dir)
     libero_neural_smoke = _best_neural_libero_auxiliary(root, libero_neural_smokes)
     robocasa_catalog = _load_json(results_dir / "benchmark_robocasa_catalog_probe.json")
+    robocasa_triage = _load_json(results_dir / "benchmark_robocasa_residual_triage.json")
     maniskill_visual = _load_json(results_dir / "benchmark_maniskill_visual_probe.json")
     maniskill_deps = _load_json(results_dir / "benchmark_maniskill_dependency_probe.json")
     publication_scope = _load_json(results_dir / "publication_scope.json")
@@ -293,7 +294,10 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
             f"residual_timeouts={residual_attempts['timed_out_chunk_count']}, "
             f"residual_nondegenerate={residual_attempts['nondegenerate_task_count']}, "
             f"residual_categories={residual_attempts['categories']}, "
-            f"residual_artifacts={residual_attempts['artifacts']}"
+            f"residual_artifacts={residual_attempts['artifacts']}; "
+            f"triage_attempted_not_covered={robocasa_triage.get('attempted_not_covered')}, "
+            f"triage_unattempted={robocasa_triage.get('unattempted')}, "
+            f"triage_status_counts={robocasa_triage.get('status_counts')}"
         ),
     )
     _signal(robocasa, "all_categories_fully_covered", not missing_categories and bool(category_counts), f"missing={missing_categories}")

@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=721, issues=0, status_counts={'ok': 721}"
+      "evidence": "refs=722, issues=0, status_counts={'ok': 722}"
     },
     {
       "id": 101,
@@ -646,7 +646,7 @@
       "id": 108,
       "claim": "Scientific result artifacts have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=429, bytes=69792301, suffixes={'.json': 126, '.npz': 43, '.png': 36, '.csv': 224}, issues=0"
+      "evidence": "files=431, bytes=69852815, suffixes={'.json': 127, '.npz': 43, '.png': 36, '.csv': 225}, issues=0"
     },
     {
       "id": 109,
@@ -658,13 +658,13 @@
       "id": 110,
       "claim": "Canonical CSV result tables pass schema and numeric-sanity checks.",
       "status": "VERIFIED",
-      "evidence": "tables=224, rows=212893, numeric_columns=2013, checks=17, issues=0"
+      "evidence": "tables=225, rows=213289, numeric_columns=2014, checks=17, issues=0"
     },
     {
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=224, bytes=1632308, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 44, 'src': 62, 'tests': 56}, checks=14, issues=0"
+      "evidence": "files=227, bytes=1646506, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 45, 'src': 63, 'tests': 57}, checks=14, issues=0"
     },
     {
       "id": 112,
@@ -688,13 +688,13 @@
       "id": 115,
       "claim": "Published final-report command results match current verification artifacts.",
       "status": "VERIFIED",
-      "evidence": "snippets=28, python_commands=31, pytest=160, checks=31, issues=0"
+      "evidence": "snippets=28, python_commands=31, pytest=161, checks=31, issues=0"
     },
     {
       "id": 116,
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
       "status": "VERIFIED",
-      "evidence": "tests=160, unique=160, trailer=160, checks=6, issues=0"
+      "evidence": "tests=161, unique=161, trailer=161, checks=6, issues=0"
     },
     {
       "id": 117,
@@ -712,13 +712,13 @@
       "id": 119,
       "claim": "Claim evidence artifacts and published artifact references are represented in the git index.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=119, artifact_refs=465, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
+      "evidence": "claim_sources=119, artifact_refs=466, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
     },
     {
       "id": 120,
       "claim": "Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=117, artifact_refs=463, hashed=580, self_outputs_excluded=4, issues=0"
+      "evidence": "claim_sources=117, artifact_refs=464, hashed=581, self_outputs_excluded=4, issues=0"
     },
     {
       "id": 121,

@@ -2,28 +2,28 @@
   "experiment": "table_schema",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_tables": 224,
-  "total_rows": 212893,
-  "total_column_instances": 2681,
-  "numeric_column_instances": 2013,
-  "optional_blank_instances": 108,
+  "n_tables": 225,
+  "total_rows": 213289,
+  "total_column_instances": 2690,
+  "numeric_column_instances": 2014,
+  "optional_blank_instances": 109,
   "n_checks": 17,
   "n_issues": 0,
   "checks": [
     {
       "name": "table_files_present",
       "ok": true,
-      "detail": "tables=224"
+      "detail": "tables=225"
     },
     {
       "name": "table_rows_present",
       "ok": true,
-      "detail": "rows=212893"
+      "detail": "rows=213289"
     },
     {
       "name": "table_columns_present",
       "ok": true,
-      "detail": "column_instances=2681"
+      "detail": "column_instances=2690"
     },
     {
       "name": "table_headers_well_formed",
@@ -88,12 +88,12 @@
     {
       "name": "numeric_column_coverage",
       "ok": true,
-      "detail": "numeric_column_instances=2013"
+      "detail": "numeric_column_instances=2014"
     },
     {
       "name": "optional_blank_columns_are_explicit",
       "ok": true,
-      "detail": "optional_blank_instances=108"
+      "detail": "optional_blank_instances=109"
     }
   ],
   "issues": [],
@@ -6868,6 +6868,40 @@
         "runnable_task_count"
       ],
       "blank_columns": [],
+      "malformed": false,
+      "duplicate_columns": [],
+      "blank_column_names": [],
+      "duplicate_rows": 0,
+      "blank_disallowed": [],
+      "nonfinite_numeric": [],
+      "noninteger_values": [],
+      "negative_id_values": [],
+      "nonpositive_compute_values": [],
+      "success_range_errors": [],
+      "boolean_errors": [],
+      "family_failures": []
+    },
+    {
+      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual_triage.csv",
+      "rows": 396,
+      "columns": 9,
+      "fieldnames": [
+        "env_id",
+        "category",
+        "coverage_status",
+        "reason",
+        "attempt_count",
+        "attempt_sources",
+        "covered_by_rollout_pool",
+        "covered_by_micro",
+        "covered_by_any"
+      ],
+      "numeric_columns": [
+        "attempt_count"
+      ],
+      "blank_columns": [
+        "attempt_sources"
+      ],
       "malformed": false,
       "duplicate_columns": [],
       "blank_column_names": [],
