@@ -105,10 +105,10 @@ Add modern VLA-style sparse-success LIBERO policy evaluation or full RoboCasa-wi
 - `python scripts/claim_scope_audit.py --fail-on-error`: passed with `127` claims, `155` scoped broad-claim mentions, `160` checks, and `0` issues.
 - `python scripts/claim_reference_integrity.py --fail-on-error`: passed with `24` explicit verified-claim references, `12` unique referenced claims, and `0` issues.
 - `python scripts/claim_evidence_quality.py --fail-on-error`: passed with `127` claims, `175` source links, `7` evidence checks, and `0` issues.
-- `python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `119` claim sources, `479` artifact references, and `0` issues.
-- `python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `910` records, `175` claim sources, `735` artifact references, `0` outside-repo records, `0` missing records, and `0` issues.
+- `python scripts/tracked_artifact_provenance.py --fail-on-error`: passed with `119` claim sources, `481` artifact references, and `0` issues.
+- `python scripts/repo_bound_artifact_audit.py --fail-on-error`: passed with `912` records, `175` claim sources, `737` artifact references, `0` outside-repo records, `0` missing records, and `0` issues.
 - `python scripts/claim_ledger_integrity.py --fail-on-error`: passed with `127` claims, `31` ledger checks, and `0` issues.
 - `python scripts/claim_generation_consistency.py --fail-on-error`: passed with `127` claims, `10` generation checks, and `0` issues.
 - `python scripts/report_generation_consistency.py --fail-on-error`: passed with `8` reports, `9` generation checks, and `0` issues.
-- `python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `117` claim sources, `477` artifact references, `594` hashed records, and `0` issues.
+- `python scripts/evidence_hash_coverage.py --fail-on-error`: passed with `117` claim sources, `479` artifact references, `596` hashed records, and `0` issues.
 - `python scripts/claims_status.py`: passed with `127` verified, `0` partial, `0` unsupported, `0` failed, and `0` README/paper overclaims.
