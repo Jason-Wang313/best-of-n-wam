@@ -5,6 +5,7 @@ import importlib
 import importlib.util
 import json
 import platform
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -70,6 +71,81 @@ def run_command(cmd: list[str], timeout_s: int) -> dict[str, Any]:
         }
 
 
+def _pinocchio_api_probe_command(target_dir: Path) -> list[str]:
+    code = f"""
+import importlib
+import json
+import sys
+
+sys.path.insert(0, {str(target_dir)!r})
+required = {list(PINOCCHIO_REQUIRED_SYMBOLS)!r}
+try:
+    module = importlib.import_module("pinocchio")
+    missing = [name for name in required if not hasattr(module, name)]
+    payload = {{
+        "pinocchio_import_available": True,
+        "pinocchio_api_available": not missing,
+        "pinocchio_module_file": getattr(module, "__file__", None),
+        "pinocchio_missing_symbols": missing,
+    }}
+except Exception as exc:
+    payload = {{
+        "pinocchio_import_available": False,
+        "pinocchio_api_available": False,
+        "pinocchio_module_file": None,
+        "pinocchio_missing_symbols": required,
+        "pinocchio_probe_error": f"{{type(exc).__name__}}: {{exc}}",
+    }}
+print(json.dumps(payload))
+"""
+    return [sys.executable, "-c", code]
+
+
+def _json_from_stdout_tail(command_result: dict[str, Any]) -> dict[str, Any]:
+    for line in reversed(str(command_result.get("stdout_tail") or "").splitlines()):
+        try:
+            payload = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        return payload if isinstance(payload, dict) else {}
+    return {}
+
+
+def probe_pypi_pinocchio_api(timeout_s: int) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    target_dir = results_dir() / "tmp_pin_probe" / "pypi_pinocchio_target"
+    shutil.rmtree(target_dir, ignore_errors=True)
+    target_dir.parent.mkdir(parents=True, exist_ok=True)
+    install_result = run_command(
+        [
+            sys.executable,
+            "-m",
+            "pip",
+            "install",
+            "pinocchio",
+            "--only-binary=:all:",
+            "--no-deps",
+            "--target",
+            str(target_dir),
+            "-q",
+        ],
+        timeout_s,
+    )
+    probe_result = (
+        run_command(_pinocchio_api_probe_command(target_dir), timeout_s)
+        if install_result.get("ok")
+        else {
+            "command": _pinocchio_api_probe_command(target_dir),
+            "returncode": None,
+            "ok": False,
+            "stdout_tail": "",
+            "stderr_tail": "target install failed; API probe skipped",
+        }
+    )
+    api_payload = _json_from_stdout_tail(probe_result)
+    shutil.rmtree(target_dir, ignore_errors=True)
+    return [install_result, probe_result], api_payload
+
+
 def write_report(summary: dict[str, Any]) -> Path:
     reports_dir = ROOT / "reports"
     reports_dir.mkdir(parents=True, exist_ok=True)
@@ -89,6 +165,8 @@ def write_report(summary: dict[str, Any]) -> Path:
         f"- `pin` import available: `{summary.get('pin_import_available')}`",
         f"- binary `pin` wheel available through pip: `{summary.get('pin_binary_wheel_available')}`",
         f"- binary PyPI `pinocchio` wheel available: `{summary.get('pypi_pinocchio_binary_wheel_available')}`",
+        f"- PyPI `pinocchio` robotics API available after target install: `{summary.get('pypi_pinocchio_api_available')}`",
+        f"- PyPI `pinocchio` missing API symbols: `{summary.get('pypi_pinocchio_missing_symbols')}`",
         f"- binary `cmeel-boost` wheel available through pip: `{summary.get('cmeel_boost_binary_wheel_available')}`",
         "",
         "## Command Results",
@@ -120,7 +198,7 @@ def write_report(summary: dict[str, Any]) -> Path:
             "",
             "ManiSkill state-mode joint-delta control remains artifact-backed. End-effector control is not claimed in this Windows environment because the robotics Pinocchio API is not available and pip did not expose binary `pin`/`cmeel-boost` wheels for this interpreter. If source-install attempts are enabled, their command tails are included above.",
             "",
-            "The probe deliberately distinguishes the robotics Pinocchio API from the unrelated small PyPI package named `pinocchio`; the latter is not sufficient for ManiSkill/Sapien end-effector-control evidence.",
+            "The probe deliberately target-installs and imports the small PyPI package named `pinocchio`; it is not sufficient for ManiSkill/Sapien end-effector-control evidence unless the required robotics API symbols are present.",
         ]
     )
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -135,6 +213,8 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         run_command([sys.executable, "-m", "pip", "download", "pin", "--only-binary=:all:", "--no-deps", "-d", str(results_dir() / "tmp_pin_probe")], args.quick_timeout_s),
         run_command([sys.executable, "-m", "pip", "download", "cmeel-boost", "--only-binary=:all:", "--no-deps", "-d", str(results_dir() / "tmp_pin_probe")], args.quick_timeout_s),
     ]
+    pypi_api_commands, pypi_api_payload = probe_pypi_pinocchio_api(args.quick_timeout_s)
+    commands.extend(pypi_api_commands)
     if args.attempt_source_install:
         for version in args.source_versions:
             commands.append(run_command([sys.executable, "-m", "pip", "install", f"pin=={version}", "-q"], args.source_timeout_s))
@@ -152,6 +232,10 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         "pin_import_available": importlib.util.find_spec("pin") is not None,
         "pin_binary_wheel_available": bool(pin_download.get("ok")),
         "pypi_pinocchio_binary_wheel_available": bool(pypi_pinocchio_download.get("ok")),
+        "pypi_pinocchio_api_available": bool(pypi_api_payload.get("pinocchio_api_available")),
+        "pypi_pinocchio_module_file": pypi_api_payload.get("pinocchio_module_file"),
+        "pypi_pinocchio_missing_symbols": pypi_api_payload.get("pinocchio_missing_symbols", list(PINOCCHIO_REQUIRED_SYMBOLS)),
+        "pypi_pinocchio_probe_error": pypi_api_payload.get("pinocchio_probe_error", ""),
         "cmeel_boost_binary_wheel_available": bool(boost_download.get("ok")),
         "source_install_attempted": bool(args.attempt_source_install),
         "commands": commands,

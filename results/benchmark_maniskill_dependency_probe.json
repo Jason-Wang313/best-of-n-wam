@@ -15,6 +15,14 @@
   "pin_import_available": false,
   "pin_binary_wheel_available": false,
   "pypi_pinocchio_binary_wheel_available": true,
+  "pypi_pinocchio_api_available": false,
+  "pypi_pinocchio_module_file": "C:\\Users\\wangz\\best-of-n-wam\\results\\tmp_pin_probe\\pypi_pinocchio_target\\pinocchio\\__init__.py",
+  "pypi_pinocchio_missing_symbols": [
+    "Model",
+    "GeometryModel",
+    "buildModelFromUrdf"
+  ],
+  "pypi_pinocchio_probe_error": "",
   "cmeel_boost_binary_wheel_available": false,
   "source_install_attempted": false,
   "commands": [
@@ -82,6 +90,35 @@
       "ok": false,
       "stdout_tail": "",
       "stderr_tail": "ERROR: Could not find a version that satisfies the requirement cmeel-boost (from versions: none)\n\n[notice] A new release of pip is available: 25.3 -> 26.1.2\n[notice] To update, run: python.exe -m pip install --upgrade pip\nERROR: No matching distribution found for cmeel-boost"
+    },
+    {
+      "command": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "-m",
+        "pip",
+        "install",
+        "pinocchio",
+        "--only-binary=:all:",
+        "--no-deps",
+        "--target",
+        "C:\\Users\\wangz\\best-of-n-wam\\results\\tmp_pin_probe\\pypi_pinocchio_target",
+        "-q"
+      ],
+      "returncode": 0,
+      "ok": true,
+      "stdout_tail": "",
+      "stderr_tail": "\n[notice] A new release of pip is available: 25.3 -> 26.1.2\n[notice] To update, run: python.exe -m pip install --upgrade pip"
+    },
+    {
+      "command": [
+        "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "-c",
+        "\nimport importlib\nimport json\nimport sys\n\nsys.path.insert(0, 'C:\\\\Users\\\\wangz\\\\best-of-n-wam\\\\results\\\\tmp_pin_probe\\\\pypi_pinocchio_target')\nrequired = ['Model', 'GeometryModel', 'buildModelFromUrdf']\ntry:\n    module = importlib.import_module(\"pinocchio\")\n    missing = [name for name in required if not hasattr(module, name)]\n    payload = {\n        \"pinocchio_import_available\": True,\n        \"pinocchio_api_available\": not missing,\n        \"pinocchio_module_file\": getattr(module, \"__file__\", None),\n        \"pinocchio_missing_symbols\": missing,\n    }\nexcept Exception as exc:\n    payload = {\n        \"pinocchio_import_available\": False,\n        \"pinocchio_api_available\": False,\n        \"pinocchio_module_file\": None,\n        \"pinocchio_missing_symbols\": required,\n        \"pinocchio_probe_error\": f\"{type(exc).__name__}: {exc}\",\n    }\nprint(json.dumps(payload))\n"
+      ],
+      "returncode": 0,
+      "ok": true,
+      "stdout_tail": "{\"pinocchio_import_available\": true, \"pinocchio_api_available\": false, \"pinocchio_module_file\": \"C:\\\\Users\\\\wangz\\\\best-of-n-wam\\\\results\\\\tmp_pin_probe\\\\pypi_pinocchio_target\\\\pinocchio\\\\__init__.py\", \"pinocchio_missing_symbols\": [\"Model\", \"GeometryModel\", \"buildModelFromUrdf\"]}",
+      "stderr_tail": ""
     }
   ],
   "artifacts": {

@@ -406,7 +406,7 @@
       "id": 68,
       "claim": "ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.",
       "status": "VERIFIED",
-      "evidence": "visual_success=False, visual_attempts=13, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pinocchio_api=False, pypi_pinocchio_binary=True, pin_binary=False"
+      "evidence": "visual_success=False, visual_attempts=13, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pinocchio_api=False, pypi_pinocchio_binary=True, pypi_pinocchio_api=False, pin_binary=False"
     },
     {
       "id": 69,
@@ -646,7 +646,7 @@
       "id": 108,
       "claim": "Scientific result artifacts have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=450, bytes=77226963, suffixes={'.json': 140, '.npz': 45, '.png': 36, '.csv': 229}, issues=0"
+      "evidence": "files=450, bytes=77229483, suffixes={'.json': 140, '.npz': 45, '.png': 36, '.csv': 229}, issues=0"
     },
     {
       "id": 109,
@@ -664,7 +664,7 @@
       "id": 111,
       "claim": "Source and verification code have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=246, bytes=1812349, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 52, 'src': 69, 'tests': 63}, checks=14, issues=0"
+      "evidence": "files=246, bytes=1815979, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 52, 'src': 69, 'tests': 63}, checks=14, issues=0"
     },
     {
       "id": 112,

@@ -968,6 +968,7 @@ def main() -> None:
         "pinocchio_api_available",
         maniskill_dependency_probe.get("pinocchio_import_available", True),
     )
+    pypi_pinocchio_api_available = maniskill_dependency_probe.get("pypi_pinocchio_api_available", True)
     add(
         claims,
         68,
@@ -981,6 +982,7 @@ def main() -> None:
             and bool(maniskill_dependency_probe)
             and maniskill_dependency_probe.get("attempted", False)
             and not pinocchio_api_available
+            and not pypi_pinocchio_api_available
             and not maniskill_dependency_probe.get("pin_binary_wheel_available", True)
             and artifacts_exist(maniskill_visual_probe_artifacts)
             and artifacts_exist(maniskill_dependency_artifacts)
@@ -994,6 +996,7 @@ def main() -> None:
         f"pinocchio={maniskill_dependency_probe.get('pinocchio_import_available')}, "
         f"pinocchio_api={maniskill_dependency_probe.get('pinocchio_api_available')}, "
         f"pypi_pinocchio_binary={maniskill_dependency_probe.get('pypi_pinocchio_binary_wheel_available')}, "
+        f"pypi_pinocchio_api={maniskill_dependency_probe.get('pypi_pinocchio_api_available')}, "
         f"pin_binary={maniskill_dependency_probe.get('pin_binary_wheel_available')}",
     )
     metaworld_ci = metaworld.get("confidence_intervals") or {}

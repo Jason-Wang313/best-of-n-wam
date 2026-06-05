@@ -556,7 +556,7 @@
         {
           "path": "results/benchmark_maniskill_dependency_probe.json",
           "exists": true,
-          "bytes": 3535
+          "bytes": 5958
         }
       ],
       "missing_files": [],
@@ -605,7 +605,7 @@
         {
           "path": "results/benchmark_maniskill_dependency_probe.json",
           "exists": true,
-          "bytes": 3535
+          "bytes": 5958
         },
         {
           "path": "reports/maniskill_visual_blocker_report.md",
@@ -615,7 +615,7 @@
         {
           "path": "reports/maniskill_dependency_blocker_report.md",
           "exists": true,
-          "bytes": 3327
+          "bytes": 5237
         }
       ],
       "missing_gap_evidence_files": []

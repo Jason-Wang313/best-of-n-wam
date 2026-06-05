@@ -420,6 +420,8 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
         "pinocchio_import="
         f"{maniskill_deps.get('pinocchio_import_available')}, "
         f"pinocchio_api={maniskill_deps.get('pinocchio_api_available')}, "
+        f"pypi_pinocchio_api={maniskill_deps.get('pypi_pinocchio_api_available')}, "
+        f"pypi_missing_symbols={maniskill_deps.get('pypi_pinocchio_missing_symbols')}, "
         f"missing_symbols={maniskill_deps.get('pinocchio_missing_symbols')}",
     )
     rows.append(
