@@ -27,12 +27,12 @@
         {
           "name": "real_robot_or_hil_artifact_present",
           "ok": false,
-          "detail": "files=0"
+          "detail": "physical_trial_metric_files=0, availability_probe_verified=True, possible_hardware=0, probe_trial_metrics=0"
         },
         {
           "name": "real_world_success_metrics_present",
           "ok": false,
-          "detail": "no physical trial metric artifact is declared"
+          "detail": "physical trial success/utility metric artifacts=0"
         }
       ],
       "next_action": "Collect real robot or hardware-in-the-loop rollout/control logs with trial IDs and success or utility metrics."

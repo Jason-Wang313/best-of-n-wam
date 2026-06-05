@@ -1,0 +1,111 @@
+{
+  "experiment": "real_robot_hil_probe",
+  "verified": true,
+  "python": "3.10.11",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "inspect_hardware": true,
+  "packages": [
+    {
+      "name": "rclpy",
+      "importable": false,
+      "origin": null
+    },
+    {
+      "name": "rospy",
+      "importable": false,
+      "origin": null
+    },
+    {
+      "name": "roslibpy",
+      "importable": false,
+      "origin": null
+    },
+    {
+      "name": "moveit_commander",
+      "importable": false,
+      "origin": null
+    },
+    {
+      "name": "serial",
+      "importable": false,
+      "origin": null
+    },
+    {
+      "name": "pyrealsense2",
+      "importable": false,
+      "origin": null
+    },
+    {
+      "name": "cv2",
+      "importable": true,
+      "origin": "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\cv2\\__init__.py"
+    },
+    {
+      "name": "rtde_control",
+      "importable": false,
+      "origin": null
+    },
+    {
+      "name": "rtde_receive",
+      "importable": false,
+      "origin": null
+    },
+    {
+      "name": "xarm",
+      "importable": false,
+      "origin": null
+    },
+    {
+      "name": "pymodbus",
+      "importable": false,
+      "origin": null
+    }
+  ],
+  "commands": [
+    {
+      "name": "ros2",
+      "available": false,
+      "path_present": false
+    },
+    {
+      "name": "roscore",
+      "available": false,
+      "path_present": false
+    },
+    {
+      "name": "rostopic",
+      "available": false,
+      "path_present": false
+    },
+    {
+      "name": "roslaunch",
+      "available": false,
+      "path_present": false
+    },
+    {
+      "name": "colcon",
+      "available": false,
+      "path_present": false
+    },
+    {
+      "name": "franka_control",
+      "available": false,
+      "path_present": false
+    },
+    {
+      "name": "xacro",
+      "available": false,
+      "path_present": false
+    }
+  ],
+  "robot_env_names_present": {},
+  "env_values_redacted": true,
+  "serial_ports": [],
+  "windows_pnp_candidates": [],
+  "possible_hardware_device_count": 0,
+  "trial_metric_artifact_count": 0,
+  "trial_metric_artifacts": [],
+  "real_robot_or_hil_claim_ready": false,
+  "elapsed_seconds": 8.679271459579468,
+  "note": "Availability probe only. Device/package presence is not real-robot or HIL validation without physical trial metrics."
+}

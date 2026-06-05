@@ -2,11 +2,11 @@
   "experiment": "source_manifest",
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
-  "n_files": 230,
-  "total_bytes": 1659763,
+  "n_files": 233,
+  "total_bytes": 1673378,
   "counts_by_suffix": {
     ".md": 3,
-    ".py": 213,
+    ".py": 216,
     ".toml": 1,
     ".txt": 2,
     ".sh": 11
@@ -19,9 +19,9 @@
     "README.md": 1,
     "requirements-benchmark.txt": 1,
     "requirements.txt": 1,
-    "scripts": 46,
-    "src": 64,
-    "tests": 58
+    "scripts": 47,
+    "src": 65,
+    "tests": 59
   },
   "records": [
     {
@@ -541,6 +541,12 @@
       "sha256": "3607d367c53dccd128bb530382fc48862987b0412818d218e81e15757a86f75c"
     },
     {
+      "path": "scripts/real_robot_hil_probe.py",
+      "suffix": ".py",
+      "bytes": 1540,
+      "sha256": "e4d15c0f88c73f3a65aa63cc1cc8773d0c11a4ed1e541cf9a5fc0412f49f8be8"
+    },
+    {
       "path": "scripts/repo_bound_artifact_audit.py",
       "suffix": ".py",
       "bytes": 2045,
@@ -903,8 +909,8 @@
     {
       "path": "src/wam_inference_value/ideal_frontier_readiness.py",
       "suffix": ".py",
-      "bytes": 19118,
-      "sha256": "0d5f08595a5c8e7b119e839aced456069fcee405e4d5ad6bcd83635c1200defe"
+      "bytes": 19574,
+      "sha256": "eefb18192da5b552cf7c0c4a3a4df06bb6ccbc8b4444251d3f2041c06c2ce30e"
     },
     {
       "path": "src/wam_inference_value/learned_wam.py",
@@ -953,6 +959,12 @@
       "suffix": ".py",
       "bytes": 14146,
       "sha256": "aeadd2da6a80e7648018dcf4fa6838ee56fe462c86be76c3b10e32e4cbcfa2f7"
+    },
+    {
+      "path": "src/wam_inference_value/real_robot_probe.py",
+      "suffix": ".py",
+      "bytes": 7887,
+      "sha256": "3eacc7ad132483b07a1374b20440baeaaf229a29b6552637399a9b7eb0f14bcc"
     },
     {
       "path": "src/wam_inference_value/rendering/__init__.py",
@@ -1227,8 +1239,8 @@
     {
       "path": "tests/test_ideal_frontier_readiness.py",
       "suffix": ".py",
-      "bytes": 21137,
-      "sha256": "9514e7672656afde948ddc0b7429beb9e015ef48628f71e28550c9eab22d9795"
+      "bytes": 22688,
+      "sha256": "cf72933f5a59d10ef52d9801cae602360f5ca14add8c9e051134e95d8b4dd0f2"
     },
     {
       "path": "tests/test_learned_wam.py",
@@ -1295,6 +1307,12 @@
       "suffix": ".py",
       "bytes": 3898,
       "sha256": "fd14cb12637ca9059adde565c6c8557aced2ad741457a16c497db4269936db77"
+    },
+    {
+      "path": "tests/test_real_robot_probe.py",
+      "suffix": ".py",
+      "bytes": 2181,
+      "sha256": "ff445177709683054375e3a9da052b3e08bc3096416548cb3675108a6c9b6325"
     },
     {
       "path": "tests/test_repo_bound_artifact_audit.py",
@@ -1412,27 +1430,27 @@
     {
       "name": "source_manifest_records_present",
       "ok": true,
-      "detail": "records=230"
+      "detail": "records=233"
     },
     {
       "name": "source_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=230, scan=230"
+      "detail": "payload=233, scan=233"
     },
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1659763, scan=1659763"
+      "detail": "payload=1673378, scan=1673378"
     },
     {
       "name": "source_suffix_counts_match_scan",
       "ok": true,
-      "detail": "payload={'.md': 3, '.py': 213, '.toml': 1, '.txt': 2, '.sh': 11}, scan={'.md': 3, '.py': 213, '.toml': 1, '.txt': 2, '.sh': 11}"
+      "detail": "payload={'.md': 3, '.py': 216, '.toml': 1, '.txt': 2, '.sh': 11}, scan={'.md': 3, '.py': 216, '.toml': 1, '.txt': 2, '.sh': 11}"
     },
     {
       "name": "source_dir_counts_match_scan",
       "ok": true,
-      "detail": "payload={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 46, 'src': 64, 'tests': 58}, scan={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 46, 'src': 64, 'tests': 58}"
+      "detail": "payload={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 47, 'src': 65, 'tests': 59}, scan={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 47, 'src': 65, 'tests': 59}"
     },
     {
       "name": "source_manifest_has_no_missing_current_files",
@@ -1462,17 +1480,17 @@
     {
       "name": "source_manifest_file_count",
       "ok": true,
-      "detail": "files=230"
+      "detail": "files=233"
     },
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1659763"
+      "detail": "bytes=1673378"
     },
     {
       "name": "source_manifest_dir_coverage",
       "ok": true,
-      "detail": "dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 46, 'src': 64, 'tests': 58}"
+      "detail": "dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 47, 'src': 65, 'tests': 59}"
     },
     {
       "name": "source_manifest_root_file_coverage",

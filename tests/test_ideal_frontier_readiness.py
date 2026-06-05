@@ -155,6 +155,41 @@ def test_ideal_frontier_readiness_reports_modern_vla_availability_probe(tmp_path
     assert "ready_for_policy_eval=False" in scale_signal["detail"]
 
 
+def test_ideal_frontier_readiness_does_not_count_real_robot_probe_as_trial(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    results.mkdir()
+    write_json(
+        results / "real_robot_hil_probe.json",
+        {
+            "verified": True,
+            "possible_hardware_device_count": 2,
+            "trial_metric_artifact_count": 0,
+            "real_robot_or_hil_claim_ready": False,
+        },
+    )
+
+    payload = audit_ideal_frontier_readiness(tmp_path, results)
+
+    real_robot = {row["frontier_id"]: row for row in payload["rows"]}["real_robot_hil"]
+    artifact_signal = next(signal for signal in real_robot["signals"] if signal["name"] == "real_robot_or_hil_artifact_present")
+    metric_signal = next(signal for signal in real_robot["signals"] if signal["name"] == "real_world_success_metrics_present")
+    assert artifact_signal["ok"] is False
+    assert metric_signal["ok"] is False
+    assert "availability_probe_verified=True" in artifact_signal["detail"]
+
+
+def test_ideal_frontier_readiness_counts_explicit_real_robot_trial_metrics(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    results.mkdir()
+    write_json(results / "real_robot_trial_metrics.json", {"success": [1, 1]})
+
+    payload = audit_ideal_frontier_readiness(tmp_path, results)
+
+    real_robot = {row["frontier_id"]: row for row in payload["rows"]}["real_robot_hil"]
+    assert "real_robot_or_hil_artifact_present" not in real_robot["missing_signals"]
+    assert "real_world_success_metrics_present" not in real_robot["missing_signals"]
+
+
 def test_ideal_frontier_readiness_accepts_neural_libero_policy_class(tmp_path: Path) -> None:
     results = tmp_path / "results"
     results.mkdir()

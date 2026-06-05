@@ -10,8 +10,8 @@ This report is a gap audit, not a result promotion mechanism.
 ## Frontier Matrix
 
 - `real_robot_hil`: ready_to_promote=`False`; missing=['real_robot_or_hil_artifact_present', 'real_world_success_metrics_present']
-  - real_robot_or_hil_artifact_present: `False` (files=0)
-  - real_world_success_metrics_present: `False` (no physical trial metric artifact is declared)
+  - real_robot_or_hil_artifact_present: `False` (physical_trial_metric_files=0, availability_probe_verified=True, possible_hardware=0, probe_trial_metrics=0)
+  - real_world_success_metrics_present: `False` (physical trial success/utility metric artifacts=0)
   Next action: Collect real robot or hardware-in-the-loop rollout/control logs with trial IDs and success or utility metrics.
 - `modern_vla_libero`: ready_to_promote=`False`; missing=['neural_visual_language_model_class', 'modern_vla_scale_or_pretrained_model']
   - libero_rgb_language_policy_evaluated: `True` (verified=True, eval_episodes=30)

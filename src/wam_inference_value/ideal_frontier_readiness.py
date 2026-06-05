@@ -5,6 +5,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from .real_robot_probe import physical_trial_metric_artifacts
+
 
 MODERN_VLA_MIN_PARAMETERS = 100_000_000
 
@@ -182,6 +184,7 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     libero_neural_smokes = _load_neural_libero_auxiliary_artifacts(results_dir)
     libero_neural_smoke = _best_neural_libero_auxiliary(root, libero_neural_smokes)
     modern_vla_probe = _load_json(results_dir / "modern_vla_availability_probe.json")
+    real_robot_probe = _load_json(results_dir / "real_robot_hil_probe.json")
     robocasa_catalog = _load_json(results_dir / "benchmark_robocasa_catalog_probe.json")
     robocasa_triage = _load_json(results_dir / "benchmark_robocasa_residual_triage.json")
     maniskill_visual = _load_json(results_dir / "benchmark_maniskill_visual_probe.json")
@@ -193,14 +196,24 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     rows: list[dict[str, Any]] = []
 
     real_robot: list[ReadinessSignal] = []
-    real_artifacts = [
-        path
-        for pattern in ("*real_robot*", "*hardware*", "*hil*")
-        for path in results_dir.glob(pattern)
-        if path.is_file()
-    ]
-    _signal(real_robot, "real_robot_or_hil_artifact_present", bool(real_artifacts), f"files={len(real_artifacts)}")
-    _signal(real_robot, "real_world_success_metrics_present", False, "no physical trial metric artifact is declared")
+    real_artifacts = physical_trial_metric_artifacts(results_dir)
+    _signal(
+        real_robot,
+        "real_robot_or_hil_artifact_present",
+        bool(real_artifacts),
+        (
+            f"physical_trial_metric_files={len(real_artifacts)}, "
+            f"availability_probe_verified={real_robot_probe.get('verified')}, "
+            f"possible_hardware={real_robot_probe.get('possible_hardware_device_count')}, "
+            f"probe_trial_metrics={real_robot_probe.get('trial_metric_artifact_count')}"
+        ),
+    )
+    _signal(
+        real_robot,
+        "real_world_success_metrics_present",
+        bool(real_artifacts),
+        f"physical trial success/utility metric artifacts={len(real_artifacts)}",
+    )
     rows.append(
         _row(
             "real_robot_hil",
