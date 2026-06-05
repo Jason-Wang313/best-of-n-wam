@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 172,
-  "n_unique_tests": 172,
-  "trailer_count": 172,
+  "n_tests": 176,
+  "n_unique_tests": 176,
+  "trailer_count": 176,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -87,6 +87,10 @@
     "tests/test_ideal_completion_audit.py::test_ideal_completion_audit_reports_incomplete_future_blockers",
     "tests/test_ideal_completion_audit.py::test_ideal_completion_audit_rejects_future_row_counted_as_supported",
     "tests/test_ideal_completion_audit.py::test_ideal_completion_audit_accepts_complete_supported_rows",
+    "tests/test_ideal_frontier_blocker_audit.py::test_ideal_frontier_blocker_audit_accepts_documented_unpromoted_frontiers",
+    "tests/test_ideal_frontier_blocker_audit.py::test_ideal_frontier_blocker_audit_rejects_missing_detail",
+    "tests/test_ideal_frontier_blocker_audit.py::test_ideal_frontier_blocker_audit_rejects_missing_artifact",
+    "tests/test_ideal_frontier_blocker_audit.py::test_ideal_frontier_blocker_markdown_marks_scope_as_blocker_only",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_keeps_future_frontiers_unpromoted",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_reports_robocasa_residual_attempts",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_reports_modern_vla_availability_probe",
@@ -189,7 +193,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=172"
+      "detail": "nodeids=176"
     },
     {
       "name": "nodeids_unique",
@@ -199,12 +203,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=172"
+      "detail": "nodeids=176"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=172, nodeids=172"
+      "detail": "trailer=176, nodeids=176"
     },
     {
       "name": "required_test_families_present",

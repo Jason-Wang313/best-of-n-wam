@@ -1,0 +1,351 @@
+{
+  "experiment": "ideal_frontier_blocker_audit",
+  "verified": true,
+  "scope": "documents why ideal-frontier claims remain unpromoted; not evidence for those claims",
+  "n_frontiers": 5,
+  "n_ready_to_promote": 0,
+  "blocker_rows": [
+    {
+      "frontier_id": "real_robot_hil",
+      "blocker_class": "hardware_or_hil_trial_absent",
+      "ready_to_promote": false,
+      "missing_signals": [
+        "real_robot_or_hil_artifact_present",
+        "real_world_success_metrics_present"
+      ],
+      "next_action": "Collect real robot or hardware-in-the-loop rollout/control logs with trial IDs and success or utility metrics.",
+      "required_artifacts": [
+        {
+          "path": "results/real_robot_hil_probe.json",
+          "exists": true,
+          "bytes": 2447
+        },
+        {
+          "path": "reports/real_robot_hil_probe_report.md",
+          "exists": true,
+          "bytes": 1082
+        }
+      ],
+      "evidence": {
+        "probe_verified": true,
+        "possible_hardware_device_count": 0,
+        "trial_metric_artifact_count": 0,
+        "claim_ready": false
+      }
+    },
+    {
+      "frontier_id": "modern_vla_libero",
+      "blocker_class": "modern_vla_runtime_or_checkpoint_absent",
+      "ready_to_promote": false,
+      "missing_signals": [
+        "neural_visual_language_model_class",
+        "modern_vla_scale_or_pretrained_model"
+      ],
+      "next_action": "Run a pretrained or VLA-scale neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs.",
+      "required_artifacts": [
+        {
+          "path": "results/modern_vla_availability_probe.json",
+          "exists": true,
+          "bytes": 5028
+        },
+        {
+          "path": "reports/modern_vla_availability_probe_report.md",
+          "exists": true,
+          "bytes": 1250
+        },
+        {
+          "path": "results/benchmark_libero_visual_language_bc_policy.json",
+          "exists": true,
+          "bytes": 1894
+        }
+      ],
+      "evidence": {
+        "probe_verified": true,
+        "vla_package_importable": false,
+        "local_vla_like_count": 0,
+        "hf_reachable_count": 5,
+        "ready_for_policy_eval": false
+      }
+    },
+    {
+      "frontier_id": "full_robocasa_wide",
+      "blocker_class": "registry_coverage_incomplete",
+      "ready_to_promote": false,
+      "missing_signals": [
+        "full_registry_rollout_pool_coverage",
+        "full_registry_any_artifact_coverage",
+        "all_categories_fully_covered"
+      ],
+      "next_action": "Extend RoboCasa artifacts from sampled/stratified coverage to every declared registry task or state a narrower benchmark scope.",
+      "required_artifacts": [
+        {
+          "path": "results/benchmark_robocasa_catalog_probe.json",
+          "exists": true,
+          "bytes": 15400
+        },
+        {
+          "path": "results/benchmark_robocasa_residual_triage.json",
+          "exists": true,
+          "bytes": 841
+        },
+        {
+          "path": "reports/robocasa_residual_triage_report.md",
+          "exists": true,
+          "bytes": 700
+        }
+      ],
+      "evidence": {
+        "catalog_verified": true,
+        "registry_count": 396,
+        "any_artifact_task_count": 136,
+        "any_artifact_coverage_fraction": 0.3434343434343434,
+        "triage_verified": true,
+        "unattempted": 230,
+        "attempted_not_covered": 30
+      }
+    },
+    {
+      "frontier_id": "maniskill_visual_ee",
+      "blocker_class": "renderer_or_ee_dependency_blocked",
+      "ready_to_promote": false,
+      "missing_signals": [
+        "rgb_or_rgbd_success",
+        "ee_control_success",
+        "pinocchio_available_for_ee"
+      ],
+      "next_action": "Clear the Vulkan descriptor-pool renderer failure and install a compatible Pinocchio stack for EE controllers.",
+      "required_artifacts": [
+        {
+          "path": "results/benchmark_maniskill_visual_probe.json",
+          "exists": true,
+          "bytes": 37884
+        },
+        {
+          "path": "results/benchmark_maniskill_dependency_probe.json",
+          "exists": true,
+          "bytes": 3535
+        },
+        {
+          "path": "reports/maniskill_visual_blocker_report.md",
+          "exists": true,
+          "bytes": 3449
+        },
+        {
+          "path": "reports/maniskill_dependency_blocker_report.md",
+          "exists": true,
+          "bytes": 3327
+        }
+      ],
+      "evidence": {
+        "visual_attempted": true,
+        "any_visual_success": false,
+        "visual_attempt_count": 13,
+        "any_ee_control_success": false,
+        "pinocchio_api_available": false,
+        "pinocchio_missing_symbols": [
+          "Model",
+          "GeometryModel",
+          "buildModelFromUrdf"
+        ]
+      }
+    },
+    {
+      "frontier_id": "universal_wam_training_recipe",
+      "blocker_class": "unrestricted_universal_recipe_no_free_lunch",
+      "ready_to_promote": false,
+      "missing_signals": [
+        "universal_generalization_proof_present"
+      ],
+      "next_action": "Build and evaluate a train/inference optimizer across data scale, model class, horizon, scorer, safety, and rollout budget.",
+      "required_artifacts": [
+        {
+          "path": "results/universal_wam_train_inference_optimizer.json",
+          "exists": true,
+          "bytes": 25001
+        },
+        {
+          "path": "results/universal_recipe_boundary.json",
+          "exists": true,
+          "bytes": 2459
+        },
+        {
+          "path": "reports/universal_recipe_boundary_report.md",
+          "exists": true,
+          "bytes": 1260
+        }
+      ],
+      "evidence": {
+        "optimizer_verified": true,
+        "not_a_universal_proof": true,
+        "boundary_verified": true,
+        "boundary_type": "no_free_lunch_boundary",
+        "boundary_regret_lb": 0.5
+      }
+    }
+  ],
+  "n_checks": 32,
+  "n_issues": 0,
+  "checks": [
+    {
+      "name": "readiness_artifact_verified",
+      "ok": true,
+      "detail": "verified=True"
+    },
+    {
+      "name": "no_ideal_frontier_promoted",
+      "ok": true,
+      "detail": "ready=0/5"
+    },
+    {
+      "name": "real_robot_hil_row_present",
+      "ok": true,
+      "detail": "present=True"
+    },
+    {
+      "name": "real_robot_hil_still_unpromoted",
+      "ok": true,
+      "detail": "ready=False"
+    },
+    {
+      "name": "real_robot_hil_has_missing_signals",
+      "ok": true,
+      "detail": "missing=['real_robot_or_hil_artifact_present', 'real_world_success_metrics_present']"
+    },
+    {
+      "name": "real_robot_hil_missing_signal_details_present",
+      "ok": true,
+      "detail": "detail_count=2, missing_count=2"
+    },
+    {
+      "name": "real_robot_hil_next_action_present",
+      "ok": true,
+      "detail": "next_action=Collect real robot or hardware-in-the-loop rollout/control logs with trial IDs and success or utility metrics."
+    },
+    {
+      "name": "real_robot_hil_blocker_artifacts_present",
+      "ok": true,
+      "detail": "missing_artifacts=[]"
+    },
+    {
+      "name": "modern_vla_libero_row_present",
+      "ok": true,
+      "detail": "present=True"
+    },
+    {
+      "name": "modern_vla_libero_still_unpromoted",
+      "ok": true,
+      "detail": "ready=False"
+    },
+    {
+      "name": "modern_vla_libero_has_missing_signals",
+      "ok": true,
+      "detail": "missing=['neural_visual_language_model_class', 'modern_vla_scale_or_pretrained_model']"
+    },
+    {
+      "name": "modern_vla_libero_missing_signal_details_present",
+      "ok": true,
+      "detail": "detail_count=2, missing_count=2"
+    },
+    {
+      "name": "modern_vla_libero_next_action_present",
+      "ok": true,
+      "detail": "next_action=Run a pretrained or VLA-scale neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs."
+    },
+    {
+      "name": "modern_vla_libero_blocker_artifacts_present",
+      "ok": true,
+      "detail": "missing_artifacts=[]"
+    },
+    {
+      "name": "full_robocasa_wide_row_present",
+      "ok": true,
+      "detail": "present=True"
+    },
+    {
+      "name": "full_robocasa_wide_still_unpromoted",
+      "ok": true,
+      "detail": "ready=False"
+    },
+    {
+      "name": "full_robocasa_wide_has_missing_signals",
+      "ok": true,
+      "detail": "missing=['full_registry_rollout_pool_coverage', 'full_registry_any_artifact_coverage', 'all_categories_fully_covered']"
+    },
+    {
+      "name": "full_robocasa_wide_missing_signal_details_present",
+      "ok": true,
+      "detail": "detail_count=3, missing_count=3"
+    },
+    {
+      "name": "full_robocasa_wide_next_action_present",
+      "ok": true,
+      "detail": "next_action=Extend RoboCasa artifacts from sampled/stratified coverage to every declared registry task or state a narrower benchmark scope."
+    },
+    {
+      "name": "full_robocasa_wide_blocker_artifacts_present",
+      "ok": true,
+      "detail": "missing_artifacts=[]"
+    },
+    {
+      "name": "maniskill_visual_ee_row_present",
+      "ok": true,
+      "detail": "present=True"
+    },
+    {
+      "name": "maniskill_visual_ee_still_unpromoted",
+      "ok": true,
+      "detail": "ready=False"
+    },
+    {
+      "name": "maniskill_visual_ee_has_missing_signals",
+      "ok": true,
+      "detail": "missing=['rgb_or_rgbd_success', 'ee_control_success', 'pinocchio_available_for_ee']"
+    },
+    {
+      "name": "maniskill_visual_ee_missing_signal_details_present",
+      "ok": true,
+      "detail": "detail_count=3, missing_count=3"
+    },
+    {
+      "name": "maniskill_visual_ee_next_action_present",
+      "ok": true,
+      "detail": "next_action=Clear the Vulkan descriptor-pool renderer failure and install a compatible Pinocchio stack for EE controllers."
+    },
+    {
+      "name": "maniskill_visual_ee_blocker_artifacts_present",
+      "ok": true,
+      "detail": "missing_artifacts=[]"
+    },
+    {
+      "name": "universal_wam_training_recipe_row_present",
+      "ok": true,
+      "detail": "present=True"
+    },
+    {
+      "name": "universal_wam_training_recipe_still_unpromoted",
+      "ok": true,
+      "detail": "ready=False"
+    },
+    {
+      "name": "universal_wam_training_recipe_has_missing_signals",
+      "ok": true,
+      "detail": "missing=['universal_generalization_proof_present']"
+    },
+    {
+      "name": "universal_wam_training_recipe_missing_signal_details_present",
+      "ok": true,
+      "detail": "detail_count=1, missing_count=1"
+    },
+    {
+      "name": "universal_wam_training_recipe_next_action_present",
+      "ok": true,
+      "detail": "next_action=Build and evaluate a train/inference optimizer across data scale, model class, horizon, scorer, safety, and rollout budget."
+    },
+    {
+      "name": "universal_wam_training_recipe_blocker_artifacts_present",
+      "ok": true,
+      "detail": "missing_artifacts=[]"
+    }
+  ],
+  "issues": []
+}

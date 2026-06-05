@@ -1,10 +1,10 @@
 # Source Manifest Report
 
 - Verified: True
-- Files hashed: 236
-- Total bytes: 1683754
-- Counts by directory: {'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 48, 'src': 66, 'tests': 60}
-- Counts by suffix: {'.md': 3, '.py': 219, '.toml': 1, '.txt': 2, '.sh': 11}
+- Files hashed: 239
+- Total bytes: 1699699
+- Counts by directory: {'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 49, 'src': 67, 'tests': 61}
+- Counts by suffix: {'.md': 3, '.py': 222, '.toml': 1, '.txt': 2, '.sh': 11}
 - Checks: 14
 - Issues: 0
 
