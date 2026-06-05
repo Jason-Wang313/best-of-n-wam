@@ -190,6 +190,27 @@ def test_ideal_frontier_readiness_counts_explicit_real_robot_trial_metrics(tmp_p
     assert "real_world_success_metrics_present" not in real_robot["missing_signals"]
 
 
+def test_ideal_frontier_readiness_reports_universal_boundary(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    results.mkdir()
+    write_json(
+        results / "universal_recipe_boundary.json",
+        {
+            "verified": True,
+            "result_type": "no_free_lunch_boundary",
+            "randomized_worst_case_regret_lower_bound": 0.5,
+        },
+    )
+
+    payload = audit_ideal_frontier_readiness(tmp_path, results)
+
+    universal = {row["frontier_id"]: row for row in payload["rows"]}["universal_wam_training_recipe"]
+    signal = next(signal for signal in universal["signals"] if signal["name"] == "universal_generalization_proof_present")
+    assert signal["ok"] is False
+    assert "boundary_verified=True" in signal["detail"]
+    assert "boundary_regret_lb=0.5" in signal["detail"]
+
+
 def test_ideal_frontier_readiness_accepts_neural_libero_policy_class(tmp_path: Path) -> None:
     results = tmp_path / "results"
     results.mkdir()

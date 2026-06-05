@@ -79,3 +79,9 @@ The high-score tail is the key object. Average score/utility correlation can mis
 ## Safety/Risk Scoring
 
 Safety can be handled by defining utility with a safety penalty, by constraining selection to low-risk rollouts, or by scoring rollouts as `utility - lambda * risk`. High-N selection can amplify risky false positives if risk is not included in the score.
+
+## Boundary: No Universal Training Recipe From Finite Artifacts
+
+The exact inference laws are conditional on a rollout generator and scorer distribution. They do not imply a universal WAM training recipe. A finite artifact set can always be matched by two future deployment worlds that agree on all observed evidence but assign opposite utilities to two train/inference choices in an unobserved context. Any deterministic recipe chooses the same option in both worlds and is suboptimal in one; any randomized recipe has positive worst-case regret without additional assumptions.
+
+Therefore a positive universal WAM train/inference claim requires a restricted task class, distributional assumptions linking artifacts to future deployments, realizability/learnability assumptions for the WAM and scorer families, and heldout evidence or proof under those restrictions. The repo's optimizer is evidence-bound over committed artifacts; it is not a universal train-inference law.

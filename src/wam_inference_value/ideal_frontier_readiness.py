@@ -191,6 +191,7 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     maniskill_deps = _load_json(results_dir / "benchmark_maniskill_dependency_probe.json")
     publication_scope = _load_json(results_dir / "publication_scope.json")
     optimizer = _load_json(results_dir / "universal_wam_train_inference_optimizer.json")
+    universal_boundary = _load_json(results_dir / "universal_recipe_boundary.json")
     runtime_probe = _load_json(results_dir / "external_benchmark_runtime_probe.json")
 
     rows: list[dict[str, Any]] = []
@@ -400,7 +401,12 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
         universal,
         "universal_generalization_proof_present",
         False,
-        "optimizer is evidence-bound to committed artifacts and explicitly not a universal proof",
+        (
+            "optimizer is evidence-bound to committed artifacts and explicitly not a universal proof; "
+            f"boundary_verified={universal_boundary.get('verified')}, "
+            f"boundary_type={universal_boundary.get('result_type')}, "
+            f"boundary_regret_lb={universal_boundary.get('randomized_worst_case_regret_lower_bound')}"
+        ),
     )
     rows.append(
         _row(

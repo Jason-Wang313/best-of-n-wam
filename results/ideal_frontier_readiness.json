@@ -194,7 +194,7 @@
         {
           "name": "universal_generalization_proof_present",
           "ok": false,
-          "detail": "optimizer is evidence-bound to committed artifacts and explicitly not a universal proof"
+          "detail": "optimizer is evidence-bound to committed artifacts and explicitly not a universal proof; boundary_verified=True, boundary_type=no_free_lunch_boundary, boundary_regret_lb=0.5"
         }
       ],
       "next_action": "Build and evaluate a train/inference optimizer across data scale, model class, horizon, scorer, safety, and rollout budget."

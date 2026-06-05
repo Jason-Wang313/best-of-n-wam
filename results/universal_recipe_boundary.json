@@ -1,0 +1,73 @@
+{
+  "experiment": "universal_recipe_boundary",
+  "verified": true,
+  "result_type": "no_free_lunch_boundary",
+  "claim": "No artifact-limited empirical optimizer can prove a universal WAM train/inference recipe over unrestricted future robot distributions without additional assumptions.",
+  "observed_contexts": [
+    "committed_toy_envs",
+    "committed_benchmark_envs",
+    "committed_visual_smokes"
+  ],
+  "choices": [
+    "recipe_A",
+    "recipe_B"
+  ],
+  "worlds": {
+    "world_A": {
+      "observed_evidence_signature": "same_as_world_B",
+      "unobserved_context": "new_robot_distribution",
+      "utility": {
+        "recipe_A": 1.0,
+        "recipe_B": 0.0
+      },
+      "optimal_recipe": "recipe_A"
+    },
+    "world_B": {
+      "observed_evidence_signature": "same_as_world_A",
+      "unobserved_context": "new_robot_distribution",
+      "utility": {
+        "recipe_A": 0.0,
+        "recipe_B": 1.0
+      },
+      "optimal_recipe": "recipe_B"
+    }
+  },
+  "deterministic_recipe_output": "recipe_A",
+  "deterministic_regret": {
+    "world_A": 0.0,
+    "world_B": 1.0
+  },
+  "randomized_choice_probability_recipe_a": 0.5,
+  "randomized_worst_case_regret_lower_bound": 0.5,
+  "what_would_be_needed_for_a_positive_universal_claim": [
+    "A specified restricted task/environment class.",
+    "A distributional assumption linking observed artifacts to future deployments.",
+    "A learnability/realizability assumption for the WAM family and scorer family.",
+    "A proof or large heldout benchmark suite matching that restricted claim."
+  ],
+  "n_checks": 4,
+  "n_issues": 0,
+  "checks": [
+    {
+      "name": "worlds_share_observed_evidence",
+      "ok": true,
+      "detail": "observed_contexts=['committed_toy_envs', 'committed_benchmark_envs', 'committed_visual_smokes']"
+    },
+    {
+      "name": "worlds_require_opposite_recipes",
+      "ok": true,
+      "detail": "optimal=recipe_A vs recipe_B"
+    },
+    {
+      "name": "deterministic_recipe_has_positive_worst_case_regret",
+      "ok": true,
+      "detail": "output=recipe_A, regret={'world_A': 0.0, 'world_B': 1.0}"
+    },
+    {
+      "name": "randomized_recipe_has_positive_worst_case_regret_lower_bound",
+      "ok": true,
+      "detail": "minimax lower bound=0.5"
+    }
+  ],
+  "note": "Boundary proof only. This blocks an unrestricted universal-recipe claim; it does not replace the evidence-bound optimizer."
+}

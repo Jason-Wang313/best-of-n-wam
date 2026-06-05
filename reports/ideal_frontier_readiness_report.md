@@ -40,5 +40,5 @@ This report is a gap audit, not a result promotion mechanism.
   - optimizer_result_verified: `True` (verified=True, not_a_universal_proof=True)
   - optimizer_choice_dimensions_covered: `True` (dimensions={'data_scale': True, 'model_class': True, 'model_capacity': True, 'rollout_horizon': True, 'scorer': True, 'safety_policy': True, 'rollout_budget': True})
   - cross_environment_optimizer_evidence_present: `True` (selected_envs=9, families=3)
-  - universal_generalization_proof_present: `False` (optimizer is evidence-bound to committed artifacts and explicitly not a universal proof)
+  - universal_generalization_proof_present: `False` (optimizer is evidence-bound to committed artifacts and explicitly not a universal proof; boundary_verified=True, boundary_type=no_free_lunch_boundary, boundary_regret_lb=0.5)
   Next action: Build and evaluate a train/inference optimizer across data scale, model class, horizon, scorer, safety, and rollout budget.
