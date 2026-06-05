@@ -376,6 +376,8 @@ def run_bc_episode(
     scale: np.ndarray,
     feature_weights: np.ndarray,
     predict_action: Callable[[np.ndarray, str], np.ndarray],
+    *,
+    record_trace: bool = False,
 ) -> dict[str, Any]:
     prev_action = np.zeros(adapter.action_dim, dtype=float)
     initial_distance = float(adapter.task_distance())
@@ -384,6 +386,9 @@ def run_bc_episode(
     steps = 0
     failure_reason = None
     language = current_language(adapter)
+    features: list[np.ndarray] = []
+    actions: list[np.ndarray] = []
+    feature_weight_trace: np.ndarray | None = None
     for _ in range(int(args.eval_steps)):
         if getattr(adapter, "last_done", False) or adapter.evaluate_success():
             break
@@ -394,6 +399,10 @@ def run_bc_episode(
         z = ((feature - mean) / scale) * feature_weights
         action = predict_action(z, language)
         action = np.clip(action, adapter.action_low, adapter.action_high)
+        if record_trace:
+            features.append(feature)
+            actions.append(action)
+            feature_weight_trace = weights
         try:
             _, reward, done, truncated, _ = adapter.step(action)
         except ValueError as exc:
@@ -416,6 +425,9 @@ def run_bc_episode(
         "steps": int(steps),
         "failure_reason": failure_reason,
         "language": language,
+        "features": features,
+        "actions": actions,
+        "feature_weights": feature_weight_trace,
     }
 
 
@@ -424,12 +436,19 @@ def write_report(summary: dict[str, Any], path: Path | None = None) -> None:
     policy = summary.get("policy") if isinstance(summary.get("policy"), dict) else {}
     policy_type = str(policy.get("type") or "unavailable")
     is_neural = bool(policy.get("is_neural"))
+    distilled = bool(policy.get("distilled_from_teacher"))
     model_class_text = (
+        "a distilled tiny neural RGB/proprio/language behavior-cloned policy"
+        if distilled
+        else
         "a tiny neural RGB/proprio/language behavior-cloned policy"
         if is_neural
         else "a low-dimensional RGB/proprio/language behavior-cloned kNN policy"
     )
     boundary = (
+        "- This is a distilled tiny neural visual-language-action style smoke; the teacher is used only for training labels. It is not VLA-scale pretraining or broad LIBERO policy evidence."
+        if distilled
+        else
         "- This is a tiny neural visual-language-action style smoke, not VLA-scale pretraining or broad LIBERO policy evidence."
         if is_neural
         else "- This uses RGB observations and task language, but it is still a lightweight feature-kNN behavior clone, not a modern vision-language policy."
@@ -468,7 +487,9 @@ def write_report(summary: dict[str, Any], path: Path | None = None) -> None:
         "- It does not use simulator object state, scripted phase labels, task IDs, or commanded target points at evaluation time.",
         language_filter,
         scope_line,
-        "- Demonstrations come from the hand-coded object-tuned scripted controller.",
+        "- Training labels include closed-loop retrieval-teacher rollouts, but evaluation uses only the saved neural action head."
+        if distilled
+        else "- Demonstrations come from the hand-coded object-tuned scripted controller.",
     ]
     (path or (REPORTS / "libero_visual_language_bc_policy_report.md")).write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -496,7 +517,14 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--camera-height", type=int, default=64)
     parser.add_argument("--offscreen-renderer", action="store_true")
     parser.add_argument("--eval-steps", type=int, default=280)
-    parser.add_argument("--policy-backend", choices=["knn", "tiny_neural_vla"], default="knn")
+    parser.add_argument("--policy-backend", choices=["knn", "tiny_neural_vla", "distilled_neural_vla"], default="knn")
+    parser.add_argument(
+        "--distill-seeds",
+        nargs="+",
+        type=int,
+        default=None,
+        help="Seeds for closed-loop teacher rollouts used only to train distilled_neural_vla.",
+    )
     parser.add_argument(
         "--output-tag",
         default="",
@@ -610,10 +638,62 @@ def main() -> None:
             for language in sorted({str(v) for v in train_languages.tolist()})
         }
         model_path = paths["model"]  # type: ignore[assignment]
+        distill_seeds = [int(s) for s in (args.distill_seeds if args.distill_seeds is not None else args.train_seeds)]
+        distill_examples = 0
+        distill_successes: list[float] = []
+        if args.policy_backend == "distilled_neural_vla":
+
+            def teacher_predict(z: np.ndarray, language: str) -> np.ndarray:
+                return knn_predict(
+                    x_z,
+                    y,
+                    z,
+                    k=args.knn_k,
+                    temperature=args.knn_temperature,
+                    candidate_indices=language_to_indices.get(language),
+                )
+
+            teacher_x_parts: list[np.ndarray] = []
+            teacher_y_parts: list[np.ndarray] = []
+            teacher_language_parts: list[np.ndarray] = []
+            for tid in task_ids:
+                for seed in distill_seeds:
+                    adapter.reset(int(seed), task_id=tid)
+                    out = run_bc_episode(adapter, args, mean, scale, feature_weights, teacher_predict, record_trace=True)
+                    if out["features"] and out["actions"]:
+                        teacher_x = np.vstack(out["features"])
+                        teacher_y = np.vstack(out["actions"])
+                        teacher_x_parts.append(teacher_x)
+                        teacher_y_parts.append(teacher_y)
+                        teacher_language_parts.append(np.full(len(teacher_x), str(out.get("language", "")), dtype=object))
+                        distill_examples += int(len(teacher_x))
+                    distill_successes.append(float(out.get("success", False)))
+                    rows.append(
+                        {
+                            "split": "train_distilled_teacher_visual_language",
+                            "task_id": tid,
+                            "task_name": str(getattr(adapter.task, "name", tid)),
+                            "seed": int(seed),
+                            **{k: out.get(k) for k in ["success", "total_reward", "initial_distance", "final_distance", "progress", "energy", "steps", "failure_reason"]},
+                        }
+                    )
+                    print(f"distill {tid} seed={seed} success={out.get('success')} examples={len(out['features'])}", flush=True)
+            if not teacher_x_parts:
+                raise RuntimeError("no distillation examples collected")
+            x = np.vstack([x, *teacher_x_parts])
+            y = np.vstack([y, *teacher_y_parts])
+            train_languages = np.concatenate([train_languages, *teacher_language_parts])
+            mean, scale = standardize_fit(x)
+            x_z = ((x - mean) / scale) * feature_weights.reshape(1, -1)
+            language_to_indices = {
+                str(language): np.flatnonzero(train_languages == language)
+                for language in sorted({str(v) for v in train_languages.tolist()})
+            }
+
         neural_arrays: dict[str, np.ndarray] = {}
         neural_losses: list[float] = []
         neural_model: Any | None = None
-        if args.policy_backend == "tiny_neural_vla":
+        if args.policy_backend in {"tiny_neural_vla", "distilled_neural_vla"}:
             neural_model, neural_arrays, neural_losses = train_tiny_neural_vla(x_z, y, args)
             y_mean = neural_arrays["y_mean"].astype(float)
             y_scale = neural_arrays["y_scale"].astype(float)
@@ -643,6 +723,7 @@ def main() -> None:
             train_languages=train_languages,
             task_ids=np.asarray(task_ids, dtype=object),
             train_seeds=np.asarray(args.train_seeds, dtype=int),
+            distill_seeds=np.asarray(distill_seeds if args.policy_backend == "distilled_neural_vla" else [], dtype=int),
             eval_seeds=np.asarray(args.eval_seeds, dtype=int),
             policy_backend=np.asarray(args.policy_backend),
             **neural_arrays,
@@ -689,9 +770,17 @@ def main() -> None:
         and (ci.get("mean") or 0.0) >= float(args.min_success_rate)
         and (ci.get("lo") or 0.0) >= float(args.min_success_ci_lo)
         and (
-            args.policy_backend != "tiny_neural_vla"
+            args.policy_backend not in {"tiny_neural_vla", "distilled_neural_vla"}
             or int(sum(successes)) > 0
         )
+    )
+    is_neural_backend = args.policy_backend in {"tiny_neural_vla", "distilled_neural_vla"}
+    policy_type = (
+        "distilled_tiny_neural_vla_behavior_cloning"
+        if args.policy_backend == "distilled_neural_vla"
+        else "tiny_neural_vla_behavior_cloning"
+        if args.policy_backend == "tiny_neural_vla"
+        else "rgb_proprio_language_knn_behavior_cloning"
     )
     summary = {
         "experiment": "benchmark_libero_visual_language_bc_policy",
@@ -705,17 +794,20 @@ def main() -> None:
         "train_episodes": int(len(train_successes)),
         "train_successes": int(sum(train_successes)),
         "train_examples": int(len(x)),
+        "distill_episodes": int(len(distill_successes)),
+        "distill_successes": int(sum(distill_successes)),
+        "distill_examples": int(distill_examples),
         "eval_episodes": int(len(eval_rows)),
         "eval_successes": int(sum(successes)),
         "eval_success_rate": float(np.mean(successes)) if successes else 0.0,
         "confidence_intervals": {"eval_success_rate": ci},
         "policy": {
-            "type": "tiny_neural_vla_behavior_cloning" if args.policy_backend == "tiny_neural_vla" else "rgb_proprio_language_knn_behavior_cloning",
-            "is_neural": args.policy_backend == "tiny_neural_vla",
-            "is_short_neural_smoke": bool(paths["tag"]) and args.policy_backend == "tiny_neural_vla",
+            "type": policy_type,
+            "is_neural": is_neural_backend,
+            "is_short_neural_smoke": bool(paths["tag"]) and is_neural_backend,
             "pretrained_vla": False,
             "vla_scale_parameters": neural_parameter_count(neural_arrays)
-            if args.policy_backend == "tiny_neural_vla"
+            if is_neural_backend
             else None,
             "uses_rgb": True,
             "uses_language": True,
@@ -727,10 +819,12 @@ def main() -> None:
             "uses_previous_action": True,
             "uses_step_clock": True,
             "uses_language_candidate_filter": args.policy_backend == "knn",
+            "distilled_from_teacher": args.policy_backend == "distilled_neural_vla",
+            "teacher_used_only_for_training": args.policy_backend == "distilled_neural_vla",
             "image_grid": int(args.image_grid),
             "language_hash_dim": int(args.language_hash_dim),
-            "neural_hidden_dim": int(args.neural_hidden_dim) if args.policy_backend == "tiny_neural_vla" else None,
-            "neural_epochs": int(args.neural_epochs) if args.policy_backend == "tiny_neural_vla" else None,
+            "neural_hidden_dim": int(args.neural_hidden_dim) if is_neural_backend else None,
+            "neural_epochs": int(args.neural_epochs) if is_neural_backend else None,
             "neural_final_train_loss": float(neural_losses[-1]) if neural_losses else None,
             "knn_k": int(args.knn_k) if args.policy_backend == "knn" else None,
             "knn_temperature": float(args.knn_temperature) if args.policy_backend == "knn" else None,
@@ -743,6 +837,9 @@ def main() -> None:
             "report": paths["report_rel"],
         },
         "note": (
+            "Distilled tiny neural RGB/proprio/language time-conditioned BC policy; the retrieval teacher is used only to generate training labels, not at evaluation time. This is neural model-class smoke evidence, not VLA-scale or pretrained evidence."
+            if args.policy_backend == "distilled_neural_vla"
+            else
             "Tiny neural RGB/proprio/language time-conditioned BC policy without simulator object state, task IDs, phase labels, target-point commands, or language-candidate retrieval; a VLA-style smoke, not VLA-scale evidence."
             if args.policy_backend == "tiny_neural_vla"
             else "RGB/proprio/language time-conditioned BC policy without simulator object state, task IDs, phase labels, or target-point commands; not full LIBERO or modern VLA evidence."

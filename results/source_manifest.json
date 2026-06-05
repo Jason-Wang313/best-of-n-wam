@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 223,
-  "total_bytes": 1595794,
+  "total_bytes": 1603503,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 206,
@@ -117,8 +117,8 @@
     {
       "path": "experiments/benchmark_libero_visual_language_bc_policy.py",
       "suffix": ".py",
-      "bytes": 33542,
-      "sha256": "67a5c3c5b1532eff1c9280b0af4dd869e2d53366a4272119109195737abadd3a"
+      "bytes": 38625,
+      "sha256": "647f63d49a5951601f0d3dbd1f16ae9e9578e9dc1eac8a0a4019bb6e37faf77f"
     },
     {
       "path": "experiments/benchmark_libero_wam.py",
@@ -891,8 +891,8 @@
     {
       "path": "src/wam_inference_value/ideal_frontier_readiness.py",
       "suffix": ".py",
-      "bytes": 14107,
-      "sha256": "e2bfa5166fc66cb6501ac90751c8e873af6ae01265424c352ea83d487d6b0e4f"
+      "bytes": 14165,
+      "sha256": "5c47078cf941e7da93ab2fd717727c8d0f49b44988bd42d09d292b48c41f5f86"
     },
     {
       "path": "src/wam_inference_value/learned_wam.py",
@@ -1203,8 +1203,8 @@
     {
       "path": "tests/test_ideal_frontier_readiness.py",
       "suffix": ".py",
-      "bytes": 9748,
-      "sha256": "56b8da9b3108d04a0fb98e2c7a2fb32124dff692e2eb16e439397c99b2e99585"
+      "bytes": 12316,
+      "sha256": "70ad235061653e92f651f4aeb166c61ffe1f13a37fc486f0f2e3a2e37669b8b7"
     },
     {
       "path": "tests/test_learned_wam.py",
@@ -1380,7 +1380,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1595794, scan=1595794"
+      "detail": "payload=1603503, scan=1603503"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1425,7 +1425,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1595794"
+      "detail": "bytes=1603503"
     },
     {
       "name": "source_manifest_dir_coverage",

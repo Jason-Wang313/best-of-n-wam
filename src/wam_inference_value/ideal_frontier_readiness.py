@@ -6,6 +6,9 @@ from pathlib import Path
 from typing import Any
 
 
+MODERN_VLA_MIN_PARAMETERS = 100_000_000
+
+
 @dataclass(frozen=True)
 class ReadinessSignal:
     name: str
@@ -70,7 +73,7 @@ def _neural_policy_class_completed(root: Path, payload: dict[str, Any]) -> bool:
 
 
 def _modern_vla_scale_or_pretrained(policy: dict[str, Any]) -> bool:
-    return policy.get("pretrained_vla") is True or int(policy.get("vla_scale_parameters") or 0) >= 1_000_000
+    return policy.get("pretrained_vla") is True or int(policy.get("vla_scale_parameters") or 0) >= MODERN_VLA_MIN_PARAMETERS
 
 
 def _signal(signals: list[ReadinessSignal], name: str, ok: bool, detail: str) -> None:

@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 149,
-  "n_unique_tests": 149,
-  "trailer_count": 149,
+  "n_tests": 151,
+  "n_unique_tests": 151,
+  "trailer_count": 151,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -90,6 +90,8 @@
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_keeps_future_frontiers_unpromoted",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_accepts_neural_libero_policy_class",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_accepts_auxiliary_neural_smoke",
+    "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_rejects_subscale_neural_smoke_as_modern_vla",
+    "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_rejects_zero_success_neural_smoke",
     "tests/test_learned_wam.py::test_learned_wam_trains_and_predicts_finite_metrics",
     "tests/test_learned_wam.py::test_rollout_pool_uses_learned_backend",
     "tests/test_learned_wam.py::test_normalized_utility_degenerate_pool_is_finite",
@@ -166,7 +168,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=149"
+      "detail": "nodeids=151"
     },
     {
       "name": "nodeids_unique",
@@ -176,12 +178,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=149"
+      "detail": "nodeids=151"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=149, nodeids=149"
+      "detail": "trailer=151, nodeids=151"
     },
     {
       "name": "required_test_families_present",

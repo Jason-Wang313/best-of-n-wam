@@ -18,8 +18,8 @@ This report is a gap audit, not a result promotion mechanism.
   - no_shortcut_eval_interface: `True` (policy={'type': 'rgb_proprio_language_knn_behavior_cloning', 'uses_rgb': True, 'uses_language': True, 'uses_robot_proprio': True, 'uses_simulator_object_state': False, 'uses_task_id': False, 'uses_phase_index': False, 'uses_target_point_command': False, 'uses_previous_action': True, 'uses_step_clock': True, 'uses_language_candidate_filter': True, 'knn_k': 3, 'knn_temperature': 0.05, 'image_grid': 8, 'language_hash_dim': 64})
   - sparse_success_ci_reported: `True` (ci={'n': 30, 'mean': 1.0, 'lo': 1.0, 'hi': 1.0, 'std': 0.0})
   - model_artifact_present: `True` (model_path=results\models\benchmark_libero_visual_language_bc_policy.npz)
-  - neural_visual_language_model_class: `False` (canonical_type='rgb_proprio_language_knn_behavior_cloning', canonical_is_neural=None, canonical_eval_successes=30, aux_type='tiny_neural_vla_behavior_cloning', aux_is_neural=True, aux_verified=False, aux_eval=1, aux_eval_successes=0)
-  - modern_vla_scale_or_pretrained_model: `False` (canonical_pretrained=None, canonical_params=None, aux_pretrained=False, aux_params=238343)
+  - neural_visual_language_model_class: `False` (canonical_type='rgb_proprio_language_knn_behavior_cloning', canonical_is_neural=None, canonical_eval_successes=30, aux_type='distilled_tiny_neural_vla_behavior_cloning', aux_is_neural=True, aux_verified=False, aux_eval=1, aux_eval_successes=0)
+  - modern_vla_scale_or_pretrained_model: `False` (canonical_pretrained=None, canonical_params=None, aux_pretrained=False, aux_params=607751)
   - current_runtime_can_rerun_libero: `True` (runtime_probe_verified=True, libero=True)
   Next action: Run a pretrained or VLA-scale neural RGB/proprio/language policy under a compatible LIBERO runtime and report heldout sparse-success CIs.
 - `full_robocasa_wide`: ready_to_promote=`False`; missing=['full_registry_rollout_pool_coverage', 'full_registry_any_artifact_coverage', 'all_categories_fully_covered']

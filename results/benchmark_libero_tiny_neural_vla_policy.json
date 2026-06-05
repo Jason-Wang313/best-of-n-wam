@@ -17,7 +17,10 @@
   ],
   "train_episodes": 3,
   "train_successes": 3,
-  "train_examples": 759,
+  "train_examples": 1531,
+  "distill_episodes": 3,
+  "distill_successes": 3,
+  "distill_examples": 772,
   "eval_episodes": 1,
   "eval_successes": 0,
   "eval_success_rate": 0.0,
@@ -31,11 +34,11 @@
     }
   },
   "policy": {
-    "type": "tiny_neural_vla_behavior_cloning",
+    "type": "distilled_tiny_neural_vla_behavior_cloning",
     "is_neural": true,
     "is_short_neural_smoke": true,
     "pretrained_vla": false,
-    "vla_scale_parameters": 238343,
+    "vla_scale_parameters": 607751,
     "uses_rgb": true,
     "uses_language": true,
     "uses_robot_proprio": true,
@@ -46,11 +49,13 @@
     "uses_previous_action": true,
     "uses_step_clock": true,
     "uses_language_candidate_filter": false,
+    "distilled_from_teacher": true,
+    "teacher_used_only_for_training": true,
     "image_grid": 8,
     "language_hash_dim": 64,
-    "neural_hidden_dim": 256,
-    "neural_epochs": 120,
-    "neural_final_train_loss": 0.007790289065838645,
+    "neural_hidden_dim": 512,
+    "neural_epochs": 160,
+    "neural_final_train_loss": 0.0038836997616452126,
     "knn_k": null,
     "knn_temperature": null
   },
@@ -61,5 +66,5 @@
     "episodes_csv": "results/tables/benchmark_libero_tiny_neural_vla_policy_episodes.csv",
     "report": "reports/libero_tiny_neural_vla_policy_report.md"
   },
-  "note": "Tiny neural RGB/proprio/language time-conditioned BC policy without simulator object state, task IDs, phase labels, target-point commands, or language-candidate retrieval; a VLA-style smoke, not VLA-scale evidence."
+  "note": "Distilled tiny neural RGB/proprio/language time-conditioned BC policy; the retrieval teacher is used only to generate training labels, not at evaluation time. This is neural model-class smoke evidence, not VLA-scale or pretrained evidence."
 }

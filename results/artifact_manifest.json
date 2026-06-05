@@ -3,7 +3,7 @@
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_files": 412,
-  "total_bytes": 59524729,
+  "total_bytes": 63117370,
   "counts_by_suffix": {
     ".json": 116,
     ".npz": 42,
@@ -68,8 +68,8 @@
     {
       "path": "results/benchmark_libero_tiny_neural_vla_policy.json",
       "suffix": ".json",
-      "bytes": 1963,
-      "sha256": "92b96b7aa7c16e51e700af92f4283f12134205ff251e504b7e19bc5f941769ae"
+      "bytes": 2163,
+      "sha256": "820c101c73733acb2da17a338cf23a03c4bceb420fa0ababc102b7c73904209c"
     },
     {
       "path": "results/benchmark_libero_visual_language_bc_policy.json",
@@ -891,13 +891,13 @@
       "path": "results/ideal_completion_audit.json",
       "suffix": ".json",
       "bytes": 11315,
-      "sha256": "546d0f86c8ee5d50467d877d1ef4de57f2943536cf090d1b170666590f5c5245"
+      "sha256": "39091095de2d1821cd2ce5c6217545fbf029d7a12a1e7d19a5e5655a8cbcd203"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 7643,
-      "sha256": "91ebe77f86d64c0050f9f9e10de8abf9a7ec5ff6c50df6b1491ff2a1cb26dbf7"
+      "bytes": 7653,
+      "sha256": "0aabfc0dfaf08ec88d19630137e530b2d0038a24875e132209ca6a8f10218c35"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -956,8 +956,8 @@
     {
       "path": "results/models/benchmark_libero_tiny_neural_vla_policy.npz",
       "suffix": ".npz",
-      "bytes": 3045547,
-      "sha256": "883f61e264da61d4740e4f327eea501446723bb8ea365a5ef26ced7d6201151d"
+      "bytes": 6637367,
+      "sha256": "4c4fb8224ce193039c3c88750ce492033443bbb5a23cee7b110180d0713ff4cf"
     },
     {
       "path": "results/models/benchmark_libero_visual_language_bc_policy.npz",
@@ -1292,8 +1292,8 @@
     {
       "path": "results/tables/benchmark_libero_tiny_neural_vla_policy_episodes.csv",
       "suffix": ".csv",
-      "bytes": 893,
-      "sha256": "cd49f0e4b7a6a66533d87c83f127991fc595fcc5173f0c3fe604cc3ff64b6ed5"
+      "bytes": 1504,
+      "sha256": "14d2f0e89294ff1d6cc61a35574693a2dbd79be08729faca9583dfeea94e9588"
     },
     {
       "path": "results/tables/benchmark_libero_train_validation.csv",
@@ -2501,7 +2501,7 @@
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=59524729, scan=59524729"
+      "detail": "payload=63117370, scan=63117370"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
@@ -2561,7 +2561,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=59524729"
+      "detail": "bytes=63117370"
     }
   ],
   "issues": [],
