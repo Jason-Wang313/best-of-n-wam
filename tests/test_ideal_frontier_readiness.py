@@ -94,6 +94,8 @@ def test_ideal_frontier_readiness_accepts_neural_libero_policy_class(tmp_path: P
             "verified": True,
             "eval_episodes": 3,
             "eval_successes": 3,
+            "train_seeds": [1, 2, 3],
+            "eval_seeds": [4, 5, 6],
             "model_path": "results/models/libero_neural.npz",
             "confidence_intervals": {"eval_success_rate": {"n": 3, "mean": 1.0}},
             "policy": {
@@ -153,6 +155,8 @@ def test_ideal_frontier_readiness_accepts_auxiliary_neural_smoke(tmp_path: Path)
             "verified": True,
             "eval_episodes": 1,
             "eval_successes": 1,
+            "train_seeds": [1],
+            "eval_seeds": [2],
             "model_path": "results/models/libero_neural_smoke.npz",
             "confidence_intervals": {"eval_success_rate": {"n": 1, "mean": 1.0}},
             "policy": {
@@ -214,6 +218,8 @@ def test_ideal_frontier_readiness_rejects_subscale_neural_smoke_as_modern_vla(tm
             "verified": True,
             "eval_episodes": 1,
             "eval_successes": 1,
+            "train_seeds": [1],
+            "eval_seeds": [2],
             "model_path": "results/models/libero_neural_smoke.npz",
             "confidence_intervals": {"eval_success_rate": {"n": 1, "mean": 1.0}},
             "policy": {
@@ -276,8 +282,73 @@ def test_ideal_frontier_readiness_rejects_zero_success_neural_smoke(tmp_path: Pa
             "eval_episodes": 1,
             "eval_successes": 0,
             "eval_success_rate": 0.0,
+            "train_seeds": [1],
+            "eval_seeds": [2],
             "model_path": "results/models/libero_neural_smoke.npz",
             "confidence_intervals": {"eval_success_rate": {"n": 1, "mean": 0.0}},
+            "policy": {
+                "type": "tiny_neural_vla_behavior_cloning",
+                "is_neural": True,
+                "pretrained_vla": False,
+                "vla_scale_parameters": 0,
+                "uses_rgb": True,
+                "uses_language": True,
+                "uses_robot_proprio": True,
+                "uses_simulator_object_state": False,
+                "uses_task_id": False,
+                "uses_phase_index": False,
+                "uses_target_point_command": False,
+            },
+        },
+    )
+    write_json(results / "external_benchmark_runtime_probe.json", {"verified": True, "libero_import_available": True})
+
+    payload = audit_ideal_frontier_readiness(tmp_path, results)
+
+    modern = {row["frontier_id"]: row for row in payload["rows"]}["modern_vla_libero"]
+    assert "neural_visual_language_model_class" in modern["missing_signals"]
+
+
+def test_ideal_frontier_readiness_rejects_nonheldout_neural_smoke(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    results.mkdir()
+    canonical_model = tmp_path / "results" / "models" / "libero_knn.npz"
+    neural_model = tmp_path / "results" / "models" / "libero_neural_smoke.npz"
+    canonical_model.parent.mkdir()
+    canonical_model.write_bytes(b"knn")
+    neural_model.write_bytes(b"neural")
+    write_json(
+        results / "benchmark_libero_visual_language_bc_policy.json",
+        {
+            "verified": True,
+            "eval_episodes": 30,
+            "eval_successes": 30,
+            "model_path": "results/models/libero_knn.npz",
+            "confidence_intervals": {"eval_success_rate": {"n": 30, "mean": 1.0, "lo": 1.0}},
+            "policy": {
+                "type": "rgb_proprio_language_knn_behavior_cloning",
+                "is_neural": False,
+                "uses_rgb": True,
+                "uses_language": True,
+                "uses_robot_proprio": True,
+                "uses_simulator_object_state": False,
+                "uses_task_id": False,
+                "uses_phase_index": False,
+                "uses_target_point_command": False,
+            },
+        },
+    )
+    write_json(
+        results / "benchmark_libero_tiny_neural_vla_policy.json",
+        {
+            "verified": True,
+            "eval_episodes": 1,
+            "eval_successes": 1,
+            "eval_success_rate": 1.0,
+            "train_seeds": [1],
+            "eval_seeds": [1],
+            "model_path": "results/models/libero_neural_smoke.npz",
+            "confidence_intervals": {"eval_success_rate": {"n": 1, "mean": 1.0}},
             "policy": {
                 "type": "tiny_neural_vla_behavior_cloning",
                 "is_neural": True,

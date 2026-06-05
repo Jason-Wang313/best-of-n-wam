@@ -42,6 +42,29 @@ def _policy_type(policy: dict[str, Any]) -> str:
     return str(policy.get("type") or "").lower()
 
 
+def _int_set(values: Any) -> set[int]:
+    if not isinstance(values, list):
+        return set()
+    out: set[int] = set()
+    for value in values:
+        try:
+            out.add(int(value))
+        except (TypeError, ValueError):
+            continue
+    return out
+
+
+def _heldout_eval(payload: dict[str, Any]) -> bool:
+    policy = _policy(payload)
+    if policy.get("pretrained_vla") is True:
+        return int(payload.get("eval_episodes") or 0) > 0
+    train = _int_set(payload.get("train_seeds"))
+    distill = _int_set(payload.get("distill_seeds"))
+    evals = _int_set(payload.get("eval_seeds"))
+    seen = train | distill
+    return bool(evals) and bool(seen) and seen.isdisjoint(evals)
+
+
 def _no_shortcuts(policy: dict[str, Any]) -> bool:
     return (
         policy.get("uses_rgb") is True
@@ -62,6 +85,7 @@ def _neural_policy_class_completed(root: Path, payload: dict[str, Any]) -> bool:
         and int(payload.get("eval_episodes") or 0) > 0
         and int(payload.get("eval_successes") or 0) > 0
         and float(ci.get("mean") or payload.get("eval_success_rate") or 0.0) > 0.0
+        and _heldout_eval(payload)
         and _model_exists(root, payload)
         and policy.get("is_neural") is True
         and bool(policy_type)
@@ -151,9 +175,11 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
         (
             f"canonical_type={policy_type!r}, canonical_is_neural={policy.get('is_neural')}, "
             f"canonical_eval_successes={libero_vl.get('eval_successes')}, "
+            f"canonical_heldout={_heldout_eval(libero_vl)}, "
             f"aux_type={neural_smoke_policy_type!r}, aux_is_neural={neural_smoke_policy.get('is_neural')}, "
             f"aux_verified={libero_neural_smoke.get('verified')}, aux_eval={libero_neural_smoke.get('eval_episodes')}, "
-            f"aux_eval_successes={libero_neural_smoke.get('eval_successes')}"
+            f"aux_eval_successes={libero_neural_smoke.get('eval_successes')}, "
+            f"aux_heldout={_heldout_eval(libero_neural_smoke)}"
         ),
     )
     _signal(

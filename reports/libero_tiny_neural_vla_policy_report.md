@@ -9,6 +9,8 @@ This optional artifact evaluates a distilled tiny neural RGB/proprio/language be
 - Policy type: `distilled_tiny_neural_vla_behavior_cloning`.
 - Neural/action-head parameters: `607751`.
 - Train action examples: `1531`.
+- Heldout evaluation: `True`.
+- Train/eval seed overlap: `[]`.
 - Distillation teacher success rate: `1.0`.
 - Neural train action MAE: `0.013508637980324416`.
 - Eval episodes: `1`.

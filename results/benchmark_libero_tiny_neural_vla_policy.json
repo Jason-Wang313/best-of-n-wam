@@ -18,6 +18,8 @@
   "train_episodes": 3,
   "train_successes": 3,
   "train_examples": 1531,
+  "heldout_eval": true,
+  "train_eval_seed_overlap": [],
   "distill_episodes": 3,
   "distill_successes": 3,
   "distill_success_rate": 1.0,

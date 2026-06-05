@@ -3,7 +3,7 @@
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_files": 412,
-  "total_bytes": 63117551,
+  "total_bytes": 63117647,
   "counts_by_suffix": {
     ".json": 116,
     ".npz": 42,
@@ -68,8 +68,8 @@
     {
       "path": "results/benchmark_libero_tiny_neural_vla_policy.json",
       "suffix": ".json",
-      "bytes": 2344,
-      "sha256": "a2c12973045cf1b3f4ee96e0664faf69c25d3c508ce0eb026faa14c11bc309c6"
+      "bytes": 2398,
+      "sha256": "d63d77f326b6c0562fad3cfa99a911f7e126488c455e9e1b9fb9bd261c23bc39"
     },
     {
       "path": "results/benchmark_libero_visual_language_bc_policy.json",
@@ -891,13 +891,13 @@
       "path": "results/ideal_completion_audit.json",
       "suffix": ".json",
       "bytes": 11315,
-      "sha256": "fc67edecbe6aa2a301d45bc41046f4a6b530d0c5e031b39c9931a24c6b640b28"
+      "sha256": "dcbbe14297346ba2dc5a5b0fb831a9a8baeba1d9e6c135a7482d5b4bf7382d2d"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 7653,
-      "sha256": "0aabfc0dfaf08ec88d19630137e530b2d0038a24875e132209ca6a8f10218c35"
+      "bytes": 7695,
+      "sha256": "6c4c49e8117629e01e82066926c66d9fe5aaf8e0b2ada48efac8bbadcc87cf4d"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -2501,7 +2501,7 @@
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=63117551, scan=63117551"
+      "detail": "payload=63117647, scan=63117647"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
@@ -2561,7 +2561,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=63117551"
+      "detail": "bytes=63117647"
     }
   ],
   "issues": [],

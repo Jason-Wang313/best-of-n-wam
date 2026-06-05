@@ -71,7 +71,7 @@
         {
           "name": "neural_visual_language_model_class",
           "ok": false,
-          "detail": "canonical_type='rgb_proprio_language_knn_behavior_cloning', canonical_is_neural=None, canonical_eval_successes=30, aux_type='distilled_tiny_neural_vla_behavior_cloning', aux_is_neural=True, aux_verified=False, aux_eval=1, aux_eval_successes=0"
+          "detail": "canonical_type='rgb_proprio_language_knn_behavior_cloning', canonical_is_neural=None, canonical_eval_successes=30, canonical_heldout=True, aux_type='distilled_tiny_neural_vla_behavior_cloning', aux_is_neural=True, aux_verified=False, aux_eval=1, aux_eval_successes=0, aux_heldout=True"
         },
         {
           "name": "modern_vla_scale_or_pretrained_model",

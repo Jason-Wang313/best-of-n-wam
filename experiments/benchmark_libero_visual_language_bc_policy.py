@@ -492,6 +492,8 @@ def write_report(summary: dict[str, Any], path: Path | None = None) -> None:
         f"- Policy type: `{policy_type}`.",
         f"- Neural/action-head parameters: `{policy.get('vla_scale_parameters')}`.",
         f"- Train action examples: `{summary.get('train_examples')}`.",
+        f"- Heldout evaluation: `{summary.get('heldout_eval')}`.",
+        f"- Train/eval seed overlap: `{summary.get('train_eval_seed_overlap')}`.",
         f"- Distillation teacher success rate: `{summary.get('distill_success_rate')}`.",
         f"- Neural train action MAE: `{fit.get('action_mae')}`.",
         f"- Eval episodes: `{summary.get('eval_episodes')}`.",
@@ -784,10 +786,16 @@ def main() -> None:
     successes = [float(r.get("success", False)) for r in eval_rows]
     ci = bootstrap_ci(successes, seed=args.seed, n_boot=args.bootstrap_samples)
     train_successes = [float(r.get("success", False)) for r in rows if r.get("split") == "train_scripted_visual_language"]
+    train_seed_set = {int(s) for s in args.train_seeds}
+    distill_seed_set = {int(s) for s in (args.distill_seeds if args.distill_seeds is not None else [])}
+    eval_seed_set = {int(s) for s in args.eval_seeds}
+    train_eval_seed_overlap = sorted((train_seed_set | distill_seed_set) & eval_seed_set)
+    heldout_eval = bool(eval_seed_set) and not train_eval_seed_overlap
     verified = (
         len(eval_rows) >= len(task_ids) * len(args.eval_seeds)
         and (ci.get("mean") or 0.0) >= float(args.min_success_rate)
         and (ci.get("lo") or 0.0) >= float(args.min_success_ci_lo)
+        and heldout_eval
         and (
             args.policy_backend not in {"tiny_neural_vla", "distilled_neural_vla"}
             or int(sum(successes)) > 0
@@ -813,6 +821,8 @@ def main() -> None:
         "train_episodes": int(len(train_successes)),
         "train_successes": int(sum(train_successes)),
         "train_examples": int(len(x)),
+        "heldout_eval": bool(heldout_eval),
+        "train_eval_seed_overlap": train_eval_seed_overlap,
         "distill_episodes": int(len(distill_successes)),
         "distill_successes": int(sum(distill_successes)),
         "distill_success_rate": float(np.mean(distill_successes)) if distill_successes else None,

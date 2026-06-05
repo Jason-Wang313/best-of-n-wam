@@ -296,12 +296,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7653
+          "bytes": 7695
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4543
+          "bytes": 4585
         },
         {
           "path": "reports/final_decision_report.md",
@@ -364,12 +364,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7653
+          "bytes": 7695
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4543
+          "bytes": 4585
         },
         {
           "path": "results/external_benchmark_runtime_probe.json",
@@ -394,12 +394,12 @@
         {
           "path": "results/benchmark_libero_tiny_neural_vla_policy.json",
           "exists": true,
-          "bytes": 2344
+          "bytes": 2398
         },
         {
           "path": "reports/libero_tiny_neural_vla_policy_report.md",
           "exists": true,
-          "bytes": 1451
+          "bytes": 1514
         },
         {
           "path": "results/benchmark_libero_wam.json",
@@ -470,12 +470,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7653
+          "bytes": 7695
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4543
+          "bytes": 4585
         },
         {
           "path": "results/benchmark_robocasa_catalog_probe.json",
@@ -555,12 +555,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7653
+          "bytes": 7695
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4543
+          "bytes": 4585
         },
         {
           "path": "results/benchmark_maniskill_visual_probe.json",
@@ -633,12 +633,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 7653
+          "bytes": 7695
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 4543
+          "bytes": 4585
         },
         {
           "path": "results/universal_wam_train_inference_optimizer.json",
