@@ -82,6 +82,56 @@ def test_ideal_frontier_readiness_keeps_future_frontiers_unpromoted(tmp_path: Pa
     assert "full_registry_rollout_pool_coverage" in by_id["full_robocasa_wide"]["missing_signals"]
 
 
+def test_ideal_frontier_readiness_reports_robocasa_residual_attempts(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    results.mkdir()
+    write_json(
+        results / "benchmark_robocasa_catalog_probe.json",
+        {
+            "verified": True,
+            "registry_count": 4,
+            "verified_artifact_task_count": 1,
+            "any_artifact_task_count": 2,
+            "category_counts": [
+                {"category": "close", "registered": 2, "any_artifact_covered": 1},
+                {"category": "long_horizon_or_compositional", "registered": 2, "any_artifact_covered": 1},
+            ],
+        },
+    )
+    write_json(
+        results / "benchmark_robocasa_residual_frontier_sweep_quick_close.json",
+        {
+            "attempted": True,
+            "candidate_task_count": 1,
+            "completed_chunk_count": 0,
+            "timed_out_chunk_count": 1,
+            "nondegenerate_task_count": 0,
+            "categories": ["close"],
+        },
+    )
+    write_json(
+        results / "benchmark_robocasa_residual_frontier_sweep_quick_gap.json",
+        {
+            "attempted": True,
+            "candidate_task_count": 1,
+            "completed_chunk_count": 0,
+            "timed_out_chunk_count": 1,
+            "nondegenerate_task_count": 0,
+            "categories": ["long_horizon_or_compositional"],
+        },
+    )
+
+    payload = audit_ideal_frontier_readiness(tmp_path, results)
+
+    robocasa = {row["frontier_id"]: row for row in payload["rows"]}["full_robocasa_wide"]
+    any_signal = next(signal for signal in robocasa["signals"] if signal["name"] == "full_registry_any_artifact_coverage")
+    assert any_signal["ok"] is False
+    assert "residual_attempts=2" in any_signal["detail"]
+    assert "residual_timeouts=2" in any_signal["detail"]
+    assert "quick_close" in any_signal["detail"]
+    assert "quick_gap" in any_signal["detail"]
+
+
 def test_ideal_frontier_readiness_accepts_neural_libero_policy_class(tmp_path: Path) -> None:
     results = tmp_path / "results"
     results.mkdir()

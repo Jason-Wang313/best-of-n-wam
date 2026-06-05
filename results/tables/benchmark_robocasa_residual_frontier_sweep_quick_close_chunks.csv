@@ -1,0 +1,2 @@
+chunk_index,tag,env_ids,candidate_task_count,verified,timed_out,runnable_task_count,nondegenerate_task_count,summary_path
+0,residual_quick_close_000,robocasa/CloseBlenderLid,1,False,True,0,0,C:\Users\wangz\best-of-n-wam\results\benchmark_robocasa_micro_rollout_residual_quick_close_000.json

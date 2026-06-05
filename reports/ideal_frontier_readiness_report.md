@@ -25,7 +25,7 @@ This report is a gap audit, not a result promotion mechanism.
 - `full_robocasa_wide`: ready_to_promote=`False`; missing=['full_registry_rollout_pool_coverage', 'full_registry_any_artifact_coverage', 'all_categories_fully_covered']
   - catalog_probe_verified: `True` (verified=True)
   - full_registry_rollout_pool_coverage: `False` (rollout_pool_covered=132/396)
-  - full_registry_any_artifact_coverage: `False` (any_artifact_covered=136/396)
+  - full_registry_any_artifact_coverage: `False` (any_artifact_covered=136/396; residual_attempts=4, residual_candidates=8, residual_timeouts=7, residual_nondegenerate=0, residual_categories=['cleaning', 'close', 'long_horizon_or_compositional', 'manipulate', 'turn'], residual_artifacts=['benchmark_robocasa_residual_frontier_sweep_atomic_gap_probe.json', 'benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe.json', 'benchmark_robocasa_residual_frontier_sweep_quick_close.json', 'benchmark_robocasa_residual_frontier_sweep_quick_gap.json'])
   - all_categories_fully_covered: `False` (missing=['cleaning', 'close', 'cooking', 'long_horizon_or_compositional', 'manipulate', 'open', 'pick_place', 'turn'])
   Next action: Extend RoboCasa artifacts from sampled/stratified coverage to every declared registry task or state a narrower benchmark scope.
 - `maniskill_visual_ee`: ready_to_promote=`False`; missing=['rgb_or_rgbd_success', 'ee_control_success', 'pinocchio_available_for_ee']

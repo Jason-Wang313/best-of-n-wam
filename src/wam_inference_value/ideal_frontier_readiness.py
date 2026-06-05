@@ -129,6 +129,33 @@ def _best_neural_libero_auxiliary(root: Path, payloads: list[dict[str, Any]]) ->
     return max(payloads, key=key)
 
 
+def _robocasa_residual_attempt_summary(results_dir: Path) -> dict[str, Any]:
+    attempts: list[dict[str, Any]] = []
+    for path in sorted(results_dir.glob("benchmark_robocasa_residual_frontier_sweep_*.json")):
+        payload = _load_json(path)
+        if not payload or not payload.get("attempted"):
+            continue
+        attempts.append(
+            {
+                "artifact": path.name,
+                "candidate_task_count": int(payload.get("candidate_task_count") or 0),
+                "completed_chunk_count": int(payload.get("completed_chunk_count") or 0),
+                "timed_out_chunk_count": int(payload.get("timed_out_chunk_count") or 0),
+                "nondegenerate_task_count": int(payload.get("nondegenerate_task_count") or 0),
+                "categories": payload.get("categories") if isinstance(payload.get("categories"), list) else [],
+            }
+        )
+    return {
+        "attempt_count": len(attempts),
+        "candidate_task_count": sum(int(row["candidate_task_count"]) for row in attempts),
+        "completed_chunk_count": sum(int(row["completed_chunk_count"]) for row in attempts),
+        "timed_out_chunk_count": sum(int(row["timed_out_chunk_count"]) for row in attempts),
+        "nondegenerate_task_count": sum(int(row["nondegenerate_task_count"]) for row in attempts),
+        "artifacts": [str(row["artifact"]) for row in attempts[-5:]],
+        "categories": sorted({str(cat) for row in attempts for cat in row["categories"]}),
+    }
+
+
 def _signal(signals: list[ReadinessSignal], name: str, ok: bool, detail: str) -> None:
     signals.append(ReadinessSignal(name=name, ok=bool(ok), detail=detail))
 
@@ -241,6 +268,7 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
     rollout_count = int(robocasa_catalog.get("verified_artifact_task_count") or 0)
     any_count = int(robocasa_catalog.get("any_artifact_task_count") or 0)
     category_counts = robocasa_catalog.get("category_counts") if isinstance(robocasa_catalog.get("category_counts"), list) else []
+    residual_attempts = _robocasa_residual_attempt_summary(results_dir)
     missing_categories = [
         str(row.get("category"))
         for row in category_counts
@@ -258,7 +286,15 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
         robocasa,
         "full_registry_any_artifact_coverage",
         registry_count > 0 and any_count == registry_count,
-        f"any_artifact_covered={any_count}/{registry_count}",
+        (
+            f"any_artifact_covered={any_count}/{registry_count}; "
+            f"residual_attempts={residual_attempts['attempt_count']}, "
+            f"residual_candidates={residual_attempts['candidate_task_count']}, "
+            f"residual_timeouts={residual_attempts['timed_out_chunk_count']}, "
+            f"residual_nondegenerate={residual_attempts['nondegenerate_task_count']}, "
+            f"residual_categories={residual_attempts['categories']}, "
+            f"residual_artifacts={residual_attempts['artifacts']}"
+        ),
     )
     _signal(robocasa, "all_categories_fully_covered", not missing_categories and bool(category_counts), f"missing={missing_categories}")
     rows.append(

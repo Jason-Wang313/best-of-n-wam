@@ -111,7 +111,7 @@
         {
           "name": "full_registry_any_artifact_coverage",
           "ok": false,
-          "detail": "any_artifact_covered=136/396"
+          "detail": "any_artifact_covered=136/396; residual_attempts=4, residual_candidates=8, residual_timeouts=7, residual_nondegenerate=0, residual_categories=['cleaning', 'close', 'long_horizon_or_compositional', 'manipulate', 'turn'], residual_artifacts=['benchmark_robocasa_residual_frontier_sweep_atomic_gap_probe.json', 'benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe.json', 'benchmark_robocasa_residual_frontier_sweep_quick_close.json', 'benchmark_robocasa_residual_frontier_sweep_quick_gap.json']"
         },
         {
           "name": "all_categories_fully_covered",

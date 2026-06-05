@@ -2,13 +2,13 @@
   "experiment": "artifact_manifest",
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_files": 423,
-  "total_bytes": 69788124,
+  "n_files": 429,
+  "total_bytes": 69792301,
   "counts_by_suffix": {
-    ".json": 122,
+    ".json": 126,
     ".npz": 43,
     ".png": 36,
-    ".csv": 222
+    ".csv": 224
   },
   "records": [
     {
@@ -492,6 +492,18 @@
       "sha256": "0064ab5d594e39cf31218e3bdf66069b4c9ce7531d4afa8a6be6cc6d56da63ff"
     },
     {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_quick_close_000.json",
+      "suffix": ".json",
+      "bytes": 596,
+      "sha256": "c5d81d653048a656347bfeed0d0e7abf3ad467a9b2feb8d350c218bae7e2413c"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_quick_gap_000.json",
+      "suffix": ".json",
+      "bytes": 591,
+      "sha256": "0386ec46f9cd3fcbb5fcc7fe82a869846b864c7370f45d2f15ed84eee1017d95"
+    },
+    {
       "path": "results/benchmark_robocasa_micro_rollout_stratified_probe.json",
       "suffix": ".json",
       "bytes": 2483,
@@ -526,6 +538,18 @@
       "suffix": ".json",
       "bytes": 992,
       "sha256": "766193190687176785a4f2a2457a3145f89c9c5369de66d139b93b2e304c9611"
+    },
+    {
+      "path": "results/benchmark_robocasa_residual_frontier_sweep_quick_close.json",
+      "suffix": ".json",
+      "bytes": 962,
+      "sha256": "d169bde3617036f8664ffbbdebddedbcef76ca91e749f37d2a1cc326057d77b7"
+    },
+    {
+      "path": "results/benchmark_robocasa_residual_frontier_sweep_quick_gap.json",
+      "suffix": ".json",
+      "bytes": 975,
+      "sha256": "285d412969606329e1cd7bef55827b44e5f7b34333dca34e2e7b4dd2f8d57af5"
     },
     {
       "path": "results/benchmark_robocasa_smoke.json",
@@ -932,8 +956,8 @@
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 7777,
-      "sha256": "dc42d85bb4df228189e77647d9d25f2ab03bb06e3ed290d2cbe4833521e108c8"
+      "bytes": 8249,
+      "sha256": "485c7dbce4b48c885d4e19c540d2770c7fdec9910ca3921dbbfcc1d464569734"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -2082,6 +2106,18 @@
       "sha256": "40c34a720a3ff74af4c194c1b4fb968b2227b627603d7922e650e7edffbc540a"
     },
     {
+      "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_quick_close_chunks.csv",
+      "suffix": ".csv",
+      "bytes": 293,
+      "sha256": "5c8bc9f727ad6d0a1267cc4bd22fbad61ef47efc71313b801da620d6d3495cd4"
+    },
+    {
+      "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_quick_gap_chunks.csv",
+      "suffix": ".csv",
+      "bytes": 288,
+      "sha256": "89659c359bc6c971cbef2b5cdee106c4aa6d43e554c2a88e4e838a00b3a2a9da"
+    },
+    {
       "path": "results/tables/benchmark_robocasa_rollouts.csv",
       "suffix": ".csv",
       "bytes": 12805,
@@ -2557,22 +2593,22 @@
     {
       "name": "manifest_records_present",
       "ok": true,
-      "detail": "records=423"
+      "detail": "records=429"
     },
     {
       "name": "manifest_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=423, scan=423"
+      "detail": "payload=429, scan=429"
     },
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=69788124, scan=69788124"
+      "detail": "payload=69792301, scan=69792301"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
       "ok": true,
-      "detail": "payload={'.json': 122, '.npz': 43, '.png': 36, '.csv': 222}, scan={'.json': 122, '.npz': 43, '.png': 36, '.csv': 222}"
+      "detail": "payload={'.json': 126, '.npz': 43, '.png': 36, '.csv': 224}, scan={'.json': 126, '.npz': 43, '.png': 36, '.csv': 224}"
     },
     {
       "name": "manifest_has_no_missing_current_artifacts",
@@ -2602,17 +2638,17 @@
     {
       "name": "manifest_scientific_artifact_file_count",
       "ok": true,
-      "detail": "files=423"
+      "detail": "files=429"
     },
     {
       "name": "manifest_table_count",
       "ok": true,
-      "detail": "csv=222"
+      "detail": "csv=224"
     },
     {
       "name": "manifest_json_count",
       "ok": true,
-      "detail": "json=122"
+      "detail": "json=126"
     },
     {
       "name": "manifest_model_count",
@@ -2627,7 +2663,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=69788124"
+      "detail": "bytes=69792301"
     }
   ],
   "issues": [],

@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 159,
-  "n_unique_tests": 159,
-  "trailer_count": 159,
+  "n_tests": 160,
+  "n_unique_tests": 160,
+  "trailer_count": 160,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -88,6 +88,7 @@
     "tests/test_ideal_completion_audit.py::test_ideal_completion_audit_rejects_future_row_counted_as_supported",
     "tests/test_ideal_completion_audit.py::test_ideal_completion_audit_accepts_complete_supported_rows",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_keeps_future_frontiers_unpromoted",
+    "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_reports_robocasa_residual_attempts",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_accepts_neural_libero_policy_class",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_accepts_auxiliary_neural_smoke",
     "tests/test_ideal_frontier_readiness.py::test_ideal_frontier_readiness_scans_tagged_auxiliary_neural_smokes",
@@ -176,7 +177,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=159"
+      "detail": "nodeids=160"
     },
     {
       "name": "nodeids_unique",
@@ -186,12 +187,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=159"
+      "detail": "nodeids=160"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=159, nodeids=159"
+      "detail": "trailer=160, nodeids=160"
     },
     {
       "name": "required_test_families_present",

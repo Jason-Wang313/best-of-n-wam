@@ -2,10 +2,10 @@
   "experiment": "artifact_integrity",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_result_json": 150,
-  "n_references": 717,
+  "n_result_json": 154,
+  "n_references": 721,
   "status_counts": {
-    "ok": 717
+    "ok": 721
   },
   "n_issues": 0,
   "issues": [],
@@ -2600,6 +2600,50 @@
       "json_path": "report_path",
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_cleaning_gap_probe_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_cleaning_gap_probe_report.md",
+      "exists": true,
+      "bytes": 419,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_robocasa_residual_frontier_sweep_quick_close.json",
+      "json_path": "table_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_quick_close_chunks.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_quick_close_chunks.csv",
+      "exists": true,
+      "bytes": 293,
+      "rows": 1,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_robocasa_residual_frontier_sweep_quick_close.json",
+      "json_path": "report_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_quick_close_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_quick_close_report.md",
+      "exists": true,
+      "bytes": 419,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_robocasa_residual_frontier_sweep_quick_gap.json",
+      "json_path": "table_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_quick_gap_chunks.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_quick_gap_chunks.csv",
+      "exists": true,
+      "bytes": 288,
+      "rows": 1,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_robocasa_residual_frontier_sweep_quick_gap.json",
+      "json_path": "report_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_quick_gap_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_quick_gap_report.md",
       "exists": true,
       "bytes": 419,
       "rows": null,
@@ -6000,7 +6044,7 @@
       "raw_path": "results/artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 97074,
+      "bytes": 98490,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6011,7 +6055,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 97074,
+      "bytes": 98490,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6088,7 +6132,7 @@
       "raw_path": "results/table_schema.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\table_schema.json",
       "exists": true,
-      "bytes": 262599,
+      "bytes": 264631,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6099,7 +6143,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\table_schema.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\table_schema.json",
       "exists": true,
-      "bytes": 262599,
+      "bytes": 264631,
       "rows": null,
       "status": "ok",
       "reason": ""

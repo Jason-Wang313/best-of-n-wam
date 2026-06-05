@@ -2,10 +2,10 @@
   "experiment": "table_schema",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_tables": 222,
-  "total_rows": 212891,
-  "total_column_instances": 2663,
-  "numeric_column_instances": 2005,
+  "n_tables": 224,
+  "total_rows": 212893,
+  "total_column_instances": 2681,
+  "numeric_column_instances": 2013,
   "optional_blank_instances": 108,
   "n_checks": 17,
   "n_issues": 0,
@@ -13,17 +13,17 @@
     {
       "name": "table_files_present",
       "ok": true,
-      "detail": "tables=222"
+      "detail": "tables=224"
     },
     {
       "name": "table_rows_present",
       "ok": true,
-      "detail": "rows=212891"
+      "detail": "rows=212893"
     },
     {
       "name": "table_columns_present",
       "ok": true,
-      "detail": "column_instances=2663"
+      "detail": "column_instances=2681"
     },
     {
       "name": "table_headers_well_formed",
@@ -88,7 +88,7 @@
     {
       "name": "numeric_column_coverage",
       "ok": true,
-      "detail": "numeric_column_instances=2005"
+      "detail": "numeric_column_instances=2013"
     },
     {
       "name": "optional_blank_columns_are_explicit",
@@ -6779,6 +6779,76 @@
     {
       "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe_chunks.csv",
       "rows": 2,
+      "columns": 9,
+      "fieldnames": [
+        "chunk_index",
+        "tag",
+        "env_ids",
+        "candidate_task_count",
+        "verified",
+        "timed_out",
+        "runnable_task_count",
+        "nondegenerate_task_count",
+        "summary_path"
+      ],
+      "numeric_columns": [
+        "candidate_task_count",
+        "chunk_index",
+        "nondegenerate_task_count",
+        "runnable_task_count"
+      ],
+      "blank_columns": [],
+      "malformed": false,
+      "duplicate_columns": [],
+      "blank_column_names": [],
+      "duplicate_rows": 0,
+      "blank_disallowed": [],
+      "nonfinite_numeric": [],
+      "noninteger_values": [],
+      "negative_id_values": [],
+      "nonpositive_compute_values": [],
+      "success_range_errors": [],
+      "boolean_errors": [],
+      "family_failures": []
+    },
+    {
+      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual_frontier_sweep_quick_close_chunks.csv",
+      "rows": 1,
+      "columns": 9,
+      "fieldnames": [
+        "chunk_index",
+        "tag",
+        "env_ids",
+        "candidate_task_count",
+        "verified",
+        "timed_out",
+        "runnable_task_count",
+        "nondegenerate_task_count",
+        "summary_path"
+      ],
+      "numeric_columns": [
+        "candidate_task_count",
+        "chunk_index",
+        "nondegenerate_task_count",
+        "runnable_task_count"
+      ],
+      "blank_columns": [],
+      "malformed": false,
+      "duplicate_columns": [],
+      "blank_column_names": [],
+      "duplicate_rows": 0,
+      "blank_disallowed": [],
+      "nonfinite_numeric": [],
+      "noninteger_values": [],
+      "negative_id_values": [],
+      "nonpositive_compute_values": [],
+      "success_range_errors": [],
+      "boolean_errors": [],
+      "family_failures": []
+    },
+    {
+      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual_frontier_sweep_quick_gap_chunks.csv",
+      "rows": 1,
       "columns": 9,
       "fieldnames": [
         "chunk_index",
