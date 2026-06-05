@@ -1,8 +1,8 @@
 env_id,category,coverage_status,reason,attempt_count,attempt_sources,covered_by_rollout_pool,covered_by_micro,covered_by_any
 robocasa/AddIceCubes,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
 robocasa/AddLemonToFish,long_horizon_or_compositional,timed_out,timeout attempts=1,1,benchmark_robocasa_micro_rollout_residual_quick_gap_000.json,False,False,False
-robocasa/AddMarshmallow,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
-robocasa/AddSugarCubes,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/AddMarshmallow,long_horizon_or_compositional,timed_out,timeout attempts=1,1,benchmark_robocasa_micro_rollout_residual_longhorizon_gap_probe_000.json,False,False,False
+robocasa/AddSugarCubes,long_horizon_or_compositional,timed_out,timeout attempts=1,1,benchmark_robocasa_micro_rollout_residual_longhorizon_gap_probe_001.json,False,False,False
 robocasa/AddSweetener,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/AddToSoupPot,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
 robocasa/AdjustHeat,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True

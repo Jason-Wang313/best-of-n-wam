@@ -2,13 +2,13 @@
   "experiment": "artifact_manifest",
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_files": 446,
-  "total_bytes": 77223275,
+  "n_files": 450,
+  "total_bytes": 77226188,
   "counts_by_suffix": {
-    ".json": 137,
+    ".json": 140,
     ".npz": 45,
     ".png": 36,
-    ".csv": 228
+    ".csv": 229
   },
   "records": [
     {
@@ -504,6 +504,18 @@
       "sha256": "0064ab5d594e39cf31218e3bdf66069b4c9ce7531d4afa8a6be6cc6d56da63ff"
     },
     {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_longhorizon_gap_probe_000.json",
+      "suffix": ".json",
+      "bytes": 613,
+      "sha256": "4e8103f0a4332c76657c496ff69cb593f2fc20e3f46f4f55112ad596344a323a"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_longhorizon_gap_probe_001.json",
+      "suffix": ".json",
+      "bytes": 612,
+      "sha256": "39ed937fc3881d656bb6c1cfbb4c3dd190a60eac54416054522f2606a02a7446"
+    },
+    {
       "path": "results/benchmark_robocasa_micro_rollout_residual_quick_close_000.json",
       "suffix": ".json",
       "bytes": 596,
@@ -552,6 +564,12 @@
       "sha256": "766193190687176785a4f2a2457a3145f89c9c5369de66d139b93b2e304c9611"
     },
     {
+      "path": "results/benchmark_robocasa_residual_frontier_sweep_longhorizon_gap_probe.json",
+      "suffix": ".json",
+      "bytes": 1024,
+      "sha256": "8ea715ba8652b3e5e8c2e76964111a96fb7cf8d65e46ec04249113ef66386a78"
+    },
+    {
       "path": "results/benchmark_robocasa_residual_frontier_sweep_quick_close.json",
       "suffix": ".json",
       "bytes": 962,
@@ -567,7 +585,7 @@
       "path": "results/benchmark_robocasa_residual_triage.json",
       "suffix": ".json",
       "bytes": 841,
-      "sha256": "12febeeec869b13b8ffa4238f755d518378e72220b260ff0df5c820b09482efe"
+      "sha256": "538ba234e4a77bccba53931bea528bf8e86cfe0e57e18c78247661214d6cec30"
     },
     {
       "path": "results/benchmark_robocasa_smoke.json",
@@ -975,13 +993,13 @@
       "path": "results/ideal_frontier_blocker_audit.json",
       "suffix": ".json",
       "bytes": 12669,
-      "sha256": "9131ac26317ed5f9e97db08a1c81cae4846b5231c78d2ad119a1fa415c9cdfbe"
+      "sha256": "347068aa1aa18c62becbcaea138da2618642570e71fc00590a61815bf2e8800b"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 9685,
-      "sha256": "bc3b827fe0bc2019ace99b41fce8aeab5bebcf0e73e1446b8e5ea32421b697b0"
+      "bytes": 9759,
+      "sha256": "ac279a37ca42f2cbda99b02696cd4a11b2015526f925a4c236effdb1739a6389"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -2190,6 +2208,12 @@
       "sha256": "40c34a720a3ff74af4c194c1b4fb968b2227b627603d7922e650e7edffbc540a"
     },
     {
+      "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_longhorizon_gap_probe_chunks.csv",
+      "suffix": ".csv",
+      "bytes": 500,
+      "sha256": "f81942507ba3bea3c0a84a5f45fbde9d4fd6e873df4cfb5c023142ad410f3997"
+    },
+    {
       "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_quick_close_chunks.csv",
       "suffix": ".csv",
       "bytes": 293,
@@ -2204,8 +2228,8 @@
     {
       "path": "results/tables/benchmark_robocasa_residual_triage.csv",
       "suffix": ".csv",
-      "bytes": 59390,
-      "sha256": "104d7fa73a9be880b6d7f0be629f3138b17ba7f90165102c9b94aaa1b08b4000"
+      "bytes": 59480,
+      "sha256": "ca5bbdfdf8dea487e3e1e86dc0191c29cfd6dbc028c22797a7e057e26d61abab"
     },
     {
       "path": "results/tables/benchmark_robocasa_rollouts.csv",
@@ -2695,22 +2719,22 @@
     {
       "name": "manifest_records_present",
       "ok": true,
-      "detail": "records=446"
+      "detail": "records=450"
     },
     {
       "name": "manifest_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=446, scan=446"
+      "detail": "payload=450, scan=450"
     },
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=77223275, scan=77223275"
+      "detail": "payload=77226188, scan=77226188"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
       "ok": true,
-      "detail": "payload={'.json': 137, '.npz': 45, '.png': 36, '.csv': 228}, scan={'.json': 137, '.npz': 45, '.png': 36, '.csv': 228}"
+      "detail": "payload={'.json': 140, '.npz': 45, '.png': 36, '.csv': 229}, scan={'.json': 140, '.npz': 45, '.png': 36, '.csv': 229}"
     },
     {
       "name": "manifest_has_no_missing_current_artifacts",
@@ -2740,17 +2764,17 @@
     {
       "name": "manifest_scientific_artifact_file_count",
       "ok": true,
-      "detail": "files=446"
+      "detail": "files=450"
     },
     {
       "name": "manifest_table_count",
       "ok": true,
-      "detail": "csv=228"
+      "detail": "csv=229"
     },
     {
       "name": "manifest_json_count",
       "ok": true,
-      "detail": "json=137"
+      "detail": "json=140"
     },
     {
       "name": "manifest_model_count",
@@ -2765,7 +2789,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=77223275"
+      "detail": "bytes=77226188"
     }
   ],
   "issues": [],

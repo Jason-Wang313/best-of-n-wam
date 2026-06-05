@@ -2,9 +2,9 @@
   "experiment": "repo_bound_artifact_audit",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_records": 904,
+  "n_records": 906,
   "n_claim_sources": 175,
-  "n_artifact_references": 729,
+  "n_artifact_references": 731,
   "n_outside_repo": 0,
   "n_missing": 0,
   "n_parent_traversal": 0,
@@ -12,22 +12,22 @@
     "documentation": 6,
     "figure": 36,
     "model": 41,
-    "report": 157,
+    "report": 158,
     "result_json": 407,
-    "result_table": 251,
+    "result_table": 252,
     "source_or_test": 6
   },
   "suffix_counts": {
-    ".csv": 251,
+    ".csv": 252,
     ".joblib": 13,
     ".json": 407,
-    ".md": 163,
+    ".md": 164,
     ".npz": 28,
     ".png": 36,
     ".py": 6
   },
   "record_category_counts": {
-    "artifact_reference": 729,
+    "artifact_reference": 731,
     "claim_source": 175
   },
   "n_checks": 12,
@@ -36,7 +36,7 @@
     {
       "name": "records_present",
       "ok": true,
-      "detail": "records=904"
+      "detail": "records=906"
     },
     {
       "name": "claim_sources_present",
@@ -46,7 +46,7 @@
     {
       "name": "artifact_references_present",
       "ok": true,
-      "detail": "artifact_references=729"
+      "detail": "artifact_references=731"
     },
     {
       "name": "all_records_inside_repo",
@@ -71,12 +71,12 @@
     {
       "name": "result_table_coverage",
       "ok": true,
-      "detail": "count=251"
+      "detail": "count=252"
     },
     {
       "name": "report_coverage",
       "ok": true,
-      "detail": "count=157"
+      "detail": "count=158"
     },
     {
       "name": "figure_coverage",
@@ -2332,6 +2332,22 @@
       "raw": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_cleaning_gap_probe_report.md",
       "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_cleaning_gap_probe_report.md",
       "repo_relative": "reports/robocasa_residual_frontier_sweep_cleaning_gap_probe_report.md",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".md",
+      "artifact_category": "report",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "benchmark_robocasa_residual_frontier_sweep_longhorizon_gap_probe.json",
+      "json_ref": "report_path",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_longhorizon_gap_probe_report.md",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_longhorizon_gap_probe_report.md",
+      "repo_relative": "reports/robocasa_residual_frontier_sweep_longhorizon_gap_probe_report.md",
       "inside_repo": true,
       "exists": true,
       "kind": "file",
@@ -12540,6 +12556,22 @@
       "raw": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe_chunks.csv",
       "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe_chunks.csv",
       "repo_relative": "results/tables/benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe_chunks.csv",
+      "inside_repo": true,
+      "exists": true,
+      "kind": "file",
+      "suffix": ".csv",
+      "artifact_category": "result_table",
+      "raw_has_parent_traversal": false
+    },
+    {
+      "record_category": "artifact_reference",
+      "source": "artifact_integrity",
+      "source_json": "benchmark_robocasa_residual_frontier_sweep_longhorizon_gap_probe.json",
+      "json_ref": "table_path",
+      "claim_id": null,
+      "raw": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_longhorizon_gap_probe_chunks.csv",
+      "resolved": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_longhorizon_gap_probe_chunks.csv",
+      "repo_relative": "results/tables/benchmark_robocasa_residual_frontier_sweep_longhorizon_gap_probe_chunks.csv",
       "inside_repo": true,
       "exists": true,
       "kind": "file",

@@ -1,0 +1,19 @@
+{
+  "experiment": "benchmark_robocasa_micro_rollout_residual_longhorizon_gap_probe_001",
+  "attempted": true,
+  "available": true,
+  "verified": false,
+  "output_tag": "residual_longhorizon_gap_probe_001",
+  "candidate_task_count": 1,
+  "runnable_task_count": 0,
+  "nondegenerate_task_count": 0,
+  "runnable_env_ids": [],
+  "nondegenerate_env_ids": [],
+  "timed_out": true,
+  "timeout_seconds": 90.0,
+  "wall_clock_seconds": 93.37788605690002,
+  "env_ids": [
+    "robocasa/AddSugarCubes"
+  ],
+  "note": "Chunk timed out during RoboCasa micro-rollout probing; no validation claim is promoted."
+}

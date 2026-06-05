@@ -1,9 +1,9 @@
 # Artifact Integrity Report
 
 - Verified: True
-- Result JSON files: 165
-- Artifact references checked: 729
+- Result JSON files: 168
+- Artifact references checked: 731
 - Issues: 0
-- Status counts: {'ok': 729}
+- Status counts: {'ok': 731}
 
 No missing, empty, invalid, or zero-row referenced artifacts were found.

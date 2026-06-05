@@ -2,10 +2,10 @@
   "experiment": "artifact_integrity",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_result_json": 165,
-  "n_references": 729,
+  "n_result_json": 168,
+  "n_references": 731,
   "status_counts": {
-    "ok": 729
+    "ok": 731
   },
   "n_issues": 0,
   "issues": [],
@@ -2629,6 +2629,28 @@
       "reason": ""
     },
     {
+      "source_json": "benchmark_robocasa_residual_frontier_sweep_longhorizon_gap_probe.json",
+      "json_path": "table_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_longhorizon_gap_probe_chunks.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_longhorizon_gap_probe_chunks.csv",
+      "exists": true,
+      "bytes": 500,
+      "rows": 2,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_robocasa_residual_frontier_sweep_longhorizon_gap_probe.json",
+      "json_path": "report_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_longhorizon_gap_probe_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\robocasa_residual_frontier_sweep_longhorizon_gap_probe_report.md",
+      "exists": true,
+      "bytes": 418,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
       "source_json": "benchmark_robocasa_residual_frontier_sweep_quick_close.json",
       "json_path": "table_path",
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_frontier_sweep_quick_close_chunks.csv",
@@ -2678,7 +2700,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_triage.csv",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual_triage.csv",
       "exists": true,
-      "bytes": 59390,
+      "bytes": 59480,
       "rows": 396,
       "status": "ok",
       "reason": ""
@@ -6077,7 +6099,7 @@
       "raw_path": "results/artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 102186,
+      "bytes": 103173,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6088,7 +6110,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_manifest.json",
       "exists": true,
-      "bytes": 102186,
+      "bytes": 103173,
       "rows": null,
       "status": "ok",
       "reason": ""
