@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=731, issues=0, status_counts={'ok': 731}"
+      "evidence": "refs=733, issues=0, status_counts={'ok': 733}"
     },
     {
       "id": 101,
@@ -646,7 +646,7 @@
       "id": 108,
       "claim": "Scientific result artifacts have a deterministic hash manifest.",
       "status": "VERIFIED",
-      "evidence": "files=450, bytes=77235437, suffixes={'.json': 140, '.npz': 45, '.png': 36, '.csv': 229}, issues=0"
+      "evidence": "files=454, bytes=77238314, suffixes={'.json': 143, '.npz': 45, '.png': 36, '.csv': 230}, issues=0"
     },
     {
       "id": 109,
@@ -712,19 +712,19 @@
       "id": 119,
       "claim": "Claim evidence artifacts and published artifact references are represented in the git index.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=119, artifact_refs=474, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
+      "evidence": "claim_sources=119, artifact_refs=475, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0"
     },
     {
       "id": 120,
       "claim": "Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage.",
       "status": "VERIFIED",
-      "evidence": "claim_sources=117, artifact_refs=473, hashed=590, self_outputs_excluded=4, issues=0"
+      "evidence": "claim_sources=117, artifact_refs=475, hashed=592, self_outputs_excluded=4, issues=0"
     },
     {
       "id": 121,
       "claim": "Claim evidence artifacts and published artifact references are repository-bound.",
       "status": "VERIFIED",
-      "evidence": "records=906, claim_sources=175, artifact_refs=731, outside=0, absent=0, traversal=0, issues=0"
+      "evidence": "records=908, claim_sources=175, artifact_refs=733, outside=0, absent=0, traversal=0, issues=0"
     },
     {
       "id": 122,

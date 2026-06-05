@@ -143,12 +143,12 @@
         {
           "path": "results/benchmark_robocasa_residual_triage.json",
           "exists": true,
-          "bytes": 846
+          "bytes": 847
         },
         {
           "path": "reports/robocasa_residual_triage_report.md",
           "exists": true,
-          "bytes": 705
+          "bytes": 706
         }
       ],
       "evidence": {
@@ -157,8 +157,8 @@
         "any_artifact_task_count": 136,
         "any_artifact_coverage_fraction": 0.3434343434343434,
         "triage_verified": true,
-        "unattempted": 228,
-        "attempted_not_covered": 32
+        "unattempted": 226,
+        "attempted_not_covered": 34
       }
     },
     {

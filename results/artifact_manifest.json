@@ -2,13 +2,13 @@
   "experiment": "artifact_manifest",
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_files": 450,
-  "total_bytes": 77235437,
+  "n_files": 454,
+  "total_bytes": 77238314,
   "counts_by_suffix": {
-    ".json": 140,
+    ".json": 143,
     ".npz": 45,
     ".png": 36,
-    ".csv": 229
+    ".csv": 230
   },
   "records": [
     {
@@ -504,6 +504,18 @@
       "sha256": "0064ab5d594e39cf31218e3bdf66069b4c9ce7531d4afa8a6be6cc6d56da63ff"
     },
     {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_long_unattempted_probe_000.json",
+      "suffix": ".json",
+      "bytes": 613,
+      "sha256": "a4c213b2264d896d830c34298c2ac818f4ead8302b40c8d67d020722eb03f0cd"
+    },
+    {
+      "path": "results/benchmark_robocasa_micro_rollout_residual_long_unattempted_probe_001.json",
+      "suffix": ".json",
+      "bytes": 623,
+      "sha256": "4599bde34e509a30b7b610d8da52c8980ea3ccc9fd0d38ab6f731677f693599f"
+    },
+    {
       "path": "results/benchmark_robocasa_micro_rollout_residual_longhorizon_gap_probe_000.json",
       "suffix": ".json",
       "bytes": 613,
@@ -564,6 +576,12 @@
       "sha256": "766193190687176785a4f2a2457a3145f89c9c5369de66d139b93b2e304c9611"
     },
     {
+      "path": "results/benchmark_robocasa_residual_frontier_sweep_long_unattempted_probe.json",
+      "suffix": ".json",
+      "bytes": 1029,
+      "sha256": "e4243a4baba02b336187b282b0b330353d240a237d968d12f9fe4bcb4e3fd75f"
+    },
+    {
       "path": "results/benchmark_robocasa_residual_frontier_sweep_longhorizon_gap_probe.json",
       "suffix": ".json",
       "bytes": 1024,
@@ -584,8 +602,8 @@
     {
       "path": "results/benchmark_robocasa_residual_triage.json",
       "suffix": ".json",
-      "bytes": 846,
-      "sha256": "85e550e89d01227841bf291fa679e9197f85a07417d68777aea2609332a67d3b"
+      "bytes": 847,
+      "sha256": "dcb51132d7165bdea7d8c8104e924b13c4240db6249f6a441fe3ef1403667642"
     },
     {
       "path": "results/benchmark_robocasa_smoke.json",
@@ -993,13 +1011,13 @@
       "path": "results/ideal_frontier_blocker_audit.json",
       "suffix": ".json",
       "bytes": 16296,
-      "sha256": "404410a5691720f71edfc747d0843d88ead70dcce3a55d20288576b13724fc08"
+      "sha256": "0531becd18019846d9940745e5e016aa948fca0dc4c6fa383a3de0fd6378ad02"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 10013,
-      "sha256": "2da95c8439ce721ffa33ccd783fa87159640ded5434ded822576d73c8ddac202"
+      "bytes": 10021,
+      "sha256": "151efe8deb2508539f131f38aa61f28e1219b3b4d17c78621f4b70622a50520e"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -2208,6 +2226,12 @@
       "sha256": "40c34a720a3ff74af4c194c1b4fb968b2227b627603d7922e650e7edffbc540a"
     },
     {
+      "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_long_unattempted_probe_chunks.csv",
+      "suffix": ".csv",
+      "bytes": 511,
+      "sha256": "c9dfacc431750cee77ffd3e589c126298369c4e91738cad0483ed3bc77738d24"
+    },
+    {
       "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_longhorizon_gap_probe_chunks.csv",
       "suffix": ".csv",
       "bytes": 500,
@@ -2228,8 +2252,8 @@
     {
       "path": "results/tables/benchmark_robocasa_residual_triage.csv",
       "suffix": ".csv",
-      "bytes": 60245,
-      "sha256": "ed71609c73e82d4652256330c049ae3b6be284d205a0ea9e41e18bf0aa90f20c"
+      "bytes": 60337,
+      "sha256": "2e4b137325a5488232cc13cb004bc544b2d536e6088278e95dcee8d9be17ee12"
     },
     {
       "path": "results/tables/benchmark_robocasa_rollouts.csv",
@@ -2719,22 +2743,22 @@
     {
       "name": "manifest_records_present",
       "ok": true,
-      "detail": "records=450"
+      "detail": "records=454"
     },
     {
       "name": "manifest_file_count_matches_scan",
       "ok": true,
-      "detail": "payload=450, scan=450"
+      "detail": "payload=454, scan=454"
     },
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=77235437, scan=77235437"
+      "detail": "payload=77238314, scan=77238314"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
       "ok": true,
-      "detail": "payload={'.json': 140, '.npz': 45, '.png': 36, '.csv': 229}, scan={'.json': 140, '.npz': 45, '.png': 36, '.csv': 229}"
+      "detail": "payload={'.json': 143, '.npz': 45, '.png': 36, '.csv': 230}, scan={'.json': 143, '.npz': 45, '.png': 36, '.csv': 230}"
     },
     {
       "name": "manifest_has_no_missing_current_artifacts",
@@ -2764,17 +2788,17 @@
     {
       "name": "manifest_scientific_artifact_file_count",
       "ok": true,
-      "detail": "files=450"
+      "detail": "files=454"
     },
     {
       "name": "manifest_table_count",
       "ok": true,
-      "detail": "csv=229"
+      "detail": "csv=230"
     },
     {
       "name": "manifest_json_count",
       "ok": true,
-      "detail": "json=140"
+      "detail": "json=143"
     },
     {
       "name": "manifest_model_count",
@@ -2789,7 +2813,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=77235437"
+      "detail": "bytes=77238314"
     }
   ],
   "issues": [],

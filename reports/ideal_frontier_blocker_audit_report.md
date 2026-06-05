@@ -77,8 +77,8 @@ This report is blocker evidence, not validation evidence for the ideal endpoints
 - `any_artifact_task_count`: `136`
 - `any_artifact_coverage_fraction`: `0.3434343434343434`
 - `triage_verified`: `True`
-- `unattempted`: `228`
-- `attempted_not_covered`: `32`
+- `unattempted`: `226`
+- `attempted_not_covered`: `34`
 
 ## maniskill_visual_ee
 

@@ -3,11 +3,11 @@ robocasa/AddIceCubes,long_horizon_or_compositional,rollout_pool_covered,verified
 robocasa/AddLemonToFish,long_horizon_or_compositional,timed_out,timeout attempts=1,1,benchmark_robocasa_micro_rollout_residual_quick_gap_000.json,False,False,False
 robocasa/AddMarshmallow,long_horizon_or_compositional,timed_out,timeout attempts=1,1,benchmark_robocasa_micro_rollout_residual_longhorizon_gap_probe_000.json,False,False,False
 robocasa/AddSugarCubes,long_horizon_or_compositional,timed_out,timeout attempts=1,1,benchmark_robocasa_micro_rollout_residual_longhorizon_gap_probe_001.json,False,False,False
-robocasa/AddSweetener,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/AddSweetener,long_horizon_or_compositional,timed_out,timeout attempts=1,1,benchmark_robocasa_micro_rollout_residual_long_unattempted_probe_000.json,False,False,False
 robocasa/AddToSoupPot,long_horizon_or_compositional,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
 robocasa/AdjustHeat,cooking,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_stratified_probe.csv,True,True,True
 robocasa/AdjustToasterOvenTemperature,cooking,zero_distance_no_progress,"reset/rollout ok but task distance and progress stayed zero attempts=2, utility_varied=2",2,benchmark_robocasa_micro_rollout_frontier_probe.csv;benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_000.csv,False,False,False
-robocasa/AdjustWaterTemperature,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
+robocasa/AdjustWaterTemperature,long_horizon_or_compositional,timed_out,timeout attempts=1,1,benchmark_robocasa_micro_rollout_residual_long_unattempted_probe_001.json,False,False,False
 robocasa/AfterwashSorting,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False
 robocasa/AirDryFruit,cleaning,rollout_pool_covered,verified rollout-pool/smoke artifact,1,benchmark_robocasa_micro_rollout_frontier_probe.csv,True,True,True
 robocasa/AlcoholServingPrep,long_horizon_or_compositional,unattempted,no committed micro or rollout-pool artifact,0,,False,False,False

@@ -1,0 +1,3 @@
+chunk_index,tag,env_ids,candidate_task_count,verified,timed_out,runnable_task_count,nondegenerate_task_count,summary_path
+0,residual_long_unattempted_probe_000,robocasa/AddSweetener,1,False,True,0,0,C:\Users\wangz\best-of-n-wam\results\benchmark_robocasa_micro_rollout_residual_long_unattempted_probe_000.json
+1,residual_long_unattempted_probe_001,robocasa/AdjustWaterTemperature,1,False,True,0,0,C:\Users\wangz\best-of-n-wam\results\benchmark_robocasa_micro_rollout_residual_long_unattempted_probe_001.json
