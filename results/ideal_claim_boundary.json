@@ -296,12 +296,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 9861
+          "bytes": 9928
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 6684
+          "bytes": 6751
         },
         {
           "path": "reports/final_decision_report.md",
@@ -364,12 +364,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 9861
+          "bytes": 9928
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 6684
+          "bytes": 6751
         },
         {
           "path": "results/external_benchmark_runtime_probe.json",
@@ -505,12 +505,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 9861
+          "bytes": 9928
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 6684
+          "bytes": 6751
         },
         {
           "path": "results/benchmark_robocasa_catalog_probe.json",
@@ -556,7 +556,7 @@
         {
           "path": "results/benchmark_maniskill_dependency_probe.json",
           "exists": true,
-          "bytes": 5958
+          "bytes": 7680
         }
       ],
       "missing_files": [],
@@ -590,12 +590,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 9861
+          "bytes": 9928
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 6684
+          "bytes": 6751
         },
         {
           "path": "results/benchmark_maniskill_visual_probe.json",
@@ -605,7 +605,7 @@
         {
           "path": "results/benchmark_maniskill_dependency_probe.json",
           "exists": true,
-          "bytes": 5958
+          "bytes": 7680
         },
         {
           "path": "reports/maniskill_visual_blocker_report.md",
@@ -615,7 +615,7 @@
         {
           "path": "reports/maniskill_dependency_blocker_report.md",
           "exists": true,
-          "bytes": 5237
+          "bytes": 6325
         }
       ],
       "missing_gap_evidence_files": []
@@ -668,12 +668,12 @@
         {
           "path": "results/ideal_frontier_readiness.json",
           "exists": true,
-          "bytes": 9861
+          "bytes": 9928
         },
         {
           "path": "reports/ideal_frontier_readiness_report.md",
           "exists": true,
-          "bytes": 6684
+          "bytes": 6751
         },
         {
           "path": "results/universal_wam_train_inference_optimizer.json",

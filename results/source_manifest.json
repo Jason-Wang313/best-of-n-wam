@@ -3,7 +3,7 @@
   "schema_version": 1,
   "root": "C:\\Users\\wangz\\best-of-n-wam",
   "n_files": 246,
-  "total_bytes": 1818423,
+  "total_bytes": 1825595,
   "counts_by_suffix": {
     ".md": 3,
     ".py": 229,
@@ -129,8 +129,8 @@
     {
       "path": "experiments/benchmark_maniskill_dependency_probe.py",
       "suffix": ".py",
-      "bytes": 11757,
-      "sha256": "a3f2fe68dddb79bf2e8fe8e4d5396ed269613b4861818cee45c3ba6a80af0c4c"
+      "bytes": 16090,
+      "sha256": "85c19e612e8daa3a3474172a41f7c0a2639406dc43bbc6d08452acb63d517f50"
     },
     {
       "path": "experiments/benchmark_maniskill_suite.py",
@@ -453,8 +453,8 @@
     {
       "path": "scripts/claims_status.py",
       "suffix": ".py",
-      "bytes": 129140,
-      "sha256": "ad05470d60bf93d773103cbf43ff9a7d4191b2e2aca6e344c24afe5354aa8137"
+      "bytes": 129442,
+      "sha256": "cffb95b5c67d5c26df09f2dfc4c2b57f568a1a5b6ac3f796877ee4ee32473056"
     },
     {
       "path": "scripts/command_result_consistency.py",
@@ -705,8 +705,8 @@
     {
       "path": "scripts/write_maxout_reports.py",
       "suffix": ".py",
-      "bytes": 86056,
-      "sha256": "77ee69ce1ce30399df0b04a0ae064cf5e2092577ec8ec7ca7fd8b92fd120303c"
+      "bytes": 86458,
+      "sha256": "fde4c38e92fe855d3fcb23484ca811663f36d2d11f0c89cbeda46c17a81fe990"
     },
     {
       "path": "src/wam_inference_value/__init__.py",
@@ -939,14 +939,14 @@
     {
       "path": "src/wam_inference_value/ideal_frontier_blocker_audit.py",
       "suffix": ".py",
-      "bytes": 14738,
-      "sha256": "3690561d60c683c5d184e90a1612dae44f421bca82be7ff50e707f93e3ef32b9"
+      "bytes": 15046,
+      "sha256": "e228fbcc0c52ce8ad16036a87cbb853a18c0b331c4f5c0daef429ec2b2be2ecd"
     },
     {
       "path": "src/wam_inference_value/ideal_frontier_readiness.py",
       "suffix": ".py",
-      "bytes": 23943,
-      "sha256": "23e0d94aba41d43e6bc9074f73339484165687a5f0feaa3bf47d8f3c174a06c1"
+      "bytes": 24263,
+      "sha256": "da4cf076f8e5c6f13d91ba255d49580aa6460bafc837cb7c42bfef5c3f50cf81"
     },
     {
       "path": "src/wam_inference_value/learned_wam.py",
@@ -1323,8 +1323,8 @@
     {
       "path": "tests/test_maniskill_dependency_probe.py",
       "suffix": ".py",
-      "bytes": 1993,
-      "sha256": "bfbd233bea83847613b429573479f531374315736d83a941f880ef99262f8d20"
+      "bytes": 3500,
+      "sha256": "3cba21fd0a1ee7f5ff79944e513d3d8315096bf816f850d692a1a5f55ce4454a"
     },
     {
       "path": "tests/test_maniskill_visual_probe.py",
@@ -1518,7 +1518,7 @@
     {
       "name": "source_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=1818423, scan=1818423"
+      "detail": "payload=1825595, scan=1825595"
     },
     {
       "name": "source_suffix_counts_match_scan",
@@ -1563,7 +1563,7 @@
     {
       "name": "source_manifest_total_bytes",
       "ok": true,
-      "detail": "bytes=1818423"
+      "detail": "bytes=1825595"
     },
     {
       "name": "source_manifest_dir_coverage",

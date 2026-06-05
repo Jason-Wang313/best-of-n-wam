@@ -170,6 +170,9 @@ def _frontier_evidence(root: Path, frontier_id: str) -> dict[str, Any]:
             "any_ee_control_success": visual.get("any_ee_control_success"),
             "pinocchio_api_available": deps.get("pinocchio_api_available"),
             "pinocchio_missing_symbols": deps.get("pinocchio_missing_symbols"),
+            "external_env_python_count": deps.get("external_env_python_count"),
+            "external_env_pinocchio_api_any_available": deps.get("external_env_pinocchio_api_any_available"),
+            "external_env_pinocchio_api_available_pythons": deps.get("external_env_pinocchio_api_available_pythons"),
         }
     if frontier_id == "universal_wam_training_recipe":
         optimizer = _load_json(results / "universal_wam_train_inference_optimizer.json")

@@ -24,6 +24,53 @@
   ],
   "pypi_pinocchio_probe_error": "",
   "cmeel_boost_binary_wheel_available": false,
+  "external_env_python_count": 3,
+  "external_env_pinocchio_probes": [
+    {
+      "python": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\libero\\Scripts\\python.exe",
+      "exists": true,
+      "returncode": 0,
+      "pinocchio_import_available": false,
+      "pinocchio_api_available": false,
+      "pinocchio_module_file": null,
+      "pinocchio_missing_symbols": [
+        "Model",
+        "GeometryModel",
+        "buildModelFromUrdf"
+      ],
+      "pinocchio_probe_error": "ModuleNotFoundError: No module named 'pinocchio'"
+    },
+    {
+      "python": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\libero310\\Scripts\\python.exe",
+      "exists": true,
+      "returncode": 0,
+      "pinocchio_import_available": false,
+      "pinocchio_api_available": false,
+      "pinocchio_module_file": null,
+      "pinocchio_missing_symbols": [
+        "Model",
+        "GeometryModel",
+        "buildModelFromUrdf"
+      ],
+      "pinocchio_probe_error": "ModuleNotFoundError: No module named 'pinocchio'"
+    },
+    {
+      "python": "C:\\Users\\wangz\\external_benchmarks\\.venvs\\robocasa\\Scripts\\python.exe",
+      "exists": true,
+      "returncode": 0,
+      "pinocchio_import_available": false,
+      "pinocchio_api_available": false,
+      "pinocchio_module_file": null,
+      "pinocchio_missing_symbols": [
+        "Model",
+        "GeometryModel",
+        "buildModelFromUrdf"
+      ],
+      "pinocchio_probe_error": "ModuleNotFoundError: No module named 'pinocchio'"
+    }
+  ],
+  "external_env_pinocchio_api_any_available": false,
+  "external_env_pinocchio_api_available_pythons": [],
   "source_install_attempted": false,
   "commands": [
     {
@@ -113,11 +160,11 @@
       "command": [
         "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
         "-c",
-        "\nimport importlib\nimport json\nimport sys\n\nsys.path.insert(0, 'C:\\\\Users\\\\wangz\\\\best-of-n-wam\\\\results\\\\tmp_pin_probe\\\\pypi_pinocchio_target')\nrequired = ['Model', 'GeometryModel', 'buildModelFromUrdf']\ntry:\n    module = importlib.import_module(\"pinocchio\")\n    missing = [name for name in required if not hasattr(module, name)]\n    payload = {\n        \"pinocchio_import_available\": True,\n        \"pinocchio_api_available\": not missing,\n        \"pinocchio_module_file\": getattr(module, \"__file__\", None),\n        \"pinocchio_missing_symbols\": missing,\n    }\nexcept Exception as exc:\n    payload = {\n        \"pinocchio_import_available\": False,\n        \"pinocchio_api_available\": False,\n        \"pinocchio_module_file\": None,\n        \"pinocchio_missing_symbols\": required,\n        \"pinocchio_probe_error\": f\"{type(exc).__name__}: {exc}\",\n    }\nprint(json.dumps(payload))\n"
+        "\nimport importlib\nimport json\nimport sys\n\nsys.path.insert(0, 'C:\\\\Users\\\\wangz\\\\best-of-n-wam\\\\results\\\\tmp_pin_probe\\\\pypi_pinocchio_target')\nrequired = ['Model', 'GeometryModel', 'buildModelFromUrdf']\ntry:\n    module = importlib.import_module(\"pinocchio\")\n    missing = [name for name in required if not hasattr(module, name)]\n    payload = {\n        \"pinocchio_import_available\": True,\n        \"pinocchio_api_available\": not missing,\n        \"pinocchio_module_file\": getattr(module, \"__file__\", None),\n        \"pinocchio_missing_symbols\": missing,\n        \"pinocchio_probe_error\": \"\",\n    }\nexcept Exception as exc:\n    payload = {\n        \"pinocchio_import_available\": False,\n        \"pinocchio_api_available\": False,\n        \"pinocchio_module_file\": None,\n        \"pinocchio_missing_symbols\": required,\n        \"pinocchio_probe_error\": f\"{type(exc).__name__}: {exc}\",\n    }\nprint(json.dumps(payload))\n"
       ],
       "returncode": 0,
       "ok": true,
-      "stdout_tail": "{\"pinocchio_import_available\": true, \"pinocchio_api_available\": false, \"pinocchio_module_file\": \"C:\\\\Users\\\\wangz\\\\best-of-n-wam\\\\results\\\\tmp_pin_probe\\\\pypi_pinocchio_target\\\\pinocchio\\\\__init__.py\", \"pinocchio_missing_symbols\": [\"Model\", \"GeometryModel\", \"buildModelFromUrdf\"]}",
+      "stdout_tail": "{\"pinocchio_import_available\": true, \"pinocchio_api_available\": false, \"pinocchio_module_file\": \"C:\\\\Users\\\\wangz\\\\best-of-n-wam\\\\results\\\\tmp_pin_probe\\\\pypi_pinocchio_target\\\\pinocchio\\\\__init__.py\", \"pinocchio_missing_symbols\": [\"Model\", \"GeometryModel\", \"buildModelFromUrdf\"], \"pinocchio_probe_error\": \"\"}",
       "stderr_tail": ""
     }
   ],

@@ -408,11 +408,12 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
         f"ee_success={maniskill_visual.get('any_ee_control_success')}, attempts={maniskill_visual.get('ee_control_attempt_count')}",
     )
     pinocchio_api_available = maniskill_deps.get("pinocchio_api_available")
-    pinocchio_ok = (
+    current_pinocchio_ok = (
         maniskill_deps.get("pinocchio_import_available") is True
         if pinocchio_api_available is None
         else pinocchio_api_available is True
     )
+    pinocchio_ok = current_pinocchio_ok or maniskill_deps.get("external_env_pinocchio_api_any_available") is True
     _signal(
         maniskill,
         "pinocchio_available_for_ee",
@@ -421,6 +422,8 @@ def audit_ideal_frontier_readiness(root: Path, results_dir: Path | None = None) 
         f"{maniskill_deps.get('pinocchio_import_available')}, "
         f"pinocchio_api={maniskill_deps.get('pinocchio_api_available')}, "
         f"pypi_pinocchio_api={maniskill_deps.get('pypi_pinocchio_api_available')}, "
+        f"external_env_pinocchio_api_any={maniskill_deps.get('external_env_pinocchio_api_any_available')}, "
+        f"external_env_python_count={maniskill_deps.get('external_env_python_count')}, "
         f"pypi_missing_symbols={maniskill_deps.get('pypi_pinocchio_missing_symbols')}, "
         f"missing_symbols={maniskill_deps.get('pinocchio_missing_symbols')}",
     )

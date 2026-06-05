@@ -95,6 +95,9 @@ This report is blocker evidence, not validation evidence for the ideal endpoints
 - `any_ee_control_success`: `False`
 - `pinocchio_api_available`: `False`
 - `pinocchio_missing_symbols`: `['Model', 'GeometryModel', 'buildModelFromUrdf']`
+- `external_env_python_count`: `3`
+- `external_env_pinocchio_api_any_available`: `False`
+- `external_env_pinocchio_api_available_pythons`: `[]`
 
 ## universal_wam_training_recipe
 

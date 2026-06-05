@@ -7,13 +7,13 @@
   "n_issues": 0,
   "report_sha256": {
     "maxout_initial_audit.md": "b583f027b167bb20dafccfe40073152e70a3d46411f7f4ede55cf56540a623fc",
-    "maxout_completion_audit.md": "48e2a57452cf5e32575525b6e51b071abeedb3d8b75bd8e514d72b8e795efa07",
+    "maxout_completion_audit.md": "9187d826f956e0302294319b92aff7ea6a62089897f5300eb71c3ce59aa10d34",
     "reviewer_risk_assessment.md": "e81b4b8d5b5f8bd88e252874c9461430e028db55a988c5a2615dd1df06ba378f",
     "ablation_report.md": "a3d86652f92225a838c181a71f93a3444b59e4a720e4025fcb83f49412f136c0",
     "falsification_report.md": "024a9399b079614edf425f2bc69a01082b993347d3e34f88b32a7e09addbf9eb",
-    "claims_report.md": "08847be7d058b470d47d23dd6c0ed27ce69d669acc7efbb425f441be5a1dbcd0",
+    "claims_report.md": "b85d9b622a05f596a25057ff36cb5ca0d6063571d8f57477b1ca34f7ccdc4cf0",
     "paper_result_summary.md": "31397b745b05a7ced5985372cb2ca2927719cd8eeb3b413a40264ffc51de6828",
-    "final_decision_report.md": "3840bf095d7a61162ea3b172ae4d9ebd1198393a3aa78b8a72143381604f2204"
+    "final_decision_report.md": "4235be3d3d4605efbaac8c6cd60ef53b2c2c97d0e194e9d74362a48e8f8d33d9"
   },
   "changed_reports": [],
   "generator_returncode": 0,

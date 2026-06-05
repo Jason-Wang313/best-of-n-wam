@@ -20,6 +20,37 @@ from wam_inference_value.evaluation import ensure_result_dirs, results_dir, writ
 PINOCCHIO_REQUIRED_SYMBOLS = ("Model", "GeometryModel", "buildModelFromUrdf")
 
 
+def _pinocchio_api_probe_code(target_dir: Path | None = None) -> str:
+    sys_path_line = f"sys.path.insert(0, {str(target_dir)!r})" if target_dir is not None else ""
+    return f"""
+import importlib
+import json
+import sys
+
+{sys_path_line}
+required = {list(PINOCCHIO_REQUIRED_SYMBOLS)!r}
+try:
+    module = importlib.import_module("pinocchio")
+    missing = [name for name in required if not hasattr(module, name)]
+    payload = {{
+        "pinocchio_import_available": True,
+        "pinocchio_api_available": not missing,
+        "pinocchio_module_file": getattr(module, "__file__", None),
+        "pinocchio_missing_symbols": missing,
+        "pinocchio_probe_error": "",
+    }}
+except Exception as exc:
+    payload = {{
+        "pinocchio_import_available": False,
+        "pinocchio_api_available": False,
+        "pinocchio_module_file": None,
+        "pinocchio_missing_symbols": required,
+        "pinocchio_probe_error": f"{{type(exc).__name__}}: {{exc}}",
+    }}
+print(json.dumps(payload))
+"""
+
+
 def probe_pinocchio_api() -> dict[str, Any]:
     spec = importlib.util.find_spec("pinocchio")
     if spec is None:
@@ -72,33 +103,7 @@ def run_command(cmd: list[str], timeout_s: int) -> dict[str, Any]:
 
 
 def _pinocchio_api_probe_command(target_dir: Path) -> list[str]:
-    code = f"""
-import importlib
-import json
-import sys
-
-sys.path.insert(0, {str(target_dir)!r})
-required = {list(PINOCCHIO_REQUIRED_SYMBOLS)!r}
-try:
-    module = importlib.import_module("pinocchio")
-    missing = [name for name in required if not hasattr(module, name)]
-    payload = {{
-        "pinocchio_import_available": True,
-        "pinocchio_api_available": not missing,
-        "pinocchio_module_file": getattr(module, "__file__", None),
-        "pinocchio_missing_symbols": missing,
-    }}
-except Exception as exc:
-    payload = {{
-        "pinocchio_import_available": False,
-        "pinocchio_api_available": False,
-        "pinocchio_module_file": None,
-        "pinocchio_missing_symbols": required,
-        "pinocchio_probe_error": f"{{type(exc).__name__}}: {{exc}}",
-    }}
-print(json.dumps(payload))
-"""
-    return [sys.executable, "-c", code]
+    return [sys.executable, "-c", _pinocchio_api_probe_code(target_dir)]
 
 
 def _json_from_stdout_tail(command_result: dict[str, Any]) -> dict[str, Any]:
@@ -109,6 +114,55 @@ def _json_from_stdout_tail(command_result: dict[str, Any]) -> dict[str, Any]:
             continue
         return payload if isinstance(payload, dict) else {}
     return {}
+
+
+def discover_external_benchmark_pythons(root: Path) -> list[Path]:
+    roots = [
+        root.resolve().parent / "external_benchmarks" / ".venvs",
+        Path.home() / "external_benchmarks" / ".venvs",
+    ]
+    seen_roots: set[Path] = set()
+    seen_pythons: set[Path] = set()
+    pythons: list[Path] = []
+    for venv_root in roots:
+        resolved_root = venv_root.resolve()
+        if resolved_root in seen_roots or not resolved_root.exists():
+            continue
+        seen_roots.add(resolved_root)
+        for env_dir in sorted(path for path in resolved_root.iterdir() if path.is_dir()):
+            for rel_path in (("Scripts", "python.exe"), ("bin", "python")):
+                python_path = (env_dir / Path(*rel_path)).resolve()
+                if python_path.exists() and python_path.is_file() and python_path not in seen_pythons:
+                    seen_pythons.add(python_path)
+                    pythons.append(python_path)
+    return pythons
+
+
+def probe_pinocchio_api_for_python(python_path: Path, timeout_s: int) -> dict[str, Any]:
+    python_path = python_path.resolve()
+    if not python_path.exists():
+        return {
+            "python": str(python_path),
+            "exists": False,
+            "returncode": None,
+            "pinocchio_import_available": False,
+            "pinocchio_api_available": False,
+            "pinocchio_module_file": None,
+            "pinocchio_missing_symbols": list(PINOCCHIO_REQUIRED_SYMBOLS),
+            "pinocchio_probe_error": "python executable not found",
+        }
+    command_result = run_command([str(python_path), "-c", _pinocchio_api_probe_code()], timeout_s)
+    payload = _json_from_stdout_tail(command_result)
+    return {
+        "python": str(python_path),
+        "exists": True,
+        "returncode": command_result.get("returncode"),
+        "pinocchio_import_available": bool(payload.get("pinocchio_import_available")),
+        "pinocchio_api_available": bool(payload.get("pinocchio_api_available")),
+        "pinocchio_module_file": payload.get("pinocchio_module_file"),
+        "pinocchio_missing_symbols": payload.get("pinocchio_missing_symbols", list(PINOCCHIO_REQUIRED_SYMBOLS)),
+        "pinocchio_probe_error": payload.get("pinocchio_probe_error", command_result.get("stderr_tail", "")),
+    }
 
 
 def probe_pypi_pinocchio_api(timeout_s: int) -> tuple[list[dict[str, Any]], dict[str, Any]]:
@@ -168,10 +222,25 @@ def write_report(summary: dict[str, Any]) -> Path:
         f"- PyPI `pinocchio` robotics API available after target install: `{summary.get('pypi_pinocchio_api_available')}`",
         f"- PyPI `pinocchio` missing API symbols: `{summary.get('pypi_pinocchio_missing_symbols')}`",
         f"- binary `cmeel-boost` wheel available through pip: `{summary.get('cmeel_boost_binary_wheel_available')}`",
+        f"- external benchmark env Python count: `{summary.get('external_env_python_count')}`",
+        f"- any external benchmark env has robotics Pinocchio API: `{summary.get('external_env_pinocchio_api_any_available')}`",
         "",
-        "## Command Results",
+        "## Existing External Benchmark Env Pinocchio Scan",
+        "",
         "",
     ]
+    probes = summary.get("external_env_pinocchio_probes") or []
+    if probes:
+        for probe in probes:
+            lines.append(f"- `{probe.get('python')}`")
+            lines.append(f"  - import available: `{probe.get('pinocchio_import_available')}`")
+            lines.append(f"  - robotics API available: `{probe.get('pinocchio_api_available')}`")
+            lines.append(f"  - missing symbols: `{probe.get('pinocchio_missing_symbols')}`")
+            if probe.get("pinocchio_probe_error"):
+                lines.append(f"  - probe error: `{probe.get('pinocchio_probe_error')}`")
+    else:
+        lines.append("No external benchmark virtualenv Python executables were found under `../external_benchmarks/.venvs` or `~/external_benchmarks/.venvs`.")
+    lines.extend(["", "## Command Results", ""])
     for item in summary.get("commands", []):
         lines.append(f"### `{' '.join(item.get('command') or [])}`")
         lines.append("")
@@ -223,6 +292,9 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     pin_download = next((c for c in commands if "download" in c.get("command", []) and "pin" in c.get("command", [])), {})
     boost_download = next((c for c in commands if "download" in c.get("command", []) and "cmeel-boost" in c.get("command", [])), {})
     pinocchio_probe = probe_pinocchio_api()
+    external_env_pythons = discover_external_benchmark_pythons(ROOT)
+    external_env_probes = [probe_pinocchio_api_for_python(path, args.quick_timeout_s) for path in external_env_pythons]
+    external_api_pythons = [probe["python"] for probe in external_env_probes if probe.get("pinocchio_api_available")]
     summary = {
         "experiment": "benchmark_maniskill_dependency_probe",
         "attempted": True,
@@ -237,9 +309,14 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
         "pypi_pinocchio_missing_symbols": pypi_api_payload.get("pinocchio_missing_symbols", list(PINOCCHIO_REQUIRED_SYMBOLS)),
         "pypi_pinocchio_probe_error": pypi_api_payload.get("pinocchio_probe_error", ""),
         "cmeel_boost_binary_wheel_available": bool(boost_download.get("ok")),
+        "external_env_python_count": len(external_env_probes),
+        "external_env_pinocchio_probes": external_env_probes,
+        "external_env_pinocchio_api_any_available": bool(external_api_pythons),
+        "external_env_pinocchio_api_available_pythons": external_api_pythons,
         "source_install_attempted": bool(args.attempt_source_install),
         "commands": commands,
     }
+    shutil.rmtree(results_dir() / "tmp_pin_probe", ignore_errors=True)
     report_path = write_report(summary)
     summary["artifacts"] = {"report": str(report_path)}
     write_json(results_dir() / "benchmark_maniskill_dependency_probe.json", summary)
@@ -260,6 +337,7 @@ def main() -> None:
         f"pinocchio_api={summary['pinocchio_api_available']}, "
         f"pin_binary={summary['pin_binary_wheel_available']}, "
         f"boost_binary={summary['cmeel_boost_binary_wheel_available']}, "
+        f"external_env_pinocchio_api={summary['external_env_pinocchio_api_any_available']}, "
         f"source_attempted={summary['source_install_attempted']}"
     )
 

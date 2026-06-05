@@ -3,7 +3,7 @@
   "schema_version": 1,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
   "n_files": 450,
-  "total_bytes": 77232812,
+  "total_bytes": 77234763,
   "counts_by_suffix": {
     ".json": 140,
     ".npz": 45,
@@ -104,8 +104,8 @@
     {
       "path": "results/benchmark_maniskill_dependency_probe.json",
       "suffix": ".json",
-      "bytes": 5958,
-      "sha256": "621e2486dfc6d06b29065f459c851834a5e94b1c60dede317b0c60147e26cab0"
+      "bytes": 7680,
+      "sha256": "7b8deaa0dc412d997d809addac2d4cc97fae6b7581a868d78e5a34820498cd20"
     },
     {
       "path": "results/benchmark_maniskill_suite.json",
@@ -992,14 +992,14 @@
     {
       "path": "results/ideal_frontier_blocker_audit.json",
       "suffix": ".json",
-      "bytes": 15998,
-      "sha256": "743f85882786f56d0f6d345cb863389d362f4580d1a7efecd19bd6a1a2eaddbf"
+      "bytes": 16160,
+      "sha256": "2b47a96b138c290b88bfbb91fde486811bf5726304ae9ccd6d0584b2b20e2dcf"
     },
     {
       "path": "results/ideal_frontier_readiness.json",
       "suffix": ".json",
-      "bytes": 9861,
-      "sha256": "485d51f0c27f39304b24f3e45ad53c58e6efb7d12759a9e02094ae28b6ad834c"
+      "bytes": 9928,
+      "sha256": "0f9400d00d411c168e415be22d53a6d1575adb4e307ff81400ca6b4d9ed84e46"
     },
     {
       "path": "results/imagination_scaling_law.json",
@@ -2729,7 +2729,7 @@
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=77232812, scan=77232812"
+      "detail": "payload=77234763, scan=77234763"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
@@ -2789,7 +2789,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=77232812"
+      "detail": "bytes=77234763"
     }
   ],
   "issues": [],

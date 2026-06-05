@@ -177,7 +177,7 @@
         {
           "path": "results/benchmark_maniskill_dependency_probe.json",
           "exists": true,
-          "bytes": 5958
+          "bytes": 7680
         },
         {
           "path": "reports/maniskill_visual_blocker_report.md",
@@ -187,7 +187,7 @@
         {
           "path": "reports/maniskill_dependency_blocker_report.md",
           "exists": true,
-          "bytes": 5237
+          "bytes": 6325
         }
       ],
       "evidence": {
@@ -200,7 +200,10 @@
           "Model",
           "GeometryModel",
           "buildModelFromUrdf"
-        ]
+        ],
+        "external_env_python_count": 3,
+        "external_env_pinocchio_api_any_available": false,
+        "external_env_pinocchio_api_available_pythons": []
       }
     },
     {

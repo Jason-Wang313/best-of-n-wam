@@ -155,7 +155,7 @@
         {
           "name": "pinocchio_available_for_ee",
           "ok": false,
-          "detail": "pinocchio_import=False, pinocchio_api=False, pypi_pinocchio_api=False, pypi_missing_symbols=['Model', 'GeometryModel', 'buildModelFromUrdf'], missing_symbols=['Model', 'GeometryModel', 'buildModelFromUrdf']"
+          "detail": "pinocchio_import=False, pinocchio_api=False, pypi_pinocchio_api=False, external_env_pinocchio_api_any=False, external_env_python_count=3, pypi_missing_symbols=['Model', 'GeometryModel', 'buildModelFromUrdf'], missing_symbols=['Model', 'GeometryModel', 'buildModelFromUrdf']"
         }
       ],
       "next_action": "Clear the Vulkan descriptor-pool renderer failure and install a compatible Pinocchio stack for EE controllers."

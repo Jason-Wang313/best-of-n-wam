@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 193,
-  "n_unique_tests": 193,
-  "trailer_count": 193,
+  "n_tests": 195,
+  "n_unique_tests": 195,
+  "trailer_count": 195,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -118,6 +118,8 @@
     "tests/test_maniskill_adapter.py::test_maniskill_runtime_path_skips_when_dependency_missing",
     "tests/test_maniskill_dependency_probe.py::test_probe_pinocchio_api_rejects_unrelated_package",
     "tests/test_maniskill_dependency_probe.py::test_probe_pinocchio_api_accepts_robotics_symbols",
+    "tests/test_maniskill_dependency_probe.py::test_discover_external_benchmark_pythons_finds_neighbor_venvs",
+    "tests/test_maniskill_dependency_probe.py::test_probe_pinocchio_api_for_python_parses_subprocess_json",
     "tests/test_maniskill_visual_probe.py::test_visual_probe_attempts_include_process_renderer_overrides",
     "tests/test_maniskill_visual_probe.py::test_visual_probe_table_records_env_overrides",
     "tests/test_maniskill_visual_probe.py::test_filtered_visual_probe_uses_noncanonical_artifact_names",
@@ -210,7 +212,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=193"
+      "detail": "nodeids=195"
     },
     {
       "name": "nodeids_unique",
@@ -220,12 +222,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=193"
+      "detail": "nodeids=195"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=193, nodeids=193"
+      "detail": "trailer=195, nodeids=195"
     },
     {
       "name": "required_test_families_present",
