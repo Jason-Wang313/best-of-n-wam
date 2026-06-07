@@ -1,0 +1,102 @@
+\section{Complete Proofs}
+\label{app:proofs}
+
+\subsection{Finite tie-aware law}
+\label{app:finite-proof}
+Fix a planning state $x$, a finite rollout pool $\mathcal{D}_x=\{(S_i,R_i)\}_{i=1}^m$, and the best-of-$N$ procedure in Theorem~\ref{thm:finite}. Samples are drawn uniformly with replacement from the $m$ pool elements. Sort the pool in nondecreasing score order and let score tie group $g$ occupy one-indexed ranks $[r_{\min,g},r_{\max,g}]$. Let $A_g$ denote the event that the maximum score among the $N$ sampled rollouts lies in group $g$. Because group $g$ and all lower groups contain $r_{\max,g}$ elements, the probability that every sampled rollout has rank at most $r_{\max,g}$ is $(r_{\max,g}/m)^N$. Similarly, the probability that every sampled rollout has rank below group $g$ is $((r_{\min,g}-1)/m)^N$. Thus
+\[
+\Pr(A_g)
+=
+\left(\frac{r_{\max,g}}{m}\right)^N
+-
+\left(\frac{r_{\min,g}-1}{m}\right)^N.
+\]
+Conditional on $A_g$, at least one sampled rollout comes from group $g$ and no sampled rollout has higher score. The planner tie-breaks uniformly among the maximum-score sampled rollouts. Because all pool elements in group $g$ have identical score and are sampled symmetrically, the expected real utility of the selected element conditional on $A_g$ is the group mean $\bar R_g$. Taking total expectation over groups gives Theorem~\ref{thm:finite}. The binary-success law follows by setting $R_i=Y_i$.
+
+\subsection{Continuous utility law}
+\label{app:continuous-proof}
+Let $(S_i,R_i)_{i=1}^N$ be i.i.d. from a population distribution with continuous score marginal CDF $F_S$, so ties have probability zero. Candidate $i$ is selected exactly when all other scores are below $S_i$. Conditioning on $(S_i,R_i)$ gives
+\[
+\Pr(i \text{ selected}\mid S_i,R_i) = F_S(S_i)^{N-1}.
+\]
+The selected utility is $\sum_{i=1}^N R_i \mathbf{1}\{i \text{ selected}\}$. By exchangeability,
+\[
+V_N(x)
+=
+\sum_{i=1}^N \mathbb{E}\!\left[R_i \mathbf{1}\{i \text{ selected}\}\right]
+=
+N\mathbb{E}\!\left[R F_S(S)^{N-1}\right].
+\]
+This proof relies on no score ties. Empirical pools with ties should use the finite law.
+
+\subsection{Binary population law}
+\label{app:binary-proof}
+Let $Y\in\{0,1\}$, $p=\Pr(Y=1)$, and $S_+\sim S\mid Y=1$. Applying the continuous utility law with $R=Y$ yields
+\[
+f_N
+=
+N\mathbb{E}\!\left[YF_{\mathrm{mix}}(S)^{N-1}\right]
+=
+Np\,\mathbb{E}\!\left[F_{\mathrm{mix}}(S_+)^{N-1}\right].
+\]
+The finite binary theorem is still the correct empirical version when scores tie.
+
+\subsection{\texorpdfstring{$N=2$}{N=2} tie-aware AUC identity}
+\label{app:auc-proof}
+For two sampled candidates, selected success occurs in three mutually exclusive cases. If both candidates are successes, the selected rollout succeeds. This has probability $p^2$. If both fail, selected success probability is zero. If exactly one succeeds and one fails, which has probability $2p(1-p)$, selected success occurs when the success score exceeds the failure score and occurs with probability $1/2$ when the two scores tie. Therefore
+\[
+f_2
+=
+p^2 + 2p(1-p)
+\left[
+\Pr(S_+>S_-) + \frac{1}{2}\Pr(S_+=S_-)
+\right]
+=
+p^2+2p(1-p)\kappa.
+\]
+This identity is tie-aware and applies only to $N=2$.
+
+\section{Experimental Details}
+\label{app:experiments}
+
+\paragraph{Core theorem checks.}
+The finite law is checked by comparing exact values from the empirical tie-aware formula with Monte Carlo best-of-$N$ simulation across binary and utility-valued settings. The claim ledger reports binary success mean absolute error $0.00210$ and utility mean absolute error $0.01376$ in the core learned check artifacts. The $N=2$ AUC identity has reported max identity error $0.0$.
+
+\paragraph{AUC and moment hierarchy.}
+The controlled same-$p$, same-$\kappa$ counterexample keeps the binary prevalence and tie-aware AUC fixed while changing the upper score-tail distribution of successful rollouts. The resulting high-$N$ gap reported by the claim ledger is $0.9988$, matching the theorem's dependence on $\mathbb{E}[U^{N-1}]$ rather than on AUC alone.
+
+\paragraph{Mismatch and falsification.}
+The real-vs-imagined mismatch experiments track selected imagined and real utility as $N$ increases. They show that a score aligned with imagined utility can continue improving imagined value while real utility saturates or degrades. A separate bad-scorer falsification reports anti-scorer utility changing from $-14.10$ at $N=1$ to $-26.57$ at $N=64$ in the affected setting, illustrating score-tail amplification rather than a theorem failure.
+
+\paragraph{Adaptive allocation.}
+Adaptive allocation experiments estimate per-state inference-value curves from pilot pools and allocate a fixed rollout budget by predicted marginal gains. In learned artifacts, the moment/adaptive allocator beats uniform with mean gain $0.3007$ and 95\% CI $[0.2754,0.3259]$ in the claim ledger. The paper treats this as evidence for the diagnostic allocation rule in tested settings, not as a global controller theorem.
+
+\paragraph{Benchmark rollout pools.}
+The benchmark experiments are rollout-pool checks in simulated robotics environments. Verified exact-law utility MAEs include Gymnasium Robotics Fetch $0.0126$, Gymnasium Robotics RGB visual WAM $0.0106$, ManiSkill state-mode $0.00345$, Meta-World $0.0298$, RoboSuite $0.00237$, RoboCasa 12-task family $0.000292$, RoboCasa residual 35-task clean/cook artifact $0.000246$, and LIBERO rollout-pool WAM-lite $0.000140$. These numbers support the inference-value mechanism across simulator artifacts. They do not constitute real-world robot evidence.
+
+\section{Anonymity, Reproducibility, Ethics, and LLM Disclosure}
+\label{app:statements}
+
+\paragraph{Anonymity and supplement plan.}
+The submission source avoids author names, institution names, non-anonymous repository links, and private machine paths. The intended supplement is an anonymous code archive containing theorem implementations, scripts, result tables, figure-generation scripts, and a manifest mapping claims to artifacts. Any public repository link should be anonymized before upload.
+
+\paragraph{Reproducibility statement.}
+The theorem assumptions are stated in the main paper and proved in Appendix~\ref{app:proofs}. Experiments are reported as artifact-backed checks, with result tables and exact-law summaries referenced in Appendix~\ref{app:experiments}. The current local artifact registry reports verified coverage for canonical experiment families, scripts, tables, figures, and claim checks. Before upload, authors should run the claim-status and result-consistency scripts on the anonymous artifact bundle and include the exact command log in the supplement.
+
+\paragraph{Ethics statement.}
+The work is theoretical and simulator-based. It does not report human-subject data or real-world robot deployment. A practical risk is that high-$N$ planning can amplify a misaligned scorer or unsafe model error; the paper explicitly frames this as a diagnostic risk and recommends treating high-score-tail audits as evidence, not as safety certification.
+
+\paragraph{LLM usage disclosure.}
+This draft was materially assisted by a large language model for ideation, prose drafting, code navigation, and build orchestration. The authors remain responsible for checking every theorem, citation, artifact, and empirical claim before submission.
+
+\section{Claim Boundaries}
+\label{app:boundaries}
+
+The paper should preserve the following boundaries in any future revision.
+\begin{itemize}
+  \item The exact claims are conditional on a fixed rollout generator, fixed scorer, fixed state distribution or empirical pool, sampling with replacement, and stated tie-breaking.
+  \item The continuous laws are no-tie population identities and should not be substituted for finite tied empirical pools.
+  \item The $N=2$ AUC identity is exact for $N=2$ only. For larger $N$, AUC alone is insufficient.
+  \item Adaptive allocation is an inference-budgeting diagnostic supported by tested artifacts, not a proof of a global controller guarantee.
+  \item Current evidence is simulator and benchmark rollout-pool evidence, not real-world robot validation.
+\end{itemize}

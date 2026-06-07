@@ -2,7 +2,7 @@
 
 ## Setup
 
-At a robot state `x`, a rollout generator samples candidate action/future rollouts. Each rollout has a score `S` used by the planner and a real utility `R` measured under true dynamics. Best-of-N inference samples `N` rollouts and executes the top-score candidate, with uniform random tie-breaking.
+At a planning state `x`, a rollout generator samples candidate action/future rollouts. Each rollout has a score `S` used by the planner and a real utility `R` measured under true dynamics. Best-of-N inference samples `N` rollouts and executes the top-score candidate, with uniform random tie-breaking.
 
 ## Finite Tie-Aware Law
 
@@ -56,7 +56,7 @@ The finite tie-aware version replaces point utilities by tie-group mean utilitie
 
 ## Receding-Horizon Corollary
 
-At time `t`, the robot observes state `s_t`, samples `N` rollouts from the conditional rollout distribution, selects the top-score rollout, executes only the first action, observes `s_{t+1}`, and repeats. The theorem applies conditionally at each `s_t`. This does not imply a global closed form for arbitrary nonstationary closed-loop dynamics.
+At time `t`, the planner observes state `s_t`, samples `N` rollouts from the conditional rollout distribution, selects the top-score rollout, executes only the first action, observes `s_{t+1}`, and repeats. The theorem applies conditionally at each `s_t`. This does not imply a global closed form for arbitrary nonstationary closed-loop dynamics.
 
 ## Model-Error Amplification
 

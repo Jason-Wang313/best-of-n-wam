@@ -1,0 +1,259 @@
+\documentclass{article}
+\usepackage{iclr2026_conference,times}
+
+\input{math_commands.tex}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+
+\title{Exact Test-Time Inference Laws for Best-of-N World-Action Rollout Selection}
+
+\author{Anonymous Authors}
+
+%\iclrfinalcopy
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Embodied planners increasingly sample candidate futures, score them with a planner or verifier, and execute the highest-scoring rollout. We study the fixed-generator, fixed-scorer inference question: how much real utility should best-of-$N$ rollout selection buy? For finite empirical rollout pools, we prove an exact tie-aware law for expected selected real utility under i.i.d. with-replacement sampling, max-score selection, and uniform maximum-score tie-breaking. The law shows that the value of larger $N$ is governed by real utility in the upper planner-score tail; aligned tails yield gains, exhausted tails saturate, and misaligned tails can reduce real utility. Binary success is a special case, yielding an exact $N=2$ tie-aware AUC identity, while $N>2$ depends on higher upper-tail rank moments beyond AUC. Experiments check the law and illustrate alignment, mismatch, falsification, learned WAM-lite, adaptive-budgeting, and simulated rollout-pool regimes. The paper is not a WAM training scaling law, not real-world robot validation, not modern VLA-scale validation, not full RoboCasa-wide validation, and not a universal OOD/generalization guarantee.
+\end{abstract}
+
+\section{Introduction}
+
+Modern embodied agents increasingly act by imagining candidate futures. A learned world model or generative policy proposes rollouts; a planner, verifier, value model, reward model, or hand-designed heuristic scores them; the planner executes the highest-scoring rollout, or the first action of it. Related verifier and best-of-$N$ alignment work studies the same sample-many/rerank primitive \citep{cobbe2021verifiers,beirami2024bestofn}. This pattern appears in latent world-model planning \citep{ha2018worldmodels,hafner2019planet,hafner2020dreamer}, model-based reinforcement learning and sampling MPC \citep{chua2018pets,rubinstein1999cem,williams2017itmmpc}, and the broader move toward generative robot policies and vision-language-action systems \citep{brohan2022rt1,brohan2023rt2,chi2023diffusionpolicy,octo2024}.
+
+This makes test-time rollout sampling a basic inference knob. If a planner or simulated agent can sample 1, 8, 32, or 128 candidate futures before acting, how many should it sample? The usual answer is operational rather than conceptual: sample more when compute allows. But best-of-$N$ selection is not automatically beneficial. Sampling more candidates selects deeper into the planner-score tail. If that tail contains truly high-utility rollouts, extra imagination helps. If that tail contains rollouts that only look good under the model or scorer, extra imagination can saturate or even reduce real utility.
+
+This paper isolates the inference question from the training question. For a fixed generator and scorer, finite empirical rollout pool, i.i.d. with-replacement sampling, max-score selection, and uniform maximum-score tie-breaking, the answer is exact: best-of-$N$ performance is determined by the joint distribution of planner score and real rollout utility. The relevant object is not average prediction accuracy alone. It is the real utility of rollouts in the upper planner-score tail.
+
+The binary setting exposes a sharp boundary for familiar ranking summaries. For $N=2$, selected success is determined by the success rate and a tie-aware AUC term. For $N>2$, AUC alone is insufficient: larger candidate pools depend on higher upper-tail rank moments. Thus the same two-sample ranking quality can lead to different high-$N$ rollout-selection value.
+
+We check this picture with artifact-backed experiments. Controlled analytic cases test the exact law, the AUC identity, and same-AUC/high-$N$ counterexamples. Learned WAM-lite and simulated rollout-pool artifacts illustrate useful, saturated, and harmful regimes. We also use the resulting inference-value profile as a fixed-stack adaptive budgeting heuristic: estimate whether another rollout is likely to buy real utility before spending the sample.
+
+The scope is deliberately narrow. We do not propose a universal world-action-model training law, a Robot Chinchilla-style training rule, a real-world robot result, a modern VLA-scale validation, a full RoboCasa-wide validation, or a universal OOD/generalization guarantee. Instead, we ask:
+\begin{quote}
+\emph{For a fixed rollout generator and fixed scorer, what is the expected real utility of executing the highest-scoring rollout among $N$ imagined candidates?}
+\end{quote}
+
+\paragraph{Contributions.}
+First, we prove an exact finite empirical, tie-aware law for best-of-$N$ rollout selection under a fixed generator/scorer, finite empirical pool, i.i.d. with-replacement sampling, max-score selection, and uniform maximum-score tie-breaking. It covers real-valued utility, binary success, and score ties. Second, we give the continuous no-tie population form, the binary success special case, and the exact $N=2$ tie-aware AUC identity. Third, we show why AUC alone is insufficient for $N>2$: larger candidate pools depend on higher upper-tail rank moments. Fourth, we turn the law into an inference-value profile for improvement, saturation, harm, and adaptive rollout budgeting. Fifth, experiments check the laws and illustrate the mechanisms in analytic, learned WAM-lite, and simulated robotics rollout-pool artifacts.
+
+\begin{figure}[t]
+\centering
+\begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{paper_figures/fig_score_regimes_learned.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{paper_figures/fig_bad_scorer.png}
+\end{minipage}
+\caption{\textbf{The value of imagination is a score-tail phenomenon.} Left: aligned learned and oracle-like scores improve selected real utility as $N$ grows, while a random score remains poor. Right: a deliberately anti-aligned scorer can make high-$N$ selection worse. The theorem explains both curves with the same object: the joint distribution of planner score and real utility in the upper score tail.}
+\label{fig:regimes}
+\end{figure}
+
+\section{Problem Setup}
+\label{sec:setup}
+
+Fix a planning state $x$. A rollout generator samples candidate action/future rollouts $Z$. Each sampled rollout has a planner score $S=s(Z)$ used for selection and a real utility $R=r_{\mathrm{real}}(Z)$ measured under the true environment or heldout simulator. In binary tasks, $R=Y\in\{0,1\}$.
+
+Best-of-$N$ world-action planning samples $N$ rollouts independently from the fixed rollout distribution, selects a maximum-score sampled rollout, and breaks maximum-score ties uniformly at random. The inference value is
+\[
+V_N(x)=\mathbb{E}[\text{real utility of the selected rollout}\mid x].
+\]
+For binary success, we write $f_N(x)=V_N(x)$.
+
+The fixed-$x$ formulation is intentional. In a receding-horizon controller, the law applies conditionally at each visited state. It does not imply a global closed-form law for arbitrary closed-loop dynamics. Likewise, the theorem assumes that the relevant score/utility distribution or empirical pool is known; estimating it from pilot rollouts is a separate statistical problem.
+
+\section{Exact Finite Inference Law}
+\label{sec:finite-law}
+
+The core result is the finite empirical law. This is the form used for tied empirical rollout pools in our experiments.
+
+\begin{theorem}[Finite tie-aware best-of-$N$ law]
+\label{thm:finite}
+Fix a planning state $x$ and a finite empirical rollout pool $\mathcal{D}_x=\{(S_i,R_i)\}_{i=1}^m$. Sample $N$ rollouts independently and uniformly with replacement from $\mathcal{D}_x$. Select a maximum-score sampled rollout, breaking maximum-score ties uniformly at random. Sort the pool by score in ascending order and group equal-score ties. Tie group $g$ occupies one-indexed ranks $[r_{\min,g},r_{\max,g}]$ and has mean real utility $\bar R_g$. Then
+\[
+V_N(x)=
+\sum_g \bar R_g
+\left[
+\left(\frac{r_{\max,g}}{m}\right)^N
+-
+\left(\frac{r_{\min,g}-1}{m}\right)^N
+\right].
+\]
+\end{theorem}
+
+\paragraph{Interpretation.}
+The bracketed term is the probability that the maximum score among the $N$ samples lands in tie group $g$. The expected selected utility is therefore a weighted average of tie-group real utilities, where higher score groups receive increasing mass as $N$ grows. This is why best-of-$N$ is governed by the upper score tail.
+
+\paragraph{Binary success.}
+For $R=Y\in\{0,1\}$, the same theorem gives the selected success probability $f_N(x)$. Binary success is a special case of the utility-valued law, not a separate mechanism.
+
+\paragraph{Population no-tie form.}
+If scores are continuous and ties occur with probability zero, then
+\begin{equation}
+\label{eq:continuous-utility}
+V_N(x)=N\,\mathbb{E}\!\left[R F_S(S)^{N-1}\mid x\right],
+\end{equation}
+where $F_S$ is the score CDF at state $x$. For binary success with prevalence $p=\Pr(Y=1)$, successful score $S_+\sim S\mid Y=1$, and marginal score CDF $F_{\mathrm{mix}}$,
+\begin{equation}
+\label{eq:binary-pop}
+f_N(x)=Np\,\mathbb{E}\!\left[F_{\mathrm{mix}}(S_+)^{N-1}\mid x\right].
+\end{equation}
+Equations~\ref{eq:continuous-utility} and~\ref{eq:binary-pop} are useful population intuitions. The finite theorem remains the correct empirical law when scores tie.
+
+\section{AUC for Two Samples, Tail Moments for Many}
+\label{sec:auc}
+
+The binary law connects cleanly to AUC only at $N=2$, using the standard tie-aware ranking interpretation of ROC AUC \citep{hanley1982roc}.
+
+\begin{proposition}[$N=2$ tie-aware AUC identity]
+\label{prop:auc}
+Let $p=\Pr(Y=1)$, let $S_+$ and $S_-$ denote scores conditioned on success and failure, and define tie-aware AUC
+\[
+\kappa=\Pr(S_+>S_-)+\frac{1}{2}\Pr(S_+=S_-).
+\]
+Then
+\[
+f_2=p^2+2p(1-p)\kappa.
+\]
+\end{proposition}
+
+\paragraph{Interpretation.}
+With two samples, success is guaranteed when both sampled candidates succeed; when exactly one succeeds, the planner succeeds exactly when the successful candidate wins the score comparison, with half credit for ties.
+
+For $N>2$, AUC is not enough. Define the successful rollout's marginal score rank
+\[
+U=F_{\mathrm{mix}}(S_+).
+\]
+Equation~\ref{eq:binary-pop} becomes
+\[
+f_N=Np\,\mathbb{E}[U^{N-1}].
+\]
+AUC fixes the first rank moment needed for $N=2$, but larger $N$ depends on higher powers of $U$. These higher moments emphasize the upper score tail. Two scorers can therefore have the same $p$ and the same tie-aware AUC while producing very different high-$N$ value.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.70\linewidth]{paper_figures/fig_auc_moments.png}
+\caption{\textbf{AUC is exact for $N=2$ and insufficient for high $N$.} AUC-only extrapolation matches the two-sample identity but misses upper-tail behavior as $N$ grows. The moment law tracks the full $N$ curve because it uses $\mathbb{E}[U^{N-1}]$.}
+\label{fig:auc}
+\end{figure}
+
+\section{Inference-Value Profiles: Improvement, Saturation, and Harm}
+\label{sec:profiles}
+
+The theorem turns $N\mapsto V_N(x)$ into an \emph{inference-value profile} for a fixed planning state, generator, scorer, and real utility distribution. The profile is a score-tail accounting object. If high-score rollouts also have high real utility, the curve improves with more samples. If the useful high-score tail is exhausted, the curve saturates. If high-score rollouts have low real utility, the curve can decline.
+
+This view separates score optimization from deployment value. World-action planning is useful because imagined futures can expose good actions before acting. It is risky because the planner selects by score, not by real utility. This echoes model-bias and model-exploitation concerns in model-based reinforcement learning \citep{janner2019mbpo}. If a score aligns with imagined utility but the high-score tail is misaligned with real outcomes, increasing $N$ over-selects rollouts that look good under the model while failing under the environment.
+
+The theorem does not fail in this setting. It predicts selected real utility from the joint distribution of score and real utility. The failure is score/utility alignment. This gives score-tail accounting for how high-$N$ selection can amplify mismatch in tested settings.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.74\linewidth]{paper_figures/fig_mismatch.png}
+\caption{\textbf{Imagined-real mismatch can hide behind improving model scores.} As $N$ increases, selected imagined utility can improve while selected real utility saturates or degrades. The law says to audit real utility in the high-score tail, not just imagined value.}
+\label{fig:mismatch}
+\end{figure}
+
+\section{Experiments}
+\label{sec:experiments}
+
+Each experiment family checks a theorem claim or illustrates a conceptual consequence.
+
+\paragraph{Exact law and AUC identity.}
+Finite empirical checks compare the tie-aware law with Monte Carlo selection. The claim ledger reports binary success MAE $0.00210$, utility MAE $0.01376$, and $N=2$ AUC identity max error $0.0$ in core checks. These tests check the implementation of Theorem~\ref{thm:finite} and Proposition~\ref{prop:auc}.
+
+\paragraph{AUC versus upper-tail moments.}
+Controlled same-$p$, same-$\kappa$ examples show that AUC-only summaries can miss high-$N$ behavior. The moment-law predictor remains accurate because it uses the higher rank moments in $f_N=Np\,\mathbb{E}[U^{N-1}]$ (Figure~\ref{fig:auc}).
+
+\paragraph{Score alignment regimes.}
+Scorer comparisons include random, learned, heuristic, oracle, safety-penalized, uncertainty-penalized, and deliberately bad scorers. Figure~\ref{fig:regimes} shows both aligned and anti-aligned behavior. The empirical pattern matches the theorem: useful imagination requires real utility in the upper score tail.
+
+\paragraph{Bad scorer and imagined-real mismatch.}
+Falsification tests use anti-aligned scorers and compare selected imagined utility with selected real utility (Figure~\ref{fig:mismatch}). These checks illustrate the risk that high-$N$ selection concentrates probability mass on low-real-utility rollouts in the high planner-score tail.
+
+\paragraph{Learned WAM-lite checks.}
+Learned WAM-lite artifacts check whether the same inference-value accounting appears beyond analytic score functions. These experiments report learned model errors, exact-law agreement on heldout rollout pools, and learned-scorer versus random-scorer comparisons. They are lightweight learned-model checks, not evidence for a universal WAM training recipe.
+
+\paragraph{Simulated robotics rollout pools.}
+We also evaluate in learned WAM-lite and simulator/benchmark rollout-pool artifacts. Verified exact-law MAEs include Gymnasium Robotics Fetch $0.0126$, Gymnasium Robotics RGB visual WAM $0.0106$, ManiSkill state-mode $0.00345$, Meta-World $0.0298$, RoboSuite $0.00237$, RoboCasa 12-task family $0.000292$, RoboCasa residual 35-task clean/cook $0.000246$, and LIBERO rollout-pool WAM-lite $0.000140$. Learned scorers beat random with positive confidence intervals in several rollout-pool benchmarks, including Fetch, Meta-World, RoboSuite, RoboCasa families, and LIBERO rollout-pool checks. These are simulated rollout-pool results, not hardware evidence and not full modern VLA policy validation.
+
+\begin{figure}[t]
+\centering
+\begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{paper_figures/fig_multi_env.png}
+\end{minipage}
+\hfill
+\begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{paper_figures/fig_fetch_benchmark.png}
+\end{minipage}
+\caption{\textbf{The inference-value view appears beyond controlled analytic examples.} Left: multi-environment learned WAM-lite curves. Right: Gymnasium Robotics Fetch rollout-pool curves. These experiments check whether the same score-tail law describes learned and simulated robotics rollout pools.}
+\label{fig:benchmarks}
+\end{figure}
+
+\section{Adaptive Rollout Budgeting}
+\label{sec:adaptive}
+
+Inference-value profiles also suggest a simple application: allocate rollout samples by estimated marginal gain. Once $V_N(x)$ is known or estimated, the planner can compute
+\[
+\Delta_N(x)=V_{N+1}(x)-V_N(x),
+\]
+and spend the next rollout on a planning state with high estimated $\Delta_N$. This is analogous in spirit to adaptive test-time compute allocation \citep{snell2024testtime}, but the signal here is specific to fixed rollout/scorer stacks: real utility in the current score tail.
+
+This is a heuristic/application, not a general controller design. It depends on pilot estimates of the score/real-utility distribution. In our artifacts, moment-law allocation beats uniform allocation with positive confidence intervals in learned settings, while shift experiments show that stale estimates can fail. The practical lesson is not to sample more blindly, but to estimate whether another imagined rollout is likely to buy real utility in the current score tail.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.72\linewidth]{paper_figures/fig_adaptive.png}
+\caption{\textbf{Inference-value profiles support adaptive rollout budgets.} A moment-law allocator uses estimated marginal gains and avoids spending large budgets on states whose best-of-$N$ curves have saturated or become unhelpful. The result is an empirical budgeting diagnostic, not a universal controller theorem.}
+\label{fig:adaptive}
+\end{figure}
+
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{World models and latent imagination.}
+World Models, PlaNet, and Dreamer showed that learned latent dynamics can support policies and planning by imagined futures \citep{ha2018worldmodels,hafner2019planet,hafner2020dreamer}. PETS and related model-based RL systems use learned dynamics with sampling-based planning \citep{chua2018pets}. Our work is complementary: it does not propose a new dynamics model, but derives the inference value of selecting the highest-scoring rollout generated by any fixed model/scorer stack.
+
+\paragraph{Sampling-based planning.}
+Random shooting, CEM, and information-theoretic MPC optimize over sampled action sequences \citep{rubinstein1999cem,williams2017itmmpc}. These methods motivate the practical importance of candidate count. Our contribution is an exact selection law for the value of best-of-$N$ under a fixed score/real-utility distribution.
+
+\paragraph{Robot policies and generative action models.}
+Recent robot policies and VLA models scale data, architectures, and multimodal conditioning \citep{brohan2022rt1,brohan2023rt2,octo2024}. Diffusion Policy treats action generation as iterative denoising \citep{chi2023diffusionpolicy}. These systems make test-time candidate generation and scoring increasingly natural. Our result explains when such sampling helps after a generator and scorer have been fixed.
+
+\paragraph{Best-of-$N$ and verifier reranking.}
+Verifier and alignment work often samples many candidates and selects the highest-ranked answer under a verifier or reward model \citep{cobbe2021verifiers,beirami2024bestofn}. We study an analogous fixed sample-and-rerank primitive for rollout planning, but the selected quantity of interest is real rollout utility under score-based selection.
+
+\paragraph{Order statistics, AUC, and ranking.}
+The proof uses order-statistic reasoning \citep{david2003orderstatistics}. The $N=2$ binary special case connects to the ranking and Wilcoxon interpretation of ROC AUC \citep{hanley1982roc}. The ICLR-relevant contribution is not that maxima have known rank distributions, but that this order-statistic view cleanly separates training from inference and identifies high-score real-utility tail alignment as the object controlling world-action planning value.
+
+\paragraph{Test-time compute allocation.}
+Adaptive test-time compute work motivates spending inference budget differently across instances \citep{snell2024testtime}. Our allocation rule is a heuristic/application for fixed rollout/scorer stacks: the signal is not generic difficulty, but the marginal gain of the estimated score-tail real-utility curve.
+
+\paragraph{Model bias and mismatch.}
+Model-based reinforcement learning already warns that learned model rollouts can be biased or over-exploited \citep{janner2019mbpo}. The best-of-$N$ law sharpens this risk for rollout selection: increasing $N$ concentrates selection on whatever occupies the high planner-score tail, including rollouts that are high-scoring but low-utility in tested mismatch settings.
+
+\section{Limitations and Conclusion}
+\label{sec:limitations}
+
+The laws are conditional on a fixed rollout generator, scorer, and state-conditional distribution. They do not prescribe how to train a WAM or guarantee that a learned scorer generalizes out of distribution. The finite law assumes sampling with replacement from a known empirical pool and uniform maximum-score tie-breaking. The continuous law is no-tie and should not be used as a finite tied-pool substitute. Receding-horizon control is explained conditionally at visited planning states, not by a global closed-form law. The empirical evidence is simulator and benchmark rollout-pool evidence; it is not real-world robot validation, not full RoboCasa-wide validation, and not modern VLA policy performance. Adaptive allocation is supported as a diagnostic inference-budgeting rule in tested settings, not as a global controller guarantee. Within those boundaries, the main message is simple: for best-of-$N$ world-action rollout selection, the value of more imagined futures is exactly the real utility that the planner-score tail contains.
+
+\bibliographystyle{iclr2026_conference}
+\bibliography{iclr_submission}
+
+\clearpage
+\appendix
+\input{iclr_appendix}
+
+\end{document}

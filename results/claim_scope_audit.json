@@ -618,7 +618,7 @@
       "claim_id": 68,
       "category": "benchmark",
       "claim": "ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.",
-      "evidence": "visual_success=False, visual_attempts=13, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pinocchio_api=False, pypi_pinocchio_binary=True, pin_binary=False",
+      "evidence": "visual_success=False, visual_attempts=13, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pinocchio_api=False, pypi_pinocchio_binary=True, pypi_pinocchio_api=False, external_env_pinocchio_api_any=False, pin_binary=False",
       "has_numeric_scope": true,
       "has_concrete_scope": true
     },
@@ -626,7 +626,7 @@
       "claim_id": 68,
       "category": "visual",
       "claim": "ManiSkill RGB/RGB-D and EE-control probe is artifact-documented.",
-      "evidence": "visual_success=False, visual_attempts=13, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pinocchio_api=False, pypi_pinocchio_binary=True, pin_binary=False",
+      "evidence": "visual_success=False, visual_attempts=13, ee_attempts=2, blocker=vk::Device::allocateDescriptorSetsUnique: ErrorOutOfPoolMemory; pinocchio=False, pinocchio_api=False, pypi_pinocchio_binary=True, pypi_pinocchio_api=False, external_env_pinocchio_api_any=False, pin_binary=False",
       "has_numeric_scope": true,
       "has_concrete_scope": true
     },
@@ -1242,7 +1242,7 @@
       "claim_id": 116,
       "category": "verification",
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
-      "evidence": "tests=182, unique=182, trailer=182, checks=6, issues=0",
+      "evidence": "tests=195, unique=195, trailer=195, checks=6, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": false
     },
@@ -2029,7 +2029,7 @@
     {
       "name": "claim_116_verified_wording_has_metric_or_scope",
       "ok": true,
-      "detail": "claim=Pytest command-result counts come from a verified collected-test inventory.; evidence=tests=182, unique=182, trailer=182, checks=6, issues=0"
+      "detail": "claim=Pytest command-result counts come from a verified collected-test inventory.; evidence=tests=195, unique=195, trailer=195, checks=6, issues=0"
     },
     {
       "name": "claim_125_verified_wording_has_metric_or_scope",
