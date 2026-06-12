@@ -1,7 +1,7 @@
 \section{Complete Proofs}
 \label{app:proofs}
 
-\subsection{Finite tie-aware law}
+\subsection{Finite score-tail rollout identity}
 \label{app:finite-proof}
 Fix a planning state $x$, a finite rollout pool $\mathcal{D}_x=\{(S_i,R_i)\}_{i=1}^m$, and the best-of-$N$ procedure in Theorem~\ref{thm:finite}. Samples are drawn uniformly with replacement from the $m$ pool elements. Sort the pool in nondecreasing score order and let score tie group $g$ occupy one-indexed ranks $[r_{\min,g},r_{\max,g}]$. Let $A_g$ denote the event that the maximum score among the $N$ sampled rollouts lies in group $g$. Because group $g$ and all lower groups contain $r_{\max,g}$ elements, the probability that every sampled rollout has rank at most $r_{\max,g}$ is $(r_{\max,g}/m)^N$. Similarly, the probability that every sampled rollout has rank below group $g$ is $((r_{\min,g}-1)/m)^N$. Thus
 \[
@@ -72,7 +72,7 @@ The real-vs-imagined mismatch experiments track selected imagined and real utili
 Adaptive allocation experiments estimate per-state inference-value curves from pilot pools and allocate a fixed rollout budget by predicted marginal gains. In learned artifacts, the moment/adaptive allocator beats uniform with mean gain $0.3007$ and 95\% CI $[0.2754,0.3259]$ in the claim ledger. The paper treats this as evidence for the diagnostic allocation rule in tested settings, not as a global controller theorem.
 
 \paragraph{Benchmark rollout pools.}
-The benchmark experiments are rollout-pool checks in simulated robotics environments. Verified exact-law utility MAEs include Gymnasium Robotics Fetch $0.0126$, Gymnasium Robotics RGB visual WAM $0.0106$, ManiSkill state-mode $0.00345$, Meta-World $0.0298$, RoboSuite $0.00237$, RoboCasa 12-task family $0.000292$, RoboCasa residual 35-task clean/cook artifact $0.000246$, and LIBERO rollout-pool WAM-lite $0.000140$. These numbers support the inference-value mechanism across simulator artifacts. They do not constitute real-world robot evidence.
+The benchmark experiments are rollout-pool checks in simulated robotics environments. Verified finite-identity utility MAEs include Gymnasium Robotics Fetch $0.0126$, Gymnasium Robotics RGB visual WAM $0.0106$, ManiSkill state-mode $0.00345$, Meta-World $0.0298$, RoboSuite $0.00237$, RoboCasa 12-task family $0.000292$, RoboCasa residual 35-task clean/cook artifact $0.000246$, and LIBERO rollout-pool WAM-lite $0.000140$. These numbers support the inference-value mechanism across simulator artifacts. They do not constitute real-world robot evidence.
 
 \section{Anonymity, Reproducibility, Ethics, and LLM Disclosure}
 \label{app:statements}
@@ -81,7 +81,7 @@ The benchmark experiments are rollout-pool checks in simulated robotics environm
 The submission source avoids author names, institution names, non-anonymous repository links, and private machine paths. The intended supplement is an anonymous code archive containing theorem implementations, scripts, result tables, figure-generation scripts, and a manifest mapping claims to artifacts. Any public repository link should be anonymized before upload.
 
 \paragraph{Reproducibility statement.}
-The theorem assumptions are stated in the main paper and proved in Appendix~\ref{app:proofs}. Experiments are reported as artifact-backed checks, with result tables and exact-law summaries referenced in Appendix~\ref{app:experiments}. The current local artifact registry reports verified coverage for canonical experiment families, scripts, tables, figures, and claim checks. Before upload, authors should run the claim-status and result-consistency scripts on the anonymous artifact bundle and include the exact command log in the supplement.
+The theorem assumptions are stated in the main paper and proved in Appendix~\ref{app:proofs}. Experiments are reported as artifact-backed checks, with result tables and finite-identity summaries referenced in Appendix~\ref{app:experiments}. The current local artifact registry reports verified coverage for canonical experiment families, scripts, tables, figures, and claim checks. Before upload, authors should run the claim-status and result-consistency scripts on the anonymous artifact bundle and include the exact command log in the supplement.
 
 \paragraph{Ethics statement.}
 The work is theoretical and simulator-based. It does not report human-subject data or real-world robot deployment. A practical risk is that high-$N$ planning can amplify a misaligned scorer or unsafe model error; the paper explicitly frames this as a diagnostic risk and recommends treating high-score-tail audits as evidence, not as safety certification.

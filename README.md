@@ -1,12 +1,12 @@
-# How Much Should a Robot Imagine?
+# When Imagination Hurts
 
-Exact Test-Time Inference Laws for World-Action Planning.
+Score-tail audits for world-action rollout planning.
 
-This repository studies a narrow robotics question: for a fixed rollout generator and a fixed rollout scorer, how much real value should a robot expect from sampling more candidate futures at test time?
+This repository studies a narrow world-action planning question: for a fixed rollout generator and a fixed rollout scorer, does the planner-score tail actually contain real utility, or does extra imagination select futures that only look good under the model?
 
 ## Contribution
 
-The core contribution is an exact, tie-aware best-of-N selection law for rollout pools. Given rollout scores `S` and real utilities `R`, the expected utility of choosing the top-scoring rollout among `N` samples is determined by the empirical score/utility distribution:
+The core contribution is a score-tail audit for rollout pools. Given rollout scores `S` and real utilities `R`, the expected utility of choosing the top-scoring rollout among `N` samples is determined by the empirical score/utility distribution:
 
 ```text
 sum over score tie groups g:
@@ -17,11 +17,11 @@ Binary success is the special case `R in {0,1}`. For `N=2`, success obeys `f_2 =
 
 ## What Problem This Solves
 
-World-action planners often spend extra test-time compute by sampling many imagined futures, scoring them, and executing the best one. This project separates the inference-time law from the training problem: once the rollout distribution and scorer are fixed, the value of more imagination is exactly computable from the score/utility distribution.
+World-action planners often spend extra test-time compute by sampling many imagined futures, scoring them, and executing the best one. This project separates deployment auditing from the training problem: once the rollout distribution and scorer are fixed, the value of more imagination is exactly computable from the score/utility distribution.
 
 ## Inference-Value Audit Framework
 
-The repo now treats the exact curve `N -> selected real utility` as an **inference-value profile**. The audit layer measures whether a rollout/scorer stack is helpful, saturating, unstable, or harmful as `N` grows.
+The repo treats the exact curve `N -> selected real utility` as an **inference-value profile**. The audit layer measures whether a rollout/scorer stack is helpful, saturating, unstable, or harmful as `N` grows.
 
 Implemented diagnostics include:
 
@@ -60,7 +60,7 @@ Implemented in `src/wam_inference_value/theorem.py` and documented in `docs/theo
 
 ## Toy Analytic Validation
 
-The canonical CPU toy pipeline validates the exact law, AUC identity, moment hierarchy, pilot-to-heldout prediction, scorer comparison, real-vs-imagined utility gaps, adaptive allocation, closed-loop replanning, and nonstationary conditional-law stress tests.
+The canonical CPU toy pipeline validates the finite identity, AUC identity, moment hierarchy, pilot-to-heldout prediction, scorer comparison, real-vs-imagined utility gaps, adaptive allocation, closed-loop replanning, and nonstationary conditional-law stress tests.
 
 ```bash
 bash scripts/run_smoke.sh

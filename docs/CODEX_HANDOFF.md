@@ -1,25 +1,34 @@
 # Codex Handoff
 
-Updated: 2026-05-30
+Updated: 2026-06-12
 
 ## Current Goal
 
-The current user action is `$context-handoff save current state other than push to github repo`: preserve verified project state before context is cleared. Do not push to GitHub as part of this handoff.
+Current paper task: make `best-of-n-wam` submission-ready as the
+world-action score-tail audit paper, not as another duplicate "Best-of-N exact
+law" wrapper. The active manuscript is `iclr_submission.tex`; the v2 title is
+`When Imagination Hurts: Score-Tail Audits for World-Action Rollout Planning`.
 
-Previous user requested pushing everything to `https://github.com/Jason-Wang313/best-of-n-wam`, then interrupted and requested this handoff instead. No push was performed during the handoff update.
-
-Project goal verified from repo docs: `Best-of-N WAM` is a standalone Python research project for exact test-time inference laws for World-Action Model rollout planning.
+Project goal verified from repo docs: `best-of-n-wam` is a standalone Python
+research project for auditing fixed world-action rollout generators and scorers
+by measuring real utility in the high planner-score tail.
 
 ## Repo Facts Verified From Files
 
 - Repo path: `C:\Users\wangz\best-of-n-wam`.
-- Project display name in `README.md`: `Best-of-N WAM`.
+- GitHub remote: `https://github.com/Jason-Wang313/best-of-n-wam.git`.
+- Current tracked branch: `main` tracking `origin/main`.
+- Project display name in `README.md`: `When Imagination Hurts`.
 - Python project name in `pyproject.toml`: `best-of-n-wam`.
 - Python import package remains `wam_inference_value`.
-- `README.md` describes the paper subtitle: `How Much Should a Robot Imagine? Exact Test-Time Inference Laws for World-Action Planning.`
+- `README.md` describes the paper subtitle: `Score-tail audits for world-action rollout planning.`
 - `AGENTS.md` says this repo uses the personal `context-handoff` skill and stores handoffs at `docs/CODEX_HANDOFF.md`.
-- Git status is `## No commits yet on master`; all project files are currently untracked.
-- `git remote -v` produced no output; no Git remote is currently configured.
+- Pre-existing untracked files observed before the v2 rewrite: `formal/`,
+  `iclr_paper_draft.pdf`, `iclr_paper_draft.tex`, `iclr_paper_skeleton.md`,
+  `iclr_reviewer_risks.md`, `paper_story.md`,
+  `reports/iclr_claim_audit.md`, and
+  `reports/lean_formalization_report.md`. Do not stage them unless the user
+  explicitly wants those prior local artifacts included.
 - README says ManiSkill is optional and the adapter is a readiness skeleton unless benchmark artifacts exist.
 - `scripts/claims_status.py` gates the 9 canonical analytic claims from analytic artifact filenames.
 

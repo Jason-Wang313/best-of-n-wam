@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "best-of-n-wam"
 version = "0.1.0"
-description = "Exact test-time inference laws for World-Action Model rollout planning."
+description = "Score-tail audits for World-Action Model rollout planning."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [

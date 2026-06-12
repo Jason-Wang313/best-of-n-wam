@@ -3,6 +3,15 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+
+# LaTeX build outputs.
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+
 logs/
 results/smoke/
 .venv/

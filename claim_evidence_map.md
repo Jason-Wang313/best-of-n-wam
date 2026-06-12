@@ -4,7 +4,7 @@ Every major paper claim should map to theorem text, an experiment, a figure, or 
 
 | Claim | Evidence type | Theorem/experiment/figure/citation | Current status | Risk/softening needed |
 |---|---|---|---|---|
-| For a fixed rollout generator and scorer, best-of-N selected utility is determined by the joint score/real-utility distribution. | Theorem + implementation | Finite tie-aware law; `docs/theory.md`; `src/wam_inference_value/theorem.py`; Claims 1-2 | Supported | Say fixed distribution; do not imply training law. |
+| For a fixed rollout generator and scorer, the score-tail audit curve is determined by the joint score/real-utility distribution. | Theorem + implementation | Finite score-tail rollout identity; `docs/theory.md`; `src/wam_inference_value/theorem.py`; Claims 1-2 | Supported | Say fixed distribution; do not imply training law. |
 | The finite empirical law is exact under sampling with replacement and uniform maximum-score tie-breaking. | Theorem + tests + proof draft | Claims 1-2; theorem unit tests; result consistency checks; `iclr_appendix.tex` | Supported in repo; appendix proof drafted | Use "exact under stated assumptions"; keep proof audited before upload. |
 | Binary success is a special case of utility-valued selection. | Theorem + tests | `binary_best_of_n_finite` delegates to utility law; Claims 1-2 | Supported | Keep R=Y special-case wording. |
 | Continuous utility law is a no-tie population identity. | Theorem | `docs/theory.md`; theorem map | Needs manuscript proof audit | Do not use for finite tied pools. |
@@ -28,7 +28,7 @@ Every major paper claim should map to theorem text, an experiment, a figure, or 
 
 ## High-Risk Words Checklist
 
-- "Exact": allowed for finite law under stated assumptions, N=2 identity, and exact-law empirical checks.
+- "Exact": allowed for finite identity under stated assumptions, N=2 identity, and exact-law empirical checks.
 - "Prove": allowed only in theorem/proof sections after proof text is finalized.
 - "Optimal": avoid unless referring to oracle diagnostics or exact selection-rule value, not a general controller.
 - "Robot": avoid in the title/body unless discussing related work or explicitly caveating simulator-only evidence.
