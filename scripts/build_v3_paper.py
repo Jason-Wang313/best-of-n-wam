@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import shutil
 import subprocess
 from pathlib import Path
@@ -15,7 +16,10 @@ DESKTOP_PDF = DESKTOP / FINAL_NAME
 
 
 def run(cmd: list[str]) -> None:
-    subprocess.run(cmd, cwd=ROOT, check=True)
+    env = os.environ.copy()
+    env.setdefault("SOURCE_DATE_EPOCH", "1700000000")
+    env.setdefault("FORCE_SOURCE_DATE", "1")
+    subprocess.run(cmd, cwd=ROOT, check=True, env=env)
 
 
 def main() -> None:

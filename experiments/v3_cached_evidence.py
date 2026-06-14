@@ -84,7 +84,14 @@ def barh(path: Path, labels: list[str], values: list[float], title: str, xlabel:
     ax.grid(axis="x", alpha=0.25)
     ax.invert_yaxis()
     fig.tight_layout()
-    fig.savefig(path)
+    fig.savefig(
+        path,
+        metadata={
+            "Creator": "experiments/v3_cached_evidence.py",
+            "CreationDate": None,
+            "ModDate": None,
+        },
+    )
     plt.close(fig)
 
 
