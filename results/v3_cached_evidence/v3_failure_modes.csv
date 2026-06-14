@@ -1,0 +1,5 @@
+failure_mode,metric,value,evidence
+severe imagined-real mismatch,gap growth over no mismatch,16.725668702334993,results/exp5_real_vs_imagined_utility_gap.json
+stuck/slip imagined-real mismatch,gap growth over no mismatch,16.38847839532815,results/exp5_real_vs_imagined_utility_gap.json
+anti-real-utility scorer,N64 minus N1 selected utility,-12.46414474610657,results/exp10_falsification_bad_scorer.json
+randomized dynamics scorer,oracle gap at N64,13.393867700179667,results/exp10_falsification_bad_scorer.json

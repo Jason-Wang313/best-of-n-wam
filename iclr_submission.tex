@@ -13,6 +13,7 @@
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
+\input{v3_results_macros.tex}
 
 \title{When Imagination Hurts: Score-Tail Audits for World-Action Rollout Planning}
 
@@ -201,6 +202,111 @@ We also evaluate in learned WAM-lite and simulator/benchmark rollout-pool artifa
 \end{minipage}
 \caption{\textbf{The score-tail audit appears beyond controlled analytic examples.} Left: multi-environment learned WAM-lite curves. Right: Gymnasium Robotics Fetch rollout-pool curves. These experiments check whether the same score-tail identity describes learned and simulated robotics rollout pools.}
 \label{fig:benchmarks}
+\end{figure}
+
+\section{V3 Evidence Audit}
+\label{sec:v3-audit}
+
+The v3 paper adds a cached evidence layer over the repository artifacts. The
+script \path{experiments/v3_cached_evidence.py} reads the committed theorem,
+mismatch, allocation, robotics, RoboCasa, LIBERO, claim-ledger, and artifact
+manifest summaries. It writes compact CSV ledgers, five figures, a summary JSON
+file, and this manuscript's macro file. The layer is intentionally light: it
+does not rerun optional RoboCasa or LIBERO environments, and it does not
+promote unavailable hardware or VLA-scale claims.
+
+The current v3 ledger reports \VThreeWAMClaimsVerified{} verified claim checks,
+\VThreeWAMClaimsPartial{} partial claim checks, and
+\VThreeWAMClaimsUnsupported{} unsupported claim checks under the repository's
+claim-status script. The artifact manifest covers
+\VThreeWAMArtifactFiles{} files, including \VThreeWAMArtifactCSV{} CSV tables
+and \VThreeWAMArtifactJSON{} JSON summaries. These counts are not a claim of
+benchmark completeness; they are a provenance check that the paper's numbers
+are backed by a broad committed artifact surface.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.78\linewidth]{paper_figures/v3/v3_exact_law_errors.pdf}
+\caption{\textbf{Exact-law error ledger.} The finite tied-pool identity remains
+low-error across analytic, learned, visual, and simulator rollout-pool
+artifacts.}
+\label{fig:v3-exact-errors}
+\end{figure}
+
+Figure~\ref{fig:v3-exact-errors} summarizes the theorem-audit role of the
+benchmark artifacts. In the core analytic check, the mean success Monte Carlo
+MAE is \VThreeWAMExactSuccessMAE{} and the mean utility MAE is
+\VThreeWAMExactUtilityMAE{}. In rollout-pool benchmarks, exact-law utility
+MAEs include \VThreeWAMFetchExactMAE{} for Fetch state WAM,
+\VThreeWAMFetchRGBExactMAE{} for Fetch RGB WAM,
+\VThreeWAMMetaWorldExactMAE{} for Meta-World,
+\VThreeWAMRoboSuiteExactMAE{} for RoboSuite, and
+\VThreeWAMManiSkillExactMAE{} for ManiSkill state-mode.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.80\linewidth]{paper_figures/v3/v3_benchmark_ci_lowers.pdf}
+\caption{\textbf{Promoted scorer gains over random.} The v3 ledger reports CI
+lower bounds for the promoted learned or dense scorer in each benchmark family;
+negative or weak settings remain scoped as limitations.}
+\label{fig:v3-ci-lowers}
+\end{figure}
+
+The benchmark ledger checks whether high-score tails contain real utility in
+simulated rollout pools. Fetch state WAM has learned-minus-random CI lower
+\VThreeWAMFetchCILo{} at $N=32$, while Fetch RGB WAM has visual-minus-random CI
+lower \VThreeWAMFetchRGBCILo{}. RoboCasa's stratified
+\VThreeWAMRoboCasaTasks{}-task artifact evaluates
+\VThreeWAMRoboCasaEvalSamples{} heldout rollouts across
+\VThreeWAMRoboCasaPools{} rollout pools, with utility correlation
+\VThreeWAMRoboCasaCorr{} and promoted learned-minus-random CI lower
+\VThreeWAMRoboCasaCILo{}. The residual clean/cook artifact covers
+\VThreeWAMRoboCasaResidualTasks{} tasks and \VThreeWAMRoboCasaResidualPools{}
+rollout pools, with utility correlation \VThreeWAMRoboCasaResidualCorr{} and
+CI lower \VThreeWAMRoboCasaResidualCILo{}. LIBERO Spatial contributes
+\VThreeWAMLiberoPools{} rollout pools with utility correlation
+\VThreeWAMLiberoCorr{} and learned-energy-regularized CI lower
+\VThreeWAMLiberoCILo{}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.76\linewidth]{paper_figures/v3/v3_failure_modes.pdf}
+\caption{\textbf{Failure-mode ledger.} The same score-tail audit detects
+imagined-real mismatch, anti-real-utility scoring, and randomized-dynamics
+scoring failures.}
+\label{fig:v3-failure}
+\end{figure}
+
+The failure-mode ledger is equally important. Severe imagined-real mismatch
+has gap growth \VThreeWAMSevereGapGrowth{}, and the stuck/slip mismatch has
+gap growth \VThreeWAMStuckGapGrowth{}. The anti-real-utility scorer changes
+selected utility from \VThreeWAMAntiScorerNOne{} at $N=1$ to
+\VThreeWAMAntiScorerNSixtyFour{} at $N=64$. These are not theorem failures.
+They are the audit doing its job: when the high planner-score tail is
+anti-aligned with real utility, more imagined candidates should be treated as
+risk rather than free improvement.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.76\linewidth]{paper_figures/v3/v3_robocasa_coverage.pdf}
+\caption{\textbf{RoboCasa coverage accounting.} Coverage is broad but not
+complete; v3 keeps full-RoboCasa claims out of the headline.}
+\label{fig:v3-robocasa}
+\end{figure}
+
+RoboCasa coverage is explicitly counted rather than implied. The local registry
+contains \VThreeWAMRoboCasaRegistered{} task IDs. Verified learned-WAM
+rollout-pool artifacts cover \VThreeWAMRoboCasaRolloutTaskIDs{} task IDs, and
+any committed rollout-pool or micro-rollout artifact covers
+\VThreeWAMRoboCasaAnyTaskIDs{} task IDs. This is strong breadth for a
+rollout-pool audit paper, but it is not full RoboCasa-wide validation.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.74\linewidth]{paper_figures/v3/v3_claim_artifact_counts.pdf}
+\caption{\textbf{Claim and artifact coverage.} The repository claim/status and
+artifact-manifest checks are part of the submission contract.}
+\label{fig:v3-coverage}
 \end{figure}
 
 \section{Adaptive Rollout Budgeting}

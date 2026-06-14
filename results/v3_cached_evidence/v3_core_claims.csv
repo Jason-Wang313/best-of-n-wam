@@ -1,0 +1,6 @@
+claim,metric,value,evidence
+finite binary identity,mean success MC MAE,0.002104612037108505,results/exp1_exact_rollout_law_validation.json
+utility-valued identity,mean utility MC MAE,0.013762680427723635,results/exp1_exact_rollout_law_validation.json
+N=2 AUC boundary,max identity error,0.0,results/exp2_auc_vs_moment_hierarchy.json
+higher tail moments matter,same-p-kappa N64 gap,0.9988209815422198,results/exp2_auc_vs_moment_hierarchy.json
+adaptive allocation,moment-law gain over uniform,0.07668240308838588,results/exp6_adaptive_rollout_allocation.json

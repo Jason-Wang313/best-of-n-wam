@@ -1,0 +1,7 @@
+coverage,count,note
+artifact files,462,files tracked by artifact manifest
+CSV tables,232,artifact manifest suffix count
+JSON summaries,149,artifact manifest suffix count
+RoboCasa registered tasks,396,local task registry
+RoboCasa rollout-pool task IDs,132,verified learned-WAM rollout-pool artifacts
+RoboCasa any-artifact task IDs,136,rollout-pool or micro-rollout evidence

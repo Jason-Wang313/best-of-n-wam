@@ -1,0 +1,9 @@
+benchmark,pools,exact_mae,utility_corr,ci_key,ci_lo,scope
+Fetch state WAM,60,0.012637772476737578,0.6471308087645835,learned_minus_random_N32,0.4409383736439933,Gymnasium Robotics state/action rollout pools
+Fetch RGB WAM,45,0.010612997381058541,0.7325062733110719,visual_minus_random_N32,0.3475297209768482,Gymnasium Robotics RGB-frame/action rollout pools
+Meta-World,45,0.029769105761603815,0.24341987925574915,learned_minus_random_N32,0.09753950450146918,ML1 reach/push/drawer-open rollout pools
+RoboSuite,30,0.0023698818100493587,0.9538204789243027,learned_minus_random_N32,0.24469026009584738,Panda Lift/Stack/Door rollout pools
+ManiSkill state,30,0.0034490668019852445,0.40475203154265293,dense_minus_random_real_utility_N32,0.2265511126386817,CPU state-mode pd_joint_delta_pos rollout pools
+RoboCasa 97-task,194,0.00027048203971570024,0.8380299394502633,promoted_learned_minus_random_N8,0.31486715069050375,stratified kitchen-family rollout pools
+RoboCasa residual 35,35,0.00024620294740340757,0.8345242481462408,promoted_learned_minus_random_N4,0.19739340175662884,clean/cook residual rollout pools
+LIBERO Spatial,15,0.0001402348651464976,0.3526483541014925,learned_energy_regularized_minus_random_N8,0.2652641899613382,three-task rollout-pool WAM-lite
