@@ -4,6 +4,17 @@ Score-tail audits for world-action rollout planning.
 
 This repository studies a narrow world-action planning question: for a fixed rollout generator and a fixed rollout scorer, does the planner-score tail actually contain real utility, or does extra imagination select futures that only look good under the model?
 
+## Final v4 Submission Package
+
+The current submission artifact is `paper/final/best-of-n-wam-v4.pdf`, copied to the Desktop as `best-of-n-wam-v4.pdf`. The RAM-light v4 build freezes the evidence protocol by regenerating compact ledgers from committed artifacts rather than rerunning optional RoboCasa, LIBERO, or ManiSkill visual runtimes:
+
+```bash
+python scripts/build_v4_paper.py
+python scripts/run_v4_claim_audit.py
+```
+
+The v4 gate requires clean claim ledgers, exact-law thresholds, negative controls, real benchmark rollout-pool breadth, positive promoted benchmark confidence bounds, source-map consistency, and matching repository/Desktop PDF hashes.
+
 ## Contribution
 
 The core contribution is a score-tail audit for rollout pools. Given rollout scores `S` and real utilities `R`, the expected utility of choosing the top-scoring rollout among `N` samples is determined by the empirical score/utility distribution:

@@ -8,12 +8,12 @@
 \usepackage{graphicx}
 \usepackage{microtype}
 \usepackage{url}
-\usepackage{hyperref}
-\hypersetup{hidelinks}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,citecolor=green!45!black,linkcolor=blue!55!black,urlcolor=blue!55!black]{hyperref}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
-\input{v3_results_macros.tex}
+\input{v4_results_macros.tex}
 
 \title{When Imagination Hurts: Score-Tail Audits for World-Action Rollout Planning}
 
@@ -24,12 +24,12 @@
 \maketitle
 
 \begin{abstract}
-World-action planners often spend test-time compute by imagining candidate futures, scoring those futures, and executing the highest-scoring rollout. This can help only when the planner-score tail contains high real utility; when the tail is exhausted or misaligned, more imagination can saturate or harm. We frame this as a score-tail audit problem for a fixed rollout generator and fixed scorer. For finite empirical rollout pools, we give an exact tie-aware identity for expected selected real utility under i.i.d. with-replacement sampling, max-score selection, and uniform maximum-score tie-breaking. The identity turns the selected-utility curve into an audit of real utility in the upper score tail. Binary success yields an exact $N=2$ tie-aware AUC identity, while larger candidate counts depend on higher upper-tail rank moments beyond AUC. Experiments check the audit in analytic examples, learned WAM-lite models, bad-scorer falsifications, imagined-real mismatch settings, adaptive-budgeting runs, and simulated robotics rollout pools. The paper is not a WAM training scaling law, not real-world robot validation, not modern VLA-scale validation, not full RoboCasa-wide validation, and not a universal OOD/generalization guarantee.
+World-action planners often spend test-time compute by imagining candidate futures, scoring those futures, and executing the highest-scoring rollout. This can help only when the planner-score tail contains high real utility; when the tail is exhausted or misaligned, more imagination can saturate or harm. We frame this as a score-tail audit problem for a fixed rollout generator and fixed scorer. For finite empirical rollout pools, we give an exact tie-aware identity for expected selected real utility under i.i.d. with-replacement sampling, max-score selection, and uniform maximum-score tie-breaking. The identity turns the selected-utility curve into an audit of real utility in the upper score tail. Binary success yields an exact $N=2$ tie-aware AUC identity, while larger candidate counts depend on higher upper-tail rank moments beyond AUC. Experiments freeze a RAM-light protocol over committed artifacts: analytic identities, learned WAM-lite models, bad-scorer falsifications, imagined-real mismatch, adaptive-budgeting runs, and \VFourWAMBenchmarkRows{} simulated robotics benchmark rows spanning \VFourWAMBenchmarkPools{} heldout rollout pools. All \VFourWAMPositiveCIRows{} promoted benchmark rows have positive learned/dense-score lower confidence bounds over random, while \VFourWAMNegativeControls{} negative controls show when high-$N$ selection should be blocked. The paper is not a WAM training scaling law, not real-world robot validation, not modern VLA-scale validation, not full RoboCasa-wide validation, and not a universal OOD/generalization guarantee.
 \end{abstract}
 
 \section{Introduction}
 
-Modern embodied agents increasingly act by imagining candidate futures. A learned world model or generative policy proposes rollouts; a planner, verifier, value model, reward model, or hand-designed heuristic scores them; the planner executes the highest-scoring rollout, or the first action of it. Related verifier and best-of-$N$ alignment work studies the same sample-many/rerank primitive \citep{cobbe2021verifiers,beirami2024bestofn}. This pattern appears in latent world-model planning \citep{ha2018worldmodels,hafner2019planet,hafner2020dreamer}, model-based reinforcement learning and sampling MPC \citep{chua2018pets,rubinstein1999cem,williams2017itmmpc}, and the broader move toward generative robot policies and vision-language-action systems \citep{brohan2022rt1,brohan2023rt2,chi2023diffusionpolicy,octo2024}.
+Modern embodied agents increasingly act by imagining candidate futures. A learned world model or generative policy proposes rollouts; a planner, verifier, value model, reward model, or hand-designed heuristic scores them; the planner executes the highest-scoring rollout, or the first action of it. Related verifier and best-of-$N$ alignment work studies the same sample-many/rerank primitive \citep{cobbe2021verifiers,beirami2024bestofn}. This pattern appears in latent world-model planning \citep{ha2018worldmodels,hafner2019planet,hafner2020dreamer,hafner2023dreamerv3,hansen2024tdmpc2}, model-based reinforcement learning and sampling MPC \citep{chua2018pets,rubinstein1999cem,williams2017itmmpc}, and the broader move toward generative robot policies and vision-language-action systems \citep{brohan2022rt1,brohan2023rt2,chi2023diffusionpolicy,octo2024}.
 
 This makes test-time rollout sampling a basic inference knob. If a planner or simulated agent can sample 1, 8, 32, or 128 candidate futures before acting, how many should it sample? The usual answer is operational rather than conceptual: sample more when compute allows. But sampling more candidates selects deeper into the planner-score tail. If that tail contains truly high-utility rollouts, extra imagination helps. If that tail contains rollouts that only look good under the model or scorer, extra imagination can saturate or even reduce real utility. The central object is therefore not merely the average model error, the average reward prediction, or a pairwise ranking statistic. It is the real utility of rollouts that the planner-score tail actually exposes.
 
@@ -45,7 +45,7 @@ The scope is deliberately narrow. We do not propose a universal world-action-mod
 \end{quote}
 
 \paragraph{Contributions.}
-First, we define a score-tail audit for fixed world-action rollout generators and scorers: measure real utility in the planner-score tail that max-score selection will actually choose from. Second, we give the exact finite empirical, tie-aware identity that computes selected real utility for any candidate count, real-valued utility, binary success labels, and score ties. Third, we locate the AUC boundary: tie-aware AUC is complete for two candidates, while larger candidate pools depend on higher upper-tail rank moments. Fourth, we turn the identity into an inference-value profile for improvement, saturation, harm, and adaptive rollout budgeting. Fifth, experiments stress-test the audit in analytic, learned WAM-lite, mismatch, falsification, and simulated robotics rollout-pool artifacts.
+First, we define a score-tail audit for fixed world-action rollout generators and scorers: measure real utility in the planner-score tail that max-score selection will actually choose from. Second, we give the exact finite empirical, tie-aware identity that computes selected real utility for any candidate count, real-valued utility, binary success labels, and score ties. Third, we locate the AUC boundary: tie-aware AUC is complete for two candidates, while larger candidate pools depend on higher upper-tail rank moments. Fourth, we turn the identity into an inference-value profile for improvement, saturation, harm, and adaptive rollout budgeting. Fifth, experiments stress-test the audit in analytic, learned WAM-lite, mismatch, falsification, and simulated robotics rollout-pool artifacts under a frozen v4 gate with explicit baselines, negative controls, artifact hashes, and scoped claims.
 
 \begin{figure}[t]
 \centering
@@ -204,109 +204,127 @@ We also evaluate in learned WAM-lite and simulator/benchmark rollout-pool artifa
 \label{fig:benchmarks}
 \end{figure}
 
-\section{V3 Evidence Audit}
-\label{sec:v3-audit}
+\section{V4 Evidence Audit}
+\label{sec:v4-audit}
 
-The v3 paper adds a cached evidence layer over the repository artifacts. The
-script \path{experiments/v3_cached_evidence.py} reads the committed theorem,
+The v4 paper adds a frozen evidence layer over the repository artifacts. The
+script \path{experiments/v4_frozen_evidence.py} reads the committed theorem,
 mismatch, allocation, robotics, RoboCasa, LIBERO, claim-ledger, and artifact
-manifest summaries. It writes compact CSV ledgers, five figures, a summary JSON
+manifest summaries. It writes compact CSV ledgers, six figures, a summary JSON
 file, and this manuscript's macro file. The layer is intentionally light: it
 does not rerun optional RoboCasa or LIBERO environments, and it does not
 promote unavailable hardware or VLA-scale claims.
 
-The current v3 ledger reports \VThreeWAMClaimsVerified{} verified claim checks,
-\VThreeWAMClaimsPartial{} partial claim checks, and
-\VThreeWAMClaimsUnsupported{} unsupported claim checks under the repository's
+The current v4 ledger reports \VFourWAMClaimsVerified{} verified claim checks,
+\VFourWAMClaimsPartial{} partial claim checks, and
+\VFourWAMClaimsUnsupported{} unsupported claim checks under the repository's
 claim-status script. The artifact manifest covers
-\VThreeWAMArtifactFiles{} files, including \VThreeWAMArtifactCSV{} CSV tables
-and \VThreeWAMArtifactJSON{} JSON summaries. These counts are not a claim of
+\VFourWAMArtifactFiles{} files, including \VFourWAMArtifactCSV{} CSV tables
+and \VFourWAMArtifactJSON{} JSON summaries. These counts are not a claim of
 benchmark completeness; they are a provenance check that the paper's numbers
 are backed by a broad committed artifact surface.
 
+The frozen protocol adds hard gates before any number is promoted. All
+\VFourWAMProtocolGateRows{} gates pass: no partial or unsupported claims,
+core exact-law errors below threshold, \VFourWAMNegativeControls{} negative
+controls, \VFourWAMBenchmarkRows{} promoted real-benchmark rows,
+\VFourWAMBenchmarkPools{} heldout rollout pools, \VFourWAMPositiveCIRows{}
+positive promoted benchmark confidence bounds, and a worst benchmark exact-law
+MAE of \VFourWAMMaxExactMAE{}. The protocol is a measurement freeze, not a
+tuning loop.
+
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.78\linewidth]{paper_figures/v3/v3_exact_law_errors.pdf}
+\includegraphics[width=0.78\linewidth]{paper_figures/v4/v4_protocol_gates.pdf}
+\caption{\textbf{Frozen v4 protocol gates.} The paper promotes only results
+that pass claim-ledger, exact-law, negative-control, benchmark, coverage, and
+artifact-manifest gates.}
+\label{fig:v4-protocol-gates}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.78\linewidth]{paper_figures/v4/v4_exact_law_errors.pdf}
 \caption{\textbf{Exact-law error ledger.} The finite tied-pool identity remains
 low-error across analytic, learned, visual, and simulator rollout-pool
 artifacts.}
-\label{fig:v3-exact-errors}
+\label{fig:v4-exact-errors}
 \end{figure}
 
-Figure~\ref{fig:v3-exact-errors} summarizes the theorem-audit role of the
+Figure~\ref{fig:v4-exact-errors} summarizes the theorem-audit role of the
 benchmark artifacts. In the core analytic check, the mean success Monte Carlo
-MAE is \VThreeWAMExactSuccessMAE{} and the mean utility MAE is
-\VThreeWAMExactUtilityMAE{}. In rollout-pool benchmarks, exact-law utility
-MAEs include \VThreeWAMFetchExactMAE{} for Fetch state WAM,
-\VThreeWAMFetchRGBExactMAE{} for Fetch RGB WAM,
-\VThreeWAMMetaWorldExactMAE{} for Meta-World,
-\VThreeWAMRoboSuiteExactMAE{} for RoboSuite, and
-\VThreeWAMManiSkillExactMAE{} for ManiSkill state-mode.
+MAE is \VFourWAMExactSuccessMAE{} and the mean utility MAE is
+\VFourWAMExactUtilityMAE{}. In rollout-pool benchmarks, exact-law utility
+MAEs include \VFourWAMFetchExactMAE{} for Fetch state WAM,
+\VFourWAMFetchRGBExactMAE{} for Fetch RGB WAM,
+\VFourWAMMetaWorldExactMAE{} for Meta-World,
+\VFourWAMRoboSuiteExactMAE{} for RoboSuite, and
+\VFourWAMManiSkillExactMAE{} for ManiSkill state-mode.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.80\linewidth]{paper_figures/v3/v3_benchmark_ci_lowers.pdf}
-\caption{\textbf{Promoted scorer gains over random.} The v3 ledger reports CI
+\includegraphics[width=0.80\linewidth]{paper_figures/v4/v4_benchmark_ci_lowers.pdf}
+\caption{\textbf{Promoted scorer gains over random.} The v4 ledger reports CI
 lower bounds for the promoted learned or dense scorer in each benchmark family;
 negative or weak settings remain scoped as limitations.}
-\label{fig:v3-ci-lowers}
+\label{fig:v4-ci-lowers}
 \end{figure}
 
 The benchmark ledger checks whether high-score tails contain real utility in
 simulated rollout pools. Fetch state WAM has learned-minus-random CI lower
-\VThreeWAMFetchCILo{} at $N=32$, while Fetch RGB WAM has visual-minus-random CI
-lower \VThreeWAMFetchRGBCILo{}. RoboCasa's stratified
-\VThreeWAMRoboCasaTasks{}-task artifact evaluates
-\VThreeWAMRoboCasaEvalSamples{} heldout rollouts across
-\VThreeWAMRoboCasaPools{} rollout pools, with utility correlation
-\VThreeWAMRoboCasaCorr{} and promoted learned-minus-random CI lower
-\VThreeWAMRoboCasaCILo{}. The residual clean/cook artifact covers
-\VThreeWAMRoboCasaResidualTasks{} tasks and \VThreeWAMRoboCasaResidualPools{}
-rollout pools, with utility correlation \VThreeWAMRoboCasaResidualCorr{} and
-CI lower \VThreeWAMRoboCasaResidualCILo{}. LIBERO Spatial contributes
-\VThreeWAMLiberoPools{} rollout pools with utility correlation
-\VThreeWAMLiberoCorr{} and learned-energy-regularized CI lower
-\VThreeWAMLiberoCILo{}.
+\VFourWAMFetchCILo{} at $N=32$, while Fetch RGB WAM has visual-minus-random CI
+lower \VFourWAMFetchRGBCILo{}. RoboCasa's stratified
+\VFourWAMRoboCasaTasks{}-task artifact evaluates
+\VFourWAMRoboCasaEvalSamples{} heldout rollouts across
+\VFourWAMRoboCasaPools{} rollout pools, with utility correlation
+\VFourWAMRoboCasaCorr{} and promoted learned-minus-random CI lower
+\VFourWAMRoboCasaCILo{}. The residual clean/cook artifact covers
+\VFourWAMRoboCasaResidualTasks{} tasks and \VFourWAMRoboCasaResidualPools{}
+rollout pools, with utility correlation \VFourWAMRoboCasaResidualCorr{} and
+CI lower \VFourWAMRoboCasaResidualCILo{}. LIBERO Spatial contributes
+\VFourWAMLiberoPools{} rollout pools with utility correlation
+\VFourWAMLiberoCorr{} and learned-energy-regularized CI lower
+\VFourWAMLiberoCILo{}.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.76\linewidth]{paper_figures/v3/v3_failure_modes.pdf}
+\includegraphics[width=0.76\linewidth]{paper_figures/v4/v4_failure_modes.pdf}
 \caption{\textbf{Failure-mode ledger.} The same score-tail audit detects
 imagined-real mismatch, anti-real-utility scoring, and randomized-dynamics
 scoring failures.}
-\label{fig:v3-failure}
+\label{fig:v4-failure}
 \end{figure}
 
 The failure-mode ledger is equally important. Severe imagined-real mismatch
-has gap growth \VThreeWAMSevereGapGrowth{}, and the stuck/slip mismatch has
-gap growth \VThreeWAMStuckGapGrowth{}. The anti-real-utility scorer changes
-selected utility from \VThreeWAMAntiScorerNOne{} at $N=1$ to
-\VThreeWAMAntiScorerNSixtyFour{} at $N=64$. These are not theorem failures.
+has gap growth \VFourWAMSevereGapGrowth{}, and the stuck/slip mismatch has
+gap growth \VFourWAMStuckGapGrowth{}. The anti-real-utility scorer changes
+selected utility from \VFourWAMAntiScorerNOne{} at $N=1$ to
+\VFourWAMAntiScorerNSixtyFour{} at $N=64$. These are not theorem failures.
 They are the audit doing its job: when the high planner-score tail is
 anti-aligned with real utility, more imagined candidates should be treated as
 risk rather than free improvement.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.76\linewidth]{paper_figures/v3/v3_robocasa_coverage.pdf}
+\includegraphics[width=0.76\linewidth]{paper_figures/v4/v4_robocasa_coverage.pdf}
 \caption{\textbf{RoboCasa coverage accounting.} Coverage is broad but not
-complete; v3 keeps full-RoboCasa claims out of the headline.}
-\label{fig:v3-robocasa}
+complete; v4 keeps full-RoboCasa claims out of the headline.}
+\label{fig:v4-robocasa}
 \end{figure}
 
 RoboCasa coverage is explicitly counted rather than implied. The local registry
-contains \VThreeWAMRoboCasaRegistered{} task IDs. Verified learned-WAM
-rollout-pool artifacts cover \VThreeWAMRoboCasaRolloutTaskIDs{} task IDs, and
+contains \VFourWAMRoboCasaRegistered{} task IDs. Verified learned-WAM
+rollout-pool artifacts cover \VFourWAMRoboCasaRolloutTaskIDs{} task IDs, and
 any committed rollout-pool or micro-rollout artifact covers
-\VThreeWAMRoboCasaAnyTaskIDs{} task IDs. This is strong breadth for a
+\VFourWAMRoboCasaAnyTaskIDs{} task IDs. This is strong breadth for a
 rollout-pool audit paper, but it is not full RoboCasa-wide validation.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.74\linewidth]{paper_figures/v3/v3_claim_artifact_counts.pdf}
+\includegraphics[width=0.74\linewidth]{paper_figures/v4/v4_claim_artifact_counts.pdf}
 \caption{\textbf{Claim and artifact coverage.} The repository claim/status and
 artifact-manifest checks are part of the submission contract.}
-\label{fig:v3-coverage}
+\label{fig:v4-coverage}
 \end{figure}
 
 \section{Adaptive Rollout Budgeting}
@@ -331,7 +349,10 @@ This is a heuristic/application, not a general controller design. It depends on 
 \label{sec:related}
 
 \paragraph{World models and latent imagination.}
-World Models, PlaNet, and Dreamer showed that learned latent dynamics can support policies and planning by imagined futures \citep{ha2018worldmodels,hafner2019planet,hafner2020dreamer}. PETS and related model-based RL systems use learned dynamics with sampling-based planning \citep{chua2018pets}. Our work is complementary: it does not propose a new dynamics model, but audits the real utility obtained by selecting the highest-scoring rollout generated by any fixed model/scorer stack.
+World Models, PlaNet, Dreamer, DreamerV3, and TD-MPC2 showed that learned latent dynamics can support policies and planning by imagined futures and can scale across diverse control domains \citep{ha2018worldmodels,hafner2019planet,hafner2020dreamer,hafner2023dreamerv3,hansen2024tdmpc2}. PETS and related model-based RL systems use learned dynamics with sampling-based planning \citep{chua2018pets}. Our work is complementary: it does not propose a new dynamics model, but audits the real utility obtained by selecting the highest-scoring rollout generated by any fixed model/scorer stack.
+
+\paragraph{Accepted-paper comparison.}
+The nearest ICLR-style world-model papers evaluate complete agents, reporting broad task performance and robustness under fixed or shared hyperparameters \citep{hafner2023dreamerv3,hansen2024tdmpc2}. This paper targets a different but adjacent failure mode: after a generator and scorer are already fixed, does the score tail selected by extra rollout sampling contain real utility? That narrower claim is why our evidence emphasizes exact tied-pool accounting, random/dense/oracle baselines, negative controls, and simulator rollout-pool breadth rather than claiming a new full-agent training recipe.
 
 \paragraph{Sampling-based planning.}
 Random shooting, CEM, and information-theoretic MPC optimize over sampled action sequences \citep{rubinstein1999cem,williams2017itmmpc}. These methods motivate the practical importance of candidate count. Our contribution is a score-tail audit for the value of max-score selection under a fixed score/real-utility distribution.

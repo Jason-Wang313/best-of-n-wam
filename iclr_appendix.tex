@@ -74,17 +74,17 @@ Adaptive allocation experiments estimate per-state inference-value curves from p
 \paragraph{Benchmark rollout pools.}
 The benchmark experiments are rollout-pool checks in simulated robotics environments. Verified finite-identity utility MAEs include Gymnasium Robotics Fetch $0.0126$, Gymnasium Robotics RGB visual WAM $0.0106$, ManiSkill state-mode $0.00345$, Meta-World $0.0298$, RoboSuite $0.00237$, RoboCasa 12-task family $0.000292$, RoboCasa residual 35-task clean/cook artifact $0.000246$, and LIBERO rollout-pool WAM-lite $0.000140$. These numbers support the inference-value mechanism across simulator artifacts. They do not constitute real-world robot evidence.
 
-\section{V3 Cached Evidence Ledger}
-\label{app:v3-ledger}
+\section{V4 Cached Evidence Ledger}
+\label{app:v4-ledger}
 
-The v3 evidence layer is a paper-facing cache over the repository's existing
+The v4 evidence layer is a paper-facing cache over the repository's existing
 artifact base. It exists because a large artifact tree is not by itself a
 submission argument. Reviewers need to know which artifacts support which
 claims, which numbers are imported into the manuscript, and which claims are
 deliberately excluded from the headline. The script
-\path{experiments/v3_cached_evidence.py} performs that role. It reads committed
-JSON summaries and CSV ledgers, writes compact v3 tables, creates five figures,
-and writes \path{v3_results_macros.tex}. The manuscript imports those macros
+\path{experiments/v4_frozen_evidence.py} performs that role. It reads committed
+JSON summaries and CSV ledgers, writes compact v4 tables, creates six figures,
+and writes \path{v4_results_macros.tex}. The manuscript imports those macros
 so that key numbers are not hand-copied into the paper.
 
 \begin{table}[t]
@@ -92,46 +92,50 @@ so that key numbers are not hand-copied into the paper.
 \small
 \begin{tabular}{p{0.30\linewidth}p{0.34\linewidth}p{0.24\linewidth}}
 \toprule
-V3 artifact & Contents & Reviewer use \\
+V4 artifact & Contents & Reviewer use \\
 \midrule
-\path{v3_core_claims.csv} &
+\path{v4_core_claims.csv} &
 Exact-law MAEs, AUC identity error, same-AUC high-$N$ gap, and adaptive
 allocation gain. &
 Checks the theorem and inference-budget claims. \\
-\path{v3_failure_modes.csv} &
+\path{v4_failure_modes.csv} &
 Severe mismatch, stuck/slip mismatch, anti-scorer degradation, and randomized
 dynamics gap. &
 Checks that harm cases are measured rather than asserted. \\
-\path{v3_benchmark_summary.csv} &
+\path{v4_benchmark_summary.csv} &
 Benchmark rollout-pool counts, exact-law MAE, learned-scorer correlation, CI
 lower bound, and scope note. &
 Checks simulator breadth and benchmark boundaries. \\
-\path{v3_coverage_summary.csv} &
+\path{v4_coverage_summary.csv} &
 Artifact counts and RoboCasa coverage accounting. &
 Checks provenance and avoids full-coverage overclaiming. \\
+\path{v4_protocol_gates.csv} &
+Frozen claim, exact-law, negative-control, benchmark, coverage, and artifact
+gates. &
+Checks that final reporting is measurement under a fixed protocol. \\
 \path{summary.json} &
 Top-level numbers mirrored into \LaTeX{} macros. &
 Checks paper/build consistency. \\
 \bottomrule
 \end{tabular}
-\caption{V3 cached evidence artifacts.}
-\label{tab:v3-ledger}
+\caption{V4 cached evidence artifacts.}
+\label{tab:v4-ledger}
 \end{table}
 
 The evidence layer is intentionally not an experiment runner. Optional
 RoboCasa and LIBERO stacks require separate runtime environments, and ManiSkill
 visual/EE-control validation is blocked on local rendering and robotics-API
 dependencies. Re-running those suites as part of every paper build would be
-slow, fragile, and unnecessary. V3 therefore treats the committed artifacts as
-the evidence base and makes their use explicit. A future v4 can add new
-artifacts and a new evidence cache, but v3 should not silently mutate its claim
+slow, fragile, and unnecessary. V4 therefore treats the committed artifacts as
+the evidence base and makes their use explicit. A future v5 can add new
+artifacts and a new evidence cache, but v4 should not silently mutate its claim
 surface.
 
 \section{Benchmark Evidence Matrix}
 \label{app:benchmark-matrix}
 
 Table~\ref{tab:benchmark-matrix} summarizes the benchmark artifacts used in
-the v3 paper. The columns are deliberately chosen to separate three questions:
+the v4 paper. The columns are deliberately chosen to separate three questions:
 whether the exact finite identity matches the rollout pool, whether the learned
 or promoted scorer beats random with a positive lower confidence bound, and
 what scope the artifact actually covers.
@@ -143,25 +147,25 @@ what scope the artifact actually covers.
 \toprule
 Artifact & Pools & Exact MAE & CI lower & Scope \\
 \midrule
-Fetch state WAM & 60 & \VThreeWAMFetchExactMAE{} & \VThreeWAMFetchCILo{} &
+Fetch state WAM & 60 & \VFourWAMFetchExactMAE{} & \VFourWAMFetchCILo{} &
 Gymnasium Robotics state/action rollout pools. \\
-Fetch RGB WAM & 45 & \VThreeWAMFetchRGBExactMAE{} & \VThreeWAMFetchRGBCILo{} &
+Fetch RGB WAM & 45 & \VFourWAMFetchRGBExactMAE{} & \VFourWAMFetchRGBCILo{} &
 RGB-frame/action rollout pools. \\
-Meta-World & 45 & \VThreeWAMMetaWorldExactMAE{} & positive in reward and
+Meta-World & 45 & \VFourWAMMetaWorldExactMAE{} & positive in reward and
 learned-score reports & ML1 reach, push, drawer-open. \\
-RoboSuite & 30 & \VThreeWAMRoboSuiteExactMAE{} & positive learned/reward
+RoboSuite & 30 & \VFourWAMRoboSuiteExactMAE{} & positive learned/reward
 reports & Panda Lift, Stack, Door. \\
-ManiSkill state & 30 & \VThreeWAMManiSkillExactMAE{} & dense-score positive,
+ManiSkill state & 30 & \VFourWAMManiSkillExactMAE{} & dense-score positive,
 learned score mixed & CPU state-mode joint-delta control. \\
-RoboCasa 97-task & \VThreeWAMRoboCasaPools{} & $0.0003$ &
-\VThreeWAMRoboCasaCILo{} & Stratified kitchen-family rollout pools. \\
-RoboCasa residual 35 & \VThreeWAMRoboCasaResidualPools{} & $0.0002$ &
-\VThreeWAMRoboCasaResidualCILo{} & Clean/cook residual rollout pools. \\
-LIBERO Spatial & \VThreeWAMLiberoPools{} & $0.0001$ & \VThreeWAMLiberoCILo{} &
+RoboCasa 97-task & \VFourWAMRoboCasaPools{} & $0.0003$ &
+\VFourWAMRoboCasaCILo{} & Stratified kitchen-family rollout pools. \\
+RoboCasa residual 35 & \VFourWAMRoboCasaResidualPools{} & $0.0002$ &
+\VFourWAMRoboCasaResidualCILo{} & Clean/cook residual rollout pools. \\
+LIBERO Spatial & \VFourWAMLiberoPools{} & $0.0001$ & \VFourWAMLiberoCILo{} &
 Three-task rollout-pool WAM-lite. \\
 \bottomrule
 \end{tabular}
-\caption{V3 benchmark evidence matrix. Exact MAE checks the tied-pool law;
+\caption{V4 benchmark evidence matrix. Exact MAE checks the tied-pool law;
 CI lower checks promoted-score utility over random where applicable.}
 \label{tab:benchmark-matrix}
 \end{table}
@@ -185,7 +189,7 @@ the selected score tail, not only the global quality of the model.
 
 The first reading step is the exact-law check. If the finite identity does not
 match Monte Carlo selection on a rollout pool, the implementation is broken or
-the assumptions are mismatched. The v3 evidence reports low exact-law errors
+the assumptions are mismatched. The v4 evidence reports low exact-law errors
 across the core analytic checks and benchmark rollout pools, so the selection
 accounting itself is not the bottleneck.
 
@@ -244,7 +248,7 @@ immediately see that this is the robotics/WAM rollout-tail paper.
 \section{Claim Tiers}
 \label{app:claim-tiers}
 
-The v3 claim policy has four tiers. Tier 1 is exact score-tail accounting.
+The v4 claim policy has four tiers. Tier 1 is exact score-tail accounting.
 These claims are the strongest because they follow from the theorem and are
 checked directly against empirical rollout pools. They include the finite
 identity, the utility-valued extension, the $N=2$ AUC boundary, and the
@@ -275,23 +279,23 @@ as achieved evidence.
 \paragraph{Gymnasium Robotics Fetch.}
 The Fetch state/action artifacts cover three contact-rich manipulation tasks:
 FetchReach, FetchPush, and FetchPickAndPlace. The rollout-pool exact-law MAE is
-\VThreeWAMFetchExactMAE{}, and the learned-minus-random $N=32$ CI lower is
-\VThreeWAMFetchCILo{}. The RGB-frame/action variant reports exact-law MAE
-\VThreeWAMFetchRGBExactMAE{} and CI lower \VThreeWAMFetchRGBCILo{}. These
+\VFourWAMFetchExactMAE{}, and the learned-minus-random $N=32$ CI lower is
+\VFourWAMFetchCILo{}. The RGB-frame/action variant reports exact-law MAE
+\VFourWAMFetchRGBExactMAE{} and CI lower \VFourWAMFetchRGBCILo{}. These
 artifacts are useful because they include both state and visual observations.
 They are still simulator rollout-pool checks, not deployed policies.
 
 \paragraph{Meta-World.}
 The Meta-World artifact covers reach, push, and drawer-open ML1-style tasks.
 It broadens the manipulation family beyond Fetch. The exact-law MAE is
-\VThreeWAMMetaWorldExactMAE{}. The learned score is weaker than reward-like
+\VFourWAMMetaWorldExactMAE{}. The learned score is weaker than reward-like
 scoring in this suite, which is scientifically useful: the audit can distinguish
 between exact accounting and score quality. The paper should not hide that
 distinction.
 
 \paragraph{RoboSuite.}
 RoboSuite adds Panda Lift, Stack, and Door. The exact-law MAE is
-\VThreeWAMRoboSuiteExactMAE{}, and reports include positive learned/reward
+\VFourWAMRoboSuiteExactMAE{}, and reports include positive learned/reward
 comparisons plus small closed-loop traces. The right claim is that the
 score-tail audit survives another MuJoCo manipulation stack. The wrong claim
 would be that this proves general real-robot control.
@@ -299,30 +303,30 @@ would be that this proves general real-robot control.
 \paragraph{ManiSkill.}
 The ManiSkill artifact uses CPU state observations and
 \path{pd_joint_delta_pos} control. The exact-law MAE is
-\VThreeWAMManiSkillExactMAE{}. Visual and end-effector-control validation are
+\VFourWAMManiSkillExactMAE{}. Visual and end-effector-control validation are
 not claimed because the local stack exposes renderer and robotics-API blockers.
-This is not a detail to bury. It is an example of v3's claim discipline:
+This is not a detail to bury. It is an example of v4's claim discipline:
 state-mode evidence is promoted, visual/EE-control evidence remains a blocker.
 
 \paragraph{RoboCasa.}
 RoboCasa is the broadest artifact family. The stratified artifact covers
-\VThreeWAMRoboCasaTasks{} tasks, \VThreeWAMRoboCasaPools{} rollout pools, and
-\VThreeWAMRoboCasaEvalSamples{} heldout rollouts, with utility correlation
-\VThreeWAMRoboCasaCorr{} and learned-minus-random CI lower
-\VThreeWAMRoboCasaCILo{}. The residual clean/cook artifact covers
-\VThreeWAMRoboCasaResidualTasks{} tasks and \VThreeWAMRoboCasaResidualPools{}
-rollout pools, with CI lower \VThreeWAMRoboCasaResidualCILo{}. Coverage
-accounting reports \VThreeWAMRoboCasaRolloutTaskIDs{} rollout-pool task IDs and
-\VThreeWAMRoboCasaAnyTaskIDs{} any-artifact task IDs out of
-\VThreeWAMRoboCasaRegistered{} registered IDs. This is broad, not complete.
+\VFourWAMRoboCasaTasks{} tasks, \VFourWAMRoboCasaPools{} rollout pools, and
+\VFourWAMRoboCasaEvalSamples{} heldout rollouts, with utility correlation
+\VFourWAMRoboCasaCorr{} and learned-minus-random CI lower
+\VFourWAMRoboCasaCILo{}. The residual clean/cook artifact covers
+\VFourWAMRoboCasaResidualTasks{} tasks and \VFourWAMRoboCasaResidualPools{}
+rollout pools, with CI lower \VFourWAMRoboCasaResidualCILo{}. Coverage
+accounting reports \VFourWAMRoboCasaRolloutTaskIDs{} rollout-pool task IDs and
+\VFourWAMRoboCasaAnyTaskIDs{} any-artifact task IDs out of
+\VFourWAMRoboCasaRegistered{} registered IDs. This is broad, not complete.
 
 \paragraph{LIBERO.}
 The LIBERO Spatial rollout-pool WAM-lite artifact covers
-\VThreeWAMLiberoPools{} rollout pools, with utility correlation
-\VThreeWAMLiberoCorr{} and learned-energy-regularized CI lower
-\VThreeWAMLiberoCILo{}. Separate LIBERO Object sparse-success smokes show that
+\VFourWAMLiberoPools{} rollout pools, with utility correlation
+\VFourWAMLiberoCorr{} and learned-energy-regularized CI lower
+\VFourWAMLiberoCILo{}. Separate LIBERO Object sparse-success smokes show that
 scripted or lightweight behavior-cloned policies can solve those local sparse
-success checks, but v3 does not present them as modern VLA policy performance.
+success checks, but v4 does not present them as modern VLA policy performance.
 They are optional runtime artifacts and scope guards.
 
 \section{Failure-Mode Interpretation}
@@ -335,15 +339,15 @@ identity simply blesses more sampling. The severe mismatch, stuck/slip
 mismatch, anti-scorer, and randomized-dynamics artifacts answer no.
 
 In the severe mismatch artifact, imagined utility improves with $N$ while real
-utility degrades, producing gap growth \VThreeWAMSevereGapGrowth{}. In the
+utility degrades, producing gap growth \VFourWAMSevereGapGrowth{}. In the
 stuck/slip artifact, the corresponding gap growth is
-\VThreeWAMStuckGapGrowth{}. These results target the precise WAM risk:
+\VFourWAMStuckGapGrowth{}. These results target the precise WAM risk:
 imagined futures may become more attractive to the planner-score model while
 becoming less useful in the environment.
 
 The anti-scorer result is a sharper falsification. Selected utility moves from
-\VThreeWAMAntiScorerNOne{} at $N=1$ to
-\VThreeWAMAntiScorerNSixtyFour{} at $N=64$. This is exactly what the law should
+\VFourWAMAntiScorerNOne{} at $N=1$ to
+\VFourWAMAntiScorerNSixtyFour{} at $N=64$. This is exactly what the law should
 predict when high scores identify low-real-utility rollouts. The law does not
 turn a bad scorer into a good scorer. It tells us how costly the bad score tail
 will be under max-score selection.
@@ -361,7 +365,7 @@ not a general optimal-control theorem. Given an estimated curve $V_N(x)$, the
 planner can estimate a marginal gain $\Delta_N(x)=V_{N+1}(x)-V_N(x)$ and spend
 rollouts where the expected real-utility gain is largest. In the analytic
 artifact, moment-law allocation improves over uniform by
-\VThreeWAMAdaptiveGain{} at the reference budget.
+\VFourWAMAdaptiveGain{} at the reference budget.
 
 The boundary is crucial. The allocator depends on pilot estimates of the
 score/utility distribution. If those estimates are stale, biased, or collected
@@ -378,7 +382,7 @@ shift detection, and safety gates for negative tail value.
 \section{Statistical Reporting Policy}
 \label{app:stat-reporting}
 
-The v3 paper uses exact identities where possible and confidence intervals
+The v4 paper uses exact identities where possible and confidence intervals
 where rollout-pool comparisons require empirical aggregation. This is the
 right mixture for the project. The theorem layer does not need a significance
 test; it needs implementation checks against Monte Carlo and tied-pool
@@ -396,13 +400,13 @@ For future external work, the minimum reporting bundle should include rollout
 pool construction, state/task splits, score definitions, real utility
 definition, candidate count grid, tie-handling policy, exact-law error,
 learned-minus-random confidence interval, oracle-minus-learned gap, and a
-scope note for unavailable modalities. V3 already follows this spirit through
+scope note for unavailable modalities. V4 already follows this spirit through
 its artifact reports and cached evidence layer.
 
 \section{RAM-Light Execution Strategy}
 \label{app:ram-light}
 
-The v3 build is deliberately RAM-light. It does not load image datasets, replay
+The v4 build is deliberately RAM-light. It does not load image datasets, replay
 buffers, or optional simulator runtimes. It reads compact JSON and CSV
 artifacts, generates small PDF figures, writes a macro file, and compiles the
 paper. This matters because the repository contains optional benchmark paths
@@ -422,7 +426,7 @@ should be able to verify the paper from committed artifacts.
 \begin{enumerate}
 \item The theorem is simple order statistics. Correct; the contribution is the
 WAM score-tail audit and artifact-backed deployment interpretation.
-\item The title used to sound like a generic Best-of-$N$ wrapper. V3 avoids
+\item The title used to sound like a generic Best-of-$N$ wrapper. V4 avoids
 that by centering imagination harm and score-tail audits.
 \item The paper might still be confused with LLM verifier reranking. The
 experiments use action/future rollouts, real utility, WAM-lite, mismatch, and
@@ -437,7 +441,7 @@ exact accounting from scorer CI comparisons.
 artifacts, and anti-scorer artifact explicitly reject that.
 \item Bad-scorer harm could be dismissed as artificial. It is a falsification
 showing that the audit detects harmful score tails.
-\item Severe mismatch could be dismissed as toy-only. V3 pairs it with learned
+\item Severe mismatch could be dismissed as toy-only. V4 pairs it with learned
 and benchmark rollout-pool artifacts.
 \item Adaptive allocation could sound optimal. It is framed as a heuristic
 diagnostic with stale-profile limitations.
@@ -457,31 +461,31 @@ generator/scorer stacks.
 show that.
 \item Random selection can be competitive in some settings. That is exactly
 why score-tail audits matter.
-\item The artifact base is large but could be hard to inspect. V3 adds compact
+\item The artifact base is large but could be hard to inspect. V4 adds compact
 evidence ledgers.
-\item The manuscript was only 11 pages before v3. V3 adds a full evidence and
+\item The manuscript was only 11 pages before v4. V4 adds a full evidence and
 claim-boundary appendix.
-\item The final artifact must be versioned. The v3 build writes a versioned
+\item The final artifact must be versioned. The v4 build writes a versioned
 PDF.
 \item Unversioned \path{iclr_submission.pdf} should not be the final source of
 truth. The final PDF goes under \path{paper/final/} and the Desktop.
-\item Source-map consistency matters. The v3 audit checks it.
+\item Source-map consistency matters. The v4 audit checks it.
 \item GitHub must match the local source. The final workflow pushes and
 verifies the remote SHA.
 \item The paper should not cite optional artifacts as if rerun in the build.
 It cites committed artifacts and explains the cache.
 \item Visual figures could fail silently. The final workflow samples rendered
 PDF pages.
-\item The claim-status count could become stale. The v3 evidence script reads
+\item The claim-status count could become stale. The v4 evidence script reads
 the generated claim-status JSON.
-\item The artifact manifest could become stale. The v3 audit checks summary
+\item The artifact manifest could become stale. The v4 audit checks summary
 counts.
 \item Benchmark exact-law values could be hand-copied incorrectly. Macros are
 generated from summary JSON.
 \item Some CI lower bounds are weaker than others. The benchmark matrix keeps
 scope notes visible.
 \item The paper may need stronger end-to-end control. That is future work, not
-a v3 claim.
+a v4 claim.
 \item The paper may need a simpler story. The score-tail audit gives that
 story: high planner scores must contain real utility.
 \item The paper may need more theory. The exact identity is enough for the
@@ -490,8 +494,8 @@ audit; new regret theorems would change scope.
 complete finite, continuous, binary, and AUC proofs.
 \item The paper may be too cautious. The caution makes the claim harder to
 attack.
-\item The paper may be too broad. V3 uses claim tiers to contain the breadth.
-\item The paper may be too artifact-heavy. V3 ledgers make the artifacts
+\item The paper may be too broad. V4 uses claim tiers to contain the breadth.
+\item The paper may be too artifact-heavy. V4 ledgers make the artifacts
 auditable.
 \item The artifact count is not a scientific result. Correct; it is
 provenance.
@@ -504,13 +508,13 @@ substituting them for tied empirical pools.
 boundary of AUC summaries.
 \item Pilot estimates can be noisy. The paper discusses pilot uncertainty and
 stale profiles.
-\item The figures need real artifact links. The v3 ledger names source JSON
+\item The figures need real artifact links. The v4 ledger names source JSON
 and CSV files.
 \item The Desktop artifact must be easy for a fresh agent to find. The source
 map and archive contract address this.
-\item The final PDF must clear 25 pages. The v3 audit checks the page count.
-\item Old v2 Desktop copies must not be the final paper. The v3 workflow
-copies the v3 PDF and updates the source map.
+\item The final PDF must clear 25 pages. The v4 audit checks the page count.
+\item Old v2 Desktop copies must not be the final paper. The v4 workflow
+copies the v4 PDF and updates the source map.
 \item The paper should remain anonymous. The source avoids non-anonymous repo
 links and private source claims in the submission text.
 \item The final answer should not oversell. The repository audits enforce that
@@ -520,21 +524,21 @@ boundary.
 \section{Submission-Readiness Checklist}
 \label{app:submission-checklist}
 
-Before v3 is treated as final, the following checks must pass:
+Before v4 is treated as final, the following checks must pass:
 \begin{enumerate}
-\item The v3 evidence script regenerates \path{results/v3_cached_evidence/},
-\path{paper_figures/v3/}, and \path{v3_results_macros.tex}.
+\item The v4 evidence script regenerates \path{results/v4_frozen_evidence/},
+\path{paper_figures/v4/}, and \path{v4_results_macros.tex}.
 \item The paper compiles from the current source with bibliography and stable
 cross-references.
 \item The final repository PDF is
-\path{paper/final/best-of-n-wam-v3.pdf}.
+\path{paper/final/best-of-n-wam-v4.pdf}.
 \item The visible Desktop PDF is
-\path{best-of-n-wam-v3.pdf}.
+\path{best-of-n-wam-v4.pdf}.
 \item Repository and Desktop PDFs have identical SHA-256 hashes.
 \item The final PDF has at least 25 pages.
-\item The source map row points to the v3 Desktop PDF, this local folder, and
+\item The source map row points to the v4 Desktop PDF, this local folder, and
 the GitHub repository.
-\item The v3 audit script checks summary counts, exact-law values, key
+\item The v4 audit script checks summary counts, exact-law values, key
 thresholds, page count, hashes, stale artifacts, and source-map consistency.
 \item \path{python scripts/claims_status.py} reports no partial or unsupported
 claims and no README overclaims.
@@ -550,7 +554,7 @@ boxes.
 \section{Archive Contract}
 \label{app:archive-contract}
 
-The final v3 paper artifact is \path{best-of-n-wam-v3.pdf}. The final source
+The final v4 paper artifact is \path{best-of-n-wam-v4.pdf}. The final source
 folder is this repository, and the GitHub repository is
 \path{Jason-Wang313/best-of-n-wam}. The unversioned
 \path{iclr_submission.pdf} is a build product and should not be treated as the
@@ -558,11 +562,11 @@ fresh-agent source of truth. The source map and final PDF filename exist so
 that a future session can identify the right project without reconstructing
 the history.
 
-The archive also preserves claim boundaries. V3 should contain the generated
+The archive also preserves claim boundaries. V4 should contain the generated
 evidence cache, the final PDF, the claim-status outputs, the artifact-manifest
 outputs, and the build/audit scripts. If a later version adds hardware,
 modern-VLA, or full-suite validation, it should create a new versioned paper
-artifact and a new evidence cache rather than stretching v3 claims after the
+artifact and a new evidence cache rather than stretching v4 claims after the
 fact.
 
 \section{Claim-Ledger Mechanics}
@@ -571,9 +575,9 @@ fact.
 The repository claim ledger is more than a checklist. It is a contract between
 the paper's prose and the artifact tree. Each claim is evaluated by scripts
 that check whether required evidence exists, whether scope boundaries are
-stated, and whether narrative surfaces contain unsupported phrases. The v3
+stated, and whether narrative surfaces contain unsupported phrases. The v4
 evidence layer reads the generated claim-status JSON and reports
-\VThreeWAMClaimsVerified{} verified claims with no partial or unsupported claim
+\VFourWAMClaimsVerified{} verified claims with no partial or unsupported claim
 checks in the current artifact state.
 
 This does not mean that every possible scientific question has been answered.
@@ -588,7 +592,7 @@ The ledger is especially useful for this paper because the evidence base is
 wide. There are analytic experiments, learned toy experiments, multi-env
 experiments, benchmark rollout pools, visual variants, optional runtime probes,
 and large RoboCasa/LIBERO branches. Without a ledger, it would be easy for the
-manuscript to cite a result too broadly or to forget a blocker. The v3 claim
+manuscript to cite a result too broadly or to forget a blocker. The v4 claim
 policy forces every promoted statement into one of the tiers in
 Appendix~\ref{app:claim-tiers}.
 
@@ -602,15 +606,15 @@ or blocked attempt.
 \section{Artifact Provenance and Hash Coverage}
 \label{app:artifact-provenance}
 
-The artifact manifest reports \VThreeWAMArtifactFiles{} files totaling
-\VThreeWAMArtifactTotalMB{} MB, with \VThreeWAMArtifactCSV{} CSV tables and
-\VThreeWAMArtifactJSON{} JSON summaries. The count itself is not a result. Its
+The artifact manifest reports \VFourWAMArtifactFiles{} files totaling
+\VFourWAMArtifactTotalMB{} MB, with \VFourWAMArtifactCSV{} CSV tables and
+\VFourWAMArtifactJSON{} JSON summaries. The count itself is not a result. Its
 role is to make the paper's provenance auditable. A reviewer or future agent
-can inspect the manifest to see which files were present when v3 was built and
+can inspect the manifest to see which files were present when v4 was built and
 can compare summary paths against the ledgers used by the paper.
 
 The most important provenance rule is that manuscript numbers should come from
-generated summaries. The v3 script reads JSON files such as
+generated summaries. The v4 script reads JSON files such as
 \path{results/exp1_exact_rollout_law_validation.json},
 \path{results/exp2_auc_vs_moment_hierarchy.json},
 \path{results/benchmark_gym_robotics_suite.json},
@@ -626,8 +630,8 @@ session should treat as final. The Desktop copy has the same filename so that
 the visible paper can be mapped back to the source folder immediately.
 
 The third provenance rule is that stale artifacts should not be used as final
-claims. Reports from earlier phases remain useful historical records, but v3
-should point to the generated v3 evidence cache and current final PDF. If a
+claims. Reports from earlier phases remain useful historical records, but v4
+should point to the generated v4 evidence cache and current final PDF. If a
 historical report says "pending final build," it should not be treated as a
 current submission fact unless the current scripts verify it.
 
@@ -637,7 +641,7 @@ current submission fact unless the current scripts verify it.
 Several evidence branches depend on optional runtime stacks. RoboCasa requires
 a separate kitchen-asset and MuJoCo environment. LIBERO expects a compatible
 RoboSuite-era runtime. ManiSkill visual and end-effector-control validation are
-blocked on the local renderer and robotics dependency stack. The v3 paper does
+blocked on the local renderer and robotics dependency stack. The v4 paper does
 not erase these facts. It promotes only committed artifacts and explicitly
 labels optional or blocked branches.
 
@@ -645,7 +649,7 @@ This matters for reviewer trust. Optional runtime evidence is easy to
 overstate because the artifact names can look impressive. A phrase such as
 "LIBERO validation" can imply modern VLA-scale policy performance, while the
 actual committed result may be a rollout-pool WAM-lite artifact or a
-lightweight behavior-cloning smoke. V3 therefore separates LIBERO Spatial
+lightweight behavior-cloning smoke. V4 therefore separates LIBERO Spatial
 rollout-pool evidence from LIBERO Object sparse-success smokes and states that
 neither is modern VLA validation.
 
@@ -658,25 +662,25 @@ has been solved.
 
 ManiSkill is the clearest blocker case. The state-mode artifact is valid for
 what it is: CPU state observations with joint-delta control. The visual and
-end-effector-control paths are not promoted. V3 treats this as a strength of
+end-effector-control paths are not promoted. V4 treats this as a strength of
 the audit: unavailable modalities are named rather than quietly omitted.
 
 \section{Benchmark Reproduction Protocol}
 \label{app:benchmark-reproduction}
 
-The reproduction protocol has two layers. The first layer is the ordinary v3
+The reproduction protocol has two layers. The first layer is the ordinary v4
 paper-build layer. It requires Python, the repository dependencies,
 \LaTeX{}/BibTeX, and the committed results. Running
-\path{python scripts/build_v3_paper.py} regenerates the v3 evidence cache,
+\path{python scripts/build_v4_paper.py} regenerates the v4 evidence cache,
 figures, macros, unversioned \LaTeX{} output, repository final PDF, and Desktop
-copy. Running the v3 audit then checks page count, hashes, source map,
+copy. Running the v4 audit then checks page count, hashes, source map,
 claim-status boundaries, and stale artifacts.
 
 The second layer is benchmark regeneration. This layer is optional and
 runtime-specific. It uses scripts such as \path{scripts/run_benchmark_full.sh}
 and environment variables such as \path{ROBOCASA_PYTHON} or
 \path{LIBERO_PYTHON}. A reviewer who wants to regenerate those artifacts must
-install the compatible simulator stack. V3 does not require this layer for
+install the compatible simulator stack. V4 does not require this layer for
 ordinary paper compilation because the committed artifacts are already the
 paper's evidence.
 
@@ -694,7 +698,7 @@ normal workstation while still preserving paths for deeper replication.
 
 The central reviewer question is not whether the repository contains many
 artifacts. The question is whether each visible manuscript claim has the right
-kind of evidence behind it. V3 therefore separates claim support into
+kind of evidence behind it. V4 therefore separates claim support into
 mechanism evidence, failure evidence, breadth evidence, and boundary evidence.
 This mapping is more demanding than a generic benchmark table because the
 paper's contribution is an audit. An audit paper succeeds only if the reader
@@ -705,8 +709,8 @@ left outside the claim.
 pools.}
 This claim is supported by Theorem~\ref{thm:finite}, the proof in
 Appendix~\ref{app:finite-proof}, and the exact-law validation artifacts. The
-v3 evidence cache reports binary success MAE
-\VThreeWAMExactSuccessMAE{} and utility MAE \VThreeWAMExactUtilityMAE{} in the
+v4 evidence cache reports binary success MAE
+\VFourWAMExactSuccessMAE{} and utility MAE \VFourWAMExactUtilityMAE{} in the
 core checks. Benchmark rollout-pool artifacts report similarly small exact-law
 errors across Fetch, visual Fetch, Meta-World, RoboSuite, ManiSkill state,
 RoboCasa, and LIBERO. The correct interpretation is implementation and
@@ -717,7 +721,7 @@ correctly under the stated finite-pool protocol.
 rollouts.}
 This claim is supported by the tie-aware $N=2$ identity and the same-prevalence,
 same-AUC counterexample. The audit reports zero error for the $N=2$ identity
-and a high-$N$ same-AUC gap of \VThreeWAMSameAUCGap{}. The evidence is not
+and a high-$N$ same-AUC gap of \VFourWAMSameAUCGap{}. The evidence is not
 trying to discredit AUC as a ranking diagnostic. It identifies its boundary:
 when $N$ grows, the selected value depends on score-tail moments rather than
 only pairwise ordering. A reviewer can therefore accept this claim without
@@ -726,9 +730,9 @@ believing any broad statement about all ranking metrics.
 \paragraph{Claim: more imagined rollouts can reduce real utility.}
 This claim is supported by severe mismatch, stuck/slip mismatch, anti-scorer,
 and randomized-dynamics artifacts. Severe mismatch produces gap growth
-\VThreeWAMSevereGapGrowth{}, stuck/slip mismatch produces gap growth
-\VThreeWAMStuckGapGrowth{}, and the anti-scorer moves from
-\VThreeWAMAntiScorerNOne{} at $N=1$ to \VThreeWAMAntiScorerNSixtyFour{} at
+\VFourWAMSevereGapGrowth{}, stuck/slip mismatch produces gap growth
+\VFourWAMStuckGapGrowth{}, and the anti-scorer moves from
+\VFourWAMAntiScorerNOne{} at $N=1$ to \VFourWAMAntiScorerNSixtyFour{} at
 $N=64$. These artifacts are intentionally negative. They show that the audit
 can diagnose harmful score tails rather than merely reporting favorable curves.
 The correct claim is conditional and operational: if the upper score tail is
@@ -737,7 +741,7 @@ anti-aligned with real utility, increasing $N$ will amplify the damage.
 \paragraph{Claim: inference-value profiles can guide rollout-budget
 allocation.}
 This claim is supported by the adaptive allocation artifact, where the
-reference allocation gain is \VThreeWAMAdaptiveGain{}. The paper does not claim
+reference allocation gain is \VFourWAMAdaptiveGain{}. The paper does not claim
 global optimality, adversarial robustness, or safe online control. The
 evidence is narrower and more useful: once an empirical profile has been
 estimated for a state or task family, marginal real-utility gains can be used
@@ -747,24 +751,24 @@ not become a hidden theorem about arbitrary deployment.
 
 \paragraph{Claim: the audit is not limited to a toy rollout pool.}
 This claim is supported by benchmark breadth, not by any one benchmark alone.
-The v3 cache aggregates \VThreeWAMBenchmarkRows{} benchmark rows, including
+The v4 cache aggregates \VFourWAMBenchmarkRows{} benchmark rows, including
 state, visual, manipulation, kitchen-family, and LIBERO rollout-pool artifacts.
-RoboCasa coverage is particularly broad, with \VThreeWAMRoboCasaTasks{} tasks,
-\VThreeWAMRoboCasaPools{} rollout pools, and
-\VThreeWAMRoboCasaEvalSamples{} heldout rollouts in the stratified artifact.
-The residual clean/cook artifact adds \VThreeWAMRoboCasaResidualTasks{} more
+RoboCasa coverage is particularly broad, with \VFourWAMRoboCasaTasks{} tasks,
+\VFourWAMRoboCasaPools{} rollout pools, and
+\VFourWAMRoboCasaEvalSamples{} heldout rollouts in the stratified artifact.
+The residual clean/cook artifact adds \VFourWAMRoboCasaResidualTasks{} more
 task slices. This is evidence that the audit transfers across simulator
 artifact families. It is not evidence of full RoboCasa-wide completion,
 hardware validation, or modern VLA policy performance.
 
 \paragraph{Claim: the paper is auditable by a fresh session.}
-This claim is supported by the source map, final PDF naming, v3 build script,
-v3 audit script, generated macros, and claim-status ledger. It is a practical
+This claim is supported by the source map, final PDF naming, v4 build script,
+v4 audit script, generated macros, and claim-status ledger. It is a practical
 submission claim: a new reviewer, author, or agent should be able to locate
 the final PDF, source folder, GitHub repository, result cache, and audit
 commands without reverse-engineering the repository history. This matters
 because a paper with many optional experiment branches can be scientifically
-strong but operationally confusing. V3 treats operational clarity as part of
+strong but operationally confusing. V4 treats operational clarity as part of
 submission readiness.
 
 \subsection{Per-Benchmark Acceptance Criteria}
@@ -779,11 +783,11 @@ places real utility in the upper score tail. Third, unavailable modalities or
 runtime blockers must be labeled rather than hidden.
 
 \paragraph{Fetch state and Fetch RGB.}
-Fetch is acceptable in v3 if both state and visual variants show low exact-law
+Fetch is acceptable in v4 if both state and visual variants show low exact-law
 error and positive learned-minus-random evidence under the rollout-pool
 protocol. The current artifacts satisfy this standard with exact-law MAEs
-\VThreeWAMFetchExactMAE{} and \VThreeWAMFetchRGBExactMAE{}, and CI lower
-bounds \VThreeWAMFetchCILo{} and \VThreeWAMFetchRGBCILo{}. The acceptance
+\VFourWAMFetchExactMAE{} and \VFourWAMFetchRGBExactMAE{}, and CI lower
+bounds \VFourWAMFetchCILo{} and \VFourWAMFetchRGBCILo{}. The acceptance
 standard does not require the paper to claim a deployed visual policy. It
 requires the paper to show that the score-tail audit can be applied when the
 rollout evidence includes both compact state and RGB-derived features.
@@ -791,8 +795,8 @@ rollout evidence includes both compact state and RGB-derived features.
 \paragraph{Meta-World and RoboSuite.}
 Meta-World and RoboSuite are acceptable if they broaden manipulation coverage
 and preserve the distinction between exact accounting and score quality. The
-current artifacts report exact-law MAEs \VThreeWAMMetaWorldExactMAE{} and
-\VThreeWAMRoboSuiteExactMAE{}. If a learned score is weaker than a reward-like
+current artifacts report exact-law MAEs \VFourWAMMetaWorldExactMAE{} and
+\VFourWAMRoboSuiteExactMAE{}. If a learned score is weaker than a reward-like
 score in a slice, that should be reported as a diagnostic result rather than
 edited away. The point of the paper is not that every learned scorer is strong;
 the point is that the audit reveals whether the learned scorer controls the
@@ -800,7 +804,7 @@ selected score tail.
 
 \paragraph{ManiSkill.}
 ManiSkill is acceptable only as state-mode evidence. The paper may report the
-state-mode exact-law MAE \VThreeWAMManiSkillExactMAE{} and discuss dense-score
+state-mode exact-law MAE \VFourWAMManiSkillExactMAE{} and discuss dense-score
 and learned-score behavior in that protocol. It may not imply visual or
 end-effector-control validation. The visual and EE-control blockers are part
 of the record. This is a useful stress case for claim discipline because a
@@ -809,17 +813,17 @@ less careful paper could hide the blocked modalities behind a single
 
 \paragraph{RoboCasa.}
 RoboCasa is acceptable if breadth and incompleteness are reported together.
-The paper can claim stratified coverage over \VThreeWAMRoboCasaTasks{} tasks
-and \VThreeWAMRoboCasaPools{} rollout pools, residual clean/cook coverage over
-\VThreeWAMRoboCasaResidualTasks{} tasks, and catalog accounting over
-\VThreeWAMRoboCasaRegistered{} registered task IDs. It must also state that
+The paper can claim stratified coverage over \VFourWAMRoboCasaTasks{} tasks
+and \VFourWAMRoboCasaPools{} rollout pools, residual clean/cook coverage over
+\VFourWAMRoboCasaResidualTasks{} tasks, and catalog accounting over
+\VFourWAMRoboCasaRegistered{} registered task IDs. It must also state that
 this is not full RoboCasa-wide learned-WAM validation. The broad artifact is a
 major strength only because the scope boundary is explicit.
 
 \paragraph{LIBERO.}
 LIBERO is acceptable as a rollout-pool WAM-lite artifact and optional runtime
-branch. The paper can report \VThreeWAMLiberoPools{} pools, correlation
-\VThreeWAMLiberoCorr{}, and CI lower \VThreeWAMLiberoCILo{}. It may also
+branch. The paper can report \VFourWAMLiberoPools{} pools, correlation
+\VFourWAMLiberoCorr{}, and CI lower \VFourWAMLiberoCILo{}. It may also
 mention separate sparse-success smoke artifacts as runtime evidence. It must
 not describe those smokes as modern VLA benchmark performance. A strict
 reviewer should reward this boundary because it prevents a small optional
@@ -830,7 +834,7 @@ artifact from being inflated into a headline result.
 
 The strongest version of this paper is not the version where every curve goes
 up. The strongest version is the one where the audit fails loudly when the
-score tail is bad. V3 therefore treats negative controls as first-class
+score tail is bad. V4 therefore treats negative controls as first-class
 evidence. They are the difference between a paper that merely celebrates
 test-time sampling and a paper that tells a practitioner when test-time
 sampling should be stopped.
@@ -838,8 +842,8 @@ sampling should be stopped.
 The first negative control is the anti-scorer. It deliberately makes high
 planner scores identify lower real utility. Under that condition, the finite
 law predicts that larger $N$ will concentrate more probability on bad upper
-score groups. The observed movement from \VThreeWAMAntiScorerNOne{} to
-\VThreeWAMAntiScorerNSixtyFour{} is therefore not a surprising pathology. It
+score groups. The observed movement from \VFourWAMAntiScorerNOne{} to
+\VFourWAMAntiScorerNSixtyFour{} is therefore not a surprising pathology. It
 is the expected behavior of max-score selection under a harmful score. A
 reviewer attacking the paper on this point should be answered directly: the
 anti-scorer is included so the paper does not pretend that more imagination is
@@ -859,14 +863,14 @@ rollout generator does not preserve the relevant transition structure, a
 score-tail identity can still account for selection from the pool, but the
 selected pool itself may be useless. This distinction is important enough to
 repeat: exact accounting is not score quality, and score quality is not
-world-model validity. V3 does not blur those layers. It uses exact-law errors
+world-model validity. V4 does not blur those layers. It uses exact-law errors
 to check accounting, scorer comparisons to check ranking, and mismatch
 artifacts to check whether imagined utility remains tied to real utility.
 
 The fourth stress test is pilot staleness for adaptive budgeting. A marginal
 rollout-value profile is useful only if it estimates the current distribution.
 If the task distribution shifts, the allocator can spend compute on the wrong
-states. V3 therefore frames adaptive allocation as an audit-informed heuristic.
+states. V4 therefore frames adaptive allocation as an audit-informed heuristic.
 A stronger future controller would need online uncertainty, drift detection,
 and a safe fallback when the estimated score tail becomes unreliable.
 
@@ -874,7 +878,7 @@ These stress tests make the manuscript harder to attack because they remove
 the easiest overclaim. A reviewer can still ask for hardware experiments or a
 new method that repairs bad score tails. That is fair. But the reviewer should
 not be able to say that the paper ignores harmful tails, hides score failure,
-or equates exact selection accounting with deployment safety. V3 says the
+or equates exact selection accounting with deployment safety. V4 says the
 opposite, repeatedly and with artifacts.
 
 \subsection{Expanded Area-Chair Decision Simulation}
@@ -893,7 +897,7 @@ measure the real utility of the rollouts that max-score planning will select,
 show how AUC fails beyond two samples, show harmful imagined-real tails, and
 apply the audit across simulator rollout pools. If the main text ever sounds
 like the contribution is only "we derived best-of-$N$," it should be revised.
-The v3 title, abstract, experiments, and appendix are designed to avoid that
+The v4 title, abstract, experiments, and appendix are designed to avoid that
 failure.
 
 \paragraph{Attack: the evidence is not end-to-end robotics.}
@@ -925,7 +929,7 @@ runtime blocker or missing hardware result.
 
 \paragraph{Attack: the paper needs more experiments.}
 The strongest response is to separate necessary from optional experiments. For
-v3, necessary experiments are exact-law validation, AUC-boundary validation,
+v4, necessary experiments are exact-law validation, AUC-boundary validation,
 harmful-tail falsification, adaptive-budget evidence, and multi-suite
 rollout-pool checks. Those are present in committed artifacts. Optional
 experiments that would upgrade the claim tier include closed-loop hardware,
@@ -936,7 +940,7 @@ they are already complete.
 \subsection{Large-Scale External Validation Protocol}
 \label{app:external-validation}
 
-If reviewers or future authors want to push the paper beyond v3, the next
+If reviewers or future authors want to push the paper beyond v4, the next
 experiments should not be ad hoc. They should preserve the audit structure so
 that new evidence is comparable to the current claims. A large-scale external
 validation should start by fixing the candidate generator, scorer, task split,
@@ -977,9 +981,9 @@ signals to calibrate scores, penalize unsupported imagined states, or allocate
 rollouts to states where the upper tail is reliable. Such a paper should be
 judged by improvement under heldout score-tail audits, not only by lower
 prediction error. The repair should improve real selected utility at larger
-$N$ and reduce the negative-tail cases documented in v3.
+$N$ and reduce the negative-tail cases documented in v4.
 
-This protocol is included because it prevents v3 from being both too small and
+This protocol is included because it prevents v4 from being both too small and
 too vague. The current paper is final as an audit paper, but the path to a
 larger method or deployment paper is explicit. Reviewers can therefore ask for
 a different claim tier without confusing that request with a flaw in the
@@ -1009,7 +1013,7 @@ states no hardware validation, no full RoboCasa-wide validation, no ManiSkill
 visual/EE-control validation, and no universal WAM training law. A correct
 rejection would say that these limitations are too large for the target venue.
 
-Naming correct rejection paths helps v3 avoid dishonest defenses. It also
+Naming correct rejection paths helps v4 avoid dishonest defenses. It also
 clarifies what a future v4 would need: hardware or high-fidelity closed-loop
 evaluation, a stronger learned scorer, broader exact rollout-pool labels under
 heldout task splits, or a method that actively repairs harmful score tails.
@@ -1031,7 +1035,7 @@ utility in the upper score tail can become worse as $N$ grows. This is a
 practical warning for WAM-style deployment.
 
 Finally, a correct acceptance would value the claim discipline. The repository
-contains many optional branches, but v3 does not inflate them. It reports
+contains many optional branches, but v4 does not inflate them. It reports
 RoboCasa coverage counts, LIBERO scope boundaries, ManiSkill blockers, and
 claim-status checks. This makes the paper easier to trust because the authors
 are not asking reviewers to infer the boundary from scattered artifacts.
@@ -1045,7 +1049,7 @@ utility is logged. This would move part of the evidence from rollout-pool audit
 toward controller evaluation. The key would be to retain candidate-level logs:
 scores, selected candidates, real outcomes, uncertainty, and support metrics.
 
-A second future direction is score repair. V3 audits score tails and includes
+A second future direction is score repair. V4 audits score tails and includes
 pilot-calibrated repair artifacts, but it does not propose a general learned
 repair method. A stronger method paper could use the audit to train or calibrate
 scores that avoid harmful high-$N$ tails, then evaluate those repairs under
@@ -1054,13 +1058,13 @@ heldout task families.
 A third future direction is modern VLA integration. This would require a real
 VLA candidate generator or policy, a scorer or verifier, candidate-level
 rollout labels, and task-level heldout evaluation. It should not simply reuse
-the v3 LIBERO smoke artifacts. It should create a new evidence tier with its
+the v4 LIBERO smoke artifacts. It should create a new evidence tier with its
 own claim boundaries.
 
 A fourth future direction is full RoboCasa-wide coverage. The current coverage
 is broad but incomplete. Full coverage would require rollout-pool artifacts for
 all registered tasks or a principled stratified claim explaining which task
-families are covered and why. V3's coverage accounting is a starting point, not
+families are covered and why. V4's coverage accounting is a starting point, not
 the finish line.
 
 \subsection{Fresh-Session Workflow}
@@ -1068,17 +1072,17 @@ the finish line.
 
 A fresh agent should follow a short deterministic workflow. First, read
 \path{PAPER_SOURCE_MAP.md} on the Desktop and locate
-\path{best-of-n-wam-v3.pdf}, this local folder, and the GitHub repository.
+\path{best-of-n-wam-v4.pdf}, this local folder, and the GitHub repository.
 Second, run \path{git status --short --branch} and verify that the working tree
-is clean. Third, inspect \path{paper/final/best-of-n-wam-v3.pdf} rather than
-the unversioned build product. Fourth, run \path{python scripts/run_v3_claim_audit.py}
+is clean. Third, inspect \path{paper/final/best-of-n-wam-v4.pdf} rather than
+the unversioned build product. Fourth, run \path{python scripts/run_v4_claim_audit.py}
 to check the page count, hashes, source map, and evidence summary. Fifth, only
 then inspect or modify the manuscript.
 
 This workflow matters because the repository has many reports and historical
-artifacts. Without a final source map and v3 audit, a new session could easily
+artifacts. Without a final source map and v4 audit, a new session could easily
 open an old PDF, treat a smoke artifact as final evidence, or confuse optional
-runtime probes with promoted claims. The v3 archive contract is meant to
+runtime probes with promoted claims. The v4 archive contract is meant to
 remove that ambiguity.
 
 \subsection{Anonymity, Reproducibility, Ethics, and LLM Disclosure}

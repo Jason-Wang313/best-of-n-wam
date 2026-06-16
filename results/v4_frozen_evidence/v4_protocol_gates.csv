@@ -1,0 +1,11 @@
+gate,threshold,value,pass
+claim ledger clean,"partial=0, unsupported=0, failed=0",0,True
+core exact success MAE,<0.003,0.002104612037108505,True
+core exact utility MAE,<0.02,0.013762680427723635,True
+high-N AUC counterexample,>0.9 N64 gap,0.9988209815422198,True
+negative controls,4/4 pass,4,True
+real benchmark rows,8 promoted rows,8,True
+benchmark rollout pools,>=450 heldout pools,454,True
+positive benchmark CI rows,8/8 positive lower bounds,8,True
+RoboCasa coverage accounting,>=136 task IDs with any artifact,136,True
+artifact manifest breadth,>=462 scientific artifacts,462,True

@@ -15,10 +15,10 @@ import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
-OUT = RESULTS / "v3_cached_evidence"
+OUT = RESULTS / "v4_frozen_evidence"
 FIG_OUT = OUT / "figures"
-PAPER_FIG_OUT = ROOT / "paper_figures" / "v3"
-MACROS = ROOT / "v3_results_macros.tex"
+PAPER_FIG_OUT = ROOT / "paper_figures" / "v4"
+MACROS = ROOT / "v4_results_macros.tex"
 
 
 def load_json(rel: str) -> dict[str, Any]:
@@ -87,7 +87,7 @@ def barh(path: Path, labels: list[str], values: list[float], title: str, xlabel:
     fig.savefig(
         path,
         metadata={
-            "Creator": "experiments/v3_cached_evidence.py",
+            "Creator": "experiments/v4_frozen_evidence.py",
             "CreationDate": None,
             "ModDate": None,
         },
@@ -285,38 +285,114 @@ def main() -> None:
         },
     ]
 
-    write_csv(OUT / "v3_core_claims.csv", core_rows, ["claim", "metric", "value", "evidence"])
-    write_csv(OUT / "v3_failure_modes.csv", failure_rows, ["failure_mode", "metric", "value", "evidence"])
+    write_csv(OUT / "v4_core_claims.csv", core_rows, ["claim", "metric", "value", "evidence"])
+    write_csv(OUT / "v4_failure_modes.csv", failure_rows, ["failure_mode", "metric", "value", "evidence"])
     write_csv(
-        OUT / "v3_benchmark_summary.csv",
+        OUT / "v4_benchmark_summary.csv",
         benchmark_rows,
         ["benchmark", "pools", "exact_mae", "utility_corr", "ci_key", "ci_lo", "scope"],
     )
-    write_csv(OUT / "v3_coverage_summary.csv", coverage_rows, ["coverage", "count", "note"])
+    write_csv(OUT / "v4_coverage_summary.csv", coverage_rows, ["coverage", "count", "note"])
+
+    benchmark_pools = sum(int(row["pools"]) for row in benchmark_rows)
+    positive_ci_rows = sum(1 for row in benchmark_rows if float(row["ci_lo"] or 0.0) > 0.0)
+    max_exact_mae = max(float(row["exact_mae"]) for row in benchmark_rows)
+    min_benchmark_ci_lo = min(float(row["ci_lo"] or 0.0) for row in benchmark_rows)
+    negative_control_passes = sum(
+        [
+            exp5["severe_gap_growth_minus_none"] > 10.0,
+            exp5["stuck_slip_gap_growth_minus_none"] > 10.0,
+            exp10["anti_scorer_mean_N64"] < exp10["anti_scorer_mean_N1"],
+            exp10["randomized_dynamics_oracle_gap_N64"] > 1.0,
+        ]
+    )
+    protocol_rows = [
+        {
+            "gate": "claim ledger clean",
+            "threshold": "partial=0, unsupported=0, failed=0",
+            "value": claims["num_partial"] + claims["num_unsupported"] + claims.get("num_failed", 0),
+            "pass": claims["num_partial"] == 0 and claims["num_unsupported"] == 0 and claims.get("num_failed", 0) == 0,
+        },
+        {
+            "gate": "core exact success MAE",
+            "threshold": "<0.003",
+            "value": exp1["mean_success_mc_mae"],
+            "pass": exp1["mean_success_mc_mae"] < 0.003,
+        },
+        {
+            "gate": "core exact utility MAE",
+            "threshold": "<0.02",
+            "value": exp1["mean_utility_mc_mae"],
+            "pass": exp1["mean_utility_mc_mae"] < 0.02,
+        },
+        {
+            "gate": "high-N AUC counterexample",
+            "threshold": ">0.9 N64 gap",
+            "value": exp2["same_p_kappa_counterexample_gap_N64"],
+            "pass": exp2["same_p_kappa_counterexample_gap_N64"] > 0.9,
+        },
+        {
+            "gate": "negative controls",
+            "threshold": "4/4 pass",
+            "value": negative_control_passes,
+            "pass": negative_control_passes == 4,
+        },
+        {
+            "gate": "real benchmark rows",
+            "threshold": "8 promoted rows",
+            "value": len(benchmark_rows),
+            "pass": len(benchmark_rows) == 8,
+        },
+        {
+            "gate": "benchmark rollout pools",
+            "threshold": ">=450 heldout pools",
+            "value": benchmark_pools,
+            "pass": benchmark_pools >= 450,
+        },
+        {
+            "gate": "positive benchmark CI rows",
+            "threshold": "8/8 positive lower bounds",
+            "value": positive_ci_rows,
+            "pass": positive_ci_rows == len(benchmark_rows),
+        },
+        {
+            "gate": "RoboCasa coverage accounting",
+            "threshold": ">=136 task IDs with any artifact",
+            "value": robocasa_catalog["any_artifact_task_count"],
+            "pass": robocasa_catalog["any_artifact_task_count"] >= 136,
+        },
+        {
+            "gate": "artifact manifest breadth",
+            "threshold": ">=462 scientific artifacts",
+            "value": manifest["n_files"],
+            "pass": manifest["n_files"] >= 462,
+        },
+    ]
+    write_csv(OUT / "v4_protocol_gates.csv", protocol_rows, ["gate", "threshold", "value", "pass"])
 
     barh(
-        FIG_OUT / "v3_exact_law_errors.pdf",
+        FIG_OUT / "v4_exact_law_errors.pdf",
         [row["benchmark"] for row in benchmark_rows],
         [float(row["exact_mae"]) for row in benchmark_rows],
         "Exact-law utility MAE across rollout-pool artifacts",
         "utility MAE",
     )
     barh(
-        FIG_OUT / "v3_benchmark_ci_lowers.pdf",
+        FIG_OUT / "v4_benchmark_ci_lowers.pdf",
         [row["benchmark"] for row in benchmark_rows],
         [float(row["ci_lo"] or 0.0) for row in benchmark_rows],
         "Promoted scorer gain over random: CI lower bounds",
         "CI lower bound",
     )
     barh(
-        FIG_OUT / "v3_failure_modes.pdf",
+        FIG_OUT / "v4_failure_modes.pdf",
         [row["failure_mode"] for row in failure_rows],
         [float(row["value"]) for row in failure_rows],
         "Score-tail failure and mismatch magnitudes",
         "effect size",
     )
     barh(
-        FIG_OUT / "v3_robocasa_coverage.pdf",
+        FIG_OUT / "v4_robocasa_coverage.pdf",
         [
             "registered",
             "rollout-pool",
@@ -333,7 +409,7 @@ def main() -> None:
         "task IDs",
     )
     barh(
-        FIG_OUT / "v3_claim_artifact_counts.pdf",
+        FIG_OUT / "v4_claim_artifact_counts.pdf",
         ["verified claims", "CSV", "JSON", "PNG", "NPZ"],
         [
             claims["num_verified"],
@@ -344,6 +420,13 @@ def main() -> None:
         ],
         "Claim and artifact coverage",
         "count",
+    )
+    barh(
+        FIG_OUT / "v4_protocol_gates.pdf",
+        [row["gate"] for row in protocol_rows],
+        [1.0 if row["pass"] else 0.0 for row in protocol_rows],
+        "Frozen protocol gates",
+        "pass indicator",
     )
 
     for figure in FIG_OUT.glob("*.pdf"):
@@ -391,52 +474,66 @@ def main() -> None:
         "libero_corr": libero["model_metrics"]["utility_corr"],
         "libero_ci_lo": ci(libero, "learned_energy_regularized_minus_random_N8"),
         "benchmark_rows": len(benchmark_rows),
+        "benchmark_pools": benchmark_pools,
+        "positive_ci_rows": positive_ci_rows,
+        "max_exact_mae": max_exact_mae,
+        "min_benchmark_ci_lo": min_benchmark_ci_lo,
+        "negative_control_passes": negative_control_passes,
+        "protocol_gate_rows": len(protocol_rows),
+        "protocol_gate_passes": sum(1 for row in protocol_rows if row["pass"]),
     }
     (OUT / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
 
     with MACROS.open("w", encoding="utf-8") as handle:
-        handle.write("% Auto-generated by experiments/v3_cached_evidence.py\n")
-        handle.write(macro_line("VThreeWAMClaimsVerified", summary["claims_verified"]))
-        handle.write(macro_line("VThreeWAMClaimsPartial", summary["claims_partial"]))
-        handle.write(macro_line("VThreeWAMClaimsUnsupported", summary["claims_unsupported"]))
-        handle.write(macro_line("VThreeWAMArtifactFiles", summary["artifact_files"]))
-        handle.write(macro_line("VThreeWAMArtifactTotalMB", summary["artifact_total_mb"], 1))
-        handle.write(macro_line("VThreeWAMArtifactCSV", summary["artifact_csv"]))
-        handle.write(macro_line("VThreeWAMArtifactJSON", summary["artifact_json"]))
-        handle.write(macro_line("VThreeWAMExactSuccessMAE", summary["success_mae"], 4))
-        handle.write(macro_line("VThreeWAMExactUtilityMAE", summary["utility_mae"], 4))
-        handle.write(macro_line("VThreeWAMAUCError", summary["auc_identity_error"], 1))
-        handle.write(macro_line("VThreeWAMSameAUCGap", summary["same_p_kappa_gap_n64"], 4))
-        handle.write(macro_line("VThreeWAMSevereGapGrowth", summary["severe_gap_growth"], 2))
-        handle.write(macro_line("VThreeWAMStuckGapGrowth", summary["stuck_gap_growth"], 2))
-        handle.write(macro_line("VThreeWAMAntiScorerNOne", summary["anti_scorer_n1"], 2))
-        handle.write(macro_line("VThreeWAMAntiScorerNSixtyFour", summary["anti_scorer_n64"], 2))
-        handle.write(macro_line("VThreeWAMAdaptiveGain", summary["adaptive_gain"], 4))
-        handle.write(macro_line("VThreeWAMFetchExactMAE", summary["fetch_exact_mae"], 4))
-        handle.write(macro_line("VThreeWAMFetchCILo", summary["fetch_learned_ci_lo"], 3))
-        handle.write(macro_line("VThreeWAMFetchRGBExactMAE", summary["fetch_rgb_exact_mae"], 4))
-        handle.write(macro_line("VThreeWAMFetchRGBCILo", summary["fetch_rgb_ci_lo"], 3))
-        handle.write(macro_line("VThreeWAMMetaWorldExactMAE", summary["metaworld_exact_mae"], 4))
-        handle.write(macro_line("VThreeWAMRoboSuiteExactMAE", summary["robosuite_exact_mae"], 4))
-        handle.write(macro_line("VThreeWAMManiSkillExactMAE", summary["maniskill_exact_mae"], 4))
-        handle.write(macro_line("VThreeWAMRoboCasaTasks", summary["robocasa97_tasks"]))
-        handle.write(macro_line("VThreeWAMRoboCasaPools", summary["robocasa97_pools"]))
-        handle.write(macro_line("VThreeWAMRoboCasaEvalSamples", summary["robocasa97_eval_samples"]))
-        handle.write(macro_line("VThreeWAMRoboCasaCorr", summary["robocasa97_corr"], 3))
-        handle.write(macro_line("VThreeWAMRoboCasaCILo", summary["robocasa97_ci_lo"], 3))
-        handle.write(macro_line("VThreeWAMRoboCasaResidualTasks", summary["robocasa35_tasks"]))
-        handle.write(macro_line("VThreeWAMRoboCasaResidualPools", summary["robocasa35_pools"]))
-        handle.write(macro_line("VThreeWAMRoboCasaResidualCorr", summary["robocasa35_corr"], 3))
-        handle.write(macro_line("VThreeWAMRoboCasaResidualCILo", summary["robocasa35_ci_lo"], 3))
-        handle.write(macro_line("VThreeWAMRoboCasaRegistered", summary["robocasa_registered_tasks"]))
-        handle.write(macro_line("VThreeWAMRoboCasaRolloutTaskIDs", summary["robocasa_rollout_task_ids"]))
-        handle.write(macro_line("VThreeWAMRoboCasaAnyTaskIDs", summary["robocasa_any_artifact_task_ids"]))
-        handle.write(macro_line("VThreeWAMLiberoPools", summary["libero_pools"]))
-        handle.write(macro_line("VThreeWAMLiberoCorr", summary["libero_corr"], 3))
-        handle.write(macro_line("VThreeWAMLiberoCILo", summary["libero_ci_lo"], 3))
-        handle.write(macro_line("VThreeWAMBenchmarkRows", summary["benchmark_rows"]))
+        handle.write("% Auto-generated by experiments/v4_frozen_evidence.py\n")
+        handle.write(macro_line("VFourWAMClaimsVerified", summary["claims_verified"]))
+        handle.write(macro_line("VFourWAMClaimsPartial", summary["claims_partial"]))
+        handle.write(macro_line("VFourWAMClaimsUnsupported", summary["claims_unsupported"]))
+        handle.write(macro_line("VFourWAMArtifactFiles", summary["artifact_files"]))
+        handle.write(macro_line("VFourWAMArtifactTotalMB", summary["artifact_total_mb"], 1))
+        handle.write(macro_line("VFourWAMArtifactCSV", summary["artifact_csv"]))
+        handle.write(macro_line("VFourWAMArtifactJSON", summary["artifact_json"]))
+        handle.write(macro_line("VFourWAMExactSuccessMAE", summary["success_mae"], 4))
+        handle.write(macro_line("VFourWAMExactUtilityMAE", summary["utility_mae"], 4))
+        handle.write(macro_line("VFourWAMAUCError", summary["auc_identity_error"], 1))
+        handle.write(macro_line("VFourWAMSameAUCGap", summary["same_p_kappa_gap_n64"], 4))
+        handle.write(macro_line("VFourWAMSevereGapGrowth", summary["severe_gap_growth"], 2))
+        handle.write(macro_line("VFourWAMStuckGapGrowth", summary["stuck_gap_growth"], 2))
+        handle.write(macro_line("VFourWAMAntiScorerNOne", summary["anti_scorer_n1"], 2))
+        handle.write(macro_line("VFourWAMAntiScorerNSixtyFour", summary["anti_scorer_n64"], 2))
+        handle.write(macro_line("VFourWAMAdaptiveGain", summary["adaptive_gain"], 4))
+        handle.write(macro_line("VFourWAMFetchExactMAE", summary["fetch_exact_mae"], 4))
+        handle.write(macro_line("VFourWAMFetchCILo", summary["fetch_learned_ci_lo"], 3))
+        handle.write(macro_line("VFourWAMFetchRGBExactMAE", summary["fetch_rgb_exact_mae"], 4))
+        handle.write(macro_line("VFourWAMFetchRGBCILo", summary["fetch_rgb_ci_lo"], 3))
+        handle.write(macro_line("VFourWAMMetaWorldExactMAE", summary["metaworld_exact_mae"], 4))
+        handle.write(macro_line("VFourWAMRoboSuiteExactMAE", summary["robosuite_exact_mae"], 4))
+        handle.write(macro_line("VFourWAMManiSkillExactMAE", summary["maniskill_exact_mae"], 4))
+        handle.write(macro_line("VFourWAMRoboCasaTasks", summary["robocasa97_tasks"]))
+        handle.write(macro_line("VFourWAMRoboCasaPools", summary["robocasa97_pools"]))
+        handle.write(macro_line("VFourWAMRoboCasaEvalSamples", summary["robocasa97_eval_samples"]))
+        handle.write(macro_line("VFourWAMRoboCasaCorr", summary["robocasa97_corr"], 3))
+        handle.write(macro_line("VFourWAMRoboCasaCILo", summary["robocasa97_ci_lo"], 3))
+        handle.write(macro_line("VFourWAMRoboCasaResidualTasks", summary["robocasa35_tasks"]))
+        handle.write(macro_line("VFourWAMRoboCasaResidualPools", summary["robocasa35_pools"]))
+        handle.write(macro_line("VFourWAMRoboCasaResidualCorr", summary["robocasa35_corr"], 3))
+        handle.write(macro_line("VFourWAMRoboCasaResidualCILo", summary["robocasa35_ci_lo"], 3))
+        handle.write(macro_line("VFourWAMRoboCasaRegistered", summary["robocasa_registered_tasks"]))
+        handle.write(macro_line("VFourWAMRoboCasaRolloutTaskIDs", summary["robocasa_rollout_task_ids"]))
+        handle.write(macro_line("VFourWAMRoboCasaAnyTaskIDs", summary["robocasa_any_artifact_task_ids"]))
+        handle.write(macro_line("VFourWAMLiberoPools", summary["libero_pools"]))
+        handle.write(macro_line("VFourWAMLiberoCorr", summary["libero_corr"], 3))
+        handle.write(macro_line("VFourWAMLiberoCILo", summary["libero_ci_lo"], 3))
+        handle.write(macro_line("VFourWAMBenchmarkRows", summary["benchmark_rows"]))
+        handle.write(macro_line("VFourWAMBenchmarkPools", summary["benchmark_pools"]))
+        handle.write(macro_line("VFourWAMPositiveCIRows", summary["positive_ci_rows"]))
+        handle.write(macro_line("VFourWAMMaxExactMAE", summary["max_exact_mae"], 4))
+        handle.write(macro_line("VFourWAMMinBenchmarkCILo", summary["min_benchmark_ci_lo"], 3))
+        handle.write(macro_line("VFourWAMNegativeControls", summary["negative_control_passes"]))
+        handle.write(macro_line("VFourWAMProtocolGateRows", summary["protocol_gate_rows"]))
+        handle.write(macro_line("VFourWAMProtocolGatePasses", summary["protocol_gate_passes"]))
 
-    print(f"v3 cached evidence complete: {OUT}")
+    print(f"v4 cached evidence complete: {OUT}")
     print(f"claims={summary['claims_verified']} artifacts={summary['artifact_files']} benchmark_rows={len(benchmark_rows)}")
 
 

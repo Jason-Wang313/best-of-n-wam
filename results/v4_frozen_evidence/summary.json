@@ -39,5 +39,12 @@
   "libero_pools": 15,
   "libero_corr": 0.3526483541014925,
   "libero_ci_lo": 0.2652641899613382,
-  "benchmark_rows": 8
+  "benchmark_rows": 8,
+  "benchmark_pools": 454,
+  "positive_ci_rows": 8,
+  "max_exact_mae": 0.029769105761603815,
+  "min_benchmark_ci_lo": 0.09753950450146918,
+  "negative_control_passes": 4,
+  "protocol_gate_rows": 10,
+  "protocol_gate_passes": 10
 }

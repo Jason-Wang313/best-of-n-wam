@@ -197,18 +197,37 @@ print(json.dumps({
 def _vla_runtime_candidates(root: Path) -> list[RuntimeCandidate]:
     seen: set[tuple[str, str | None, str | None]] = set()
     candidates: list[RuntimeCandidate] = []
+    external = root.parent / "external_benchmarks"
     libero_source = _as_path(os.environ.get("LIBERO_SOURCE_PATH")) or root.parent / "external_benchmarks" / "LIBERO"
     libero_config = _as_path(os.environ.get("LIBERO_CONFIG_PATH")) or root.parent / "external_benchmarks" / ".libero"
-    cross_candidates = [
-        RuntimeCandidate(
-            f"vla_{candidate.name}_with_libero_source",
-            candidate.python_path,
-            libero_source,
-            libero_config,
-        )
-        for candidate in _robocasa_candidates(root)
-    ]
-    for candidate in [*_libero_candidates(root), *_robocasa_candidates(root), *cross_candidates]:
+    env_vla_python = _as_path(os.environ.get("VLA_PYTHON") or os.environ.get("SMOLVLA_PYTHON"))
+    if env_vla_python is not None:
+        candidates.append(RuntimeCandidate("env_VLA_PYTHON_with_libero_source", env_vla_python, libero_source, libero_config))
+    # Keep VLA readiness explicit: generic LIBERO/Robocasa envs can be stubs in tests.
+    candidates.extend(
+        [
+            RuntimeCandidate(
+                "external_smolvla_with_libero_source",
+                external / ".venvs" / "smolvla" / "Scripts" / "python.exe",
+                libero_source,
+                libero_config,
+            ),
+            RuntimeCandidate(
+                "external_vla_with_libero_source",
+                external / ".venvs" / "vla" / "Scripts" / "python.exe",
+                libero_source,
+                libero_config,
+            ),
+            RuntimeCandidate(
+                "external_robocasa_with_libero_source",
+                external / ".venvs" / "robocasa" / "Scripts" / "python.exe",
+                libero_source,
+                libero_config,
+            ),
+        ]
+    )
+    unique_candidates: list[RuntimeCandidate] = []
+    for candidate in candidates:
         key = (
             str(candidate.python_path) if candidate.python_path is not None else None,
             str(candidate.source_path) if candidate.source_path is not None else None,
@@ -217,15 +236,8 @@ def _vla_runtime_candidates(root: Path) -> list[RuntimeCandidate]:
         if key in seen:
             continue
         seen.add(key)
-        candidates.append(
-            RuntimeCandidate(
-                f"vla_{candidate.name}",
-                candidate.python_path,
-                candidate.source_path,
-                candidate.config_path,
-            )
-        )
-    return candidates
+        unique_candidates.append(candidate)
+    return unique_candidates
 
 
 def probe_external_benchmark_runtimes(root: Path) -> dict[str, Any]:

@@ -11,30 +11,32 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 DESKTOP = Path.home() / "OneDrive" / "Desktop"
-FINAL_NAME = "best-of-n-wam-v3.pdf"
+FINAL_NAME = "best-of-n-wam-v4.pdf"
 REPO_PDF = ROOT / "paper" / "final" / FINAL_NAME
 DESKTOP_PDF = DESKTOP / FINAL_NAME
 SOURCE_MAP = DESKTOP / "PAPER_SOURCE_MAP.md"
-SUMMARY = ROOT / "results" / "v3_cached_evidence" / "summary.json"
+SUMMARY = ROOT / "results" / "v4_frozen_evidence" / "summary.json"
 CLAIMS_STATUS = ROOT / "results" / "claims_status.json"
 LATEX_LOG = ROOT / "iclr_submission.log"
 
 
 EXPECTED_CACHE_FILES = [
-    ROOT / "results" / "v3_cached_evidence" / "summary.json",
-    ROOT / "results" / "v3_cached_evidence" / "v3_core_claims.csv",
-    ROOT / "results" / "v3_cached_evidence" / "v3_failure_modes.csv",
-    ROOT / "results" / "v3_cached_evidence" / "v3_benchmark_summary.csv",
-    ROOT / "results" / "v3_cached_evidence" / "v3_coverage_summary.csv",
-    ROOT / "v3_results_macros.tex",
+    ROOT / "results" / "v4_frozen_evidence" / "summary.json",
+    ROOT / "results" / "v4_frozen_evidence" / "v4_core_claims.csv",
+    ROOT / "results" / "v4_frozen_evidence" / "v4_failure_modes.csv",
+    ROOT / "results" / "v4_frozen_evidence" / "v4_benchmark_summary.csv",
+    ROOT / "results" / "v4_frozen_evidence" / "v4_coverage_summary.csv",
+    ROOT / "results" / "v4_frozen_evidence" / "v4_protocol_gates.csv",
+    ROOT / "v4_results_macros.tex",
 ]
 
 EXPECTED_FIGURES = [
-    "v3_exact_law_errors.pdf",
-    "v3_benchmark_ci_lowers.pdf",
-    "v3_failure_modes.pdf",
-    "v3_robocasa_coverage.pdf",
-    "v3_claim_artifact_counts.pdf",
+    "v4_exact_law_errors.pdf",
+    "v4_benchmark_ci_lowers.pdf",
+    "v4_failure_modes.pdf",
+    "v4_robocasa_coverage.pdf",
+    "v4_claim_artifact_counts.pdf",
+    "v4_protocol_gates.pdf",
 ]
 
 LOG_BLOCKERS = [
@@ -121,6 +123,12 @@ def check_summary(summary: dict[str, Any]) -> None:
     require(summary.get("robocasa35_ci_lo", 0.0) > 0.1, "RoboCasa residual CI lower too small")
     require(summary.get("libero_ci_lo", 0.0) > 0.1, "LIBERO CI lower too small")
     require(summary.get("benchmark_rows") == 8, "benchmark row count changed")
+    require(summary.get("benchmark_pools", 0) >= 450, "benchmark rollout-pool count regressed")
+    require(summary.get("positive_ci_rows", 0) == 8, "not all promoted benchmark CI rows are positive")
+    require(summary.get("max_exact_mae", 1.0) < 0.04, "worst benchmark exact-law MAE too high")
+    require(summary.get("min_benchmark_ci_lo", 0.0) > 0.0, "minimum promoted benchmark CI lower is not positive")
+    require(summary.get("negative_control_passes") == 4, "negative-control gate count regressed")
+    require(summary.get("protocol_gate_rows") == summary.get("protocol_gate_passes"), "not all v4 protocol gates passed")
 
 
 def check_claim_status() -> None:
@@ -139,17 +147,18 @@ def check_claim_status() -> None:
 
 def check_cache_files() -> None:
     for path in EXPECTED_CACHE_FILES:
-        require(path.exists(), f"missing v3 cache file: {path}")
+        require(path.exists(), f"missing v4 cache file: {path}")
     for name in EXPECTED_FIGURES:
-        require((ROOT / "results" / "v3_cached_evidence" / "figures" / name).exists(), f"missing evidence figure {name}")
-        require((ROOT / "paper_figures" / "v3" / name).exists(), f"missing paper figure {name}")
+        require((ROOT / "results" / "v4_frozen_evidence" / "figures" / name).exists(), f"missing evidence figure {name}")
+        require((ROOT / "paper_figures" / "v4" / name).exists(), f"missing paper figure {name}")
 
 
 def check_source_map() -> None:
     require(SOURCE_MAP.exists(), f"missing source map: {SOURCE_MAP}")
     text = SOURCE_MAP.read_text(encoding="utf-8")
     expected = f"| `{FINAL_NAME}` | `{ROOT}` | `Jason-Wang313/best-of-n-wam` |"
-    require(expected in text, "source map does not point WAM to v3 final")
+    require(expected in text, "source map does not point WAM to v4 final")
+    require("best-of-n-wam-v3.pdf" not in text, "source map still contains WAM v3")
     require("best-of-n-wam-v2.pdf" not in text, "source map still contains WAM v2")
 
 
@@ -166,7 +175,7 @@ def check_git_tracking() -> None:
 
 
 def main() -> None:
-    run([sys.executable, "experiments/v3_cached_evidence.py"])
+    run([sys.executable, "experiments/v4_frozen_evidence.py"])
     check_cache_files()
     summary = load_json(SUMMARY)
     check_summary(summary)
@@ -177,13 +186,14 @@ def main() -> None:
     require(repo_pages >= 25, f"repo final PDF has only {repo_pages} pages")
     require(desktop_pages >= 25, f"Desktop final PDF has only {desktop_pages} pages")
     require(sha256(REPO_PDF) == sha256(DESKTOP_PDF), "repo and Desktop PDFs differ")
+    require(not (DESKTOP / "best-of-n-wam-v3.pdf").exists(), "stale Desktop v3 PDF exists")
     require(not (DESKTOP / "best-of-n-wam-v2.pdf").exists(), "stale Desktop v2 PDF exists")
 
     check_source_map()
     check_latex_log()
     check_git_tracking()
 
-    print("WAM v3 audit passed")
+    print("WAM v4 audit passed")
     print(f"pages={repo_pages} sha256={sha256(REPO_PDF)}")
 
 
