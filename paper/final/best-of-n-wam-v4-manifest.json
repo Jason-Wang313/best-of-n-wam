@@ -4,7 +4,7 @@
   "github_remote": "https://github.com/Jason-Wang313/best-of-n-wam.git",
   "repository_pdf": "paper/final/best-of-n-wam-v4.pdf",
   "desktop_pdf": "C:\\Users\\wangz\\OneDrive\\Desktop\\best-of-n-wam-v4.pdf",
-  "sha256": "B95203EDF4AC040FDD911ADE316C44B00B02D01106CEB68970CB0EC9F29D9FED",
+  "sha256": "C6919CC672FE3F7BE61BD4FC41B465DEC14B5187738069D696979D508AE26FEE",
   "pages": 27,
   "verified_on": "2026-06-19",
   "checks": {
@@ -13,11 +13,13 @@
     "frozen_evidence": "claims=127 artifacts=462 benchmark_rows=8 benchmark_pools=454",
     "claims_status": "127 verified, 0 partial, 0 unsupported, 0 failed",
     "paper_build": "passed",
+    "boxed_link_rebuild_from_frozen_artifacts": "passed",
     "claim_audit": "WAM v4 audit passed.",
     "latex_final_log_scan": "passed",
     "repo_desktop_hash_match": true,
-    "pdf_render": "all 27 pages rendered",
-    "visual_qa": "pages 1, 6, 8, 13, 16, 22, and 27 inspected"
+    "pdf_annotation_link_audit": "114 annotations: 70 green citation boxes, 19 red internal-reference boxes, 25 cyan URL boxes; all use 1pt visible borders",
+    "pdf_render": "selected high-risk pages rendered at moderate DPI",
+    "visual_qa": "pages 1, 3, 4, 5, 6, 8, 10, 13, 16, 17, 19, 21, 22, and 27 inspected"
   },
   "evidence_summary": {
     "claims_verified": 127,

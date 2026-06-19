@@ -49,5 +49,10 @@ The v4 protocol avoids duplicate-template risk by using a WAM-specific title, me
 - Compile and test checks pass: `python -m compileall src tests experiments scripts -q` and `python -m pytest -q`.
 - Old v2/v3 Desktop WAM PDFs are not treated as the final artifact.
 - The source map points to the v4 Desktop PDF, this local source folder, and the GitHub repository.
-- Final PDF SHA256: `B95203EDF4AC040FDD911ADE316C44B00B02D01106CEB68970CB0EC9F29D9FED`.
-- Visual QA inspected rendered pages 1, 6, 8, 13, 16, 22, and 27.
+- Boxed-link PDF rebuild from frozen paper artifacts: passed.
+- Final PDF SHA256: `C6919CC672FE3F7BE61BD4FC41B465DEC14B5187738069D696979D508AE26FEE`.
+- PDF annotation audit found 114 link annotations: 70 green citation boxes,
+  19 red internal-reference boxes, and 25 cyan URL boxes. All annotations use
+  1pt visible borders matching the VLA role-model profile.
+- Visual QA inspected rendered pages 1, 3, 4, 5, 6, 8, 10, 13, 16, 17, 19, 21,
+  22, and 27.
