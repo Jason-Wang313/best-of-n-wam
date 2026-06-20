@@ -1,0 +1,11 @@
+{
+  "v5_core": {
+    "description": "Tiny deterministic pools for V5 core reproduction; not the full paper benchmark.",
+    "pool_ids": [
+      "impossibility_safe_tail",
+      "impossibility_unsafe_tail",
+      "matched_auc_tail_safe",
+      "matched_auc_tail_unsafe"
+    ]
+  }
+}

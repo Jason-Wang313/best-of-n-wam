@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{p{0.32\linewidth}p{0.22\linewidth}p{0.34\linewidth}}
+\toprule
+V5 check & Result & Claim discipline \\
+\midrule
+Exact-law edge cases & 7 cases; max error 0.0 & Finite tied-pool law remains source of truth. \\
+AUC/correlation insufficiency & matched-summary high-$N$ gap 1.000 & AUC and correlation are not promoted as high-$N$ guarantees. \\
+Finite-pool census & 1458 rows; 230 nonmonotonic & CPU enumeration gives complete coverage for the stated finite-pool class. \\
+Blind prospective audit & 50 heldout pools; accuracy 86.5\% & Predictions are hash-locked before outcomes. \\
+Closed-loop validation & audit 2.881 vs raw 2.471 & Toy execution check, not robot success. \\
+ScoreTailBench core & 4 pools & Reusable tiny artifact, not a leaderboard. \\
+\bottomrule
+\end{tabular}
+\caption{V5 frozen evidence summary. V5 adds prospective, exhaustive, and reproducibility checks while preserving the paper's no-real-robot and no-SOTA claim boundaries.}
+\label{tab:v5-summary}
+\end{table}

@@ -1,0 +1,22 @@
+{
+  "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v5\\finite_pool_census.csv",
+  "classification_counts": {
+    "flat": 98,
+    "harms": 553,
+    "helps": 553,
+    "nonmonotonic": 230,
+    "saturates_or_small": 24
+  },
+  "counts_sum": 1458,
+  "expected_row_count": 1458,
+  "gate_passed": true,
+  "max_m": 8,
+  "row_count": 1458,
+  "rows_by_m": {
+    "4": 42,
+    "5": 90,
+    "6": 186,
+    "7": 378,
+    "8": 762
+  }
+}

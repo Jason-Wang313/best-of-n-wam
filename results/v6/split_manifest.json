@@ -1,0 +1,342 @@
+{
+  "claims_not_supported": [
+    "real robot validation",
+    "GPU-scale training",
+    "broad robotics SOTA",
+    "universal WAM training law",
+    "candidate-level replacement for unavailable simulator reruns"
+  ],
+  "families": [
+    "fetch_state",
+    "fetch_visual",
+    "gym_reacher",
+    "libero",
+    "maniskill",
+    "metaworld",
+    "robocasa_family32",
+    "robocasa_residual35",
+    "robocasa_stratified97",
+    "robosuite"
+  ],
+  "folds": [
+    {
+      "holdout_family": "fetch_state",
+      "train_families": [
+        "fetch_visual",
+        "gym_reacher",
+        "libero",
+        "maniskill",
+        "metaworld",
+        "robocasa_family32",
+        "robocasa_residual35",
+        "robocasa_stratified97",
+        "robosuite"
+      ]
+    },
+    {
+      "holdout_family": "fetch_visual",
+      "train_families": [
+        "fetch_state",
+        "gym_reacher",
+        "libero",
+        "maniskill",
+        "metaworld",
+        "robocasa_family32",
+        "robocasa_residual35",
+        "robocasa_stratified97",
+        "robosuite"
+      ]
+    },
+    {
+      "holdout_family": "gym_reacher",
+      "train_families": [
+        "fetch_state",
+        "fetch_visual",
+        "libero",
+        "maniskill",
+        "metaworld",
+        "robocasa_family32",
+        "robocasa_residual35",
+        "robocasa_stratified97",
+        "robosuite"
+      ]
+    },
+    {
+      "holdout_family": "libero",
+      "train_families": [
+        "fetch_state",
+        "fetch_visual",
+        "gym_reacher",
+        "maniskill",
+        "metaworld",
+        "robocasa_family32",
+        "robocasa_residual35",
+        "robocasa_stratified97",
+        "robosuite"
+      ]
+    },
+    {
+      "holdout_family": "maniskill",
+      "train_families": [
+        "fetch_state",
+        "fetch_visual",
+        "gym_reacher",
+        "libero",
+        "metaworld",
+        "robocasa_family32",
+        "robocasa_residual35",
+        "robocasa_stratified97",
+        "robosuite"
+      ]
+    },
+    {
+      "holdout_family": "metaworld",
+      "train_families": [
+        "fetch_state",
+        "fetch_visual",
+        "gym_reacher",
+        "libero",
+        "maniskill",
+        "robocasa_family32",
+        "robocasa_residual35",
+        "robocasa_stratified97",
+        "robosuite"
+      ]
+    },
+    {
+      "holdout_family": "robocasa_family32",
+      "train_families": [
+        "fetch_state",
+        "fetch_visual",
+        "gym_reacher",
+        "libero",
+        "maniskill",
+        "metaworld",
+        "robocasa_residual35",
+        "robocasa_stratified97",
+        "robosuite"
+      ]
+    },
+    {
+      "holdout_family": "robocasa_residual35",
+      "train_families": [
+        "fetch_state",
+        "fetch_visual",
+        "gym_reacher",
+        "libero",
+        "maniskill",
+        "metaworld",
+        "robocasa_family32",
+        "robocasa_stratified97",
+        "robosuite"
+      ]
+    },
+    {
+      "holdout_family": "robocasa_stratified97",
+      "train_families": [
+        "fetch_state",
+        "fetch_visual",
+        "gym_reacher",
+        "libero",
+        "maniskill",
+        "metaworld",
+        "robocasa_family32",
+        "robocasa_residual35",
+        "robosuite"
+      ]
+    },
+    {
+      "holdout_family": "robosuite",
+      "train_families": [
+        "fetch_state",
+        "fetch_visual",
+        "gym_reacher",
+        "libero",
+        "maniskill",
+        "metaworld",
+        "robocasa_family32",
+        "robocasa_residual35",
+        "robocasa_stratified97"
+      ]
+    }
+  ],
+  "input_artifacts": [
+    {
+      "exists": true,
+      "family": "gym_reacher",
+      "metric_col": "real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_gym_manip_curves.csv",
+      "pools": 25,
+      "relative_path": "results/tables/benchmark_gym_manip_curves.csv",
+      "rows": 600,
+      "sha256": "deeace6e6317d22326b2535b55b8b52b548ce9e8d2eb8221d4f25d49f645755a",
+      "target_priority": [
+        "learned_predicted_utility",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "fetch_state",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_gym_robotics_curves.csv",
+      "pools": 60,
+      "relative_path": "results/tables/benchmark_gym_robotics_curves.csv",
+      "rows": 1800,
+      "sha256": "bc9a24c78122c3799f6cf5e86bef651f19de063a0a782d9b34da47bf75a210ab",
+      "target_priority": [
+        "learned_wam",
+        "predicted_success",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "fetch_visual",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_gym_robotics_visual_wam_curves.csv",
+      "pools": 45,
+      "relative_path": "results/tables/benchmark_gym_robotics_visual_wam_curves.csv",
+      "rows": 1350,
+      "sha256": "7f8fdff789b87c3877d8cfe22b18f7dfc9fb593ef443fe6ae397c0f497456f35",
+      "target_priority": [
+        "visual_wam",
+        "visual_success_head",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "maniskill",
+      "metric_col": "real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_maniskill_curves.csv",
+      "pools": 30,
+      "relative_path": "results/tables/benchmark_maniskill_curves.csv",
+      "rows": 900,
+      "sha256": "44ef2e5c52d547231d90c74aae38a4ff98cbd19330b38a17b81f7af75ade7370",
+      "target_priority": [
+        "dense_reward",
+        "learned_predicted_utility",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "metaworld",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_metaworld_curves.csv",
+      "pools": 45,
+      "relative_path": "results/tables/benchmark_metaworld_curves.csv",
+      "rows": 1620,
+      "sha256": "10c9bc5828b434651e8bc66f50f53dad9c433ae09b7c1a02c9e830c86a94dbc6",
+      "target_priority": [
+        "learned_wam",
+        "benchmark_reward",
+        "predicted_success",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "robosuite",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robosuite_curves.csv",
+      "pools": 30,
+      "relative_path": "results/tables/benchmark_robosuite_curves.csv",
+      "rows": 1260,
+      "sha256": "f70462fd7be5c5bf8785d397401eff0e0cd92b33730d2f14487ca683a74e16e4",
+      "target_priority": [
+        "learned_wam",
+        "benchmark_reward",
+        "progress",
+        "predicted_success",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "libero",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_libero_curves.csv",
+      "pools": 15,
+      "relative_path": "results/tables/benchmark_libero_curves.csv",
+      "rows": 600,
+      "sha256": "ff125cee9f730415755387b6e0720b3d521d2184371d0c854f26bbceed44af3f",
+      "target_priority": [
+        "learned_energy_regularized",
+        "learned_wam",
+        "learned_physics_score",
+        "distance_progress",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "robocasa_family32",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family32_curves.csv",
+      "pools": 64,
+      "relative_path": "results/tables/benchmark_robocasa_family32_curves.csv",
+      "rows": 2304,
+      "sha256": "f136431363f94896099c48274c5a188ff7e2c4430e782e05809d4e9f9d9c87fa",
+      "target_priority": [
+        "learned_energy_regularized",
+        "learned_wam",
+        "learned_physics_score",
+        "distance_progress",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "robocasa_stratified97",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_stratified97_curves.csv",
+      "pools": 194,
+      "relative_path": "results/tables/benchmark_robocasa_stratified97_curves.csv",
+      "rows": 6984,
+      "sha256": "2f6aaba3d3d94c776cc2fde1950b6a312c1147819c2f92cf6fc88efcdb74d2c1",
+      "target_priority": [
+        "learned_wam",
+        "learned_energy_regularized",
+        "learned_physics_score",
+        "distance_progress",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "robocasa_residual35",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual35_h1_n4_curves.csv",
+      "pools": 35,
+      "relative_path": "results/tables/benchmark_robocasa_residual35_h1_n4_curves.csv",
+      "rows": 945,
+      "sha256": "6ceb2f41d6147c8372da7f6e585ea2fdeea911a8f04ad7c54bf4d6d0e0a5d2ca",
+      "target_priority": [
+        "learned_wam",
+        "learned_energy_regularized",
+        "learned_physics_score",
+        "distance_progress",
+        "low_energy"
+      ],
+      "usable": true
+    }
+  ],
+  "params": {
+    "epsilon": 0.02,
+    "pilot_rule": "use N=4 when present, otherwise N=2",
+    "radius_quantile": 0.9,
+    "utility_normalization": "use normalized_real_utility when present; otherwise min-max scale real_utility within source CSV"
+  },
+  "protocol": "V6 leave-one-family-out real-benchmark curve audit"
+}

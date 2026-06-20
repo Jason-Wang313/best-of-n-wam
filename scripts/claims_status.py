@@ -338,6 +338,17 @@ def main() -> None:
     publication_scope = load_json("publication_scope.json")
     claim_generation_consistency = load_json("claim_generation_consistency.json")
     report_generation_consistency = load_json("report_generation_consistency.json")
+    v5_core = load_json("v5/summary.json")
+    v5_prospective = load_json("v5/prospective_evidence_summary.json")
+    v5_frozen = load_json("v5_frozen_evidence/summary.json")
+    v6_summary = load_json("v6/summary.json")
+    v6_frozen = load_json("v6_frozen_evidence/summary.json")
+    scoretailbench_manifest_path = ROOT / "scoretailbench" / "manifest.json"
+    scoretailbench_manifest = (
+        json.loads(scoretailbench_manifest_path.read_text(encoding="utf-8"))
+        if scoretailbench_manifest_path.exists()
+        else {}
+    )
 
     claims: list[dict[str, Any]] = []
     add(claims, 1, "Exact finite binary law verified.", status(bool(exp1) and exp1.get("mean_success_mc_mae", 1.0) < 0.018, bool(exp1)), f"success MAE={exp1.get('mean_success_mc_mae')}")
@@ -2245,12 +2256,479 @@ def main() -> None:
             "hashes_recorded_in=results/report_generation_consistency.json"
         ),
     }
+    v5_exact = v5_core.get("exact_law_hardening") or {}
+    v5_auc = v5_core.get("auc_correlation_insufficiency") or {}
+    v5_census = v5_core.get("finite_pool_census") or {}
+    v5_census_counts = v5_census.get("classification_counts") or {}
+    v5_impossibility = v5_core.get("impossibility_boundary") or {}
+    v5_scoretailbench = v5_core.get("scoretailbench") or {}
+    v5_audit = v5_prospective.get("prospective_audit") or {}
+    v5_label_budget = v5_prospective.get("label_budget_sample_complexity") or {}
+    v5_selector = v5_prospective.get("selector_gauntlet") or {}
+    v5_frontier = v5_prospective.get("equal_compute_frontier") or {}
+    v5_closed = v5_prospective.get("closed_loop_validation") or {}
+    v5_returns = v5_closed.get("mean_return_by_policy") or {}
+    v5_budget64 = {
+        row.get("strategy"): row
+        for row in (v5_frontier.get("summary_rows") or [])
+        if row.get("budget") == 64
+    }
+    v5_required_figures = [
+        ROOT / "paper_figures" / "v5" / "v5_census_regimes.pdf",
+        ROOT / "paper_figures" / "v5" / "v5_closed_loop_returns.pdf",
+        ROOT / "paper_figures" / "v5" / "v5_equal_compute_frontier.pdf",
+        ROOT / "paper_figures" / "v5" / "v5_label_budget.pdf",
+    ]
+    v5_scoretailbench_paths_ok = all(
+        artifact_exists(ROOT / "scoretailbench" / row.get("path", ""))
+        for row in (scoretailbench_manifest.get("pools") or [])
+    )
+    v6_audit = v6_summary.get("real_benchmark_audit") or {}
+    v6_transfer = v6_summary.get("cross_family_transfer") or {}
+    v6_calibration = v6_summary.get("calibration_abstention") or {}
+    v6_selector = v6_summary.get("selector_metric_ablation") or {}
+    v6_robustness = v6_summary.get("robustness_grid") or {}
+    v6_negative = v6_summary.get("negative_controls") or {}
+    v6_theory = v6_summary.get("finite_sample_theory") or {}
+    v6_leakage = v6_summary.get("leakage_protocol") or {}
+    v6_low_ram = v6_summary.get("low_ram_design") or {}
+    v6_sources = v6_summary.get("source_artifacts") or []
+    v6_rows = v6_selector.get("rows") or []
+    v6_source_hashes_ok = bool(v6_sources) and all(
+        row.get("exists") is True
+        and row.get("usable") is True
+        and len(str(row.get("sha256") or "")) == 64
+        for row in v6_sources
+        if isinstance(row, dict)
+    )
+    v6_required_figures = [
+        ROOT / "paper_figures" / "v6" / "v6_cross_family_accuracy.pdf",
+        ROOT / "paper_figures" / "v6" / "v6_cross_family_decided_rate.pdf",
+        ROOT / "paper_figures" / "v6" / "v6_compute_ablation.pdf",
+        ROOT / "paper_figures" / "v6" / "v6_robustness_grid.pdf",
+    ]
+    v6_manuscript_text = ""
+    for manuscript_path in [
+        ROOT / "iclr_submission.tex",
+        ROOT / "iclr_appendix.tex",
+        ROOT / "paper" / "v6_summary_table.tex",
+    ]:
+        if manuscript_path.exists():
+            v6_manuscript_text += "\n" + manuscript_path.read_text(encoding="utf-8")
+    v5_claims = [
+        {
+            "id": 128,
+            "claim": "V5 exact-law edge cases are hardened.",
+            "status": status(
+                bool(v5_core)
+                and v5_core.get("gate_passed") is True
+                and v5_exact.get("all_passed") is True
+                and (v5_exact.get("case_count") or 0) >= 7
+                and v5_exact.get("max_abs_error") is not None
+                and v5_exact.get("max_abs_error") <= 1e-12
+                and artifact_exists(v5_exact.get("artifact")),
+                bool(v5_core),
+            ),
+            "evidence": (
+                f"cases={v5_exact.get('case_count')}, max_error={v5_exact.get('max_abs_error')}, "
+                f"artifact={v5_exact.get('artifact')}"
+            ),
+        },
+        {
+            "id": 129,
+            "claim": "V5 matched-summary counterexample shows AUC/correlation are insufficient for high-N guarantees.",
+            "status": status(
+                bool(v5_core)
+                and v5_auc.get("gate_passed") is True
+                and (v5_auc.get("high_n_gap") or 0.0) >= 0.5
+                and max((v5_auc.get("matched_metric_abs_differences") or {"missing": 1.0}).values()) <= 1e-12
+                and artifact_exists(v5_auc.get("artifact")),
+                bool(v5_core),
+            ),
+            "evidence": (
+                f"high_n_gap={v5_auc.get('high_n_gap')}, n2_gap={v5_auc.get('n2_gap')}, "
+                f"matched_diffs={v5_auc.get('matched_metric_abs_differences')}, artifact={v5_auc.get('artifact')}"
+            ),
+        },
+        {
+            "id": 130,
+            "claim": "V5 exhaustive finite-pool census covers the stated small-pool class.",
+            "status": status(
+                bool(v5_core)
+                and v5_census.get("gate_passed") is True
+                and v5_census.get("row_count") == v5_census.get("expected_row_count")
+                and (v5_census_counts.get("helps") or 0) > 0
+                and (v5_census_counts.get("harms") or 0) > 0
+                and (v5_census_counts.get("nonmonotonic") or 0) > 0
+                and artifact_exists(v5_census.get("artifact")),
+                bool(v5_core),
+            ),
+            "evidence": (
+                f"rows={v5_census.get('row_count')}, expected={v5_census.get('expected_row_count')}, "
+                f"counts={v5_census_counts}, artifact={v5_census.get('artifact')}"
+            ),
+        },
+        {
+            "id": 131,
+            "claim": "V5 impossibility-boundary pools expose score-only indistinguishability.",
+            "status": status(
+                bool(v5_core)
+                and v5_impossibility.get("gate_passed") is True
+                and v5_impossibility.get("observable_features_identical") is True
+                and v5_impossibility.get("score_only_selected_candidate_equal") is True
+                and (v5_impossibility.get("selected_real_utility_gap") or 0.0) >= 0.8
+                and artifact_exists(v5_impossibility.get("artifact")),
+                bool(v5_core),
+            ),
+            "evidence": (
+                f"gap={v5_impossibility.get('selected_real_utility_gap')}, "
+                f"observable_identical={v5_impossibility.get('observable_features_identical')}, "
+                f"artifact={v5_impossibility.get('artifact')}"
+            ),
+        },
+        {
+            "id": 132,
+            "claim": "ScoreTailBench V5 core package is present and scope-guarded.",
+            "status": status(
+                bool(scoretailbench_manifest)
+                and (v5_scoretailbench.get("pool_count") or 0) >= 4
+                and len(scoretailbench_manifest.get("pools") or []) >= 4
+                and bool(scoretailbench_manifest.get("claims_not_supported"))
+                and v5_scoretailbench_paths_ok
+                and artifact_exists(scoretailbench_manifest_path),
+                bool(v5_core),
+            ),
+            "evidence": (
+                f"pools={v5_scoretailbench.get('pool_count')}, "
+                f"claims_not_supported={scoretailbench_manifest.get('claims_not_supported')}, "
+                f"manifest={scoretailbench_manifest_path}"
+            ),
+        },
+        {
+            "id": 133,
+            "claim": "V5 prospective audit uses hash-locked heldout predictions before outcomes.",
+            "status": status(
+                bool(v5_prospective)
+                and v5_audit.get("gate_passed") is True
+                and (v5_audit.get("heldout_pools") or 0) >= 50
+                and (v5_audit.get("decision_accuracy") or 0.0) >= 0.8
+                and len(str(v5_audit.get("prediction_sha256") or "")) == 64
+                and artifact_exists(v5_audit.get("prediction_file"))
+                and artifact_exists(v5_audit.get("outcome_file")),
+                bool(v5_prospective),
+            ),
+            "evidence": (
+                f"heldout={v5_audit.get('heldout_pools')}, accuracy={v5_audit.get('decision_accuracy')}, "
+                f"false_allow={v5_audit.get('false_allow_rate')}, false_block={v5_audit.get('false_block_rate')}, "
+                f"sha256={v5_audit.get('prediction_sha256')}, artifact={v5_audit.get('outcome_file')}"
+            ),
+        },
+        {
+            "id": 134,
+            "claim": "V5 label-budget sample-complexity audit is generated.",
+            "status": status(
+                bool(v5_prospective)
+                and v5_label_budget.get("gate_passed") is True
+                and v5_label_budget.get("zero_label_included") is True
+                and set(v5_label_budget.get("label_budgets") or []).issuperset({0, 1, 2, 4, 8, 16, 32, 64})
+                and artifact_exists(v5_label_budget.get("artifact")),
+                bool(v5_prospective),
+            ),
+            "evidence": (
+                f"budgets={v5_label_budget.get('label_budgets')}, zero_label={v5_label_budget.get('zero_label_included')}, "
+                f"artifact={v5_label_budget.get('artifact')}"
+            ),
+        },
+        {
+            "id": 135,
+            "claim": "V5 selector gauntlet distinguishes deployable selectors from oracle rows.",
+            "status": status(
+                bool(v5_prospective)
+                and v5_selector.get("gate_passed") is True
+                and (len(v5_selector.get("selectors") or [])) >= 8
+                and v5_selector.get("oracle_labeled_non_deployable") is True
+                and artifact_exists(v5_selector.get("artifact")),
+                bool(v5_prospective),
+            ),
+            "evidence": (
+                f"selectors={v5_selector.get('selectors')}, oracle_non_deployable={v5_selector.get('oracle_labeled_non_deployable')}, "
+                f"artifact={v5_selector.get('artifact')}"
+            ),
+        },
+        {
+            "id": 136,
+            "claim": "V5 equal-compute CPU frontier is measured with rollout and label costs.",
+            "status": status(
+                bool(v5_prospective)
+                and v5_frontier.get("gate_passed") is True
+                and v5_frontier.get("reports_cpu_units") is True
+                and {"blind_more_rollouts", "calibrated_lcb", "audit_fewer_rollouts"}.issubset(set(v5_budget64))
+                and (v5_budget64.get("calibrated_lcb", {}).get("mean_selected_utility") or 0.0)
+                > (v5_budget64.get("blind_more_rollouts", {}).get("mean_selected_utility") or 0.0)
+                and (v5_budget64.get("audit_fewer_rollouts", {}).get("mean_cpu_units") or 1e9)
+                < (v5_budget64.get("blind_more_rollouts", {}).get("mean_cpu_units") or 0.0)
+                and artifact_exists(v5_frontier.get("artifact")),
+                bool(v5_prospective),
+            ),
+            "evidence": f"budget64={v5_budget64}, artifact={v5_frontier.get('artifact')}",
+        },
+        {
+            "id": 137,
+            "claim": "V5 toy closed-loop audit improves over raw high-N in the controlled harness.",
+            "status": status(
+                bool(v5_prospective)
+                and v5_closed.get("gate_passed") is True
+                and (v5_closed.get("episodes") or 0) >= 10
+                and (v5_returns.get("audit_policy") or 0.0) > (v5_returns.get("raw_high_n") or 0.0)
+                and ((v5_closed.get("audit_minus_raw_ci") or {}).get("lo") or 0.0) > 0.0
+                and (v5_returns.get("oracle_upper_bound") or 0.0) > (v5_returns.get("audit_policy") or 0.0)
+                and artifact_exists(v5_closed.get("artifact")),
+                bool(v5_prospective),
+            ),
+            "evidence": (
+                f"returns={v5_returns}, audit_minus_raw_ci={v5_closed.get('audit_minus_raw_ci')}, "
+                f"artifact={v5_closed.get('artifact')}"
+            ),
+        },
+        {
+            "id": 138,
+            "claim": "V5 frozen manuscript inputs are generated and gate-passing.",
+            "status": status(
+                bool(v5_frozen)
+                and v5_frozen.get("gate_passed") is True
+                and (v5_frozen.get("prospective_pools") or 0) >= 50
+                and artifact_exists(ROOT / "v5_results_macros.tex")
+                and artifact_exists(ROOT / "paper" / "v5_summary_table.tex")
+                and artifact_exists(ROOT / "paper" / "v5_compute_frontier_table.tex")
+                and all(path.exists() and path.stat().st_size > 1000 for path in v5_required_figures)
+                and artifact_exists(RESULTS / "v5_frozen_evidence" / "summary.json"),
+                bool(v5_frozen),
+            ),
+            "evidence": (
+                f"gate={v5_frozen.get('gate_passed')}, pools={v5_frozen.get('prospective_pools')}, "
+                "artifacts=results/v5_frozen_evidence/summary.json, v5_results_macros.tex, paper/v5_summary_table.tex, "
+                "paper/v5_compute_frontier_table.tex, paper_figures/v5"
+            ),
+        },
+    ]
+    v6_claims = [
+        {
+            "id": 139,
+            "claim": "V6 real-benchmark audit runs on the frozen existing rollout-pool artifacts.",
+            "status": status(
+                bool(v6_summary)
+                and v6_summary.get("gate_passed") is True
+                and (v6_audit.get("family_count") or 0) >= 10
+                and (v6_audit.get("pool_count") or 0) >= 500
+                and v6_source_hashes_ok
+                and artifact_exists(RESULTS / "v6" / "summary.json"),
+                bool(v6_summary),
+            ),
+            "evidence": (
+                f"families={v6_audit.get('family_count')}, pools={v6_audit.get('pool_count')}, "
+                f"sources={len(v6_sources)}, gate={v6_summary.get('gate_passed')}"
+            ),
+        },
+        {
+            "id": 140,
+            "claim": "V6 predictions and splits are hash-locked before outcome accounting.",
+            "status": status(
+                bool(v6_summary)
+                and v6_leakage.get("hash_locked_before_outcome_merge") is True
+                and len(str(v6_leakage.get("prediction_sha256") or "")) == 64
+                and len(str(v6_leakage.get("split_manifest_sha256") or "")) == 64
+                and artifact_exists(v6_leakage.get("prediction_file"))
+                and artifact_exists(v6_leakage.get("outcome_file"))
+                and artifact_exists(v6_leakage.get("split_manifest")),
+                bool(v6_summary),
+            ),
+            "evidence": (
+                f"prediction_sha={str(v6_leakage.get('prediction_sha256') or '')[:10]}, "
+                f"split_sha={str(v6_leakage.get('split_manifest_sha256') or '')[:10]}, "
+                f"locked={v6_leakage.get('hash_locked_before_outcome_merge')}"
+            ),
+        },
+        {
+            "id": 141,
+            "claim": "V6 cross-family frozen transfer is measured with high aggregate decision accuracy.",
+            "status": status(
+                bool(v6_summary)
+                and (v6_transfer.get("fold_count") or 0) >= 10
+                and (v6_audit.get("decision_accuracy") or 0.0) >= 0.95
+                and (v6_audit.get("decided_rate") or 0.0) >= 0.80
+                and (v6_audit.get("false_allow_rate") is not None)
+                and v6_audit.get("false_allow_rate") <= 0.02
+                and artifact_exists(v6_transfer.get("artifact")),
+                bool(v6_summary),
+            ),
+            "evidence": (
+                f"folds={v6_transfer.get('fold_count')}, accuracy={v6_audit.get('decision_accuracy')}, "
+                f"decided={v6_audit.get('decided_rate')}, false_allow={v6_audit.get('false_allow_rate')}"
+            ),
+        },
+        {
+            "id": 142,
+            "claim": "V6 calibration treats abstention/request-label as first-class audit outcomes.",
+            "status": status(
+                bool(v6_summary)
+                and (v6_calibration.get("bin_count") or 0) >= 4
+                and (v6_calibration.get("overall_interval_coverage") or 0.0) >= 0.80
+                and (v6_calibration.get("overall_decided_rate") or 0.0) >= 0.80
+                and (v6_calibration.get("overall_request_label_rate") is not None)
+                and v6_calibration.get("overall_request_label_rate") > 0.0
+                and artifact_exists(v6_calibration.get("artifact")),
+                bool(v6_summary),
+            ),
+            "evidence": (
+                f"bins={v6_calibration.get('bin_count')}, coverage={v6_calibration.get('overall_interval_coverage')}, "
+                f"decided={v6_calibration.get('overall_decided_rate')}, request_labels={v6_calibration.get('overall_request_label_rate')}"
+            ),
+        },
+        {
+            "id": 143,
+            "claim": "V6 selector and metric ablations separate deployable strategies from diagnostics.",
+            "status": status(
+                bool(v6_summary)
+                and (v6_selector.get("strategy_count") or 0) >= 8
+                and (v6_selector.get("deployable_strategy_count") or 0) >= 6
+                and any(row.get("strategy") == "oracle_upper_bound" and row.get("deployable") is False for row in v6_rows)
+                and any(row.get("strategy") == "audit_with_abstention" and row.get("deployable") is True for row in v6_rows)
+                and artifact_exists(v6_selector.get("artifact")),
+                bool(v6_summary),
+            ),
+            "evidence": (
+                f"strategies={v6_selector.get('strategy_count')}, deployable={v6_selector.get('deployable_strategy_count')}, "
+                f"artifact={v6_selector.get('artifact')}"
+            ),
+        },
+        {
+            "id": 144,
+            "claim": "V6 robustness grid records tolerance sensitivity rather than a single tuned threshold.",
+            "status": status(
+                bool(v6_summary)
+                and (v6_robustness.get("row_count") or 0) >= 12
+                and (v6_robustness.get("primary_like_rows") or 0) >= 1
+                and (v6_robustness.get("max_decision_accuracy") or 0.0) >= 0.95
+                and artifact_exists(v6_robustness.get("artifact")),
+                bool(v6_summary),
+            ),
+            "evidence": (
+                f"rows={v6_robustness.get('row_count')}, primary_like={v6_robustness.get('primary_like_rows')}, "
+                f"max_accuracy={v6_robustness.get('max_decision_accuracy')}"
+            ),
+        },
+        {
+            "id": 145,
+            "claim": "V6 negative controls show non-oracle corrupted selectors fail against raw high-N.",
+            "status": status(
+                bool(v6_summary)
+                and v6_negative.get("gate_passed") is True
+                and (v6_negative.get("control_count") or 0) >= 2
+                and (v6_negative.get("worst_nonoracle_gap_vs_raw") is not None)
+                and v6_negative.get("worst_nonoracle_gap_vs_raw") < 0.0
+                and artifact_exists(v6_negative.get("artifact")),
+                bool(v6_summary),
+            ),
+            "evidence": (
+                f"controls={v6_negative.get('control_count')}, "
+                f"worst_gap_vs_raw={v6_negative.get('worst_nonoracle_gap_vs_raw')}"
+            ),
+        },
+        {
+            "id": 146,
+            "claim": "V6 compute-normalized reporting shows near-matched utility with lower rollout use.",
+            "status": status(
+                bool(v6_summary)
+                and (v6_selector.get("audit_rollout_savings_vs_raw") or 0.0) > 0.0
+                and (v6_selector.get("audit_utility_per_rollout") or 0.0)
+                > (v6_selector.get("raw_utility_per_rollout") or 1e9)
+                and (v6_audit.get("mean_audit_policy_utility") is not None)
+                and (v6_audit.get("mean_raw_high_n_utility") is not None)
+                and abs(v6_audit.get("mean_audit_policy_utility") - v6_audit.get("mean_raw_high_n_utility")) <= 0.01,
+                bool(v6_summary),
+            ),
+            "evidence": (
+                f"audit_utility={v6_audit.get('mean_audit_policy_utility')}, raw_utility={v6_audit.get('mean_raw_high_n_utility')}, "
+                f"rollout_savings={v6_selector.get('audit_rollout_savings_vs_raw')}, "
+                f"utility_per_rollout={v6_selector.get('audit_utility_per_rollout')} vs {v6_selector.get('raw_utility_per_rollout')}"
+            ),
+        },
+        {
+            "id": 147,
+            "claim": "V6 finite-sample label accounting explains why abstention remains necessary.",
+            "status": status(
+                bool(v6_summary)
+                and (v6_theory.get("row_count") or 0) >= 9
+                and (v6_theory.get("epsilon_0_05_delta_0_05_labels") or 0) > 1000
+                and "abstention" in str(v6_theory.get("interpretation") or "").lower()
+                and artifact_exists(v6_theory.get("artifact")),
+                bool(v6_summary),
+            ),
+            "evidence": (
+                f"rows={v6_theory.get('row_count')}, eps05_delta05_labels={v6_theory.get('epsilon_0_05_delta_0_05_labels')}"
+            ),
+        },
+        {
+            "id": 148,
+            "claim": "V6 evidence generation is low-RAM by construction.",
+            "status": status(
+                bool(v6_summary)
+                and v6_low_ram.get("uses_existing_curve_csvs") is True
+                and v6_low_ram.get("reruns_simulators") is False
+                and v6_low_ram.get("stores_candidate_tensors") is False
+                and v6_low_ram.get("parallel_jobs") == 1
+                and (v6_low_ram.get("compact_per_pool_records") or 0) == (v6_audit.get("pool_count") or -1),
+                bool(v6_summary),
+            ),
+            "evidence": (
+                f"curve_csvs={v6_low_ram.get('uses_existing_curve_csvs')}, reruns={v6_low_ram.get('reruns_simulators')}, "
+                f"candidate_tensors={v6_low_ram.get('stores_candidate_tensors')}, jobs={v6_low_ram.get('parallel_jobs')}, "
+                f"records={v6_low_ram.get('compact_per_pool_records')}"
+            ),
+        },
+        {
+            "id": 149,
+            "claim": "V6 frozen manuscript tables, macros, figures, and summary are generated.",
+            "status": status(
+                bool(v6_frozen)
+                and v6_frozen.get("gate_passed") is True
+                and (v6_frozen.get("family_count") or 0) >= 10
+                and (v6_frozen.get("pool_count") or 0) >= 500
+                and artifact_exists(ROOT / "v6_results_macros.tex")
+                and artifact_exists(ROOT / "paper" / "v6_summary_table.tex")
+                and artifact_exists(ROOT / "paper" / "v6_ablation_table.tex")
+                and all(path.exists() and path.stat().st_size > 1000 for path in v6_required_figures)
+                and artifact_exists(RESULTS / "v6_frozen_evidence" / "summary.json"),
+                bool(v6_frozen),
+            ),
+            "evidence": (
+                f"gate={v6_frozen.get('gate_passed')}, families={v6_frozen.get('family_count')}, "
+                f"pools={v6_frozen.get('pool_count')}, artifacts=v6_results_macros.tex, paper/v6_*.tex, paper_figures/v6"
+            ),
+        },
+        {
+            "id": 150,
+            "claim": "V6 manuscript language preserves no-real-robot, no-GPU-scale, and no-broad-SOTA boundaries.",
+            "status": status(
+                bool(v6_manuscript_text)
+                and "V6 Real-Benchmark Transfer Audit" in v6_manuscript_text
+                and "V6 Real-Benchmark Reviewer Attacks" in v6_manuscript_text
+                and "not new simulator runs" in v6_manuscript_text
+                and "It is not" in v6_manuscript_text
+                and "does not run real robots" in v6_manuscript_text
+                and "no-GPU-scale" in v6_manuscript_text
+                and "no-broad-SOTA" in v6_manuscript_text,
+                bool(v6_manuscript_text),
+            ),
+            "evidence": "checked iclr_submission.tex, iclr_appendix.tex, and paper/v6_summary_table.tex V6 scope boundaries",
+        },
+    ]
     candidate_claims = claims + [
         {
             "id": 103,
             "claim": "Claim ledger is structurally consistent.",
             "status": "VERIFIED",
-            "evidence": "claims=127, max_id=127, checks=preview, issues=0",
+            "evidence": "claims=150, max_id=150, checks=preview, issues=0",
         },
         script_contract_claim,
         claim_evidence_quality_claim,
@@ -2276,6 +2754,8 @@ def main() -> None:
         test_inventory_claim,
         claim_generation_consistency_claim,
         report_generation_consistency_claim,
+        *v5_claims,
+        *v6_claims,
     ]
     candidate_payload = build_payload(candidate_claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     ledger_audit = audit_claim_ledger_payload(candidate_payload, root=ROOT)
@@ -2313,6 +2793,8 @@ def main() -> None:
     claims.append(test_inventory_claim)
     claims.append(claim_generation_consistency_claim)
     claims.append(report_generation_consistency_claim)
+    claims.extend(v5_claims)
+    claims.extend(v6_claims)
 
     payload = build_payload(claims, readme_overclaims, paper_overclaims, report_overclaims, narrative, all_overclaims)
     RESULTS.mkdir(parents=True, exist_ok=True)

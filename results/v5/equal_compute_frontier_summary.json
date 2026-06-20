@@ -1,0 +1,154 @@
+{
+  "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v5\\equal_compute_frontier.csv",
+  "budgets": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "gate_passed": true,
+  "heldout_pools": 50,
+  "reports_cpu_units": true,
+  "summary_rows": [
+    {
+      "budget": 8,
+      "mean_cpu_units": 9.0,
+      "mean_regret_vs_oracle": 0.17479116959176202,
+      "mean_selected_utility": 0.4769791211144756,
+      "strategy": "audit_fewer_rollouts"
+    },
+    {
+      "budget": 8,
+      "mean_cpu_units": 14.0,
+      "mean_regret_vs_oracle": 0.14976426542952243,
+      "mean_selected_utility": 0.5020060252767151,
+      "strategy": "blind_more_rollouts"
+    },
+    {
+      "budget": 8,
+      "mean_cpu_units": 14.0,
+      "mean_regret_vs_oracle": 0.04293335385899752,
+      "mean_selected_utility": 0.60883693684724,
+      "strategy": "calibrated_lcb"
+    },
+    {
+      "budget": 8,
+      "mean_cpu_units": 9.0,
+      "mean_regret_vs_oracle": 0.17479116959176202,
+      "mean_selected_utility": 0.4769791211144756,
+      "strategy": "conservative_stop_block"
+    },
+    {
+      "budget": 8,
+      "mean_cpu_units": 6.0,
+      "mean_regret_vs_oracle": 0.0,
+      "mean_selected_utility": 0.6517702907062375,
+      "strategy": "oracle_upper_bound"
+    },
+    {
+      "budget": 16,
+      "mean_cpu_units": 18.1,
+      "mean_regret_vs_oracle": 0.17817340210464783,
+      "mean_selected_utility": 0.5084312523239913,
+      "strategy": "audit_fewer_rollouts"
+    },
+    {
+      "budget": 16,
+      "mean_cpu_units": 28.0,
+      "mean_regret_vs_oracle": 0.19450211580817453,
+      "mean_selected_utility": 0.49210253862046466,
+      "strategy": "blind_more_rollouts"
+    },
+    {
+      "budget": 16,
+      "mean_cpu_units": 28.0,
+      "mean_regret_vs_oracle": 0.08786264713157682,
+      "mean_selected_utility": 0.5987420072970624,
+      "strategy": "calibrated_lcb"
+    },
+    {
+      "budget": 16,
+      "mean_cpu_units": 18.1,
+      "mean_regret_vs_oracle": 0.17838805773811825,
+      "mean_selected_utility": 0.5082165966905209,
+      "strategy": "conservative_stop_block"
+    },
+    {
+      "budget": 16,
+      "mean_cpu_units": 12.0,
+      "mean_regret_vs_oracle": 0.0,
+      "mean_selected_utility": 0.6866046544286393,
+      "strategy": "oracle_upper_bound"
+    },
+    {
+      "budget": 32,
+      "mean_cpu_units": 38.98,
+      "mean_regret_vs_oracle": 0.15269573610446885,
+      "mean_selected_utility": 0.5610058920413382,
+      "strategy": "audit_fewer_rollouts"
+    },
+    {
+      "budget": 32,
+      "mean_cpu_units": 56.0,
+      "mean_regret_vs_oracle": 0.2209589055547467,
+      "mean_selected_utility": 0.4927427225910602,
+      "strategy": "blind_more_rollouts"
+    },
+    {
+      "budget": 32,
+      "mean_cpu_units": 56.0,
+      "mean_regret_vs_oracle": 0.05238323717672421,
+      "mean_selected_utility": 0.6613183909690828,
+      "strategy": "calibrated_lcb"
+    },
+    {
+      "budget": 32,
+      "mean_cpu_units": 38.98,
+      "mean_regret_vs_oracle": 0.15303272897734269,
+      "mean_selected_utility": 0.5606688991684643,
+      "strategy": "conservative_stop_block"
+    },
+    {
+      "budget": 32,
+      "mean_cpu_units": 24.0,
+      "mean_regret_vs_oracle": 0.0,
+      "mean_selected_utility": 0.713701628145807,
+      "strategy": "oracle_upper_bound"
+    },
+    {
+      "budget": 64,
+      "mean_cpu_units": 80.98,
+      "mean_regret_vs_oracle": 0.15333247268540717,
+      "mean_selected_utility": 0.5789463467943379,
+      "strategy": "audit_fewer_rollouts"
+    },
+    {
+      "budget": 64,
+      "mean_cpu_units": 112.0,
+      "mean_regret_vs_oracle": 0.23668238018175805,
+      "mean_selected_utility": 0.4955964392979869,
+      "strategy": "blind_more_rollouts"
+    },
+    {
+      "budget": 64,
+      "mean_cpu_units": 112.0,
+      "mean_regret_vs_oracle": 0.056797682848376246,
+      "mean_selected_utility": 0.6754811366313689,
+      "strategy": "calibrated_lcb"
+    },
+    {
+      "budget": 64,
+      "mean_cpu_units": 80.98,
+      "mean_regret_vs_oracle": 0.15312582096218683,
+      "mean_selected_utility": 0.5791529985175582,
+      "strategy": "conservative_stop_block"
+    },
+    {
+      "budget": 64,
+      "mean_cpu_units": 48.0,
+      "mean_regret_vs_oracle": 0.0,
+      "mean_selected_utility": 0.732278819479745,
+      "strategy": "oracle_upper_bound"
+    }
+  ]
+}

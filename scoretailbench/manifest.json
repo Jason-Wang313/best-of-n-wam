@@ -1,0 +1,60 @@
+{
+  "N_values": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64
+  ],
+  "baselines": [
+    "baselines/finite_selected_utility_curves.json"
+  ],
+  "claims_not_supported": [
+    "real robot validation",
+    "GPU-scale training",
+    "broad robotics SOTA",
+    "universal WAM training recipe"
+  ],
+  "name": "ScoreTailBench V5 Core",
+  "pools": [
+    {
+      "candidates": 8,
+      "family": "auc_insufficiency",
+      "path": "pools/matched_auc_tail_safe.csv",
+      "pool_id": "matched_auc_tail_safe",
+      "sha256": "654b56c0bdf0405d8f8dd8c2d45474a503200b5ea3ed5aeeb100679fb080bf4d",
+      "split": "v5_core"
+    },
+    {
+      "candidates": 8,
+      "family": "auc_insufficiency",
+      "path": "pools/matched_auc_tail_unsafe.csv",
+      "pool_id": "matched_auc_tail_unsafe",
+      "sha256": "b75da77ec1e403b9b579871b7218f292002341c380f14ef31c78362fcf848472",
+      "split": "v5_core"
+    },
+    {
+      "candidates": 4,
+      "family": "impossibility_boundary",
+      "path": "pools/impossibility_safe_tail.csv",
+      "pool_id": "impossibility_safe_tail",
+      "sha256": "e1708bad353a45d04ca67ada3cfecc44bebc694e019c5c3fa3314a677ded6704",
+      "split": "v5_core"
+    },
+    {
+      "candidates": 4,
+      "family": "impossibility_boundary",
+      "path": "pools/impossibility_unsafe_tail.csv",
+      "pool_id": "impossibility_unsafe_tail",
+      "sha256": "03ad79948e2d8d9fd5372e40f2de53c3c099c22c271becb60672a4ebe1be648b",
+      "split": "v5_core"
+    }
+  ],
+  "scope": "tiny deterministic V5 core reproduction artifact",
+  "splits": [
+    "splits/v5_core.json"
+  ],
+  "version": "0.1.0"
+}

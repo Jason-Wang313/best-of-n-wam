@@ -1,0 +1,10 @@
+epsilon,delta,paired_labels_required,bound
+0.02,0.1,14979,"Hoeffding paired bounded-difference, gain in [-1,1]"
+0.02,0.05,18445,"Hoeffding paired bounded-difference, gain in [-1,1]"
+0.02,0.01,26492,"Hoeffding paired bounded-difference, gain in [-1,1]"
+0.05,0.1,2397,"Hoeffding paired bounded-difference, gain in [-1,1]"
+0.05,0.05,2952,"Hoeffding paired bounded-difference, gain in [-1,1]"
+0.05,0.01,4239,"Hoeffding paired bounded-difference, gain in [-1,1]"
+0.1,0.1,600,"Hoeffding paired bounded-difference, gain in [-1,1]"
+0.1,0.05,738,"Hoeffding paired bounded-difference, gain in [-1,1]"
+0.1,0.01,1060,"Hoeffding paired bounded-difference, gain in [-1,1]"

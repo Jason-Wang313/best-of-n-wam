@@ -521,6 +521,40 @@ links and private source claims in the submission text.
 boundary.
 \end{enumerate}
 
+\subsection{V6 Real-Benchmark Reviewer Attacks}
+\label{app:v6-reviewer-attacks}
+
+V6 is designed to answer the strongest remaining CPU-feasible objections while
+keeping the claim boundary intact.
+\begin{itemize}
+  \item \textbf{Attack: the prospective audit is synthetic only.} V6 adds a
+  leave-one-family-out audit on \VSixWAMPools{} existing simulated benchmark
+  rollout-pool curves from \VSixWAMFamilies{} families. It uses committed curve
+  artifacts, not new simulator runs.
+  \item \textbf{Attack: thresholds were tuned on the test family.} V6 freezes a
+  split manifest and prediction file before outcome merging. The split hash is
+  \texttt{\VSixWAMSplitHash}; the prediction hash is
+  \texttt{\VSixWAMPredictionHash}.
+  \item \textbf{Attack: the method hides hard cases.} V6 reports abstention:
+  \VSixWAMRequestLabelRate{} of pools request labels, and the decided rate is
+  \VSixWAMDecidedRate{}. Abstention is treated as a measured output, not as a
+  discarded row.
+  \item \textbf{Attack: more rollouts would be simpler.} V6 reports compute:
+  raw high-$N$ uses \VSixWAMRawRolloutUnits{} rollout units on average, while
+  audit with abstention uses \VSixWAMAuditRolloutUnits{} and has utility per
+  rollout \VSixWAMAuditUtilityPerRollout{} versus
+  \VSixWAMRawUtilityPerRollout{} for raw high-$N$.
+  \item \textbf{Attack: this is a robotics SOTA claim.} It is not. V6 uses
+  normalized selected-utility curves from existing simulated rollout-pool
+  artifacts. It does not run real robots, modern VLA policies, or a new broad
+  leaderboard evaluation.
+  \item \textbf{Attack: finite labels are cheap, so just label everything.} V6
+  includes a bounded-difference finite-sample table; one representative
+  $\epsilon=0.05,\delta=0.05$ paired decision bound requires
+  \VSixWAMFiniteLabelsEpsFiveDeltaFive{} labels, so request-label/abstain
+  behavior remains practically meaningful.
+\end{itemize}
+
 \section{Submission-Readiness Checklist}
 \label{app:submission-checklist}
 

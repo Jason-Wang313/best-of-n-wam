@@ -1,0 +1,25 @@
+{
+  "actual_sign_counts": {
+    "harms": 15,
+    "helps": 34,
+    "saturates": 1
+  },
+  "decided_rows": 37,
+  "decision_accuracy": 0.8648648648648649,
+  "decision_counts": {
+    "allow_high_n": 17,
+    "block_high_n": 16,
+    "request_labels": 13,
+    "stop_early": 4
+  },
+  "false_allow_rate": 0.0,
+  "false_block_rate": 0.02,
+  "gate_passed": true,
+  "heldout_pools": 50,
+  "label_budget": 16,
+  "mean_regret_avoided_vs_raw": 0.20866375344326818,
+  "mean_regret_vs_oracle": 0.14587960849502524,
+  "outcome_file": "C:\\Users\\wangz\\best-of-n-wam\\results\\v5\\prospective_audit_outcomes.csv",
+  "prediction_file": "C:\\Users\\wangz\\best-of-n-wam\\results\\v5\\prospective_audit_predictions.csv",
+  "prediction_sha256": "fa89b28d799b6dd25ff2789fdf57a88c10f37dc456f47cca3c028bf3249d444f"
+}

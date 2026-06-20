@@ -1,0 +1,461 @@
+{
+  "calibration_abstention": {
+    "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v6\\calibration_abstention.csv",
+    "bin_count": 4,
+    "overall_decided_rate": 0.8802946593001841,
+    "overall_interval_coverage": 0.8802946593001841,
+    "overall_request_label_rate": 0.11970534069981584
+  },
+  "cross_family_transfer": {
+    "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v6\\cross_family_transfer.csv",
+    "family_rows": [
+      {
+        "decided_rate": 1.0,
+        "decision_accuracy": 1.0,
+        "false_allow_rate": 0.0,
+        "false_block_rate": 0.0,
+        "family": "fetch_state",
+        "mean_audit_minus_raw_high_n": 0.0,
+        "mean_audit_policy_utility": 0.942285043394534,
+        "mean_raw_high_n_utility": 0.942285043394534,
+        "pool_count": 60
+      },
+      {
+        "decided_rate": 0.9777777777777777,
+        "decision_accuracy": 0.9772727272727273,
+        "false_allow_rate": 0.022222222222222223,
+        "false_block_rate": 0.0,
+        "family": "fetch_visual",
+        "mean_audit_minus_raw_high_n": -0.002929619367817112,
+        "mean_audit_policy_utility": 0.9541118314956072,
+        "mean_raw_high_n_utility": 0.9570414508634244,
+        "pool_count": 45
+      },
+      {
+        "decided_rate": 0.2,
+        "decision_accuracy": 0.4,
+        "false_allow_rate": 0.0,
+        "false_block_rate": 0.0,
+        "family": "gym_reacher",
+        "mean_audit_minus_raw_high_n": 0.01209544321526647,
+        "mean_audit_policy_utility": 0.16728092312948575,
+        "mean_raw_high_n_utility": 0.1551854799142193,
+        "pool_count": 25
+      },
+      {
+        "decided_rate": 1.0,
+        "decision_accuracy": 1.0,
+        "false_allow_rate": 0.0,
+        "false_block_rate": 0.0,
+        "family": "libero",
+        "mean_audit_minus_raw_high_n": 0.0,
+        "mean_audit_policy_utility": 0.817878643158778,
+        "mean_raw_high_n_utility": 0.817878643158778,
+        "pool_count": 15
+      },
+      {
+        "decided_rate": 0.8666666666666667,
+        "decision_accuracy": 1.0,
+        "false_allow_rate": 0.0,
+        "false_block_rate": 0.0,
+        "family": "maniskill",
+        "mean_audit_minus_raw_high_n": -0.009085137123998225,
+        "mean_audit_policy_utility": 0.5786796281204125,
+        "mean_raw_high_n_utility": 0.5877647652444107,
+        "pool_count": 30
+      },
+      {
+        "decided_rate": 0.24444444444444444,
+        "decision_accuracy": 0.9090909090909091,
+        "false_allow_rate": 0.0,
+        "false_block_rate": 0.0,
+        "family": "metaworld",
+        "mean_audit_minus_raw_high_n": -0.01783129554580777,
+        "mean_audit_policy_utility": 0.4653911873282993,
+        "mean_raw_high_n_utility": 0.48322248287410713,
+        "pool_count": 45
+      },
+      {
+        "decided_rate": 0.984375,
+        "decision_accuracy": 1.0,
+        "false_allow_rate": 0.0,
+        "false_block_rate": 0.0,
+        "family": "robocasa_family32",
+        "mean_audit_minus_raw_high_n": -0.0005847043421949574,
+        "mean_audit_policy_utility": 0.8455677628545029,
+        "mean_raw_high_n_utility": 0.8461524671966978,
+        "pool_count": 64
+      },
+      {
+        "decided_rate": 1.0,
+        "decision_accuracy": 1.0,
+        "false_allow_rate": 0.0,
+        "false_block_rate": 0.0,
+        "family": "robocasa_residual35",
+        "mean_audit_minus_raw_high_n": 0.0,
+        "mean_audit_policy_utility": 0.8276181960239645,
+        "mean_raw_high_n_utility": 0.8276181960239645,
+        "pool_count": 35
+      },
+      {
+        "decided_rate": 0.9742268041237113,
+        "decision_accuracy": 1.0,
+        "false_allow_rate": 0.0,
+        "false_block_rate": 0.0,
+        "family": "robocasa_stratified97",
+        "mean_audit_minus_raw_high_n": -0.0003457784964584049,
+        "mean_audit_policy_utility": 0.8627896628115251,
+        "mean_raw_high_n_utility": 0.8631354413079834,
+        "pool_count": 194
+      },
+      {
+        "decided_rate": 1.0,
+        "decision_accuracy": 1.0,
+        "false_allow_rate": 0.0,
+        "false_block_rate": 0.0,
+        "family": "robosuite",
+        "mean_audit_minus_raw_high_n": 0.0,
+        "mean_audit_policy_utility": 0.9444977245535141,
+        "mean_raw_high_n_utility": 0.9444977245535141,
+        "pool_count": 30
+      }
+    ],
+    "fold_count": 10
+  },
+  "finite_sample_theory": {
+    "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v6\\finite_sample_audit_theory.csv",
+    "epsilon_0_05_delta_0_05_labels": 2952,
+    "interpretation": "finite-sample labels are expensive, so abstention/request-label decisions are first-class outcomes",
+    "row_count": 9
+  },
+  "gate_passed": true,
+  "leakage_protocol": {
+    "hash_locked_before_outcome_merge": true,
+    "outcome_file": "C:\\Users\\wangz\\best-of-n-wam\\results\\v6\\real_benchmark_audit_outcomes.csv",
+    "prediction_file": "C:\\Users\\wangz\\best-of-n-wam\\results\\v6\\real_benchmark_audit_predictions.csv",
+    "prediction_sha256": "e2dcc838590b39562265e152aca4928f5540eab072bd2dcffa1354c997d855a1",
+    "split_manifest": "C:\\Users\\wangz\\best-of-n-wam\\results\\v6\\split_manifest.json",
+    "split_manifest_sha256": "fa5eedc34fddebede7759a4e8bf77ab2e4a9dabf51a43b469a909e3c6146ea0d"
+  },
+  "low_ram_design": {
+    "compact_per_pool_records": 543,
+    "parallel_jobs": 1,
+    "reruns_simulators": false,
+    "stores_candidate_tensors": false,
+    "uses_existing_curve_csvs": true
+  },
+  "mode": "canonical",
+  "negative_controls": {
+    "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v6\\real_benchmark_negative_controls.csv",
+    "control_count": 2,
+    "gate_passed": true,
+    "shifted_decision_accuracy": 0.9748953974895398,
+    "worst_nonoracle_gap_vs_raw": -0.33974592773784357
+  },
+  "real_benchmark_audit": {
+    "actual_counts": {
+      "harms": 29,
+      "helps": 500,
+      "saturates": 14
+    },
+    "decided_pool_count": 478,
+    "decided_rate": 0.8802946593001841,
+    "decision_accuracy": 0.9895397489539749,
+    "decision_counts": {
+      "allow_high_n": 474,
+      "request_labels": 65,
+      "stop_early": 4
+    },
+    "false_allow_rate": 0.001841620626151013,
+    "false_block_rate": 0.0,
+    "families": [
+      "fetch_state",
+      "fetch_visual",
+      "gym_reacher",
+      "libero",
+      "maniskill",
+      "metaworld",
+      "robocasa_family32",
+      "robocasa_residual35",
+      "robocasa_stratified97",
+      "robosuite"
+    ],
+    "family_count": 10,
+    "interval_coverage": 0.8802946593001841,
+    "mean_audit_label_units": 4.0,
+    "mean_audit_minus_raw_high_n": -0.0018580318796773709,
+    "mean_audit_policy_utility": 0.7974667219623336,
+    "mean_audit_rollout_units": 14.83609576427256,
+    "mean_n1_utility": 0.4670225373612802,
+    "mean_oracle_high_n_utility": 0.9039893656602105,
+    "mean_random_high_n_utility": 0.4694715237573818,
+    "mean_raw_high_n_rollout_units": 18.12891344383057,
+    "mean_raw_high_n_utility": 0.7993247538420112,
+    "pool_count": 543
+  },
+  "robustness_grid": {
+    "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v6\\robustness_grid.csv",
+    "max_decision_accuracy": 0.997920997920998,
+    "pilot_values": [
+      4
+    ],
+    "primary_like_rows": 1,
+    "row_count": 12,
+    "zero_false_allow_rows": 0
+  },
+  "selector_metric_ablation": {
+    "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v6\\selector_metric_ablation.csv",
+    "audit_minus_raw_utility": -0.0018580318796775908,
+    "audit_rollout_savings_vs_raw": 3.2928176795580093,
+    "audit_utility_per_rollout": 0.05375179121469056,
+    "deployable_strategy_count": 6,
+    "raw_utility_per_rollout": 0.0440911561698712,
+    "rows": [
+      {
+        "deployable": true,
+        "mean_label_units": 0.0,
+        "mean_regret_vs_oracle": 0.4369668282989313,
+        "mean_rollout_units": 1.0,
+        "mean_utility": 0.4670225373612802,
+        "strategy": "n1",
+        "utility_per_rollout_unit": 0.4670225373612802
+      },
+      {
+        "deployable": true,
+        "mean_label_units": 0.0,
+        "mean_regret_vs_oracle": 0.10466461181820004,
+        "mean_rollout_units": 18.12891344383057,
+        "mean_utility": 0.7993247538420112,
+        "strategy": "raw_high_n",
+        "utility_per_rollout_unit": 0.0440911561698712
+      },
+      {
+        "deployable": true,
+        "mean_label_units": 0.0,
+        "mean_regret_vs_oracle": 0.4345178419028293,
+        "mean_rollout_units": 18.12891344383057,
+        "mean_utility": 0.4694715237573818,
+        "strategy": "random_high_n",
+        "utility_per_rollout_unit": 0.025896285798482157
+      },
+      {
+        "deployable": true,
+        "mean_label_units": 4.0,
+        "mean_regret_vs_oracle": 0.10652264369787735,
+        "mean_rollout_units": 14.83609576427256,
+        "mean_utility": 0.7974667219623336,
+        "strategy": "audit_with_abstention",
+        "utility_per_rollout_unit": 0.05375179121469056
+      },
+      {
+        "deployable": true,
+        "mean_label_units": 4.0,
+        "mean_regret_vs_oracle": 0.10210771436694172,
+        "mean_rollout_units": 16.051565377532228,
+        "mean_utility": 0.8018816512932694,
+        "strategy": "pilot_sign_no_abstention",
+        "utility_per_rollout_unit": 0.049956601268040995
+      },
+      {
+        "deployable": true,
+        "mean_label_units": 4.0,
+        "mean_regret_vs_oracle": 0.10370354772859858,
+        "mean_rollout_units": 17.92265193370166,
+        "mean_utility": 0.8002858179316128,
+        "strategy": "calibrated_sign_no_abstention",
+        "utility_per_rollout_unit": 0.04465219884267013
+      },
+      {
+        "deployable": false,
+        "mean_label_units": 0.0,
+        "mean_regret_vs_oracle": 0.042367475998848846,
+        "mean_rollout_units": 18.12891344383057,
+        "mean_utility": 0.8616218896613618,
+        "strategy": "best_nonoracle_diagnostic",
+        "utility_per_rollout_unit": 0.0475274975707151
+      },
+      {
+        "deployable": false,
+        "mean_label_units": 0.0,
+        "mean_regret_vs_oracle": 0.0,
+        "mean_rollout_units": 18.12891344383057,
+        "mean_utility": 0.9039893656602105,
+        "strategy": "oracle_upper_bound",
+        "utility_per_rollout_unit": 0.049864508894097354
+      }
+    ],
+    "strategy_count": 8
+  },
+  "source_artifacts": [
+    {
+      "exists": true,
+      "family": "gym_reacher",
+      "metric_col": "real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_gym_manip_curves.csv",
+      "pools": 25,
+      "relative_path": "results/tables/benchmark_gym_manip_curves.csv",
+      "rows": 600,
+      "sha256": "deeace6e6317d22326b2535b55b8b52b548ce9e8d2eb8221d4f25d49f645755a",
+      "target_priority": [
+        "learned_predicted_utility",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "fetch_state",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_gym_robotics_curves.csv",
+      "pools": 60,
+      "relative_path": "results/tables/benchmark_gym_robotics_curves.csv",
+      "rows": 1800,
+      "sha256": "bc9a24c78122c3799f6cf5e86bef651f19de063a0a782d9b34da47bf75a210ab",
+      "target_priority": [
+        "learned_wam",
+        "predicted_success",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "fetch_visual",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_gym_robotics_visual_wam_curves.csv",
+      "pools": 45,
+      "relative_path": "results/tables/benchmark_gym_robotics_visual_wam_curves.csv",
+      "rows": 1350,
+      "sha256": "7f8fdff789b87c3877d8cfe22b18f7dfc9fb593ef443fe6ae397c0f497456f35",
+      "target_priority": [
+        "visual_wam",
+        "visual_success_head",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "maniskill",
+      "metric_col": "real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_maniskill_curves.csv",
+      "pools": 30,
+      "relative_path": "results/tables/benchmark_maniskill_curves.csv",
+      "rows": 900,
+      "sha256": "44ef2e5c52d547231d90c74aae38a4ff98cbd19330b38a17b81f7af75ade7370",
+      "target_priority": [
+        "dense_reward",
+        "learned_predicted_utility",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "metaworld",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_metaworld_curves.csv",
+      "pools": 45,
+      "relative_path": "results/tables/benchmark_metaworld_curves.csv",
+      "rows": 1620,
+      "sha256": "10c9bc5828b434651e8bc66f50f53dad9c433ae09b7c1a02c9e830c86a94dbc6",
+      "target_priority": [
+        "learned_wam",
+        "benchmark_reward",
+        "predicted_success",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "robosuite",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robosuite_curves.csv",
+      "pools": 30,
+      "relative_path": "results/tables/benchmark_robosuite_curves.csv",
+      "rows": 1260,
+      "sha256": "f70462fd7be5c5bf8785d397401eff0e0cd92b33730d2f14487ca683a74e16e4",
+      "target_priority": [
+        "learned_wam",
+        "benchmark_reward",
+        "progress",
+        "predicted_success",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "libero",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_libero_curves.csv",
+      "pools": 15,
+      "relative_path": "results/tables/benchmark_libero_curves.csv",
+      "rows": 600,
+      "sha256": "ff125cee9f730415755387b6e0720b3d521d2184371d0c854f26bbceed44af3f",
+      "target_priority": [
+        "learned_energy_regularized",
+        "learned_wam",
+        "learned_physics_score",
+        "distance_progress",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "robocasa_family32",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_family32_curves.csv",
+      "pools": 64,
+      "relative_path": "results/tables/benchmark_robocasa_family32_curves.csv",
+      "rows": 2304,
+      "sha256": "f136431363f94896099c48274c5a188ff7e2c4430e782e05809d4e9f9d9c87fa",
+      "target_priority": [
+        "learned_energy_regularized",
+        "learned_wam",
+        "learned_physics_score",
+        "distance_progress",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "robocasa_stratified97",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_stratified97_curves.csv",
+      "pools": 194,
+      "relative_path": "results/tables/benchmark_robocasa_stratified97_curves.csv",
+      "rows": 6984,
+      "sha256": "2f6aaba3d3d94c776cc2fde1950b6a312c1147819c2f92cf6fc88efcdb74d2c1",
+      "target_priority": [
+        "learned_wam",
+        "learned_energy_regularized",
+        "learned_physics_score",
+        "distance_progress",
+        "low_energy"
+      ],
+      "usable": true
+    },
+    {
+      "exists": true,
+      "family": "robocasa_residual35",
+      "metric_col": "normalized_real_utility",
+      "path": "C:\\Users\\wangz\\best-of-n-wam\\results\\tables\\benchmark_robocasa_residual35_h1_n4_curves.csv",
+      "pools": 35,
+      "relative_path": "results/tables/benchmark_robocasa_residual35_h1_n4_curves.csv",
+      "rows": 945,
+      "sha256": "6ceb2f41d6147c8372da7f6e585ea2fdeea911a8f04ad7c54bf4d6d0e0a5d2ca",
+      "target_priority": [
+        "learned_wam",
+        "learned_energy_regularized",
+        "learned_physics_score",
+        "distance_progress",
+        "low_energy"
+      ],
+      "usable": true
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+holdout_family,train_families,train_pool_count,median_residual,radius,radius_quantile,train_residual_count,train_interval_coverage
+fetch_state,fetch_visual;gym_reacher;libero;maniskill;metaworld;robocasa_family32;robocasa_residual35;robocasa_stratified97;robosuite,483,0.08208235703374267,0.1519181383223691,0.9,483,0.8985507246376812
+fetch_visual,fetch_state;gym_reacher;libero;maniskill;metaworld;robocasa_family32;robocasa_residual35;robocasa_stratified97;robosuite,498,0.08300371763666586,0.15496488930089355,0.9,498,0.8995983935742972
+gym_reacher,fetch_state;fetch_visual;libero;maniskill;metaworld;robocasa_family32;robocasa_residual35;robocasa_stratified97;robosuite,518,0.09459620490778525,0.1525434277873972,0.9,518,0.8996138996138996
+libero,fetch_state;fetch_visual;gym_reacher;maniskill;metaworld;robocasa_family32;robocasa_residual35;robocasa_stratified97;robosuite,528,0.09384728528556374,0.17067707794378592,0.9,528,0.8996212121212122
+maniskill,fetch_state;fetch_visual;gym_reacher;libero;metaworld;robocasa_family32;robocasa_residual35;robocasa_stratified97;robosuite,513,0.08917029429800727,0.14855093844443215,0.9,513,0.898635477582846
+metaworld,fetch_state;fetch_visual;gym_reacher;libero;maniskill;robocasa_family32;robocasa_residual35;robocasa_stratified97;robosuite,498,0.09459620490778525,0.16008403653916678,0.9,498,0.8995983935742972
+robocasa_family32,fetch_state;fetch_visual;gym_reacher;libero;maniskill;metaworld;robocasa_residual35;robocasa_stratified97;robosuite,479,0.09383531404422185,0.18202873625957644,0.9,479,0.8997912317327766
+robocasa_residual35,fetch_state;fetch_visual;gym_reacher;libero;maniskill;metaworld;robocasa_family32;robocasa_stratified97;robosuite,508,0.09787443233425736,0.1765693146827753,0.9,508,0.8996062992125984
+robocasa_stratified97,fetch_state;fetch_visual;gym_reacher;libero;maniskill;metaworld;robocasa_family32;robocasa_residual35;robosuite,349,0.09771312509011332,0.19515510822357687,0.9,349,0.8997134670487106
+robosuite,fetch_state;fetch_visual;gym_reacher;libero;maniskill;metaworld;robocasa_family32;robocasa_residual35;robocasa_stratified97,513,0.09440349615563559,0.17367537578075248,0.9,513,0.898635477582846
