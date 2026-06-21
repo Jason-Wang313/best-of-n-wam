@@ -271,6 +271,47 @@ def test_wait_for_preflight_polls_until_safe(tmp_path: Path, monkeypatch: pytest
     assert "preflight_wait_end" in events
 
 
+def test_serial_runner_waits_between_reused_and_pending_tasks(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    first_args = _args(tmp_path, "--stop-after-tasks", "1")
+    partial = serial.run(first_args, collector=fake_collect_task_data, availability_checker=lambda: (True, "fake LIBERO"))
+    assert partial["completed_task_count"] == 1
+
+    safe = serial.Preflight(
+        disk_free_gb=10.0,
+        memory_available_gb=3.0,
+        min_disk_free_gb=0.0,
+        min_memory_available_gb=0.0,
+        ok=True,
+        issues=[],
+    )
+    blocked = serial.Preflight(
+        disk_free_gb=10.0,
+        memory_available_gb=0.5,
+        min_disk_free_gb=0.0,
+        min_memory_available_gb=0.0,
+        ok=False,
+        issues=["memory low"],
+    )
+    sequence = [safe, blocked, safe]
+
+    def fake_preflight(*_args, **_kwargs):
+        return sequence.pop(0)
+
+    monkeypatch.setattr(serial, "preflight", fake_preflight)
+    monkeypatch.setattr(serial.time, "sleep", lambda _seconds: None)
+
+    resume_args = _args(tmp_path, "--stop-after-tasks", "1", "--wait-for-preflight-seconds", "5", "--preflight-poll-seconds", "1")
+    resumed = serial.run(resume_args, collector=fake_collect_task_data, availability_checker=lambda: (True, "fake LIBERO"))
+
+    assert resumed["complete"] is True
+    assert resumed["completed_task_count"] == 2
+    assert sequence == []
+    events = (tmp_path / "results" / "libero_full_suite_serial" / "events.jsonl").read_text(encoding="utf-8")
+    assert "task_reused" in events
+    assert "preflight_wait_start" in events
+    assert "preflight_wait_end" in events
+
+
 def test_discover_task_specs_has_fallback_for_noninteractive_planning(monkeypatch: pytest.MonkeyPatch) -> None:
     real_import = __builtins__["__import__"]
 

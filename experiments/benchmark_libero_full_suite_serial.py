@@ -1052,6 +1052,7 @@ def collect_serial(
             append_event(paths, "stop_after_tasks", {"completed_this_run": completed_this_run})
             break
         pf = preflight(paths, args.min_disk_free_gb, args.min_available_ram_gb)
+        pf = wait_for_preflight(paths, args, pf)
         if not pf.ok:
             update_task_status(paths, spec.key, status="pending", error="; ".join(pf.issues))
             append_event(paths, "preflight_failed_before_task", {"task_key": spec.key, "issues": pf.issues})
