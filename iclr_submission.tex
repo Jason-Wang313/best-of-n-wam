@@ -9,8 +9,18 @@
 \usepackage{microtype}
 \usepackage{url}
 \usepackage{xcolor}
-\usepackage[hypertexnames=false,hidelinks]{hyperref}
-\hypersetup{pdfborder={0 0 0},pdfborderstyle={/S/U/W 0},allbordercolors={1 1 1}}
+\definecolor{CitationBlue}{HTML}{1F5E8C}
+\usepackage[hypertexnames=false]{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=CitationBlue,
+  urlcolor=CitationBlue,
+  filecolor=CitationBlue,
+  pdfborder={0 0 0},
+  pdfborderstyle={/S/U/W 0},
+  allbordercolors={1 1 1}
+}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
