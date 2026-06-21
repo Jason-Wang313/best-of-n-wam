@@ -130,20 +130,19 @@ def write_paper_table(path: Path, rows: list[dict[str, Any]], summary: dict[str,
     metric_key = f"{metric_stem}_minus_random_N{max_n}"
     mean_key = f"mean_{metric_key}"
     lower_key = f"ci_lower_{metric_key}"
-    worst_key = f"worst_task_mean_{metric_key}"
     lines = [
         r"\begin{table}[t]",
         r"\centering",
         r"\small",
         r"\begin{tabular}{lrrrr}",
         r"\toprule",
-        rf"LIBERO slice & Tasks & Pools & Mean $\Delta_{{{max_n}}}$ & CI lower / worst \\",
+        rf"LIBERO slice & Tasks & Pools & Mean $\Delta_{{{max_n}}}$ & 95\% CI lower \\",
         r"\midrule",
     ]
     for row in rows:
         lines.append(
             f"{row['label']} & {row['tasks']} & {row['rollout_pools']} & "
-            f"{fmt3(row[mean_key])} & {fmt3(row[lower_key])} / {fmt3(row[worst_key])} \\\\"
+            f"{fmt3(row[mean_key])} & {fmt3(row[lower_key])} \\\\"
         )
     lines.extend(
         [
@@ -155,7 +154,8 @@ def write_paper_table(path: Path, rows: list[dict[str, Any]], summary: dict[str,
                 rf"{int(summary.get('task_count') or 0)} configured LIBERO tasks and "
                 rf"{int(summary.get('eval_rollout_pools') or 0)} state-level rollout pools. "
                 rf"$\Delta_{{{max_n}}}$ is the promoted learned scorer minus random selected real utility at $N={max_n}$; "
-                r"the last column reports the suite CI lower bound and the worst task mean. "
+                r"the last column reports the suite-level confidence lower bound. "
+                r"Task-level diagnostics, including worst-task means, are retained in the generated artifacts. "
                 r"This is CPU rollout-pool evidence, not real-robot validation, not VLA-scale SOTA, "
                 r"and not solved-policy success.}"
             ),

@@ -3,15 +3,15 @@
 \small
 \begin{tabular}{lrrrr}
 \toprule
-LIBERO slice & Tasks & Pools & Mean $\Delta_{8}$ & CI lower / worst \\
+LIBERO slice & Tasks & Pools & Mean $\Delta_{8}$ & 95\% CI lower \\
 \midrule
-All configured & 40 & 80 & 0.371 & 0.318 / -0.019 \\
-Spatial & 10 & 20 & 0.317 & 0.203 / 0.060 \\
-Object & 10 & 20 & 0.340 & 0.249 / 0.190 \\
-Goal & 10 & 20 & 0.484 & 0.397 / 0.199 \\
-LIBERO-10 & 10 & 20 & 0.343 & 0.228 / -0.019 \\
+All configured & 40 & 80 & 0.371 & 0.318 \\
+Spatial & 10 & 20 & 0.317 & 0.203 \\
+Object & 10 & 20 & 0.340 & 0.249 \\
+Goal & 10 & 20 & 0.484 & 0.397 \\
+LIBERO-10 & 10 & 20 & 0.343 & 0.228 \\
 \bottomrule
 \end{tabular}
-\caption{\textbf{Main-paper LIBERO full-suite signal.} The completed serial run covers 40/40 configured LIBERO tasks and 80 state-level rollout pools. $\Delta_{8}$ is the promoted learned scorer minus random selected real utility at $N=8$; the last column reports the suite CI lower bound and the worst task mean. This is CPU rollout-pool evidence, not real-robot validation, not VLA-scale SOTA, and not solved-policy success.}
+\caption{\textbf{Main-paper LIBERO full-suite signal.} The completed serial run covers 40/40 configured LIBERO tasks and 80 state-level rollout pools. $\Delta_{8}$ is the promoted learned scorer minus random selected real utility at $N=8$; the last column reports the suite-level confidence lower bound. Task-level diagnostics, including worst-task means, are retained in the generated artifacts. This is CPU rollout-pool evidence, not real-robot validation, not VLA-scale SOTA, and not solved-policy success.}
 \label{tab:libero-main-suite}
 \end{table}

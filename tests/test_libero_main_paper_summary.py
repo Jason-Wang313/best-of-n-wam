@@ -84,8 +84,9 @@ def test_libero_main_summary_derives_suite_and_worst_task_rows(tmp_path: Path) -
     assert out_csv.exists()
     table = table_path.read_text(encoding="utf-8")
     assert "All configured" in table
-    assert "CI lower / worst" in table
+    assert "95\\% CI lower" in table
     assert "promoted learned scorer minus random" in table
+    assert "worst-task means, are retained in the generated artifacts" in table
     assert "not real-robot validation" in table
     assert "not VLA-scale SOTA" in table
     assert "not solved-policy success" in table
