@@ -555,6 +555,26 @@ keeping the claim boundary intact.
   behavior remains practically meaningful.
 \end{itemize}
 
+\subsection{Low-RAM LIBERO Full-Suite Serial Protocol}
+\label{app:libero-full-suite-serial}
+
+The next optional benchmark expansion is designed for the same hardware
+boundary as the rest of the paper: full configured LIBERO task coverage without
+high instantaneous RAM use. The runner
+\path{experiments/benchmark_libero_full_suite_serial.py} executes one LIBERO
+task at a time, writes immutable task chunks, updates a progress manifest after
+each task, and rebuilds aggregate curves and exact-law tables from completed
+chunks. This lets a laptop run the complete configured suite over many sessions
+without keeping all rollout pools or candidate tensors in memory.
+
+\IfFileExists{paper/libero_full_suite_serial_table.tex}{%
+\input{paper/libero_full_suite_serial_table.tex}
+}{}
+
+The generated table is deliberately scoped: it reports serial CPU
+rollout-pool evidence and explicitly does not claim real-robot validation,
+modern VLA-scale SOTA, or full solved-policy success.
+
 \section{Submission-Readiness Checklist}
 \label{app:submission-checklist}
 
