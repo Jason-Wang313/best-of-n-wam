@@ -569,6 +569,41 @@ def status_summary(paths: Layout, preflight_payload: Preflight) -> dict[str, Any
     }
 
 
+def wait_for_preflight(paths: Layout, args: argparse.Namespace, first: Preflight) -> Preflight:
+    timeout_s = float(args.wait_for_preflight_seconds)
+    if first.ok or timeout_s <= 0.0:
+        return first
+    interval_s = max(1.0, float(args.preflight_poll_seconds))
+    deadline = time.time() + timeout_s
+    attempt = 0
+    latest = first
+    append_event(
+        paths,
+        "preflight_wait_start",
+        {"timeout_seconds": timeout_s, "poll_seconds": interval_s, "initial_issues": first.issues},
+    )
+    while not latest.ok and time.time() < deadline:
+        sleep_s = min(interval_s, max(0.0, deadline - time.time()))
+        if sleep_s <= 0.0:
+            break
+        time.sleep(sleep_s)
+        attempt += 1
+        latest = preflight(paths, args.min_disk_free_gb, args.min_available_ram_gb)
+        append_event(
+            paths,
+            "preflight_wait_poll",
+            {
+                "attempt": attempt,
+                "ok": latest.ok,
+                "disk_free_gb": latest.disk_free_gb,
+                "memory_available_gb": latest.memory_available_gb,
+                "issues": latest.issues,
+            },
+        )
+    append_event(paths, "preflight_wait_end", {"ok": latest.ok, "attempts": attempt, "issues": latest.issues})
+    return latest
+
+
 def compute_feature_stats(task_rows: list[dict[str, Any]]) -> tuple[np.ndarray, np.ndarray, int]:
     n = 0
     sums: np.ndarray | None = None
@@ -1084,6 +1119,7 @@ def run(
         summary = status_summary(paths, pf)
         write_outputs(paths, summary, table_only=True)
         return summary
+    pf = wait_for_preflight(paths, args, pf)
     if not pf.ok:
         summary = {
             "experiment": "benchmark_libero_full_suite_serial",
@@ -1178,6 +1214,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--sleep-between-tasks", type=float, default=0.0)
     parser.add_argument("--min-disk-free-gb", type=float, default=2.0)
     parser.add_argument("--min-available-ram-gb", type=float, default=1.5)
+    parser.add_argument("--wait-for-preflight-seconds", type=float, default=0.0)
+    parser.add_argument("--preflight-poll-seconds", type=float, default=30.0)
     parser.add_argument("--train-states", type=int, default=2)
     parser.add_argument("--train-rollouts", type=int, default=8)
     parser.add_argument("--val-states", type=int, default=1)

@@ -7,7 +7,9 @@ param(
     [switch]$Status,
     [double]$MinAvailableRamGb = 1.5,
     [double]$MinDiskFreeGb = 2.0,
-    [double]$SleepBetweenTasks = 5.0
+    [double]$SleepBetweenTasks = 5.0,
+    [int]$WaitForPreflightSeconds = 0,
+    [int]$PreflightPollSeconds = 30
 )
 
 $ErrorActionPreference = "Stop"
@@ -58,7 +60,9 @@ $ArgsList = @(
     "--min-available-ram-gb", "$MinAvailableRamGb",
     "--min-disk-free-gb", "$MinDiskFreeGb",
     "--sleep-between-tasks", "$SleepBetweenTasks",
-    "--low-priority"
+    "--low-priority",
+    "--wait-for-preflight-seconds", "$WaitForPreflightSeconds",
+    "--preflight-poll-seconds", "$PreflightPollSeconds"
 )
 if ($StopAfterTasks -gt 0) {
     $ArgsList += @("--stop-after-tasks", "$StopAfterTasks")

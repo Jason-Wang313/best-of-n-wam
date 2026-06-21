@@ -234,6 +234,43 @@ def test_serial_libero_status_reports_manifest_without_collection(tmp_path: Path
     assert summary["next_pending_task"]["task_key"] == "libero_object/1"
 
 
+def test_wait_for_preflight_polls_until_safe(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    args = _args(tmp_path, "--wait-for-preflight-seconds", "5", "--preflight-poll-seconds", "1")
+    paths = serial.layout(tmp_path, tmp_path / "paper", "libero_full_suite_serial")
+    calls = {"n": 0}
+    blocked = serial.Preflight(
+        disk_free_gb=10.0,
+        memory_available_gb=0.5,
+        min_disk_free_gb=0.0,
+        min_memory_available_gb=0.0,
+        ok=False,
+        issues=["memory low"],
+    )
+    safe = serial.Preflight(
+        disk_free_gb=10.0,
+        memory_available_gb=3.0,
+        min_disk_free_gb=0.0,
+        min_memory_available_gb=0.0,
+        ok=True,
+        issues=[],
+    )
+
+    def fake_preflight(*_args, **_kwargs):
+        calls["n"] += 1
+        return safe
+
+    monkeypatch.setattr(serial, "preflight", fake_preflight)
+    monkeypatch.setattr(serial.time, "sleep", lambda _seconds: None)
+
+    result = serial.wait_for_preflight(paths, args, blocked)
+
+    assert result.ok is True
+    assert calls["n"] == 1
+    events = (tmp_path / "results" / "libero_full_suite_serial" / "events.jsonl").read_text(encoding="utf-8")
+    assert "preflight_wait_start" in events
+    assert "preflight_wait_end" in events
+
+
 def test_discover_task_specs_has_fallback_for_noninteractive_planning(monkeypatch: pytest.MonkeyPatch) -> None:
     real_import = __builtins__["__import__"]
 
