@@ -29,6 +29,7 @@ def main() -> None:
     run(["python", "experiments/v4_frozen_evidence.py"])
     run(["python", "experiments/v5_frozen_evidence.py"])
     run(["python", "experiments/v6_frozen_evidence.py"])
+    run(["python", "experiments/libero_main_paper_summary.py"])
     run(["python", "scripts/claims_status.py"])
     for suffix in [".aux", ".bbl", ".blg", ".log", ".out", ".pdf"]:
         target = ROOT / f"iclr_submission{suffix}"

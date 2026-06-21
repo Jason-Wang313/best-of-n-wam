@@ -22,9 +22,9 @@
   "next_pending_task": null,
   "pending_task_count": 0,
   "preflight": {
-    "disk_free_gb": 7.287361145019531,
+    "disk_free_gb": 7.271514892578125,
     "issues": [],
-    "memory_available_gb": 2.058795928955078,
+    "memory_available_gb": 1.890869140625,
     "min_disk_free_gb": 2.0,
     "min_memory_available_gb": 1.5,
     "ok": true

@@ -1366,3 +1366,5 @@
 {"complete": true, "event": "finalized", "time": "2026-06-21T08:51:56Z", "verified": true}
 {"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:56:22Z"}
 {"disk_free_gb": 7.287361145019531, "event": "preflight", "issues": [], "memory_available_gb": 2.058795928955078, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:56:22Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:58:35Z"}
+{"disk_free_gb": 7.271514892578125, "event": "preflight", "issues": [], "memory_available_gb": 1.890869140625, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:58:35Z"}
