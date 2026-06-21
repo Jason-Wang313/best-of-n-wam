@@ -1207,10 +1207,15 @@ def build_parser() -> argparse.ArgumentParser:
 def main() -> None:
     args = build_parser().parse_args()
     summary = run(args)
+    preflight_payload = summary.get("preflight") or {}
+    next_task = (summary.get("next_pending_task") or {}).get("task_key")
+    ram = preflight_payload.get("memory_available_gb")
+    ram_text = "unknown" if ram is None else f"{float(ram):.2f}GB"
     print(
         "LIBERO serial benchmark: "
         f"available={summary.get('available')} complete={summary.get('complete')} "
-        f"verified={summary.get('verified')} tasks={summary.get('completed_task_count')}/{summary.get('task_count')}"
+        f"verified={summary.get('verified')} tasks={summary.get('completed_task_count')}/{summary.get('task_count')} "
+        f"preflight={preflight_payload.get('ok')} ram={ram_text} next={next_task}"
     )
 
 
