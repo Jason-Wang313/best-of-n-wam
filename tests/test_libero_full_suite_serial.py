@@ -217,6 +217,23 @@ def test_serial_libero_runner_preflight_blocks_collection(tmp_path: Path) -> Non
     assert not list((tmp_path / "results" / "libero_full_suite_serial" / "chunks").glob("*.npz"))
 
 
+def test_serial_libero_status_reports_manifest_without_collection(tmp_path: Path) -> None:
+    args = _args(tmp_path, "--stop-after-tasks", "1")
+    partial = serial.run(args, collector=fake_collect_task_data, availability_checker=lambda: (True, "fake LIBERO"))
+    assert partial["completed_task_count"] == 1
+
+    def should_not_collect(*_args, **_kwargs):  # pragma: no cover - only called on broken status mode
+        raise AssertionError("status mode should not collect chunks")
+
+    status_args = _args(tmp_path, "--status")
+    summary = serial.run(status_args, collector=should_not_collect, availability_checker=lambda: (True, "fake LIBERO"))
+
+    assert summary["status_only"] is True
+    assert summary["completed_task_count"] == 1
+    assert summary["pending_task_count"] == 1
+    assert summary["next_pending_task"]["task_key"] == "libero_object/1"
+
+
 def test_discover_task_specs_has_fallback_for_noninteractive_planning(monkeypatch: pytest.MonkeyPatch) -> None:
     real_import = __builtins__["__import__"]
 

@@ -514,6 +514,61 @@ def completed_task_rows(paths: Layout) -> list[dict[str, Any]]:
     ]
 
 
+def manifest_counts(manifest: dict[str, Any]) -> dict[str, int]:
+    tasks = manifest.get("tasks") or []
+    return {
+        "task_count": int(manifest.get("task_count") or len(tasks)),
+        "completed": sum(1 for row in tasks if row.get("status") == "completed"),
+        "pending": sum(1 for row in tasks if row.get("status") == "pending"),
+        "running": sum(1 for row in tasks if row.get("status") == "running"),
+        "failed": sum(1 for row in tasks if row.get("status") == "failed"),
+    }
+
+
+def status_summary(paths: Layout, preflight_payload: Preflight) -> dict[str, Any]:
+    manifest = read_json(paths.manifest)
+    tasks = manifest.get("tasks") or []
+    counts = manifest_counts(manifest)
+    next_pending = next((row for row in tasks if row.get("status") == "pending"), None)
+    complete = counts["task_count"] > 0 and counts["completed"] == counts["task_count"]
+    return {
+        "experiment": "benchmark_libero_full_suite_serial",
+        "attempted": True,
+        "available": bool(manifest),
+        "verified": False,
+        "complete": bool(complete),
+        "status_only": True,
+        "task_count": counts["task_count"],
+        "completed_task_count": counts["completed"],
+        "pending_task_count": counts["pending"],
+        "running_task_count": counts["running"],
+        "failed_task_count": counts["failed"],
+        "next_pending_task": None
+        if next_pending is None
+        else {
+            "ordinal": next_pending.get("ordinal"),
+            "task_key": next_pending.get("task_key"),
+            "suite": next_pending.get("suite"),
+            "task_index": next_pending.get("task_index"),
+        },
+        "manifest_path": str(paths.manifest),
+        "preflight": asdict(preflight_payload),
+        "low_ram_contract": {
+            "one_task_at_a_time": True,
+            "parallel_jobs": 1,
+            "single_thread_env_defaults": True,
+            "checkpoint_resume": True,
+            "append_only_task_chunks": True,
+            "stores_candidate_tensors_in_manifest": False,
+        },
+        "claim_boundaries": {
+            "real_robot": False,
+            "modern_vla_scale_sota": False,
+            "full_policy_success": False,
+        },
+    }
+
+
 def compute_feature_stats(task_rows: list[dict[str, Any]]) -> tuple[np.ndarray, np.ndarray, int]:
     n = 0
     sums: np.ndarray | None = None
@@ -1025,6 +1080,10 @@ def run(
     append_event(paths, "priority", getattr(args, "_low_priority_result", {"attempted": False}))
     pf = preflight(paths, args.min_disk_free_gb, args.min_available_ram_gb)
     append_event(paths, "preflight", asdict(pf))
+    if args.status:
+        summary = status_summary(paths, pf)
+        write_outputs(paths, summary, table_only=True)
+        return summary
     if not pf.ok:
         summary = {
             "experiment": "benchmark_libero_full_suite_serial",
@@ -1110,6 +1169,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--max-tasks", type=int, default=None)
     parser.add_argument("--stop-after-tasks", type=int, default=None)
     parser.add_argument("--list-tasks", action="store_true")
+    parser.add_argument("--status", action="store_true")
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--fail-fast", action="store_true")
     parser.add_argument("--fail-on-preflight", action="store_true")

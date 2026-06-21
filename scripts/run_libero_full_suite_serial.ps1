@@ -4,6 +4,7 @@ param(
     [string]$LiberoConfig = "",
     [int]$StopAfterTasks = 0,
     [switch]$IncludeLibero90,
+    [switch]$Status,
     [double]$MinAvailableRamGb = 1.5,
     [double]$MinDiskFreeGb = 2.0,
     [double]$SleepBetweenTasks = 5.0
@@ -64,6 +65,9 @@ if ($StopAfterTasks -gt 0) {
 }
 if ($IncludeLibero90) {
     $ArgsList += "--include-libero-90"
+}
+if ($Status) {
+    $ArgsList += "--status"
 }
 
 Push-Location $Repo
