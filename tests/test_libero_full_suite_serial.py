@@ -221,6 +221,8 @@ def test_serial_libero_status_reports_manifest_without_collection(tmp_path: Path
     args = _args(tmp_path, "--stop-after-tasks", "1")
     partial = serial.run(args, collector=fake_collect_task_data, availability_checker=lambda: (True, "fake LIBERO"))
     assert partial["completed_task_count"] == 1
+    summary_path = tmp_path / "results" / "libero_full_suite_serial" / "summary.json"
+    before_status = json.loads(summary_path.read_text(encoding="utf-8"))
 
     def should_not_collect(*_args, **_kwargs):  # pragma: no cover - only called on broken status mode
         raise AssertionError("status mode should not collect chunks")
@@ -232,6 +234,28 @@ def test_serial_libero_status_reports_manifest_without_collection(tmp_path: Path
     assert summary["completed_task_count"] == 1
     assert summary["pending_task_count"] == 1
     assert summary["next_pending_task"]["task_key"] == "libero_object/1"
+    status_path = tmp_path / "results" / "libero_full_suite_serial" / "status_summary.json"
+    assert json.loads(status_path.read_text(encoding="utf-8"))["status_only"] is True
+    assert json.loads(summary_path.read_text(encoding="utf-8")) == before_status
+
+
+def test_finalize_only_rebuilds_summary_without_collection(tmp_path: Path) -> None:
+    args = _args(tmp_path, "--stop-after-tasks", "1")
+    serial.run(args, collector=fake_collect_task_data, availability_checker=lambda: (True, "fake LIBERO"))
+    summary_path = tmp_path / "results" / "libero_full_suite_serial" / "summary.json"
+    summary_path.write_text(json.dumps({"status_only": True}), encoding="utf-8")
+
+    def should_not_collect(*_args, **_kwargs):  # pragma: no cover - only called on broken finalize-only mode
+        raise AssertionError("finalize-only should not collect chunks")
+
+    final_args = _args(tmp_path, "--finalize-only")
+    summary = serial.run(final_args, collector=should_not_collect, availability_checker=lambda: (True, "fake LIBERO"))
+
+    assert summary["completed_task_count"] == 1
+    assert summary["reason"] == "not enough completed task chunks to finalize"
+    rebuilt = json.loads(summary_path.read_text(encoding="utf-8"))
+    assert rebuilt["completed_task_count"] == 1
+    assert "status_only" not in rebuilt
 
 
 def test_wait_for_preflight_polls_until_safe(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:

@@ -90,6 +90,7 @@ class Layout:
     chunk_dir: Path
     row_dir: Path
     summary: Path
+    status_summary: Path
     manifest: Path
     event_log: Path
     model: Path
@@ -225,6 +226,7 @@ def layout(output_root: Path, paper_root: Path, tag: str) -> Layout:
         chunk_dir=out_dir / "chunks",
         row_dir=out_dir / "task_rows",
         summary=out_dir / "summary.json",
+        status_summary=out_dir / "status_summary.json",
         manifest=out_dir / "progress_manifest.json",
         event_log=out_dir / "events.jsonl",
         model=out_dir / "benchmark_libero_full_suite_serial_ridge_wam.npz",
@@ -1035,6 +1037,10 @@ def write_outputs(paths: Layout, summary: dict[str, Any], *, table_only: bool) -
         append_event(paths, "finalized", {"verified": summary.get("verified"), "complete": summary.get("complete")})
 
 
+def write_status_output(paths: Layout, summary: dict[str, Any]) -> None:
+    write_json(paths.status_summary, summary)
+
+
 def collect_serial(
     paths: Layout,
     specs: list[TaskSpec],
@@ -1118,8 +1124,16 @@ def run(
     append_event(paths, "preflight", asdict(pf))
     if args.status:
         summary = status_summary(paths, pf)
-        write_outputs(paths, summary, table_only=True)
+        write_status_output(paths, summary)
         return summary
+    if args.finalize_only:
+        specs, task_info = resolve_task_specs(args)
+        if args.max_tasks is not None:
+            specs = specs[: int(args.max_tasks)]
+            task_info = {**task_info, "max_tasks": int(args.max_tasks)}
+        manifest = initialize_manifest(paths, specs, task_info, args)
+        append_event(paths, "finalize_only", {"task_count": len(specs), "manifest_task_count": manifest.get("task_count")})
+        return finalize(paths, args, pf)
     pf = wait_for_preflight(paths, args, pf)
     if not pf.ok:
         summary = {
@@ -1207,6 +1221,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--stop-after-tasks", type=int, default=None)
     parser.add_argument("--list-tasks", action="store_true")
     parser.add_argument("--status", action="store_true")
+    parser.add_argument("--finalize-only", action="store_true")
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--fail-fast", action="store_true")
     parser.add_argument("--fail-on-preflight", action="store_true")

@@ -5,6 +5,7 @@ param(
     [int]$StopAfterTasks = 0,
     [switch]$IncludeLibero90,
     [switch]$Status,
+    [switch]$FinalizeOnly,
     [double]$MinAvailableRamGb = 1.5,
     [double]$MinDiskFreeGb = 2.0,
     [double]$SleepBetweenTasks = 5.0,
@@ -72,6 +73,9 @@ if ($IncludeLibero90) {
 }
 if ($Status) {
     $ArgsList += "--status"
+}
+if ($FinalizeOnly) {
+    $ArgsList += "--finalize-only"
 }
 
 Push-Location $Repo
