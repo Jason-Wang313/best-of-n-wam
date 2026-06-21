@@ -529,15 +529,18 @@ def manifest_counts(manifest: dict[str, Any]) -> dict[str, int]:
 
 def status_summary(paths: Layout, preflight_payload: Preflight) -> dict[str, Any]:
     manifest = read_json(paths.manifest)
+    canonical_summary = read_json(paths.summary)
     tasks = manifest.get("tasks") or []
     counts = manifest_counts(manifest)
     next_pending = next((row for row in tasks if row.get("status") == "pending"), None)
     complete = counts["task_count"] > 0 and counts["completed"] == counts["task_count"]
+    canonical_matches_manifest = int(canonical_summary.get("completed_task_count") or -1) == counts["completed"]
+    verified = bool(complete and canonical_matches_manifest and canonical_summary.get("complete") and canonical_summary.get("verified"))
     return {
         "experiment": "benchmark_libero_full_suite_serial",
         "attempted": True,
         "available": bool(manifest),
-        "verified": False,
+        "verified": verified,
         "complete": bool(complete),
         "status_only": True,
         "task_count": counts["task_count"],

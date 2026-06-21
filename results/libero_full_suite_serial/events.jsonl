@@ -1,0 +1,1368 @@
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T06:24:41Z"}
+{"disk_free_gb": 20.865398406982422, "event": "preflight", "issues": [], "memory_available_gb": 1.60894775390625, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T06:24:41Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T06:25:03Z"}
+{"event": "task_start", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T06:25:03Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0000_libero_spatial_0.npz", "event": "task_complete", "ordinal": 0, "seconds": 74.42301559448242, "task_key": "libero_spatial/0", "time": "2026-06-21T06:26:18Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T06:26:18Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T06:26:23Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T06:33:51Z"}
+{"disk_free_gb": 20.488975524902344, "event": "preflight", "issues": ["memory_available_gb=0.99 < 1.50"], "memory_available_gb": 0.9899253845214844, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T06:33:51Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T06:36:50Z"}
+{"disk_free_gb": 20.658065795898438, "event": "preflight", "issues": ["memory_available_gb=0.85 < 1.50"], "memory_available_gb": 0.8458099365234375, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T06:36:50Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T06:37:32Z"}
+{"disk_free_gb": 20.650020599365234, "event": "preflight", "issues": ["memory_available_gb=0.92 < 1.50"], "memory_available_gb": 0.9206428527832031, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T06:37:32Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T06:39:18Z"}
+{"disk_free_gb": 20.64476776123047, "event": "preflight", "issues": ["memory_available_gb=0.92 < 1.50"], "memory_available_gb": 0.9195022583007812, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T06:39:18Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T06:41:22Z"}
+{"disk_free_gb": 20.625282287597656, "event": "preflight", "issues": ["memory_available_gb=0.89 < 1.50"], "memory_available_gb": 0.8880996704101562, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T06:41:22Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T06:42:38Z"}
+{"disk_free_gb": 20.62363052368164, "event": "preflight", "issues": ["memory_available_gb=1.26 < 1.50"], "memory_available_gb": 1.26202392578125, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T06:42:38Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T06:43:34Z"}
+{"disk_free_gb": 20.629501342773438, "event": "preflight", "issues": ["memory_available_gb=1.23 < 1.50"], "memory_available_gb": 1.2339630126953125, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T06:43:34Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T06:44:02Z"}
+{"disk_free_gb": 20.658611297607422, "event": "preflight", "issues": ["memory_available_gb=1.44 < 1.50"], "memory_available_gb": 1.4411888122558594, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T06:44:02Z"}
+{"event": "preflight_wait_start", "initial_issues": ["memory_available_gb=1.44 < 1.50"], "poll_seconds": 30.0, "time": "2026-06-21T06:44:02Z", "timeout_seconds": 180.0}
+{"attempt": 1, "disk_free_gb": 20.65310287475586, "event": "preflight_wait_poll", "issues": ["memory_available_gb=0.81 < 1.50"], "memory_available_gb": 0.8087654113769531, "ok": false, "time": "2026-06-21T06:44:32Z"}
+{"attempt": 2, "disk_free_gb": 20.660358428955078, "event": "preflight_wait_poll", "issues": ["memory_available_gb=0.98 < 1.50"], "memory_available_gb": 0.9771766662597656, "ok": false, "time": "2026-06-21T06:45:02Z"}
+{"attempt": 3, "disk_free_gb": 20.661155700683594, "event": "preflight_wait_poll", "issues": ["memory_available_gb=0.92 < 1.50"], "memory_available_gb": 0.9179725646972656, "ok": false, "time": "2026-06-21T06:45:32Z"}
+{"attempt": 4, "disk_free_gb": 20.654460906982422, "event": "preflight_wait_poll", "issues": ["memory_available_gb=0.72 < 1.50"], "memory_available_gb": 0.7244415283203125, "ok": false, "time": "2026-06-21T06:46:02Z"}
+{"attempt": 5, "disk_free_gb": 20.65264892578125, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.08 < 1.50"], "memory_available_gb": 1.0776519775390625, "ok": false, "time": "2026-06-21T06:46:32Z"}
+{"attempt": 6, "disk_free_gb": 20.654521942138672, "event": "preflight_wait_poll", "issues": [], "memory_available_gb": 1.6353836059570312, "ok": true, "time": "2026-06-21T06:47:02Z"}
+{"attempts": 6, "event": "preflight_wait_end", "issues": [], "ok": true, "time": "2026-06-21T06:47:02Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T06:47:20Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T06:47:20Z"}
+{"event": "preflight_failed_before_task", "issues": ["memory_available_gb=1.35 < 1.50"], "task_key": "libero_spatial/1", "time": "2026-06-21T06:47:20Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T06:51:54Z"}
+{"disk_free_gb": 20.62209701538086, "event": "preflight", "issues": ["memory_available_gb=1.08 < 1.50"], "memory_available_gb": 1.0799713134765625, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T06:51:55Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T06:52:22Z"}
+{"disk_free_gb": 20.622943878173828, "event": "preflight", "issues": ["memory_available_gb=1.14 < 1.50"], "memory_available_gb": 1.1430816650390625, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T06:52:22Z"}
+{"event": "preflight_wait_start", "initial_issues": ["memory_available_gb=1.14 < 1.50"], "poll_seconds": 30.0, "time": "2026-06-21T06:52:22Z", "timeout_seconds": 300.0}
+{"attempt": 1, "disk_free_gb": 20.621784210205078, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.08 < 1.50"], "memory_available_gb": 1.077362060546875, "ok": false, "time": "2026-06-21T06:52:52Z"}
+{"attempt": 2, "disk_free_gb": 20.61998748779297, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.03 < 1.50"], "memory_available_gb": 1.0284652709960938, "ok": false, "time": "2026-06-21T06:53:22Z"}
+{"attempt": 3, "disk_free_gb": 20.620189666748047, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.06 < 1.50"], "memory_available_gb": 1.057830810546875, "ok": false, "time": "2026-06-21T06:53:52Z"}
+{"attempt": 4, "disk_free_gb": 20.656719207763672, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.49 < 1.50"], "memory_available_gb": 1.4852485656738281, "ok": false, "time": "2026-06-21T06:54:22Z"}
+{"attempt": 5, "disk_free_gb": 20.656574249267578, "event": "preflight_wait_poll", "issues": [], "memory_available_gb": 1.5024566650390625, "ok": true, "time": "2026-06-21T06:54:52Z"}
+{"attempts": 5, "event": "preflight_wait_end", "issues": [], "ok": true, "time": "2026-06-21T06:54:52Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T06:55:09Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T06:55:09Z"}
+{"event": "preflight_wait_start", "initial_issues": ["memory_available_gb=1.03 < 1.50"], "poll_seconds": 30.0, "time": "2026-06-21T06:55:09Z", "timeout_seconds": 300.0}
+{"attempt": 1, "disk_free_gb": 20.651546478271484, "event": "preflight_wait_poll", "issues": ["memory_available_gb=0.55 < 1.50"], "memory_available_gb": 0.5503921508789062, "ok": false, "time": "2026-06-21T06:55:39Z"}
+{"attempt": 2, "disk_free_gb": 20.646251678466797, "event": "preflight_wait_poll", "issues": ["memory_available_gb=0.80 < 1.50"], "memory_available_gb": 0.8005447387695312, "ok": false, "time": "2026-06-21T06:56:09Z"}
+{"attempt": 3, "disk_free_gb": 20.647274017333984, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.16 < 1.50"], "memory_available_gb": 1.1565933227539062, "ok": false, "time": "2026-06-21T06:56:39Z"}
+{"attempt": 4, "disk_free_gb": 20.64495086669922, "event": "preflight_wait_poll", "issues": ["memory_available_gb=0.96 < 1.50"], "memory_available_gb": 0.9559135437011719, "ok": false, "time": "2026-06-21T06:57:09Z"}
+{"attempt": 5, "disk_free_gb": 20.644004821777344, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.10 < 1.50"], "memory_available_gb": 1.096282958984375, "ok": false, "time": "2026-06-21T06:57:39Z"}
+{"attempt": 6, "disk_free_gb": 20.602275848388672, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.07 < 1.50"], "memory_available_gb": 1.0698699951171875, "ok": false, "time": "2026-06-21T06:58:09Z"}
+{"attempt": 7, "disk_free_gb": 20.602210998535156, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.17 < 1.50"], "memory_available_gb": 1.1686363220214844, "ok": false, "time": "2026-06-21T06:58:39Z"}
+{"attempt": 8, "disk_free_gb": 20.601890563964844, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.13 < 1.50"], "memory_available_gb": 1.1329498291015625, "ok": false, "time": "2026-06-21T06:59:09Z"}
+{"attempt": 9, "disk_free_gb": 20.598369598388672, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.03 < 1.50"], "memory_available_gb": 1.0309906005859375, "ok": false, "time": "2026-06-21T06:59:39Z"}
+{"attempt": 10, "disk_free_gb": 20.598289489746094, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.06 < 1.50"], "memory_available_gb": 1.0563011169433594, "ok": false, "time": "2026-06-21T07:00:09Z"}
+{"attempts": 10, "event": "preflight_wait_end", "issues": ["memory_available_gb=1.06 < 1.50"], "ok": false, "time": "2026-06-21T07:00:09Z"}
+{"event": "preflight_failed_before_task", "issues": ["memory_available_gb=1.06 < 1.50"], "task_key": "libero_spatial/1", "time": "2026-06-21T07:00:09Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:00:35Z"}
+{"disk_free_gb": 20.597545623779297, "event": "preflight", "issues": ["memory_available_gb=0.88 < 1.50"], "memory_available_gb": 0.8806381225585938, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T07:00:35Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:01:39Z"}
+{"disk_free_gb": 20.589920043945312, "event": "preflight", "issues": ["memory_available_gb=0.94 < 1.50"], "memory_available_gb": 0.9382057189941406, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T07:01:39Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:06:36Z"}
+{"disk_free_gb": 20.611042022705078, "event": "preflight", "issues": [], "memory_available_gb": 1.9973220825195312, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:06:37Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:07:13Z"}
+{"disk_free_gb": 20.616981506347656, "event": "preflight", "issues": [], "memory_available_gb": 2.163665771484375, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:07:13Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:07:15Z"}
+{"disk_free_gb": 20.616973876953125, "event": "preflight", "issues": [], "memory_available_gb": 2.1460037231445312, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:07:15Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:07:33Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:07:33Z"}
+{"event": "task_start", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:07:33Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0001_libero_spatial_1.npz", "event": "task_complete", "ordinal": 1, "seconds": 75.0587387084961, "task_key": "libero_spatial/1", "time": "2026-06-21T07:08:48Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:08:48Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:08:53Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:09:03Z"}
+{"disk_free_gb": 20.598106384277344, "event": "preflight", "issues": [], "memory_available_gb": 1.628143310546875, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:09:03Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:09:07Z"}
+{"disk_free_gb": 20.596691131591797, "event": "preflight", "issues": [], "memory_available_gb": 1.6037864685058594, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:09:07Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:09:31Z"}
+{"disk_free_gb": 20.59612274169922, "event": "preflight", "issues": [], "memory_available_gb": 1.6058082580566406, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:09:31Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:09:34Z"}
+{"disk_free_gb": 20.595836639404297, "event": "preflight", "issues": [], "memory_available_gb": 1.664306640625, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:09:34Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:09:51Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:09:52Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:09:52Z"}
+{"event": "task_start", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:09:52Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0002_libero_spatial_2.npz", "event": "task_complete", "ordinal": 2, "seconds": 55.25143551826477, "task_key": "libero_spatial/2", "time": "2026-06-21T07:10:47Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:10:47Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:10:52Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:10:56Z"}
+{"disk_free_gb": 20.60228729248047, "event": "preflight", "issues": [], "memory_available_gb": 2.944255828857422, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:10:56Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:10:58Z"}
+{"disk_free_gb": 20.60216522216797, "event": "preflight", "issues": [], "memory_available_gb": 2.8461952209472656, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:10:58Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:11:19Z"}
+{"disk_free_gb": 20.60158920288086, "event": "preflight", "issues": [], "memory_available_gb": 2.7381515502929688, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:11:19Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:11:22Z"}
+{"disk_free_gb": 20.601337432861328, "event": "preflight", "issues": [], "memory_available_gb": 2.5802268981933594, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:11:22Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:11:38Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:11:39Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:11:39Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:11:39Z"}
+{"event": "task_start", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:11:39Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0003_libero_spatial_3.npz", "event": "task_complete", "ordinal": 3, "seconds": 55.5451385974884, "task_key": "libero_spatial/3", "time": "2026-06-21T07:12:34Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:12:34Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:12:40Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:12:57Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:13:03Z"}
+{"disk_free_gb": 20.58367919921875, "event": "preflight", "issues": [], "memory_available_gb": 1.7349853515625, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:13:03Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:13:07Z"}
+{"disk_free_gb": 20.583698272705078, "event": "preflight", "issues": [], "memory_available_gb": 1.530975341796875, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:13:07Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:13:33Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:13:33Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:13:33Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:13:33Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:13:33Z"}
+{"event": "preflight_wait_start", "initial_issues": ["memory_available_gb=1.04 < 1.50"], "poll_seconds": 30.0, "time": "2026-06-21T07:13:33Z", "timeout_seconds": 600.0}
+{"attempt": 1, "disk_free_gb": 20.57229995727539, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.33 < 1.50"], "memory_available_gb": 1.3332328796386719, "ok": false, "time": "2026-06-21T07:14:03Z"}
+{"attempt": 2, "disk_free_gb": 20.604907989501953, "event": "preflight_wait_poll", "issues": [], "memory_available_gb": 1.5467185974121094, "ok": true, "time": "2026-06-21T07:14:33Z"}
+{"attempts": 2, "event": "preflight_wait_end", "issues": [], "ok": true, "time": "2026-06-21T07:14:33Z"}
+{"event": "task_start", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:14:33Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0004_libero_spatial_4.npz", "event": "task_complete", "ordinal": 4, "seconds": 94.1400215625763, "task_key": "libero_spatial/4", "time": "2026-06-21T07:16:08Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:16:08Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:16:13Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:16:25Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:16:33Z"}
+{"disk_free_gb": 20.602108001708984, "event": "preflight", "issues": [], "memory_available_gb": 1.9444618225097656, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:16:33Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:16:36Z"}
+{"disk_free_gb": 20.602108001708984, "event": "preflight", "issues": [], "memory_available_gb": 1.9134483337402344, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:16:36Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:18:57Z"}
+{"disk_free_gb": 20.603404998779297, "event": "preflight", "issues": [], "memory_available_gb": 1.5108795166015625, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:18:57Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:21:05Z"}
+{"disk_free_gb": 20.60635757446289, "event": "preflight", "issues": ["memory_available_gb=0.96 < 1.50"], "memory_available_gb": 0.9631767272949219, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T07:21:05Z"}
+{"event": "finalize_only", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:21:17Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:21:22Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:21:59Z"}
+{"disk_free_gb": 20.598960876464844, "event": "preflight", "issues": ["memory_available_gb=1.24 < 1.50"], "memory_available_gb": 1.2448005676269531, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T07:21:59Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:23:22Z"}
+{"disk_free_gb": 20.600021362304688, "event": "preflight", "issues": ["memory_available_gb=1.00 < 1.50"], "memory_available_gb": 1.00054931640625, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T07:23:22Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:25:09Z"}
+{"disk_free_gb": 20.61541748046875, "event": "preflight", "issues": ["memory_available_gb=1.39 < 1.50"], "memory_available_gb": 1.389801025390625, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T07:25:09Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:25:31Z"}
+{"disk_free_gb": 20.592849731445312, "event": "preflight", "issues": ["memory_available_gb=1.43 < 1.50"], "memory_available_gb": 1.4320449829101562, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T07:25:31Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:25:32Z"}
+{"disk_free_gb": 20.592849731445312, "event": "preflight", "issues": ["memory_available_gb=1.44 < 1.50"], "memory_available_gb": 1.4351310729980469, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T07:25:33Z"}
+{"event": "preflight_wait_start", "initial_issues": ["memory_available_gb=1.44 < 1.50"], "poll_seconds": 30.0, "time": "2026-06-21T07:25:33Z", "timeout_seconds": 900.0}
+{"attempt": 1, "disk_free_gb": 20.586925506591797, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.43 < 1.50"], "memory_available_gb": 1.4313240051269531, "ok": false, "time": "2026-06-21T07:26:03Z"}
+{"attempt": 2, "disk_free_gb": 20.585865020751953, "event": "preflight_wait_poll", "issues": [], "memory_available_gb": 1.5977668762207031, "ok": true, "time": "2026-06-21T07:26:33Z"}
+{"attempts": 2, "event": "preflight_wait_end", "issues": [], "ok": true, "time": "2026-06-21T07:26:33Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:26:46Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:26:46Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:26:46Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:26:46Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:26:46Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:26:46Z"}
+{"event": "preflight_wait_start", "initial_issues": ["memory_available_gb=1.30 < 1.50"], "poll_seconds": 30.0, "time": "2026-06-21T07:26:46Z", "timeout_seconds": 900.0}
+{"attempt": 1, "disk_free_gb": 20.583911895751953, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.37 < 1.50"], "memory_available_gb": 1.3740577697753906, "ok": false, "time": "2026-06-21T07:27:16Z"}
+{"attempt": 2, "disk_free_gb": 20.572425842285156, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.02 < 1.50"], "memory_available_gb": 1.0181007385253906, "ok": false, "time": "2026-06-21T07:27:46Z"}
+{"attempt": 3, "disk_free_gb": 20.570865631103516, "event": "preflight_wait_poll", "issues": ["memory_available_gb=0.78 < 1.50"], "memory_available_gb": 0.7802162170410156, "ok": false, "time": "2026-06-21T07:28:16Z"}
+{"attempt": 4, "disk_free_gb": 20.569515228271484, "event": "preflight_wait_poll", "issues": ["memory_available_gb=0.78 < 1.50"], "memory_available_gb": 0.7828712463378906, "ok": false, "time": "2026-06-21T07:28:46Z"}
+{"attempt": 5, "disk_free_gb": 20.570354461669922, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.09 < 1.50"], "memory_available_gb": 1.0945243835449219, "ok": false, "time": "2026-06-21T07:29:16Z"}
+{"attempt": 6, "disk_free_gb": 20.570148468017578, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.14 < 1.50"], "memory_available_gb": 1.1390151977539062, "ok": false, "time": "2026-06-21T07:29:46Z"}
+{"attempt": 7, "disk_free_gb": 20.569969177246094, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.07 < 1.50"], "memory_available_gb": 1.0705032348632812, "ok": false, "time": "2026-06-21T07:30:16Z"}
+{"attempt": 8, "disk_free_gb": 20.565807342529297, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.10 < 1.50"], "memory_available_gb": 1.1041641235351562, "ok": false, "time": "2026-06-21T07:30:46Z"}
+{"attempt": 9, "disk_free_gb": 20.563899993896484, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.07 < 1.50"], "memory_available_gb": 1.0696144104003906, "ok": false, "time": "2026-06-21T07:31:16Z"}
+{"attempt": 10, "disk_free_gb": 20.562774658203125, "event": "preflight_wait_poll", "issues": ["memory_available_gb=0.36 < 1.50"], "memory_available_gb": 0.3588104248046875, "ok": false, "time": "2026-06-21T07:31:46Z"}
+{"attempt": 11, "disk_free_gb": 20.563507080078125, "event": "preflight_wait_poll", "issues": ["memory_available_gb=0.66 < 1.50"], "memory_available_gb": 0.6567802429199219, "ok": false, "time": "2026-06-21T07:32:16Z"}
+{"attempt": 12, "disk_free_gb": 20.554946899414062, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.25 < 1.50"], "memory_available_gb": 1.2523727416992188, "ok": false, "time": "2026-06-21T07:32:46Z"}
+{"attempt": 13, "disk_free_gb": 20.560001373291016, "event": "preflight_wait_poll", "issues": ["memory_available_gb=0.99 < 1.50"], "memory_available_gb": 0.9945907592773438, "ok": false, "time": "2026-06-21T07:33:16Z"}
+{"attempt": 14, "disk_free_gb": 20.560028076171875, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.38 < 1.50"], "memory_available_gb": 1.3778839111328125, "ok": false, "time": "2026-06-21T07:33:46Z"}
+{"attempt": 15, "disk_free_gb": 20.566055297851562, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.39 < 1.50"], "memory_available_gb": 1.3937797546386719, "ok": false, "time": "2026-06-21T07:34:17Z"}
+{"attempt": 16, "disk_free_gb": 20.563125610351562, "event": "preflight_wait_poll", "issues": [], "memory_available_gb": 1.8206138610839844, "ok": true, "time": "2026-06-21T07:34:47Z"}
+{"attempts": 16, "event": "preflight_wait_end", "issues": [], "ok": true, "time": "2026-06-21T07:34:47Z"}
+{"event": "task_start", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T07:34:47Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0005_libero_spatial_5.npz", "event": "task_complete", "ordinal": 5, "seconds": 76.25897145271301, "task_key": "libero_spatial/5", "time": "2026-06-21T07:36:03Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:36:03Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:36:08Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:36:13Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:36:18Z"}
+{"disk_free_gb": 20.58575439453125, "event": "preflight", "issues": [], "memory_available_gb": 2.6864852905273438, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:36:18Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:36:20Z"}
+{"disk_free_gb": 20.585205078125, "event": "preflight", "issues": [], "memory_available_gb": 2.6680068969726562, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:36:21Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:36:41Z"}
+{"disk_free_gb": 20.581409454345703, "event": "preflight", "issues": [], "memory_available_gb": 2.311626434326172, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:36:41Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:36:45Z"}
+{"disk_free_gb": 20.581470489501953, "event": "preflight", "issues": [], "memory_available_gb": 2.2669830322265625, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:36:45Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:37:02Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:37:02Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:37:02Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:37:02Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:37:02Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:37:02Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T07:37:02Z"}
+{"event": "task_start", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T07:37:02Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0006_libero_spatial_6.npz", "event": "task_complete", "ordinal": 6, "seconds": 38.23610877990723, "task_key": "libero_spatial/6", "time": "2026-06-21T07:37:41Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:37:41Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:37:46Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:37:49Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:37:52Z"}
+{"disk_free_gb": 20.583885192871094, "event": "preflight", "issues": [], "memory_available_gb": 3.032176971435547, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:37:52Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:37:54Z"}
+{"disk_free_gb": 20.583946228027344, "event": "preflight", "issues": [], "memory_available_gb": 3.009124755859375, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:37:54Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:38:03Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:38:03Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:38:03Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:38:03Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:38:03Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:38:03Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T07:38:04Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T07:38:04Z"}
+{"event": "task_start", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T07:38:04Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0007_libero_spatial_7.npz", "event": "task_complete", "ordinal": 7, "seconds": 36.4251823425293, "task_key": "libero_spatial/7", "time": "2026-06-21T07:38:40Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:38:40Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:38:45Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:38:49Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:38:54Z"}
+{"disk_free_gb": 20.582286834716797, "event": "preflight", "issues": [], "memory_available_gb": 2.9197425842285156, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:38:54Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:38:56Z"}
+{"disk_free_gb": 20.58187484741211, "event": "preflight", "issues": [], "memory_available_gb": 2.7546920776367188, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:38:56Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:39:18Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:39:19Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:39:19Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:39:19Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:39:19Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:39:19Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T07:39:19Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T07:39:19Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T07:39:19Z"}
+{"event": "task_start", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T07:39:19Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0008_libero_spatial_8.npz", "event": "task_complete", "ordinal": 8, "seconds": 57.77209663391113, "task_key": "libero_spatial/8", "time": "2026-06-21T07:40:17Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:40:17Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:40:22Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:40:29Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:40:35Z"}
+{"disk_free_gb": 20.568126678466797, "event": "preflight", "issues": [], "memory_available_gb": 2.704315185546875, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:40:35Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:40:38Z"}
+{"disk_free_gb": 20.56708526611328, "event": "preflight", "issues": [], "memory_available_gb": 2.6543006896972656, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:40:38Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:40:55Z"}
+{"disk_free_gb": 20.570659637451172, "event": "preflight", "issues": [], "memory_available_gb": 2.6845970153808594, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:40:55Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:40:57Z"}
+{"disk_free_gb": 20.570293426513672, "event": "preflight", "issues": [], "memory_available_gb": 2.6113815307617188, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:40:57Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:41:16Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:41:16Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:41:16Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:41:16Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:41:16Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:41:16Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T07:41:16Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T07:41:16Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T07:41:16Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T07:41:16Z"}
+{"event": "task_start", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T07:41:17Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0009_libero_spatial_9.npz", "event": "task_complete", "ordinal": 9, "seconds": 58.568729877471924, "task_key": "libero_spatial/9", "time": "2026-06-21T07:42:15Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:42:15Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:42:20Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:42:26Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:42:32Z"}
+{"disk_free_gb": 20.578025817871094, "event": "preflight", "issues": [], "memory_available_gb": 2.764057159423828, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:42:32Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:42:35Z"}
+{"disk_free_gb": 20.578086853027344, "event": "preflight", "issues": [], "memory_available_gb": 2.6849632263183594, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:42:35Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:42:56Z"}
+{"disk_free_gb": 20.578289031982422, "event": "preflight", "issues": [], "memory_available_gb": 2.6394691467285156, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:42:56Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:42:59Z"}
+{"disk_free_gb": 20.578166961669922, "event": "preflight", "issues": [], "memory_available_gb": 2.6305809020996094, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:42:59Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:43:18Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:43:18Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:43:18Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:43:18Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:43:18Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:43:18Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T07:43:18Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T07:43:18Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T07:43:18Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T07:43:19Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T07:43:19Z"}
+{"event": "task_start", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T07:43:19Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0010_libero_object_0.npz", "event": "task_complete", "ordinal": 10, "seconds": 40.45722818374634, "task_key": "libero_object/0", "time": "2026-06-21T07:43:59Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:43:59Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:44:04Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:44:10Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:44:15Z"}
+{"disk_free_gb": 20.568336486816406, "event": "preflight", "issues": [], "memory_available_gb": 2.568950653076172, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:44:15Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:44:17Z"}
+{"disk_free_gb": 20.568275451660156, "event": "preflight", "issues": [], "memory_available_gb": 2.5367050170898438, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:44:17Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:44:39Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:44:39Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:44:39Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:44:39Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:44:39Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:44:39Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T07:44:39Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T07:44:40Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T07:44:40Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T07:44:40Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T07:44:40Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T07:44:40Z"}
+{"event": "task_start", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T07:44:40Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0011_libero_object_1.npz", "event": "task_complete", "ordinal": 11, "seconds": 77.92321515083313, "task_key": "libero_object/1", "time": "2026-06-21T07:45:58Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:45:58Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:46:04Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:46:11Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:46:15Z"}
+{"disk_free_gb": 20.56643295288086, "event": "preflight", "issues": [], "memory_available_gb": 2.7251853942871094, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:46:15Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:46:17Z"}
+{"disk_free_gb": 20.56637191772461, "event": "preflight", "issues": [], "memory_available_gb": 2.698749542236328, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:46:17Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:46:35Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:46:35Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:46:35Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:46:35Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:46:35Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:46:35Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T07:46:35Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T07:46:35Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T07:46:36Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T07:46:36Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T07:46:36Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T07:46:36Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T07:46:36Z"}
+{"event": "task_start", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T07:46:36Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0012_libero_object_2.npz", "event": "task_complete", "ordinal": 12, "seconds": 48.02475929260254, "task_key": "libero_object/2", "time": "2026-06-21T07:47:24Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:47:24Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:47:29Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:47:35Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:47:37Z"}
+{"disk_free_gb": 20.37744140625, "event": "preflight", "issues": [], "memory_available_gb": 2.7694015502929688, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:47:37Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:47:39Z"}
+{"disk_free_gb": 20.37744140625, "event": "preflight", "issues": [], "memory_available_gb": 2.7496719360351562, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:47:39Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:47:58Z"}
+{"disk_free_gb": 20.37741470336914, "event": "preflight", "issues": [], "memory_available_gb": 2.5911598205566406, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:47:58Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:48:00Z"}
+{"disk_free_gb": 20.37729263305664, "event": "preflight", "issues": [], "memory_available_gb": 2.578968048095703, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:48:00Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:48:09Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:48:09Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:48:10Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:48:10Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:48:10Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:48:10Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T07:48:10Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T07:48:10Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T07:48:10Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T07:48:10Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T07:48:10Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T07:48:10Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T07:48:10Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T07:48:10Z"}
+{"event": "task_start", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T07:48:10Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0013_libero_object_3.npz", "event": "task_complete", "ordinal": 13, "seconds": 39.14371728897095, "task_key": "libero_object/3", "time": "2026-06-21T07:48:49Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:48:49Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:48:54Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:49:02Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:49:06Z"}
+{"disk_free_gb": 20.371017456054688, "event": "preflight", "issues": [], "memory_available_gb": 2.675537109375, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:49:06Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:49:08Z"}
+{"disk_free_gb": 20.37088394165039, "event": "preflight", "issues": [], "memory_available_gb": 2.650737762451172, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:49:08Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:49:22Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:49:22Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:49:22Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:49:22Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:49:22Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:49:22Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T07:49:22Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T07:49:22Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T07:49:22Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T07:49:22Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T07:49:22Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T07:49:22Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T07:49:22Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T07:49:22Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T07:49:22Z"}
+{"event": "task_start", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T07:49:22Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0014_libero_object_4.npz", "event": "task_complete", "ordinal": 14, "seconds": 56.5655996799469, "task_key": "libero_object/4", "time": "2026-06-21T07:50:19Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:50:19Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:50:25Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:50:39Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:50:47Z"}
+{"disk_free_gb": 20.350170135498047, "event": "preflight", "issues": [], "memory_available_gb": 1.790740966796875, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:50:47Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:50:50Z"}
+{"disk_free_gb": 20.350082397460938, "event": "preflight", "issues": [], "memory_available_gb": 1.7053489685058594, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:50:50Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:51:11Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:51:11Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:51:11Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:51:11Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:51:11Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:51:11Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T07:51:11Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T07:51:11Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T07:51:11Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T07:51:11Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T07:51:11Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T07:51:11Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T07:51:11Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T07:51:11Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T07:51:12Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T07:51:12Z"}
+{"event": "preflight_wait_start", "initial_issues": ["memory_available_gb=1.49 < 1.50"], "poll_seconds": 30.0, "time": "2026-06-21T07:51:12Z", "timeout_seconds": 900.0}
+{"attempt": 1, "disk_free_gb": 20.34288787841797, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.40 < 1.50"], "memory_available_gb": 1.3973655700683594, "ok": false, "time": "2026-06-21T07:51:42Z"}
+{"attempt": 2, "disk_free_gb": 20.33932876586914, "event": "preflight_wait_poll", "issues": [], "memory_available_gb": 1.6735305786132812, "ok": true, "time": "2026-06-21T07:52:12Z"}
+{"attempts": 2, "event": "preflight_wait_end", "issues": [], "ok": true, "time": "2026-06-21T07:52:12Z"}
+{"event": "task_start", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T07:52:12Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0015_libero_object_5.npz", "event": "task_complete", "ordinal": 15, "seconds": 86.06663370132446, "task_key": "libero_object/5", "time": "2026-06-21T07:53:38Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:53:38Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:53:43Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:53:51Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:54:00Z"}
+{"disk_free_gb": 20.321243286132812, "event": "preflight", "issues": [], "memory_available_gb": 2.285785675048828, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:54:00Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:54:03Z"}
+{"disk_free_gb": 20.321792602539062, "event": "preflight", "issues": [], "memory_available_gb": 2.2709426879882812, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:54:03Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:54:22Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T07:54:23Z"}
+{"event": "task_start", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T07:54:23Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0016_libero_object_6.npz", "event": "task_complete", "ordinal": 16, "seconds": 74.51015591621399, "task_key": "libero_object/6", "time": "2026-06-21T07:55:38Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:55:38Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:55:43Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:55:53Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:55:59Z"}
+{"disk_free_gb": 6.820735931396484, "event": "preflight", "issues": [], "memory_available_gb": 2.8925857543945312, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:55:59Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:56:01Z"}
+{"disk_free_gb": 6.820735931396484, "event": "preflight", "issues": [], "memory_available_gb": 2.863567352294922, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:56:01Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:56:19Z"}
+{"disk_free_gb": 7.272930145263672, "event": "preflight", "issues": [], "memory_available_gb": 2.7397537231445312, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:56:19Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:56:23Z"}
+{"disk_free_gb": 7.273097991943359, "event": "preflight", "issues": [], "memory_available_gb": 2.6198387145996094, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:56:23Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:56:42Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:56:42Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:56:42Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:56:42Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:56:42Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:56:42Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T07:56:42Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T07:56:42Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T07:56:43Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T07:56:43Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T07:56:43Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T07:56:43Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T07:56:43Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T07:56:43Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T07:56:43Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T07:56:43Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T07:56:43Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T07:56:43Z"}
+{"event": "task_start", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T07:56:43Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0017_libero_object_7.npz", "event": "task_complete", "ordinal": 17, "seconds": 84.63614535331726, "task_key": "libero_object/7", "time": "2026-06-21T07:58:08Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:58:08Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:58:13Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:58:25Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:58:30Z"}
+{"disk_free_gb": 7.300312042236328, "event": "preflight", "issues": [], "memory_available_gb": 2.2532615661621094, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:58:30Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:58:32Z"}
+{"disk_free_gb": 7.300312042236328, "event": "preflight", "issues": [], "memory_available_gb": 2.2033615112304688, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:58:32Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:58:43Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:58:43Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:58:43Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:58:43Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:58:43Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:58:44Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T07:58:44Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T07:58:44Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T07:58:44Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T07:58:44Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T07:58:44Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T07:58:44Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T07:58:44Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T07:58:44Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T07:58:44Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T07:58:44Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T07:58:44Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T07:58:44Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T07:58:44Z"}
+{"event": "task_start", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T07:58:44Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0018_libero_object_8.npz", "event": "task_complete", "ordinal": 18, "seconds": 42.05144262313843, "task_key": "libero_object/8", "time": "2026-06-21T07:59:26Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T07:59:26Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T07:59:31Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T07:59:39Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:59:42Z"}
+{"disk_free_gb": 7.293754577636719, "event": "preflight", "issues": [], "memory_available_gb": 2.6442489624023438, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:59:42Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T07:59:43Z"}
+{"disk_free_gb": 7.293571472167969, "event": "preflight", "issues": [], "memory_available_gb": 2.6379623413085938, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T07:59:43Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T07:59:54Z"}
+{"event": "task_start", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T07:59:55Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0019_libero_object_9.npz", "event": "task_complete", "ordinal": 19, "seconds": 38.09848499298096, "task_key": "libero_object/9", "time": "2026-06-21T08:00:33Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:00:33Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:00:38Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:00:47Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:00:50Z"}
+{"disk_free_gb": 7.2867584228515625, "event": "preflight", "issues": [], "memory_available_gb": 2.3038902282714844, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:00:50Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:00:52Z"}
+{"disk_free_gb": 7.2867584228515625, "event": "preflight", "issues": [], "memory_available_gb": 2.3279342651367188, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:00:52Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:01:21Z"}
+{"disk_free_gb": 7.286045074462891, "event": "preflight", "issues": [], "memory_available_gb": 2.0018997192382812, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:01:21Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:01:21Z"}
+{"disk_free_gb": 7.286045074462891, "event": "preflight", "issues": [], "memory_available_gb": 1.959930419921875, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:01:22Z"}
+{"event": "finalize_only", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:01:36Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:01:45Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:03:24Z"}
+{"disk_free_gb": 7.284271240234375, "event": "preflight", "issues": ["memory_available_gb=0.74 < 1.50"], "memory_available_gb": 0.7392311096191406, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T08:03:24Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:04:30Z"}
+{"disk_free_gb": 7.283164978027344, "event": "preflight", "issues": [], "memory_available_gb": 1.55853271484375, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:04:30Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:04:32Z"}
+{"disk_free_gb": 7.283237457275391, "event": "preflight", "issues": [], "memory_available_gb": 1.5320281982421875, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:04:32Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:05:00Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:05:00Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:05:01Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:05:01Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:05:01Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:05:01Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:05:01Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:05:01Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:05:01Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:05:02Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:05:02Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:05:02Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:05:02Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:05:03Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:05:03Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:05:03Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:05:03Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:05:03Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:05:03Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:05:04Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:05:04Z"}
+{"event": "preflight_wait_start", "initial_issues": ["memory_available_gb=0.77 < 1.50"], "poll_seconds": 60.0, "time": "2026-06-21T08:05:04Z", "timeout_seconds": 1200.0}
+{"attempt": 1, "disk_free_gb": 7.284954071044922, "event": "preflight_wait_poll", "issues": ["memory_available_gb=0.63 < 1.50"], "memory_available_gb": 0.6267356872558594, "ok": false, "time": "2026-06-21T08:06:04Z"}
+{"attempt": 2, "disk_free_gb": 7.2815704345703125, "event": "preflight_wait_poll", "issues": ["memory_available_gb=0.59 < 1.50"], "memory_available_gb": 0.5876312255859375, "ok": false, "time": "2026-06-21T08:07:04Z"}
+{"attempt": 3, "disk_free_gb": 7.274147033691406, "event": "preflight_wait_poll", "issues": [], "memory_available_gb": 1.9092140197753906, "ok": true, "time": "2026-06-21T08:08:04Z"}
+{"attempts": 3, "event": "preflight_wait_end", "issues": [], "ok": true, "time": "2026-06-21T08:08:04Z"}
+{"event": "task_start", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:08:04Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0020_libero_goal_0.npz", "event": "task_complete", "ordinal": 20, "seconds": 59.06365633010864, "task_key": "libero_goal/0", "time": "2026-06-21T08:09:03Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:09:03Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:09:09Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:09:22Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:09:27Z"}
+{"disk_free_gb": 7.302940368652344, "event": "preflight", "issues": [], "memory_available_gb": 2.6379661560058594, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:09:27Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:09:29Z"}
+{"disk_free_gb": 7.3028106689453125, "event": "preflight", "issues": [], "memory_available_gb": 2.6311683654785156, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:09:29Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:09:51Z"}
+{"disk_free_gb": 7.301445007324219, "event": "preflight", "issues": [], "memory_available_gb": 2.5347633361816406, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:09:51Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:09:54Z"}
+{"disk_free_gb": 7.301212310791016, "event": "preflight", "issues": [], "memory_available_gb": 2.3001937866210938, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:09:54Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:10:13Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:10:13Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:10:13Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:10:13Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:10:13Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:10:13Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:10:13Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:10:13Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:10:13Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:10:13Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:10:13Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:10:13Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:10:14Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:10:14Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:10:14Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:10:14Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:10:14Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:10:14Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:10:14Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:10:14Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:10:14Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:10:14Z"}
+{"event": "task_start", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:10:14Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0021_libero_goal_1.npz", "event": "task_complete", "ordinal": 21, "seconds": 45.1664354801178, "task_key": "libero_goal/1", "time": "2026-06-21T08:10:59Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:10:59Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:11:04Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:11:14Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:11:17Z"}
+{"disk_free_gb": 7.289276123046875, "event": "preflight", "issues": [], "memory_available_gb": 2.7242469787597656, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:11:17Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:11:19Z"}
+{"disk_free_gb": 7.289272308349609, "event": "preflight", "issues": [], "memory_available_gb": 2.72894287109375, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:11:19Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:11:32Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:11:32Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:11:32Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:11:32Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:11:32Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:11:32Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:11:32Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:11:32Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:11:32Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:11:32Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:11:32Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:11:33Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:11:33Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:11:33Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:11:33Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:11:33Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:11:33Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:11:33Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:11:33Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:11:33Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:11:33Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:11:33Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:11:33Z"}
+{"event": "task_start", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:11:33Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0022_libero_goal_2.npz", "event": "task_complete", "ordinal": 22, "seconds": 60.366652727127075, "task_key": "libero_goal/2", "time": "2026-06-21T08:12:34Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:12:34Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:12:39Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:12:55Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:13:00Z"}
+{"disk_free_gb": 7.282470703125, "event": "preflight", "issues": [], "memory_available_gb": 2.444202423095703, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:13:00Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:13:02Z"}
+{"disk_free_gb": 7.280788421630859, "event": "preflight", "issues": [], "memory_available_gb": 2.469898223876953, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:13:02Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:13:23Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:13:23Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:13:23Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:13:23Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:13:24Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:13:24Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:13:24Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:13:24Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:13:24Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:13:24Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:13:24Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:13:24Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:13:24Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:13:24Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:13:24Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:13:24Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:13:24Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:13:25Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:13:25Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:13:25Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:13:25Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:13:25Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:13:25Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:13:25Z"}
+{"event": "task_start", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:13:25Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0023_libero_goal_3.npz", "event": "task_complete", "ordinal": 23, "seconds": 73.232417345047, "task_key": "libero_goal/3", "time": "2026-06-21T08:14:38Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:14:38Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:14:44Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:15:07Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:15:14Z"}
+{"disk_free_gb": 7.2654571533203125, "event": "preflight", "issues": [], "memory_available_gb": 2.1427459716796875, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:15:14Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:15:16Z"}
+{"disk_free_gb": 7.265468597412109, "event": "preflight", "issues": [], "memory_available_gb": 2.137584686279297, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:15:17Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:15:33Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:15:33Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:15:33Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:15:34Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:15:34Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:15:34Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:15:34Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:15:34Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:15:34Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:15:34Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:15:34Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:15:34Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:15:34Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:15:34Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:15:34Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:15:34Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:15:34Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:15:35Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:15:35Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:15:35Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:15:35Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:15:35Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:15:35Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:15:35Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:15:35Z"}
+{"event": "task_start", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:15:35Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0024_libero_goal_4.npz", "event": "task_complete", "ordinal": 24, "seconds": 74.6033227443695, "task_key": "libero_goal/4", "time": "2026-06-21T08:16:50Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:16:50Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:16:55Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:17:13Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:17:20Z"}
+{"disk_free_gb": 7.265525817871094, "event": "preflight", "issues": [], "memory_available_gb": 2.2547874450683594, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:17:20Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:17:24Z"}
+{"disk_free_gb": 7.265525817871094, "event": "preflight", "issues": [], "memory_available_gb": 2.0145111083984375, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:17:25Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:17:48Z"}
+{"disk_free_gb": 7.266750335693359, "event": "preflight", "issues": [], "memory_available_gb": 1.9424057006835938, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:17:48Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:17:50Z"}
+{"disk_free_gb": 7.267726898193359, "event": "preflight", "issues": [], "memory_available_gb": 1.9307479858398438, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:17:51Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:18:16Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:18:16Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:18:16Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:18:16Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:18:16Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:18:16Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:18:16Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:18:16Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:18:16Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:18:16Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_reused", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:18:17Z"}
+{"event": "task_start", "ordinal": 25, "task_key": "libero_goal/5", "time": "2026-06-21T08:18:18Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0025_libero_goal_5.npz", "event": "task_complete", "ordinal": 25, "seconds": 50.531001567840576, "task_key": "libero_goal/5", "time": "2026-06-21T08:19:08Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:19:08Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:19:13Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:19:24Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:19:28Z"}
+{"disk_free_gb": 7.277034759521484, "event": "preflight", "issues": [], "memory_available_gb": 2.6950035095214844, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:19:28Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:19:30Z"}
+{"disk_free_gb": 7.277034759521484, "event": "preflight", "issues": [], "memory_available_gb": 2.6763839721679688, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:19:30Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:19:53Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:19:53Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:19:53Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:19:54Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:19:54Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:19:54Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:19:54Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:19:54Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:19:54Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:19:54Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:19:54Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:19:54Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:19:54Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:19:54Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:19:54Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:19:54Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:19:54Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:19:54Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:19:55Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:19:55Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:19:55Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:19:55Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:19:55Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:19:55Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:19:55Z"}
+{"event": "task_reused", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:19:55Z"}
+{"event": "task_reused", "ordinal": 25, "task_key": "libero_goal/5", "time": "2026-06-21T08:19:55Z"}
+{"event": "task_start", "ordinal": 26, "task_key": "libero_goal/6", "time": "2026-06-21T08:19:55Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0026_libero_goal_6.npz", "event": "task_complete", "ordinal": 26, "seconds": 51.41197943687439, "task_key": "libero_goal/6", "time": "2026-06-21T08:20:47Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:20:47Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:20:52Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:21:08Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:21:15Z"}
+{"disk_free_gb": 7.3084869384765625, "event": "preflight", "issues": [], "memory_available_gb": 2.4463577270507812, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:21:15Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:21:17Z"}
+{"disk_free_gb": 7.3084869384765625, "event": "preflight", "issues": [], "memory_available_gb": 2.4320526123046875, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:21:17Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:21:30Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:21:30Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:21:30Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:21:30Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:21:30Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:21:30Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:21:30Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:21:30Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:21:30Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:21:30Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:21:30Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:21:30Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:21:30Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:21:30Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:21:31Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:21:31Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:21:31Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:21:31Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:21:31Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:21:32Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:21:32Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:21:32Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:21:32Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:21:32Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:21:32Z"}
+{"event": "task_reused", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:21:32Z"}
+{"event": "task_reused", "ordinal": 25, "task_key": "libero_goal/5", "time": "2026-06-21T08:21:32Z"}
+{"event": "task_reused", "ordinal": 26, "task_key": "libero_goal/6", "time": "2026-06-21T08:21:33Z"}
+{"event": "task_start", "ordinal": 27, "task_key": "libero_goal/7", "time": "2026-06-21T08:21:33Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0027_libero_goal_7.npz", "event": "task_complete", "ordinal": 27, "seconds": 50.301204681396484, "task_key": "libero_goal/7", "time": "2026-06-21T08:22:23Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:22:23Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:22:28Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:22:47Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:22:53Z"}
+{"disk_free_gb": 7.296241760253906, "event": "preflight", "issues": [], "memory_available_gb": 2.5944290161132812, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:22:53Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:22:56Z"}
+{"disk_free_gb": 7.296276092529297, "event": "preflight", "issues": [], "memory_available_gb": 2.6064491271972656, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:22:56Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:23:18Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:23:18Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:23:18Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:23:18Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:23:18Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:23:18Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:23:18Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:23:18Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:23:18Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:23:18Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:23:18Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 25, "task_key": "libero_goal/5", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 26, "task_key": "libero_goal/6", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_reused", "ordinal": 27, "task_key": "libero_goal/7", "time": "2026-06-21T08:23:19Z"}
+{"event": "task_start", "ordinal": 28, "task_key": "libero_goal/8", "time": "2026-06-21T08:23:20Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0028_libero_goal_8.npz", "event": "task_complete", "ordinal": 28, "seconds": 35.22884654998779, "task_key": "libero_goal/8", "time": "2026-06-21T08:23:55Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:23:55Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:24:00Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:24:15Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:24:20Z"}
+{"disk_free_gb": 7.2908935546875, "event": "preflight", "issues": [], "memory_available_gb": 2.5359268188476562, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:24:20Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:24:22Z"}
+{"disk_free_gb": 7.292598724365234, "event": "preflight", "issues": [], "memory_available_gb": 2.4872360229492188, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:24:22Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:24:38Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:24:38Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:24:38Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:24:38Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:24:38Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:24:38Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:24:38Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:24:38Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:24:39Z"}
+{"event": "task_reused", "ordinal": 25, "task_key": "libero_goal/5", "time": "2026-06-21T08:24:40Z"}
+{"event": "task_reused", "ordinal": 26, "task_key": "libero_goal/6", "time": "2026-06-21T08:24:40Z"}
+{"event": "task_reused", "ordinal": 27, "task_key": "libero_goal/7", "time": "2026-06-21T08:24:40Z"}
+{"event": "task_reused", "ordinal": 28, "task_key": "libero_goal/8", "time": "2026-06-21T08:24:40Z"}
+{"event": "task_start", "ordinal": 29, "task_key": "libero_goal/9", "time": "2026-06-21T08:24:40Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0029_libero_goal_9.npz", "event": "task_complete", "ordinal": 29, "seconds": 45.155447483062744, "task_key": "libero_goal/9", "time": "2026-06-21T08:25:25Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:25:25Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:25:30Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:25:54Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:26:02Z"}
+{"disk_free_gb": 7.2888336181640625, "event": "preflight", "issues": [], "memory_available_gb": 1.9823341369628906, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:26:03Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:26:05Z"}
+{"disk_free_gb": 7.289787292480469, "event": "preflight", "issues": [], "memory_available_gb": 1.9718780517578125, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:26:05Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:26:26Z"}
+{"disk_free_gb": 7.287258148193359, "event": "preflight", "issues": [], "memory_available_gb": 1.8874664306640625, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:26:26Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:26:29Z"}
+{"disk_free_gb": 7.286949157714844, "event": "preflight", "issues": [], "memory_available_gb": 1.870025634765625, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:26:29Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:26:58Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:26:58Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:26:59Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:26:59Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:26:59Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:26:59Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:26:59Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:26:59Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:26:59Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:26:59Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:26:59Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:26:59Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:26:59Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:26:59Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:26:59Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:26:59Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:26:59Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:27:00Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:27:00Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:27:00Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:27:00Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:27:00Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:27:00Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:27:00Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:27:00Z"}
+{"event": "task_reused", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:27:00Z"}
+{"event": "task_reused", "ordinal": 25, "task_key": "libero_goal/5", "time": "2026-06-21T08:27:00Z"}
+{"event": "task_reused", "ordinal": 26, "task_key": "libero_goal/6", "time": "2026-06-21T08:27:00Z"}
+{"event": "task_reused", "ordinal": 27, "task_key": "libero_goal/7", "time": "2026-06-21T08:27:00Z"}
+{"event": "task_reused", "ordinal": 28, "task_key": "libero_goal/8", "time": "2026-06-21T08:27:01Z"}
+{"event": "task_reused", "ordinal": 29, "task_key": "libero_goal/9", "time": "2026-06-21T08:27:01Z"}
+{"event": "preflight_wait_start", "initial_issues": ["memory_available_gb=1.48 < 1.50"], "poll_seconds": 60.0, "time": "2026-06-21T08:27:01Z", "timeout_seconds": 1200.0}
+{"attempt": 1, "disk_free_gb": 7.274040222167969, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.43 < 1.50"], "memory_available_gb": 1.4278831481933594, "ok": false, "time": "2026-06-21T08:28:01Z"}
+{"attempt": 2, "disk_free_gb": 7.2661895751953125, "event": "preflight_wait_poll", "issues": [], "memory_available_gb": 1.5108184814453125, "ok": true, "time": "2026-06-21T08:29:01Z"}
+{"attempts": 2, "event": "preflight_wait_end", "issues": [], "ok": true, "time": "2026-06-21T08:29:01Z"}
+{"event": "task_start", "ordinal": 30, "task_key": "libero_10/0", "time": "2026-06-21T08:29:01Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0030_libero_10_0.npz", "event": "task_complete", "ordinal": 30, "seconds": 136.58314299583435, "task_key": "libero_10/0", "time": "2026-06-21T08:31:17Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:31:17Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:31:23Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:31:35Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:31:39Z"}
+{"disk_free_gb": 7.296955108642578, "event": "preflight", "issues": [], "memory_available_gb": 3.232177734375, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:31:39Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:31:41Z"}
+{"disk_free_gb": 7.296977996826172, "event": "preflight", "issues": [], "memory_available_gb": 3.1735610961914062, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:31:41Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:31:55Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:31:55Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:31:55Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:31:55Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:31:55Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:31:55Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:31:55Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:31:55Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:31:55Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:31:55Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:31:55Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:31:55Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:31:55Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:31:55Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 25, "task_key": "libero_goal/5", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 26, "task_key": "libero_goal/6", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 27, "task_key": "libero_goal/7", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 28, "task_key": "libero_goal/8", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 29, "task_key": "libero_goal/9", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_reused", "ordinal": 30, "task_key": "libero_10/0", "time": "2026-06-21T08:31:56Z"}
+{"event": "task_start", "ordinal": 31, "task_key": "libero_10/1", "time": "2026-06-21T08:31:56Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0031_libero_10_1.npz", "event": "task_complete", "ordinal": 31, "seconds": 77.82134175300598, "task_key": "libero_10/1", "time": "2026-06-21T08:33:14Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:33:14Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:33:19Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:33:51Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:34:00Z"}
+{"disk_free_gb": 7.293346405029297, "event": "preflight", "issues": [], "memory_available_gb": 1.8611068725585938, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:34:01Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:34:03Z"}
+{"disk_free_gb": 7.289127349853516, "event": "preflight", "issues": [], "memory_available_gb": 1.8422775268554688, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:34:03Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:34:24Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:34:25Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:34:25Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:34:25Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:34:25Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:34:25Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:34:25Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:34:25Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:34:25Z"}
+{"event": "task_reused", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:34:25Z"}
+{"event": "task_reused", "ordinal": 25, "task_key": "libero_goal/5", "time": "2026-06-21T08:34:25Z"}
+{"event": "task_reused", "ordinal": 26, "task_key": "libero_goal/6", "time": "2026-06-21T08:34:25Z"}
+{"event": "task_reused", "ordinal": 27, "task_key": "libero_goal/7", "time": "2026-06-21T08:34:25Z"}
+{"event": "task_reused", "ordinal": 28, "task_key": "libero_goal/8", "time": "2026-06-21T08:34:25Z"}
+{"event": "task_reused", "ordinal": 29, "task_key": "libero_goal/9", "time": "2026-06-21T08:34:26Z"}
+{"event": "task_reused", "ordinal": 30, "task_key": "libero_10/0", "time": "2026-06-21T08:34:26Z"}
+{"event": "task_reused", "ordinal": 31, "task_key": "libero_10/1", "time": "2026-06-21T08:34:26Z"}
+{"event": "task_start", "ordinal": 32, "task_key": "libero_10/2", "time": "2026-06-21T08:34:26Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0032_libero_10_2.npz", "event": "task_complete", "ordinal": 32, "seconds": 36.30592632293701, "task_key": "libero_10/2", "time": "2026-06-21T08:35:02Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:35:02Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:35:07Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:35:27Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:35:31Z"}
+{"disk_free_gb": 7.2874298095703125, "event": "preflight", "issues": [], "memory_available_gb": 1.98345947265625, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:35:31Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:35:33Z"}
+{"disk_free_gb": 7.287372589111328, "event": "preflight", "issues": [], "memory_available_gb": 1.9360237121582031, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:35:33Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:35:43Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:35:43Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:35:43Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:35:44Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:35:45Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:35:45Z"}
+{"event": "task_reused", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:35:45Z"}
+{"event": "task_reused", "ordinal": 25, "task_key": "libero_goal/5", "time": "2026-06-21T08:35:45Z"}
+{"event": "task_reused", "ordinal": 26, "task_key": "libero_goal/6", "time": "2026-06-21T08:35:45Z"}
+{"event": "task_reused", "ordinal": 27, "task_key": "libero_goal/7", "time": "2026-06-21T08:35:45Z"}
+{"event": "task_reused", "ordinal": 28, "task_key": "libero_goal/8", "time": "2026-06-21T08:35:45Z"}
+{"event": "task_reused", "ordinal": 29, "task_key": "libero_goal/9", "time": "2026-06-21T08:35:45Z"}
+{"event": "task_reused", "ordinal": 30, "task_key": "libero_10/0", "time": "2026-06-21T08:35:45Z"}
+{"event": "task_reused", "ordinal": 31, "task_key": "libero_10/1", "time": "2026-06-21T08:35:45Z"}
+{"event": "task_reused", "ordinal": 32, "task_key": "libero_10/2", "time": "2026-06-21T08:35:45Z"}
+{"event": "task_start", "ordinal": 33, "task_key": "libero_10/3", "time": "2026-06-21T08:35:45Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0033_libero_10_3.npz", "event": "task_complete", "ordinal": 33, "seconds": 39.676109790802, "task_key": "libero_10/3", "time": "2026-06-21T08:36:25Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:36:25Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:36:30Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:36:51Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:36:57Z"}
+{"disk_free_gb": 7.280315399169922, "event": "preflight", "issues": [], "memory_available_gb": 1.7827568054199219, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:36:58Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:37:00Z"}
+{"disk_free_gb": 7.279636383056641, "event": "preflight", "issues": [], "memory_available_gb": 1.7441596984863281, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:37:01Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:37:19Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:37:19Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:37:19Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:37:19Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:37:19Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:37:19Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:37:19Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:37:19Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:37:19Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:37:19Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:37:19Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:37:19Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:37:19Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:37:20Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:37:20Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:37:20Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:37:20Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:37:20Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:37:20Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:37:20Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:37:20Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:37:20Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:37:20Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:37:20Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:37:20Z"}
+{"event": "task_reused", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:37:20Z"}
+{"event": "task_reused", "ordinal": 25, "task_key": "libero_goal/5", "time": "2026-06-21T08:37:21Z"}
+{"event": "task_reused", "ordinal": 26, "task_key": "libero_goal/6", "time": "2026-06-21T08:37:21Z"}
+{"event": "task_reused", "ordinal": 27, "task_key": "libero_goal/7", "time": "2026-06-21T08:37:21Z"}
+{"event": "task_reused", "ordinal": 28, "task_key": "libero_goal/8", "time": "2026-06-21T08:37:21Z"}
+{"event": "task_reused", "ordinal": 29, "task_key": "libero_goal/9", "time": "2026-06-21T08:37:21Z"}
+{"event": "task_reused", "ordinal": 30, "task_key": "libero_10/0", "time": "2026-06-21T08:37:21Z"}
+{"event": "task_reused", "ordinal": 31, "task_key": "libero_10/1", "time": "2026-06-21T08:37:21Z"}
+{"event": "task_reused", "ordinal": 32, "task_key": "libero_10/2", "time": "2026-06-21T08:37:21Z"}
+{"event": "task_reused", "ordinal": 33, "task_key": "libero_10/3", "time": "2026-06-21T08:37:21Z"}
+{"event": "task_start", "ordinal": 34, "task_key": "libero_10/4", "time": "2026-06-21T08:37:21Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0034_libero_10_4.npz", "event": "task_complete", "ordinal": 34, "seconds": 111.24245285987854, "task_key": "libero_10/4", "time": "2026-06-21T08:39:12Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:39:12Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:39:18Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:39:42Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:39:53Z"}
+{"disk_free_gb": 7.267566680908203, "event": "preflight", "issues": ["memory_available_gb=0.90 < 1.50"], "memory_available_gb": 0.9032669067382812, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T08:39:53Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:39:57Z"}
+{"disk_free_gb": 7.268199920654297, "event": "preflight", "issues": ["memory_available_gb=0.82 < 1.50"], "memory_available_gb": 0.8213768005371094, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T08:39:57Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:40:20Z"}
+{"disk_free_gb": 7.266754150390625, "event": "preflight", "issues": ["memory_available_gb=0.73 < 1.50"], "memory_available_gb": 0.7309913635253906, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T08:40:20Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:40:22Z"}
+{"disk_free_gb": 7.266719818115234, "event": "preflight", "issues": ["memory_available_gb=0.79 < 1.50"], "memory_available_gb": 0.785369873046875, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": false, "time": "2026-06-21T08:40:22Z"}
+{"event": "preflight_wait_start", "initial_issues": ["memory_available_gb=0.79 < 1.50"], "poll_seconds": 60.0, "time": "2026-06-21T08:40:22Z", "timeout_seconds": 1800.0}
+{"attempt": 1, "disk_free_gb": 7.268192291259766, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.42 < 1.50"], "memory_available_gb": 1.4249649047851562, "ok": false, "time": "2026-06-21T08:41:22Z"}
+{"attempt": 2, "disk_free_gb": 7.295978546142578, "event": "preflight_wait_poll", "issues": ["memory_available_gb=1.22 < 1.50"], "memory_available_gb": 1.2157783508300781, "ok": false, "time": "2026-06-21T08:42:22Z"}
+{"attempt": 3, "disk_free_gb": 7.29412841796875, "event": "preflight_wait_poll", "issues": [], "memory_available_gb": 1.6599769592285156, "ok": true, "time": "2026-06-21T08:43:22Z"}
+{"attempts": 3, "event": "preflight_wait_end", "issues": [], "ok": true, "time": "2026-06-21T08:43:22Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:43:37Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:43:37Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:43:37Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:43:38Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:43:39Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:43:39Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:43:39Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:43:39Z"}
+{"event": "task_reused", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:43:39Z"}
+{"event": "task_reused", "ordinal": 25, "task_key": "libero_goal/5", "time": "2026-06-21T08:43:39Z"}
+{"event": "task_reused", "ordinal": 26, "task_key": "libero_goal/6", "time": "2026-06-21T08:43:39Z"}
+{"event": "task_reused", "ordinal": 27, "task_key": "libero_goal/7", "time": "2026-06-21T08:43:39Z"}
+{"event": "task_reused", "ordinal": 28, "task_key": "libero_goal/8", "time": "2026-06-21T08:43:39Z"}
+{"event": "task_reused", "ordinal": 29, "task_key": "libero_goal/9", "time": "2026-06-21T08:43:39Z"}
+{"event": "task_reused", "ordinal": 30, "task_key": "libero_10/0", "time": "2026-06-21T08:43:39Z"}
+{"event": "task_reused", "ordinal": 31, "task_key": "libero_10/1", "time": "2026-06-21T08:43:39Z"}
+{"event": "task_reused", "ordinal": 32, "task_key": "libero_10/2", "time": "2026-06-21T08:43:39Z"}
+{"event": "task_reused", "ordinal": 33, "task_key": "libero_10/3", "time": "2026-06-21T08:43:39Z"}
+{"event": "task_reused", "ordinal": 34, "task_key": "libero_10/4", "time": "2026-06-21T08:43:39Z"}
+{"event": "preflight_wait_start", "initial_issues": ["memory_available_gb=1.45 < 1.50"], "poll_seconds": 60.0, "time": "2026-06-21T08:43:39Z", "timeout_seconds": 1800.0}
+{"attempt": 1, "disk_free_gb": 7.299030303955078, "event": "preflight_wait_poll", "issues": [], "memory_available_gb": 1.9416313171386719, "ok": true, "time": "2026-06-21T08:44:39Z"}
+{"attempts": 1, "event": "preflight_wait_end", "issues": [], "ok": true, "time": "2026-06-21T08:44:39Z"}
+{"event": "task_start", "ordinal": 35, "task_key": "libero_10/5", "time": "2026-06-21T08:44:39Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0035_libero_10_5.npz", "event": "task_complete", "ordinal": 35, "seconds": 51.36014151573181, "task_key": "libero_10/5", "time": "2026-06-21T08:45:31Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:45:31Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:45:36Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:45:52Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:45:56Z"}
+{"disk_free_gb": 7.2740936279296875, "event": "preflight", "issues": [], "memory_available_gb": 2.3409042358398438, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:45:56Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:45:58Z"}
+{"disk_free_gb": 7.274261474609375, "event": "preflight", "issues": [], "memory_available_gb": 2.3038558959960938, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:45:58Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:46:19Z"}
+{"disk_free_gb": 7.274456024169922, "event": "preflight", "issues": [], "memory_available_gb": 2.1936073303222656, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:46:19Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:46:21Z"}
+{"disk_free_gb": 7.274456024169922, "event": "preflight", "issues": [], "memory_available_gb": 2.163990020751953, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:46:21Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:46:34Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:46:34Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:46:34Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:46:34Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:46:35Z"}
+{"event": "task_reused", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:46:36Z"}
+{"event": "task_reused", "ordinal": 25, "task_key": "libero_goal/5", "time": "2026-06-21T08:46:36Z"}
+{"event": "task_reused", "ordinal": 26, "task_key": "libero_goal/6", "time": "2026-06-21T08:46:36Z"}
+{"event": "task_reused", "ordinal": 27, "task_key": "libero_goal/7", "time": "2026-06-21T08:46:36Z"}
+{"event": "task_reused", "ordinal": 28, "task_key": "libero_goal/8", "time": "2026-06-21T08:46:36Z"}
+{"event": "task_reused", "ordinal": 29, "task_key": "libero_goal/9", "time": "2026-06-21T08:46:36Z"}
+{"event": "task_reused", "ordinal": 30, "task_key": "libero_10/0", "time": "2026-06-21T08:46:36Z"}
+{"event": "task_reused", "ordinal": 31, "task_key": "libero_10/1", "time": "2026-06-21T08:46:36Z"}
+{"event": "task_reused", "ordinal": 32, "task_key": "libero_10/2", "time": "2026-06-21T08:46:36Z"}
+{"event": "task_reused", "ordinal": 33, "task_key": "libero_10/3", "time": "2026-06-21T08:46:36Z"}
+{"event": "task_reused", "ordinal": 34, "task_key": "libero_10/4", "time": "2026-06-21T08:46:36Z"}
+{"event": "task_reused", "ordinal": 35, "task_key": "libero_10/5", "time": "2026-06-21T08:46:36Z"}
+{"event": "task_start", "ordinal": 36, "task_key": "libero_10/6", "time": "2026-06-21T08:46:36Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0036_libero_10_6.npz", "event": "task_complete", "ordinal": 36, "seconds": 79.1909863948822, "task_key": "libero_10/6", "time": "2026-06-21T08:47:55Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:47:55Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:48:00Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:48:17Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:48:20Z"}
+{"disk_free_gb": 7.274730682373047, "event": "preflight", "issues": [], "memory_available_gb": 3.0569114685058594, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:48:20Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:48:21Z"}
+{"disk_free_gb": 7.274730682373047, "event": "preflight", "issues": [], "memory_available_gb": 3.0436248779296875, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:48:21Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:48:31Z"}
+{"event": "task_reused", "ordinal": 25, "task_key": "libero_goal/5", "time": "2026-06-21T08:48:32Z"}
+{"event": "task_reused", "ordinal": 26, "task_key": "libero_goal/6", "time": "2026-06-21T08:48:32Z"}
+{"event": "task_reused", "ordinal": 27, "task_key": "libero_goal/7", "time": "2026-06-21T08:48:32Z"}
+{"event": "task_reused", "ordinal": 28, "task_key": "libero_goal/8", "time": "2026-06-21T08:48:32Z"}
+{"event": "task_reused", "ordinal": 29, "task_key": "libero_goal/9", "time": "2026-06-21T08:48:32Z"}
+{"event": "task_reused", "ordinal": 30, "task_key": "libero_10/0", "time": "2026-06-21T08:48:32Z"}
+{"event": "task_reused", "ordinal": 31, "task_key": "libero_10/1", "time": "2026-06-21T08:48:32Z"}
+{"event": "task_reused", "ordinal": 32, "task_key": "libero_10/2", "time": "2026-06-21T08:48:32Z"}
+{"event": "task_reused", "ordinal": 33, "task_key": "libero_10/3", "time": "2026-06-21T08:48:32Z"}
+{"event": "task_reused", "ordinal": 34, "task_key": "libero_10/4", "time": "2026-06-21T08:48:32Z"}
+{"event": "task_reused", "ordinal": 35, "task_key": "libero_10/5", "time": "2026-06-21T08:48:32Z"}
+{"event": "task_reused", "ordinal": 36, "task_key": "libero_10/6", "time": "2026-06-21T08:48:32Z"}
+{"event": "task_start", "ordinal": 37, "task_key": "libero_10/7", "time": "2026-06-21T08:48:32Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0037_libero_10_7.npz", "event": "task_complete", "ordinal": 37, "seconds": 33.045114278793335, "task_key": "libero_10/7", "time": "2026-06-21T08:49:05Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:49:05Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:49:10Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:49:20Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:49:23Z"}
+{"disk_free_gb": 7.2808837890625, "event": "preflight", "issues": [], "memory_available_gb": 3.3261795043945312, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:49:23Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:49:24Z"}
+{"disk_free_gb": 7.28021240234375, "event": "preflight", "issues": [], "memory_available_gb": 3.3205718994140625, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:49:24Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:49:32Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 25, "task_key": "libero_goal/5", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 26, "task_key": "libero_goal/6", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 27, "task_key": "libero_goal/7", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 28, "task_key": "libero_goal/8", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 29, "task_key": "libero_goal/9", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 30, "task_key": "libero_10/0", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 31, "task_key": "libero_10/1", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 32, "task_key": "libero_10/2", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 33, "task_key": "libero_10/3", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 34, "task_key": "libero_10/4", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 35, "task_key": "libero_10/5", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 36, "task_key": "libero_10/6", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_reused", "ordinal": 37, "task_key": "libero_10/7", "time": "2026-06-21T08:49:33Z"}
+{"event": "task_start", "ordinal": 38, "task_key": "libero_10/8", "time": "2026-06-21T08:49:33Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0038_libero_10_8.npz", "event": "task_complete", "ordinal": 38, "seconds": 16.327065467834473, "task_key": "libero_10/8", "time": "2026-06-21T08:49:50Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:49:50Z"}
+{"completed_this_run": 1, "event": "stop_after_tasks", "time": "2026-06-21T08:49:55Z"}
+{"complete": false, "event": "finalized", "time": "2026-06-21T08:50:05Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:50:07Z"}
+{"disk_free_gb": 7.279682159423828, "event": "preflight", "issues": [], "memory_available_gb": 3.2118568420410156, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:50:07Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:50:08Z"}
+{"disk_free_gb": 7.279438018798828, "event": "preflight", "issues": [], "memory_available_gb": 3.181224822998047, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:50:08Z"}
+{"event": "collection_start", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:50:16Z"}
+{"event": "task_reused", "ordinal": 0, "task_key": "libero_spatial/0", "time": "2026-06-21T08:50:16Z"}
+{"event": "task_reused", "ordinal": 1, "task_key": "libero_spatial/1", "time": "2026-06-21T08:50:16Z"}
+{"event": "task_reused", "ordinal": 2, "task_key": "libero_spatial/2", "time": "2026-06-21T08:50:16Z"}
+{"event": "task_reused", "ordinal": 3, "task_key": "libero_spatial/3", "time": "2026-06-21T08:50:16Z"}
+{"event": "task_reused", "ordinal": 4, "task_key": "libero_spatial/4", "time": "2026-06-21T08:50:16Z"}
+{"event": "task_reused", "ordinal": 5, "task_key": "libero_spatial/5", "time": "2026-06-21T08:50:16Z"}
+{"event": "task_reused", "ordinal": 6, "task_key": "libero_spatial/6", "time": "2026-06-21T08:50:16Z"}
+{"event": "task_reused", "ordinal": 7, "task_key": "libero_spatial/7", "time": "2026-06-21T08:50:16Z"}
+{"event": "task_reused", "ordinal": 8, "task_key": "libero_spatial/8", "time": "2026-06-21T08:50:16Z"}
+{"event": "task_reused", "ordinal": 9, "task_key": "libero_spatial/9", "time": "2026-06-21T08:50:16Z"}
+{"event": "task_reused", "ordinal": 10, "task_key": "libero_object/0", "time": "2026-06-21T08:50:16Z"}
+{"event": "task_reused", "ordinal": 11, "task_key": "libero_object/1", "time": "2026-06-21T08:50:16Z"}
+{"event": "task_reused", "ordinal": 12, "task_key": "libero_object/2", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 13, "task_key": "libero_object/3", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 14, "task_key": "libero_object/4", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 15, "task_key": "libero_object/5", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 16, "task_key": "libero_object/6", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 17, "task_key": "libero_object/7", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 18, "task_key": "libero_object/8", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 19, "task_key": "libero_object/9", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 20, "task_key": "libero_goal/0", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 21, "task_key": "libero_goal/1", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 22, "task_key": "libero_goal/2", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 23, "task_key": "libero_goal/3", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 24, "task_key": "libero_goal/4", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 25, "task_key": "libero_goal/5", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 26, "task_key": "libero_goal/6", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 27, "task_key": "libero_goal/7", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 28, "task_key": "libero_goal/8", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 29, "task_key": "libero_goal/9", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 30, "task_key": "libero_10/0", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 31, "task_key": "libero_10/1", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 32, "task_key": "libero_10/2", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 33, "task_key": "libero_10/3", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 34, "task_key": "libero_10/4", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 35, "task_key": "libero_10/5", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 36, "task_key": "libero_10/6", "time": "2026-06-21T08:50:17Z"}
+{"event": "task_reused", "ordinal": 37, "task_key": "libero_10/7", "time": "2026-06-21T08:50:18Z"}
+{"event": "task_reused", "ordinal": 38, "task_key": "libero_10/8", "time": "2026-06-21T08:50:18Z"}
+{"event": "task_start", "ordinal": 39, "task_key": "libero_10/9", "time": "2026-06-21T08:50:18Z"}
+{"chunk_npz": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\chunks\\0039_libero_10_9.npz", "event": "task_complete", "ordinal": 39, "seconds": 23.212045907974243, "task_key": "libero_10/9", "time": "2026-06-21T08:50:41Z"}
+{"event": "sleep_between_tasks", "seconds": 5.0, "time": "2026-06-21T08:50:41Z"}
+{"complete": true, "event": "finalized", "time": "2026-06-21T08:50:57Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:50:59Z"}
+{"disk_free_gb": 7.271442413330078, "event": "preflight", "issues": [], "memory_available_gb": 3.2400970458984375, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:50:59Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:51:00Z"}
+{"disk_free_gb": 7.2715606689453125, "event": "preflight", "issues": [], "memory_available_gb": 3.2312088012695312, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:51:00Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:51:27Z"}
+{"disk_free_gb": 7.271495819091797, "event": "preflight", "issues": [], "memory_available_gb": 2.961284637451172, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:51:27Z"}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:51:27Z"}
+{"disk_free_gb": 7.271312713623047, "event": "preflight", "issues": [], "memory_available_gb": 2.938373565673828, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:51:27Z"}
+{"event": "finalize_only", "manifest_task_count": 40, "task_count": 40, "time": "2026-06-21T08:51:39Z"}
+{"complete": true, "event": "finalized", "time": "2026-06-21T08:51:56Z", "verified": true}
+{"attempted": true, "event": "priority", "mode": "windows_below_normal", "ok": false, "time": "2026-06-21T08:56:22Z"}
+{"disk_free_gb": 7.287361145019531, "event": "preflight", "issues": [], "memory_available_gb": 2.058795928955078, "min_disk_free_gb": 2.0, "min_memory_available_gb": 1.5, "ok": true, "time": "2026-06-21T08:56:22Z"}

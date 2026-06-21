@@ -258,6 +258,21 @@ def test_finalize_only_rebuilds_summary_without_collection(tmp_path: Path) -> No
     assert "status_only" not in rebuilt
 
 
+def test_status_reflects_verified_complete_canonical_summary(tmp_path: Path) -> None:
+    args = _args(tmp_path)
+    serial.run(args, collector=fake_collect_task_data, availability_checker=lambda: (True, "fake LIBERO"))
+
+    def should_not_collect(*_args, **_kwargs):  # pragma: no cover - only called on broken status mode
+        raise AssertionError("status mode should not collect chunks")
+
+    status_args = _args(tmp_path, "--status")
+    summary = serial.run(status_args, collector=should_not_collect, availability_checker=lambda: (True, "fake LIBERO"))
+
+    assert summary["status_only"] is True
+    assert summary["complete"] is True
+    assert summary["verified"] is True
+
+
 def test_wait_for_preflight_polls_until_safe(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     args = _args(tmp_path, "--wait-for-preflight-seconds", "5", "--preflight-poll-seconds", "1")
     paths = serial.layout(tmp_path, tmp_path / "paper", "libero_full_suite_serial")
