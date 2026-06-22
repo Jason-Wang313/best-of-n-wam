@@ -204,6 +204,11 @@ We also evaluate in learned WAM-lite and simulator/benchmark rollout-pool artifa
 
 \input{paper/libero_main_suite_table.tex}
 
+\paragraph{Frozen visual inference stress test.}
+Recent inference-time sampling work shows that frozen base models can sometimes recover capabilities through sampling alone \citep{karan2026reasoning}. To connect that philosophy to rollout selection without claiming a new robotics post-training recipe, we freeze CLIP ViT-B/32 and score existing RGB rollout-final frames. Table~\ref{tab:frozen-visual-inference} shows the guarded result: zero-shot language scoring is not significantly above random at high $N$, frozen CLIP embeddings plus a tiny ridge calibrator give a modest positive tail, and the low-energy heuristic remains far stronger. The audit gain over blind $N=32$ is positive for zero-shot text ($+0.138$ [0.080, 0.196]) and CLIP+ridge ($+0.099$ [0.039, 0.159]), so the value is diagnostic and budget-controlling rather than a SOTA visual policy claim.
+
+\input{paper/frozen_visual_inference_table.tex}
+
 \begin{figure}[t]
 \centering
 \begin{minipage}{0.49\linewidth}
@@ -549,7 +554,7 @@ Random shooting, CEM, and information-theoretic MPC optimize over sampled action
 Recent robot policies and VLA models scale data, architectures, and multimodal conditioning \citep{brohan2022rt1,brohan2023rt2,octo2024}. Diffusion Policy treats action generation as iterative denoising \citep{chi2023diffusionpolicy}. These systems make test-time candidate generation and scoring increasingly natural. Our result explains when such sampling helps after a generator and scorer have been fixed.
 
 \paragraph{Best-of-$N$ and verifier reranking.}
-Verifier and alignment work often samples many candidates and selects the highest-ranked answer under a verifier or reward model \citep{cobbe2021verifiers,beirami2024bestofn}. We study an analogous fixed sample-and-rerank primitive for rollout planning, but the selected quantity of interest is real rollout utility under score-based selection.
+Verifier and alignment work often samples many candidates and selects the highest-ranked answer under a verifier or reward model \citep{cobbe2021verifiers,beirami2024bestofn}. Recent training-free inference-time sampling results further show that base language models can sometimes approach RL post-training gains by changing only the sampling procedure \citep{karan2026reasoning}. We study an analogous fixed sample-and-rerank primitive for rollout planning, but the selected quantity of interest is real rollout utility under score-based selection. The robotics/WAM comparator landscape is more fragmented than language-model post-training: candidate futures may come from MPC, diffusion/action generators, VLAs, simulators, or learned world models, and scores may be rewards, learned verifiers, likelihoods, or heuristics. We therefore use random, low-energy, frozen visual, shuffled-control, and oracle score tails rather than claiming a single standardized robotics analogue of an RL post-training baseline.
 
 \paragraph{Order statistics, AUC, and ranking.}
 The proof uses order-statistic reasoning \citep{david2003orderstatistics}. The $N=2$ binary special case connects to the ranking and Wilcoxon interpretation of ROC AUC \citep{hanley1982roc}. The ICLR-relevant contribution is not that maxima have known rank distributions, but that this order-statistic view cleanly separates WAM training from score-tail deployment auditing and identifies high-score real-utility tail alignment as the object controlling world-action planning value.

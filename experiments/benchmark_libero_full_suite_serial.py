@@ -980,8 +980,9 @@ def paper_table(summary: dict[str, Any]) -> str:
         [
             "\\begin{table}[t]",
             "\\centering",
-            "\\small",
-            "\\begin{tabular}{p{0.30\\linewidth}p{0.28\\linewidth}p{0.34\\linewidth}}",
+            "\\scriptsize",
+            "\\setlength{\\tabcolsep}{3pt}",
+            "\\begin{tabular}{p{0.26\\linewidth}p{0.24\\linewidth}p{0.32\\linewidth}}",
             "\\toprule",
             "LIBERO serial check & Result & Claim boundary \\\\",
             "\\midrule",
