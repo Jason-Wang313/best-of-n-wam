@@ -2,10 +2,10 @@
   "experiment": "artifact_integrity",
   "verified": true,
   "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_result_json": 177,
-  "n_references": 737,
+  "n_result_json": 178,
+  "n_references": 747,
   "status_counts": {
-    "ok": 737
+    "ok": 747
   },
   "n_issues": 0,
   "issues": [],
@@ -369,6 +369,116 @@
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\benchmark_libero_autonomous_bc_policy.npz",
       "exists": true,
       "bytes": 2911100,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_libero_full_suite_serial.json",
+      "json_path": "artifacts.curves",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_curves.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_curves.csv",
+      "exists": true,
+      "bytes": 285998,
+      "rows": 3200,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_libero_full_suite_serial.json",
+      "json_path": "artifacts.eval_rollouts",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_eval_rollouts.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_eval_rollouts.csv",
+      "exists": true,
+      "bytes": 213864,
+      "rows": 640,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_libero_full_suite_serial.json",
+      "json_path": "artifacts.event_log",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\events.jsonl",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\events.jsonl",
+      "exists": true,
+      "bytes": 170414,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_libero_full_suite_serial.json",
+      "json_path": "artifacts.exact_law",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_exact_law.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_exact_law.csv",
+      "exists": true,
+      "bytes": 145344,
+      "rows": 1280,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_libero_full_suite_serial.json",
+      "json_path": "artifacts.manifest",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\progress_manifest.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\progress_manifest.json",
+      "exists": true,
+      "bytes": 35547,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_libero_full_suite_serial.json",
+      "json_path": "artifacts.paper_table",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\paper\\libero_full_suite_serial_table.tex",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\paper\\libero_full_suite_serial_table.tex",
+      "exists": true,
+      "bytes": 1147,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_libero_full_suite_serial.json",
+      "json_path": "artifacts.report",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\libero_full_suite_serial_report.md",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\libero_full_suite_serial_report.md",
+      "exists": true,
+      "bytes": 714,
+      "rows": null,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_libero_full_suite_serial.json",
+      "json_path": "artifacts.seed_metrics",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_seed_metrics.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_seed_metrics.csv",
+      "exists": true,
+      "bytes": 14733,
+      "rows": 80,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_libero_full_suite_serial.json",
+      "json_path": "artifacts.train_validation",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_train_validation.csv",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_train_validation.csv",
+      "exists": true,
+      "bytes": 220754,
+      "rows": 960,
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "source_json": "benchmark_libero_full_suite_serial.json",
+      "json_path": "model_path",
+      "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_ridge_wam.npz",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_ridge_wam.npz",
+      "exists": true,
+      "bytes": 8350,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5307,7 +5417,7 @@
       "raw_path": "README.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\README.md",
       "exists": true,
-      "bytes": 24017,
+      "bytes": 24694,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5318,7 +5428,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\README.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\README.md",
       "exists": true,
-      "bytes": 24017,
+      "bytes": 24694,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5329,7 +5439,7 @@
       "raw_path": "results/claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 43037,
+      "bytes": 51348,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5340,7 +5450,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 43037,
+      "bytes": 51348,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5373,7 +5483,7 @@
       "raw_path": "results/claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 43037,
+      "bytes": 51348,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5384,7 +5494,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 43037,
+      "bytes": 51348,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5747,7 +5857,7 @@
       "raw_path": "results/claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 43037,
+      "bytes": 51348,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5758,7 +5868,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 43037,
+      "bytes": 51348,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5791,7 +5901,7 @@
       "raw_path": "results/artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 325265,
+      "bytes": 330156,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5802,7 +5912,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\artifact_integrity.json",
       "exists": true,
-      "bytes": 325265,
+      "bytes": 330156,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5967,7 +6077,7 @@
       "raw_path": "results/claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 43037,
+      "bytes": 51348,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -5978,7 +6088,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claims_status.json",
       "exists": true,
-      "bytes": 43037,
+      "bytes": 51348,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6737,7 +6847,7 @@
       "raw_path": "results/repo_bound_artifact_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
-      "bytes": 613995,
+      "bytes": 621665,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6748,7 +6858,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\repo_bound_artifact_audit.json",
       "exists": true,
-      "bytes": 613995,
+      "bytes": 621665,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6759,7 +6869,7 @@
       "raw_path": "reports/repo_bound_artifact_audit_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\repo_bound_artifact_audit_report.md",
       "exists": true,
-      "bytes": 599,
+      "bytes": 625,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6770,7 +6880,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\repo_bound_artifact_audit_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\repo_bound_artifact_audit_report.md",
       "exists": true,
-      "bytes": 599,
+      "bytes": 625,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6869,7 +6979,7 @@
       "raw_path": "results/claim_scope_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_scope_audit.json",
       "exists": true,
-      "bytes": 123502,
+      "bytes": 126585,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6880,7 +6990,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_scope_audit.json",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_scope_audit.json",
       "exists": true,
-      "bytes": 123502,
+      "bytes": 126585,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6891,7 +7001,7 @@
       "raw_path": "reports/claim_scope_audit_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claim_scope_audit_report.md",
       "exists": true,
-      "bytes": 400,
+      "bytes": 417,
       "rows": null,
       "status": "ok",
       "reason": ""
@@ -6902,7 +7012,7 @@
       "raw_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claim_scope_audit_report.md",
       "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\reports\\claim_scope_audit_report.md",
       "exists": true,
-      "bytes": 400,
+      "bytes": 417,
       "rows": null,
       "status": "ok",
       "reason": ""

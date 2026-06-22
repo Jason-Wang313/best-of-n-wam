@@ -4,7 +4,29 @@
   "available": true,
   "verified": true,
   "model_name": "openai/clip-vit-base-patch32",
-  "device": "cpu",
+  "device": "cuda",
+  "requested_device": "auto",
+  "gpu_verified": true,
+  "require_cuda": true,
+  "cpu_fallback_allowed": false,
+  "runtime": {
+    "requested_device": "auto",
+    "torch_version": "2.5.1+cu121",
+    "torch_cuda_version": "12.1",
+    "cuda_available": true,
+    "cuda_device_count": 1,
+    "cuda_selected_index": 0,
+    "cuda_selected_name": "Tesla P100-PCIE-16GB",
+    "cuda_capability": [
+      6,
+      0
+    ],
+    "cuda_total_memory_gb": 15.887939453125,
+    "require_cuda": true,
+    "cpu_fallback_allowed": false,
+    "weights_format": "safetensors",
+    "selected_device": "cuda"
+  },
   "mock_embeddings": false,
   "env_ids": [
     "FetchPickAndPlace-v4",
@@ -29,24 +51,24 @@
       "train_samples": 128,
       "validation_samples": 64,
       "eval_samples": 192,
-      "ridge_validation_utility_mae": 0.08987579730325385,
-      "ridge_validation_utility_corr": 0.8459809791481316
+      "ridge_validation_utility_mae": 0.08987789488240139,
+      "ridge_validation_utility_corr": 0.8459749360623958
     },
     {
       "benchmark": "FetchPush-v4",
       "train_samples": 128,
       "validation_samples": 64,
       "eval_samples": 192,
-      "ridge_validation_utility_mae": 1.1914720124947211,
-      "ridge_validation_utility_corr": -0.5088894564473527
+      "ridge_validation_utility_mae": 1.191468160017271,
+      "ridge_validation_utility_corr": -0.508867366614834
     },
     {
       "benchmark": "FetchReach-v4",
       "train_samples": 128,
       "validation_samples": 64,
       "eval_samples": 192,
-      "ridge_validation_utility_mae": 1.5423342771307917,
-      "ridge_validation_utility_corr": 0.434176167383155
+      "ridge_validation_utility_mae": 1.5424057593758298,
+      "ridge_validation_utility_corr": 0.43417806761608074
     }
   ],
   "confidence_intervals": {
@@ -79,12 +101,12 @@
     },
     "clip_ridge_shuffled_minus_random_N32": {
       "n": 3,
-      "mean": 0.06088993533936595,
-      "std": 0.0947982630122706,
-      "stderr": 0.05473180266884337,
-      "ci95": 0.10727433323093301,
-      "lo": -0.04638439789156706,
-      "hi": 0.16816426857029895
+      "mean": 0.060889935339351976,
+      "std": 0.09479826301228572,
+      "stderr": 0.05473180266885211,
+      "ci95": 0.10727433323095013,
+      "lo": -0.04638439789159816,
+      "hi": 0.16816426857030212
     },
     "low_energy_minus_random_N32": {
       "n": 3,
@@ -126,12 +148,12 @@
     },
     "clip_ridge_shuffled": {
       "n": 18,
-      "mean": 0.12873317924596073,
-      "std": 0.1220301663039944,
-      "stderr": 0.028762786034292193,
-      "ci95": 0.056375060627212696,
-      "lo": 0.07235811861874802,
-      "hi": 0.18510823987317343
+      "mean": 0.12873317924597466,
+      "std": 0.12203016630400836,
+      "stderr": 0.02876278603429548,
+      "ci95": 0.05637506062721914,
+      "lo": 0.07235811861875552,
+      "hi": 0.1851082398731938
     },
     "clip_task_text": {
       "n": 18,
@@ -176,5 +198,13 @@
     "seed_metrics": "results/frozen_visual_inference_probe/frozen_visual_inference_seed_metrics.csv",
     "audit_best_n": "results/frozen_visual_inference_probe/frozen_visual_inference_audit_best_n.csv",
     "figure": "results/frozen_visual_inference_probe/frozen_visual_inference_curves.png"
+  },
+  "remote_execution": {
+    "provider": "kaggle",
+    "full_kernel": "jasonwangggggggg/frozen-visual-gpu-full",
+    "full_kernel_version": 2,
+    "preflight_kernel": "jasonwangggggggg/frozen-visual-gpu-preflight",
+    "preflight_kernel_version": 4,
+    "gpu_name": "Tesla P100-PCIE-16GB"
   }
 }

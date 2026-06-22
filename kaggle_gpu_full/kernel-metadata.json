@@ -1,0 +1,18 @@
+{
+  "id": "jasonwangggggggg/frozen-visual-gpu-full",
+  "title": "Frozen Visual GPU Full",
+  "code_file": "run_gpu_full.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "machine_shape": "",
+  "dataset_sources": [
+    "jasonwangggggggg/frozen-visual-inference-probe-input"
+  ],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

@@ -598,7 +598,7 @@
       "id": 100,
       "claim": "Published result artifact references are internally consistent.",
       "status": "VERIFIED",
-      "evidence": "refs=737, issues=0, status_counts={'ok': 737}"
+      "evidence": "refs=747, issues=0, status_counts={'ok': 747}"
     },
     {
       "id": 101,
@@ -724,7 +724,7 @@
       "id": 121,
       "claim": "Claim evidence artifacts and published artifact references are repository-bound.",
       "status": "VERIFIED",
-      "evidence": "records=912, claim_sources=175, artifact_refs=737, outside=0, absent=0, traversal=0, issues=0"
+      "evidence": "records=922, claim_sources=175, artifact_refs=747, outside=0, absent=0, traversal=0, issues=0"
     },
     {
       "id": 122,
@@ -742,7 +742,7 @@
       "id": 124,
       "claim": "Broad claim wording is scoped by concrete evidence.",
       "status": "VERIFIED",
-      "evidence": "claims=127, scope_mentions=155, categories={'verification': 42, 'model': 24, 'benchmark': 57, 'visual': 13, 'suite_family': 15, 'policy_success': 4}, checks=160, issues=0"
+      "evidence": "claims=150, scope_mentions=159, categories={'verification': 42, 'model': 24, 'benchmark': 59, 'visual': 13, 'suite_family': 16, 'policy_success': 4, 'risky_full': 1}, checks=164, issues=0"
     },
     {
       "id": 125,
@@ -842,9 +842,9 @@
     },
     {
       "id": 141,
-      "claim": "V6 cross-family frozen transfer is measured with high aggregate decision accuracy.",
+      "claim": "V6 cross-family frozen transfer over the simulated benchmark family/pool artifact set is measured with high aggregate decision accuracy.",
       "status": "VERIFIED",
-      "evidence": "folds=10, accuracy=0.9895397489539749, decided=0.8802946593001841, false_allow=0.001841620626151013"
+      "evidence": "families=10, pools=543, folds=10, accuracy=0.9895397489539749, decided=0.8802946593001841, false_allow=0.001841620626151013"
     },
     {
       "id": 142,
