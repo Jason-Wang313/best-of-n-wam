@@ -1,17 +1,18 @@
 {
   "experiment": "claim_scope_audit",
   "verified": true,
-  "n_claims": 127,
-  "n_scope_mentions": 155,
+  "n_claims": 150,
+  "n_scope_mentions": 159,
   "category_counts": {
     "verification": 42,
     "model": 24,
-    "benchmark": 57,
+    "benchmark": 59,
     "visual": 13,
-    "suite_family": 15,
-    "policy_success": 4
+    "suite_family": 16,
+    "policy_success": 4,
+    "risky_full": 1
   },
-  "n_checks": 160,
+  "n_checks": 164,
   "n_issues": 0,
   "records": [
     {
@@ -1253,13 +1254,45 @@
       "evidence": "claims=127, references=24, unique=12, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": false
+    },
+    {
+      "claim_id": 139,
+      "category": "benchmark",
+      "claim": "V6 real-benchmark audit runs on the frozen existing rollout-pool artifacts.",
+      "evidence": "families=10, pools=543, sources=10, gate=True",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 141,
+      "category": "benchmark",
+      "claim": "V6 cross-family frozen transfer over the simulated benchmark family/pool artifact set is measured with high aggregate decision accuracy.",
+      "evidence": "families=10, pools=543, folds=10, accuracy=0.9895397489539749, decided=0.8802946593001841, false_allow=0.001841620626151013",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 141,
+      "category": "suite_family",
+      "claim": "V6 cross-family frozen transfer over the simulated benchmark family/pool artifact set is measured with high aggregate decision accuracy.",
+      "evidence": "families=10, pools=543, folds=10, accuracy=0.9895397489539749, decided=0.8802946593001841, false_allow=0.001841620626151013",
+      "has_numeric_scope": true,
+      "has_concrete_scope": true
+    },
+    {
+      "claim_id": 150,
+      "category": "risky_full",
+      "claim": "V6 manuscript language preserves no-real-robot, no-GPU-scale, and no-broad-SOTA boundaries.",
+      "evidence": "checked iclr_submission.tex, iclr_appendix.tex, and paper/v6_summary_table.tex V6 scope boundaries",
+      "has_numeric_scope": false,
+      "has_concrete_scope": false
     }
   ],
   "checks": [
     {
       "name": "claims_present",
       "ok": true,
-      "detail": "claims=127"
+      "detail": "claims=150"
     },
     {
       "name": "claim_1_verified_wording_has_metric_or_scope",
@@ -2037,14 +2070,34 @@
       "detail": "claim=Explicit narrative VERIFIED CLAIM references resolve to current verified claims.; evidence=claims=127, references=24, unique=12, issues=0"
     },
     {
+      "name": "claim_139_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=V6 real-benchmark audit runs on the frozen existing rollout-pool artifacts.; evidence=families=10, pools=543, sources=10, gate=True"
+    },
+    {
+      "name": "claim_141_benchmark_wording_has_benchmark_scope",
+      "ok": true,
+      "detail": "claim=V6 cross-family frozen transfer over the simulated benchmark family/pool artifact set is measured with high aggregate decision accuracy.; evidence=families=10, pools=543, folds=10, accuracy=0.9895397489539749, decided=0.8802946593001841, false_allow=0.001841620626151013"
+    },
+    {
+      "name": "claim_141_suite_family_wording_has_task_or_env_scope",
+      "ok": true,
+      "detail": "claim=V6 cross-family frozen transfer over the simulated benchmark family/pool artifact set is measured with high aggregate decision accuracy.; evidence=families=10, pools=543, folds=10, accuracy=0.9895397489539749, decided=0.8802946593001841, false_allow=0.001841620626151013"
+    },
+    {
+      "name": "claim_150_risky_full_wording_is_guarded",
+      "ok": true,
+      "detail": "claim=V6 manuscript language preserves no-real-robot, no-GPU-scale, and no-broad-SOTA boundaries.; evidence=checked iclr_submission.tex, iclr_appendix.tex, and paper/v6_summary_table.tex V6 scope boundaries"
+    },
+    {
       "name": "scope_mentions_present",
       "ok": true,
-      "detail": "records=155"
+      "detail": "records=159"
     },
     {
       "name": "benchmark_scope_coverage",
       "ok": true,
-      "detail": "benchmark=57"
+      "detail": "benchmark=59"
     },
     {
       "name": "verification_scope_coverage",

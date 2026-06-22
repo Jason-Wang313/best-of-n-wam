@@ -14,6 +14,6 @@ Low-energy & 0.891 & $+0.480$ [0.358, 0.602] & Strong simple baseline \\
 Oracle & 0.984 & $+0.573$ [0.469, 0.677] & Ceiling \\
 \bottomrule
 \end{tabular}
-\caption{\textbf{Frozen visual inference stress test.} A locked CLIP ViT-B/32 probe scores 576 heldout RGB final-frame candidates from 18 Fetch rollout pools. Utilities are pool-normalized; intervals are 95\% CIs over task-level seeds for $N=32$. The result is deliberately not a VLA-scale claim: zero-shot text is unreliable, a tiny ridge head on frozen CLIP embeddings gives a modest positive tail, and the hand-designed low-energy heuristic remains much stronger.}
+\caption{\textbf{GPU-verified frozen visual inference stress test.} A locked CLIP ViT-B/32 probe scores 576 heldout RGB final-frame candidates from 18 Fetch rollout pools on a Kaggle Tesla P100 after strict CUDA preflight, with CPU fallback disabled. Utilities are pool-normalized; intervals are 95\% CIs over task-level seeds for $N=32$. The result is deliberately not a VLA-scale or policy-training claim: zero-shot text is unreliable, a tiny ridge head on frozen CLIP embeddings gives a modest positive tail, and the hand-designed low-energy heuristic remains much stronger.}
 \label{tab:frozen-visual-inference}
 \end{table}

@@ -1,0 +1,45 @@
+{
+  "experiment": "frozen_visual_gpu_preflight",
+  "attempted": true,
+  "available": true,
+  "verified": true,
+  "model_name": "openai/clip-vit-base-patch32",
+  "device": "cuda",
+  "requested_device": "auto",
+  "gpu_verified": true,
+  "require_cuda": true,
+  "cpu_fallback_allowed": false,
+  "runtime": {
+    "requested_device": "auto",
+    "torch_version": "2.5.1+cu121",
+    "torch_cuda_version": "12.1",
+    "cuda_available": true,
+    "cuda_device_count": 1,
+    "cuda_selected_index": 0,
+    "cuda_selected_name": "Tesla P100-PCIE-16GB",
+    "cuda_capability": [
+      6,
+      0
+    ],
+    "cuda_total_memory_gb": 15.887939453125,
+    "require_cuda": true,
+    "cpu_fallback_allowed": false,
+    "weights_format": "safetensors",
+    "selected_device": "cuda"
+  },
+  "image_embedding_shape": [
+    1,
+    512
+  ],
+  "text_embedding_shape": [
+    1,
+    512
+  ],
+  "image_text_score": 0.2140355110168457,
+  "claim_boundaries": {
+    "real_robot": false,
+    "modern_vla_scale_sota": false,
+    "policy_training": false,
+    "evidence_type": "CUDA smoke test for frozen visual-language inference only"
+  }
+}

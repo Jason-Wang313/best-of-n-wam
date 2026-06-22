@@ -5,7 +5,7 @@ import hashlib
 import json
 import math
 import sys
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -71,21 +71,45 @@ class EmbeddingBackend:
     model_name: str
     device: str
     mock: bool = False
+    require_cuda: bool = False
+    allow_cpu_fallback: bool = True
+    runtime_metadata: dict[str, Any] = field(default_factory=dict)
 
     def __post_init__(self) -> None:
         self.model = None
         self.processor = None
         self.requested_device = self.device
         if self.mock:
+            if self.require_cuda:
+                raise RuntimeError("--require-cuda cannot be satisfied by mock embeddings")
             self.embedding_dim = 256
+            self.runtime_metadata = {
+                "requested_device": self.requested_device,
+                "selected_device": "mock",
+                "mock_embeddings": True,
+                "require_cuda": bool(self.require_cuda),
+                "cpu_fallback_allowed": bool(self.allow_cpu_fallback),
+            }
             return
         import torch
         from transformers import CLIPModel, CLIPProcessor
 
+        self.runtime_metadata = torch_runtime_metadata(self.requested_device)
+        self.runtime_metadata["require_cuda"] = bool(self.require_cuda)
+        self.runtime_metadata["cpu_fallback_allowed"] = bool(self.allow_cpu_fallback)
+        self.runtime_metadata["weights_format"] = "safetensors"
         if self.device == "auto":
             self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        if self.require_cuda and self.device != "cuda":
+            raise RuntimeError(
+                f"--require-cuda requested but selected device is {self.device}; "
+                f"cuda_available={torch.cuda.is_available()}"
+            )
+        if self.device == "cuda":
+            self.update_selected_device_metadata()
+            self._cuda_execution_sanity_check()
         self.processor = CLIPProcessor.from_pretrained(self.model_name)
-        self.model = CLIPModel.from_pretrained(self.model_name)
+        self.model = CLIPModel.from_pretrained(self.model_name, use_safetensors=True)
         try:
             self.model = self.model.to(self.device)
         except RuntimeError as exc:
@@ -93,17 +117,45 @@ class EmbeddingBackend:
                 raise
         self.model.eval()
         self.embedding_dim = int(self.model.config.projection_dim)
+        self.update_selected_device_metadata()
+
+    def _cuda_execution_sanity_check(self) -> None:
+        import torch
+
+        try:
+            probe = torch.ones((1,), device="cuda")
+            value = (probe + 1.0).detach().cpu().item()
+            if float(value) != 2.0:
+                raise RuntimeError(f"unexpected CUDA sanity value {value!r}")
+            torch.cuda.synchronize()
+        except Exception as exc:
+            if self.requested_device == "auto" and self.allow_cpu_fallback and not self.require_cuda:
+                print(f"warning: CUDA sanity check failed ({exc}); falling back to CPU", file=sys.stderr, flush=True)
+                self.device = "cpu"
+                self.runtime_metadata["fallback_to_cpu"] = True
+                self.runtime_metadata["fallback_reason"] = f"cuda sanity check failed: {exc}"
+                self.update_selected_device_metadata()
+                return
+            raise RuntimeError(f"CUDA sanity check failed before model load: {exc}") from exc
 
     def _fallback_to_cpu(self, exc: RuntimeError) -> bool:
-        if self.requested_device == "auto" and self.device == "cuda":
+        if self.requested_device == "auto" and self.device == "cuda" and self.allow_cpu_fallback and not self.require_cuda:
             from transformers import CLIPModel
 
             print(f"warning: CUDA backend failed ({exc}); falling back to CPU", file=sys.stderr, flush=True)
             self.device = "cpu"
-            self.model = CLIPModel.from_pretrained(self.model_name).to(self.device)
+            self.model = CLIPModel.from_pretrained(self.model_name, use_safetensors=True).to(self.device)
             self.model.eval()
+            self.runtime_metadata["fallback_to_cpu"] = True
+            self.runtime_metadata["fallback_reason"] = str(exc)
+            self.update_selected_device_metadata()
             return True
         return False
+
+    def update_selected_device_metadata(self) -> None:
+        self.runtime_metadata["selected_device"] = self.device
+        if self.device == "cuda":
+            self.runtime_metadata.update(cuda_selected_metadata())
 
     def _image_feature_tensor(self, feats: Any) -> Any:
         import torch
@@ -138,6 +190,7 @@ class EmbeddingBackend:
         import torch
 
         assert self.model is not None and self.processor is not None
+        self.update_selected_device_metadata()
         try:
             outs = []
             with torch.no_grad():
@@ -161,6 +214,7 @@ class EmbeddingBackend:
         import torch
 
         assert self.model is not None and self.processor is not None
+        self.update_selected_device_metadata()
         try:
             with torch.no_grad():
                 inputs = self.processor(text=texts, return_tensors="pt", padding=True, truncation=True)
@@ -172,6 +226,36 @@ class EmbeddingBackend:
             if self._fallback_to_cpu(exc):
                 return self.text_embeddings(texts)
             raise
+
+
+def torch_runtime_metadata(requested_device: str) -> dict[str, Any]:
+    import torch
+
+    metadata: dict[str, Any] = {
+        "requested_device": requested_device,
+        "torch_version": getattr(torch, "__version__", None),
+        "torch_cuda_version": getattr(torch.version, "cuda", None),
+        "cuda_available": bool(torch.cuda.is_available()),
+        "cuda_device_count": int(torch.cuda.device_count()) if torch.cuda.is_available() else 0,
+    }
+    if torch.cuda.is_available():
+        metadata.update(cuda_selected_metadata())
+    return metadata
+
+
+def cuda_selected_metadata() -> dict[str, Any]:
+    import torch
+
+    if not torch.cuda.is_available():
+        return {}
+    idx = int(torch.cuda.current_device())
+    props = torch.cuda.get_device_properties(idx)
+    return {
+        "cuda_selected_index": idx,
+        "cuda_selected_name": torch.cuda.get_device_name(idx),
+        "cuda_capability": list(torch.cuda.get_device_capability(idx)),
+        "cuda_total_memory_gb": float(props.total_memory / (1024**3)),
+    }
 
 
 def render_state(adapter: GymRoboticsAdapter, state: np.ndarray) -> np.ndarray:
@@ -414,6 +498,11 @@ def write_summary_outputs(
         ),
         "model_name": args.model_name,
         "device": backend.device,
+        "requested_device": backend.requested_device,
+        "gpu_verified": bool(backend.device == "cuda" and not args.mock_embeddings),
+        "require_cuda": bool(getattr(args, "require_cuda", False)),
+        "cpu_fallback_allowed": bool(not getattr(args, "no_cpu_fallback", False)),
+        "runtime": backend.runtime_metadata,
         "mock_embeddings": bool(args.mock_embeddings),
         "env_ids": [row["benchmark"] for row in env_summaries],
         "unavailable": unavailable,
@@ -504,7 +593,13 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     ensure_result_dirs()
     out_dir = results_dir() / "frozen_visual_inference_probe"
     out_dir.mkdir(parents=True, exist_ok=True)
-    backend = EmbeddingBackend(model_name=args.model_name, device=args.device, mock=args.mock_embeddings)
+    backend = EmbeddingBackend(
+        model_name=args.model_name,
+        device=args.device,
+        mock=args.mock_embeddings,
+        require_cuda=bool(getattr(args, "require_cuda", False)),
+        allow_cpu_fallback=not bool(getattr(args, "no_cpu_fallback", False)),
+    )
     if args.precomputed_input_dir:
         return run_precomputed(args, backend, out_dir)
     unavailable = []
@@ -590,12 +685,62 @@ def run(args: argparse.Namespace) -> dict[str, Any]:
     return write_summary_outputs(eval_df, env_summaries, unavailable, args, backend, out_dir)
 
 
+def run_gpu_preflight(args: argparse.Namespace) -> dict[str, Any]:
+    ensure_result_dirs()
+    out_dir = results_dir() / "frozen_visual_inference_probe"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    backend = EmbeddingBackend(
+        model_name=args.model_name,
+        device=args.device,
+        mock=args.mock_embeddings,
+        require_cuda=True,
+        allow_cpu_fallback=False,
+    )
+    frame = np.zeros((224, 224, 3), dtype=np.uint8)
+    frame[..., 0] = 64
+    frame[..., 1] = 128
+    frame[..., 2] = 192
+    image_emb = backend.image_embeddings([frame], batch_size=1)
+    text_emb = backend.text_embeddings(["a robot gripper reaching the target"])
+    score = float((image_emb @ text_emb.T)[0, 0])
+    verified = bool(backend.device == "cuda" and not args.mock_embeddings)
+    if not verified:
+        raise RuntimeError(f"GPU preflight did not finish on CUDA; selected device={backend.device}")
+    summary = {
+        "experiment": "frozen_visual_gpu_preflight",
+        "attempted": True,
+        "available": True,
+        "verified": verified,
+        "model_name": args.model_name,
+        "device": backend.device,
+        "requested_device": backend.requested_device,
+        "gpu_verified": verified,
+        "require_cuda": True,
+        "cpu_fallback_allowed": False,
+        "runtime": backend.runtime_metadata,
+        "image_embedding_shape": list(image_emb.shape),
+        "text_embedding_shape": list(text_emb.shape),
+        "image_text_score": score,
+        "claim_boundaries": {
+            "real_robot": False,
+            "modern_vla_scale_sota": False,
+            "policy_training": False,
+            "evidence_type": "CUDA smoke test for frozen visual-language inference only",
+        },
+    }
+    write_json(out_dir / "gpu_preflight.json", summary)
+    return summary
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Frozen visual-language inference score-tail probe.")
     parser.add_argument("--env-ids", nargs="*", default=["FetchReach-v4", "FetchPush-v4", "FetchPickAndPlace-v4"])
     parser.add_argument("--model-name", default="openai/clip-vit-base-patch32")
     parser.add_argument("--device", default="auto")
     parser.add_argument("--mock-embeddings", action="store_true")
+    parser.add_argument("--require-cuda", action="store_true", help="Fail unless the selected device is CUDA.")
+    parser.add_argument("--no-cpu-fallback", action="store_true", help="Disable automatic CUDA-to-CPU fallback after runtime CUDA errors.")
+    parser.add_argument("--gpu-preflight", action="store_true", help="Run one strict CUDA CLIP smoke batch and write gpu_preflight.json.")
     parser.add_argument("--precomputed-input-dir", default="")
     parser.add_argument("--batch-size", type=int, default=32)
     parser.add_argument("--horizon", type=int, default=8)
@@ -615,11 +760,17 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main() -> None:
     args = build_parser().parse_args()
-    summary = run(args)
+    if args.gpu_preflight:
+        args.require_cuda = True
+        args.no_cpu_fallback = True
+        summary = run_gpu_preflight(args)
+    else:
+        summary = run(args)
     print(
         "frozen visual inference probe: "
         f"available={summary.get('available')} verified={summary.get('verified')} "
-        f"device={summary.get('device')} pools={summary.get('rollout_pools')} "
+        f"device={summary.get('device')} gpu_verified={summary.get('gpu_verified')} "
+        f"pools={summary.get('rollout_pools')} "
         f"exact_mae={summary.get('exact_law_utility_mae')}"
     )
 

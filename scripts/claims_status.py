@@ -2550,7 +2550,7 @@ def main() -> None:
         },
         {
             "id": 141,
-            "claim": "V6 cross-family frozen transfer is measured with high aggregate decision accuracy.",
+            "claim": "V6 cross-family frozen transfer over the simulated benchmark family/pool artifact set is measured with high aggregate decision accuracy.",
             "status": status(
                 bool(v6_summary)
                 and (v6_transfer.get("fold_count") or 0) >= 10
@@ -2562,6 +2562,7 @@ def main() -> None:
                 bool(v6_summary),
             ),
             "evidence": (
+                f"families={v6_audit.get('family_count')}, pools={v6_audit.get('pool_count')}, "
                 f"folds={v6_transfer.get('fold_count')}, accuracy={v6_audit.get('decision_accuracy')}, "
                 f"decided={v6_audit.get('decided_rate')}, false_allow={v6_audit.get('false_allow_rate')}"
             ),
