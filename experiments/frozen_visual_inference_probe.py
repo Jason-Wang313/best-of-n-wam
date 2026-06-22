@@ -95,12 +95,37 @@ class EmbeddingBackend:
         self.embedding_dim = int(self.model.config.projection_dim)
 
     def _fallback_to_cpu(self, exc: RuntimeError) -> bool:
-        if self.requested_device == "auto" and self.device == "cuda" and self.model is not None:
+        if self.requested_device == "auto" and self.device == "cuda":
+            from transformers import CLIPModel
+
             print(f"warning: CUDA backend failed ({exc}); falling back to CPU", file=sys.stderr, flush=True)
             self.device = "cpu"
-            self.model = self.model.to(self.device)
+            self.model = CLIPModel.from_pretrained(self.model_name).to(self.device)
+            self.model.eval()
             return True
         return False
+
+    def _image_feature_tensor(self, feats: Any) -> Any:
+        import torch
+
+        if isinstance(feats, torch.Tensor):
+            return feats
+        if getattr(feats, "image_embeds", None) is not None:
+            return feats.image_embeds
+        if getattr(feats, "pooler_output", None) is not None and self.model is not None:
+            return self.model.visual_projection(feats.pooler_output)
+        raise TypeError(f"unexpected image feature output type: {type(feats)!r}")
+
+    def _text_feature_tensor(self, feats: Any) -> Any:
+        import torch
+
+        if isinstance(feats, torch.Tensor):
+            return feats
+        if getattr(feats, "text_embeds", None) is not None:
+            return feats.text_embeds
+        if getattr(feats, "pooler_output", None) is not None and self.model is not None:
+            return self.model.text_projection(feats.pooler_output)
+        raise TypeError(f"unexpected text feature output type: {type(feats)!r}")
 
     def image_embeddings(self, frames: list[np.ndarray], batch_size: int) -> np.ndarray:
         if self.mock:
@@ -116,7 +141,7 @@ class EmbeddingBackend:
                     batch = frames[start : start + int(batch_size)]
                     inputs = self.processor(images=batch, return_tensors="pt")
                     inputs = {key: value.to(self.device) for key, value in inputs.items()}
-                    feats = self.model.get_image_features(**inputs)
+                    feats = self._image_feature_tensor(self.model.get_image_features(**inputs))
                     feats = torch.nn.functional.normalize(feats, dim=1)
                     outs.append(feats.detach().cpu().numpy().astype(np.float32))
         except RuntimeError as exc:
@@ -136,7 +161,7 @@ class EmbeddingBackend:
             with torch.no_grad():
                 inputs = self.processor(text=texts, return_tensors="pt", padding=True, truncation=True)
                 inputs = {key: value.to(self.device) for key, value in inputs.items()}
-                feats = self.model.get_text_features(**inputs)
+                feats = self._text_feature_tensor(self.model.get_text_features(**inputs))
                 feats = torch.nn.functional.normalize(feats, dim=1)
                 return feats.detach().cpu().numpy().astype(np.float32)
         except RuntimeError as exc:
