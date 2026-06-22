@@ -113,6 +113,8 @@ class EmbeddingBackend:
         if getattr(feats, "image_embeds", None) is not None:
             return feats.image_embeds
         if getattr(feats, "pooler_output", None) is not None and self.model is not None:
+            if int(feats.pooler_output.shape[-1]) == self.embedding_dim:
+                return feats.pooler_output
             return self.model.visual_projection(feats.pooler_output)
         raise TypeError(f"unexpected image feature output type: {type(feats)!r}")
 
@@ -124,6 +126,8 @@ class EmbeddingBackend:
         if getattr(feats, "text_embeds", None) is not None:
             return feats.text_embeds
         if getattr(feats, "pooler_output", None) is not None and self.model is not None:
+            if int(feats.pooler_output.shape[-1]) == self.embedding_dim:
+                return feats.pooler_output
             return self.model.text_projection(feats.pooler_output)
         raise TypeError(f"unexpected text feature output type: {type(feats)!r}")
 
