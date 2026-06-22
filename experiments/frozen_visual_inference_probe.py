@@ -97,6 +97,7 @@ class EmbeddingBackend:
         self.runtime_metadata = torch_runtime_metadata(self.requested_device)
         self.runtime_metadata["require_cuda"] = bool(self.require_cuda)
         self.runtime_metadata["cpu_fallback_allowed"] = bool(self.allow_cpu_fallback)
+        self.runtime_metadata["weights_format"] = "safetensors"
         if self.device == "auto":
             self.device = "cuda" if torch.cuda.is_available() else "cpu"
         if self.require_cuda and self.device != "cuda":
@@ -108,7 +109,7 @@ class EmbeddingBackend:
             self.update_selected_device_metadata()
             self._cuda_execution_sanity_check()
         self.processor = CLIPProcessor.from_pretrained(self.model_name)
-        self.model = CLIPModel.from_pretrained(self.model_name)
+        self.model = CLIPModel.from_pretrained(self.model_name, use_safetensors=True)
         try:
             self.model = self.model.to(self.device)
         except RuntimeError as exc:
@@ -143,7 +144,7 @@ class EmbeddingBackend:
 
             print(f"warning: CUDA backend failed ({exc}); falling back to CPU", file=sys.stderr, flush=True)
             self.device = "cpu"
-            self.model = CLIPModel.from_pretrained(self.model_name).to(self.device)
+            self.model = CLIPModel.from_pretrained(self.model_name, use_safetensors=True).to(self.device)
             self.model.eval()
             self.runtime_metadata["fallback_to_cpu"] = True
             self.runtime_metadata["fallback_reason"] = str(exc)
