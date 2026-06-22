@@ -1,0 +1,36 @@
+{
+  "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v5\\closed_loop_validation.csv",
+  "audit_minus_n1_ci": {
+    "effect": 0.4930303497790673,
+    "hi": 0.5475943689031921,
+    "lo": 0.43234119396197424,
+    "mean": 0.4930303497790673,
+    "n": 10,
+    "std": 0.09884669053356435
+  },
+  "audit_minus_raw_ci": {
+    "effect": 0.4107209623891164,
+    "hi": 0.46959015278099564,
+    "lo": 0.3523152817188648,
+    "mean": 0.4107209623891164,
+    "n": 10,
+    "std": 0.09930828894766733
+  },
+  "episodes": 10,
+  "gate_passed": true,
+  "mean_blocked_steps": 2.9,
+  "mean_return_by_policy": {
+    "audit_policy": 2.8812457225770234,
+    "n1": 2.388215372797956,
+    "oracle_upper_bound": 3.610531927765643,
+    "random_high_n": 2.316562552837354,
+    "raw_high_n": 2.470524760187907
+  },
+  "policies": [
+    "n1",
+    "raw_high_n",
+    "random_high_n",
+    "audit_policy",
+    "oracle_upper_bound"
+  ]
+}

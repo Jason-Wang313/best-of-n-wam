@@ -1,0 +1,400 @@
+{
+  "artifacts": {
+    "curves": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_curves.csv",
+    "eval_rollouts": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_eval_rollouts.csv",
+    "event_log": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\events.jsonl",
+    "exact_law": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_exact_law.csv",
+    "manifest": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\progress_manifest.json",
+    "paper_table": "C:\\Users\\wangz\\best-of-n-wam\\paper\\libero_full_suite_serial_table.tex",
+    "report": "C:\\Users\\wangz\\best-of-n-wam\\reports\\libero_full_suite_serial_report.md",
+    "seed_metrics": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_seed_metrics.csv",
+    "train_validation": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_train_validation.csv"
+  },
+  "attempted": true,
+  "available": true,
+  "claim_boundaries": {
+    "evidence_type": "CPU serial rollout-pool audit, not real-robot or VLA-scale SOTA evidence",
+    "full_policy_success": false,
+    "modern_vla_scale_sota": false,
+    "real_robot": false
+  },
+  "complete": true,
+  "completed_task_count": 40,
+  "completed_tasks": [
+    "libero_spatial/0",
+    "libero_spatial/1",
+    "libero_spatial/2",
+    "libero_spatial/3",
+    "libero_spatial/4",
+    "libero_spatial/5",
+    "libero_spatial/6",
+    "libero_spatial/7",
+    "libero_spatial/8",
+    "libero_spatial/9",
+    "libero_object/0",
+    "libero_object/1",
+    "libero_object/2",
+    "libero_object/3",
+    "libero_object/4",
+    "libero_object/5",
+    "libero_object/6",
+    "libero_object/7",
+    "libero_object/8",
+    "libero_object/9",
+    "libero_goal/0",
+    "libero_goal/1",
+    "libero_goal/2",
+    "libero_goal/3",
+    "libero_goal/4",
+    "libero_goal/5",
+    "libero_goal/6",
+    "libero_goal/7",
+    "libero_goal/8",
+    "libero_goal/9",
+    "libero_10/0",
+    "libero_10/1",
+    "libero_10/2",
+    "libero_10/3",
+    "libero_10/4",
+    "libero_10/5",
+    "libero_10/6",
+    "libero_10/7",
+    "libero_10/8",
+    "libero_10/9"
+  ],
+  "confidence_intervals": {
+    "benchmark_reward_minus_random_N8": {
+      "ci95": 0.047514714701740735,
+      "hi": 0.04153821169466625,
+      "lo": -0.05349121770881522,
+      "mean": -0.005976503007074486,
+      "n": 80,
+      "std": 0.21682884082571618,
+      "stderr": 0.02424220137843915
+    },
+    "best_learned_minus_random_N8": {
+      "ci95": 0.052398767097076644,
+      "hi": 0.4232315198460807,
+      "lo": 0.31843398565192743,
+      "mean": 0.37083275274900407,
+      "n": 80,
+      "std": 0.23911674523723003,
+      "stderr": 0.02673406484544727
+    },
+    "learned_energy_regularized_minus_random_N8": {
+      "ci95": 0.05317896728955898,
+      "hi": 0.4195888889000977,
+      "lo": 0.3132309543209797,
+      "mean": 0.3664099216105387,
+      "n": 80,
+      "std": 0.24267711394426864,
+      "stderr": 0.027132126168142336
+    },
+    "learned_physics_minus_random_N8": {
+      "ci95": 0.052398767097076644,
+      "hi": 0.4232315198460807,
+      "lo": 0.31843398565192743,
+      "mean": 0.37083275274900407,
+      "n": 80,
+      "std": 0.23911674523723003,
+      "stderr": 0.02673406484544727
+    },
+    "learned_wam_minus_random_N8": {
+      "ci95": 0.052398767097076644,
+      "hi": 0.4232315198460807,
+      "lo": 0.31843398565192743,
+      "mean": 0.37083275274900407,
+      "n": 80,
+      "std": 0.23911674523723003,
+      "stderr": 0.02673406484544727
+    },
+    "oracle_minus_best_learned_N8": {
+      "ci95": 0.009910563801360663,
+      "hi": 0.034400957752251105,
+      "lo": 0.01457983014952978,
+      "mean": 0.024490393950890442,
+      "n": 80,
+      "std": 0.04522590684732891,
+      "stderr": 0.005056410102735032
+    },
+    "oracle_minus_random_N8": {
+      "ci95": 0.05150263835979369,
+      "hi": 0.4544913980394281,
+      "lo": 0.35148612131984075,
+      "mean": 0.40298875967963443,
+      "n": 80,
+      "std": 0.23502734774099382,
+      "stderr": 0.02627685630601719
+    }
+  },
+  "eval_rollout_pools": 80,
+  "eval_rollouts": 8,
+  "eval_samples": 640,
+  "eval_states_per_task": 2,
+  "exact_law_utility_mae": 0.00014772928216315743,
+  "experiment": "benchmark_libero_full_suite_serial",
+  "horizon": 2,
+  "include_libero_90": false,
+  "incomplete_task_count": 0,
+  "low_ram_contract": {
+    "aggregate_rebuilt_from_chunks": true,
+    "append_only_task_chunks": true,
+    "checkpoint_resume": true,
+    "low_priority": {
+      "attempted": true,
+      "mode": "windows_below_normal",
+      "ok": false
+    },
+    "low_priority_requested": true,
+    "one_task_at_a_time": true,
+    "parallel_jobs": 1,
+    "single_thread_env_defaults": true,
+    "sleep_between_tasks_seconds": 5.0,
+    "stores_candidate_tensors_in_manifest": false
+  },
+  "max_n": 8,
+  "model_metrics": {
+    "energy_mae": 0.021951503818321595,
+    "final_distance_mae": 0.008658961499472054,
+    "learned_physics_score_corr": 0.9168003971467278,
+    "progress_corr": 0.9111080846143643,
+    "progress_mae": 0.0031242075380107986,
+    "success_mae": 0.0,
+    "utility_corr": 0.9168003971467285,
+    "utility_mae": 0.003129827736330635
+  },
+  "model_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_ridge_wam.npz",
+  "model_type": "streamed_libero_ridge_state_action_sequence_wam",
+  "n_values": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "preflight": {
+    "disk_free_gb": 7.271495819091797,
+    "issues": [],
+    "memory_available_gb": 2.961284637451172,
+    "min_disk_free_gb": 2.0,
+    "min_memory_available_gb": 1.5,
+    "ok": true
+  },
+  "promoted_scorer": "learned_wam",
+  "scope": "full configured LIBERO suites, serial low-RAM rollout-pool WAM audit",
+  "suites": [
+    "libero_spatial",
+    "libero_object",
+    "libero_goal",
+    "libero_10"
+  ],
+  "task_count": 40,
+  "task_metrics": [
+    {
+      "best_learned_minus_random_N8_mean": 0.4984718496880474,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_spatial/0"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.23825656821787006,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_spatial/1"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.30430346347436893,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_spatial/2"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.17187583960494507,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_spatial/3"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.09815330126503768,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_spatial/4"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.4787620118549287,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_spatial/5"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.40887328985831317,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_spatial/6"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.4029866749949929,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_spatial/7"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.3348286650136191,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_spatial/8"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.3786978317623638,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_spatial/9"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.406500481528746,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_object/0"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.3820220809555978,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_object/1"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.3010932217208412,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_object/2"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.1897964324089591,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_object/3"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.250965138749379,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_object/4"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.6153350097569155,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_object/5"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.207698055745359,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_object/6"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.351369517962834,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_object/7"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.4368108057981915,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_object/8"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.2914931243081713,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_object/9"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.5155658663847426,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_goal/0"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.6678691738589828,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_goal/1"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.5418195613548837,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_goal/2"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.6160663713036065,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_goal/3"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.732568560537501,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_goal/4"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.4315955426033056,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_goal/5"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.4546693033032368,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_goal/6"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.3021227843645995,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_goal/7"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.445350641276017,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_goal/8"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.2056081696053793,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_goal/9"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.01838829258309088,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_10/0"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.2087417423780567,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_10/1"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.17863186367657097,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_10/2"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.29337249858554704,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_10/3"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.4993827829162968,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_10/4"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.45859510022897176,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_10/5"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.5157824495066509,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_10/6"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.29021029406871734,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_10/7"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.41925258072741123,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_10/8"
+    },
+    {
+      "best_learned_minus_random_N8_mean": 0.5960476852167126,
+      "eval_rollout_pools": 2,
+      "task_key": "libero_10/9"
+    }
+  ],
+  "train_rollouts": 8,
+  "train_samples": 640,
+  "train_states_per_task": 2,
+  "validation_rollouts": 8,
+  "validation_samples": 320,
+  "validation_states_per_task": 1,
+  "verified": true
+}

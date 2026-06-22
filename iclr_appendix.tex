@@ -521,6 +521,60 @@ links and private source claims in the submission text.
 boundary.
 \end{enumerate}
 
+\subsection{V6 Real-Benchmark Reviewer Attacks}
+\label{app:v6-reviewer-attacks}
+
+V6 is designed to answer the strongest remaining CPU-feasible objections while
+keeping the claim boundary intact.
+\begin{itemize}
+  \item \textbf{Attack: the prospective audit is synthetic only.} V6 adds a
+  leave-one-family-out audit on \VSixWAMPools{} existing simulated benchmark
+  rollout-pool curves from \VSixWAMFamilies{} families. It uses committed curve
+  artifacts, not new simulator runs.
+  \item \textbf{Attack: thresholds were tuned on the test family.} V6 freezes a
+  split manifest and prediction file before outcome merging. The split hash is
+  \texttt{\VSixWAMSplitHash}; the prediction hash is
+  \texttt{\VSixWAMPredictionHash}.
+  \item \textbf{Attack: the method hides hard cases.} V6 reports abstention:
+  \VSixWAMRequestLabelRate{} of pools request labels, and the decided rate is
+  \VSixWAMDecidedRate{}. Abstention is treated as a measured output, not as a
+  discarded row.
+  \item \textbf{Attack: more rollouts would be simpler.} V6 reports compute:
+  raw high-$N$ uses \VSixWAMRawRolloutUnits{} rollout units on average, while
+  audit with abstention uses \VSixWAMAuditRolloutUnits{} and has utility per
+  rollout \VSixWAMAuditUtilityPerRollout{} versus
+  \VSixWAMRawUtilityPerRollout{} for raw high-$N$.
+  \item \textbf{Attack: this is a robotics SOTA claim.} It is not. V6 uses
+  normalized selected-utility curves from existing simulated rollout-pool
+  artifacts. It does not run real robots, modern VLA policies, or a new broad
+  leaderboard evaluation.
+  \item \textbf{Attack: finite labels are cheap, so just label everything.} V6
+  includes a bounded-difference finite-sample table; one representative
+  $\epsilon=0.05,\delta=0.05$ paired decision bound requires
+  \VSixWAMFiniteLabelsEpsFiveDeltaFive{} labels, so request-label/abstain
+  behavior remains practically meaningful.
+\end{itemize}
+
+\subsection{Low-RAM LIBERO Full-Suite Serial Protocol}
+\label{app:libero-full-suite-serial}
+
+The next optional benchmark expansion is designed for the same hardware
+boundary as the rest of the paper: full configured LIBERO task coverage without
+high instantaneous RAM use. The runner
+\path{experiments/benchmark_libero_full_suite_serial.py} executes one LIBERO
+task at a time, writes immutable task chunks, updates a progress manifest after
+each task, and rebuilds aggregate curves and exact-law tables from completed
+chunks. This lets a laptop run the complete configured suite over many sessions
+without keeping all rollout pools or candidate tensors in memory.
+
+\IfFileExists{paper/libero_full_suite_serial_table.tex}{%
+\input{paper/libero_full_suite_serial_table.tex}
+}{}
+
+The generated table is deliberately scoped: it reports serial CPU
+rollout-pool evidence and explicitly does not claim real-robot validation,
+modern VLA-scale SOTA, or full solved-policy success.
+
 \section{Submission-Readiness Checklist}
 \label{app:submission-checklist}
 

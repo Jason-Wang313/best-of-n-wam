@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{0.20\linewidth}p{0.12\linewidth}p{0.23\linewidth}p{0.21\linewidth}}
+\toprule
+Scorer & $N=32$ utility & $\Delta$ vs. random & Role \\
+\midrule
+Random scores & 0.411 & -- & Baseline \\
+Zero-shot text & 0.443 & $+0.033$ [$-0.189$, 0.254] & Not significant \\
+CLIP + ridge & 0.556 & $+0.146$ [0.010, 0.281] & Positive frozen-feature tail \\
+Shuffled ridge & 0.472 & $+0.061$ [$-0.046$, 0.168] & Negative control \\
+Low-energy & 0.891 & $+0.480$ [0.358, 0.602] & Strong simple baseline \\
+Oracle & 0.984 & $+0.573$ [0.469, 0.677] & Ceiling \\
+\bottomrule
+\end{tabular}
+\caption{\textbf{Frozen visual inference stress test.} A locked CLIP ViT-B/32 probe scores 576 heldout RGB final-frame candidates from 18 Fetch rollout pools. Utilities are pool-normalized; intervals are 95\% CIs over task-level seeds for $N=32$. The result is deliberately not a VLA-scale claim: zero-shot text is unreliable, a tiny ridge head on frozen CLIP embeddings gives a modest positive tail, and the hand-designed low-energy heuristic remains much stronger.}
+\label{tab:frozen-visual-inference}
+\end{table}

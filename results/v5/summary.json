@@ -1,0 +1,67 @@
+{
+  "auc_correlation_insufficiency": {
+    "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v5\\auc_correlation_insufficiency.csv",
+    "gate_high_n_gap_threshold": 0.5,
+    "gate_passed": true,
+    "high_n_gap": 0.9998056809432765,
+    "matched_metric_abs_differences": {
+      "auc": 0.0,
+      "mean_score": 0.0,
+      "mean_utility": 0.0,
+      "n2_auc_identity": 0.0,
+      "n2_finite": 0.0,
+      "p": 0.0,
+      "score_utility_corr": 0.0
+    },
+    "n2_gap": 0.0
+  },
+  "exact_law_hardening": {
+    "all_passed": true,
+    "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v5\\exact_law_hardening.csv",
+    "case_count": 7,
+    "max_abs_error": 0.0,
+    "row_count": 49
+  },
+  "finite_pool_census": {
+    "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v5\\finite_pool_census.csv",
+    "classification_counts": {
+      "flat": 98,
+      "harms": 553,
+      "helps": 553,
+      "nonmonotonic": 230,
+      "saturates_or_small": 24
+    },
+    "counts_sum": 1458,
+    "expected_row_count": 1458,
+    "gate_passed": true,
+    "max_m": 8,
+    "row_count": 1458,
+    "rows_by_m": {
+      "4": 42,
+      "5": 90,
+      "6": 186,
+      "7": 378,
+      "8": 762
+    }
+  },
+  "gate_passed": true,
+  "impossibility_boundary": {
+    "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v5\\impossibility_boundary.csv",
+    "gate_passed": true,
+    "observable_features_identical": true,
+    "score_only_selected_candidate_equal": true,
+    "selected_real_utility_gap": 0.8999999999999999
+  },
+  "low_ram_design": {
+    "full_dense_tensor_materialization": false,
+    "max_census_m": 8,
+    "parallel_jobs": 1,
+    "streamed_census_csv": true
+  },
+  "mode": "canonical",
+  "scoretailbench": {
+    "manifest": "C:\\Users\\wangz\\best-of-n-wam\\scoretailbench\\manifest.json",
+    "pool_count": 4,
+    "root": "C:\\Users\\wangz\\best-of-n-wam\\scoretailbench"
+  }
+}

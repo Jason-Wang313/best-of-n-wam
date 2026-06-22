@@ -1,0 +1,84 @@
+{
+  "protocol": "frozen_visual_gpu_probe_v1",
+  "status": "locked_before_gpu_run",
+  "purpose": "Test whether the score-tail audit and audit-controlled inference story remains meaningful for a frozen public visual-language neural scorer, without claiming VLA-scale policy validation or robot SOTA.",
+  "primary_dataset": {
+    "family": "Gymnasium Robotics Fetch RGB rollout pools",
+    "env_ids": [
+      "FetchReach-v4",
+      "FetchPush-v4",
+      "FetchPickAndPlace-v4"
+    ],
+    "candidate_source": "existing benchmark rollout generator and simulator adapter",
+    "image_source": "rendered final state for each candidate rollout",
+    "real_utility": "heldout simulator utility already used by the score-tail audit",
+    "gpu_inputs": "RGB final-outcome frames plus frozen task text prompts"
+  },
+  "frozen_model": {
+    "primary": "openai/clip-vit-base-patch32",
+    "fallback_for_cpu_smoke_only": "hf-internal-testing/tiny-random-CLIPModel",
+    "training": "none for CLIP weights",
+    "optional_calibrator": "ridge regression on frozen image embeddings only, labeled as a lightweight calibrator rather than VLA or policy training"
+  },
+  "scorers": [
+    {
+      "name": "clip_task_text",
+      "definition": "CLIP image-text similarity between final-outcome frame and the task prompt"
+    },
+    {
+      "name": "clip_mismatch_text",
+      "definition": "negative control using a prompt from a different Fetch task"
+    },
+    {
+      "name": "clip_ridge",
+      "definition": "tiny ridge utility predictor trained on frozen final-frame CLIP embeddings only"
+    },
+    {
+      "name": "clip_ridge_shuffled",
+      "definition": "negative control ridge model trained after permuting training utilities"
+    },
+    {
+      "name": "random",
+      "definition": "random candidate scores"
+    },
+    {
+      "name": "low_energy",
+      "definition": "non-neural heuristic baseline using negative action energy"
+    },
+    {
+      "name": "oracle_real_utility",
+      "definition": "diagnostic upper bound using true rollout utility"
+    }
+  ],
+  "n_values": [1, 2, 4, 8, 16, 32],
+  "one_shot_gpu_budget": {
+    "free_quota_first": true,
+    "max_gpu_jobs_before_review": 1,
+    "target_runtime_hours": 4,
+    "hard_stop_if_no_progress_minutes": 90,
+    "paid_budget_cap_gbp": 10
+  },
+  "pre_gpu_gates": [
+    "CPU smoke run completes with mock or tiny CLIP model",
+    "output CSV/JSON schemas are validated by tests",
+    "Kaggle job package is generated without secrets in the repository",
+    "protocol file is committed or at least staged before GPU execution"
+  ],
+  "main_paper_inclusion_gate": {
+    "include_in_main_if": [
+      "the run completes without manual notebook intervention",
+      "finite identity MAE is reported",
+      "at least one frozen neural scorer or frozen-embedding calibrator has a positive learned-vs-random lower confidence bound, or the audit/negative-control result is clearly diagnostic",
+      "mismatched or shuffled control is reported",
+      "all text preserves no-real-robot, no-VLA-scale-SOTA, and no-policy-training boundaries"
+    ],
+    "otherwise": "archive as an appendix/artifact or omit from the main paper"
+  },
+  "nonclaims": [
+    "not real-world robot validation",
+    "not modern VLA-scale policy validation",
+    "not robot SOTA",
+    "not GPU training of a robot policy",
+    "not evidence that blind high-N sampling always helps"
+  ]
+}

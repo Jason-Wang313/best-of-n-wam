@@ -1,0 +1,66 @@
+{
+  "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v5\\selector_gauntlet.csv",
+  "gate_passed": true,
+  "heldout_pools": 50,
+  "oracle_labeled_non_deployable": true,
+  "selectors": [
+    "raw_score",
+    "random",
+    "uncertainty_penalty",
+    "score_clipping",
+    "rank_average",
+    "cvar_lcb",
+    "lower_confidence_bound",
+    "oracle_real_utility"
+  ],
+  "summary_rows": [
+    {
+      "deployable": true,
+      "mean_gain_vs_raw_high_n": 0.0,
+      "mean_high_n_utility": 0.4941049520375815,
+      "selector": "raw_score"
+    },
+    {
+      "deployable": true,
+      "mean_gain_vs_raw_high_n": -0.03079244147011061,
+      "mean_high_n_utility": 0.4633125105674708,
+      "selector": "random"
+    },
+    {
+      "deployable": true,
+      "mean_gain_vs_raw_high_n": 0.1411751562471787,
+      "mean_high_n_utility": 0.6352801082847602,
+      "selector": "uncertainty_penalty"
+    },
+    {
+      "deployable": true,
+      "mean_gain_vs_raw_high_n": 0.002036961988787837,
+      "mean_high_n_utility": 0.4961419140263692,
+      "selector": "score_clipping"
+    },
+    {
+      "deployable": true,
+      "mean_gain_vs_raw_high_n": 0.1464873463907084,
+      "mean_high_n_utility": 0.6405922984282898,
+      "selector": "rank_average"
+    },
+    {
+      "deployable": true,
+      "mean_gain_vs_raw_high_n": 0.15387361137832328,
+      "mean_high_n_utility": 0.6479785634159047,
+      "selector": "cvar_lcb"
+    },
+    {
+      "deployable": true,
+      "mean_gain_vs_raw_high_n": 0.1592801342896749,
+      "mean_high_n_utility": 0.6533850863272564,
+      "selector": "lower_confidence_bound"
+    },
+    {
+      "deployable": false,
+      "mean_gain_vs_raw_high_n": 0.22800143351554714,
+      "mean_high_n_utility": 0.7221063855531284,
+      "selector": "oracle_real_utility"
+    }
+  ]
+}

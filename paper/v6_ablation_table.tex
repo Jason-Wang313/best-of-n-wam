@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+Strategy & Utility & Rollout units & Utility / rollout \\
+\midrule
+N=1 & 0.467 & 1.0 & 0.467 \\
+raw high-N & 0.799 & 18.1 & 0.044 \\
+random high-N & 0.469 & 18.1 & 0.026 \\
+audit+abstain & 0.797 & 14.8 & 0.054 \\
+pilot sign & 0.802 & 16.1 & 0.050 \\
+calibrated sign & 0.800 & 17.9 & 0.045 \\
+oracle & 0.904 & 18.1 & 0.050 \\
+\bottomrule
+\end{tabular}
+\caption{V6 selector and compute ablation on existing real-benchmark rollout-pool curves. Oracle is diagnostic, not deployable.}
+\label{tab:v6-ablation}
+\end{table}

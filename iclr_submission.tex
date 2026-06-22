@@ -9,11 +9,24 @@
 \usepackage{microtype}
 \usepackage{url}
 \usepackage{xcolor}
+\definecolor{CitationBlue}{HTML}{1F5E8C}
 \usepackage[hypertexnames=false]{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=CitationBlue,
+  urlcolor=CitationBlue,
+  filecolor=CitationBlue,
+  pdfborder={0 0 0},
+  pdfborderstyle={/S/U/W 0},
+  allbordercolors={1 1 1}
+}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
 \input{v4_results_macros.tex}
+\input{v5_results_macros.tex}
+\input{v6_results_macros.tex}
 
 \title{When Imagination Hurts: Score-Tail Audits for World-Action Rollout Planning}
 
@@ -24,7 +37,7 @@
 \maketitle
 
 \begin{abstract}
-World-action planners often spend test-time compute by imagining candidate futures, scoring those futures, and executing the highest-scoring rollout. This can help only when the planner-score tail contains high real utility; when the tail is exhausted or misaligned, more imagination can saturate or harm. We frame this as a score-tail audit problem for a fixed rollout generator and fixed scorer. For finite empirical rollout pools, we give an exact tie-aware identity for expected selected real utility under i.i.d. with-replacement sampling, max-score selection, and uniform maximum-score tie-breaking. The identity turns the selected-utility curve into an audit of real utility in the upper score tail. Binary success yields an exact $N=2$ tie-aware AUC identity, while larger candidate counts depend on higher upper-tail rank moments beyond AUC. Experiments freeze a RAM-light protocol over committed artifacts: analytic identities, learned WAM-lite models, bad-scorer falsifications, imagined-real mismatch, adaptive-budgeting runs, and \VFourWAMBenchmarkRows{} simulated robotics benchmark rows spanning \VFourWAMBenchmarkPools{} heldout rollout pools. All \VFourWAMPositiveCIRows{} promoted benchmark rows have positive learned/dense-score lower confidence bounds over random, while \VFourWAMNegativeControls{} negative controls show when high-$N$ selection should be blocked. The paper is not a WAM training scaling law, not real-world robot validation, not modern VLA-scale validation, not full RoboCasa-wide validation, and not a universal OOD/generalization guarantee.
+World-action planners often spend test-time compute by imagining candidate futures, scoring those futures, and executing the highest-scoring rollout. This can help only when the planner-score tail contains high real utility; when the tail is exhausted or misaligned, more imagination can saturate or harm. We frame this as a score-tail audit problem for a fixed rollout generator and fixed scorer. For finite empirical rollout pools, we give an exact tie-aware identity for expected selected real utility under i.i.d. with-replacement sampling, max-score selection, and uniform maximum-score tie-breaking. The identity turns the selected-utility curve into an audit of real utility in the upper score tail. Binary success yields an exact $N=2$ tie-aware AUC identity, while larger candidate counts depend on higher upper-tail rank moments beyond AUC. Experiments freeze a RAM-light protocol over committed artifacts: analytic identities, learned WAM-lite models, bad-scorer falsifications, imagined-real mismatch, adaptive-budgeting runs, and \VFourWAMBenchmarkRows{} simulated robotics benchmark rows spanning \VFourWAMBenchmarkPools{} heldout rollout pools. A completed serial LIBERO run adds a 40/40 configured-task CPU rollout-pool audit with 80 state-level pools and positive learned-vs-random lower confidence bound. A V5 prospective layer adds \VFiveWAMProspectivePools{} hash-locked heldout audit decisions, a \VFiveWAMCensusRows{}-row finite-pool census, ScoreTailBench core pools, and low-RAM CPU reproduction. A V6 real-benchmark layer freezes cross-family decisions over \VSixWAMPools{} existing simulated benchmark rollout-pool curves from \VSixWAMFamilies{} families, with \VSixWAMDecisionAccuracy{} decided accuracy and \VSixWAMFalseAllow{} false-allow rate. The paper is not a WAM training scaling law, not real-world robot validation, not modern VLA-scale validation, not full RoboCasa-wide validation, and not a universal OOD/generalization guarantee.
 \end{abstract}
 
 \section{Introduction}
@@ -45,7 +58,7 @@ The scope is deliberately narrow. We do not propose a universal world-action-mod
 \end{quote}
 
 \paragraph{Contributions.}
-First, we define a score-tail audit for fixed world-action rollout generators and scorers: measure real utility in the planner-score tail that max-score selection will actually choose from. Second, we give the exact finite empirical, tie-aware identity that computes selected real utility for any candidate count, real-valued utility, binary success labels, and score ties. Third, we locate the AUC boundary: tie-aware AUC is complete for two candidates, while larger candidate pools depend on higher upper-tail rank moments. Fourth, we turn the identity into an inference-value profile for improvement, saturation, harm, and adaptive rollout budgeting. Fifth, experiments stress-test the audit in analytic, learned WAM-lite, mismatch, falsification, and simulated robotics rollout-pool artifacts under a frozen v4 gate with explicit baselines, negative controls, artifact hashes, and scoped claims.
+First, we define a score-tail audit for fixed world-action rollout generators and scorers: measure real utility in the planner-score tail that max-score selection will actually choose from. Second, we give the exact finite empirical, tie-aware identity that computes selected real utility for any candidate count, real-valued utility, binary success labels, and score ties. Third, we locate the AUC boundary: tie-aware AUC is complete for two candidates, while larger candidate pools depend on higher upper-tail rank moments. Fourth, we turn the identity into an inference-value profile for improvement, saturation, harm, and adaptive rollout budgeting. Fifth, experiments stress-test the audit in analytic, learned WAM-lite, mismatch, falsification, and simulated robotics rollout-pool artifacts under frozen gates with explicit baselines, negative controls, artifact hashes, and scoped claims, including a complete 40-task configured LIBERO serial CPU rollout-pool run. Sixth, the V5 layer adds prospective heldout decisions, equal-compute CPU frontiers, a small closed-loop audit harness, impossibility-boundary examples, and ScoreTailBench packaging. Seventh, the V6 layer transfers the audit across existing real benchmark rollout-pool curve artifacts with calibration, abstention, robustness, leakage hashes, finite-sample accounting, and compute-normalized ablations, without changing the real-robot and SOTA nonclaims.
 
 \begin{figure}[t]
 \centering
@@ -187,7 +200,14 @@ Falsification tests use anti-aligned scorers and compare selected imagined utili
 Learned WAM-lite artifacts check whether the same inference-value accounting appears beyond analytic score functions. These experiments report learned model errors, finite-identity agreement on heldout rollout pools, and learned-scorer versus random-scorer comparisons. They are lightweight learned-model checks, not evidence for a universal WAM training recipe.
 
 \paragraph{Simulated robotics rollout pools.}
-We also evaluate in learned WAM-lite and simulator/benchmark rollout-pool artifacts. Verified finite-identity MAEs include Gymnasium Robotics Fetch $0.0126$, Gymnasium Robotics RGB visual WAM $0.0106$, ManiSkill state-mode $0.00345$, Meta-World $0.0298$, RoboSuite $0.00237$, RoboCasa 12-task family $0.000292$, RoboCasa residual 35-task clean/cook $0.000246$, and LIBERO rollout-pool WAM-lite $0.000140$. Learned scorers beat random with positive confidence intervals in several rollout-pool benchmarks, including Fetch, Meta-World, RoboSuite, RoboCasa families, and LIBERO rollout-pool checks. These are simulated rollout-pool results, not hardware evidence and not full modern VLA policy validation.
+We also evaluate in learned WAM-lite and simulator/benchmark rollout-pool artifacts. Verified finite-identity MAEs include Gymnasium Robotics Fetch $0.0126$, Gymnasium Robotics RGB visual WAM $0.0106$, ManiSkill state-mode $0.00345$, Meta-World $0.0298$, RoboSuite $0.00237$, RoboCasa 12-task family $0.000292$, RoboCasa residual 35-task clean/cook $0.000246$, and full-suite serial LIBERO $0.000148$. Learned scorers beat random with positive confidence intervals in several rollout-pool benchmarks, including Fetch, Meta-World, RoboSuite, RoboCasa families, and LIBERO rollout-pool checks. Table~\ref{tab:libero-main-suite} foregrounds the completed LIBERO run: all 40 configured tasks across Spatial, Object, Goal, and LIBERO-10 suites are present, the aggregate $N=8$ learned-vs-random lower confidence bound is positive, and every suite-level lower bound remains positive. Task-level diagnostics are retained in the generated artifacts, but the main claim is suite-level rollout-pool evidence rather than per-task dominance. These are simulated CPU rollout-pool results, not hardware evidence, not solved-policy success, and not full modern VLA policy validation.
+
+\input{paper/libero_main_suite_table.tex}
+
+\paragraph{Frozen visual inference stress test.}
+Recent inference-time sampling work shows that frozen base models can sometimes recover capabilities through sampling alone \citep{karan2026reasoning}. To connect that philosophy to rollout selection without claiming a new robotics post-training recipe, we freeze CLIP ViT-B/32 and score existing RGB rollout-final frames. Table~\ref{tab:frozen-visual-inference} shows the guarded result: zero-shot language scoring is not significantly above random at high $N$, frozen CLIP embeddings plus a tiny ridge calibrator give a modest positive tail, and the low-energy heuristic remains far stronger. The audit gain over blind $N=32$ is positive for zero-shot text ($+0.138$ [0.080, 0.196]) and CLIP+ridge ($+0.099$ [0.039, 0.159]), so the value is diagnostic and budget-controlling rather than a SOTA visual policy claim.
+
+\input{paper/frozen_visual_inference_table.tex}
 
 \begin{figure}[t]
 \centering
@@ -215,7 +235,7 @@ file, and this manuscript's macro file. The layer is intentionally light: it
 does not rerun optional RoboCasa or LIBERO environments, and it does not
 promote unavailable hardware or VLA-scale claims.
 
-The current v4 ledger reports \VFourWAMClaimsVerified{} verified claim checks,
+The current repository-wide ledger reports \VFourWAMClaimsVerified{} verified claim checks,
 \VFourWAMClaimsPartial{} partial claim checks, and
 \VFourWAMClaimsUnsupported{} unsupported claim checks under the repository's
 claim-status script. The artifact manifest covers
@@ -327,6 +347,179 @@ artifact-manifest checks are part of the submission contract.}
 \label{fig:v4-coverage}
 \end{figure}
 
+\section{V5 Prospective and CPU-Reproducible Audit}
+\label{sec:v5-audit}
+
+The V5 layer asks whether the same claim discipline survives a stronger
+``could this have fooled us?'' audit. It does not add a new robotics benchmark
+or a larger training run. Instead, it freezes small CPU-reproducible artifacts
+that stress the paper's most reviewer-sensitive points: exact tied-pool
+accounting, insufficiency of common ranking summaries for high-$N$ selection,
+prospective decisions before outcomes are revealed, equal-compute comparisons,
+and a tiny closed-loop harness. The artifacts are generated by
+\path{experiments/v5_core_evidence.py},
+\path{experiments/v5_prospective_evidence.py}, and
+\path{experiments/v5_frozen_evidence.py}.
+
+\input{paper/v5_summary_table.tex}
+
+The core layer hardens the mathematical claim. Across
+\VFiveWAMExactHardeningCases{} edge cases, the exact finite-pool identity has
+maximum error \VFiveWAMExactMaxError{}. A matched-summary counterexample keeps
+the usual AUC and correlation summaries fixed while producing high-$N$ selected
+utility gap \VFiveWAMAucHighNGap{}, so the paper does not promote AUC or
+correlation as high-candidate guarantees. An exhaustive
+\VFiveWAMCensusRows{}-row census of small finite pools finds
+\VFiveWAMCensusHelps{} helpful, \VFiveWAMCensusHarms{} harmful, and
+\VFiveWAMCensusNonmonotonic{} nonmonotonic regimes. The census is intentionally
+small enough to enumerate on CPU, but complete for the stated finite-pool class.
+ScoreTailBench packages \VFiveWAMScoreTailBenchPools{} tiny pools and frozen
+baselines so the failure cases can be reproduced without simulator
+installation.
+
+\begin{figure}[t]
+\centering
+\begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{paper_figures/v5/v5_census_regimes.pdf}
+\end{minipage}
+\hfill
+\begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{paper_figures/v5/v5_label_budget.pdf}
+\end{minipage}
+\caption{\textbf{V5 finite-pool and label-budget checks.} Left: an exhaustive
+small-pool census shows that increasing candidate count can help, harm, or
+behave nonmonotonically depending on the score tail. Right: prospective audit
+decisions are tracked as label budgets increase.}
+\label{fig:v5-census-labels}
+\end{figure}
+
+The prospective layer separates prediction from outcome. It writes blind audit
+decisions for \VFiveWAMProspectivePools{} heldout synthetic rollout pools,
+hashes those predictions before the outcome file is generated
+(\texttt{\VFiveWAMPredictionHash}), and then scores the frozen decisions. The
+heldout decision accuracy is \VFiveWAMProspectiveAccuracy{}, with false-allow
+rate \VFiveWAMProspectiveFalseAllow{} and false-block rate
+\VFiveWAMProspectiveFalseBlock{}. This is evidence that the audit rule can make
+pre-registered decisions in the controlled finite-pool harness; it is not a
+claim that the method has been validated on real robots.
+
+\input{paper/v5_compute_frontier_table.tex}
+
+The equal-compute frontier makes the hardware constraint explicit. At budget
+64, blind high-$N$ selection obtains utility \VFiveWAMBudgetSixtyFourBlind{},
+calibrated LCB selection obtains \VFiveWAMBudgetSixtyFourCalibrated{}, and an
+audit policy using fewer rollouts obtains \VFiveWAMBudgetSixtyFourAudit{} in
+the deterministic CPU harness. The comparison charges both rollout evaluations
+and label cost; oracle rows are kept out of the deployable table. In the toy
+closed-loop harness, the audit policy obtains mean return
+\VFiveWAMClosedLoopAuditReturn{} versus \VFiveWAMClosedLoopRawReturn{} for raw
+high-$N$ selection and \VFiveWAMClosedLoopNOneReturn{} for $N=1$, with
+bootstrap lower confidence bound \VFiveWAMAuditMinusRawCILo{} for audit minus
+raw high-$N$. The oracle upper bound
+\VFiveWAMClosedLoopOracleReturn{} is reported only as a ceiling.
+
+\begin{figure}[t]
+\centering
+\begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{paper_figures/v5/v5_equal_compute_frontier.pdf}
+\end{minipage}
+\hfill
+\begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{paper_figures/v5/v5_closed_loop_returns.pdf}
+\end{minipage}
+\caption{\textbf{V5 CPU frontier and toy execution check.} Left: equal-compute
+comparisons distinguish blindly spending more rollouts from spending CPU on
+audit information. Right: the toy closed-loop harness checks whether audit
+decisions improve executed returns in a controlled setting.}
+\label{fig:v5-frontier-closed-loop}
+\end{figure}
+
+\section{V6 Real-Benchmark Transfer Audit}
+\label{sec:v6-audit}
+
+V6 answers the main remaining reviewer question under the same hardware scope:
+does the audit still behave sensibly on existing real benchmark rollout-pool
+artifacts, rather than only on synthetic finite pools? We do not rerun
+simulators or train larger models. Instead, \path{experiments/v6_real_benchmark_evidence.py}
+reads committed selected-utility curve CSVs from Fetch, visual Fetch,
+Gymnasium/Reacher, ManiSkill, Meta-World, RoboSuite, LIBERO, and RoboCasa
+families. It keeps only compact per-pool summaries, freezes a
+leave-one-family-out split manifest, writes prediction decisions before outcome
+merging, and hashes the split and prediction files
+(\texttt{\VSixWAMSplitHash}, \texttt{\VSixWAMPredictionHash}).
+
+\input{paper/v6_summary_table.tex}
+
+Across \VSixWAMFamilies{} heldout benchmark families and \VSixWAMPools{}
+existing simulated rollout-pool curves, the transferred audit decides
+\VSixWAMDecidedRate{} of pools and requests labels for
+\VSixWAMRequestLabelRate{}. On decided pools, accuracy is
+\VSixWAMDecisionAccuracy{}, with false-allow rate \VSixWAMFalseAllow{} and
+false-block rate \VSixWAMFalseBlock{}. The result is not a new robotics
+leaderboard number: the utility scale is normalized within source artifacts
+where needed, and the evidence remains curve-level benchmark evidence. The
+point is that the same score-tail decision rule can be frozen, transferred, and
+made conservative enough to abstain on weak folds instead of silently
+overclaiming.
+
+\begin{figure}[t]
+\centering
+\begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{paper_figures/v6/v6_cross_family_accuracy.pdf}
+\end{minipage}
+\hfill
+\begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{paper_figures/v6/v6_cross_family_decided_rate.pdf}
+\end{minipage}
+\caption{\textbf{V6 leave-one-family-out transfer.} Left: decision accuracy on
+decided pools by heldout benchmark family. Right: the audit abstains more on
+families where transferred calibration is weaker, which is a scoped outcome
+rather than a hidden failure.}
+\label{fig:v6-transfer}
+\end{figure}
+
+\input{paper/v6_ablation_table.tex}
+
+The V6 ablation table separates utility from compute. Raw high-$N$ obtains
+mean utility \VSixWAMRawHighNUtility{} using \VSixWAMRawRolloutUnits{} rollout
+units on average. The audit-with-abstention policy obtains
+\VSixWAMAuditUtility{} while using \VSixWAMAuditRolloutUnits{} rollout units,
+saving \VSixWAMRolloutSavings{} rollout units on average and improving utility
+per rollout from \VSixWAMRawUtilityPerRollout{} to
+\VSixWAMAuditUtilityPerRollout{}. This is not a claim that audit dominates raw
+high-$N$ on every utility metric; it is evidence that conservative abstention
+can buy compute discipline with near-matched utility under frozen transfer.
+Negative controls are kept visible: the worst non-oracle tail control is
+\VSixWAMNegativeControlGap{} below the raw target on average. A simple
+finite-sample bound also reports that an $\epsilon=0.05,\delta=0.05$ paired
+decision can require \VSixWAMFiniteLabelsEpsFiveDeltaFive{} bounded-difference
+labels, explaining why request-label decisions are part of the method rather
+than a cosmetic fallback.
+
+\begin{figure}[t]
+\centering
+\begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{paper_figures/v6/v6_compute_ablation.pdf}
+\end{minipage}
+\hfill
+\begin{minipage}{0.49\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{paper_figures/v6/v6_robustness_grid.pdf}
+\end{minipage}
+\caption{\textbf{V6 compute and robustness checks.} Left: compute-normalized
+ablation reports utility per rollout unit, not only raw utility. Right:
+robustness sweeps vary the confidence radius and threshold on the same frozen
+curve artifacts.}
+\label{fig:v6-compute-robustness}
+\end{figure}
+
 \section{Adaptive Rollout Budgeting}
 \label{sec:adaptive}
 
@@ -361,7 +554,7 @@ Random shooting, CEM, and information-theoretic MPC optimize over sampled action
 Recent robot policies and VLA models scale data, architectures, and multimodal conditioning \citep{brohan2022rt1,brohan2023rt2,octo2024}. Diffusion Policy treats action generation as iterative denoising \citep{chi2023diffusionpolicy}. These systems make test-time candidate generation and scoring increasingly natural. Our result explains when such sampling helps after a generator and scorer have been fixed.
 
 \paragraph{Best-of-$N$ and verifier reranking.}
-Verifier and alignment work often samples many candidates and selects the highest-ranked answer under a verifier or reward model \citep{cobbe2021verifiers,beirami2024bestofn}. We study an analogous fixed sample-and-rerank primitive for rollout planning, but the selected quantity of interest is real rollout utility under score-based selection.
+Verifier and alignment work often samples many candidates and selects the highest-ranked answer under a verifier or reward model \citep{cobbe2021verifiers,beirami2024bestofn}. Recent training-free inference-time sampling results further show that base language models can sometimes approach RL post-training gains by changing only the sampling procedure \citep{karan2026reasoning}. We study an analogous fixed sample-and-rerank primitive for rollout planning, but the selected quantity of interest is real rollout utility under score-based selection. The robotics/WAM comparator landscape is more fragmented than language-model post-training: candidate futures may come from MPC, diffusion/action generators, VLAs, simulators, or learned world models, and scores may be rewards, learned verifiers, likelihoods, or heuristics. We therefore use random, low-energy, frozen visual, shuffled-control, and oracle score tails rather than claiming a single standardized robotics analogue of an RL post-training baseline.
 
 \paragraph{Order statistics, AUC, and ranking.}
 The proof uses order-statistic reasoning \citep{david2003orderstatistics}. The $N=2$ binary special case connects to the ranking and Wilcoxon interpretation of ROC AUC \citep{hanley1982roc}. The ICLR-relevant contribution is not that maxima have known rank distributions, but that this order-statistic view cleanly separates WAM training from score-tail deployment auditing and identifies high-score real-utility tail alignment as the object controlling world-action planning value.
@@ -375,7 +568,7 @@ Model-based reinforcement learning already warns that learned model rollouts can
 \section{Limitations and Conclusion}
 \label{sec:limitations}
 
-The audit is conditional on a fixed rollout generator, scorer, and state-conditional distribution. It does not prescribe how to train a WAM or guarantee that a learned scorer generalizes out of distribution. The finite identity assumes sampling with replacement from a known empirical pool and uniform maximum-score tie-breaking. The continuous identity is no-tie and should not be used as a finite tied-pool substitute. Receding-horizon control is explained conditionally at visited planning states, not by a global closed-form law. The empirical evidence is simulator and benchmark rollout-pool evidence; it is not real-world robot validation, not full RoboCasa-wide validation, and not modern VLA policy performance. Adaptive allocation is supported as a diagnostic inference-budgeting rule in tested settings, not as a global controller guarantee. Within those boundaries, the main message is simple: world-action planners should audit the real utility in their high score tails before spending more imagination there.
+The audit is conditional on a fixed rollout generator, scorer, and state-conditional distribution. It does not prescribe how to train a WAM or guarantee that a learned scorer generalizes out of distribution. The finite identity assumes sampling with replacement from a known empirical pool and uniform maximum-score tie-breaking. The continuous identity is no-tie and should not be used as a finite tied-pool substitute. Receding-horizon control is explained conditionally at visited planning states, not by a global closed-form law. The empirical evidence is simulator and benchmark rollout-pool evidence; it is not real-world robot validation, not full RoboCasa-wide validation, and not modern VLA policy performance. V6 uses existing curve artifacts and therefore strengthens transfer, calibration, and leakage discipline, but it does not replace candidate-level simulator reruns or hardware execution. Adaptive allocation is supported as a diagnostic inference-budgeting rule in tested settings, not as a global controller guarantee. Within those boundaries, the main message is simple: world-action planners should audit the real utility in their high score tails before spending more imagination there.
 
 \bibliographystyle{iclr2026_conference}
 \bibliography{iclr_submission}

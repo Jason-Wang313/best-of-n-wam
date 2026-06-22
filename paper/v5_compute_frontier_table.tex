@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{llrr}
+\toprule
+Budget & Strategy & Utility & CPU units \\
+\midrule
+16 & audit fewer rollouts & 0.508 & 18.1 \\
+16 & blind more rollouts & 0.492 & 28.0 \\
+16 & calibrated LCB & 0.599 & 28.0 \\
+64 & audit fewer rollouts & 0.579 & 81.0 \\
+64 & blind more rollouts & 0.496 & 112.0 \\
+64 & calibrated LCB & 0.675 & 112.0 \\
+\bottomrule
+\end{tabular}
+\caption{Equal-compute V5 frontier. CPU units count rollout evaluations plus label cost in the deterministic V5 audit harness; oracle rows are omitted from this deployable comparison.}
+\label{tab:v5-compute-frontier}
+\end{table}

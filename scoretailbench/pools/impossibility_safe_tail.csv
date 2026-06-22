@@ -1,0 +1,5 @@
+pool_id,family,split,candidate_id,score,imagined_utility,uncertainty,real_utility
+impossibility_safe_tail,impossibility_boundary,v5_core,0,0.1,0.2,0.1,0.1
+impossibility_safe_tail,impossibility_boundary,v5_core,1,0.75,0.7,0.1,0.45
+impossibility_safe_tail,impossibility_boundary,v5_core,2,0.95,0.9,0.1,0.85
+impossibility_safe_tail,impossibility_boundary,v5_core,3,1.0,0.95,0.1,0.95

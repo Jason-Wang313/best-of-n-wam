@@ -1,0 +1,7 @@
+{
+  "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v5\\impossibility_boundary.csv",
+  "gate_passed": true,
+  "observable_features_identical": true,
+  "score_only_selected_candidate_equal": true,
+  "selected_real_utility_gap": 0.8999999999999999
+}

@@ -1,0 +1,75 @@
+{
+  "experiment": "libero_main_paper_summary",
+  "source_summary": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\summary.json",
+  "source_seed_metrics": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\benchmark_libero_full_suite_serial_seed_metrics.csv",
+  "complete": true,
+  "verified": true,
+  "claim_boundaries": {
+    "evidence_type": "CPU serial rollout-pool audit, not real-robot or VLA-scale SOTA evidence",
+    "full_policy_success": false,
+    "modern_vla_scale_sota": false,
+    "real_robot": false
+  },
+  "suite_rows": [
+    {
+      "suite": "__all__",
+      "label": "All configured",
+      "promoted_scorer": "learned_wam",
+      "tasks": 40,
+      "rollout_pools": 80,
+      "mean_learned_wam_minus_random_N8": 0.370832752749004,
+      "ci_lower_learned_wam_minus_random_N8": 0.3184339856519274,
+      "ci_upper_learned_wam_minus_random_N8": 0.42323151984608065,
+      "worst_task": "libero_10/0",
+      "worst_task_mean_learned_wam_minus_random_N8": -0.018678427524293273
+    },
+    {
+      "suite": "libero_spatial",
+      "label": "Spatial",
+      "promoted_scorer": "learned_wam",
+      "tasks": 10,
+      "rollout_pools": 20,
+      "mean_learned_wam_minus_random_N8": 0.31682606260440666,
+      "ci_lower_learned_wam_minus_random_N8": 0.2025155053574586,
+      "ci_upper_learned_wam_minus_random_N8": 0.4311366198513547,
+      "worst_task": "libero_spatial/4",
+      "worst_task_mean_learned_wam_minus_random_N8": 0.05959588194169335
+    },
+    {
+      "suite": "libero_object",
+      "label": "Object",
+      "promoted_scorer": "learned_wam",
+      "tasks": 10,
+      "rollout_pools": 20,
+      "mean_learned_wam_minus_random_N8": 0.33988815759851365,
+      "ci_lower_learned_wam_minus_random_N8": 0.24896536929793533,
+      "ci_upper_learned_wam_minus_random_N8": 0.43081094589909197,
+      "worst_task": "libero_object/3",
+      "worst_task_mean_learned_wam_minus_random_N8": 0.1897964324089591
+    },
+    {
+      "suite": "libero_goal",
+      "label": "Goal",
+      "promoted_scorer": "learned_wam",
+      "tasks": 10,
+      "rollout_pools": 20,
+      "mean_learned_wam_minus_random_N8": 0.4839814956940828,
+      "ci_lower_learned_wam_minus_random_N8": 0.3970755833016084,
+      "ci_upper_learned_wam_minus_random_N8": 0.5708874080865571,
+      "worst_task": "libero_goal/9",
+      "worst_task_mean_learned_wam_minus_random_N8": 0.1987293813208013
+    },
+    {
+      "suite": "libero_10",
+      "label": "LIBERO-10",
+      "promoted_scorer": "learned_wam",
+      "tasks": 10,
+      "rollout_pools": 20,
+      "mean_learned_wam_minus_random_N8": 0.3426352950990134,
+      "ci_lower_learned_wam_minus_random_N8": 0.22754827940694344,
+      "ci_upper_learned_wam_minus_random_N8": 0.4577223107910834,
+      "worst_task": "libero_10/0",
+      "worst_task_mean_learned_wam_minus_random_N8": -0.018678427524293273
+    }
+  ]
+}

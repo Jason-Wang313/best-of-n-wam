@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{p{0.30\linewidth}p{0.26\linewidth}p{0.34\linewidth}}
+\toprule
+V6 check & Result & Claim discipline \\
+\midrule
+Real benchmark transfer & 10 families; 543 pools & Existing simulated rollout-pool curves only. \\
+Frozen decisions & accuracy 99.0\%; decided 88.0\% & Abstention/request-label is counted, not hidden. \\
+Safety errors & false allow 0.2\%; false block 0.0\% & Conservative audit; no real-robot claim. \\
+Leakage protocol & split fa5eedc34f; predictions e2dcc83859 & Prediction hash is written before outcomes. \\
+Compute accounting & 3.3 fewer rollout units vs raw high-$N$ & Reports utility per rollout and label cost. \\
+Finite-sample bound & 2952 labels for $\epsilon=0.05,\delta=0.05$ & Explains why abstention is necessary. \\
+\bottomrule
+\end{tabular}
+\caption{V6 real-benchmark audit summary. V6 hardens the evidence on existing simulated benchmark rollout-pool curves while preserving the no-real-robot, no-GPU-scale, and no-broad-SOTA claim boundaries.}
+\label{tab:v6-summary}
+\end{table}

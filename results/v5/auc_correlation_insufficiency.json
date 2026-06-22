@@ -1,0 +1,16 @@
+{
+  "artifact": "C:\\Users\\wangz\\best-of-n-wam\\results\\v5\\auc_correlation_insufficiency.csv",
+  "gate_high_n_gap_threshold": 0.5,
+  "gate_passed": true,
+  "high_n_gap": 0.9998056809432765,
+  "matched_metric_abs_differences": {
+    "auc": 0.0,
+    "mean_score": 0.0,
+    "mean_utility": 0.0,
+    "n2_auc_identity": 0.0,
+    "n2_finite": 0.0,
+    "p": 0.0,
+    "score_utility_corr": 0.0
+  },
+  "n2_gap": 0.0
+}

@@ -15,6 +15,12 @@ iclr_submission.pdf
 
 logs/
 results/smoke/
+results/v5_smoke/
+results/v5_frozen_evidence_smoke/
+results/v6_smoke/
+results/v6_frozen_evidence_smoke/
+results/libero_full_suite_serial_smoke/
+scoretailbench_v5_smoke/
 .venv/
 venv/
 build/

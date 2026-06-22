@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{0.26\linewidth}p{0.24\linewidth}p{0.32\linewidth}}
+\toprule
+LIBERO serial check & Result & Claim boundary \\
+\midrule
+Configured suite coverage & 40 / 40 tasks; complete & Full-suite means configured LIBERO task coverage, not hardware. \\
+Execution contract & one task at a time; jobs=1; low priority & Low-RAM CPU scheduling, not GPU-scale training. \\
+Checkpointing & manifest + immutable task chunks & Resume after sleep/reboot without discarding completed tasks. \\
+Rollout-pool audit & 80 pools; N up to 8 & Dense rollout-pool utility, not solved-policy success. \\
+Learned-vs-random CI & lower 0.318; status verified & Promoted only if the frozen CI and exact-law gates pass. \\
+Exact-law check & MAE 0.000 & Finite tied-pool accounting, not real-robot validation. \\
+\bottomrule
+\end{tabular}
+\caption{Low-RAM serial LIBERO full-suite rollout-pool audit. The table separates full configured-suite CPU breadth from nonclaims about real robots, modern VLA-scale SOTA, or full policy success.}
+\label{tab:libero-full-suite-serial}
+\end{table}

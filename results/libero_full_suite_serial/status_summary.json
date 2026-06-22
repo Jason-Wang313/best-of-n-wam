@@ -1,0 +1,36 @@
+{
+  "attempted": true,
+  "available": true,
+  "claim_boundaries": {
+    "full_policy_success": false,
+    "modern_vla_scale_sota": false,
+    "real_robot": false
+  },
+  "complete": true,
+  "completed_task_count": 40,
+  "experiment": "benchmark_libero_full_suite_serial",
+  "failed_task_count": 0,
+  "low_ram_contract": {
+    "append_only_task_chunks": true,
+    "checkpoint_resume": true,
+    "one_task_at_a_time": true,
+    "parallel_jobs": 1,
+    "single_thread_env_defaults": true,
+    "stores_candidate_tensors_in_manifest": false
+  },
+  "manifest_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\libero_full_suite_serial\\progress_manifest.json",
+  "next_pending_task": null,
+  "pending_task_count": 0,
+  "preflight": {
+    "disk_free_gb": 7.271514892578125,
+    "issues": [],
+    "memory_available_gb": 1.890869140625,
+    "min_disk_free_gb": 2.0,
+    "min_memory_available_gb": 1.5,
+    "ok": true
+  },
+  "running_task_count": 0,
+  "status_only": true,
+  "task_count": 40,
+  "verified": true
+}
