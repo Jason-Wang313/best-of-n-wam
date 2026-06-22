@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import pandas as pd
 import numpy as np
+import pytest
 from pathlib import Path
 from argparse import Namespace
 
@@ -57,6 +58,11 @@ def test_mock_backend_is_deterministic_and_normalized() -> None:
     assert (emb1 == emb2).all()
 
 
+def test_require_cuda_rejects_mock_embeddings() -> None:
+    with pytest.raises(RuntimeError, match="require-cuda"):
+        probe.EmbeddingBackend(model_name="mock", device="cpu", mock=True, require_cuda=True)
+
+
 def test_precomputed_input_path_writes_summary(tmp_path: Path) -> None:
     input_dir = tmp_path / "input"
     out_dir = tmp_path / "out"
@@ -101,5 +107,7 @@ def test_precomputed_input_path_writes_summary(tmp_path: Path) -> None:
 
     assert summary["available"] is True
     assert summary["candidate_rows"] == 4
+    assert summary["gpu_verified"] is False
+    assert summary["runtime"]["selected_device"] == "mock"
     assert (out_dir / "summary.json").exists()
     assert (out_dir / "frozen_visual_inference_curves.csv").exists()
