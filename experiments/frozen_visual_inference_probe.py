@@ -104,6 +104,9 @@ class EmbeddingBackend:
                 f"--require-cuda requested but selected device is {self.device}; "
                 f"cuda_available={torch.cuda.is_available()}"
             )
+        if self.device == "cuda":
+            self.update_selected_device_metadata()
+            self._cuda_execution_sanity_check()
         self.processor = CLIPProcessor.from_pretrained(self.model_name)
         self.model = CLIPModel.from_pretrained(self.model_name)
         try:
@@ -114,6 +117,25 @@ class EmbeddingBackend:
         self.model.eval()
         self.embedding_dim = int(self.model.config.projection_dim)
         self.update_selected_device_metadata()
+
+    def _cuda_execution_sanity_check(self) -> None:
+        import torch
+
+        try:
+            probe = torch.ones((1,), device="cuda")
+            value = (probe + 1.0).detach().cpu().item()
+            if float(value) != 2.0:
+                raise RuntimeError(f"unexpected CUDA sanity value {value!r}")
+            torch.cuda.synchronize()
+        except Exception as exc:
+            if self.requested_device == "auto" and self.allow_cpu_fallback and not self.require_cuda:
+                print(f"warning: CUDA sanity check failed ({exc}); falling back to CPU", file=sys.stderr, flush=True)
+                self.device = "cpu"
+                self.runtime_metadata["fallback_to_cpu"] = True
+                self.runtime_metadata["fallback_reason"] = f"cuda sanity check failed: {exc}"
+                self.update_selected_device_metadata()
+                return
+            raise RuntimeError(f"CUDA sanity check failed before model load: {exc}") from exc
 
     def _fallback_to_cpu(self, exc: RuntimeError) -> bool:
         if self.requested_device == "auto" and self.device == "cuda" and self.allow_cpu_fallback and not self.require_cuda:
