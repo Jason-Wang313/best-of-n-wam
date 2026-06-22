@@ -75,6 +75,7 @@ class EmbeddingBackend:
     def __post_init__(self) -> None:
         self.model = None
         self.processor = None
+        self.requested_device = self.device
         if self.mock:
             self.embedding_dim = 256
             return
@@ -84,9 +85,22 @@ class EmbeddingBackend:
         if self.device == "auto":
             self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.processor = CLIPProcessor.from_pretrained(self.model_name)
-        self.model = CLIPModel.from_pretrained(self.model_name).to(self.device)
+        self.model = CLIPModel.from_pretrained(self.model_name)
+        try:
+            self.model = self.model.to(self.device)
+        except RuntimeError as exc:
+            if not self._fallback_to_cpu(exc):
+                raise
         self.model.eval()
         self.embedding_dim = int(self.model.config.projection_dim)
+
+    def _fallback_to_cpu(self, exc: RuntimeError) -> bool:
+        if self.requested_device == "auto" and self.device == "cuda" and self.model is not None:
+            print(f"warning: CUDA backend failed ({exc}); falling back to CPU", file=sys.stderr, flush=True)
+            self.device = "cpu"
+            self.model = self.model.to(self.device)
+            return True
+        return False
 
     def image_embeddings(self, frames: list[np.ndarray], batch_size: int) -> np.ndarray:
         if self.mock:
@@ -95,15 +109,20 @@ class EmbeddingBackend:
         import torch
 
         assert self.model is not None and self.processor is not None
-        outs = []
-        with torch.no_grad():
-            for start in range(0, len(frames), int(batch_size)):
-                batch = frames[start : start + int(batch_size)]
-                inputs = self.processor(images=batch, return_tensors="pt")
-                inputs = {key: value.to(self.device) for key, value in inputs.items()}
-                feats = self.model.get_image_features(**inputs)
-                feats = torch.nn.functional.normalize(feats, dim=1)
-                outs.append(feats.detach().cpu().numpy().astype(np.float32))
+        try:
+            outs = []
+            with torch.no_grad():
+                for start in range(0, len(frames), int(batch_size)):
+                    batch = frames[start : start + int(batch_size)]
+                    inputs = self.processor(images=batch, return_tensors="pt")
+                    inputs = {key: value.to(self.device) for key, value in inputs.items()}
+                    feats = self.model.get_image_features(**inputs)
+                    feats = torch.nn.functional.normalize(feats, dim=1)
+                    outs.append(feats.detach().cpu().numpy().astype(np.float32))
+        except RuntimeError as exc:
+            if self._fallback_to_cpu(exc):
+                return self.image_embeddings(frames, batch_size)
+            raise
         return np.vstack(outs)
 
     def text_embeddings(self, texts: list[str]) -> np.ndarray:
@@ -113,12 +132,17 @@ class EmbeddingBackend:
         import torch
 
         assert self.model is not None and self.processor is not None
-        with torch.no_grad():
-            inputs = self.processor(text=texts, return_tensors="pt", padding=True, truncation=True)
-            inputs = {key: value.to(self.device) for key, value in inputs.items()}
-            feats = self.model.get_text_features(**inputs)
-            feats = torch.nn.functional.normalize(feats, dim=1)
-            return feats.detach().cpu().numpy().astype(np.float32)
+        try:
+            with torch.no_grad():
+                inputs = self.processor(text=texts, return_tensors="pt", padding=True, truncation=True)
+                inputs = {key: value.to(self.device) for key, value in inputs.items()}
+                feats = self.model.get_text_features(**inputs)
+                feats = torch.nn.functional.normalize(feats, dim=1)
+                return feats.detach().cpu().numpy().astype(np.float32)
+        except RuntimeError as exc:
+            if self._fallback_to_cpu(exc):
+                return self.text_embeddings(texts)
+            raise
 
 
 def render_state(adapter: GymRoboticsAdapter, state: np.ndarray) -> np.ndarray:
