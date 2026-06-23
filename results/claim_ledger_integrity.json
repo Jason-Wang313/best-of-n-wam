@@ -18,7 +18,7 @@
     {
       "claim_id": 22,
       "raw_path": "results\\models\\learned_wam_lite_toy.npz",
-      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\models\\learned_wam_lite_toy.npz",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam_rerun_core\\results\\models\\learned_wam_lite_toy.npz",
       "exists": true
     },
     {
@@ -30,25 +30,25 @@
     {
       "claim_id": 117,
       "raw_path": "results/claim_generation_consistency.json",
-      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\claim_generation_consistency.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam_rerun_core\\results\\claim_generation_consistency.json",
       "exists": true
     },
     {
       "claim_id": 118,
       "raw_path": "results/report_generation_consistency.json",
-      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\report_generation_consistency.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam_rerun_core\\results\\report_generation_consistency.json",
       "exists": true
     },
     {
       "claim_id": 126,
       "raw_path": "results/frontier_integrity.json",
-      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\frontier_integrity.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam_rerun_core\\results\\frontier_integrity.json",
       "exists": true
     },
     {
       "claim_id": 127,
       "raw_path": "results/ideal_claim_boundary.json",
-      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam\\results\\ideal_claim_boundary.json",
+      "resolved_path": "C:\\Users\\wangz\\best-of-n-wam_rerun_core\\results\\ideal_claim_boundary.json",
       "exists": true
     }
   ],

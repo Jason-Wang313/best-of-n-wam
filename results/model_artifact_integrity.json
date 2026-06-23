@@ -1,7 +1,7 @@
 {
   "experiment": "model_artifact_integrity",
   "verified": true,
-  "models_dir": "C:\\Users\\wangz\\best-of-n-wam\\results\\models",
+  "models_dir": "C:\\Users\\wangz\\best-of-n-wam_rerun_core\\results\\models",
   "n_models": 53,
   "counts_by_suffix": {
     ".npz": 40,

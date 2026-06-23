@@ -67,3 +67,34 @@ def test_tracked_artifact_provenance_flags_untracked_sources(tmp_path: Path):
     assert "artifact_references_tracked" in failures
     assert payload["n_untracked_claim_sources"] == 1
     assert payload["n_untracked_artifact_references"] == 1
+
+
+def test_tracked_artifact_provenance_reanchors_relocated_worktree_paths(tmp_path: Path):
+    active = tmp_path / "active"
+    write_fixture(active)
+    stale_absolute = tmp_path / "other_checkout" / "results" / "tables" / "table.csv"
+    write_json(
+        active / "results" / "artifact_integrity.json",
+        {
+            "references": [
+                {
+                    "source_json": "summary.json",
+                    "json_path": "table_path",
+                    "raw_path": str(stale_absolute),
+                    "resolved_path": str(stale_absolute),
+                    "status": "ok",
+                }
+            ]
+        },
+    )
+    tracked = {
+        "results/source.json",
+        "reports/source_report.md",
+        "results/tables/table.csv",
+    }
+
+    payload = audit_tracked_artifact_provenance(active, active / "results", tracked_paths=tracked)
+
+    assert payload["verified"] is True
+    assert payload["n_artifact_references"] == 1
+    assert payload["n_untracked_artifact_references"] == 0

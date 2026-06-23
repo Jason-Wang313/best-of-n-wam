@@ -1,7 +1,7 @@
 {
   "experiment": "raw_result_recompute",
   "verified": true,
-  "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
+  "results_dir": "C:\\Users\\wangz\\best-of-n-wam_rerun_core\\results",
   "n_checks": 12,
   "n_issues": 0,
   "checks": [

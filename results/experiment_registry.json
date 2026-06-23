@@ -16,8 +16,8 @@
   "n_failed_records": 0,
   "failed_records": [],
   "n_wrapper_links": 69,
-  "n_table_artifacts": 309,
-  "n_table_rows": 260972,
+  "n_table_artifacts": 313,
+  "n_table_rows": 260980,
   "n_figure_artifacts": 40,
   "n_checks": 10,
   "n_issues": 0,
@@ -45,12 +45,12 @@
     {
       "name": "experiment_registry_table_coverage",
       "ok": true,
-      "detail": "tables=309"
+      "detail": "tables=313"
     },
     {
       "name": "experiment_registry_table_row_coverage",
       "ok": true,
-      "detail": "rows=260972"
+      "detail": "rows=260980"
     },
     {
       "name": "experiment_registry_figure_coverage",
@@ -1873,12 +1873,28 @@
           "rows": 2
         },
         {
+          "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_long_unattempted_probe_chunks.csv",
+          "rows": 2
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_longhorizon_gap_probe_chunks.csv",
+          "rows": 2
+        },
+        {
           "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_quick_close_chunks.csv",
           "rows": 1
         },
         {
           "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_quick_gap_chunks.csv",
           "rows": 1
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_short_unattempted_probe_b_chunks.csv",
+          "rows": 2
+        },
+        {
+          "path": "results/tables/benchmark_robocasa_residual_frontier_sweep_short_unattempted_probe_chunks.csv",
+          "rows": 2
         },
         {
           "path": "results/tables/benchmark_robocasa_residual_triage.csv",

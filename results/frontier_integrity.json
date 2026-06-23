@@ -64,7 +64,7 @@
         {
           "path": "results/benchmark_maniskill_dependency_probe.json",
           "exists": true,
-          "bytes": 3535
+          "bytes": 7680
         },
         {
           "path": "reports/maniskill_visual_blocker_report.md",
@@ -74,7 +74,7 @@
         {
           "path": "reports/maniskill_dependency_blocker_report.md",
           "exists": true,
-          "bytes": 3327
+          "bytes": 6325
         }
       ]
     }
@@ -773,7 +773,7 @@
       "artifact": {
         "path": "results/benchmark_maniskill_dependency_probe.json",
         "exists": true,
-        "bytes": 3535
+        "bytes": 7680
       }
     },
     {
@@ -789,7 +789,7 @@
       "artifact": {
         "path": "reports/maniskill_dependency_blocker_report.md",
         "exists": true,
-        "bytes": 3327
+        "bytes": 6325
       }
     }
   ],

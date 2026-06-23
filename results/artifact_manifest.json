@@ -1,9 +1,9 @@
 {
   "experiment": "artifact_manifest",
   "schema_version": 1,
-  "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
+  "results_dir": "C:\\Users\\wangz\\best-of-n-wam_rerun_core\\results",
   "n_files": 462,
-  "total_bytes": 77244114,
+  "total_bytes": 77245279,
   "counts_by_suffix": {
     ".json": 149,
     ".npz": 45,
@@ -80,14 +80,14 @@
     {
       "path": "results/benchmark_libero_tiny_neural_vla_attempt.json",
       "suffix": ".json",
-      "bytes": 1165,
-      "sha256": "f43b49eb3bf609db8f60aa69a08701de21033a66b789714fe362bcbde93ebaa4"
+      "bytes": 1204,
+      "sha256": "21dba3b559bfb4c3d6896ee20a4339f93584385eb9ebb39799cc50fd1b793aa5"
     },
     {
       "path": "results/benchmark_libero_tiny_neural_vla_policy.json",
       "suffix": ".json",
-      "bytes": 2398,
-      "sha256": "d63d77f326b6c0562fad3cfa99a911f7e126488c455e9e1b9fb9bd261c23bc39"
+      "bytes": 2417,
+      "sha256": "1873d93a142d73d4046eee508cf01b7e6a882c89337f74d4ab83a87a01c4006e"
     },
     {
       "path": "results/benchmark_libero_visual_language_bc_policy.json",
@@ -818,8 +818,8 @@
     {
       "path": "results/external_benchmark_runtime_probe.json",
       "suffix": ".json",
-      "bytes": 12834,
-      "sha256": "8b1e1567d9839f80cbd948f5d9ac6529bea6715fa73eacf312406531784e77ae"
+      "bytes": 12805,
+      "sha256": "ea3f65c3556375575b6ffd81996cef92f35ad9e73dac758b0410e02efee8b058"
     },
     {
       "path": "results/figures/benchmark_gym_manip_curves.png",
@@ -1040,8 +1040,8 @@
     {
       "path": "results/ideal_completion_audit.json",
       "suffix": ".json",
-      "bytes": 11315,
-      "sha256": "f02ef2f51661aaf26361d53a26379626096e8ec27b821e0e7126fce09cb412a0"
+      "bytes": 12343,
+      "sha256": "8d3d5df42cba7891f547668187637ebca661602243e18e5d9adc981fb913ec82"
     },
     {
       "path": "results/ideal_frontier_blocker_audit.json",
@@ -1340,14 +1340,14 @@
     {
       "path": "results/modern_vla_libero_policy_eval.json",
       "suffix": ".json",
-      "bytes": 8805,
-      "sha256": "6ce4b20e502526bad0d4f0ca4dce2c67858aff6c690e4a8b23a9f8df187f2ecb"
+      "bytes": 8858,
+      "sha256": "528f50c27ccbca8defd6b303815f8169df94a27d990ec011049efc3981ea103f"
     },
     {
       "path": "results/modern_vla_libero_policy_eval_last_attempt.json",
       "suffix": ".json",
-      "bytes": 3770,
-      "sha256": "c10b999f7c05efa43433061db6a43e02fab2b821b9f611fa1e6b43117f9325c8"
+      "bytes": 3825,
+      "sha256": "9366295d514a7dacc8b7718a343ee44f40d9e137f0ea238b673cfff66df2d517"
     },
     {
       "path": "results/modern_vla_pretrained_load_probe.json",
@@ -2801,7 +2801,7 @@
     {
       "name": "manifest_total_bytes_matches_scan",
       "ok": true,
-      "detail": "payload=77244114, scan=77244114"
+      "detail": "payload=77245279, scan=77245279"
     },
     {
       "name": "manifest_counts_by_suffix_match_scan",
@@ -2861,7 +2861,7 @@
     {
       "name": "manifest_total_bytes_large_enough",
       "ok": true,
-      "detail": "bytes=77244114"
+      "detail": "bytes=77245279"
     }
   ],
   "issues": [],

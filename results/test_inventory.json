@@ -1,9 +1,9 @@
 {
   "experiment": "test_inventory",
   "verified": true,
-  "n_tests": 195,
-  "n_unique_tests": 195,
-  "trailer_count": 195,
+  "n_tests": 199,
+  "n_unique_tests": 199,
+  "trailer_count": 199,
   "n_checks": 6,
   "n_issues": 0,
   "nodeids": [
@@ -154,11 +154,13 @@
     "tests/test_real_robot_probe.py::test_real_robot_probe_markdown_is_claim_guarded",
     "tests/test_repo_bound_artifact_audit.py::test_repo_bound_artifact_audit_classifies_inside_repo_records",
     "tests/test_repo_bound_artifact_audit.py::test_repo_bound_artifact_audit_flags_outside_repo_record",
+    "tests/test_repo_bound_artifact_audit.py::test_repo_bound_artifact_audit_reanchors_relocated_worktree_paths",
     "tests/test_repo_bound_artifact_audit.py::test_repo_bound_artifact_audit_flags_parent_traversal",
     "tests/test_report_generation_consistency.py::test_report_generation_consistency_accepts_byte_stable_generator",
     "tests/test_report_generation_consistency.py::test_report_generation_consistency_rejects_mutating_generator",
     "tests/test_result_consistency.py::test_ci_objects_find_nested_confidence_intervals",
     "tests/test_result_consistency.py::test_pool_count_uses_task_seed_state_keys",
+    "tests/test_result_consistency.py::test_ci_sanity_allows_empty_zero_sample_intervals",
     "tests/test_result_consistency.py::test_rollout_pool_wam_flags_summary_table_mismatch",
     "tests/test_robocasa_adapter.py::test_robocasa_adapter_skips_when_dependency_missing",
     "tests/test_robocasa_adapter.py::test_robocasa_object_distance_prefers_broad_task_targets",
@@ -182,6 +184,7 @@
     "tests/test_table_schema.py::test_table_schema_detects_nonfinite_numeric_cell",
     "tests/test_table_schema.py::test_table_schema_detects_missing_curve_metric",
     "tests/test_table_schema.py::test_table_schema_detects_duplicate_rows",
+    "tests/test_table_schema.py::test_table_schema_allows_blank_step_error",
     "tests/test_test_inventory.py::test_parse_pytest_collect_stdout_counts_nodeids_and_trailer",
     "tests/test_test_inventory.py::test_audit_pytest_collection_accepts_sane_inventory",
     "tests/test_test_inventory.py::test_audit_pytest_collection_rejects_duplicate_and_trailer_mismatch",
@@ -199,6 +202,7 @@
     "tests/test_theorem_utility.py::test_random_score_gives_little_selection_advantage_on_large_independent_pool",
     "tests/test_tracked_artifact_provenance.py::test_tracked_artifact_provenance_accepts_tracked_sources",
     "tests/test_tracked_artifact_provenance.py::test_tracked_artifact_provenance_flags_untracked_sources",
+    "tests/test_tracked_artifact_provenance.py::test_tracked_artifact_provenance_reanchors_relocated_worktree_paths",
     "tests/test_train_inference_optimizer.py::test_optimizer_selects_from_seed_delta_evidence",
     "tests/test_universal_recipe_boundary.py::test_universal_recipe_boundary_builds_no_free_lunch_artifact",
     "tests/test_universal_recipe_boundary.py::test_universal_recipe_boundary_markdown_guards_positive_claim"
@@ -212,7 +216,7 @@
     {
       "name": "nodeids_present",
       "ok": true,
-      "detail": "nodeids=195"
+      "detail": "nodeids=199"
     },
     {
       "name": "nodeids_unique",
@@ -222,12 +226,12 @@
     {
       "name": "minimum_test_count",
       "ok": true,
-      "detail": "nodeids=195"
+      "detail": "nodeids=199"
     },
     {
       "name": "trailer_count_matches_nodeids",
       "ok": true,
-      "detail": "trailer=195, nodeids=195"
+      "detail": "trailer=199, nodeids=199"
     },
     {
       "name": "required_test_families_present",

@@ -1,29 +1,29 @@
 {
   "experiment": "table_schema",
   "verified": true,
-  "results_dir": "C:\\Users\\wangz\\best-of-n-wam\\results",
-  "n_tables": 227,
-  "total_rows": 213298,
-  "total_column_instances": 2714,
-  "numeric_column_instances": 2030,
-  "optional_blank_instances": 111,
+  "results_dir": "C:\\Users\\wangz\\best-of-n-wam_rerun_core\\results",
+  "n_tables": 232,
+  "total_rows": 213307,
+  "total_column_instances": 2762,
+  "numeric_column_instances": 2055,
+  "optional_blank_instances": 112,
   "n_checks": 17,
   "n_issues": 0,
   "checks": [
     {
       "name": "table_files_present",
       "ok": true,
-      "detail": "tables=227"
+      "detail": "tables=232"
     },
     {
       "name": "table_rows_present",
       "ok": true,
-      "detail": "rows=213298"
+      "detail": "rows=213307"
     },
     {
       "name": "table_columns_present",
       "ok": true,
-      "detail": "column_instances=2714"
+      "detail": "column_instances=2762"
     },
     {
       "name": "table_headers_well_formed",
@@ -88,18 +88,18 @@
     {
       "name": "numeric_column_coverage",
       "ok": true,
-      "detail": "numeric_column_instances=2030"
+      "detail": "numeric_column_instances=2055"
     },
     {
       "name": "optional_blank_columns_are_explicit",
       "ok": true,
-      "detail": "optional_blank_instances=111"
+      "detail": "optional_blank_instances=112"
     }
   ],
   "issues": [],
   "table_records": [
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_gym_manip_closed_loop.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_gym_manip_closed_loop.csv",
       "rows": 60,
       "columns": 9,
       "fieldnames": [
@@ -138,7 +138,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_gym_manip_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_gym_manip_curves.csv",
       "rows": 600,
       "columns": 7,
       "fieldnames": [
@@ -173,7 +173,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_gym_manip_curves_aggregate.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_gym_manip_curves_aggregate.csv",
       "rows": 24,
       "columns": 4,
       "fieldnames": [
@@ -202,7 +202,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_gym_manip_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_gym_manip_exact_law.csv",
       "rows": 150,
       "columns": 4,
       "fieldnames": [
@@ -232,7 +232,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_gym_manip_real_vs_predicted_gap.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_gym_manip_real_vs_predicted_gap.csv",
       "rows": 75,
       "columns": 4,
       "fieldnames": [
@@ -262,7 +262,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_gym_robotics_closed_loop.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_gym_robotics_closed_loop.csv",
       "rows": 135,
       "columns": 10,
       "fieldnames": [
@@ -302,7 +302,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_gym_robotics_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_gym_robotics_curves.csv",
       "rows": 1800,
       "columns": 8,
       "fieldnames": [
@@ -338,7 +338,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_gym_robotics_curves_aggregate.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_gym_robotics_curves_aggregate.csv",
       "rows": 90,
       "columns": 6,
       "fieldnames": [
@@ -370,7 +370,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_gym_robotics_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_gym_robotics_exact_law.csv",
       "rows": 360,
       "columns": 5,
       "fieldnames": [
@@ -401,7 +401,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_gym_robotics_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_gym_robotics_seed_metrics.csv",
       "rows": 5,
       "columns": 4,
       "fieldnames": [
@@ -431,7 +431,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_gym_robotics_visual_wam_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_gym_robotics_visual_wam_curves.csv",
       "rows": 1350,
       "columns": 8,
       "fieldnames": [
@@ -467,7 +467,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_gym_robotics_visual_wam_curves_aggregate.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_gym_robotics_visual_wam_curves_aggregate.csv",
       "rows": 90,
       "columns": 6,
       "fieldnames": [
@@ -499,7 +499,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_gym_robotics_visual_wam_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_gym_robotics_visual_wam_exact_law.csv",
       "rows": 270,
       "columns": 5,
       "fieldnames": [
@@ -530,7 +530,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_gym_robotics_visual_wam_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_gym_robotics_visual_wam_seed_metrics.csv",
       "rows": 5,
       "columns": 4,
       "fieldnames": [
@@ -560,7 +560,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_libero_autonomous_bc_policy_episodes.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_libero_autonomous_bc_policy_episodes.csv",
       "rows": 100,
       "columns": 12,
       "fieldnames": [
@@ -604,7 +604,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_libero_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_libero_curves.csv",
       "rows": 600,
       "columns": 8,
       "fieldnames": [
@@ -640,7 +640,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_libero_eval_rollouts.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_libero_eval_rollouts.csv",
       "rows": 240,
       "columns": 23,
       "fieldnames": [
@@ -705,7 +705,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_libero_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_libero_exact_law.csv",
       "rows": 240,
       "columns": 8,
       "fieldnames": [
@@ -741,7 +741,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_libero_learned_action_head_episodes.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_libero_learned_action_head_episodes.csv",
       "rows": 50,
       "columns": 13,
       "fieldnames": [
@@ -786,7 +786,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_libero_scripted_policy_episodes.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_libero_scripted_policy_episodes.csv",
       "rows": 50,
       "columns": 16,
       "fieldnames": [
@@ -836,7 +836,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_libero_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_libero_seed_metrics.csv",
       "rows": 15,
       "columns": 11,
       "fieldnames": [
@@ -878,7 +878,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_libero_tiny_neural_eval101_probe_episodes.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_libero_tiny_neural_eval101_probe_episodes.csv",
       "rows": 3,
       "columns": 12,
       "fieldnames": [
@@ -922,7 +922,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_libero_tiny_neural_eval200_probe_episodes.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_libero_tiny_neural_eval200_probe_episodes.csv",
       "rows": 7,
       "columns": 12,
       "fieldnames": [
@@ -966,7 +966,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_libero_tiny_neural_rbf_vla_policy_episodes.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_libero_tiny_neural_rbf_vla_policy_episodes.csv",
       "rows": 6,
       "columns": 12,
       "fieldnames": [
@@ -1010,7 +1010,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_libero_tiny_neural_vla_policy_episodes.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_libero_tiny_neural_vla_policy_episodes.csv",
       "rows": 7,
       "columns": 12,
       "fieldnames": [
@@ -1054,7 +1054,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_libero_train_validation.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_libero_train_validation.csv",
       "rows": 288,
       "columns": 17,
       "fieldnames": [
@@ -1107,7 +1107,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_libero_visual_language_bc_policy_episodes.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_libero_visual_language_bc_policy_episodes.csv",
       "rows": 60,
       "columns": 12,
       "fieldnames": [
@@ -1151,7 +1151,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_maniskill_closed_loop.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_maniskill_closed_loop.csv",
       "rows": 90,
       "columns": 9,
       "fieldnames": [
@@ -1189,7 +1189,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_maniskill_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_maniskill_curves.csv",
       "rows": 900,
       "columns": 8,
       "fieldnames": [
@@ -1225,7 +1225,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_maniskill_curves_aggregate.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_maniskill_curves_aggregate.csv",
       "rows": 90,
       "columns": 6,
       "fieldnames": [
@@ -1257,7 +1257,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_maniskill_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_maniskill_exact_law.csv",
       "rows": 180,
       "columns": 5,
       "fieldnames": [
@@ -1288,7 +1288,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_maniskill_model_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_maniskill_model_metrics.csv",
       "rows": 6,
       "columns": 6,
       "fieldnames": [
@@ -1320,7 +1320,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_maniskill_real_vs_predicted_gap.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_maniskill_real_vs_predicted_gap.csv",
       "rows": 90,
       "columns": 5,
       "fieldnames": [
@@ -1351,7 +1351,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_maniskill_visual_probe.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_maniskill_visual_probe.csv",
       "rows": 16,
       "columns": 18,
       "fieldnames": [
@@ -1408,7 +1408,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_maniskill_visual_probe_cpu_render_quick.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_maniskill_visual_probe_cpu_render_quick.csv",
       "rows": 1,
       "columns": 18,
       "fieldnames": [
@@ -1457,7 +1457,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_metaworld_closed_loop.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_metaworld_closed_loop.csv",
       "rows": 180,
       "columns": 11,
       "fieldnames": [
@@ -1499,7 +1499,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_metaworld_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_metaworld_curves.csv",
       "rows": 1620,
       "columns": 8,
       "fieldnames": [
@@ -1535,7 +1535,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_metaworld_curves_aggregate.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_metaworld_curves_aggregate.csv",
       "rows": 108,
       "columns": 6,
       "fieldnames": [
@@ -1567,7 +1567,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_metaworld_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_metaworld_exact_law.csv",
       "rows": 270,
       "columns": 5,
       "fieldnames": [
@@ -1598,7 +1598,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_metaworld_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_metaworld_seed_metrics.csv",
       "rows": 5,
       "columns": 5,
       "fieldnames": [
@@ -1630,7 +1630,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_broad_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_broad_curves.csv",
       "rows": 576,
       "columns": 9,
       "fieldnames": [
@@ -1668,7 +1668,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_broad_eval_rollouts.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_broad_eval_rollouts.csv",
       "rows": 128,
       "columns": 21,
       "fieldnames": [
@@ -1730,7 +1730,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_broad_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_broad_exact_law.csv",
       "rows": 256,
       "columns": 9,
       "fieldnames": [
@@ -1768,7 +1768,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_broad_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_broad_seed_metrics.csv",
       "rows": 16,
       "columns": 11,
       "fieldnames": [
@@ -1810,7 +1810,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_broad_task_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_broad_task_metrics.csv",
       "rows": 4,
       "columns": 9,
       "fieldnames": [
@@ -1849,7 +1849,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_broad_train_validation.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_broad_train_validation.csv",
       "rows": 96,
       "columns": 15,
       "fieldnames": [
@@ -1899,7 +1899,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_catalog_artifact_coverage.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_catalog_artifact_coverage.csv",
       "rows": 21,
       "columns": 6,
       "fieldnames": [
@@ -1930,7 +1930,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_catalog_registry.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_catalog_registry.csv",
       "rows": 396,
       "columns": 5,
       "fieldnames": [
@@ -1956,7 +1956,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_closed_loop.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_closed_loop.csv",
       "rows": 6,
       "columns": 11,
       "fieldnames": [
@@ -1998,7 +1998,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_curves.csv",
       "rows": 80,
       "columns": 7,
       "fieldnames": [
@@ -2032,7 +2032,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_exact_law.csv",
       "rows": 40,
       "columns": 8,
       "fieldnames": [
@@ -2068,7 +2068,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_extra4_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_extra4_curves.csv",
       "rows": 576,
       "columns": 9,
       "fieldnames": [
@@ -2106,7 +2106,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_extra4_eval_rollouts.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_extra4_eval_rollouts.csv",
       "rows": 128,
       "columns": 21,
       "fieldnames": [
@@ -2168,7 +2168,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_extra4_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_extra4_exact_law.csv",
       "rows": 256,
       "columns": 9,
       "fieldnames": [
@@ -2206,7 +2206,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_extra4_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_extra4_seed_metrics.csv",
       "rows": 16,
       "columns": 11,
       "fieldnames": [
@@ -2248,7 +2248,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_extra4_task_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_extra4_task_metrics.csv",
       "rows": 4,
       "columns": 9,
       "fieldnames": [
@@ -2287,7 +2287,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_extra4_train_validation.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_extra4_train_validation.csv",
       "rows": 96,
       "columns": 15,
       "fieldnames": [
@@ -2337,7 +2337,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family12_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family12_curves.csv",
       "rows": 864,
       "columns": 9,
       "fieldnames": [
@@ -2375,7 +2375,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family12_eval_rollouts.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family12_eval_rollouts.csv",
       "rows": 192,
       "columns": 21,
       "fieldnames": [
@@ -2437,7 +2437,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family12_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family12_exact_law.csv",
       "rows": 384,
       "columns": 9,
       "fieldnames": [
@@ -2475,7 +2475,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family12_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family12_seed_metrics.csv",
       "rows": 24,
       "columns": 11,
       "fieldnames": [
@@ -2517,7 +2517,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family12_task_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family12_task_metrics.csv",
       "rows": 12,
       "columns": 9,
       "fieldnames": [
@@ -2556,7 +2556,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family12_train_validation.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family12_train_validation.csv",
       "rows": 192,
       "columns": 15,
       "fieldnames": [
@@ -2606,7 +2606,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family24_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family24_curves.csv",
       "rows": 1728,
       "columns": 9,
       "fieldnames": [
@@ -2644,7 +2644,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family24_eval_rollouts.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family24_eval_rollouts.csv",
       "rows": 384,
       "columns": 21,
       "fieldnames": [
@@ -2706,7 +2706,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family24_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family24_exact_law.csv",
       "rows": 768,
       "columns": 9,
       "fieldnames": [
@@ -2744,7 +2744,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family24_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family24_seed_metrics.csv",
       "rows": 48,
       "columns": 11,
       "fieldnames": [
@@ -2786,7 +2786,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family24_task_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family24_task_metrics.csv",
       "rows": 24,
       "columns": 9,
       "fieldnames": [
@@ -2825,7 +2825,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family24_train_validation.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family24_train_validation.csv",
       "rows": 384,
       "columns": 15,
       "fieldnames": [
@@ -2875,7 +2875,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family28_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family28_curves.csv",
       "rows": 2016,
       "columns": 9,
       "fieldnames": [
@@ -2913,7 +2913,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family28_eval_rollouts.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family28_eval_rollouts.csv",
       "rows": 448,
       "columns": 21,
       "fieldnames": [
@@ -2975,7 +2975,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family28_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family28_exact_law.csv",
       "rows": 896,
       "columns": 9,
       "fieldnames": [
@@ -3013,7 +3013,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family28_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family28_seed_metrics.csv",
       "rows": 56,
       "columns": 11,
       "fieldnames": [
@@ -3055,7 +3055,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family28_task_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family28_task_metrics.csv",
       "rows": 28,
       "columns": 9,
       "fieldnames": [
@@ -3094,7 +3094,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family28_train_validation.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family28_train_validation.csv",
       "rows": 672,
       "columns": 15,
       "fieldnames": [
@@ -3144,7 +3144,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family32_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family32_curves.csv",
       "rows": 2304,
       "columns": 9,
       "fieldnames": [
@@ -3182,7 +3182,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family32_eval_rollouts.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family32_eval_rollouts.csv",
       "rows": 512,
       "columns": 21,
       "fieldnames": [
@@ -3244,7 +3244,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family32_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family32_exact_law.csv",
       "rows": 1024,
       "columns": 9,
       "fieldnames": [
@@ -3282,7 +3282,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family32_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family32_seed_metrics.csv",
       "rows": 64,
       "columns": 11,
       "fieldnames": [
@@ -3324,7 +3324,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family32_task_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family32_task_metrics.csv",
       "rows": 32,
       "columns": 9,
       "fieldnames": [
@@ -3363,7 +3363,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_family32_train_validation.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_family32_train_validation.csv",
       "rows": 768,
       "columns": 15,
       "fieldnames": [
@@ -3413,7 +3413,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_learned_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_learned_curves.csv",
       "rows": 120,
       "columns": 7,
       "fieldnames": [
@@ -3447,7 +3447,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_learned_eval_rollouts.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_learned_eval_rollouts.csv",
       "rows": 80,
       "columns": 13,
       "fieldnames": [
@@ -3495,7 +3495,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_learned_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_learned_exact_law.csv",
       "rows": 40,
       "columns": 8,
       "fieldnames": [
@@ -3531,7 +3531,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_learned_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_learned_seed_metrics.csv",
       "rows": 5,
       "columns": 5,
       "fieldnames": [
@@ -3563,7 +3563,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_learned_train_validation.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_learned_train_validation.csv",
       "rows": 112,
       "columns": 15,
       "fieldnames": [
@@ -3614,7 +3614,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_atomic_gap_probe_002.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_atomic_gap_probe_002.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -3669,7 +3669,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_atomic_task_distance_probe.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_atomic_task_distance_probe.csv",
       "rows": 2,
       "columns": 19,
       "fieldnames": [
@@ -3725,7 +3725,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_extra.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_extra.csv",
       "rows": 4,
       "columns": 19,
       "fieldnames": [
@@ -3781,7 +3781,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_frontier_probe.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_frontier_probe.csv",
       "rows": 64,
       "columns": 19,
       "fieldnames": [
@@ -3844,7 +3844,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_atomic_probe.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_atomic_probe.csv",
       "rows": 25,
       "columns": 19,
       "fieldnames": [
@@ -3907,7 +3907,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_000.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_000.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -3963,7 +3963,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_001.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_001.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4019,7 +4019,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_002.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_002.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4075,7 +4075,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_003.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_003.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4131,7 +4131,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_004.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_004.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4187,7 +4187,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_005.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_005.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4243,7 +4243,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_007.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_007.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4299,7 +4299,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_008.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_008.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4355,7 +4355,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_009.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_009.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4411,7 +4411,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_010.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_010.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4467,7 +4467,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_011.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_011.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4523,7 +4523,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_012.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_012.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4579,7 +4579,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_013.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_013.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4634,7 +4634,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_014.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_014.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4690,7 +4690,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_015.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_015.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4746,7 +4746,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_016.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_016.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4802,7 +4802,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_017.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_017.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4858,7 +4858,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_018.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_018.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4914,7 +4914,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_019.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_019.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -4970,7 +4970,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_020.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_020.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5026,7 +5026,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_021.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_021.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5082,7 +5082,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_022.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_022.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5138,7 +5138,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_023.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_023.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5194,7 +5194,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_024.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_024.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5250,7 +5250,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_025.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_025.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5306,7 +5306,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_026.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_026.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5362,7 +5362,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_027.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_027.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5418,7 +5418,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_028.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_028.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5474,7 +5474,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_029.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_029.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5530,7 +5530,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_030.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_030.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5586,7 +5586,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_031.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_031.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5642,7 +5642,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_033.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_033.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5698,7 +5698,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_034.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_034.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5754,7 +5754,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_035.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_035.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5810,7 +5810,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_036.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_036.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5866,7 +5866,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_037.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_037.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5922,7 +5922,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_038.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_038.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -5978,7 +5978,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_039.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_039.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -6033,7 +6033,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_040.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_040.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -6089,7 +6089,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_041.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_041.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -6145,7 +6145,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_042.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_residual_clean_cook_sweep_042.csv",
       "rows": 1,
       "columns": 19,
       "fieldnames": [
@@ -6201,7 +6201,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_micro_rollout_stratified_probe.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_micro_rollout_stratified_probe.csv",
       "rows": 28,
       "columns": 19,
       "fieldnames": [
@@ -6257,7 +6257,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_multitask_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_multitask_curves.csv",
       "rows": 540,
       "columns": 9,
       "fieldnames": [
@@ -6295,7 +6295,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_multitask_eval_rollouts.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_multitask_eval_rollouts.csv",
       "rows": 240,
       "columns": 21,
       "fieldnames": [
@@ -6357,7 +6357,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_multitask_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_multitask_exact_law.csv",
       "rows": 240,
       "columns": 9,
       "fieldnames": [
@@ -6395,7 +6395,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_multitask_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_multitask_seed_metrics.csv",
       "rows": 15,
       "columns": 11,
       "fieldnames": [
@@ -6437,7 +6437,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_multitask_task_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_multitask_task_metrics.csv",
       "rows": 3,
       "columns": 9,
       "fieldnames": [
@@ -6476,7 +6476,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_multitask_train_validation.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_multitask_train_validation.csv",
       "rows": 240,
       "columns": 15,
       "fieldnames": [
@@ -6526,7 +6526,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual35_h1_n4_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual35_h1_n4_curves.csv",
       "rows": 945,
       "columns": 9,
       "fieldnames": [
@@ -6564,7 +6564,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual35_h1_n4_eval_rollouts.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual35_h1_n4_eval_rollouts.csv",
       "rows": 280,
       "columns": 21,
       "fieldnames": [
@@ -6626,7 +6626,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual35_h1_n4_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual35_h1_n4_exact_law.csv",
       "rows": 420,
       "columns": 9,
       "fieldnames": [
@@ -6664,7 +6664,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual35_h1_n4_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual35_h1_n4_seed_metrics.csv",
       "rows": 35,
       "columns": 11,
       "fieldnames": [
@@ -6706,7 +6706,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual35_h1_n4_task_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual35_h1_n4_task_metrics.csv",
       "rows": 35,
       "columns": 9,
       "fieldnames": [
@@ -6745,7 +6745,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual35_h1_n4_train_validation.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual35_h1_n4_train_validation.csv",
       "rows": 280,
       "columns": 15,
       "fieldnames": [
@@ -6795,7 +6795,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual_frontier_sweep_atomic_gap_probe_chunks.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual_frontier_sweep_atomic_gap_probe_chunks.csv",
       "rows": 4,
       "columns": 9,
       "fieldnames": [
@@ -6830,7 +6830,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual_frontier_sweep_chunks.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual_frontier_sweep_chunks.csv",
       "rows": 43,
       "columns": 9,
       "fieldnames": [
@@ -6865,7 +6865,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe_chunks.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual_frontier_sweep_cleaning_gap_probe_chunks.csv",
       "rows": 2,
       "columns": 9,
       "fieldnames": [
@@ -6900,7 +6900,77 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual_frontier_sweep_quick_close_chunks.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual_frontier_sweep_long_unattempted_probe_chunks.csv",
+      "rows": 2,
+      "columns": 9,
+      "fieldnames": [
+        "chunk_index",
+        "tag",
+        "env_ids",
+        "candidate_task_count",
+        "verified",
+        "timed_out",
+        "runnable_task_count",
+        "nondegenerate_task_count",
+        "summary_path"
+      ],
+      "numeric_columns": [
+        "candidate_task_count",
+        "chunk_index",
+        "nondegenerate_task_count",
+        "runnable_task_count"
+      ],
+      "blank_columns": [],
+      "malformed": false,
+      "duplicate_columns": [],
+      "blank_column_names": [],
+      "duplicate_rows": 0,
+      "blank_disallowed": [],
+      "nonfinite_numeric": [],
+      "noninteger_values": [],
+      "negative_id_values": [],
+      "nonpositive_compute_values": [],
+      "success_range_errors": [],
+      "boolean_errors": [],
+      "family_failures": []
+    },
+    {
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual_frontier_sweep_longhorizon_gap_probe_chunks.csv",
+      "rows": 2,
+      "columns": 9,
+      "fieldnames": [
+        "chunk_index",
+        "tag",
+        "env_ids",
+        "candidate_task_count",
+        "verified",
+        "timed_out",
+        "runnable_task_count",
+        "nondegenerate_task_count",
+        "summary_path"
+      ],
+      "numeric_columns": [
+        "candidate_task_count",
+        "chunk_index",
+        "nondegenerate_task_count",
+        "runnable_task_count"
+      ],
+      "blank_columns": [],
+      "malformed": false,
+      "duplicate_columns": [],
+      "blank_column_names": [],
+      "duplicate_rows": 0,
+      "blank_disallowed": [],
+      "nonfinite_numeric": [],
+      "noninteger_values": [],
+      "negative_id_values": [],
+      "nonpositive_compute_values": [],
+      "success_range_errors": [],
+      "boolean_errors": [],
+      "family_failures": []
+    },
+    {
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual_frontier_sweep_quick_close_chunks.csv",
       "rows": 1,
       "columns": 9,
       "fieldnames": [
@@ -6935,7 +7005,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual_frontier_sweep_quick_gap_chunks.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual_frontier_sweep_quick_gap_chunks.csv",
       "rows": 1,
       "columns": 9,
       "fieldnames": [
@@ -6970,7 +7040,77 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_residual_triage.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual_frontier_sweep_short_unattempted_probe_b_chunks.csv",
+      "rows": 2,
+      "columns": 9,
+      "fieldnames": [
+        "chunk_index",
+        "tag",
+        "env_ids",
+        "candidate_task_count",
+        "verified",
+        "timed_out",
+        "runnable_task_count",
+        "nondegenerate_task_count",
+        "summary_path"
+      ],
+      "numeric_columns": [
+        "candidate_task_count",
+        "chunk_index",
+        "nondegenerate_task_count",
+        "runnable_task_count"
+      ],
+      "blank_columns": [],
+      "malformed": false,
+      "duplicate_columns": [],
+      "blank_column_names": [],
+      "duplicate_rows": 0,
+      "blank_disallowed": [],
+      "nonfinite_numeric": [],
+      "noninteger_values": [],
+      "negative_id_values": [],
+      "nonpositive_compute_values": [],
+      "success_range_errors": [],
+      "boolean_errors": [],
+      "family_failures": []
+    },
+    {
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual_frontier_sweep_short_unattempted_probe_chunks.csv",
+      "rows": 2,
+      "columns": 9,
+      "fieldnames": [
+        "chunk_index",
+        "tag",
+        "env_ids",
+        "candidate_task_count",
+        "verified",
+        "timed_out",
+        "runnable_task_count",
+        "nondegenerate_task_count",
+        "summary_path"
+      ],
+      "numeric_columns": [
+        "candidate_task_count",
+        "chunk_index",
+        "nondegenerate_task_count",
+        "runnable_task_count"
+      ],
+      "blank_columns": [],
+      "malformed": false,
+      "duplicate_columns": [],
+      "blank_column_names": [],
+      "duplicate_rows": 0,
+      "blank_disallowed": [],
+      "nonfinite_numeric": [],
+      "noninteger_values": [],
+      "negative_id_values": [],
+      "nonpositive_compute_values": [],
+      "success_range_errors": [],
+      "boolean_errors": [],
+      "family_failures": []
+    },
+    {
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_residual_triage.csv",
       "rows": 396,
       "columns": 9,
       "fieldnames": [
@@ -7004,7 +7144,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_rollouts.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_rollouts.csv",
       "rows": 80,
       "columns": 12,
       "fieldnames": [
@@ -7049,7 +7189,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_seed_metrics.csv",
       "rows": 5,
       "columns": 4,
       "fieldnames": [
@@ -7079,7 +7219,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_stratified55_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_stratified55_curves.csv",
       "rows": 3960,
       "columns": 9,
       "fieldnames": [
@@ -7117,7 +7257,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_stratified55_eval_rollouts.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_stratified55_eval_rollouts.csv",
       "rows": 880,
       "columns": 21,
       "fieldnames": [
@@ -7179,7 +7319,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_stratified55_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_stratified55_exact_law.csv",
       "rows": 1760,
       "columns": 9,
       "fieldnames": [
@@ -7217,7 +7357,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_stratified55_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_stratified55_seed_metrics.csv",
       "rows": 110,
       "columns": 11,
       "fieldnames": [
@@ -7259,7 +7399,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_stratified55_task_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_stratified55_task_metrics.csv",
       "rows": 55,
       "columns": 9,
       "fieldnames": [
@@ -7298,7 +7438,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_stratified55_train_validation.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_stratified55_train_validation.csv",
       "rows": 1320,
       "columns": 15,
       "fieldnames": [
@@ -7348,7 +7488,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_stratified97_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_stratified97_curves.csv",
       "rows": 6984,
       "columns": 9,
       "fieldnames": [
@@ -7386,7 +7526,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_stratified97_eval_rollouts.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_stratified97_eval_rollouts.csv",
       "rows": 1552,
       "columns": 21,
       "fieldnames": [
@@ -7448,7 +7588,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_stratified97_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_stratified97_exact_law.csv",
       "rows": 3104,
       "columns": 9,
       "fieldnames": [
@@ -7486,7 +7626,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_stratified97_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_stratified97_seed_metrics.csv",
       "rows": 194,
       "columns": 11,
       "fieldnames": [
@@ -7528,7 +7668,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_stratified97_task_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_stratified97_task_metrics.csv",
       "rows": 97,
       "columns": 9,
       "fieldnames": [
@@ -7567,7 +7707,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robocasa_stratified97_train_validation.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robocasa_stratified97_train_validation.csv",
       "rows": 2328,
       "columns": 15,
       "fieldnames": [
@@ -7617,7 +7757,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robosuite_closed_loop.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robosuite_closed_loop.csv",
       "rows": 120,
       "columns": 11,
       "fieldnames": [
@@ -7659,7 +7799,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robosuite_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robosuite_curves.csv",
       "rows": 1260,
       "columns": 8,
       "fieldnames": [
@@ -7695,7 +7835,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robosuite_curves_aggregate.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robosuite_curves_aggregate.csv",
       "rows": 126,
       "columns": 6,
       "fieldnames": [
@@ -7727,7 +7867,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robosuite_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robosuite_exact_law.csv",
       "rows": 180,
       "columns": 5,
       "fieldnames": [
@@ -7758,7 +7898,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_robosuite_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_robosuite_seed_metrics.csv",
       "rows": 5,
       "columns": 6,
       "fieldnames": [
@@ -7792,7 +7932,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_status.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_status.csv",
       "rows": 7,
       "columns": 3,
       "fieldnames": [
@@ -7816,7 +7956,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_visual_wam_lite_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_visual_wam_lite_curves.csv",
       "rows": 750,
       "columns": 6,
       "fieldnames": [
@@ -7849,7 +7989,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_visual_wam_lite_curves_aggregate.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_visual_wam_lite_curves_aggregate.csv",
       "rows": 30,
       "columns": 4,
       "fieldnames": [
@@ -7878,7 +8018,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_visual_wam_lite_exact_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_visual_wam_lite_exact_law.csv",
       "rows": 150,
       "columns": 4,
       "fieldnames": [
@@ -7908,7 +8048,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/benchmark_visual_wam_lite_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/benchmark_visual_wam_lite_seed_metrics.csv",
       "rows": 5,
       "columns": 4,
       "fieldnames": [
@@ -7938,7 +8078,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp10_falsification_bad_scorer.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp10_falsification_bad_scorer.csv",
       "rows": 900,
       "columns": 11,
       "fieldnames": [
@@ -7978,7 +8118,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp1_exact_rollout_law_validation.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp1_exact_rollout_law_validation.csv",
       "rows": 672,
       "columns": 13,
       "fieldnames": [
@@ -8026,7 +8166,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp1_exact_rollout_law_validation_learned.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp1_exact_rollout_law_validation_learned.csv",
       "rows": 175,
       "columns": 13,
       "fieldnames": [
@@ -8076,7 +8216,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp2_auc_vs_moment_hierarchy.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp2_auc_vs_moment_hierarchy.csv",
       "rows": 672,
       "columns": 9,
       "fieldnames": [
@@ -8114,7 +8254,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp2_same_auc_counterexample.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp2_same_auc_counterexample.csv",
       "rows": 14,
       "columns": 7,
       "fieldnames": [
@@ -8148,7 +8288,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp3_pilot_to_heldout_prediction.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp3_pilot_to_heldout_prediction.csv",
       "rows": 42000,
       "columns": 7,
       "fieldnames": [
@@ -8183,7 +8323,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp4_score_function_comparison.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp4_score_function_comparison.csv",
       "rows": 5880,
       "columns": 16,
       "fieldnames": [
@@ -8235,7 +8375,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp4_score_function_comparison_aggregate.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp4_score_function_comparison_aggregate.csv",
       "rows": 49,
       "columns": 12,
       "fieldnames": [
@@ -8280,7 +8420,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp4_score_function_comparison_aggregate_learned.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp4_score_function_comparison_aggregate_learned.csv",
       "rows": 49,
       "columns": 12,
       "fieldnames": [
@@ -8325,7 +8465,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp4_score_function_comparison_learned.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp4_score_function_comparison_learned.csv",
       "rows": 1225,
       "columns": 16,
       "fieldnames": [
@@ -8379,7 +8519,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp4_scorer_ranking.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp4_scorer_ranking.csv",
       "rows": 7,
       "columns": 7,
       "fieldnames": [
@@ -8414,7 +8554,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp4_scorer_ranking_learned.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp4_scorer_ranking_learned.csv",
       "rows": 7,
       "columns": 7,
       "fieldnames": [
@@ -8449,7 +8589,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp5_gap_summary.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp5_gap_summary.csv",
       "rows": 4,
       "columns": 10,
       "fieldnames": [
@@ -8490,7 +8630,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp5_gap_summary_learned.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp5_gap_summary_learned.csv",
       "rows": 4,
       "columns": 10,
       "fieldnames": [
@@ -8531,7 +8671,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp5_real_vs_imagined_utility_gap.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp5_real_vs_imagined_utility_gap.csv",
       "rows": 3360,
       "columns": 16,
       "fieldnames": [
@@ -8585,7 +8725,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp5_real_vs_imagined_utility_gap_aggregate.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp5_real_vs_imagined_utility_gap_aggregate.csv",
       "rows": 28,
       "columns": 12,
       "fieldnames": [
@@ -8630,7 +8770,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp5_real_vs_imagined_utility_gap_aggregate_learned.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp5_real_vs_imagined_utility_gap_aggregate_learned.csv",
       "rows": 28,
       "columns": 12,
       "fieldnames": [
@@ -8675,7 +8815,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp5_real_vs_imagined_utility_gap_learned.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp5_real_vs_imagined_utility_gap_learned.csv",
       "rows": 700,
       "columns": 16,
       "fieldnames": [
@@ -8729,7 +8869,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp6_adaptive_rollout_allocation.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp6_adaptive_rollout_allocation.csv",
       "rows": 42,
       "columns": 9,
       "fieldnames": [
@@ -8768,7 +8908,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp6_adaptive_rollout_allocation_learned.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp6_adaptive_rollout_allocation_learned.csv",
       "rows": 180,
       "columns": 9,
       "fieldnames": [
@@ -8807,7 +8947,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp7_closed_loop_receding_horizon_aggregate.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp7_closed_loop_receding_horizon_aggregate.csv",
       "rows": 21,
       "columns": 6,
       "fieldnames": [
@@ -8840,7 +8980,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp7_closed_loop_receding_horizon_aggregate_learned.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp7_closed_loop_receding_horizon_aggregate_learned.csv",
       "rows": 21,
       "columns": 6,
       "fieldnames": [
@@ -8873,7 +9013,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp7_closed_loop_receding_horizon_eval.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp7_closed_loop_receding_horizon_eval.csv",
       "rows": 1512,
       "columns": 11,
       "fieldnames": [
@@ -8915,7 +9055,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp7_closed_loop_receding_horizon_eval_learned.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp7_closed_loop_receding_horizon_eval_learned.csv",
       "rows": 1260,
       "columns": 11,
       "fieldnames": [
@@ -8957,7 +9097,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp8_nonstationary_conditional_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp8_nonstationary_conditional_law.csv",
       "rows": 864,
       "columns": 7,
       "fieldnames": [
@@ -8992,7 +9132,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp8_nonstationary_phase_summary.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp8_nonstationary_phase_summary.csv",
       "rows": 2,
       "columns": 5,
       "fieldnames": [
@@ -9023,7 +9163,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp8_nonstationary_stale_vs_adaptive.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp8_nonstationary_stale_vs_adaptive.csv",
       "rows": 864,
       "columns": 10,
       "fieldnames": [
@@ -9064,7 +9204,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/exp8_nonstationary_stale_vs_adaptive_phase_summary.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/exp8_nonstationary_stale_vs_adaptive_phase_summary.csv",
       "rows": 2,
       "columns": 4,
       "fieldnames": [
@@ -9093,7 +9233,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/imagination_scaling_law.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/imagination_scaling_law.csv",
       "rows": 23040,
       "columns": 12,
       "fieldnames": [
@@ -9137,7 +9277,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/imagination_scaling_law_aggregate.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/imagination_scaling_law_aggregate.csv",
       "rows": 576,
       "columns": 10,
       "fieldnames": [
@@ -9177,7 +9317,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/imagination_scaling_profiles.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/imagination_scaling_profiles.csv",
       "rows": 2880,
       "columns": 12,
       "fieldnames": [
@@ -9220,7 +9360,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/imagination_scaling_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/imagination_scaling_seed_metrics.csv",
       "rows": 5,
       "columns": 7,
       "fieldnames": [
@@ -9256,7 +9396,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/inference_audit_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/inference_audit_curves.csv",
       "rows": 20160,
       "columns": 9,
       "fieldnames": [
@@ -9293,7 +9433,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/inference_audit_curves_learned.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/inference_audit_curves_learned.csv",
       "rows": 13440,
       "columns": 9,
       "fieldnames": [
@@ -9330,7 +9470,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/inference_audit_decision_counts.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/inference_audit_decision_counts.csv",
       "rows": 13,
       "columns": 3,
       "fieldnames": [
@@ -9356,7 +9496,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/inference_audit_decision_counts_learned.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/inference_audit_decision_counts_learned.csv",
       "rows": 15,
       "columns": 3,
       "fieldnames": [
@@ -9382,7 +9522,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/inference_audit_framework.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/inference_audit_framework.csv",
       "rows": 2880,
       "columns": 20,
       "fieldnames": [
@@ -9437,7 +9577,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/inference_audit_framework_learned.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/inference_audit_framework_learned.csv",
       "rows": 1920,
       "columns": 20,
       "fieldnames": [
@@ -9492,7 +9632,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/inference_audit_profile_counts.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/inference_audit_profile_counts.csv",
       "rows": 15,
       "columns": 3,
       "fieldnames": [
@@ -9518,7 +9658,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/inference_audit_profile_counts_learned.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/inference_audit_profile_counts_learned.csv",
       "rows": 15,
       "columns": 3,
       "fieldnames": [
@@ -9544,7 +9684,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/inference_audit_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/inference_audit_seed_metrics.csv",
       "rows": 5,
       "columns": 9,
       "fieldnames": [
@@ -9583,7 +9723,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/inference_audit_seed_metrics_learned.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/inference_audit_seed_metrics_learned.csv",
       "rows": 5,
       "columns": 9,
       "fieldnames": [
@@ -9622,7 +9762,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/learned_wam_lite_dataset_summary.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/learned_wam_lite_dataset_summary.csv",
       "rows": 5,
       "columns": 9,
       "fieldnames": [
@@ -9660,7 +9800,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/learned_wam_lite_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/learned_wam_lite_metrics.csv",
       "rows": 5,
       "columns": 8,
       "fieldnames": [
@@ -9696,7 +9836,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/learned_wam_vs_analytic_wam.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/learned_wam_vs_analytic_wam.csv",
       "rows": 1260,
       "columns": 17,
       "fieldnames": [
@@ -9749,7 +9889,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/learned_wam_vs_analytic_wam_aggregate.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/learned_wam_vs_analytic_wam_aggregate.csv",
       "rows": 21,
       "columns": 12,
       "fieldnames": [
@@ -9794,7 +9934,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/maxout_model_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/maxout_model_metrics.csv",
       "rows": 45,
       "columns": 8,
       "fieldnames": [
@@ -9832,7 +9972,52 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/multi_env_curves.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/modern_vla_libero_policy_eval_episodes.csv",
+      "rows": 1,
+      "columns": 12,
+      "fieldnames": [
+        "episode_id",
+        "seed",
+        "steps",
+        "success",
+        "initial_distance",
+        "final_distance",
+        "progress",
+        "total_reward",
+        "energy",
+        "done",
+        "truncated",
+        "step_error"
+      ],
+      "numeric_columns": [
+        "energy",
+        "episode_id",
+        "final_distance",
+        "initial_distance",
+        "progress",
+        "seed",
+        "steps",
+        "success",
+        "total_reward"
+      ],
+      "blank_columns": [
+        "step_error"
+      ],
+      "malformed": false,
+      "duplicate_columns": [],
+      "blank_column_names": [],
+      "duplicate_rows": 0,
+      "blank_disallowed": [],
+      "nonfinite_numeric": [],
+      "noninteger_values": [],
+      "negative_id_values": [],
+      "nonpositive_compute_values": [],
+      "success_range_errors": [],
+      "boolean_errors": [],
+      "family_failures": []
+    },
+    {
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/multi_env_curves.csv",
       "rows": 10500,
       "columns": 11,
       "fieldnames": [
@@ -9872,7 +10057,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/multi_env_curves_aggregate.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/multi_env_curves_aggregate.csv",
       "rows": 2100,
       "columns": 10,
       "fieldnames": [
@@ -9910,7 +10095,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/scorer_repair_experiment.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/scorer_repair_experiment.csv",
       "rows": 17640,
       "columns": 9,
       "fieldnames": [
@@ -9948,7 +10133,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/scorer_repair_experiment_aggregate.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/scorer_repair_experiment_aggregate.csv",
       "rows": 147,
       "columns": 5,
       "fieldnames": [
@@ -9978,7 +10163,7 @@
       "family_failures": []
     },
     {
-      "path": "C:/Users/wangz/best-of-n-wam/results/tables/scorer_repair_seed_metrics.csv",
+      "path": "C:/Users/wangz/best-of-n-wam_rerun_core/results/tables/scorer_repair_seed_metrics.csv",
       "rows": 5,
       "columns": 5,
       "fieldnames": [

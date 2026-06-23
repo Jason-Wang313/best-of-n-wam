@@ -64,6 +64,36 @@ def test_repo_bound_artifact_audit_flags_outside_repo_record(tmp_path: Path) -> 
     assert payload["n_outside_repo"] == 1
 
 
+def test_repo_bound_artifact_audit_reanchors_relocated_worktree_paths(tmp_path: Path) -> None:
+    active = tmp_path / "active"
+    results = active / "results"
+    active_table = results / "tables" / "table.csv"
+    active_table.parent.mkdir(parents=True, exist_ok=True)
+    active_table.write_text("x\n1\n", encoding="utf-8")
+    other_checkout = tmp_path / "other_checkout"
+    stale_absolute = other_checkout / "results" / "tables" / "table.csv"
+    write_json(results / "claim_evidence_quality.json", {"source_records": []})
+    write_json(
+        results / "artifact_integrity.json",
+        {
+            "references": [
+                {
+                    "source_json": "summary.json",
+                    "json_path": "table_path",
+                    "raw_path": str(stale_absolute),
+                    "resolved_path": str(stale_absolute),
+                }
+            ]
+        },
+    )
+
+    payload = audit_repo_bound_artifacts(active, results)
+
+    assert payload["n_outside_repo"] == 0
+    assert payload["records"][0]["repo_relative"] == "results/tables/table.csv"
+    assert payload["records"][0]["artifact_category"] == "result_table"
+
+
 def test_repo_bound_artifact_audit_flags_parent_traversal(tmp_path: Path) -> None:
     results = tmp_path / "results"
     inside = results / "source.json"

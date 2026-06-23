@@ -54,7 +54,7 @@
         {
           "path": "docs/theory.md",
           "exists": true,
-          "bytes": 5525
+          "bytes": 5612
         }
       ],
       "missing_files": [],
@@ -374,12 +374,12 @@
         {
           "path": "results/external_benchmark_runtime_probe.json",
           "exists": true,
-          "bytes": 12834
+          "bytes": 13103
         },
         {
           "path": "reports/external_benchmark_runtime_probe_report.md",
           "exists": true,
-          "bytes": 1530
+          "bytes": 1424
         },
         {
           "path": "results/modern_vla_pretrained_load_probe.json",
@@ -404,7 +404,7 @@
         {
           "path": "results/modern_vla_libero_policy_eval.json",
           "exists": true,
-          "bytes": 8805
+          "bytes": 8858
         },
         {
           "path": "reports/modern_vla_libero_policy_eval_report.md",
@@ -414,27 +414,27 @@
         {
           "path": "results/modern_vla_libero_policy_eval_last_attempt.json",
           "exists": true,
-          "bytes": 3770
+          "bytes": 3825
         },
         {
           "path": "results/benchmark_libero_tiny_neural_vla_attempt.json",
           "exists": true,
-          "bytes": 1165
+          "bytes": 1204
         },
         {
           "path": "reports/libero_tiny_neural_vla_attempt_report.md",
           "exists": true,
-          "bytes": 642
+          "bytes": 657
         },
         {
           "path": "results/benchmark_libero_tiny_neural_vla_policy.json",
           "exists": true,
-          "bytes": 2398
+          "bytes": 2417
         },
         {
           "path": "reports/libero_tiny_neural_vla_policy_report.md",
           "exists": true,
-          "bytes": 1514
+          "bytes": 1525
         },
         {
           "path": "results/benchmark_libero_wam.json",

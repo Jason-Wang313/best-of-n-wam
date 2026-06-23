@@ -2,7 +2,7 @@
 
 ## Counts
 
-- verified: `127`
+- verified: `150`
 - partial: `0`
 - unsupported: `0`
 - failed: `0`
@@ -111,34 +111,57 @@
 - 97. RoboCasa stratified 97-task learned WAM-lite scorer beats random with CI. Evidence: tasks=97, train=1552, val=776, eval=1552, pools=194, utility corr=0.8380299394502633, promoted=learned_wam, learned-random CI={'n': 194, 'mean': 0.34790032435530055, 'std': 0.2347443208321136, 'stderr': 0.016853660033059582, 'ci95': 0.03303317366479678, 'lo': 0.31486715069050375, 'hi': 0.38093349802009735}, oracle-learned CI={'n': 194, 'mean': 0.04578491854497242, 'std': 0.0629307206718025, 'stderr': 0.0045181624334014545, 'ci95': 0.00885559836946685, 'lo': 0.03692932017550557, 'hi': 0.054640516914439274}
 - 98. RoboCasa residual 35-task clean/cook learned WAM-lite scorer beats random with CI. Evidence: tasks=35, train=140, val=140, eval=280, pools=35, horizon=1, Nmax=4, utility corr=0.8345242481462408, exact MAE=0.00024620294740340757, promoted=learned_wam, learned-random CI={'n': 35, 'mean': 0.2408146016473912, 'std': 0.13106289940391155, 'stderr': 0.02215367341365428, 'ci95': 0.04342119989076239, 'lo': 0.19739340175662884, 'hi': 0.2842358015381536}, oracle-learned CI={'n': 35, 'mean': 0.02177076474637765, 'std': 0.024328798100469916, 'stderr': 0.00411231744540864, 'ci95': 0.008060142193000936, 'lo': 0.013710622553376713, 'hi': 0.029830906939378586}
 - 99. Narrative reports have no unsupported overclaims. Evidence: report overclaims=0
-- 100. Published result artifact references are internally consistent. Evidence: refs=737, issues=0, status_counts={'ok': 737}
+- 100. Published result artifact references are internally consistent. Evidence: refs=747, issues=0, status_counts={'ok': 747}
 - 101. Published result summaries agree with canonical tables. Evidence: checks=157, issues=0
 - 102. Published narrative numbers match current artifacts. Evidence: checks=52, issues=0
-- 103. Claim ledger is structurally consistent. Evidence: claims=127, max_id=127, checks=21, issues=0
+- 103. Claim ledger is structurally consistent. Evidence: claims=150, max_id=150, checks=21, issues=0
 - 104. Canonical execution scripts preserve required gate contracts. Evidence: scripts=7, checks=133, issues=0
 - 105. Verified claims have mapped source artifacts and quality-checked evidence. Evidence: claims=127, mapped=127, sources=175, issues=0
 - 106. Published summary metrics recompute from raw result tables. Evidence: aggregate metrics=10710, exact files=20, seed CI columns=125, issues=0
 - 107. Verified claim wording satisfies semantic threshold checks. Evidence: claims=127, checks=177, CI claims=53, positive CI claims=33, error claims=11, issues=0
-- 108. Scientific result artifacts have a deterministic hash manifest. Evidence: files=462, bytes=77244114, suffixes={'.json': 149, '.npz': 45, '.png': 36, '.csv': 232}, issues=0
+- 108. Scientific result artifacts have a deterministic hash manifest. Evidence: files=462, bytes=77245279, suffixes={'.json': 149, '.npz': 45, '.png': 36, '.csv': 232}, issues=0
 - 109. Publication figure artifacts pass image-quality checks. Evidence: figures=36, expected=25, checks=8, issues=0
-- 110. Canonical CSV result tables pass schema and numeric-sanity checks. Evidence: tables=227, rows=213298, numeric_columns=2030, checks=17, issues=0
-- 111. Source and verification code have a deterministic hash manifest. Evidence: files=246, bytes=1830330, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 52, 'src': 69, 'tests': 63}, checks=14, issues=0
+- 110. Canonical CSV result tables pass schema and numeric-sanity checks. Evidence: tables=232, rows=213307, numeric_columns=2055, checks=17, issues=0
+- 111. Source and verification code have a deterministic hash manifest. Evidence: files=246, bytes=1874597, dirs={'docs': 1, 'experiments': 56, 'paper_outline.md': 1, 'pyproject.toml': 1, 'README.md': 1, 'requirements-benchmark.txt': 1, 'requirements.txt': 1, 'scripts': 52, 'src': 69, 'tests': 63}, checks=14, issues=0
 - 112. Runtime and dependency environment metadata has a verified manifest. Evidence: python=3.10.11, core=4, absent=0, version_issues=0, optional_available=5/5, modules=13, commands=5, checks=15, issues=0
-- 113. Canonical experiment families have verified registry coverage. Evidence: entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=309, rows=260972, figures=40, failed=0, checks=10, issues=0
+- 113. Canonical experiment families have verified registry coverage. Evidence: entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=313, rows=260980, figures=40, failed=0, checks=10, issues=0
 - 114. Committed learned-model artifacts are loadable and numerically sane. Evidence: models=53, suffixes={'.npz': 40, '.joblib': 13}, bytes=140046679, npz_arrays=398, npz_elements=11151803, joblib_predictors=13, checks=10, issues=0
-- 115. Published final-report command results match current verification artifacts. Evidence: snippets=28, python_commands=31, pytest=195, checks=31, issues=0
-- 116. Pytest command-result counts come from a verified collected-test inventory. Evidence: tests=195, unique=195, trailer=195, checks=6, issues=0
+- 115. Published final-report command results match current verification artifacts. Evidence: snippets=28, python_commands=31, pytest=199, checks=31, issues=0
+- 116. Pytest command-result counts come from a verified collected-test inventory. Evidence: tests=199, unique=199, trailer=199, checks=6, issues=0
 - 117. Generated claim-status artifacts are byte-stable under rerunning the claim generator. Evidence: claims=127, files=2, checks=10, issues=0, hashes_recorded_in=results/claim_generation_consistency.json
 - 118. Generated max-out narrative reports are byte-stable under rerunning the report generator. Evidence: reports=8, files=8, checks=9, issues=0, hashes_recorded_in=results/report_generation_consistency.json
 - 119. Claim evidence artifacts and published artifact references are represented in the git index. Evidence: claim_sources=119, artifact_refs=481, untracked_claim_sources=0, untracked_artifact_refs=0, issues=0
 - 120. Non-self claim evidence artifacts and non-self published artifact references have deterministic hash coverage. Evidence: claim_sources=117, artifact_refs=479, hashed=596, self_outputs_excluded=4, issues=0
-- 121. Claim evidence artifacts and published artifact references are repository-bound. Evidence: records=912, claim_sources=175, artifact_refs=737, outside=0, absent=0, traversal=0, issues=0
+- 121. Claim evidence artifacts and published artifact references are repository-bound. Evidence: records=922, claim_sources=175, artifact_refs=747, outside=0, absent=0, traversal=0, issues=0
 - 122. Final-report abstract-level claims are directly evidence-backed and scope-limited. Evidence: abstract_claims=4, approved=4, backing_links=23, headline_forbidden=0, issues=0
 - 123. Publication-surface risky robotics claims are guarded as limitations or future work. Evidence: surfaces=5, risk_mentions=80, guarded=80, unguarded=0, issues=0
-- 124. Broad claim wording is scoped by concrete evidence. Evidence: claims=127, scope_mentions=155, categories={'verification': 42, 'model': 24, 'benchmark': 57, 'visual': 13, 'suite_family': 15, 'policy_success': 4}, checks=160, issues=0
+- 124. Broad claim wording is scoped by concrete evidence. Evidence: claims=150, scope_mentions=159, categories={'verification': 42, 'model': 24, 'benchmark': 59, 'visual': 13, 'suite_family': 16, 'policy_success': 4, 'risky_full': 1}, checks=164, issues=0
 - 125. Explicit narrative VERIFIED CLAIM references resolve to current verified claims. Evidence: claims=127, references=24, unique=12, issues=0
 - 126. Ideal frontier robotics endpoints remain explicitly guarded and unpromoted. Evidence: frontiers=4, guarded=85, unguarded=0, promoted=0, issues=0, results/frontier_integrity.json
 - 127. Ideal claim boundary separates promotable artifact-backed results from future-only non-claims. Evidence: ideal=9, promotable=4, future_only=5, endpoint_supported=4, unsupported_future=5, gap_ready=5, missing_evidence_ready=5, all_promotable=False, status=incomplete_future_only_gaps_remain, issues=0, results/ideal_claim_boundary.json
+- 128. V5 exact-law edge cases are hardened. Evidence: cases=7, max_error=0.0, artifact=C:\Users\wangz\best-of-n-wam\results\v5\exact_law_hardening.csv
+- 129. V5 matched-summary counterexample shows AUC/correlation are insufficient for high-N guarantees. Evidence: high_n_gap=0.9998056809432765, n2_gap=0.0, matched_diffs={'auc': 0.0, 'mean_score': 0.0, 'mean_utility': 0.0, 'n2_auc_identity': 0.0, 'n2_finite': 0.0, 'p': 0.0, 'score_utility_corr': 0.0}, artifact=C:\Users\wangz\best-of-n-wam\results\v5\auc_correlation_insufficiency.csv
+- 130. V5 exhaustive finite-pool census covers the stated small-pool class. Evidence: rows=1458, expected=1458, counts={'flat': 98, 'harms': 553, 'helps': 553, 'nonmonotonic': 230, 'saturates_or_small': 24}, artifact=C:\Users\wangz\best-of-n-wam\results\v5\finite_pool_census.csv
+- 131. V5 impossibility-boundary pools expose score-only indistinguishability. Evidence: gap=0.8999999999999999, observable_identical=True, artifact=C:\Users\wangz\best-of-n-wam\results\v5\impossibility_boundary.csv
+- 132. ScoreTailBench V5 core package is present and scope-guarded. Evidence: pools=4, claims_not_supported=['real robot validation', 'GPU-scale training', 'broad robotics SOTA', 'universal WAM training recipe'], manifest=C:\Users\wangz\best-of-n-wam\scoretailbench\manifest.json
+- 133. V5 prospective audit uses hash-locked heldout predictions before outcomes. Evidence: heldout=50, accuracy=0.8648648648648649, false_allow=0.0, false_block=0.02, sha256=fa89b28d799b6dd25ff2789fdf57a88c10f37dc456f47cca3c028bf3249d444f, artifact=C:\Users\wangz\best-of-n-wam\results\v5\prospective_audit_outcomes.csv
+- 134. V5 label-budget sample-complexity audit is generated. Evidence: budgets=[0, 1, 2, 4, 8, 16, 32, 64], zero_label=True, artifact=C:\Users\wangz\best-of-n-wam\results\v5\label_budget_sample_complexity.csv
+- 135. V5 selector gauntlet distinguishes deployable selectors from oracle rows. Evidence: selectors=['raw_score', 'random', 'uncertainty_penalty', 'score_clipping', 'rank_average', 'cvar_lcb', 'lower_confidence_bound', 'oracle_real_utility'], oracle_non_deployable=True, artifact=C:\Users\wangz\best-of-n-wam\results\v5\selector_gauntlet.csv
+- 136. V5 equal-compute CPU frontier is measured with rollout and label costs. Evidence: budget64={'audit_fewer_rollouts': {'budget': 64, 'mean_cpu_units': 80.98, 'mean_regret_vs_oracle': 0.15333247268540717, 'mean_selected_utility': 0.5789463467943379, 'strategy': 'audit_fewer_rollouts'}, 'blind_more_rollouts': {'budget': 64, 'mean_cpu_units': 112.0, 'mean_regret_vs_oracle': 0.23668238018175805, 'mean_selected_utility': 0.4955964392979869, 'strategy': 'blind_more_rollouts'}, 'calibrated_lcb': {'budget': 64, 'mean_cpu_units': 112.0, 'mean_regret_vs_oracle': 0.056797682848376246, 'mean_selected_utility': 0.6754811366313689, 'strategy': 'calibrated_lcb'}, 'conservative_stop_block': {'budget': 64, 'mean_cpu_units': 80.98, 'mean_regret_vs_oracle': 0.15312582096218683, 'mean_selected_utility': 0.5791529985175582, 'strategy': 'conservative_stop_block'}, 'oracle_upper_bound': {'budget': 64, 'mean_cpu_units': 48.0, 'mean_regret_vs_oracle': 0.0, 'mean_selected_utility': 0.732278819479745, 'strategy': 'oracle_upper_bound'}}, artifact=C:\Users\wangz\best-of-n-wam\results\v5\equal_compute_frontier.csv
+- 137. V5 toy closed-loop audit improves over raw high-N in the controlled harness. Evidence: returns={'audit_policy': 2.8812457225770234, 'n1': 2.388215372797956, 'oracle_upper_bound': 3.610531927765643, 'random_high_n': 2.316562552837354, 'raw_high_n': 2.470524760187907}, audit_minus_raw_ci={'effect': 0.4107209623891164, 'hi': 0.46959015278099564, 'lo': 0.3523152817188648, 'mean': 0.4107209623891164, 'n': 10, 'std': 0.09930828894766733}, artifact=C:\Users\wangz\best-of-n-wam\results\v5\closed_loop_validation.csv
+- 138. V5 frozen manuscript inputs are generated and gate-passing. Evidence: gate=True, pools=50, artifacts=results/v5_frozen_evidence/summary.json, v5_results_macros.tex, paper/v5_summary_table.tex, paper/v5_compute_frontier_table.tex, paper_figures/v5
+- 139. V6 real-benchmark audit runs on the frozen existing rollout-pool artifacts. Evidence: families=10, pools=543, sources=10, gate=True
+- 140. V6 predictions and splits are hash-locked before outcome accounting. Evidence: prediction_sha=e2dcc83859, split_sha=fa5eedc34f, locked=True
+- 141. V6 cross-family frozen transfer over the simulated benchmark family/pool artifact set is measured with high aggregate decision accuracy. Evidence: families=10, pools=543, folds=10, accuracy=0.9895397489539749, decided=0.8802946593001841, false_allow=0.001841620626151013
+- 142. V6 calibration treats abstention/request-label as first-class audit outcomes. Evidence: bins=4, coverage=0.8802946593001841, decided=0.8802946593001841, request_labels=0.11970534069981584
+- 143. V6 selector and metric ablations separate deployable strategies from diagnostics. Evidence: strategies=8, deployable=6, artifact=C:\Users\wangz\best-of-n-wam\results\v6\selector_metric_ablation.csv
+- 144. V6 robustness grid records tolerance sensitivity rather than a single tuned threshold. Evidence: rows=12, primary_like=1, max_accuracy=0.997920997920998
+- 145. V6 negative controls show non-oracle corrupted selectors fail against raw high-N. Evidence: controls=2, worst_gap_vs_raw=-0.33974592773784357
+- 146. V6 compute-normalized reporting shows near-matched utility with lower rollout use. Evidence: audit_utility=0.7974667219623336, raw_utility=0.7993247538420112, rollout_savings=3.2928176795580093, utility_per_rollout=0.05375179121469056 vs 0.0440911561698712
+- 147. V6 finite-sample label accounting explains why abstention remains necessary. Evidence: rows=9, eps05_delta05_labels=2952
+- 148. V6 evidence generation is low-RAM by construction. Evidence: curve_csvs=True, reruns=False, candidate_tensors=False, jobs=1, records=543
+- 149. V6 frozen manuscript tables, macros, figures, and summary are generated. Evidence: gate=True, families=10, pools=543, artifacts=v6_results_macros.tex, paper/v6_*.tex, paper_figures/v6
+- 150. V6 manuscript language preserves no-real-robot, no-GPU-scale, and no-broad-SOTA boundaries. Evidence: checked iclr_submission.tex, iclr_appendix.tex, and paper/v6_summary_table.tex V6 scope boundaries
 
 ## Partial
 

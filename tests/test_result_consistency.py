@@ -2,6 +2,7 @@ import json
 
 from wam_inference_value.result_consistency import (
     ConsistencyCheck,
+    audit_ci_sanity,
     audit_rollout_pool_wam,
     ci_objects,
     pool_count,
@@ -33,6 +34,25 @@ def test_pool_count_uses_task_seed_state_keys():
     ]
 
     assert pool_count(rows, "env_id") == 3
+
+
+def test_ci_sanity_allows_empty_zero_sample_intervals(tmp_path):
+    results = tmp_path / "results"
+    results.mkdir()
+    valid_ci = {"n": 1, "mean": 0.0, "lo": 0.0, "hi": 0.0}
+    payload = {
+        "confidence_intervals": {
+            "valid": [valid_ci for _ in range(250)],
+            "failed_empty_attempt": {"n": 0, "mean": None, "lo": None, "hi": None},
+        }
+    }
+    (results / "empty_attempt.json").write_text(json.dumps(payload), encoding="utf-8")
+    checks: list[ConsistencyCheck] = []
+
+    audit_ci_sanity(tmp_path, results, checks)
+
+    failures = {check.name: check.detail for check in checks if not check.ok}
+    assert failures == {}
 
 
 def test_rollout_pool_wam_flags_summary_table_mismatch(tmp_path):

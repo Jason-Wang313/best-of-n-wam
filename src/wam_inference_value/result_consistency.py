@@ -127,6 +127,12 @@ def audit_ci_sanity(root: Path, results_dir: Path, checks: list[ConsistencyCheck
             total += 1
             try:
                 n = int(ci["n"])
+            except (TypeError, ValueError) as exc:
+                bad.append(f"{path.name}:{trail}: nonnumeric CI n field: {exc}")
+                continue
+            if n == 0 and all(ci.get(field) is None for field in ("mean", "lo", "hi")):
+                continue
+            try:
                 mean = float(ci["mean"])
                 lo = float(ci["lo"])
                 hi = float(ci["hi"])

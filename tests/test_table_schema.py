@@ -62,3 +62,16 @@ def test_table_schema_detects_duplicate_rows(tmp_path: Path) -> None:
     audit = audit_table_schemas(tmp_path, results)
 
     assert "table_rows_unique" in {issue["name"] for issue in audit["issues"]}
+
+
+def test_table_schema_allows_blank_step_error(tmp_path: Path) -> None:
+    results = tmp_path / "results"
+    write_table(
+        results / "tables" / "modern_vla_libero_policy_eval_episodes.csv",
+        "episode_id,seed,steps,success,step_error\n"
+        "0,300,1,False,\n",
+    )
+
+    audit = audit_table_schemas(tmp_path, results)
+
+    assert "nonoptional_cells_nonblank" not in {issue["name"] for issue in audit["issues"]}

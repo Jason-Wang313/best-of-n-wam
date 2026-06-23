@@ -6,6 +6,22 @@ from pathlib import Path
 from typing import Any
 
 
+REANCHOR_TOP_LEVELS = {
+    "docs",
+    "experiments",
+    "reports",
+    "results",
+    "scripts",
+    "src",
+    "tests",
+    "README.md",
+    "paper_outline.md",
+    "pyproject.toml",
+    "requirements.txt",
+    "requirements-benchmark.txt",
+}
+
+
 @dataclass(frozen=True)
 class RepoBoundCheck:
     name: str
@@ -29,7 +45,25 @@ def resolve_record(root: Path, record: dict[str, Any]) -> Path | None:
     if not isinstance(candidate, str) or not candidate:
         return None
     path = Path(candidate).expanduser()
-    return path if path.is_absolute() else root / path
+    path = path if path.is_absolute() else root / path
+    return reanchor_repo_path(root, path)
+
+
+def reanchor_repo_path(root: Path, path: Path) -> Path:
+    try:
+        path.resolve().relative_to(root)
+        return path
+    except ValueError:
+        pass
+
+    parts = path.parts
+    for index, part in enumerate(parts):
+        if part not in REANCHOR_TOP_LEVELS:
+            continue
+        candidate = root / Path(*parts[index:])
+        if candidate.exists():
+            return candidate
+    return path
 
 
 def repo_relative(root: Path, path: Path | None) -> str | None:

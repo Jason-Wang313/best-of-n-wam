@@ -1227,7 +1227,7 @@
       "claim_id": 113,
       "category": "verification",
       "claim": "Canonical experiment families have verified registry coverage.",
-      "evidence": "entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=309, rows=260972, figures=40, failed=0, checks=10, issues=0",
+      "evidence": "entries=57, categories={'core_analytic': 8, 'learned': 7, 'multi_env': 1, 'falsification': 1, 'benchmark': 12, 'visual': 5, 'audit': 4, 'robocasa': 14, 'libero': 5}, wrapper_links=69, tables=313, rows=260980, figures=40, failed=0, checks=10, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": true
     },
@@ -1243,7 +1243,7 @@
       "claim_id": 116,
       "category": "verification",
       "claim": "Pytest command-result counts come from a verified collected-test inventory.",
-      "evidence": "tests=195, unique=195, trailer=195, checks=6, issues=0",
+      "evidence": "tests=199, unique=199, trailer=199, checks=6, issues=0",
       "has_numeric_scope": true,
       "has_concrete_scope": false
     },
@@ -2062,7 +2062,7 @@
     {
       "name": "claim_116_verified_wording_has_metric_or_scope",
       "ok": true,
-      "detail": "claim=Pytest command-result counts come from a verified collected-test inventory.; evidence=tests=195, unique=195, trailer=195, checks=6, issues=0"
+      "detail": "claim=Pytest command-result counts come from a verified collected-test inventory.; evidence=tests=199, unique=199, trailer=199, checks=6, issues=0"
     },
     {
       "name": "claim_125_verified_wording_has_metric_or_scope",

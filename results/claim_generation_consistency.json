@@ -5,14 +5,14 @@
   "n_claims": 127,
   "n_checks": 10,
   "n_issues": 0,
-  "json_sha256": "da5efd7bbb05d61fb1a79cd7230b27c8f6119af2912b256fb308acba178f0833",
-  "md_sha256": "d5bc7c51fde6f664a614edc16765767679844719639c8498eb02c20b33f1b968",
+  "json_sha256": "fc89ce756ee5def84882d7c9eb6ae5febd3929ca6a7847b2f7534b84440d54b6",
+  "md_sha256": "42e684afb1904418b1d5acd9320d52034e8666725289c52521d85702301bb571",
   "generator_returncode": 0,
   "first_generator_returncode": 0,
   "second_generator_returncode": 0,
   "command": [
     "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
-    "C:\\Users\\wangz\\best-of-n-wam\\scripts\\claims_status.py"
+    "C:\\Users\\wangz\\best-of-n-wam_rerun_core\\scripts\\claims_status.py"
   ],
   "checks": [
     {
@@ -33,12 +33,12 @@
     {
       "name": "claims_json_byte_stable",
       "ok": true,
-      "detail": "first=da5efd7bbb05d61fb1a79cd7230b27c8f6119af2912b256fb308acba178f0833, second=da5efd7bbb05d61fb1a79cd7230b27c8f6119af2912b256fb308acba178f0833"
+      "detail": "first=fc89ce756ee5def84882d7c9eb6ae5febd3929ca6a7847b2f7534b84440d54b6, second=fc89ce756ee5def84882d7c9eb6ae5febd3929ca6a7847b2f7534b84440d54b6"
     },
     {
       "name": "claims_md_byte_stable",
       "ok": true,
-      "detail": "first=d5bc7c51fde6f664a614edc16765767679844719639c8498eb02c20b33f1b968, second=d5bc7c51fde6f664a614edc16765767679844719639c8498eb02c20b33f1b968"
+      "detail": "first=42e684afb1904418b1d5acd9320d52034e8666725289c52521d85702301bb571, second=42e684afb1904418b1d5acd9320d52034e8666725289c52521d85702301bb571"
     },
     {
       "name": "claims_json_parses",

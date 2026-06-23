@@ -1,7 +1,7 @@
 {
   "experiment": "runtime_environment",
   "schema_version": 1,
-  "root": "C:\\Users\\wangz\\best-of-n-wam",
+  "root": "C:\\Users\\wangz\\best-of-n-wam_rerun_core",
   "python": {
     "executable": "C:\\Users\\wangz\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
     "version": "3.10.11",
@@ -25,8 +25,8 @@
     {
       "path": "requirements.txt",
       "exists": true,
-      "bytes": 50,
-      "sha256": "f65a8fe7f4a779361f43f5b2e9ecba3c46bc63c24d57365b4cb7d34909cf2cec",
+      "bytes": 54,
+      "sha256": "1dc872d42a9cd4d7b86dd1074b9a1d7f4cc3849bad95431f7d7c9c14f6f554d1",
       "requirements": [
         {
           "raw": "numpy>=1.23",
@@ -53,15 +53,15 @@
     {
       "path": "pyproject.toml",
       "exists": true,
-      "bytes": 704,
-      "sha256": "ba387c861bfb1b13394c1e929d3a0f9f27783a87bb5bc8547177c08621e5f091",
+      "bytes": 738,
+      "sha256": "33702a041c3ba7ac876a8c8deba146adb234811dc0d0ac7fcc614d06d7f5e2ec",
       "requirements": []
     },
     {
       "path": "requirements-benchmark.txt",
       "exists": true,
-      "bytes": 97,
-      "sha256": "8116c55d0fe7b74bfe98189f495ab0bf8e97f84904df7a4e280c2af9b6f7703a",
+      "bytes": 102,
+      "sha256": "d0fff6506a18484f81b5949587c9f84851002d896b9ad80f8198661351860353",
       "requirements": [
         {
           "raw": "gymnasium[mujoco]>=1.2",

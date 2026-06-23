@@ -6,6 +6,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
 
+from wam_inference_value.repo_bound_artifact_audit import reanchor_repo_path
+
 
 @dataclass(frozen=True)
 class TrackedArtifactCheck:
@@ -42,7 +44,8 @@ def resolve_candidate(root: Path, record: dict[str, Any]) -> Path | None:
     if not isinstance(candidate, str) or not candidate:
         return None
     path = Path(candidate).expanduser()
-    return path if path.is_absolute() else root / path
+    path = path if path.is_absolute() else root / path
+    return reanchor_repo_path(root, path)
 
 
 def relative_to_root(root: Path, path: Path | None) -> str | None:

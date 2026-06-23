@@ -27,6 +27,7 @@ OPTIONAL_BLANK_COLUMNS = {
     "shader_dir",
     "sensor_width",
     "sensor_height",
+    "step_error",
     "human_width",
     "human_height",
     "env_overrides",
